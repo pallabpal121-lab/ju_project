@@ -1,0 +1,234 @@
+% =========================================================================
+\chapter{Newton's Method in Machine Learning: Deep Tutorial}
+\label{ch:newton}
+% =========================================================================
+
+\section{1D Newton-Raphson Method for Root Finding}
+The Newton-Raphson method was originally developed by Sir Isaac Newton and Joseph Raphson to find the real roots of a single-variable function $f: \mathbb{R} \to \mathbb{R}$, solving for $x^*$ such that:
+
+\begin{equation}
+f(x^*) = 0
+\end{equation}
+
+\subsection{Derivation via 1st-Order Taylor Series}
+Suppose $f(x)$ is continuously differentiable, and we have a current estimate $x_t$ near the true root $x^*$. We construct a local linear approximation (tangent line) of $f(x)$ centered at $x_t$ using a 1st-order Taylor series expansion:
+
+\begin{equation}
+f(x) \approx f(x_t) + f'(x_t)(x - x_t)
+\end{equation}
+
+We find the next root estimate $x_{t+1}$ by setting this linear approximation equal to zero:
+
+\begin{equation}
+0 = f(x_t) + f'(x_t)(x_{t+1} - x_t)
+\end{equation}
+
+Rearranging terms to solve for $x_{t+1}$ yields the classic 1D Newton-Raphson update formula:
+
+\begin{equation}
+f'(x_t)(x_{t+1} - x_t) = -f(x_t) \implies x_{t+1} = x_t - \frac{f(x_t)}{f'(x_t)} \quad (\text{provided } f'(x_t) \neq 0)
+\end{equation}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.1]
+    \begin{axis}[
+        axis lines = middle,
+        xlabel = {$x$},
+        ylabel = {$f(x)$},
+        xmin = 0.5, xmax = 4.2,
+        ymin = -1.5, ymax = 4.5,
+        ticks=none,
+        domain = 0.8:4.0,
+        samples = 100,
+        width=0.85\textwidth,
+        height=0.48\textwidth
+    ]
+        % Curve f(x) = (x-2)^2 - 1
+        \addplot [very thick, navyblue] {(x-2)^2 - 1} node[above left] {$f(x)$};
+        
+        % Tangent line at x_t = 3.5 -> f(3.5) = 1.25, f'(3.5) = 3.0
+        % y - 1.25 = 3(x - 3.5) => y = 3x - 9.25 => intercept at x = 9.25/3 = 3.0833
+        \addplot [dashed, red!80!black, thick, domain=2.2:3.8] {3*x - 9.25} node[pos=0.95, left] {Tangent Line at $x_t$};
+        
+        % Vertical dashed line at x_t = 3.5
+        \draw[dotted, thick, darkslate] (axis cs:3.5, 0) -- (axis cs:3.5, 1.25);
+        
+        % Key Points
+        \node[circle, fill=red, inner sep=2pt, label={above right:$(x_t, f(x_t))$}] at (axis cs:3.5, 1.25) {};
+        \node[circle, fill=navyblue, inner sep=2pt, label={below:$x_t$}] at (axis cs:3.5, 0) {};
+        \node[circle, fill=tealaccent, inner sep=2pt, label={below right:$x_{t+1}$}] at (axis cs:3.083, 0) {};
+        \node[circle, fill=black, inner sep=2pt, label={below left:$x^*$ (True Root)}] at (axis cs:3.0, 0) {};
+    \end{axis}
+\end{tikzpicture}
+\caption{Geometric visualization of 1D Newton-Raphson root finding showing the tangent line projection onto the x-axis.}
+\label{fig:ch02_newton_1d}
+\end{figure}
+
+\subsection{Mathematical Proof of Quadratic Convergence}
+One of the most remarkable properties of Newton's method is its **quadratic convergence rate** near a simple root ($f'(x^*) \neq 0$).
+
+\begin{theorem}[Quadratic Convergence of 1D Newton-Raphson]
+Let $f \in C^2(\mathbb{R})$ have a simple root at $x^*$ ($f(x^*) = 0$ and $f'(x^*) \neq 0$). Define the error at iteration $t$ as $e_t = x_t - x^*$. If $x_t$ is sufficiently close to $x^*$, then:
+$$\lim_{t \to \infty} \frac{|e_{t+1}|}{|e_t|^2} = \frac{|f''(x^*)|}{2 |f'(x^*)|} = C$$
+\end{theorem}
+
+\begin{proof}
+Expand $f(x^*)$ around $x_t$ using a 2nd-order Taylor expansion with Lagrange remainder:
+\begin{equation}
+0 = f(x^*) = f(x_t) + f'(x_t)(x^* - x_t) + \frac{1}{2} f''(\xi_t)(x^* - x_t)^2
+\end{equation}
+where $\xi_t$ lies strictly between $x_t$ and $x^*$. Substituting $e_t = x_t - x^*$:
+\begin{equation}
+f(x_t) = f'(x_t) e_t - \frac{1}{2} f''(\xi_t) e_t^2
+\end{equation}
+
+Now substitute $f(x_t)$ into the Newton update formula $e_{t+1} = x_{t+1} - x^* = x_t - x^* - \frac{f(x_t)}{f'(x_t)} = e_t - \frac{f(x_t)}{f'(x_t)}$:
+\begin{align}
+e_{t+1} &= e_t - \frac{f'(x_t) e_t - \frac{1}{2} f''(\xi_t) e_t^2}{f'(x_t)} \\
+&= e_t - e_t + \frac{f''(\xi_t)}{2 f'(x_t)} e_t^2 \\
+&= \frac{f''(\xi_t)}{2 f'(x_t)} e_t^2
+\end{align}
+Taking absolute values as $t \to \infty$ (where $x_t \to x^*$ and $\xi_t \to x^*$):
+\begin{equation}
+|e_{t+1}| = \frac{|f''(x^*)|}{2 |f'(x^*)|} |e_t|^2
+\end{equation}
+This completes the proof. The error at step $t+1$ is proportional to the **square** of the error at step $t$. If $e_t = 10^{-2}$, the next error is approximately $10^{-4}$, then $10^{-8}$, doubling the digits of precision every single iteration.
+\end{proof}
+
+
+% -------------------------------------------------------------------------
+\section{Newton's Method for Multivariable Optimization}
+% -------------------------------------------------------------------------
+In machine learning optimization, our goal is not finding roots of $f(x)=0$, but finding a parameter vector $\theta^* \in \mathbb{R}^d$ that minimizes a multivariable scalar loss function $\mathcal{L}(\theta)$.
+
+A local minimum $\theta^*$ satisfies the stationary condition:
+\begin{equation}
+\nabla \mathcal{L}(\theta^*) = 0
+\end{equation}
+
+Applying Newton's root-finding method to the vector equation $\nabla \mathcal{L}(\theta) = 0$ yields **Newton's Multivariable Optimization Method**.
+
+\subsection{Multivariable Taylor Series Expansion}
+Consider a smooth loss function $\mathcal{L}: \mathbb{R}^d \to \mathbb{R}$. We expand $\mathcal{L}(\theta_t + \Delta \theta)$ in a second-order Taylor series around current parameter vector $\theta_t$:
+
+\begin{equation}
+\mathcal{L}(\theta_t + \Delta \theta) \approx \mathcal{L}(\theta_t) + g_t^T \Delta \theta + \frac{1}{2} \Delta \theta^T H_t \Delta \theta
+\end{equation}
+
+where:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Gradient Vector} $g_t \in \mathbb{R}^d$:
+    \begin{equation}
+    g_t = \nabla \mathcal{L}(\theta_t) = \begin{bmatrix} \frac{\partial \mathcal{L}}{\partial \theta_1} & \frac{\partial \mathcal{L}}{\partial \theta_2} & \dots & \frac{\partial \mathcal{L}}{\partial \theta_d} \end{bmatrix}^T
+    \end{equation}
+    \item \textbf{Hessian Matrix} $H_t \in \mathbb{R}^{d \times d}$:
+    \begin{equation}
+    H_t = \nabla^2 \mathcal{L}(\theta_t) = \begin{bmatrix}
+    \frac{\partial^2 \mathcal{L}}{\partial \theta_1^2} & \frac{\partial^2 \mathcal{L}}{\partial \theta_1 \partial \theta_2} & \dots & \frac{\partial^2 \mathcal{L}}{\partial \theta_1 \partial \theta_d} \\
+    \frac{\partial^2 \mathcal{L}}{\partial \theta_2 \partial \theta_1} & \frac{\partial^2 \mathcal{L}}{\partial \theta_2^2} & \dots & \frac{\partial^2 \mathcal{L}}{\partial \theta_2 \partial \theta_d} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \frac{\partial^2 \mathcal{L}}{\partial \theta_d \partial \theta_1} & \frac{\partial^2 \mathcal{L}}{\partial \theta_d \partial \theta_2} & \dots & \frac{\partial^2 \mathcal{L}}{\partial \theta_d^2}
+    \end{bmatrix}
+    \end{equation}
+\end{itemize}
+
+\subsection{Derivation of the Newton Parameter Update Step}
+To find the optimal parameter step $\Delta \theta$ that minimizes the local quadratic approximation, we differentiate the approximation with respect to $\Delta \theta$ and set the gradient to zero:
+
+\begin{equation}
+\frac{\partial}{\partial \Delta \theta} \left[ \mathcal{L}(\theta_t) + g_t^T \Delta \theta + \frac{1}{2} \Delta \theta^T H_t \Delta \theta \right] = 0
+\end{equation}
+
+Using standard matrix calculus identities ($\frac{\partial}{\partial x}(a^T x) = a$ and $\frac{\partial}{\partial x}(x^T A x) = 2 A x$ for symmetric $A$):
+
+\begin{equation}
+g_t + H_t \Delta \theta = 0 \implies H_t \Delta \theta = -g_t
+\end{equation}
+
+Assuming the Hessian matrix $H_t$ is non-singular and invertible ($H_t^{-1}$ exists):
+
+\begin{equation}
+\Delta \theta = -H_t^{-1} g_t
+\end{equation}
+
+\begin{mathbox}[Multivariable Newton Parameter Update Rule]
+The parameter update rule for multivariable Newton's method is:
+\begin{equation}
+\theta_{t+1} = \theta_t - H_t^{-1} g_t
+\end{equation}
+Or with an adaptive step-size scaling factor $\eta \le 1.0$:
+\begin{equation}
+\theta_{t+1} = \theta_t - \eta H_t^{-1} g_t
+\end{equation}
+\end{mathbox}
+
+
+% -------------------------------------------------------------------------
+\section{Scale Invariance Property of Newton's Method}
+% -------------------------------------------------------------------------
+A profound mathematical property of Newton's method is its **affine scale invariance**.
+
+Suppose we apply a non-singular linear transformation to the parameter space:
+\begin{equation}
+\phi = A \theta \implies \theta = A^{-1} \phi
+\end{equation}
+where $A \in \mathbb{R}^{d \times d}$ is an invertible matrix.
+
+Let $\tilde{\mathcal{L}}(\phi) = \mathcal{L}(A^{-1} \phi) = \mathcal{L}(\theta)$. By the chain rule:
+\begin{align}
+\nabla_\phi \tilde{\mathcal{L}}(\phi) &= A^{-T} \nabla_\theta \mathcal{L}(\theta) = A^{-T} g_\theta \\
+\nabla_\phi^2 \tilde{\mathcal{L}}(\phi) &= A^{-T} \nabla_\theta^2 \mathcal{L}(\theta) A^{-1} = A^{-T} H_\theta A^{-1}
+\end{align}
+
+Now compute the Newton step in the transformed space $\phi$:
+\begin{align}
+\Delta \phi &= - \left[ \nabla_\phi^2 \tilde{\mathcal{L}}(\phi) \right]^{-1} \nabla_\phi \tilde{\mathcal{L}}(\phi) \\
+&= - \left[ A^{-T} H_\theta A^{-1} \right]^{-1} \left( A^{-T} g_\theta \right) \\
+&= - \left( A H_\theta^{-1} A^T \right) \left( A^{-T} g_\theta \right) \\
+&= - A H_\theta^{-1} g_\theta \\
+&= A \Delta \theta
+\end{align}
+
+Multiplying both sides by $A^{-1}$ shows that the parameter update step in $\theta$ space is **completely identical** regardless of linear coordinate scaling or ill-conditioned feature re-scaling. Unlike Gradient Descent (which requires careful tuning of learning rates when features have different scales), Newton's method automatically rescales coordinate directions via $H^{-1}$.
+
+
+% -------------------------------------------------------------------------
+\section{Gradient Descent vs. Newton's Method Comparison}
+% -------------------------------------------------------------------------
+Table~\ref{tab:ch02_gd_vs_newton} provides a theoretical comparison between 1st-order Gradient Descent and 2nd-order Newton's Method across key engineering dimensions.
+
+\begin{table}[htbp]
+\centering
+\caption{Deep Comparison Between First-Order Gradient Descent and Second-Order Newton's Method}
+\label{tab:ch02_gd_vs_newton}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Feature / Property} & \textbf{Gradient Descent (1st Order)} & \textbf{Newton's Method (2nd Order)} \\
+\midrule
+Derivatives Required & 1st Derivative: Gradient $g = \nabla \mathcal{L}$ & 1st \& 2nd Derivatives: $g$ AND Hessian $H = \nabla^2 \mathcal{L}$ \\
+Local Model & Linear hyper-plane approximation & Quadratic surface approximation \\
+Convergence Rate & Linear $\mathcal{O}(k)$ (requires hundreds of steps) & Quadratic $\mathcal{O}(k^2)$ (converges in few steps) \\
+Hyperparameter Tuning & Highly dependent on learning rate $\eta$ & Self-scaling; $\eta = 1.0$ optimal near minimum \\
+Coordinate Rescaling & Sensitive to feature scaling ($\kappa \gg 1$) & Fully scale-invariant under linear transforms \\
+FLOP Complexity / Step & $\mathcal{O}(d)$ vector additions \& dot products & $\mathcal{O}(d^3)$ due to $H^{-1}$ matrix inversion \\
+Memory Overhead & $\mathcal{O}(d)$ to store gradient vector $g$ & $\mathcal{O}(d^2)$ to store $d \times d$ Hessian matrix \\
+Saddle Point Dynamics & Slow escape along small gradients & Can get trapped if $H$ is indefinite ($\lambda_i < 0$) \\
+Silicon Hardware Suitability & Simple ALU / Vector processing units & Demands 2D Systolic Arrays, Tile Inverters, or IMC \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+% -------------------------------------------------------------------------
+\section{Limitations of Newton's Method in Deep Learning}
+% -------------------------------------------------------------------------
+Despite quadratic convergence and scale invariance, applying pure Newton updates directly to large-scale deep neural networks faces three major bottlenecks:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Cubic Matrix Inversion Complexity $\mathcal{O}(d^3)$}: Inverting a $d \times d$ Hessian matrix using standard Gaussian elimination or LU decomposition costs $\frac{2}{3}d^3$ FLOPs. For a modest model with $d = 10^6$ parameters (1 million weights), $d^3 = 10^{18}$ FLOPs per iteration, taking hours per step even on high-end hardware.
+    \item \textbf{Quadratic Memory Overhead $\mathcal{O}(d^2)$}: Storing a single $10^6 \times 10^6$ single-precision (32-bit FP) Hessian matrix requires $4 \times 10^{12}$ bytes = **4 Terabytes of memory**, far exceeding GPU SRAM/DRAM limits.
+    \item \textbf{Indefinite Hessian at Non-Convex Saddle Points}: In deep non-convex neural networks, saddle points dominate the loss landscape. At saddle points, the Hessian matrix has mixed positive and negative eigenvalues. Pure Newton's update ($\Delta \theta = -H^{-1}g$) points toward negative curvature directions, pulling parameters directly **toward local maxima or saddle points** rather than minima.
+\end{enumerate}
+
+These three bottlenecks explain why machine learning research has shifted toward **silicon hardware acceleration**, Kronecker factorizations (K-FAC), Schur tile solvers (MI2D), and analog circuits that resolve $H^{-1}g$ without explicit $d \times d$ matrix storage.

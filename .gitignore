@@ -8,3 +8,29 @@
 # Logs & temp files
 *.log
 *.tmp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# HDL Simulation & Build Artifacts
+sim_build/
+*.vvp
+*.vcd
+*.fst
+results.xml
+transcript
+*.wlf
+
+# LaTeX intermediate build files
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.out

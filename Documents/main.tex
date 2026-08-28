@@ -1,0 +1,228 @@
+\documentclass[11pt,a4paper,oneside]{book}
+
+% =========================================================================
+% PACKAGES & SYSTEM SETUP
+% =========================================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in,headheight=14pt]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,bm,mathtools}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{algorithm,algpseudocode}
+
+% TikZ & PGFPlots
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, patterns, decorations.pathreplacing, backgrounds}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% Shaded boxes (tcolorbox)
+\usepackage[most]{tcolorbox}
+
+% Hyperref
+\usepackage[hidelinks,colorlinks=true,linkcolor=navyblue,citecolor=tealaccent,urlcolor=navyblue]{hyperref}
+
+% =========================================================================
+% COLOR PALETTE & DESIGN SYSTEM
+% =========================================================================
+\definecolor{navyblue}{RGB}{10, 37, 64}
+\definecolor{darkslate}{RGB}{45, 55, 72}
+\definecolor{tealaccent}{RGB}{0, 128, 128}
+\definecolor{softblue}{RGB}{235, 243, 250}
+\definecolor{softgold}{RGB}{253, 248, 235}
+\definecolor{softgreen}{RGB}{238, 247, 242}
+\definecolor{borderblue}{RGB}{160, 195, 225}
+\definecolor{bordergold}{RGB}{230, 200, 140}
+\definecolor{bordergreen}{RGB}{150, 205, 175}
+
+% Custom TColorBox Styles
+\newtcolorbox{conceptbox}[1][]{%
+    colback=softblue,
+    colframe=navyblue,
+    coltitle=white,
+    fonttitle=\bfseries\sffamily,
+    title=#1,
+    arc=4pt,
+    boxrule=1pt,
+    top=8pt, bottom=8pt, left=10pt, right=10pt
+}
+
+\newtcolorbox{mathbox}[1][]{%
+    colback=softgold,
+    colframe=bordergold!90!black,
+    coltitle=navyblue,
+    fonttitle=\bfseries\sffamily,
+    title=#1,
+    arc=4pt,
+    boxrule=1.2pt,
+    top=8pt, bottom=8pt, left=10pt, right=10pt
+}
+
+\newtcolorbox{hardwarebox}[1][]{%
+    colback=softgreen,
+    colframe=tealaccent!80!black,
+    coltitle=white,
+    fonttitle=\bfseries\sffamily,
+    title=#1,
+    arc=4pt,
+    boxrule=1pt,
+    top=8pt, bottom=8pt, left=10pt, right=10pt
+}
+
+\newtcolorbox{takeawaybox}[1][]{%
+    colback=navyblue!5,
+    colframe=navyblue!60,
+    fonttitle=\bfseries\sffamily,
+    title=#1,
+    arc=3pt,
+    boxrule=0.8pt,
+    top=6pt, bottom=6pt, left=8pt, right=8pt
+}
+
+% Theorem Environments
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[chapter]
+
+% =========================================================================
+% PAGE STYLING & HEADERS
+% =========================================================================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{darkslate}\sffamily Chapter \thechapter}
+\fancyhead[R]{\small\color{navyblue}\bfseries\sffamily Physical AI \& Silicon Accelerators}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+% Chapter Title Styling
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{navyblue}\sffamily}
+  {\chaptertitlename\ \thechapter}{12pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{10pt}{20pt}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{navyblue}\sffamily}
+  {\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{darkslate}\sffamily}
+  {\thesubsection}{1em}{}
+
+% =========================================================================
+% MAIN DOCUMENT
+% =========================================================================
+\begin{document}
+
+% -------------------------------------------------------------------------
+% TITLE PAGE
+% -------------------------------------------------------------------------
+\begin{titlepage}
+    \centering
+    \vspace*{1.0cm}
+    
+    {\Huge \bfseries \sffamily \color{navyblue} Physical AI Math Executions \\ on Hardware Chips \par}
+    \vspace{0.6cm}
+    {\Large \scshape A Comprehensive Research Treatise on Second-Order Optimization, \\ Matrix Inversion Solvers, Analog In-Memory Computing, \\ and Silicon Accelerators \par}
+    \vspace{1.0cm}
+    
+    \rule{\linewidth}{1.5pt} \\[0.4cm]
+    {\large \bfseries From Mathematical Foundations to Hardware Realization: \\ 2D Systolic Arrays, K-FAC Kronecker Factorization, Schur Tile Matrix Inverters, \\ State-Space Realizations, and Analog Circuits \par}
+    \rule{\linewidth}{1.5pt} \\[1.2cm]
+    
+    \vfill
+    
+    \begin{tcolorbox}[colback=white,colframe=navyblue,arc=5pt,boxrule=1pt,width=0.88\linewidth]
+        \centering
+        \vspace{3pt}
+        {\large \textbf{Prepared for Research Alignment with Prof. Sayan Chatterjee}} \\[3pt]
+        {\small Department of Electronics \& Telecommunication Engineering} \\[2pt]
+        {\small Jadavpur University}
+        \vspace{3pt}
+    \end{tcolorbox}
+    
+    \vspace{0.8cm}
+    {\large \today \par}
+\end{titlepage}
+
+\frontmatter
+
+% -------------------------------------------------------------------------
+% EXECUTIVE SUMMARY & ROADMAP
+% -------------------------------------------------------------------------
+\chapter*{Executive Summary \& Handbook Roadmap}
+\addcontentsline{toc}{chapter}{Executive Summary \& Handbook Roadmap}
+
+This comprehensive handbook provides an exhaustive, mathematically rigorous, and hardware-oriented treatment bridging the gap between artificial intelligence algorithms, mathematical optimization (specifically \textbf{Newton's Method in Machine Learning}), and real-world silicon chip design for \textbf{Physical AI}.
+
+When AI models operate inside physical systems---such as autonomous robotics, high-speed flight controllers, real-time edge signal processors, biomedical implants, and smart power grids---mathematical execution cannot rely on high-latency cloud GPUs. Physical AI demands custom hardware chips that execute matrix inversions, root-finding, and second-order curvature updates in continuous real time with microsecond latency.
+
+\begin{conceptbox}[Handbook Architecture: Part I --- Math \& Digital Accelerators]
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Chapter 1: Foundations of AI Algorithms \& Optimization Landscapes} --- AI algorithm taxonomy, loss surface geometry, condition numbers ($\kappa = \lambda_{\max}/\lambda_{\min}$), and edge memory wall.
+    \item \textbf{Chapter 2: Newton-Raphson Root Finding \& Multivariable Newton Optimization} --- 1D \& multivariable Newton's method, update rule $\theta_{t+1} = \theta_t - H^{-1}g$, convergence proofs, scale invariance.
+    \item \textbf{Chapter 3: Logistic Regression, IRLS \& Financial Emulation} --- Binary cross-entropy, Hessian $H = X^T W X$, IRLS derivation, implied volatility emulation, and power flow Newton solvers.
+    \item \textbf{Chapter 4: Second-Order Neural Network Optimization \& Curvature Approximations} --- Fisher Information Matrix, Natural Gradient Descent, Empirical Fisher, BFGS/L-BFGS, and Hessian-Free CG.
+    \item \textbf{Chapter 5: Kronecker-Factored Approximate Curvature (K-FAC) Hardware} --- Kronecker factorization $F_l \approx A_{l-1} \otimes S_l$, identity $(A \otimes S)^{-1} = A^{-1} \otimes S^{-1}$, multi-node GPU/FPGA scaling.
+    \item \textbf{Chapter 6: Systolic Arrays \& Matrix Engine Silicon Architectures} --- 2D Systolic array grid dataflows, processing element (PE) MAC architecture, VLIW matrix inverters.
+    \item \textbf{Chapter 7: MI2D: 2D Tile Manipulation Accelerator for Matrix Inversion} --- Block $2\times 2$ tile matrix partitioning, Schur complement inversions ($S = A_{22} - A_{21} A_{11}^{-1} A_{12}$), FPGA acceleration.
+    \item \textbf{Chapter 8: Direct \& Factorization-Based Silicon Matrix Inverters} --- QR Givens Rotations, CORDIC engines, Cholesky/LDL$^T$ decomposition engines for 5G MIMO, State-Space matrix realizations.
+\end{enumerate}
+\end{conceptbox}
+
+\begin{conceptbox}[Handbook Architecture: Part II --- Analog IMC \& Unexplored Frontiers]
+\begin{enumerate}[leftmargin=*, start=9]
+    \item \textbf{Chapter 9: Analog In-Memory Computing (IMC) \& Decoupled Solvers} --- Memristor crossbar physics (Ohm's Law, KCL), continuous $\mathcal{O}(1)$ math, Op-Amp feedback circuits for tridiagonal systems.
+    \item \textbf{Chapter 10: Hardware Acceleration of Non-Linear AI Operators} --- Minimax base-2 polynomial Softmax approximations ($e^x \approx 2^{\lfloor y \rfloor} P_k$), bit-shift LUT savings ($68\%$), Fast InvSqrt LayerNorm engines.
+    \item \textbf{Chapter 11: Edge Computing \& Specialized FPGA Accelerators} --- Edge CNN trade-offs, DeePhi CNN-RNN cores, DDR-less RGB-NIR stereo matching, Ring-LWE homomorphic encryption, 5G rate-matching.
+    \item \textbf{Chapter 12: Comprehensive Literature Survey, Synthesis \& Roadmap} --- Master survey matrix of 28 IEEE papers, algorithm-to-hardware mapping taxonomy, research alignment roadmap for Prof. Sayan Chatterjee (JU).
+    \item \textbf{Chapter 13: Unexplored Research Frontiers: Novel Hybrid Analog IMC + Digital Co-Design} --- Market gaps, hybrid Newton preconditioner error-tolerance theory, mixed-signal hardware pipeline, expected $50\times-100\times$ benchmarks.
+    \item \textbf{Chapter 14: Beyond Mixed-Signal: Groundbreaking Paradigm Shift Proposals} --- Three novel un-explored directions: Electro-Photonic speed-of-light solvers, Asynchronous Spiking Neuromorphic preconditioners, ADC-less Stochastic Computing (SC) logic engines.
+\end{enumerate}
+\end{conceptbox}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\mainmatter
+
+% =========================================================================
+% INCLUDED CHAPTERS
+% =========================================================================
+\include{chapters/ch01_foundations}
+\include{chapters/ch02_newton}
+\include{chapters/ch03_irls_financial}
+\include{chapters/ch04_second_order_nn}
+\include{chapters/ch05_kfac}
+\include{chapters/ch06_systolic}
+\include{chapters/ch07_mi2d}
+\include{chapters/ch08_direct_solvers}
+\include{chapters/ch09_analog_imc}
+\include{chapters/ch10_nonlinear_ops}
+\include{chapters/ch11_edge_specialized}
+\include{chapters/ch12_synthesis}
+\include{chapters/ch13_novelty_hybrid}
+\include{chapters/ch14_groundbreaking_paradigms}
+
+\backmatter
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

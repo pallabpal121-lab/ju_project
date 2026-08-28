@@ -1,0 +1,146 @@
+% =========================================================================
+\chapter{Analog In-Memory Computing (IMC) \& Decoupled Solvers}
+\label{ch:analog_imc}
+% =========================================================================
+
+\section{Continuous-Time Math Execution via Physical Laws}
+Digital computer architectures perform arithmetic operations by toggling logic transistors on discrete clock cycle edges. In contrast, **Analog In-Memory Computing (IMC)** executes mathematical operations continuously by leveraging fundamental electrical physical laws inside memory arrays:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Ohm's Law}: When an analog input voltage $V_i$ is applied across a two-terminal resistive memory element (memristor, phase-change memory, or floating-gate transistor) with electrical conductance $G_{ij}$, the resulting current $I_{ij}$ is proportional to their product:
+    \begin{equation}
+    I_{ij} = V_i \cdot G_{ij}
+    \end{equation}
+    Here, input voltage $V_i$ represents activation vector component $x_i$, conductance $G_{ij}$ represents matrix weight parameter $W_{ij}$, and current $I_{ij}$ represents the scalar product $x_i W_{ij}$.
+    
+    \item \textbf{Kirchhoff's Current Law (KCL)}: When multiple resistive memory cells are connected along a common vertical bitline column $j$, the total current $I_j$ summing at the column node is the exact sum of individual cell currents:
+    \begin{equation}
+    I_j = \sum_{i=1}^M I_{ij} = \sum_{i=1}^M V_i \cdot G_{ij}
+    \end{equation}
+\end{enumerate}
+
+\begin{mathbox}[$\mathcal{O}(1)$ Continuous-Time Vector-Matrix Multiplication]
+By combining Ohm's Law and Kirchhoff's Current Law inside a 2D memristive crossbar array, the vector-matrix multiplication $I = V \cdot G$ executes **instantaneously in $\mathcal{O}(1)$ continuous physical time**, with zero clock cycle delay and zero intermediate data transfer over digital buses!
+\end{mathbox}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.0]
+    % Input Voltages Left
+    \node (V1) at (0,3) {$V_1$};
+    \node (V2) at (0,1.5) {$V_2$};
+    \node (V3) at (0,0) {$V_3$};
+
+    % Horizontal Wordlines
+    \draw[thick, navyblue] (V1) -- (6,3) node[right, font=\scriptsize] {Wordline 1};
+    \draw[thick, navyblue] (V2) -- (6,1.5) node[right, font=\scriptsize] {Wordline 2};
+    \draw[thick, navyblue] (V3) -- (6,0) node[right, font=\scriptsize] {Wordline 3};
+
+    % Vertical Bitlines
+    \draw[thick, tealaccent] (2, -1.2) -- (2, 3.5) node[above, font=\scriptsize] {Bitline 1};
+    \draw[thick, tealaccent] (4, -1.2) -- (4, 3.5) node[above, font=\scriptsize] {Bitline 2};
+
+    % Crosspoint Memristor Cells
+    \foreach \x in {2,4} {
+        \foreach \y in {0, 1.5, 3} {
+            \node[draw=navyblue, fill=softgold, circle, inner sep=2.5pt, font=\tiny\bfseries] at (\x,\y) {$G$};
+        }
+    }
+
+    % Output Current Accumulators Bottom
+    \node[below=0.1cm of {(2,-1.2)}, font=\bfseries\small, color=tealaccent] {$I_1 = \sum V_i G_{i1}$};
+    \node[below=0.1cm of {(4,-1.2)}, font=\bfseries\small, color=tealaccent] {$I_2 = \sum V_i G_{i2}$};
+\end{tikzpicture}
+\caption{Analog In-Memory Computing (IMC) Memristor Crossbar Array executing vector-matrix multiplication via Ohm's Law and Kirchhoff's Current Law.}
+\label{fig:ch09_analog_crossbar}
+\end{figure}
+
+% -------------------------------------------------------------------------
+\section{Decoupled Analog Solvers for Tridiagonal Linear Systems}
+% -------------------------------------------------------------------------
+While crossbars perform forward matrix multiplication $y = A x$, solving the inverse system $A x = b$ in continuous time requires closed-loop operational amplifier (Op-Amp) feedback networks.
+
+In many physical engineering systems (such as heat diffusion equations, power grid line models, and spline interpolations), matrices exhibit a **Tridiagonal Linear System (TLS)** structure:
+
+\begin{equation}
+A x = \begin{bmatrix}
+d_1 & u_1 & 0 & \dots & 0 \\
+l_1 & d_2 & u_2 & \dots & 0 \\
+0 & l_2 & d_3 & \dots & 0 \\
+\vdots & \vdots & \vdots & \ddots & u_{N-1} \\
+0 & 0 & 0 & l_{N-1} & d_N
+\end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ \vdots \\ x_N \end{bmatrix} = \begin{bmatrix} b_1 \\ b_2 \\ b_3 \\ \vdots \\ b_N \end{bmatrix}
+\end{equation}
+
+When conventional full-scale analog matrix inversion circuits (INV) solve sparse tridiagonal systems, they suffer from **zero-region redundancy**: over $80\%$ of the analog crossbar cells represent zero off-diagonal values ($0$), wasting silicon chip area and introducing parasitic line loading.
+
+\subsection{Compact Coupled Matrix Equation System (CMES)}
+To eliminate zero-region redundancy, Du et al. (IEEE TVLSI 2025)~\cite{du2025analog} proposed a dedicated analog matrix inverter for tridiagonal systems. 
+
+Du et al. reformulated the tridiagonal system $A x = b$ into a **Tightly Coupled Matrix Equation System (CMES)**:
+
+\begin{equation}
+D x + L x_{\text{shift-left}} + U x_{\text{shift-right}} = b
+\end{equation}
+where $D = \text{diag}(d_1, \dots, d_N)$, $L = \text{diag}(l_1, \dots, l_{N-1}, 0)$, and $U = \text{diag}(0, u_1, \dots, u_{N-1})$.
+
+This CMES reformulation packs all non-zero tridiagonal parameters into three dense 1D conductance arrays, **completely eliminating zero-region redundancy in analog silicon**!
+
+% -------------------------------------------------------------------------
+\section{Closed-Loop Op-Amp Circuit Topology \& Convergence}
+% -------------------------------------------------------------------------
+Figure~\ref{fig:ch09_opamp_circuit} illustrates the compact, decoupled analog Op-Amp feedback circuit topology proposed by Du et al.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=0.95, every node/.style={transform shape}]
+    % Input Nodes Left
+    \node (b1) at (0,2.5) {$b_1$};
+    \node (b2) at (0,0) {$b_2$};
+
+    % Conductance blocks
+    \node[draw=bordergold!90!black, fill=softgold, minimum width=1.5cm, minimum height=0.9cm, font=\small\bfseries] (g1) at (2.2,2.5) {$G_{d1}$};
+    \node[draw=bordergold!90!black, fill=softgold, minimum width=1.5cm, minimum height=0.9cm, font=\small\bfseries] (g2) at (2.2,0) {$G_{d2}$};
+
+    % Op-Amps
+    \node[draw=navyblue, fill=softblue, minimum width=2.2cm, minimum height=1.1cm, rounded corners=4pt, font=\small\bfseries\sffamily, align=center] (op1) at (5.5,2.5) {High-Gain\\Op-Amp 1};
+    \node[draw=navyblue, fill=softblue, minimum width=2.2cm, minimum height=1.1cm, rounded corners=4pt, font=\small\bfseries\sffamily, align=center] (op2) at (5.5,0) {High-Gain\\Op-Amp 2};
+
+    % Connections
+    \draw[->, thick, navyblue] (b1) -- (g1);
+    \draw[->, thick, navyblue] (g1) -- (op1);
+    \draw[->, thick, navyblue] (b2) -- (g2);
+    \draw[->, thick, navyblue] (g2) -- (op2);
+
+    % Outputs Right
+    \node[font=\bfseries\large] (x1) at (9.0,2.5) {$x_1$};
+    \node[font=\bfseries\large] (x2) at (9.0,0) {$x_2$};
+
+    \draw[->, thick, navyblue] (op1) -- (x1);
+    \draw[->, thick, navyblue] (op2) -- (x2);
+
+    % Feedback Loop Top
+    \draw[->, thick, tealaccent] (x1) -- ++(0,1.2) -| node[above, pos=0.25, font=\scriptsize\bfseries] {Feedback Conductance $G_{\text{feed}}$} (op1);
+
+    % Inter-OpAmp Coupling Loop
+    \draw[->, thick, red!80!black] (x2) -- ++(-1.5, 0.8) -- ++(0, 1.0) -> (op1);
+\end{tikzpicture}
+\caption{Compact Decoupled Analog Circuit Topology for Continuous-Time Tridiagonal System Solvers.}
+\label{fig:ch09_opamp_circuit}
+\end{figure}
+
+\subsection{Continuous-Time Operational Dynamics}
+Each Operational Amplifier node $i$ satisfies the continuous-time differential equation:
+
+\begin{equation}
+C \frac{d v_i(t)}{d t} = - A_v \left( \sum_{j} G_{ij} v_j(t) - b_i \right)
+\end{equation}
+where $A_v \gg 10^5$ is the open-loop voltage gain of the Op-Amp, $C$ is internal node capacitance, and $v_i(t)$ is the output voltage representing solution component $x_i$.
+
+Because $A_v$ is extremely high, any non-zero current error $(A v - b)_i \neq 0$ drives node voltage $v_i(t)$ rapidly until KCL equilibrium is established ($\sum G_{ij} v_j = b_i$).
+
+\begin{hardwarebox}[Nanosecond Convergence Performance]
+PSpice circuit simulations conducted by Du et al. (2025) demonstrated that the decoupled analog tridiagonal solver achieves an exact solution accuracy exceeding **$99.4\%$**, settling to the true solution $x = A^{-1}b$ within **a few nanoseconds** (bounded only by internal RC bandwidth).
+
+Compared to general-purpose analog matrix inverters, the proposed CMES circuit reduces silicon die area by **$64\%$** and power consumption by **$71\%$**.
+\end{hardwarebox}

@@ -1,0 +1,172 @@
+% =========================================================================
+\chapter{Systolic Arrays \& Matrix Engine Silicon Architectures}
+\label{ch:systolic}
+% =========================================================================
+
+\section{Introduction to Hardware Matrix Engines}
+Matrix multiplication $C = A \cdot B$ is the fundamental computational primitive of artificial intelligence, accounting for over $90\%$ of total execution cycles in deep neural networks and second-order optimization algorithms.
+
+Executing a matrix multiplication between matrix $A \in \mathbb{R}^{M \times K}$ and matrix $B \in \mathbb{R}^{K \times N}$ requires:
+\begin{equation}
+c_{ij} = \sum_{k=1}^K a_{ik} b_{kj}
+\end{equation}
+This requires $2 M N K$ floating-point operations (FLOPs) and transfers $M K + K N + M N$ data words.
+
+On traditional von Neumann computer architectures (CPUs and general-purpose GPUs), executing matrix multiplication requires constantly reading matrix operands $a_{ik}$ and $b_{kj}$ from memory caches, executing an arithmetic multiply-add, and writing intermediate accumulator values back to memory registers. For large matrices, memory access bandwidth quickly saturates, stalling the arithmetic ALUs and hitting the **von Neumann Memory Wall**.
+
+To eliminate this memory bottleneck, modern AI silicon chips (such as Google Tensor Processing Units [TPUs], edge NPUs, and custom ASICs) utilize **2D Systolic Arrays**.
+
+% -------------------------------------------------------------------------
+\section{2D Systolic Array Hardware Architecture}
+% -------------------------------------------------------------------------
+A **Systolic Array** is a 2D spatial grid of homogeneous Processing Elements (PEs) interconnected via short, local, directional routing wires. The term *systolic* draws an analogy to the rhythmic pumping of human blood: data operands are pumped rhythmically through the 2D array of PEs by a global clock signal.
+
+\subsection{Dataflow Variants in Systolic Arrays}
+Depending on which matrix operands remain stationary inside the PE registers during computation, systolic arrays are classified into three dataflow modes:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Output-Stationary Dataflow}:
+    Intermediate accumulators $c_{ij}$ stay fixed inside the PE accumulator registers. Activations $a_{ik}$ stream horizontally from left to right, while weights $b_{kj}$ stream vertically from top to bottom. At each clock tick, PEs perform a Multiply-Accumulate (MAC) operation:
+    $$c_{ij} \leftarrow c_{ij} + (a_{ik} \cdot b_{kj})$$
+    Once all $K$ inner product terms accumulate, final matrix results $C$ are read out of the array.
+    
+    \item \textbf{Weight-Stationary Dataflow} (Google TPU Architecture):
+    Stationary weight parameters $b_{kj}$ are pre-loaded into each PE's local register. Input activation vectors $a_{ik}$ stream horizontally from left to right, while partial sum accumulators $c_{ij}$ stream vertically from top to bottom.
+    
+    \item \textbf{Input-Stationary Dataflow}:
+    Input activations $a_{ik}$ are held fixed inside PEs, while weights $b_{kj}$ and partial sums stream through the grid.
+\end{enumerate}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=0.95, every node/.style={transform shape}]
+    % PE Style
+    \tikzstyle{pe} = [draw=navyblue, fill=softblue, minimum width=1.8cm, minimum height=1.4cm, rounded corners=4pt, font=\small\bfseries\sffamily, align=center]
+    \tikzstyle{arrow} = [thick, ->, >=stealth, navyblue]
+
+    % PE Grid 3x3
+    \node[pe] (PE11) at (0,0) {$\text{PE}_{1,1}$\\\scriptsize MAC};
+    \node[pe] (PE12) at (3.0,0) {$\text{PE}_{1,2}$\\\scriptsize MAC};
+    \node[pe] (PE13) at (6.0,0) {$\text{PE}_{1,3}$\\\scriptsize MAC};
+
+    \node[pe] (PE21) at (0,-2.4) {$\text{PE}_{2,1}$\\\scriptsize MAC};
+    \node[pe] (PE22) at (3.0,-2.4) {$\text{PE}_{2,2}$\\\scriptsize MAC};
+    \node[pe] (PE23) at (6.0,-2.4) {$\text{PE}_{2,3}$\\\scriptsize MAC};
+
+    % Inputs Left (Activations)
+    \node[left=0.8cm of PE11, font=\bfseries\small, color=darkslate] (inA1) {$a_{11}$};
+    \node[left=0.8cm of PE21, font=\bfseries\small, color=darkslate] (inA2) {$a_{21}$};
+
+    \draw[arrow] (inA1) -- (PE11);
+    \draw[arrow] (inA2) -- (PE21);
+
+    % Horizontal Connections
+    \draw[arrow] (PE11) -- node[above, font=\tiny] {$a_{11}$} (PE12);
+    \draw[arrow] (PE12) -- node[above, font=\tiny] {$a_{11}$} (PE13);
+    \draw[arrow] (PE21) -- node[above, font=\tiny] {$a_{21}$} (PE22);
+    \draw[arrow] (PE22) -- node[above, font=\tiny] {$a_{21}$} (PE23);
+
+    % Inputs Top (Weights)
+    \node[above=0.6cm of PE11, font=\bfseries\small, color=darkslate] (inB1) {$b_{11}$};
+    \node[above=0.6cm of PE12, font=\bfseries\small, color=darkslate] (inB2) {$b_{12}$};
+    \node[above=0.6cm of PE13, font=\bfseries\small, color=darkslate] (inB3) {$b_{13}$};
+
+    \draw[arrow] (inB1) -- (PE11);
+    \draw[arrow] (inB2) -- (PE12);
+    \draw[arrow] (inB3) -- (PE13);
+
+    % Vertical Connections
+    \draw[arrow] (PE11) -- node[right, font=\tiny] {$c_{11}$} (PE21);
+    \draw[arrow] (PE12) -- node[right, font=\tiny] {$c_{12}$} (PE22);
+    \draw[arrow] (PE13) -- node[right, font=\tiny] {$c_{13}$} (PE23);
+
+    % Outputs Bottom
+    \node[below=0.6cm of PE21, font=\bfseries\small, color=navyblue] (out1) {$c_{11}^{\text{final}}$};
+    \node[below=0.6cm of PE22, font=\bfseries\small, color=navyblue] (out2) {$c_{12}^{\text{final}}$};
+    \node[below=0.6cm of PE23, font=\bfseries\small, color=navyblue] (out3) {$c_{13}^{\text{final}}$};
+
+    \draw[arrow] (PE21) -- (out1);
+    \draw[arrow] (PE22) -- (out2);
+    \draw[arrow] (PE23) -- (out3);
+\end{tikzpicture}
+\caption{Rhythmic dataflow layout in a 2D Systolic Array Hardware Accelerator.}
+\label{fig:ch06_systolic_grid}
+\end{figure}
+
+% -------------------------------------------------------------------------
+\section{Internal Processing Element (PE) Architecture}
+% -------------------------------------------------------------------------
+Figure~\ref{fig:ch06_pe_detail} illustrates the detailed microarchitecture of a single Processing Element (PE).
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=0.88, every node/.style={transform shape}]
+    % Boundary Box
+    \draw[navyblue, thick, fill=softblue!30, rounded corners=6pt] (-0.5,-0.5) rectangle (8.5,5.6);
+    \node[font=\bfseries\sffamily\small, color=navyblue] at (4.0, 5.2) {Single Processing Element (PE) Microarchitecture};
+
+    % Registers
+    \node[draw=navyblue, fill=white, minimum width=1.4cm, minimum height=0.8cm, rounded corners=2pt, font=\scriptsize\bfseries, align=center] (regA) at (1.2,3.4) {Activation\\Register};
+    \node[draw=navyblue, fill=white, minimum width=1.4cm, minimum height=0.8cm, rounded corners=2pt, font=\scriptsize\bfseries, align=center] (regB) at (1.2,1.0) {Weight\\Register};
+
+    % Multiplier
+    \node[draw=tealaccent, fill=softgreen, circle, inner sep=3pt, font=\small\bfseries] (mult) at (3.8,2.2) {$\times$};
+
+    % Adder
+    \node[draw=bordergold!90!black, fill=softgold, circle, inner sep=3pt, font=\small\bfseries] (add) at (5.8,2.2) {$+$};
+
+    % Accumulator
+    \node[draw=navyblue, fill=white, minimum width=1.4cm, minimum height=0.8cm, rounded corners=2pt, font=\scriptsize\bfseries, align=center] (accum) at (5.8,0.4) {Accumulator\\Register};
+
+    % Connections
+    \draw[->, thick, navyblue] (-1.2,3.4) node[left, font=\scriptsize] {$a_{\text{in}}$} -- (regA);
+    \draw[->, thick, navyblue] (regA) -- (mult);
+    \draw[->, thick, navyblue] (regA) -- (1.2,4.4) -- (8.8,4.4) node[right, font=\scriptsize] {$a_{\text{out}}$};
+
+    \draw[->, thick, navyblue] (-1.2,1.0) node[left, font=\scriptsize] {$b_{\text{in}}$} -- (regB);
+    \draw[->, thick, navyblue] (regB) -- (mult);
+
+    \draw[->, thick, tealaccent] (mult) -- (add);
+
+    \draw[->, thick, navyblue] (5.8,4.4) node[above, font=\scriptsize] {$c_{\text{in}}$} -- (add);
+    \draw[->, thick, navyblue] (add) -- (accum);
+    \draw[->, thick, navyblue] (accum) -- (5.8,-0.9) node[below, font=\scriptsize] {$c_{\text{out}}$};
+\end{tikzpicture}
+\caption{Detailed internal hardware logic of a single Processing Element (PE) showing double-buffered registers, digital multiplier, adder, and accumulator paths.}
+\label{fig:ch06_pe_detail}
+\end{figure}
+
+Each PE contains:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Input Register Buffers}: Store incoming horizontal activations $a_{\text{in}}$ and vertical weights $b_{\text{in}}$. Double-buffering allows the PE to compute the current MAC step while receiving the next operands in parallel.
+    \item \textbf{Hardware Multiplier Unit}: Computes 16-bit FP (bfloat16/FP16) or 8-bit INT product $p = a \cdot b$.
+    \item \textbf{Accumulator Adder Unit}: Adds product $p$ to incoming partial sum $c_{\text{in}}$, storing the result in the local 32-bit accumulator register: $c_{\text{out}} = c_{\text{in}} + (a \cdot b)$.
+\end{enumerate}
+
+% -------------------------------------------------------------------------
+\section{VLIW Clustered Architectures for Matrix Inversion}
+% -------------------------------------------------------------------------
+While systolic arrays excel at dense matrix multiplication ($A \cdot B$), executing matrix inversion ($A^{-1}$) requires conditional branching and diagonal pivoting operations.
+
+Zhang et al. (2014)~\cite{zhang2014efficient} proposed a flexible **Very Long Instruction Word (VLIW)** processor with clustered hardware architecture tailored for matrix inversion. 
+
+Key architectural features of the VLIW matrix inversion chip:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Clustered ALUs}: Multiple arithmetic clusters operate in parallel under a single VLIW instruction word, allowing simultaneous execution of pivoting, division, and row elimination.
+    \item \textbf{Global Register File (RF)}: Connects all parallel clusters to enable single-cycle operand exchange.
+    \item \textbf{Shared Local Register Files}: Adjacent clusters share local RFs to bypass global interconnect latency.
+\end{itemize}
+
+Experimental evaluations by Zhang et al. demonstrated that the VLIW matrix inversion chip inverted a $4 \times 4$ complex matrix in **only 45 clock cycles** running at $150\,\text{MHz}$, outperforming digital signal processors (DSPs) by over **$5\times$**.
+
+% -------------------------------------------------------------------------
+\section{Hardware and Systems Strategies for Neural Acceleration}
+% -------------------------------------------------------------------------
+In an analysis of hardware acceleration strategies for deep learning, Thomas (UCSD)~\cite{thomas2020hardware} highlighted that neural accelerator performance relies on co-designing hardware interconnects with execution dataflows.
+
+Thomas identified three primary optimization axes:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Quantization-Aware Precision}: Replacing 32-bit floating-point (FP32) arithmetic with 8-bit integer (INT8) or 4-bit block-floating-point formats reduces silicon chip area by **$8\times$** and memory bandwidth by **$4\times$**.
+    \item \textbf{Zero-Skipping Sparsity Engines}: Neural network activations contain up to $70\%$ zeros (due to ReLU activations). Specialized PEs include zero-detection logic that skips multiplication by zero operands, boosting effective throughput by **$2\times - 3\times$**.
+    \item \textbf{On-Chip Double-Buffered SRAM Tiling}: Large weight matrices are partitioned into sub-tiles matching on-chip SRAM capacity, ensuring data operands are fetched once from DRAM and reused hundreds of times across the PE array.
+\end{enumerate}

@@ -1,0 +1,80 @@
+% =========================================================================
+\chapter{Edge Computing \& Specialized FPGA Hardware Accelerators}
+\label{ch:edge_specialized}
+% =========================================================================
+
+\section{Status Quo \& Key Challenges in Edge Acceleration}
+As AI accelerators transition from datacenters to real-time edge environments (smart mobility, industrial automation, drone navigation, edge vision), hardware engineers face the fundamental challenge of balancing **compute performance, power consumption, silicon die cost, and thermal limits**.
+
+In a comprehensive overview of FPGA-based CNN accelerators for edge computing, Fata et al. (IEEE Access 2025)~\cite{fata2025balancing} noted that the edge AI market exceeded $\$6\,\text{Billion}$ with a $30.4\%$ CAGR. However, edge deployment is severely constrained by three primary limitations:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Memory Bandwidth Bottleneck}: Fetching large neural network weight parameters from off-chip DRAM stalls execution datapaths.
+    \item \textbf{Heterogeneous Model Complexity}: Edge applications combine diverse network layers (Convolutions, Recurrent LSTM/GRU units, Transformers, and custom post-processing).
+    \item \textbf{Strict Die Area \& Cost Bounds}: Edge hardware must utilize low-cost FPGAs or compact ASIC dies with limited Logic Lookup Tables (LUTs), DSP Slices, and Block RAM (BRAM).
+\end{enumerate}
+
+To address these challenges, researchers have developed specialized silicon hardware frameworks and algorithmic optimizations.
+
+% -------------------------------------------------------------------------
+\section{Reconfigurable CNN-RNN Frameworks on FPGA}
+% -------------------------------------------------------------------------
+Many real-time applications (such as speech recognition, autonomous driving trajectory forecasting, and video action analysis) combine spatial Convolutional Neural Networks (CNNs) with temporal Recurrent Neural Networks (RNNs/LSTMs).
+
+Zeng et al. (Tsinghua University / DeePhi Technology)~\cite{zeng2018efficient} designed a complete reconfigurable hardware framework for deploying general-purpose hybrid CNN-RNN models on FPGAs.
+
+Key innovations of the DeePhi framework:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Aristotle \& Descartes IP Cores}: Integrated DeePhi's Aristotle IP (optimized for 2D CONV spatial feature extraction) and Descartes IP (optimized for sparse matrix-vector RNN temporal processing) into a single reconfigurable hardware system.
+    \item \textbf{Co-Optimization Toolchain}: Developed a hardware-software compiler co-optimization toolchain integrated with the Xilinx SDSoC environment. The toolchain automatically identifies optimal IP tile configurations, maximizing FPGA resource utilization.
+    \item \textbf{Quantization and Pruning}: Applied weight pruning and 8-bit fixed-point quantization, achieving over **$4\times$ reduction in model size** with zero loss in recognition accuracy.
+\end{itemize}
+
+% -------------------------------------------------------------------------
+\section{DDR-Less Stereo Matching for Co-Axial RGB-NIR Sensors}
+% -------------------------------------------------------------------------
+Edge vision robots require all-day, 24/7 depth perception across changing lighting conditions (bright daylight, dusk, and complete darkness). Co-axial RGB-Near-Infrared (RGB-NIR) sensor fusion provides robust multi-modal perception.
+
+However, traditional stereo matching algorithms rely heavily on external DDR memory buffering to perform dynamic vertical residual compensation, stalling continuous hardware dataflow and violating microsecond latency bounds.
+
+To solve this, Zhang et al. (ACM GLSVLSI 2026)~\cite{zhang2026fpga} presented an **adaptive texture-aware DDR-less stereo matching accelerator** tailored for coaxial RGB-NIR sensors.
+
+\begin{hardwarebox}[DDR-Less Hardware Datapath Architecture]
+Zhang et al. eliminated off-chip DDR memory entirely by implementing a fully pipelined datapath with on-chip line buffers:
+\begin{enumerate}[leftmargin=*]
+    \item **On-Chip Line Buffer Grid**: Stores local image scanlines inside high-speed BRAM, enabling continuous stream processing as pixels arrive from the image sensor.
+    \item **Adaptive Texture-Aware Cost Aggregation**: Computes census transforms and cross-modal correlation coefficients in parallel across RGB and NIR channels.
+    \item **Zero DDR Memory Stalls**: Bypassing off-chip DDR transfers reduced depth estimation latency to **sub-millisecond microsecond bounds** while reducing hardware power consumption by **$62\%$**.
+\end{enumerate}
+\end{hardwarebox}
+
+% -------------------------------------------------------------------------
+\section{Hardware Accelerators for Homomorphic Encryption \& 5G NR}
+% -------------------------------------------------------------------------
+Beyond deep learning, edge physical AI hardware integrates specialized cryptographic and wireless telecommunication processing engines.
+
+\subsection{Leveled Ring-LWE Fully Homomorphic Encryption (FHE)}
+Privacy-preserving Physical AI requires executing mathematical inference directly over encrypted data without decrypting it. 
+
+Su et al. (IEEE Access 2020)~\cite{su2020fpga} designed an FPGA hardware accelerator for **Leveled Ring-Learning With Errors (Ring-LWE) Fully Homomorphic Encryption**. 
+
+Su et al. developed high-speed hardware polynomial multiplication engines utilizing **Number Theoretic Transform (NTT)** pipelines. The FPGA accelerator achieved a **$31\times$ speedup** in homomorphic polynomial multiplication over CPU software solvers, enabling secure edge AI inference.
+
+\subsection{Scalable 5G NR Rate-Matching Engines}
+5G New Radio (NR) edge base stations require ultra-low latency channel coding. 
+
+Filipović et al. (IEEE Access 2025)~\cite{filipovic2025scalable} presented a scalable **5G NR Rate-Matcher and Rate-Dematcher FPGA accelerator**. By implementing parallel circular buffer management and bit-selection logic, the accelerator achieved 5G NR peak data rate requirements ($>10\,\text{Gbit/s}$) with minimal FPGA logic utilization.
+
+% -------------------------------------------------------------------------
+\section{Automatic Source Code Annotation \& Compiler Hints}
+% -------------------------------------------------------------------------
+Deploying complex mathematical algorithms (such as Newton's method or matrix factorizations) onto high-performance CPU, GPU, or FPGA hardware requires inserting compiler hints and pragmas (such as \texttt{\#pragma HLS UNROLL}, \texttt{\#pragma HLS PIPELINE}, OpenMP annotations) into C/C++ source code.
+
+Inserting annotations manually requires extensive hardware design expertise and lacks code portability across different hardware targets.
+
+To solve this, Shahzad et al. (Boston University / Red Hat / IEEE Access 2025)~\cite{shahzad2025annotationgym} developed **AnnotationGym**, a generic framework for automatic source code annotation.
+
+Key capabilities of AnnotationGym:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Automated Exploration}: Uses machine learning search agents to explore optimal combinations of compiler pragmas and loop unrolling factors.
+    \item \textbf{Hardware Performance Tuning}: Automatically optimizes C/C++ code for Xilinx High-Level Synthesis (HLS) and Intel FPGA compilers, achieving up to **$3.2\times$ performance improvement** over human-annotated baseline code.
+\end{itemize}

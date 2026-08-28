@@ -1,0 +1,144 @@
+% =========================================================================
+\chapter{Direct \& Factorization-Based Silicon Matrix Inverters}
+\label{ch:direct_solvers}
+% =========================================================================
+
+\section{Introduction to Matrix Factorization Hardware}
+While block tile solvers (like MI2D) accelerate dense square matrices, hardware chips for physical AI, 5G/6G wireless communication, and embedded signal processing frequently require **direct factorization** of structured, symmetric positive-definite, or ill-conditioned matrices.
+
+Matrix factorization decomposes a complex matrix $A$ into product factors of simpler matrices (such as lower/upper triangular, orthogonal, or diagonal matrices):
+\begin{itemize}[leftmargin=*]
+    \item \textbf{QR Decomposition}: $A = Q R$ (where $Q$ is orthogonal $Q^T Q = I$, and $R$ is upper triangular).
+    \item \textbf{Cholesky / $L D L^T$ Decomposition}: $A = L L^T$ or $A = L D L^T$ (for symmetric positive-definite matrices).
+    \item \textbf{State-Space Realization}: Factorizing time-varying structured operators into state updates.
+    \item \textbf{Iterative Solvers}: Jacobi and Gauss-Seidel iterations on FPGA logic.
+\end{itemize}
+
+% -------------------------------------------------------------------------
+\section{QR Decomposition via Givens Rotations \& CORDIC Pipelines}
+% -------------------------------------------------------------------------
+QR decomposition factors matrix $A \in \mathbb{R}^{M \times N}$ into an orthogonal matrix $Q \in \mathbb{R}^{M \times M}$ and an upper triangular matrix $R \in \mathbb{R}^{M \times N}$.
+
+To solve linear systems $A x = b$:
+\begin{equation}
+Q R x = b \implies R x = Q^T b
+\end{equation}
+Since $R$ is upper triangular, $x$ is evaluated directly via **back-substitution** without matrix inversion.
+
+\subsection{Givens Rotations}
+A **Givens Rotation Matrix** $G(i, j, \theta)$ rotates vectors in the $(i, j)$ plane to zero out a target off-diagonal matrix element:
+
+\begin{equation}
+G(i, j, \theta) = \begin{bmatrix}
+1 & \dots & 0 & \dots & 0 & \dots & 0 \\
+\vdots & \ddots & \vdots & & \vdots & & \vdots \\
+0 & \dots & c & \dots & s & \dots & 0 \\
+\vdots & & \vdots & \ddots & \vdots & & \vdots \\
+0 & \dots & -s & \dots & c & \dots & 0 \\
+\vdots & & \vdots & & \vdots & \ddots & \vdots \\
+0 & \dots & 0 & \dots & 0 & \dots & 1
+\end{bmatrix}
+\end{equation}
+where $c = \cos\theta = \frac{x_i}{\sqrt{x_i^2 + x_j^2}}$ and $s = \sin\theta = \frac{x_j}{\sqrt{x_i^2 + x_j^2}}$.
+
+Applying a sequence of Givens rotations systematically annihilates lower triangular elements, producing $R = G_k \dots G_2 G_1 A$.
+
+\subsection{CORDIC Algorithm Hardware Pipeline}
+Computing trigonometric functions ($\cos\theta, \sin\theta$) and square roots ($\sqrt{x_i^2 + x_j^2}$) directly in digital logic consumes extensive silicon area. 
+
+FPGA hardware accelerators replace floating-point division and square root units with the **CORDIC (Coordinate Rotation Digital Computer)** algorithm. CORDIC evaluates rotations using only **shift-and-add operations**:
+
+\begin{align}
+x_{k+1} &= x_k - d_k \cdot y_k \cdot 2^{-k} \\
+y_{k+1} &= y_k + d_k \cdot x_k \cdot 2^{-k} \\
+z_{k+1} &= z_k - d_k \cdot \arctan(2^{-k})
+\end{align}
+where $d_k \in \{-1, +1\}$ is the direction of rotation. 
+
+A fully pipelined CORDIC array on FPGA computes Givens QR rotations in **one clock cycle per iteration step**, offering high numerical stability for ill-conditioned matrices.
+
+
+% -------------------------------------------------------------------------
+\section{Cholesky ($L L^T$) \& $L D L^T$ Decomposition Engines for MIMO Systems}
+% -------------------------------------------------------------------------
+In 5G wireless multi-antenna (MIMO) detection and radar signal processing, Minimum Mean Square Error (MMSE) detectors solve:
+
+\begin{equation}
+x_{\text{MMSE}} = (H^H H + \sigma^2 I)^{-1} H^H y
+\end{equation}
+The matrix $A = (H^H H + \sigma^2 I)$ is **Hermitian positive-definite**.
+
+\subsection{$L D L^T$ Factorization}
+Lingala et al. (IISc Bangalore 2022)~\cite{lingala2022matrix} developed an FPGA hardware architecture for matrix inversion using $L D L^T$ decomposition:
+
+\begin{equation}
+A = L D L^T
+\end{equation}
+where $L$ is a unit lower triangular matrix (ones on the diagonal), and $D$ is a purely diagonal matrix.
+
+Inverting $A$ using $L D L^T$:
+\begin{equation}
+A^{-1} = (L^T)^{-1} D^{-1} L^{-1}
+\end{equation}
+
+Why $L D L^T$ is preferred on FPGAs:
+\begin{itemize}[leftmargin=*]
+    \item **Eliminates Square Root Units**: Standard Cholesky ($A = L L^T$) requires evaluating square roots $\sqrt{L_{ii}}$ on diagonal elements. $L D L^T$ eliminates square root operations entirely, using simple scalar divisions $\frac{1}{D_{ii}}$.
+    \item **Low Compute Load**: Lingala et al. implemented $L D L^T$ using iterative $2 \times 2$ block inversions, achieving low computational overhead on Xilinx Zynq FPGA boards.
+\end{itemize}
+
+\subsection{SISO MMSE MIMO ASIC Inverters}
+Auras et al. (IEEE ISCAS 2014)~\cite{auras2014efficient} proposed a dedicated Application-Specific Integrated Circuit (ASIC) for matrix inversion in soft-input soft-output MMSE MIMO detectors. 
+
+Auras et al. achieved the IEEE 802.11n peak data rate of **$600\,\text{Mbit/s}$**, outperforming competing VLSI architectures by a factor of **$1.7\times$** in throughput-per-area efficiency.
+
+
+% -------------------------------------------------------------------------
+\section{State-Space Realization for Structured Matrices}
+% -------------------------------------------------------------------------
+As established by van der Veen and Dewilde (1993)~\cite{van1993large}, large structured matrices originating from time-series signals or finite-element physical grids can be represented as the input-output operator of a **time-varying state-space system**:
+
+\begin{align}
+x_{k+1} &= A_k x_k + B_k u_k \\
+y_k &= C_k x_k + D_k u_k
+\end{align}
+
+Van der Veen and Dewilde demonstrated that if the number of internal states is small relative to matrix dimension $N$, the structured matrix inverse $A^{-1}$ can be computed in $\mathcal{O}(N \cdot s^2)$ time (where $s \ll N$ is the state dimension) using continuous state realizations, bypassing standard $\mathcal{O}(N^3)$ dense inversion entirely!
+
+
+% -------------------------------------------------------------------------
+\section{Iterative Solvers: FPGA Jacobi Load Flow Engines}
+% -------------------------------------------------------------------------
+For large sparse matrices (such as electrical power grid networks), direct matrix inversion introduces fill-in zero redundancy. 
+
+Foertsch et al. (2005)~\cite{foertsch2005jacobi} re-examined the **Jacobi Iterative Method** for fully pipelined FPGA hardware implementation:
+
+\begin{equation}
+x^{(k+1)} = D^{-1} \left( b - (L + U) x^{(k)} \right)
+\end{equation}
+
+Because $D^{-1}$ is purely diagonal, computing $D^{-1}$ requires simple scalar multiplications. Foertsch et al. built a fully pipelined FPGA hardware engine that executes Jacobi load flow updates in parallel, demonstrating that FPGA-accelerated Jacobi solvers match or exceed CPU Newton-Raphson software speeds for large power grids.
+
+
+% -------------------------------------------------------------------------
+\section{Comprehensive Hardware Strategy Comparison}
+% -------------------------------------------------------------------------
+Table~\ref{tab:ch08_hardware_comparison} presents a theoretical comparison of silicon matrix inversion strategies.
+
+\begin{table}[htbp]
+\centering
+\caption{Comparison of Silicon Hardware Matrix Inversion Strategies}
+\label{tab:ch08_hardware_comparison}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{3.0cm}}
+\toprule
+\textbf{Algorithm} & \textbf{Precision} & \textbf{FLOP Latency} & \textbf{FPGA Hardware Resources} & \textbf{Target Physical Application} \\
+\midrule
+Direct LU / Cholesky & Exact & $\mathcal{O}(N^3)$ & High (DSP Slices \& BRAM) & High-precision scientific computing \\
+Givens QR (CORDIC) & High (Stable) & $\mathcal{O}(N^2)$ & Moderate (CORDIC Shift-Adders) & 5G/6G MIMO Signal Detection \\
+$L D L^T$ Decomposition & High & $\mathcal{O}(N^3/6)$ & Low-to-Moderate (No Sqrt units) & Embedded MIMO Board Engines \\
+MI2D (Tile Schur) & High & $\mathcal{O}(N^3/k^2)$ & Parallel PE Tile Grid Arrays & Deep Learning Newton Optimizers \\
+State-Space Realization & Exact/Approx & $\mathcal{O}(N s^2)$ & Low Logic LUTs & Time-Varying Adaptive Control \\
+Jacobi Iterative & Approximate & Iterative & Very Low Logic LUTs & Power Flow \& Grid Simulations \\
+\bottomrule
+\end{tabularx}
+\end{table}

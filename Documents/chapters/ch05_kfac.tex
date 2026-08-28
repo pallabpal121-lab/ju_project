@@ -1,0 +1,159 @@
+% =========================================================================
+\chapter{Kronecker-Factored Approximate Curvature (K-FAC) Hardware \& Algorithms}
+\label{ch:kfac}
+% =========================================================================
+
+\section{Introduction to Kronecker-Factored Approximations}
+While second-order Natural Gradient optimization offers superior convergence rates and handles large mini-batch training effectively, computing and inverting the full Fisher Information Matrix $F \in \mathbb{R}^{d \times d}$ is computationally prohibitive for modern deep networks containing millions of parameters.
+
+To overcome this bottleneck, Martens and Grosse (2015) introduced **Kronecker-Factored Approximate Curvature (K-FAC)**. K-FAC approximates the block-diagonal Fisher Information Matrix by factorizing layer-wise Fisher blocks into Kronecker products ($\otimes$) of two dramatically smaller matrices:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Activation Covariance Matrix} $A_{l-1}$: Capturing curvature across input activations.
+    \item \textbf{Pre-Activation Gradient Covariance Matrix} $S_l$: Capturing curvature across backpropagated gradients.
+\end{enumerate}
+
+As demonstrated in large-scale distributed neural network research by Osawa et al. (CVPR 2019)~\cite{osawa2019large}, K-FAC reduces matrix inversion complexity from $\mathcal{O}(d^3)$ down to $\mathcal{O}(d^{1.5})$, enabling second-order optimization to scale across massive GPU and FPGA supercomputing clusters.
+
+% -------------------------------------------------------------------------
+\section{Theoretical Derivation of K-FAC for Neural Network Layers}
+% -------------------------------------------------------------------------
+Consider layer $l$ of a deep neural network with input activation vector $a_{l-1} \in \mathbb{R}^{d_a}$ and weight matrix $W_l \in \mathbb{R}^{d_s \times d_a}$. 
+
+The linear pre-activation vector $s_l \in \mathbb{R}^{d_s}$ is given by:
+\begin{equation}
+s_l = W_l a_{l-1}
+\end{equation}
+The layer output activation is $a_l = \phi(s_l)$, where $\phi$ is an activation function (ReLU, GELU, Sigmoid).
+
+Let $g_l = \nabla_{s_l} \mathcal{L} \in \mathbb{R}^{d_s}$ denote the derivative of loss $\mathcal{L}$ with respect to pre-activations $s_l$. By the chain rule, the gradient of loss with respect to weight matrix $W_l$ is:
+
+\begin{equation}
+\nabla_{W_l} \mathcal{L} = g_l a_{l-1}^T \in \mathbb{R}^{d_s \times d_a}
+\end{equation}
+
+Vectorizing the weight gradient matrix into a single column vector $\text{vec}(\nabla_{W_l} \mathcal{L}) \in \mathbb{R}^{d_a d_s}$:
+\begin{equation}
+\text{vec}(\nabla_{W_l} \mathcal{L}) = a_{l-1} \otimes g_l
+\end{equation}
+where $\otimes$ denotes the **Kronecker product**.
+
+\subsection{Layer Fisher Matrix Block Definition}
+The true Fisher Information Matrix block $F_l \in \mathbb{R}^{d_a d_s \times d_a d_s}$ for layer $l$ is:
+\begin{align}
+F_l &= \mathbb{E} \left[ \text{vec}(\nabla_{W_l} \mathcal{L}) \left( \text{vec}(\nabla_{W_l} \mathcal{L}) \right)^T \right] \\
+&= \mathbb{E} \left[ (a_{l-1} \otimes g_l) (a_{l-1} \otimes g_l)^T \right] \\
+&= \mathbb{E} \left[ (a_{l-1} a_{l-1}^T) \otimes (g_l g_l^T) \right]
+\end{align}
+
+\subsection{The K-FAC Kronecker Factorization Approximation}
+The core structural assumption of K-FAC is approximating the expectation of a Kronecker product as the **Kronecker product of two independent expectations**:
+
+\begin{mathbox}[K-FAC Kronecker Factorization Approximation]
+\begin{equation}
+F_l = \mathbb{E} \left[ (a_{l-1} a_{l-1}^T) \otimes (g_l g_l^T) \right] \approx \mathbb{E} \left[ a_{l-1} a_{l-1}^T \right] \otimes \mathbb{E} \left[ g_l g_l^T \right] = A_{l-1} \otimes S_l
+\end{equation}
+where:
+\begin{align}
+A_{l-1} &= \mathbb{E} \left[ a_{l-1} a_{l-1}^T \right] \in \mathbb{R}^{d_a \times d_a} \quad (\text{Activation Covariance Matrix}) \\
+S_l &= \mathbb{E} \left[ g_l g_l^T \right] \in \mathbb{R}^{d_s \times d_s} \quad (\text{Gradient Covariance Matrix})
+\end{align}
+\end{mathbox}
+
+
+% -------------------------------------------------------------------------
+\section{Kronecker Inversion Identity \& Update Derivation}
+% -------------------------------------------------------------------------
+To execute a Natural Gradient parameter update $\text{vec}(\Delta W_l) = - F_l^{-1} \text{vec}(G_l)$ (where $G_l = \nabla_{W_l} \mathcal{L}$ is the weight gradient), we must compute $F_l^{-1}$.
+
+Direct inversion of $F_l \in \mathbb{R}^{d_a d_s \times d_a d_s}$ costs $\mathcal{O}((d_a d_s)^3)$ FLOPs.
+
+\subsection{Proof of the Kronecker Inversion Identity}
+K-FAC leverages a fundamental property of matrix linear algebra:
+
+\begin{theorem}[Kronecker Inverse Property]
+Let $A \in \mathbb{R}^{m \times m}$ and $B \in \mathbb{R}^{n \times n}$ be invertible matrices. Then their Kronecker product $(A \otimes B)$ is invertible, and its inverse is:
+$$(A \otimes B)^{-1} = A^{-1} \otimes B^{-1}$$
+\end{theorem}
+
+\begin{proof}
+Using the Kronecker mixed-product property $(A \otimes B)(C \otimes D) = (AC) \otimes (BD)$:
+\begin{align}
+(A \otimes B) (A^{-1} \otimes B^{-1}) &= (A A^{-1}) \otimes (B B^{-1}) \\
+&= I_m \otimes I_n = I_{mn}
+\end{align}
+Since $(A \otimes B)(A^{-1} \otimes B^{-1}) = I_{mn}$, the matrix $(A^{-1} \otimes B^{-1})$ is the unique inverse of $(A \otimes B)$.
+\end{proof}
+
+\subsection{Derivation of the Matrix Update Rule}
+Applying the Kronecker inversion identity to K-FAC:
+
+\begin{equation}
+F_l^{-1} \approx (A_{l-1} \otimes S_l)^{-1} = A_{l-1}^{-1} \otimes S_l^{-1}
+\end{equation}
+
+Now evaluate the parameter update vector:
+\begin{equation}
+\text{vec}(\Delta W_l) = - F_l^{-1} \text{vec}(G_l) = - (A_{l-1}^{-1} \otimes S_l^{-1}) \text{vec}(G_l)
+\end{equation}
+
+Using the matrix vectorization identity $\text{vec}(U X V^T) = (V \otimes U) \text{vec}(X)$:
+\begin{equation}
+(A_{l-1}^{-1} \otimes S_l^{-1}) \text{vec}(G_l) = \text{vec}\left( S_l^{-1} G_l (A_{l-1}^{-1})^T \right) = \text{vec}\left( S_l^{-1} G_l A_{l-1}^{-1} \right)
+\end{equation}
+
+Un-vectorizing into matrix form yields the **K-FAC Weight Update Rule**:
+
+\begin{mathbox}[K-FAC Weight Matrix Update Rule]
+\begin{equation}
+\Delta W_l = - S_l^{-1} G_l A_{l-1}^{-1}
+\end{equation}
+where $G_l = \nabla_{W_l} \mathcal{L} \in \mathbb{R}^{d_s \times d_a}$ is the layer weight gradient matrix.
+\end{mathbox}
+
+
+% -------------------------------------------------------------------------
+\section{Complexity Reduction Analysis}
+% -------------------------------------------------------------------------
+Consider a fully connected layer with $d_a = 1000$ inputs and $d_s = 1000$ outputs:
+\begin{itemize}[leftmargin=*]
+    \item Full Fisher Matrix Dimension: $d_a d_s = 1,000,000$ parameters ($10^6 \times 10^6$ matrix).
+    \item Direct Inversion Cost: $\mathcal{O}((10^6)^3) = \mathbf{10^{18} \text{ FLOPs}}$.
+    \item K-FAC Inversion Cost:
+    $$\text{Invert } A_{l-1} \in \mathbb{R}^{1000 \times 1000}: \mathcal{O}(1000^3) = 10^9 \text{ FLOPs}$$
+    $$\text{Invert } S_l \in \mathbb{R}^{1000 \times 1000}: \mathcal{O}(1000^3) = 10^9 \text{ FLOPs}$$
+    $$\text{Matrix Multiply } S_l^{-1} G_l A_{l-1}^{-1}: \mathcal{O}(1000^3) = 2 \times 10^9 \text{ FLOPs}$$
+    $$\text{Total K-FAC Cost}: \mathbf{4 \times 10^9 \text{ FLOPs}}$$
+\end{itemize}
+
+K-FAC achieves a staggering **$250,000,000\times$ speedup (250 million times computational reduction)** compared to full Fisher matrix inversion!
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=0.88, every node/.style={transform shape}]
+    \node[draw=navyblue, fill=softblue, minimum width=3.2cm, minimum height=1.6cm, align=center, rounded corners=4pt, font=\small\bfseries\sffamily] (fim) {Full Fisher Matrix $F_l$\\ $\dim: d_a d_s \times d_a d_s$\\ Cost: $\mathcal{O}((d_a d_s)^3)$};
+    
+    \node[draw=tealaccent, fill=softgreen, minimum width=3.4cm, minimum height=1.6cm, align=center, rounded corners=4pt, font=\small\bfseries\sffamily, right=3.0cm of fim] (kfac) {K-FAC Factorization\\ $F_l \approx A_{l-1} \otimes S_l$\\ Dual Covariance Matrices};
+    
+    \node[draw=bordergold!90!black, fill=softgold, minimum width=3.4cm, minimum height=1.6cm, align=center, rounded corners=4pt, font=\small\bfseries\sffamily, right=3.2cm of kfac] (inv) {Inverted Update Engine\\ $\Delta W_l = - S_l^{-1} G_l A_{l-1}^{-1}$\\ Cost: $\mathcal{O}(d_a^3 + d_s^3)$};
+
+    \draw[->, ultra thick, >=stealth, navyblue] (fim) -- node[above=4pt, font=\tiny\bfseries, align=center] {Kronecker\\Decomposition} (kfac);
+    \draw[->, ultra thick, >=stealth, tealaccent] (kfac) -- node[above=4pt, font=\tiny\bfseries, align=center] {Identity\\$(A \otimes S)^{-1} = A^{-1} \otimes S^{-1}$} (inv);
+\end{tikzpicture}
+\caption{K-FAC Kronecker Factorization hardware pipeline reducing $F^{-1}g$ matrix inversion complexity.}
+\label{fig:ch05_kfac_pipeline}
+\end{figure}
+
+
+% -------------------------------------------------------------------------
+\section{Distributed Large-Scale K-FAC Implementation}
+% -------------------------------------------------------------------------
+As detailed by Osawa et al. (CVPR 2019)~\cite{osawa2019large}, K-FAC is ideally suited for distributed training across large supercomputing clusters (such as 1024 GPUs or FPGA worker arrays).
+
+Because covariance matrices $A_{l-1}$ and $S_l$ update slowly relative to parameter steps, K-FAC implementations use an **asynchronous update frequency scheme**:
+\begin{enumerate}[leftmargin=*]
+    \item Weight gradients $G_l$ are computed every step.
+    \item Covariance statistics $A_{l-1}$ and $S_l$ are accumulated over mini-batches and updated every $T_{\text{cov}} = 20$ steps.
+    \item Matrix inversions $A_{l-1}^{-1}$ and $S_l^{-1}$ are computed asynchronously on dedicated worker chips every $T_{\text{inv}} = 100$ steps.
+\end{enumerate}
+
+This asynchronous schedule hides matrix inversion latency completely behind standard forward-backward neural propagation.

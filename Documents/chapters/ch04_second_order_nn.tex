@@ -1,0 +1,129 @@
+% =========================================================================
+\chapter{Second-Order Neural Network Optimization \& Curvature Approximations}
+\label{ch:second_order_nn}
+% =========================================================================
+
+\section{Introduction to Curvature in Deep Learning}
+As deep neural networks increase in parameter count and architectural depth, first-order optimization algorithms (SGD, Momentum, Adam) struggle with ill-conditioned loss surfaces, vanishing/exploding gradients, and flat plateau regions. 
+
+Second-order neural network optimization algorithms incorporate local second-order curvature information to take larger, more accurate steps toward local minima. In a meta-analysis of second-order optimization techniques, Challagundla et al. (2024)~\cite{challagundla2024second} categorized second-order deep learning optimizers into three primary frameworks:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Natural Gradient Descent \& Fisher-Based Methods} (K-FAC, Natural Gradient).
+    \item \textbf{Quasi-Newton Approximation Methods} (BFGS, L-BFGS).
+    \item \textbf{Hessian-Free \& Conjugate Gradient Methods} (Hessian-vector product solvers).
+\end{enumerate}
+
+% -------------------------------------------------------------------------
+\section{Natural Gradient Descent \& The Fisher Information Matrix}
+% -------------------------------------------------------------------------
+Standard Gradient Descent operates in **Euclidean parameter space** $\mathbb{R}^d$, minimizing loss along the direction of steepest Euclidean distance $\|\Delta \theta\|_2^2 = \sum (\Delta \theta_i)^2$. However, Euclidean distance between parameter vectors $\theta$ and $\theta + \Delta \theta$ does not reflect the change in the probability distribution $p_\theta(y|x)$ represented by the network!
+
+\subsection{Kullback-Leibler (KL) Divergence Metric Space}
+Amari (1998) introduced **Natural Gradient Descent**, defining the steepest descent direction in the **space of probability distributions** measured by Kullback-Leibler (KL) divergence:
+
+\begin{equation}
+D_{\text{KL}}(p_\theta \| p_{\theta + \Delta \theta}) = \int p_\theta(y|x) \log \left( \frac{p_\theta(y|x)}{p_{\theta + \Delta \theta}(y|x)} \right) dy
+\end{equation}
+
+Performing a second-order Taylor expansion of the KL divergence around $\Delta \theta = 0$:
+
+\begin{equation}
+D_{\text{KL}}(p_\theta \| p_{\theta + \Delta \theta}) \approx \frac{1}{2} \Delta \theta^T F \Delta \theta
+\end{equation}
+where $F \in \mathbb{R}^{d \times d}$ is the **Fisher Information Matrix (FIM)**.
+
+\subsection{Definition of the Fisher Information Matrix}
+The Fisher Information Matrix is the expected outer product of the log-likelihood gradient vectors (score functions):
+
+\begin{equation}
+F = \mathbb{E}_{x \sim p_{\text{data}}, y \sim p_\theta(y|x)} \left[ \left( \nabla_\theta \log p_\theta(y|x) \right) \left( \nabla_\theta \log p_\theta(y|x) \right)^T \right]
+\end{equation}
+
+Key properties of the Fisher Matrix:
+\begin{itemize}[leftmargin=*]
+    \item $F$ is a $d \times d$ symmetric positive semi-definite matrix ($F \succeq 0$).
+    \item Under maximum likelihood loss ($\mathcal{L}(\theta) = -\mathbb{E}[\log p_\theta(y|x)]$), the Fisher Information Matrix equals the **expected Hessian** of the loss:
+    \begin{equation}
+    F = \mathbb{E}_{x, y} \left[ \nabla_\theta^2 \mathcal{L}(\theta) \right] = \mathbb{E} [H]
+    \end{equation}
+\end{itemize}
+
+\subsection{Natural Gradient Parameter Update Rule}
+To find the step $\Delta \theta$ that minimizes loss $\mathcal{L}(\theta)$ subject to a fixed KL-divergence constraint $D_{\text{KL}}(p_\theta \| p_{\theta + \Delta \theta}) \le \epsilon$:
+
+\begin{equation}
+\arg\min_{\Delta \theta} \left[ \mathcal{L}(\theta_t) + g_t^T \Delta \theta \right] \quad \text{subject to} \quad \frac{1}{2} \Delta \theta^T F_t \Delta \theta \le \epsilon
+\end{equation}
+
+Solving this constrained optimization via Lagrange multipliers yields the **Natural Gradient Update**:
+
+\begin{mathbox}[Natural Gradient Parameter Update Rule]
+\begin{equation}
+\theta_{t+1} = \theta_t - \eta F_t^{-1} g_t
+\end{equation}
+where $F_t^{-1}$ is the inverse Fisher Information Matrix, and $g_t = \nabla \mathcal{L}(\theta_t)$ is the standard gradient.
+\end{mathbox}
+
+\subsection{Empirical Fisher vs. True Fisher Matrix}
+In practical deep learning implementations, researchers distinguish between two Fisher matrices:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{True Fisher Matrix ($F_{\text{true}}$)}: Targets $y$ are sampled from the model's current predictive distribution $y \sim p_\theta(y|x)$. $F_{\text{true}}$ is a true curvature metric.
+    \item \textbf{Empirical Fisher Matrix ($F_{\text{emp}}$)}: Targets $y$ are taken directly from the empirical training dataset labels:
+    \begin{equation}
+    F_{\text{emp}} = \frac{1}{N} \sum_{i=1}^N \left( \nabla_\theta \ell(f(x_i; \theta), y_i) \right) \left( \nabla_\theta \ell(f(x_i; \theta), y_i) \right)^T
+    \end{equation}
+    $F_{\text{emp}}$ uses gradients already computed during backpropagation, making it computationally convenient, though it can overestimate curvature along certain directions.
+\end{enumerate}
+
+
+% -------------------------------------------------------------------------
+\section{Quasi-Newton Methods: BFGS and L-BFGS}
+% -------------------------------------------------------------------------
+Quasi-Newton methods avoid computing explicit second derivatives or inverting $H$ by building an iterative approximation matrix $B_k \approx H$ or $H_k^{-1} \approx B_k^{-1}$ using only first-order gradient differences!
+
+Define parameter difference $s_k$ and gradient difference $y_k$:
+\begin{align}
+s_k &= \theta_{k+1} - \theta_k \\
+y_k &= g_{k+1} - g_k
+\end{align}
+
+Under the **Secant Equation**, the updated inverse Hessian approximation $B_{k+1}^{-1}$ must satisfy:
+\begin{equation}
+B_{k+1}^{-1} y_k = s_k
+\end{equation}
+
+\subsection{The BFGS Inverse Update Formula}
+The **Broyden-Fletcher-Goldfarb-Shanno (BFGS)** algorithm updates the inverse Hessian estimate $H_k^{-1}$ directly using rank-2 matrix updates:
+
+\begin{equation}
+H_{k+1}^{-1} = (I - \rho_k s_k y_k^T) H_k^{-1} (I - \rho_k y_k s_k^T) + \rho_k s_k s_k^T
+\end{equation}
+where $\rho_k = \frac{1}{y_k^T s_k}$.
+
+\subsection{Limited-Memory BFGS (L-BFGS)}
+For deep learning models with $d = 10^6$ parameters, storing even the approximate matrix $H_k^{-1} \in \mathbb{R}^{d \times d}$ requires Terabytes of memory. 
+
+**Limited-Memory BFGS (L-BFGS)** solves this memory wall by storing only the $m$ most recent vector pairs $\{s_i, y_i\}_{i=k-m}^{k-1}$ (typically $m = 10$ to $20$). The search direction $r_k = -H_k^{-1} g_k$ is computed on-the-fly using a **two-loop recursion algorithm**, reducing memory overhead from $\mathcal{O}(d^2)$ down to $\mathcal{O}(m \cdot d)$!
+
+
+% -------------------------------------------------------------------------
+\section{Hessian-Free Optimization \& Matrix-Free Products}
+% -------------------------------------------------------------------------
+Hessian-Free (HF) optimization (also known as Newton-Conjugate Gradient) solves $H \Delta \theta = -g$ iteratively without ever storing the Hessian matrix $H$.
+
+HF leverages the **Hessian-vector product identity**:
+\begin{equation}
+H v = \nabla^2 \mathcal{L}(\theta) v = \lim_{\epsilon \to 0} \frac{\nabla \mathcal{L}(\theta + \epsilon v) - \nabla \mathcal{L}(\theta)}{\epsilon} = \left. \frac{\partial}{\partial r} \nabla \mathcal{L}(\theta + r v) \right|_{r=0}
+\end{equation}
+
+Using Pearlmutter's $\mathcal{R}\{\cdot\}$ operator forward-mode automatic differentiation, computing the matrix-vector product $H v$ costs only **two backpropagation passes** ($\mathcal{O}(d)$ FLOPs). An inner Conjugate Gradient (CG) algorithm iteratively solves $H \Delta \theta = -g$ using only $H v$ products.
+
+
+% -------------------------------------------------------------------------
+\section{Second-Order Optimization for Adversarial Attacks}
+% -------------------------------------------------------------------------
+In deep convolutional network security, adversarial attacks introduce imperceptible pixel perturbations $\delta$ to input images $x$ to cause misclassification ($f(x + \delta) \neq y$).
+
+As documented by Ding et al. (2025)~\cite{ding2025second}, conventional attack methods (such as Projected Gradient Descent, PGD) rely on first-order sign gradients ($\delta_{t+1} = \text{clip}(\delta_t + \alpha \text{sgn}(\nabla_x \mathcal{L}))$. 
+
+Ding et al. proposed a **Second-Order Adaptive Attack Method** that computes second-order spatial loss curvature $\nabla_x^2 \mathcal{L}$ with respect to input pixels. By scaling perturbation steps by the local spatial Hessian inverse, the attack bypasses defensive gradient masking and achieves higher adversarial success rates with fewer iteration steps.

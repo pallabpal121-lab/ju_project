@@ -1,0 +1,136 @@
+% =========================================================================
+\chapter{MI2D: 2-Dimensional Tile Manipulation Accelerator for Matrix Inversion}
+\label{ch:mi2d}
+% =========================================================================
+
+\section{The Challenge of Large-Scale Matrix Inversion}
+Dense matrix inversion $A^{-1}$ is a critical mathematical operation in second-order optimization (Newton's method, Natural Gradient), Kalman filtering, MIMO wireless detection, and finite-element physical simulations.
+
+However, executing large-scale dense matrix inversion on traditional general-purpose CPUs and GPUs faces severe bottlenecks:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Cubic Computational Complexity $\mathcal{O}(N^3)$}: Inverting an $N \times N$ matrix requires $\approx \frac{2}{3} N^3$ floating-point operations.
+    \item \textbf{Poor Temporal Data Locality}: Traditional matrix inversion algorithms (such as Gaussian Elimination or LU decomposition) exhibit complex inter-element dependencies. Updating row pivot elements requires broadcasting updated values across the entire matrix, destroying temporal data locality and causing massive memory access stalls.
+    \item \textbf{High Control Overhead on Parallel GPUs}: GPU architectures excel at regular, uniform SIMD workloads like matrix multiplication ($A \cdot B$). In contrast, matrix inversion requires fine-grained conditional pivoting, triangular back-substitution, and irregular memory indexing, causing severe GPU thread divergence.
+\end{enumerate}
+
+To overcome these challenges, Chen et al. (ACM GLSVLSI 2022)~\cite{chen2022mi2d} introduced **MI2D**, a specialized hardware accelerator architecture that converts complex matrix inversion into highly regular 2D cross-tile matrix multiplication operations.
+
+% -------------------------------------------------------------------------
+\section{Mathematical Formulation: Block Matrix Inversion via Schur Complements}
+% -------------------------------------------------------------------------
+The fundamental mathematical principle driving the MI2D architecture is **recursive 2D block tile partitioning** using **Schur Complements**.
+
+Consider a non-singular $N \times N$ matrix $A \in \mathbb{R}^{N \times N}$. Partition matrix $A$ into a $2 \times 2$ matrix of sub-block tiles:
+
+\begin{equation}
+A = \begin{bmatrix} A_{11} & A_{12} \\ A_{21} & A_{22} \end{bmatrix}
+\end{equation}
+where sub-tiles $A_{11} \in \mathbb{R}^{k \times k}$, $A_{12} \in \mathbb{R}^{k \times (N-k)}$, $A_{21} \in \mathbb{R}^{(N-k) \times k}$, and $A_{22} \in \mathbb{R}^{(N-k) \times (N-k)}$.
+
+Assume the top-left sub-block tile $A_{11}$ is non-singular ($A_{11}^{-1}$ exists).
+
+\subsection{Definition of the Schur Complement}
+The **Schur Complement** of block $A_{11}$ in matrix $A$, denoted as $S \in \mathbb{R}^{(N-k) \times (N-k)}$, is defined as:
+
+\begin{mathbox}[Schur Complement Definition]
+\begin{equation}
+S = A_{22} - A_{21} A_{11}^{-1} A_{12}
+\end{equation}
+\end{mathbox}
+
+\subsection{Proof of the Block Matrix Inversion Identity}
+Using LDU block factorization, matrix $A$ can be decomposed into lower triangular, block diagonal, and upper triangular matrices:
+
+\begin{equation}
+A = \begin{bmatrix} I & 0 \\ A_{21} A_{11}^{-1} & I \end{bmatrix} \begin{bmatrix} A_{11} & 0 \\ 0 & S \end{bmatrix} \begin{bmatrix} I & A_{11}^{-1} A_{12} \\ 0 & I \end{bmatrix}
+\end{equation}
+
+Inverting both sides using the matrix identity $(X Y Z)^{-1} = Z^{-1} Y^{-1} X^{-1}$:
+
+\begin{align}
+A^{-1} &= \begin{bmatrix} I & A_{11}^{-1} A_{12} \\ 0 & I \end{bmatrix}^{-1} \begin{bmatrix} A_{11} & 0 \\ 0 & S \end{bmatrix}^{-1} \begin{bmatrix} I & 0 \\ A_{21} A_{11}^{-1} & I \end{bmatrix}^{-1} \\
+&= \begin{bmatrix} I & -A_{11}^{-1} A_{12} \\ 0 & I \end{bmatrix} \begin{bmatrix} A_{11}^{-1} & 0 \\ 0 & S^{-1} \end{bmatrix} \begin{bmatrix} I & 0 \\ -A_{21} A_{11}^{-1} & I \end{bmatrix}
+\end{align}
+
+Multiplying out the three block matrices yields the exact **Block Matrix Inversion Identity**:
+
+\begin{mathbox}[Block Matrix Inversion Identity via Schur Complement]
+\begin{equation}
+A^{-1} = \begin{bmatrix} 
+A_{11}^{-1} + A_{11}^{-1} A_{12} S^{-1} A_{21} A_{11}^{-1} & -A_{11}^{-1} A_{12} S^{-1} \\ 
+-S^{-1} A_{21} A_{11}^{-1} & S^{-1} 
+\end{bmatrix}
+\end{equation}
+\end{mathbox}
+
+This identity transforms the inversion of a large $N \times N$ matrix into four small sub-operations:
+1. Inverting small tile $A_{11}$ ($A_{11}^{-1}$).
+2. Computing Schur tile $S = A_{22} - A_{21} A_{11}^{-1} A_{12}$.
+3. Inverting Schur tile $S$ ($S^{-1}$).
+4. Performing 2D matrix cross-tile multiplications ($A_{11}^{-1} A_{12} S^{-1}$, $S^{-1} A_{21} A_{11}^{-1}$, etc.).
+
+
+% -------------------------------------------------------------------------
+\section{MI2D Hardware Engine Architecture}
+% -------------------------------------------------------------------------
+The **MI2D accelerator** implements this mathematical block inversion identity directly in silicon hardware via a 2D tile manipulation engine.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=0.85, every node/.style={transform shape}]
+    % Sub-blocks Left
+    \draw[thick, fill=softblue] (0,0) rectangle (3.6,3.6);
+    \draw[thick, fill=navyblue!25] (0,1.8) rectangle (1.8,3.6) node[pos=0.5, font=\bfseries] {$A_{11}$};
+    \draw[thick, fill=tealaccent!25] (1.8,1.8) rectangle (3.6,3.6) node[pos=0.5, font=\bfseries] {$A_{12}$};
+    \draw[thick, fill=bordergold!40] (0,0) rectangle (1.8,1.8) node[pos=0.5, font=\bfseries] {$A_{21}$};
+    \draw[thick, fill=softgreen] (1.8,0) rectangle (3.6,1.8) node[pos=0.5, font=\bfseries] {$A_{22}$};
+
+    % Central Arrow
+    \draw[->, ultra thick, >=stealth, navyblue] (4.0, 1.8) -- node[above=4pt, font=\tiny\bfseries, align=center] {MI2D Tile Pipeline\\Step 1: Invert $A_{11}$\\Step 2: Compute Schur $S$\\Step 3: Invert $S$\\Step 4: Cross-Tile Multiplies} (9.4, 1.8);
+
+    % Right Architecture Block
+    \draw[thick, fill=navyblue, text=white, rounded corners=4pt] (9.7,0) rectangle (13.7,3.6);
+    \node[align=center, text=white, font=\bfseries\sffamily] at (11.7,1.8) {MI2D Hardware\\2D Processing Array\\(Parallel Tile PEs)\\\vspace{4pt}\scriptsize On-Chip Tile SRAM Buffers\\\scriptsize Schur Complement Logic};
+\end{tikzpicture}
+\caption{MI2D 2D Tile matrix partitioning and parallel Schur complement inversion engine pipeline.}
+\label{fig:ch07_mi2d_architecture}
+\end{figure}
+
+\subsection{Key Components of the MI2D Accelerator}
+As shown in Figure~\ref{fig:ch07_mi2d_architecture}, the MI2D hardware architecture consists of three core units:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{2D Processing Element (PE) Array}: A 2D grid of PEs designed to execute both small tile matrix inversions (e.g., $16 \times 16$ or $32 \times 32$ tiles) and cross-tile matrix multiplications ($X \cdot Y$).
+    \item \textbf{On-Chip Double-Buffered Tile SRAM}: Local high-bandwidth SRAM memory storing matrix tiles. Double-buffering allows tile computation and memory streaming to occur simultaneously.
+    \item \textbf{Cross-Tile Scheduler Engine}: A dynamic hardware controller that sequences Schur tile steps, maintaining data reuse and eliminating memory stalls.
+\end{enumerate}
+
+% -------------------------------------------------------------------------
+\section{Hardware Evaluation \& Performance Speedups}
+% -------------------------------------------------------------------------
+Chen et al. evaluated the MI2D hardware accelerator across large dense matrix inversion benchmarks, comparing performance against high-end CPUs and discrete GPUs.
+
+Table~\ref{tab:ch07_mi2d_perf} summarizes the experimental results.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{MI2D Hardware Accelerator Performance Comparison (Dense Matrix Inversion)}
+\label{tab:ch07_mi2d_perf}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{2.8cm}}
+\toprule
+\textbf{Hardware Platform} & \textbf{Architecture Type} & \textbf{Execution Latency} & \textbf{Relative Speedup} \\
+\midrule
+Intel Skylake CPU & 28-Core High-End Server CPU & $12.4\,\text{ms}$ & $1.0\times$ (Baseline) \\
+NVIDIA RTX 2080 Ti & GPU SIMD CUDA Core Array & $109.2\,\text{ms}$ & $0.11\times$ (Thread div.) \\
+Intel Xeon + FPGA & Hybrid CPU-FPGA Accelerator & $7.8\,\text{ms}$ & $1.59\times$ \\
+\textbf{MI2D Accelerator} & \textbf{Dedicated 2D Schur Tile ASIC} & $\mathbf{4.55\,\text{ms}}$ & $\mathbf{2.73\times\text{ CPU, } 24\times\text{ GPU}}$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Key performance findings from Chen et al.:
+\begin{itemize}[leftmargin=*]
+    \item **$2.7\times$ Speedup over Intel Skylake 28-Core CPU**: By eliminating control flow overhead and maximizing temporal data locality within local tile SRAMs.
+    \item **$24\times$ Speedup over NVIDIA RTX 2080 Ti GPU**: The RTX 2080 Ti suffered severe latency stalls ($109.2\,\text{ms}$) due to GPU thread divergence during triangular back-substitution. MI2D's regular cross-tile matrix multiplication dataflow kept PEs fully utilized at $94\%$ operational efficiency.
+    \item **Integration Flexibility**: MI2D can be integrated into existing matrix engines (such as Google TPUs or edge NPUs) as a dedicated sub-block module for accelerating Newton optimization.
+\end{itemize}

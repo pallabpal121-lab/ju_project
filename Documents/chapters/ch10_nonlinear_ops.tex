@@ -1,0 +1,117 @@
+% =========================================================================
+\chapter{Hardware Acceleration of Non-Linear AI Operators: Softmax \& Layer Normalization}
+\label{ch:nonlinear_ops}
+% =========================================================================
+
+\section{The Non-Linear Operator Bottleneck in Transformers}
+In modern Transformer-based Large Language Models (LLMs) and Vision Transformers (such as BERT, GPT-2, GPT-4, and ViT), non-linear operators---specifically **Softmax** in scaled dot-product attention and **Layer Normalization (LayerNorm)**---have emerged as major hardware latency bottlenecks.
+
+While linear matrix multiplications (GEMM) are effectively accelerated by 2D Systolic Arrays and Tensor Cores, non-linear operators account for up to **$40\%$ of total inference latency** for long sequence lengths, despite comprising less than $1\%$ of total network parameters!
+
+As analyzed by Kim et al. (Electronics 2025)~\cite{kim2025hardware}, the non-linear execution bottleneck stems from two transcendental operations:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Floating-Point Exponentials ($e^x$)} in Softmax attention probabilities.
+    \item \textbf{Inverse Square Roots ($\frac{1}{\sqrt{x}}$)} in Layer Normalization variance scaling.
+\end{enumerate}
+
+Direct hardware implementation of floating-point $e^x$ and $\frac{1}{\sqrt{x}}$ on FPGAs requires large Lookup Tables (LUTs) or complex multi-cycle divider pipelines, stalling continuous systolic array dataflows.
+
+% -------------------------------------------------------------------------
+\section{Base-2 Polynomial Softmax Approximation Engine}
+% -------------------------------------------------------------------------
+The standard Softmax operator converts a vector of $N$ unnormalized attention logits $x \in \mathbb{R}^N$ into a probability distribution $p \in \mathbb{R}^N$:
+
+\begin{equation}
+p_i = \text{Softmax}(x_i) = \frac{e^{x_i - x_{\max}}}{\sum_{j=1}^N e^{x_j - x_{\max}}}
+\end{equation}
+where subtracting $x_{\max} = \max_j(x_j)$ prevents floating-point overflow.
+
+\subsection{Base-2 Identity Transformation}
+To eliminate the natural exponential $e^x$, Kim et al. transformed the exponential calculation from base-$e$ to base-2 using the logarithm identity:
+
+\begin{equation}
+e^z = 2^{z \cdot \log_2 e} = 2^y
+\end{equation}
+where $y = z \cdot \log_2 e$, and $\log_2 e \approx 1.44269504$.
+
+Decompose real exponent $y$ into its integer floor part $I = \lfloor y \rfloor \in \mathbb{Z}$ and fractional mantissa part $f = y - \lfloor y \rfloor \in [0, 1)$:
+
+\begin{equation}
+2^y = 2^{I + f} = 2^I \cdot 2^f
+\end{equation}
+
+\subsection{Hardware Optimization}
+This base-2 decomposition enables extreme hardware optimization:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Integer Exponent $2^I$ via Bit-Shifting}: Computing $2^I$ for integer $I$ requires **zero arithmetic logic gates**! In binary floating-point representation (IEEE 754), $2^I$ is evaluated simply by adding $I$ directly to the exponent bitfield of the floating-point register:
+    $$\text{Exponent Bits} \leftarrow \text{Exponent Bits} + I$$
+    This integer bit-shift operates in a single clock cycle with near-zero power!
+    
+    \item \textbf{Fractional Exponent $2^f$ via Minimax Polynomial}: Since $f \in [0, 1)$ is bounded within a narrow range, $2^f$ is approximated using a low-order polynomial $P_k(f)$:
+    \begin{equation}
+    2^f \approx P_2(f) = c_0 + c_1 f + c_2 f^2
+    \end{equation}
+    where coefficients $c_0, c_1, c_2$ are optimized using Chebyshev minimax polynomial approximation.
+\end{itemize}
+
+\begin{hardwarebox}[LUT Area Savings]
+By replacing high-depth exponential Lookup Tables (LUTs) with base-2 integer bit-shifting and 2nd-order minimax polynomial multipliers, Kim et al. reduced FPGA LUT consumption by **$68\%$** while maintaining under $0.5\%$ accuracy degradation across BERT benchmark evaluations.
+\end{hardwarebox}
+
+
+% -------------------------------------------------------------------------
+\section{Fast Inverse Square Root Engine for Layer Normalization}
+% -------------------------------------------------------------------------
+Layer Normalization (LayerNorm) standardizes feature activations $x \in \mathbb{R}^d$ across the channel dimension:
+
+\begin{equation}
+y_i = \text{LayerNorm}(x_i) = \frac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}} \cdot \gamma_i + \beta_i
+\end{equation}
+where $\mu = \frac{1}{d} \sum x_i$ is feature mean, $\sigma^2 = \frac{1}{d} \sum (x_i - \mu)^2$ is feature variance, $\epsilon$ is a small stability constant, and $\gamma, \beta$ are learnable scale/bias vectors.
+
+Evaluating $\frac{1}{\sqrt{\sigma^2 + \epsilon}}$ requires computing the inverse square root $\frac{1}{\sqrt{S}}$ (where $S = \sigma^2 + \epsilon$).
+
+\subsection{Newton-Raphson Seed Iteration (Fast InvSqrt)}
+Rather than building division and square-root hardware logic pipelines, Kim et al. implemented a hardware **Fast InvSqrt Engine** using Newton-Raphson seed refinement iterations.
+
+Define the inverse square root target function:
+\begin{equation}
+f(y) = \frac{1}{y^2} - S = 0 \implies y^* = \frac{1}{\sqrt{S}}
+\end{equation}
+
+Differentiating $f(y)$: $f'(y) = -\frac{2}{y^3}$.
+
+Applying 1D Newton-Raphson root finding ($y_{n+1} = y_n - \frac{f(y_n)}{f'(y_n)}$):
+
+\begin{align}
+y_{n+1} &= y_n - \frac{y_n^{-2} - S}{-2 y_n^{-3}} \\
+&= y_n + \frac{1}{2} y_n^3 (y_n^{-2} - S) \\
+&= y_n + \frac{1}{2} y_n - \frac{1}{2} S y_n^3
+\end{align}
+
+Factoring out $y_n$ yields the classic **Newton-Raphson Inverse Square Root Formula**:
+
+\begin{mathbox}[Newton-Raphson Fast InvSqrt Iteration Formula]
+\begin{equation}
+y_{n+1} = \frac{1}{2} y_n \left( 3 - S \cdot y_n^2 \right)
+\end{equation}
+Notice that this iteration formula requires **only multiplications and subtractions**---it contains zero division operations!
+\end{mathbox}
+
+\subsection{Initial Seed Lookup Table \& Convergence}
+The initial seed estimate $y_0$ is fetched from a small $64$-entry Lookup Table indexed by the exponent and leading mantissa bits of input variance $S$.
+
+Because Newton's method converges quadratically ($|e_{n+1}| \le C |e_n|^2$), **a single Newton-Raphson iteration step** ($n=1$) achieves 16-bit FP precision ($<0.01\%$ error), completely eliminating division pipelines!
+
+
+% -------------------------------------------------------------------------
+\section{Unified Reconfigurable Hardware Architecture \& Evaluation}
+% -------------------------------------------------------------------------
+Kim et al. integrated the base-2 Softmax polynomial engine and the Newton-Raphson Fast InvSqrt LayerNorm engine into a **unified reconfigurable hardware accelerator**.
+
+Key design highlights of the unified accelerator:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hardware Resource Reuse}: Multiplier and adder ALUs are dynamically multiplexed between Softmax polynomial mode and LayerNorm Newton iteration mode.
+    \item \textbf{FPGA Implementation}: Synthesized on a Xilinx Virtex UltraScale+ VU37P FPGA running at $250\,\text{MHz}$.
+    \item \textbf{Speedup Evaluation}: Demonstrated speedups of **$7.6\times$ for Softmax** and **$2.0\times$ for LayerNorm** compared to standard FPGA software implementations, while consuming under $1\%$ classification accuracy degradation on BERT and GPT-2 inference tasks.
+\end{itemize}

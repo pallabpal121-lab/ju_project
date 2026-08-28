@@ -1,0 +1,179 @@
+% =========================================================================
+\chapter{Logistic Regression, Iteratively Reweighted Least Squares (IRLS) \& Real-World Solvers}
+\label{ch:irls_financial}
+% =========================================================================
+
+\section{Binary Logistic Regression Mathematical Framework}
+Binary Logistic Regression is a statistical learning model designed to estimate the probability that an input feature vector $x_i \in \mathbb{R}^d$ belongs to a binary class $y_i \in \{0, 1\}$.
+
+The probability model utilizes the single-variable **sigmoid activation function** $\sigma(z)$:
+
+\begin{equation}
+\sigma(z) = \frac{1}{1 + e^{-z}} = \frac{e^z}{1 + e^z}
+\end{equation}
+
+Key mathematical properties of the sigmoid function:
+\begin{enumerate}[leftmargin=*]
+    \item Output bounds: $\lim_{z \to -\infty} \sigma(z) = 0$, $\lim_{z \to +\infty} \sigma(z) = 1$, $\sigma(0) = 0.5$.
+    \item Derivative identity:
+    \begin{equation}
+    \frac{d \sigma(z)}{d z} = \sigma(z) (1 - \sigma(z))
+    \end{equation}
+\end{enumerate}
+
+Given a model parameter vector $\theta \in \mathbb{R}^d$, the predicted conditional probability for sample $i$ is:
+
+\begin{equation}
+p_i = P(y_i = 1 | x_i; \theta) = \sigma(\theta^T x_i) = \frac{1}{1 + e^{-\theta^T x_i}}
+\end{equation}
+
+The probability for class $y_i = 0$ is $P(y_i = 0 | x_i; \theta) = 1 - p_i$. Combining both outcomes into a single Bernoulli likelihood distribution:
+
+\begin{equation}
+P(y_i | x_i; \theta) = p_i^{y_i} (1 - p_i)^{1 - y_i}
+\end{equation}
+
+% -------------------------------------------------------------------------
+\section{Binary Cross-Entropy Loss Function}
+% -------------------------------------------------------------------------
+For a dataset of $N$ independent training samples $\mathcal{D} = \{(x_1, y_1), \dots, (x_N, y_N)\}$, the total likelihood function $L(\theta)$ is the product of individual sample probabilities:
+
+\begin{equation}
+L(\theta) = \prod_{i=1}^N p_i^{y_i} (1 - p_i)^{1 - y_i}
+\end{equation}
+
+To convert the product into a sum and transform maximum likelihood estimation into a minimization problem, we evaluate the **Negative Log-Likelihood (NLL)**, known as the Binary Cross-Entropy Loss $\mathcal{L}(\theta)$:
+
+\begin{equation}
+\mathcal{L}(\theta) = -\log L(\theta) = -\sum_{i=1}^N \left[ y_i \log p_i + (1 - y_i) \log(1 - p_i) \right]
+\end{equation}
+
+Substitute $p_i = \sigma(\theta^T x_i)$:
+\begin{align}
+\mathcal{L}(\theta) &= -\sum_{i=1}^N \left[ y_i \log\left(\frac{1}{1+e^{-\theta^T x_i}}\right) + (1-y_i)\log\left(\frac{e^{-\theta^T x_i}}{1+e^{-\theta^T x_i}}\right) \right] \\
+&= \sum_{i=1}^N \left[ \log(1 + e^{\theta^T x_i}) - y_i \theta^T x_i \right]
+\end{align}
+
+% -------------------------------------------------------------------------
+\section{Gradient Vector \& Hessian Matrix Derivation}
+% -------------------------------------------------------------------------
+To minimize $\mathcal{L}(\theta)$ using Newton's method, we evaluate its first derivative (gradient vector $g$) and second derivative (Hessian matrix $H$).
+
+\subsection{1. Derivation of the Gradient Vector $g$}
+Differentiating $\mathcal{L}(\theta)$ with respect to parameter component $\theta_j$:
+
+\begin{align}
+\frac{\partial \mathcal{L}}{\partial \theta_j} &= \sum_{i=1}^N \left[ \frac{e^{\theta^T x_i}}{1 + e^{\theta^T x_i}} x_{ij} - y_i x_{ij} \right] \\
+&= \sum_{i=1}^N (p_i - y_i) x_{ij}
+\end{align}
+
+Expressing all $d$ gradient components in matrix vector notation:
+
+\begin{equation}
+g = \nabla \mathcal{L}(\theta) = \sum_{i=1}^N x_i (p_i - y_i) = X^T (p - y)
+\end{equation}
+where $X \in \mathbb{R}^{N \times d}$ is the feature design matrix (each row is $x_i^T$), $y \in \mathbb{R}^N$ is the target vector, and $p \in \mathbb{R}^N$ is the predicted probability vector.
+
+\subsection{2. Derivation of the Hessian Matrix $H$}
+Now differentiate $\frac{\partial \mathcal{L}}{\partial \theta_j}$ with respect to $\theta_k$:
+
+\begin{align}
+H_{jk} = \frac{\partial^2 \mathcal{L}}{\partial \theta_j \partial \theta_k} &= \frac{\partial}{\partial \theta_k} \sum_{i=1}^N (p_i - y_i) x_{ij} \\
+&= \sum_{i=1}^N \frac{\partial p_i}{\partial \theta_k} x_{ij}
+\end{align}
+
+Using the derivative identity $\frac{\partial p_i}{\partial \theta_k} = \frac{d \sigma(\theta^T x_i)}{d(\theta^T x_i)} \frac{\partial(\theta^T x_i)}{\partial \theta_k} = p_i (1 - p_i) x_{ik}$:
+
+\begin{equation}
+H_{jk} = \sum_{i=1}^N x_{ij} p_i (1 - p_i) x_{ik}
+\end{equation}
+
+In matrix notation, define $W \in \mathbb{R}^{N \times N}$ as a diagonal weighting matrix with diagonal elements:
+
+\begin{equation}
+W_{ii} = p_i (1 - p_i) = \sigma(\theta^T x_i) (1 - \sigma(\theta^T x_i))
+\end{equation}
+
+\begin{mathbox}[Gradient Vector \& Hessian Matrix for Logistic Regression]
+\begin{align}
+g = \nabla \mathcal{L}(\theta) &= X^T (p - y) \\
+H = \nabla^2 \mathcal{L}(\theta) &= X^T W X
+\end{align}
+Since $p_i \in (0, 1)$, all diagonal weights $W_{ii} > 0$. For any non-zero vector $v \in \mathbb{R}^d$:
+$$v^T H v = v^T X^T W X v = (X v)^T W (X v) = \sum_{i=1}^N W_{ii} (x_i^T v)^2 > 0$$
+Thus, the Hessian matrix $H = X^T W X$ is **strictly positive definite**. Logistic regression cross-entropy loss is strictly convex, guaranteeing a unique global minimum $\theta^*$ with zero risk of getting trapped in local minima or saddle points!
+\end{mathbox}
+
+
+% -------------------------------------------------------------------------
+\section{Algebraic Derivation of Iteratively Reweighted Least Squares (IRLS)}
+% -------------------------------------------------------------------------
+Applying Newton's parameter update rule $\theta_{t+1} = \theta_t - H_t^{-1} g_t$ to Logistic Regression:
+
+\begin{equation}
+\theta_{t+1} = \theta_t - (X^T W_t X)^{-1} X^T (p_t - y)
+\end{equation}
+
+Factor out $(X^T W_t X)^{-1}$:
+\begin{align}
+\theta_{t+1} &= (X^T W_t X)^{-1} \left[ (X^T W_t X) \theta_t - X^T (p_t - y) \right] \\
+&= (X^T W_t X)^{-1} X^T \left[ W_t X \theta_t - (p_t - y) \right] \\
+&= (X^T W_t X)^{-1} X^T W_t \left[ X \theta_t - W_t^{-1} (p_t - y) \right]
+\end{align}
+
+Define the **adjusted operational target vector** $z_t \in \mathbb{R}^N$:
+
+\begin{equation}
+z_t = X \theta_t - W_t^{-1} (p_t - y)
+\end{equation}
+
+Substituting $z_t$ back into the update formula yields the classic **IRLS update rule**:
+
+\begin{mathbox}[Iteratively Reweighted Least Squares (IRLS) Formula]
+\begin{equation}
+\theta_{t+1} = (X^T W_t X)^{-1} X^T W_t z_t
+\end{equation}
+\end{mathbox}
+
+Why is it called *Iteratively Reweighted Least Squares*?
+\begin{itemize}[leftmargin=*]
+    \item In standard weighted linear least squares, minimizing $\sum w_i (y_i - x_i^T \theta)^2$ has closed-form solution $\theta^* = (X^T W X)^{-1} X^T W y$.
+    \item In Logistic Regression, the weight matrix $W_t$ depends on $p_t = \sigma(X \theta_t)$, which changes every step. We iteratively update weights $W_t$ and target $z_t$, solving a weighted least squares problem at each step until convergence.
+\end{itemize}
+
+
+% -------------------------------------------------------------------------
+\section{Real-World Case Study 1: Options Implied Volatility Solvers}
+% -------------------------------------------------------------------------
+In quantitative finance, calculating Black-Scholes implied volatility $\sigma_{\text{imp}}$ requires solving the non-linear pricing equation:
+
+\begin{equation}
+C_{\text{market}} - C_{\text{Black-Scholes}}(S, K, r, T, \sigma_{\text{imp}}) = 0
+\end{equation}
+
+Because the Black-Scholes pricing formula involves non-linear cumulative normal distributions $\Phi(d_1)$, there is no closed-form inverse. Financial exchanges compute $\sigma_{\text{imp}}$ millions of times per second using 1D Newton-Raphson iterations:
+
+\begin{equation}
+\sigma_{t+1} = \sigma_t - \frac{C_{\text{BS}}(\sigma_t) - C_{\text{market}}}{\nu(\sigma_t)}
+\end{equation}
+where $\nu(\sigma_t) = \frac{\partial C_{\text{BS}}}{\partial \sigma} = S \sqrt{T} \Phi'(d_1)$ is the option **Vega** (derivative of price with respect to volatility).
+
+\subsection{PyTorch / TensorRT Newton-Raphson Emulation Networks}
+As documented by Lee et al. (2022)~\cite{lee2022newton}, when millions of implied volatilities must be evaluated in real time, standard CPU-bound Newton-Raphson routines reach speed limits. 
+
+Lee et al. constructed a **Newton-Raphson Emulation Network** implemented in PyTorch and optimized with NVIDIA TensorRT. The network mimics Newton step iterations in parallel SIMD tensor hardware engines, achieving over **$24\times$ higher throughput** than SciPy CPU solvers.
+
+
+% -------------------------------------------------------------------------
+\section{Real-World Case Study 2: Fast Parallel Newton Power Flow Solvers}
+% -------------------------------------------------------------------------
+In electrical power grid engineering, managing stationary grid states and probabilistic Monte Carlo risk simulations requires solving full-AC non-linear power flow equations:
+
+\begin{align}
+P_i &= \sum_{j=1}^M |V_i| |V_j| \left( G_{ij} \cos(\theta_i - \theta_j) + B_{ij} \sin(\theta_i - \theta_j) \right) \\
+Q_i &= \sum_{j=1}^M |V_i| |V_j| \left( G_{ij} \sin(\theta_i - \theta_j) - B_{ij} \cos(\theta_i - \theta_j) \right)
+\end{align}
+
+As detailed by Wang et al. (2021)~\cite{wang2021fast}, traditional power grid software solves these equations using CPU-bound Newton-Raphson iterations on the sparse grid Jacobian matrix $J$. 
+
+By restructuring the sparse Jacobian matrix factorization into dense sub-tile operations executable on parallel GPUs, Wang et al. accelerated power grid contingency analysis by over **$18\times$**, enabling real-time microsecond grid control.
