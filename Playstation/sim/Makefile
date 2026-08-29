@@ -290,9 +290,21 @@ SRCS_QUBO = $(RTL_QUBO_DIR)/qubo_types_pkg.sv \
 
 OUT_QUBO = sim_qubo.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm compile_adam compile_qubo
+# 21. PDHG / Chambolle-Pock Sources (Solver #19)
+RTL_PDHG_DIR = ../rtl/pdhg_32bit
+SRCS_PDHG = $(RTL_PDHG_DIR)/pdhg_types_pkg.sv \
+            $(RTL_PDHG_DIR)/q16_alu.sv \
+            $(RTL_PDHG_DIR)/q16_divider.sv \
+            $(RTL_PDHG_DIR)/pdhg_dual_engine.sv \
+            $(RTL_PDHG_DIR)/pdhg_primal_engine.sv \
+            $(RTL_PDHG_DIR)/pdhg_top.sv \
+            $(TB_DIR)/tb_pdhg.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo
+OUT_PDHG = sim_pdhg.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm compile_adam compile_qubo compile_pdhg
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -437,7 +449,14 @@ compile_qubo: $(SRCS_QUBO)
 run_qubo: compile_qubo
 	vvp $(OUT_QUBO)
 
+# PDHG Targets (Solver #19)
+compile_pdhg: $(SRCS_PDHG)
+	$(SIM) -g2012 -Wall -I$(RTL_PDHG_DIR) $(SRCS_PDHG) -o $(OUT_PDHG)
+
+run_pdhg: compile_pdhg
+	vvp $(OUT_PDHG)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) $(OUT_ADAM) $(OUT_QUBO) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) $(OUT_ADAM) $(OUT_QUBO) $(OUT_PDHG) *.vcd *.vvp
 
 
