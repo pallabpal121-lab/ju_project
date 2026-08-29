@@ -1,11 +1,12 @@
 # =============================================================================
-# Makefile for Universal Hardware Accelerator Suite (Solvers #1, #2, #3)
+# Makefile for Universal Hardware Accelerator Suite (Solvers #1, #2, #3, #4)
 # Supports:
 #   1. 32-bit (Q16.16) 1D Newton Accelerator
 #   2. 64-bit (Q32.32) 1D Newton Accelerator
 #   3. Multivariable N-Dimensional (Q16.16) Newton Accelerator
 #   4. Levenberg-Marquardt (Q16.16) Non-Linear Least Squares Accelerator
 #   5. Iteratively Reweighted Least Squares (IRLS) Accelerator (Solver #3)
+#   6. Quasi-Newton BFGS (Q16.16) Accelerator (Solver #4)
 # =============================================================================
 
 SIM ?= iverilog
@@ -77,9 +78,22 @@ SRCS_IRLS = $(RTL_IRLS_DIR)/irls_types_pkg.sv \
 
 OUT_IRLS = sim_irls.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls compile_32bit compile_64bit compile_multivar compile_lm compile_irls
+# 6. Quasi-Newton BFGS Sources (Solver #4)
+RTL_BFGS_DIR = ../rtl/bfgs_32bit
+SRCS_BFGS = $(RTL_BFGS_DIR)/bfgs_types_pkg.sv \
+            $(RTL_BFGS_DIR)/q16_alu.sv \
+            $(RTL_BFGS_DIR)/q16_divider.sv \
+            $(RTL_BFGS_DIR)/dfg_bfgs_engine.sv \
+            $(RTL_BFGS_DIR)/bfgs_gradient_engine.sv \
+            $(RTL_BFGS_DIR)/bfgs_matrix_update_engine.sv \
+            $(RTL_BFGS_DIR)/bfgs_top.sv \
+            $(TB_DIR)/tb_bfgs.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls
+OUT_BFGS = sim_bfgs.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -119,5 +133,12 @@ compile_irls: $(SRCS_IRLS)
 run_irls: compile_irls
 	vvp $(OUT_IRLS)
 
+# BFGS Targets (Solver #4)
+compile_bfgs: $(SRCS_BFGS)
+	$(SIM) -g2012 -Wall -I$(RTL_BFGS_DIR) $(SRCS_BFGS) -o $(OUT_BFGS)
+
+run_bfgs: compile_bfgs
+	vvp $(OUT_BFGS)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) *.vcd *.vvp
