@@ -1,10 +1,11 @@
 # =============================================================================
-# Makefile for Universal Newton & Levenberg-Marquardt Accelerator Suite
+# Makefile for Universal Hardware Accelerator Suite (Solvers #1, #2, #3)
 # Supports:
 #   1. 32-bit (Q16.16) 1D Newton Accelerator
 #   2. 64-bit (Q32.32) 1D Newton Accelerator
 #   3. Multivariable N-Dimensional (Q16.16) Newton Accelerator
 #   4. Levenberg-Marquardt (Q16.16) Non-Linear Least Squares Accelerator
+#   5. Iteratively Reweighted Least Squares (IRLS) Accelerator (Solver #3)
 # =============================================================================
 
 SIM ?= iverilog
@@ -62,9 +63,23 @@ SRCS_LM = $(RTL_LM_DIR)/lm_types_pkg.sv \
 
 OUT_LM = sim_levenberg_marquardt.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm compile_32bit compile_64bit compile_multivar compile_lm
+# 5. Iteratively Reweighted Least Squares (IRLS) Sources (Solver #3)
+RTL_IRLS_DIR = ../rtl/irls_32bit
+SRCS_IRLS = $(RTL_IRLS_DIR)/irls_types_pkg.sv \
+            $(RTL_IRLS_DIR)/q16_alu.sv \
+            $(RTL_IRLS_DIR)/q16_divider.sv \
+            $(RTL_IRLS_DIR)/q16_sqrt.sv \
+            $(RTL_IRLS_DIR)/q16_sigmoid.sv \
+            $(RTL_IRLS_DIR)/cholesky_solver_engine.sv \
+            $(RTL_IRLS_DIR)/irls_weight_grad_engine.sv \
+            $(RTL_IRLS_DIR)/irls_top.sv \
+            $(TB_DIR)/tb_irls.sv
 
-all: run_32bit run_64bit run_multivar run_lm
+OUT_IRLS = sim_irls.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls compile_32bit compile_64bit compile_multivar compile_lm compile_irls
+
+all: run_32bit run_64bit run_multivar run_lm run_irls
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -97,5 +112,12 @@ compile_lm: $(SRCS_LM)
 run_lm: compile_lm
 	vvp $(OUT_LM)
 
+# IRLS Targets (Solver #3)
+compile_irls: $(SRCS_IRLS)
+	$(SIM) -g2012 -Wall -I$(RTL_IRLS_DIR) $(SRCS_IRLS) -o $(OUT_IRLS)
+
+run_irls: compile_irls
+	vvp $(OUT_IRLS)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) *.vcd *.vvp
