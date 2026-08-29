@@ -1,5 +1,5 @@
 # =============================================================================
-# Makefile for Universal Hardware Accelerator Suite (Solvers #1 to #9)
+# Makefile for Universal Hardware Accelerator Suite (Solvers #1 to #10)
 # Supports:
 #   1. 32-bit (Q16.16) 1D Newton Accelerator
 #   2. 64-bit (Q32.32) 1D Newton Accelerator
@@ -12,6 +12,7 @@
 #   9. Sequential Quadratic Programming (SQP) Constrained Accelerator (Solver #7)
 #  10. Nelder-Mead Simplex Direct Search Accelerator (Solver #8)
 #  11. Limited-Memory BFGS (L-BFGS) Accelerator (Solver #9)
+#  12. Coordinate Descent / LASSO L1 Sparsity Accelerator (Solver #10)
 # =============================================================================
 
 SIM ?= iverilog
@@ -163,9 +164,21 @@ SRCS_LBFGS = $(RTL_LBFGS_DIR)/lbfgs_types_pkg.sv \
 
 OUT_LBFGS = sim_lbfgs.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs
+# 12. Coordinate Descent / LASSO Sources (Solver #10)
+RTL_LASSO_DIR = ../rtl/lasso_32bit
+SRCS_LASSO = $(RTL_LASSO_DIR)/lasso_types_pkg.sv \
+             $(RTL_LASSO_DIR)/q16_alu.sv \
+             $(RTL_LASSO_DIR)/q16_divider.sv \
+             $(RTL_LASSO_DIR)/q16_soft_threshold.sv \
+             $(RTL_LASSO_DIR)/lasso_coordinate_engine.sv \
+             $(RTL_LASSO_DIR)/lasso_top.sv \
+             $(TB_DIR)/tb_lasso.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs
+OUT_LASSO = sim_lasso.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -247,5 +260,12 @@ compile_lbfgs: $(SRCS_LBFGS)
 run_lbfgs: compile_lbfgs
 	vvp $(OUT_LBFGS)
 
+# LASSO Targets (Solver #10)
+compile_lasso: $(SRCS_LASSO)
+	$(SIM) -g2012 -Wall -I$(RTL_LASSO_DIR) $(SRCS_LASSO) -o $(OUT_LASSO)
+
+run_lasso: compile_lasso
+	vvp $(OUT_LASSO)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) *.vcd *.vvp
