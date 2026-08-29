@@ -1,5 +1,5 @@
 # =============================================================================
-# Makefile for Universal Hardware Accelerator Suite (Solvers #1, #2, #3, #4)
+# Makefile for Universal Hardware Accelerator Suite (Solvers #1, #2, #3, #4, #5)
 # Supports:
 #   1. 32-bit (Q16.16) 1D Newton Accelerator
 #   2. 64-bit (Q32.32) 1D Newton Accelerator
@@ -7,6 +7,7 @@
 #   4. Levenberg-Marquardt (Q16.16) Non-Linear Least Squares Accelerator
 #   5. Iteratively Reweighted Least Squares (IRLS) Accelerator (Solver #3)
 #   6. Quasi-Newton BFGS (Q16.16) Accelerator (Solver #4)
+#   7. Non-Linear Conjugate Gradient (CG) Accelerator (Solver #5)
 # =============================================================================
 
 SIM ?= iverilog
@@ -91,9 +92,22 @@ SRCS_BFGS = $(RTL_BFGS_DIR)/bfgs_types_pkg.sv \
 
 OUT_BFGS = sim_bfgs.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs
+# 7. Non-Linear Conjugate Gradient (CG) Sources (Solver #5)
+RTL_CG_DIR = ../rtl/cg_32bit
+SRCS_CG = $(RTL_CG_DIR)/cg_types_pkg.sv \
+          $(RTL_CG_DIR)/q16_alu.sv \
+          $(RTL_CG_DIR)/q16_divider.sv \
+          $(RTL_CG_DIR)/dfg_cg_engine.sv \
+          $(RTL_CG_DIR)/cg_gradient_engine.sv \
+          $(RTL_CG_DIR)/cg_line_search_engine.sv \
+          $(RTL_CG_DIR)/cg_top.sv \
+          $(TB_DIR)/tb_cg.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs
+OUT_CG = sim_cg.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -140,5 +154,12 @@ compile_bfgs: $(SRCS_BFGS)
 run_bfgs: compile_bfgs
 	vvp $(OUT_BFGS)
 
+# CG Targets (Solver #5)
+compile_cg: $(SRCS_CG)
+	$(SIM) -g2012 -Wall -I$(RTL_CG_DIR) $(SRCS_CG) -o $(OUT_CG)
+
+run_cg: compile_cg
+	vvp $(OUT_CG)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) *.vcd *.vvp

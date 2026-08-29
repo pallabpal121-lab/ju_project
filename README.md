@@ -2,25 +2,27 @@
 
 A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes six specialized hardware architectures:
+The suite includes seven specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
 4. **Solver #2: Levenberg-Marquardt (LM) Non-Linear Least Squares Accelerator (`Q16.16`)**: Industry-standard optimizer for Robotics SLAM, sensor calibration, and curve fitting featuring an **adaptive Marquardt damping controller** $(J^T J + \lambda I)\mathbf{p} = -J^T \mathbf{r}$.
 5. **Solver #3: Iteratively Reweighted Least Squares (IRLS) Accelerator (`Q16.16`)**: Physical machine learning & classification engine optimizing Logistic Regression and Generalized Linear Models (GLM) via $(X^T W X + \lambda I) \Delta \mathbf{w} = X^T (\mathbf{y} - \mathbf{p})$ with a hardware Sigmoid probability unit.
 6. **Solver #4: Quasi-Newton BFGS Accelerator (`Q16.16`)**: High-dimensional optimizer directly computing and updating the **Inverse Hessian Matrix ($B_k \approx H_k^{-1}$)** in silicon via symmetric Rank-2 updates, eliminating matrix inversions and second-derivative computations entirely.
+7. **Solver #5: Non-Linear Conjugate Gradient (CG) Accelerator (`Q16.16`)**: Ultra-low-area matrix-free $O(N)$ vector memory solver executing **Polak-Ribière conjugate direction updates with Powell restarts** and directional curvature line search.
 
 ---
 
 ## Key Features & Highlights
 
-- **Universal Programmable Equation Engine**: Evaluates arbitrary mathematical equations without hardware redesign by using an internal microcode processor with dedicated Program Memory and Register Files.
+- **Matrix-Free $O(N)$ Vector Architecture**: The Conjugate Gradient engine operates using only 4 vector registers in silicon, eliminating all matrix storage and matrix factorization overhead.
+- **Directional Curvature Line Search**: Evaluates exact second-order curvature $\kappa = \mathbf{d}^T H \mathbf{d} = (f_{+d} - 2f_0 + f_{-d}) \ll 8$ along search direction $\mathbf{d}$ with zero matrix assembly.
 - **Quasi-Newton Rank-2 Inverse Hessian Updates**: Direct hardware accumulation of $B_{k+1} = B_k + \gamma_1(\mathbf{s} \mathbf{s}^T) - \gamma_2(\mathbf{s} \mathbf{u}^T + \mathbf{u} \mathbf{s}^T)$, evaluating search directions $\mathbf{p} = -B \mathbf{g}$ with zero matrix inversions.
+- **Universal Programmable Equation Engine**: Evaluates arbitrary mathematical equations without hardware redesign by using an internal microcode processor with dedicated Program Memory and Register Files.
 - **Hardware Sigmoid Activation Engine**: Single-cycle / pipelined Q16.16 Sigmoid evaluator $\sigma(\eta) = \frac{1}{1 + e^{-\eta}}$ using symmetric piecewise linear spline interpolation.
 - **Hardware Cholesky Linear Solver**: Solves coupled multi-variable linear systems $(H + \lambda I)\mathbf{p} = -\mathbf{g}$, $(J^T J + \lambda I)\mathbf{p} = -J^T \mathbf{r}$, and $(X^T W X + \lambda I)\Delta \mathbf{w} = X^T (\mathbf{y} - \mathbf{p})$ directly in silicon using hardware Cholesky factorization ($A = L \cdot L^T$) with forward and backward substitution.
 - **Zero-Cost Bit-Shift Calculus**: Computes gradients and Hessian curvatures via numerical finite differences. Step sizes $h = 2^{-4}$ and $h = 2^{-8}$ convert all derivative divisions into single-cycle arithmetic bit-shifts.
 - **Dedicated Fixed-Point Linear Dividers & Sqrt Units**: Integrates 48-cycle / 96-cycle Radix-2 Restoring Dividers and 24-cycle Restoring Square Root units.
-- **Bit-Accurate Python Model**: Includes a Python golden reference model (`Playstation/models/newton_model.py`) for cross-verifying simulation results.
 
 ---
 
@@ -77,24 +79,34 @@ ju_project/
 │   │   │   ├── cholesky_solver_engine.sv# Hardware Cholesky linear solver
 │   │   │   ├── irls_weight_grad_engine.sv # Computes η, p, W_mm, XᵀWX, and Xᵀ(y-p)
 │   │   │   └── irls_top.sv              # Master IRLS SoC for classification
-│   │   └── bfgs_32bit/                  # [NEW] Solver #4: BFGS Quasi-Newton Suite
-│   │       ├── bfgs_types_pkg.sv        # Package: vector, matrix, microcode opcodes
-│   │       ├── bfgs_helpers.svh         # Inline helper functions
+│   │   ├── bfgs_32bit/                  # Solver #4: BFGS Quasi-Newton Suite
+│   │   │   ├── bfgs_types_pkg.sv        # Package: vector, matrix, microcode opcodes
+│   │   │   ├── bfgs_helpers.svh         # Inline helper functions
+│   │   │   ├── q16_alu.sv               # Q16.16 ALU
+│   │   │   ├── q16_divider.sv           # 48-cycle Restoring Divider
+│   │   │   ├── dfg_bfgs_engine.sv       # Programmable DFG Model Evaluator
+│   │   │   ├── bfgs_gradient_engine.sv  # Finite-difference gradient sweeper ∇f(x)
+│   │   │   ├── bfgs_matrix_update_engine.sv # Rank-2 Inverse Hessian update unit
+│   │   │   └── bfgs_top.sv              # Master BFGS SoC Accelerator
+│   │   └── cg_32bit/                    # [NEW] Solver #5: Conjugate Gradient Suite
+│   │       ├── cg_types_pkg.sv          # Package: vector, opcodes, status
+│   │       ├── cg_helpers.svh           # Inline vector helper functions
 │   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │       ├── dfg_bfgs_engine.sv       # Programmable DFG Model Evaluator
-│   │       ├── bfgs_gradient_engine.sv  # Finite-difference gradient sweeper ∇f(x)
-│   │       ├── bfgs_matrix_update_engine.sv # Rank-2 Inverse Hessian update unit
-│   │       └── bfgs_top.sv              # Master BFGS SoC Accelerator
+│   │       ├── dfg_cg_engine.sv         # Programmable DFG Model Evaluator
+│   │       ├── cg_gradient_engine.sv    # Finite-difference gradient sweeper ∇f(x)
+│   │       ├── cg_line_search_engine.sv # Directional Curvature κ & step α engine
+│   │       └── cg_top.sv                # Master CG SoC Accelerator
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 6 targets)
+│       ├── Makefile                     # Build & run Makefile (all 7 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
 │           ├── tb_newton_multivar.sv        # Multivariable testbench
 │           ├── tb_levenberg_marquardt.sv    # Levenberg-Marquardt testbench
 │           ├── tb_irls.sv                   # IRLS testbench
-│           └── tb_bfgs.sv                   # BFGS testbench
+│           ├── tb_bfgs.sv                   # BFGS testbench
+│           └── tb_cg.sv                     # Conjugate Gradient testbench
 └── README.md                            # Project documentation
 ```
 
@@ -137,7 +149,12 @@ cd Playstation/sim
    make run_bfgs
    ```
 
-7. **Run All Solver Suites**:
+7. **Run Non-Linear Conjugate Gradient (CG) Tests**:
+   ```bash
+   make run_cg
+   ```
+
+8. **Run All Solver Suites**:
    ```bash
    make all
    ```
@@ -164,3 +181,6 @@ cd Playstation/sim
 | **BFGS (Solver #4)** | 2D Coupled Quadratic $(x_0-2)^2 + (x_1-5)^2 + x_0 x_1$ | $(-0.666667, 5.333333)$ | $(-0.666672, 5.333328)$ | 4 | **PASSED** |
 | **BFGS (Solver #4)** | 2D Decoupled Quadratic $2(x_0-3)^2 + 3(x_1-4)^2$ | $(3.000000, 4.000000)$ | $(3.000488, 3.999756)$ | 16 | **PASSED** |
 | **BFGS (Solver #4)** | 3D Coupled Quadratic $(x_0-1)^2 + (x_1-2)^2 + (x_2-3)^2 + x_0 x_1$ | $(0.0, 2.0, 3.0)$ | $(-0.000046, 2.000061, 3.000046)$ | 6 | **PASSED** |
+| **Conjugate Gradient (#5)** | 2D Coupled Quadratic $(x_0-2)^2 + (x_1-5)^2 + x_0 x_1$ | $(-0.666667, 5.333333)$ | $(-0.666580, 5.333344)$ | 2 | **PASSED** |
+| **Conjugate Gradient (#5)** | 2D Decoupled Quadratic $2(x_0-3)^2 + 3(x_1-4)^2$ | $(3.000000, 4.000000)$ | $(3.000351, 4.000107)$ | 2 | **PASSED** |
+| **Conjugate Gradient (#5)** | 3D Coupled Quadratic $(x_0-1)^2 + (x_1-2)^2 + (x_2-3)^2 + x_0 x_1$ | $(0.0, 2.0, 3.0)$ | $(-0.001358, 2.001373, 3.000031)$ | 5 | **PASSED** |
