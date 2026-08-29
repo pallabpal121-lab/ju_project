@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes twenty-one specialized hardware architectures:
+The suite includes twenty-two specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -24,16 +24,20 @@ The suite includes twenty-one specialized hardware architectures:
 19. **Solver #17: Adam / RMSProp / Momentum SGD Neural Accelerator (`Q16.16`)**: Deep learning adaptive optimizer executing first-moment running mean $\mathbf{m}_t = \beta_1 \mathbf{m}_{t-1} + (1-\beta_1)\mathbf{g}_t$, second-moment uncentered variance $\mathbf{v}_t = \beta_2 \mathbf{v}_{t-1} + (1-\beta_2)\mathbf{g}_t^2$, coordinate-wise normalization $\frac{\alpha \mathbf{m}_t}{\sqrt{\mathbf{v}_t} + \epsilon}$, AdamW decoupled weight decay, and adaptive ravine step contraction.
 20. **Solver #18: Quadratic Unconstrained Binary Optimization (QUBO) / Simulated Annealing (SA) Ising Accelerator (`Q16.16`)**: Hardware Ising Hamiltonian engine minimizing $E(\mathbf{q}) = \mathbf{q}^T Q \mathbf{q}$ over binary spins $\mathbf{q} \in \{0, 1\}^N$ via single-cycle local field evaluations $\Delta E_k$, pipelined Boltzmann exponential acceptance $P = \exp(-\Delta E / T)$, hardware Xorshift stochastic sampling, and geometric thermal cooling.
 21. **Solver #19: Primal-Dual Hybrid Gradient (PDHG / Chambolle-Pock) Accelerator (`Q16.16`)**: Non-smooth first-order minimax saddle-point solver alternating dual projection $\mathbf{y}_{k+1} = \text{prox}_{\sigma g^*}(\mathbf{y}_k + \sigma K \bar{\mathbf{x}}_k)$, primal proximal resolution $\mathbf{x}_{k+1} = \text{prox}_{\tau f}(\mathbf{x}_k - \tau K^T \mathbf{y}_{k+1})$, and over-relaxation extrapolation $\bar{\mathbf{x}}_{k+1} = 2\mathbf{x}_{k+1} - \mathbf{x}_k$ for Total Variation (TV) denoising and compressed sensing.
+22. **Solver #20: Frank-Wolfe / Conditional Gradient Accelerator (`Q16.16`)**: Projection-free constrained optimization engine replacing expensive Euclidean projections with a **Linear Minimization Oracle (LMO)** $\mathbf{s}_k = \arg\min_{\mathbf{s} \in \mathcal{C}} \langle \mathbf{s}, \nabla f(\mathbf{x}_k) \rangle$ over $L_1$ balls, hyperboxes, and probability simplices with exact quadratic line search and Duality Gap stopping certificates.
 
 ---
 
 ## Key Features & Highlights
 
+- **Hardware Linear Minimization Oracle (LMO)**: Evaluates extreme vertices of constraint polytopes in a single clock cycle without matrix inversions or quadratic subproblems:
+  - $L_1$ Ball ($\|\mathbf{x}\|_1 \le R$): Sparse extreme vertex selection $i^* = \arg\max |g_i|$.
+  - Hyperbox ($\mathbf{l} \le \mathbf{x} \le \mathbf{u}$): Direct coordinate-wise sign thresholding.
+  - Probability Simplex ($\sum x_i = 1, x_i \ge 0$): Discrete minimum coordinate selection.
+- **Exact Line Search & Duality Gap Engine**: Pipelined hardware step evaluator computing exact quadratic step sizes $\gamma = \frac{-\mathbf{g}^T \mathbf{d}}{\mathbf{d}^T Q \mathbf{d}}$ and certifying global suboptimality via the Frank-Wolfe Duality Gap $\text{gap} = \mathbf{g}^T (\mathbf{x} - \mathbf{s}) \le \epsilon_{\text{tol}}$.
 - **Chambolle-Pock First-Order Primal-Dual Engine**: Solves non-smooth saddle-point optimization $\min_{\mathbf{x}} f(\mathbf{x}) + g(K \mathbf{x})$ in hardware via alternating forward-backward primal-dual iterations with single-cycle extrapolation $\bar{\mathbf{x}} = 2\mathbf{x}_{\text{new}} - \mathbf{x}_{\text{old}}$.
-- **Hardware Linear Operator Engine**: Dual $K \bar{\mathbf{x}}$ and adjoint $K^T \mathbf{y}$ matrix-vector evaluators executing Total Variation discrete differences and linear measurements without matrix inversions.
 - **Hardware Ising Hamiltonian & Local Field Engine**: Evaluates single-spin flip energy changes $\Delta E_k = (1 - 2 q_k)(Q_{kk} + \sum_{j \ne k} (Q_{kj} + Q_{jk}) q_j)$ with zero-latency arithmetic, enabling millions of spin flips per second.
 - **Pipelined Boltzmann Probability Evaluator**: Evaluates $P = \exp(-\Delta E / T)$ in fixed-point via base-2 decomposition $\exp(-u) = 2^{-k} \cdot (1 - \ln(2)f + 0.240226 f^2)$, delivering $>99.9\%$ accuracy across the entire domain.
-- **Hardware Xorshift PRNG Stochastic Sampling**: Generates single-cycle uniform pseudo-random fractional numbers $R \in [0, 1)$ in Q16.16, executing ergodic Metropolis-Hastings Markov chain Monte Carlo exploration.
 - **Adaptive Moment Estimation (Adam) Pipeline**: Pipelined hardware moment accumulator maintaining first moment $\mathbf{m}_t$ and second moment $\mathbf{v}_t$, evaluating coordinate-wise normalized updates $\Delta \theta_i = \frac{\alpha m_i}{\sqrt{v_i} + \epsilon}$ via a dedicated 24-cycle restoring square root and 48-cycle divider.
 - **Augmented Normal KKT Hardware Solver**: Evaluates the condensed $N \times N$ system $(Q + A^T \Theta A)\Delta \mathbf{x} = -\mathbf{g}_{\text{aug}}$ using hardware Cholesky decomposition, with scale-invariant diagonal damping $\Theta = Z S^{-1}$ clamped to avoid fixed-point ill-conditioning.
 - **Fraction-to-the-Boundary Step Selector**: Evaluates $\alpha_p = \min(1.0, \tau \min_{\Delta s_i < 0} (s_i / -\Delta s_i))$ and $\alpha_d = \min(1.0, \tau \min_{\Delta z_i < 0} (z_i / -\Delta z_i))$ in hardware, guaranteeing strict primal-dual interior positivity ($\mathbf{s} > \mathbf{0}, \mathbf{z} > \mathbf{0}$).
@@ -86,16 +90,17 @@ ju_project/
 │   │   ├── ipm_32bit/                   # Solver #16: Primal-Dual IPM Suite
 │   │   ├── adam_32bit/                  # Solver #17: Adam Neural Accelerator Suite
 │   │   ├── qubo_32bit/                  # Solver #18: QUBO / Simulated Annealing Suite
-│   │   └── pdhg_32bit/                  # [NEW] Solver #19: PDHG / Chambolle-Pock Suite
-│   │       ├── pdhg_types_pkg.sv        # Package: primal/dual vectors, K matrix, modes
-│   │       ├── pdhg_helpers.svh         # Inline matrix-vector math & soft-thresholding
+│   │   ├── pdhg_32bit/                  # Solver #19: PDHG / Chambolle-Pock Suite
+│   │   └── frank_wolfe_32bit/           # [NEW] Solver #20: Frank-Wolfe Accelerator Suite
+│   │       ├── fw_types_pkg.sv          # Package: geometries, step modes, vector/matrix types
+│   │       ├── fw_helpers.svh           # Inline dot products & convex combinations
 │   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │       ├── pdhg_dual_engine.sv      # Dual projection & step updater
-│   │       ├── pdhg_primal_engine.sv    # Primal proximal solver & over-relaxation
-│   │       └── pdhg_top.sv              # Master PDHG SoC Controller
+│   │       ├── fw_lmo_engine.sv         # Linear Minimization Oracle for L1, Box, Simplex
+│   │       ├── fw_step_engine.sv        # Line search & duality gap engine
+│   │       └── fw_top.sv                # Master Frank-Wolfe SoC Controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 21 targets)
+│       ├── Makefile                     # Build & run Makefile (all 22 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -117,7 +122,8 @@ ju_project/
 │           ├── tb_ipm.sv                    # Primal-Dual IPM testbench
 │           ├── tb_adam.sv                   # Adam Neural Accelerator testbench
 │           ├── tb_qubo.sv                   # QUBO / Simulated Annealing testbench
-│           └── tb_pdhg.sv                   # PDHG / Chambolle-Pock testbench
+│           ├── tb_pdhg.sv                   # PDHG / Chambolle-Pock testbench
+│           └── tb_frank_wolfe.sv            # Frank-Wolfe Accelerator testbench
 └── README.md                            # Project documentation
 ```
 
@@ -235,7 +241,12 @@ cd Playstation/sim
     make run_pdhg
     ```
 
-22. **Run All 21 Solver Suites Regression**:
+22. **Run Frank-Wolfe Tests**:
+    ```bash
+    make run_fw
+    ```
+
+23. **Run All 22 Solver Suites Regression**:
     ```bash
     make all
     ```
@@ -306,3 +317,6 @@ cd Playstation/sim
 | **PDHG (#19)** | Total Variation (TV-L2) 1D Step Signal Denoising | $[1.250000, 1.250000, 3.750000, 3.750000]$ | $[1.248840, 1.250610, 3.749329, 3.751099]$ | 31 | **PASSED** |
 | **PDHG (#19)** | Basis Pursuit / L1 Sparse Signal Recovery | $[2.000000, 0.000000, 3.000000, 0.000000]$ | $[1.966736, 0.000000, 2.966705, 0.000000]$ | 58 | **PASSED** |
 | **PDHG (#19)** | Non-Negative Constrained Linear Inversion | $[0.000000, 2.000000]$ | $[0.000000, 2.001770]$ | 49 | **PASSED** |
+| **Frank-Wolfe (#20)** | $L_1$ Ball Constrained Quadratic (Sparse FW) | $(1.000000, 0.000000)$ | $(1.000000, 0.000000)$ | 2 | **PASSED** |
+| **Frank-Wolfe (#20)** | Probability Simplex Constrained (Simplex FW) | $(0.000000, 0.450000, 0.550000, 0.000000)$ | $(0.008865, 0.444443, 0.537033, 0.008865)$ | 50 | **PASSED** |
+| **Frank-Wolfe (#20)** | Hyperbox Constrained Quadratic (Box FW) | $(1.000000, 0.500000)$ | $(1.000000, 0.500000)$ | 3 | **PASSED** |
