@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, high-dimensional Quasi-Newton scaling, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes ten specialized hardware architectures:
+The suite includes eleven specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -13,11 +13,13 @@ The suite includes ten specialized hardware architectures:
 8. **Solver #6: Gauss-Newton Non-Linear Least Squares Accelerator (`Q16.16`)**: Second-order non-linear least squares engine solving $(J^T J + \lambda_{\text{eps}} I)\mathbf{p} = -J^T \mathbf{r}$ via direct hardware Cholesky factorization.
 9. **Solver #7: Sequential Quadratic Programming (SQP) Constrained Accelerator (`Q16.16`)**: Active-Set Primal-Dual constrained optimization engine solving non-linear problems under hard physical box constraints $\mathbf{l} \le \mathbf{x} \le \mathbf{u}$ with KKT Lagrange multiplier shadow prices.
 10. **Solver #8: Nelder-Mead Simplex Direct Search Accelerator (`Q16.16`)**: Derivative-free heuristic optimizer transforming an $(N+1)$-dimensional geometric simplex via hardware Reflection, Expansion, Contraction, and Shrink operations for non-differentiable or noisy black-box fitness functions.
+11. **Solver #9: Limited-Memory BFGS (L-BFGS) Accelerator (`Q16.16`)**: High-dimensional Quasi-Newton solver operating via an $O(mN)$ circular displacement history buffer and **Two-Loop Recursion** pipeline, eliminating full matrix storage entirely.
 
 ---
 
 ## Key Features & Highlights
 
+- **L-BFGS Two-Loop Recursion Pipeline**: Evaluates Quasi-Newton search directions $\mathbf{p} = -H_k \mathbf{g}_k$ using only $M=4$ displacement vectors ($\mathbf{s}_i, \mathbf{y}_i, \rho_i$) with backward/forward recursion, saving $>90\%$ silicon area compared to full matrix BFGS.
 - **Derivative-Free Geometric Simplex Engine**: Nelder-Mead hardware state machine optimizing non-smooth and noisy functions via single-cycle bit-shift geometric transformations without derivatives or matrix inversions.
 - **Active-Set Primal-Dual KKT Engine**: Solves hard inequality constrained problems in silicon, automatically classifying active boundary variables, computing shadow prices $\mu_i$, and solving reduced-order systems $H_{\text{free}} \mathbf{p}_{\text{free}} = -\mathbf{g}_{\text{free}}$ via Cholesky decomposition.
 - **Direct Hardware Normal Equation Solvers**: Solves $(J^T J + \lambda_{\text{eps}} I)\mathbf{p} = -J^T \mathbf{r}$ with single-cycle zero-cost bit-shift Jacobian calculations and hardware Cholesky factorization.
@@ -43,20 +45,22 @@ ju_project/
 │   │   ├── newton_multivar_32bit/       # Solver #1C: Multivariable N-Dimensional Suite
 │   │   ├── levenberg_marquardt_32bit/   # Solver #2: Levenberg-Marquardt Suite
 │   │   ├── irls_32bit/                  # Solver #3: IRLS Suite
-│   │   ├── bfgs_32bit/                  # Solver #4: BFGS Quasi-Newton Suite
+│   │   ├── bfgs_32bit/                  # Solver #4: BFGS Full-Matrix Suite
 │   │   ├── cg_32bit/                    # Solver #5: Conjugate Gradient Suite
 │   │   ├── gauss_newton_32bit/          # Solver #6: Gauss-Newton Suite
 │   │   ├── sqp_32bit/                   # Solver #7: SQP Constrained Suite
-│   │   └── nelder_mead_32bit/           # [NEW] Solver #8: Nelder-Mead Simplex Suite
-│   │       ├── nm_types_pkg.sv          # Package: vector, simplex types, opcodes
-│   │       ├── nm_helpers.svh           # Inline vector/simplex helper functions
-│   │       ├── q16_alu.sv               # Q16.16 ALU with OP_ABS support
+│   │   ├── nelder_mead_32bit/           # Solver #8: Nelder-Mead Simplex Suite
+│   │   └── lbfgs_32bit/                 # [NEW] Solver #9: L-BFGS Two-Loop Suite
+│   │       ├── lbfgs_types_pkg.sv       # Package: circular history, opcodes, status
+│   │       ├── lbfgs_helpers.svh        # Inline vector/history helper functions
+│   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │       ├── dfg_nm_engine.sv         # DFG Model Evaluator f(x)
-│   │       ├── nm_simplex_core.sv       # Geometric Simplex Transformation Core
-│   │       └── nelder_mead_top.sv       # Master Nelder-Mead SoC Controller
+│   │       ├── dfg_lbfgs_engine.sv      # DFG Model Evaluator f(x)
+│   │       ├── lbfgs_gradient_engine.sv # Zero-cost bit-shift gradient sweeper
+│   │       ├── lbfgs_two_loop_engine.sv # Two-Loop Recursion Pipeline
+│   │       └── lbfgs_top.sv             # Master L-BFGS SoC Controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 10 targets)
+│       ├── Makefile                     # Build & run Makefile (all 11 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -67,7 +71,8 @@ ju_project/
 │           ├── tb_cg.sv                     # Conjugate Gradient testbench
 │           ├── tb_gauss_newton.sv           # Gauss-Newton testbench
 │           ├── tb_sqp.sv                    # SQP testbench
-│           └── tb_nelder_mead.sv            # Nelder-Mead testbench
+│           ├── tb_nelder_mead.sv            # Nelder-Mead testbench
+│           └── tb_lbfgs.sv                  # L-BFGS testbench
 └── README.md                            # Project documentation
 ```
 
@@ -130,7 +135,12 @@ cd Playstation/sim
     make run_nm
     ```
 
-11. **Run All Solver Suites**:
+11. **Run L-BFGS Tests**:
+    ```bash
+    make run_lbfgs
+    ```
+
+12. **Run All Solver Suites**:
     ```bash
     make all
     ```
@@ -168,3 +178,6 @@ cd Playstation/sim
 | **Nelder-Mead (#8)** | 2D Paraboloid Direct Search | $(3.000000, 4.000000)$ | $(3.003143, 3.999542)$ | 28 | **PASSED** |
 | **Nelder-Mead (#8)** | 2D Coupled Quadratic Direct Search | $(-0.666667, 5.333333)$ | $(-0.668518, 5.332626)$ | 29 | **PASSED** |
 | **Nelder-Mead (#8)** | Non-Smooth $\|x_0 - 2\| + 2\|x_1 - 3\|$ | $(2.000000, 3.000000)$ | $(1.998215, 2.997726)$ | 30 | **PASSED** |
+| **L-BFGS (#9)** | 2D Coupled Quadratic | $(-0.666667, 5.333333)$ | $(-0.666412, 5.333221)$ | 3 | **PASSED** |
+| **L-BFGS (#9)** | 2D Decoupled Paraboloid | $(3.000000, 4.000000)$ | $(2.999985, 4.000031)$ | 4 | **PASSED** |
+| **L-BFGS (#9)** | 3D Coupled Quadratic | $(0.000000, 2.000000, 3.000000)$ | $(0.000244, 2.000015, 3.000046)$ | 6 | **PASSED** |

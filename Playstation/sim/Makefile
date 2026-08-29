@@ -1,5 +1,5 @@
 # =============================================================================
-# Makefile for Universal Hardware Accelerator Suite (Solvers #1 to #8)
+# Makefile for Universal Hardware Accelerator Suite (Solvers #1 to #9)
 # Supports:
 #   1. 32-bit (Q16.16) 1D Newton Accelerator
 #   2. 64-bit (Q32.32) 1D Newton Accelerator
@@ -11,6 +11,7 @@
 #   8. Gauss-Newton (Q16.16) Accelerator (Solver #6)
 #   9. Sequential Quadratic Programming (SQP) Constrained Accelerator (Solver #7)
 #  10. Nelder-Mead Simplex Direct Search Accelerator (Solver #8)
+#  11. Limited-Memory BFGS (L-BFGS) Accelerator (Solver #9)
 # =============================================================================
 
 SIM ?= iverilog
@@ -149,9 +150,22 @@ SRCS_NM = $(RTL_NM_DIR)/nm_types_pkg.sv \
 
 OUT_NM = sim_nelder_mead.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm
+# 11. Limited-Memory BFGS (L-BFGS) Sources (Solver #9)
+RTL_LBFGS_DIR = ../rtl/lbfgs_32bit
+SRCS_LBFGS = $(RTL_LBFGS_DIR)/lbfgs_types_pkg.sv \
+             $(RTL_LBFGS_DIR)/q16_alu.sv \
+             $(RTL_LBFGS_DIR)/q16_divider.sv \
+             $(RTL_LBFGS_DIR)/dfg_lbfgs_engine.sv \
+             $(RTL_LBFGS_DIR)/lbfgs_gradient_engine.sv \
+             $(RTL_LBFGS_DIR)/lbfgs_two_loop_engine.sv \
+             $(RTL_LBFGS_DIR)/lbfgs_top.sv \
+             $(TB_DIR)/tb_lbfgs.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm
+OUT_LBFGS = sim_lbfgs.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -226,5 +240,12 @@ compile_nm: $(SRCS_NM)
 run_nm: compile_nm
 	vvp $(OUT_NM)
 
+# L-BFGS Targets (Solver #9)
+compile_lbfgs: $(SRCS_LBFGS)
+	$(SIM) -g2012 -Wall -I$(RTL_LBFGS_DIR) $(SRCS_LBFGS) -o $(OUT_LBFGS)
+
+run_lbfgs: compile_lbfgs
+	vvp $(OUT_LBFGS)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) *.vcd *.vvp
