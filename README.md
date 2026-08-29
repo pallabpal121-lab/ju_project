@@ -1,20 +1,22 @@
 # Universal Newton 2nd-Order Hardware Optimization Accelerator
 
-A high-performance, programmable **Universal Newton 2nd-Order Hardware Optimization Accelerator** implemented in SystemVerilog. Designed for embedded physical AI, robotics trajectory optimization, nonlinear parameter estimation, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Universal Newton 2nd-Order Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics trajectory optimization, nonlinear parameter estimation, and scientific computing on FPGA/ASIC platforms.
 
-The accelerator is implemented in two precision tiers:
-- **32-Bit Tier (`Q16.16`)**: Standard fixed-point architecture optimized for low-area, high-throughput embedded edge devices.
-- **64-Bit Tier (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for industry-standard scientific and aerospace workloads.
+The suite includes three dedicated silicon architectures:
+- **1D 32-Bit Tier (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
+- **1D 64-Bit Tier (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
+- **Multivariable N-Dimensional Tier (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
 
 ---
 
 ## Key Features & Highlights
 
 - **Universal Programmable Equation Engine**: Evaluates arbitrary mathematical equations without hardware redesign by using an internal microcode processor with dedicated Program Memory and Register Files.
-- **Zero-Cost Bit-Shift Calculus**: Computes 1st derivatives (gradients) and 2nd derivatives (Hessian curvature) via 3-point numerical finite differences. By selecting step sizes $h = 2^{-4}$ (32-bit) and $h = 2^{-8}$ (64-bit), all derivative divisions are converted into single-cycle arithmetic bit-shifts.
-- **Dedicated Fixed-Point Linear Solver**: Integrates 48-cycle (32-bit) and 96-cycle (64-bit) Radix-2 Restoring Dividers to compute the Newton step $\Delta x = -\frac{g(x)}{H(x)}$ in silicon.
-- **Levenberg-Marquardt Damping**: Adds dynamic regularization $\lambda$ to the curvature denominator to prevent division by zero near flat or singular regions.
-- **Bit-Accurate Python Model**: Includes a Python golden reference model (`Playstation/models/newton_model.py`) for compiling equations and cross-verifying simulation results.
+- **Zero-Cost Bit-Shift Calculus**: Computes 1st derivatives (gradients) and 2nd derivatives (Hessian curvature) via numerical finite differences. Step sizes $h = 2^{-4}$ and $h = 2^{-8}$ convert all derivative divisions into single-cycle arithmetic bit-shifts.
+- **Hardware Cholesky Linear Solver**: Solves coupled multi-variable linear systems $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ directly in silicon using hardware Cholesky factorization ($A = L \cdot L^T$) with forward and backward substitution.
+- **Dedicated Fixed-Point Linear Dividers & Sqrt Units**: Integrates 48-cycle / 96-cycle Radix-2 Restoring Dividers and 24-cycle Restoring Square Root units.
+- **Levenberg-Marquardt Damping**: Adds dynamic regularization $\lambda$ to the curvature denominator to guarantee positive definiteness and prevent division by zero near flat or singular regions.
+- **Bit-Accurate Python Model**: Includes a Python golden reference model (`Playstation/models/newton_model.py`) for cross-verifying simulation results.
 
 ---
 
@@ -27,25 +29,36 @@ ju_project/
 │   ├── models/                          # Golden reference software models
 │   │   └── newton_model.py              # Bit-accurate Python simulation model
 │   ├── rtl/                             # SystemVerilog RTL source code
-│   │   ├── newton_2nd_order_32bit/      # 32-bit Q16.16 Accelerator Suite
+│   │   ├── newton_2nd_order_32bit/      # 32-bit Q16.16 1D Accelerator Suite
 │   │   │   ├── newton_types_pkg.sv      # Package: Q16.16 types, opcodes, constants
 │   │   │   ├── q16_alu.sv               # Single-cycle Q16.16 fixed-point ALU
 │   │   │   ├── q16_divider.sv           # 48-cycle Radix-2 restoring divider
 │   │   │   ├── dfg_equation_engine.sv   # Programmable microcode DFG processor
 │   │   │   ├── derivative_engine.sv     # Finite-difference derivative engine
 │   │   │   └── newton_2nd_order_top.sv  # Top-level master optimization SoC
-│   │   └── newton_2nd_order_64bit/      # 64-bit Q32.32 Accelerator Suite
-│   │       ├── newton_types_64bit_pkg.sv# Package: Q32.32 types, opcodes, constants
-│   │       ├── q32_alu.sv               # Single-cycle Q32.32 fixed-point ALU
-│   │       ├── q32_divider.sv           # 96-cycle Radix-2 restoring divider
-│   │       ├── dfg_equation_engine_64bit.sv # 64-register microcode DFG processor
-│   │       ├── derivative_engine_64bit.sv   # 64-bit finite-difference engine
-│   │       └── newton_2nd_order_64bit_top.sv# Top-level 64-bit master SoC
+│   │   ├── newton_2nd_order_64bit/      # 64-bit Q32.32 1D Accelerator Suite
+│   │   │   ├── newton_types_64bit_pkg.sv# Package: Q32.32 types, opcodes, constants
+│   │   │   ├── q32_alu.sv               # Single-cycle Q32.32 fixed-point ALU
+│   │   │   ├── q32_divider.sv           # 96-cycle Radix-2 restoring divider
+│   │   │   ├── dfg_equation_engine_64bit.sv # 64-register microcode DFG processor
+│   │   │   ├── derivative_engine_64bit.sv   # 64-bit finite-difference engine
+│   │   │   └── newton_2nd_order_64bit_top.sv# Top-level 64-bit master SoC
+│   │   └── newton_multivar_32bit/       # [NEW] Multivariable N-Dimensional Suite
+│   │       ├── newton_multivar_pkg.sv   # Package: packed 128-bit vector & 512-bit matrix
+│   │       ├── multivar_helpers.svh     # Inline vector and matrix access functions
+│   │       ├── q16_alu.sv               # Q16.16 ALU
+│   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
+│   │       ├── q16_sqrt.sv              # 24-cycle Restoring Square Root Engine
+│   │       ├── cholesky_solver_engine.sv# Hardware Cholesky linear solver (A = L·Lᵀ)
+│   │       ├── dfg_multivar_engine.sv   # Multi-variable DFG equation evaluator
+│   │       ├── multivar_derivative_engine.sv # Multi-point Gradient & Hessian sweeper
+│   │       └── newton_multivar_top.sv   # Master Multivariable SoC Accelerator
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (32-bit & 64-bit targets)
+│       ├── Makefile                     # Build & run Makefile (32-bit, 64-bit, multivar)
 │       └── tb_sv/                       # SystemVerilog testbenches
-│           ├── tb_newton_2nd_order.sv       # 32-bit testbench
-│           └── tb_newton_2nd_order_64bit.sv # 64-bit testbench
+│           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
+│           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
+│           └── tb_newton_multivar.sv        # Multivariable testbench
 └── README.md                            # Project documentation
 ```
 
@@ -53,81 +66,35 @@ ju_project/
 
 ## Mathematical Architecture & Optimization Flow
 
-### 1. Newton's Second-Order Method
-The accelerator iteratively finds the local minimum / root $x^*$ of a function $f(x)$ using the update rule:
+### 1. Multivariable Newton's Second-Order Method
+The multivariable accelerator iteratively updates a vector of $N$ coupled parameters $\mathbf{x} = [x_0, x_1, \dots, x_{N-1}]^T$:
 
-$$x_{k+1} = x_k - \alpha \cdot \frac{f'(x_k)}{f''(x_k)} = x_k - \alpha \cdot \frac{g(x_k)}{H(x_k)}$$
+$$(H + \lambda I) \mathbf{p} = -\mathbf{g}$$
 
-### 2. 3-Point Numerical Finite Differences
-The derivative engine samples the function at three points:
-1. $f_0 = f(x)$
-2. $f_+ = f(x + h)$
-3. $f_- = f(x - h)$
+$$\mathbf{x}_{k+1} = \mathbf{x}_k + \alpha \mathbf{p}$$
 
-The difference terms are:
-- $\Delta_1 = f_+ - f_-$
-- $\Delta_2 = f_+ - 2f_0 + f_-$
+- $\mathbf{g} = \nabla f(\mathbf{x})$: $N \times 1$ Gradient vector.
+- $H = \nabla^2 f(\mathbf{x})$: $N \times N$ symmetric Hessian curvature matrix.
+- $\mathbf{p}$: Newton search direction vector.
+- $\alpha$: Step size / learning rate.
 
-From calculus:
-- Gradient: $g(x) \approx \frac{\Delta_1}{2h}$
-- Hessian: $H(x) \approx \frac{\Delta_2}{h^2}$
+### 2. Multi-Point Finite-Difference Calculus in Hardware
+- **Gradient Vector ($g_i$)**: $g_i = \frac{f(\mathbf{x} + h\mathbf{e}_i) - f(\mathbf{x} - h\mathbf{e}_i)}{2h} = (f_{+i} - f_{-i}) \ll 3$ (for $h = 2^{-4}$).
+- **Diagonal Hessian ($H_{ii}$)**: $H_{ii} = \frac{f_{+i} - 2f_0 + f_{-i}}{h^2} = (f_{+i} - 2f_0 + f_{-i}) \ll 8$.
+- **Off-Diagonal Hessian ($H_{ij}, i \neq j$)**:
+  $$H_{ij} = \frac{f(\mathbf{x} + h\mathbf{e}_i + h\mathbf{e}_j) - f(\mathbf{x} + h\mathbf{e}_i - h\mathbf{e}_j) - f(\mathbf{x} - h\mathbf{e}_i + h\mathbf{e}_j) + f(\mathbf{x} - h\mathbf{e}_i - h\mathbf{e}_j)}{4h^2}$$
+  Dividing by $4h^2 = 2^{-6}$ is an arithmetic left shift by 6 (`<<< 6`).
 
-### 3. Simplified Hardware Newton Step
-Combining the terms into the Newton update:
-
-$$\Delta x = -\frac{g(x)}{H(x)} = -\frac{\Delta_1 / (2h)}{\Delta_2 / h^2} = -\frac{h \cdot \Delta_1}{2 \cdot \Delta_2}$$
-
-| Computation | 32-Bit Hardware (`h = 2^-4 = 0.0625`) | 64-Bit Hardware (`h = 2^-8 = 0.00390625`) |
-| :--- | :--- | :--- |
-| **Numerator ($h \cdot \Delta_1$)** | `diff_1st >>> 4` (Shift right 4) | `diff_1st >>> 8` (Shift right 8) |
-| **Denominator ($2 \cdot \Delta_2 \pm \lambda$)** | `(diff_2nd <<< 1) ± lambda` | `(diff_2nd <<< 1) ± lambda` |
-| **Gradient ($g(x) = \Delta_1 / 2h$)** | `diff_1st <<< 3` (Multiply by 8) | `diff_1st <<< 7` (Multiply by 128) |
-
----
-
-## Microcode Instruction Set Architecture (ISA)
-
-Equations are encoded into 32-bit or 64-bit microcode words and executed by the internal DFG engine:
-
-### Opcode Table:
-| Opcode | Name | Operation | Description |
-| :---: | :--- | :--- | :--- |
-| `4'd0` | `OP_NOP` | No-op | Does nothing |
-| `4'd1` | `OP_ADD` | `r[dst] = r[src_a] + r[src_b]` | Signed addition |
-| `4'd2` | `OP_SUB` | `r[dst] = r[src_a] - r[src_b]` | Signed subtraction |
-| `4'd3` | `OP_MUL` | `r[dst] = (r[src_a] * r[src_b]) >> FracBits` | Fixed-point multiplication |
-| `4'd4` | `OP_DIV` | `r[dst] = (r[src_a] << FracBits) / r[src_b]` | Multi-cycle restoring division |
-| `4'd5` | `OP_NEG` | `r[dst] = -r[src_a]` | Two's complement negation |
-| `4'd6` | `OP_MOV` | `r[dst] = r[src_a]` | Register copy |
-| `4'd7` | `OP_LOADC` | `r[dst] = {imm, 0...}` | Formats integer immediate to fixed-point |
-| `4'd8` | `OP_END` | Output `r[REG_RESULT]` | Completes evaluation |
-
-### Micro-Instruction Formats:
-
-#### 32-Bit Instruction Word (`instr_t`):
-```
- 31        28 27        24 23        20 19        16 15                         0
-+------------+------------+------------+------------+-------------------------------+
-|  op (4b)   |  dst (4b)  | src_a (4b) | src_b (4b) |          imm (16b)            |
-+------------+------------+------------+------------+-------------------------------+
-```
-
-#### 64-Bit Instruction Word (`instr64_t`):
-```
- 63        60 59        54 53        48 47        42 41        32 31                0
-+------------+------------+------------+------------+------------+------------------+
-|  op (4b)   |  dst (6b)  | src_a (6b) | src_b (6b) |  rsrv (10b)|     imm (32b)    |
-+------------+------------+------------+------------+------------+------------------+
-```
+### 3. Hardware Cholesky Decomposition ($A = L \cdot L^T$)
+Instead of numerically unstable matrix inversion, the hardware decomposes $A = (H + \lambda I)$ into lower-triangular matrix $L$:
+1. **Diagonal**: $L_{ii} = \sqrt{A_{ii} - \sum_{k=0}^{i-1} L_{ik}^2}$ (computed via `q16_sqrt`)
+2. **Off-Diagonal**: $L_{ji} = \frac{1}{L_{ii}} \left( A_{ji} - \sum_{k=0}^{i-1} L_{jk} L_{ik} \right)$ (computed via `q16_divider`)
+3. **Forward Substitution**: Solves $L \mathbf{y} = -\mathbf{g}$
+4. **Backward Substitution**: Solves $L^T \mathbf{p} = \mathbf{y}$
 
 ---
 
 ## Quickstart: Simulation & Verification
-
-### Prerequisites
-- **Icarus Verilog** (`iverilog` version 10.0+ / 12.0+)
-- **vvp** runtime engine
-- **Make**
 
 ### Running the Simulations
 Navigate to the simulation directory:
@@ -135,44 +102,43 @@ Navigate to the simulation directory:
 cd Playstation/sim
 ```
 
-1. **Run 32-Bit Optimization Tests**:
+1. **Run 32-Bit 1D Optimization Tests**:
    ```bash
    make run_32bit
    ```
 
-2. **Run 64-Bit High-Precision Tests**:
+2. **Run 64-Bit 1D High-Precision Tests**:
    ```bash
    make run_64bit
    ```
 
-3. **Run All Suites**:
+3. **Run Multivariable N-Dimensional Tests (Cholesky Solver)**:
+   ```bash
+   make run_multivar
+   ```
+
+4. **Run All Suites**:
    ```bash
    make all
    ```
 
-4. **Clean Simulation Artifacts**:
+5. **Clean Simulation Artifacts**:
    ```bash
    make clean
    ```
 
 ---
 
-## Verification Test Cases
+## Verification Test Benchmarks
 
-Both accelerators are verified on non-linear benchmarks:
-
-| Test Case | Target Minimum ($x^*$) | Expected $f(x^*)$ | 32-Bit Convergence | 64-Bit Convergence |
-| :--- | :---: | :---: | :---: | :---: |
-| **Test 1**: $f(x) = (x - 3)^2$ | $x^* = 3.0$ | $0.0$ | $x^* = 3.001709$ (3 iters) | $x^* = 3.000008$ (2 iters) |
-| **Test 2**: $f(x) = x^4 - 4x^2 + 5$ | $x^* = \sqrt{2} \approx 1.4142$ | $1.0$ | $x^* = 1.412918$ (5 iters) | $x^* = 1.414216$ (5 iters) |
-| **Test 3**: $f(x) = x^8 - 4x^4 + 3$ | $x^* = 2^{0.25} \approx 1.1892$ | $-1.0$ | $x^* = 1.184296$ (7 iters) | $x^* = 1.189189$ (7 iters) |
-
----
-
-## Python Golden Reference Model
-
-To run the Python reference solver:
-```bash
-python3 Playstation/models/newton_model.py
-```
-Outputs bit-accurate optimization trajectories and mathematical verification logs.
+| Architecture | Test Case | Target Optimum ($\mathbf{x}^*$) | Hardware Result | Iterations | Status |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **32-Bit 1D** | $f(x) = (x - 3)^2$ | $x^* = 3.0$ | $x^* = 3.001709$ | 3 | **PASSED** |
+| **32-Bit 1D** | $f(x) = x^4 - 4x^2 + 5$ | $x^* = \sqrt{2} \approx 1.4142$ | $x^* = 1.412918$ | 5 | **PASSED** |
+| **32-Bit 1D** | $f(x) = x^8 - 4x^4 + 3$ | $x^* = 2^{0.25} \approx 1.1892$ | $x^* = 1.184296$ | 7 | **PASSED** |
+| **64-Bit 1D** | $f(x) = (x - 3)^2$ | $x^* = 3.0$ | $x^* = 3.000008$ | 2 | **PASSED** |
+| **64-Bit 1D** | $f(x) = x^4 - 4x^2 + 5$ | $x^* = \sqrt{2} \approx 1.414214$ | $x^* = 1.414216$ | 5 | **PASSED** |
+| **64-Bit 1D** | $f(x) = x^8 - 4x^4 + 3$ | $x^* = 2^{0.25} \approx 1.189207$ | $x^* = 1.189189$ | 7 | **PASSED** |
+| **Multivariable** | $f(x_0, x_1) = (x_0-2)^2 + (x_1-5)^2 + x_0 x_1$ | $(-0.666667, 5.333333)$ | $(-0.666550, 5.333328)$ | 2 | **PASSED** |
+| **Multivariable** | $f(x_0, x_1) = 2(x_0-3)^2 + 3(x_1-4)^2$ | $(3.000000, 4.000000)$ | $(3.000061, 3.999985)$ | 2 | **PASSED** |
+| **Multivariable** | $f(x_0, x_1, x_2) = (x_0-1)^2 + (x_1-2)^2 + (x_2-3)^2 + x_0 x_1$ | $(0.0, 2.0, 3.0)$ | $(0.000076, 2.000031, 3.000061)$ | 2 | **PASSED** |
