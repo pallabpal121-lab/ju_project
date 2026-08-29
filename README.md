@@ -2,7 +2,7 @@
 
 A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes seven specialized hardware architectures:
+The suite includes eight specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -10,17 +10,17 @@ The suite includes seven specialized hardware architectures:
 5. **Solver #3: Iteratively Reweighted Least Squares (IRLS) Accelerator (`Q16.16`)**: Physical machine learning & classification engine optimizing Logistic Regression and Generalized Linear Models (GLM) via $(X^T W X + \lambda I) \Delta \mathbf{w} = X^T (\mathbf{y} - \mathbf{p})$ with a hardware Sigmoid probability unit.
 6. **Solver #4: Quasi-Newton BFGS Accelerator (`Q16.16`)**: High-dimensional optimizer directly computing and updating the **Inverse Hessian Matrix ($B_k \approx H_k^{-1}$)** in silicon via symmetric Rank-2 updates, eliminating matrix inversions and second-derivative computations entirely.
 7. **Solver #5: Non-Linear Conjugate Gradient (CG) Accelerator (`Q16.16`)**: Ultra-low-area matrix-free $O(N)$ vector memory solver executing **Polak-Ribière conjugate direction updates with Powell restarts** and directional curvature line search.
+8. **Solver #6: Gauss-Newton Non-Linear Least Squares Accelerator (`Q16.16`)**: Second-order non-linear least squares engine solving $(J^T J + \lambda_{\text{eps}} I)\mathbf{p} = -J^T \mathbf{r}$ via direct hardware Cholesky factorization with zero damping overhead.
 
 ---
 
 ## Key Features & Highlights
 
+- **Direct Hardware Normal Equation Solvers**: Solves $(J^T J + \lambda_{\text{eps}} I)\mathbf{p} = -J^T \mathbf{r}$ with single-cycle zero-cost bit-shift Jacobian calculations and hardware Cholesky factorization.
 - **Matrix-Free $O(N)$ Vector Architecture**: The Conjugate Gradient engine operates using only 4 vector registers in silicon, eliminating all matrix storage and matrix factorization overhead.
-- **Directional Curvature Line Search**: Evaluates exact second-order curvature $\kappa = \mathbf{d}^T H \mathbf{d} = (f_{+d} - 2f_0 + f_{-d}) \ll 8$ along search direction $\mathbf{d}$ with zero matrix assembly.
 - **Quasi-Newton Rank-2 Inverse Hessian Updates**: Direct hardware accumulation of $B_{k+1} = B_k + \gamma_1(\mathbf{s} \mathbf{s}^T) - \gamma_2(\mathbf{s} \mathbf{u}^T + \mathbf{u} \mathbf{s}^T)$, evaluating search directions $\mathbf{p} = -B \mathbf{g}$ with zero matrix inversions.
 - **Universal Programmable Equation Engine**: Evaluates arbitrary mathematical equations without hardware redesign by using an internal microcode processor with dedicated Program Memory and Register Files.
 - **Hardware Sigmoid Activation Engine**: Single-cycle / pipelined Q16.16 Sigmoid evaluator $\sigma(\eta) = \frac{1}{1 + e^{-\eta}}$ using symmetric piecewise linear spline interpolation.
-- **Hardware Cholesky Linear Solver**: Solves coupled multi-variable linear systems $(H + \lambda I)\mathbf{p} = -\mathbf{g}$, $(J^T J + \lambda I)\mathbf{p} = -J^T \mathbf{r}$, and $(X^T W X + \lambda I)\Delta \mathbf{w} = X^T (\mathbf{y} - \mathbf{p})$ directly in silicon using hardware Cholesky factorization ($A = L \cdot L^T$) with forward and backward substitution.
 - **Zero-Cost Bit-Shift Calculus**: Computes gradients and Hessian curvatures via numerical finite differences. Step sizes $h = 2^{-4}$ and $h = 2^{-8}$ convert all derivative divisions into single-cycle arithmetic bit-shifts.
 - **Dedicated Fixed-Point Linear Dividers & Sqrt Units**: Integrates 48-cycle / 96-cycle Radix-2 Restoring Dividers and 24-cycle Restoring Square Root units.
 
@@ -33,72 +33,26 @@ ju_project/
 ├── Documents/                           # Research papers, presentations, and architecture specs
 ├── Playstation/                         # Hardware accelerator workspace
 │   ├── models/                          # Golden reference software models
-│   │   └── newton_model.py              # Bit-accurate Python simulation model
 │   ├── rtl/                             # SystemVerilog RTL source code
 │   │   ├── newton_2nd_order_32bit/      # Solver #1A: 32-bit Q16.16 1D Accelerator
-│   │   │   ├── newton_types_pkg.sv      # Package: Q16.16 types, opcodes, constants
-│   │   │   ├── q16_alu.sv               # Single-cycle Q16.16 fixed-point ALU
-│   │   │   ├── q16_divider.sv           # 48-cycle Radix-2 restoring divider
-│   │   │   ├── dfg_equation_engine.sv   # Programmable microcode DFG processor
-│   │   │   ├── derivative_engine.sv     # Finite-difference derivative engine
-│   │   │   └── newton_2nd_order_top.sv  # Top-level master optimization SoC
 │   │   ├── newton_2nd_order_64bit/      # Solver #1B: 64-bit Q32.32 1D Accelerator
-│   │   │   ├── newton_types_64bit_pkg.sv# Package: Q32.32 types, opcodes, constants
-│   │   │   ├── q32_alu.sv               # Single-cycle Q32.32 fixed-point ALU
-│   │   │   ├── q32_divider.sv           # 96-cycle Radix-2 restoring divider
-│   │   │   ├── dfg_equation_engine_64bit.sv # 64-register microcode DFG processor
-│   │   │   ├── derivative_engine_64bit.sv   # 64-bit finite-difference engine
-│   │   │   └── newton_2nd_order_64bit_top.sv# Top-level 64-bit master SoC
 │   │   ├── newton_multivar_32bit/       # Solver #1C: Multivariable N-Dimensional Suite
-│   │   │   ├── newton_multivar_pkg.sv   # Package: packed 128-bit vector & 512-bit matrix
-│   │   │   ├── multivar_helpers.svh     # Inline vector and matrix access functions
-│   │   │   ├── q16_alu.sv               # Q16.16 ALU
-│   │   │   ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │   │   ├── q16_sqrt.sv              # 24-cycle Restoring Square Root Engine
-│   │   │   ├── cholesky_solver_engine.sv# Hardware Cholesky linear solver (A = L·Lᵀ)
-│   │   │   ├── dfg_multivar_engine.sv   # Multi-variable DFG equation evaluator
-│   │   │   ├── multivar_derivative_engine.sv # Multi-point Gradient & Hessian sweeper
-│   │   │   └── newton_multivar_top.sv   # Master Multivariable SoC Accelerator
 │   │   ├── levenberg_marquardt_32bit/   # Solver #2: Levenberg-Marquardt Suite
-│   │   │   ├── lm_types_pkg.sv          # Package: observation dataset & LM types
-│   │   │   ├── lm_helpers.svh           # Inline vector/matrix helper functions
-│   │   │   ├── q16_alu.sv               # Q16.16 ALU
-│   │   │   ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │   │   ├── q16_sqrt.sv              # 24-cycle Restoring Square Root Engine
-│   │   │   ├── cholesky_solver_engine.sv# Hardware Cholesky linear solver
-│   │   │   ├── dfg_lm_engine.sv         # DFG Model Evaluator f(t_m, x)
-│   │   │   ├── lm_jacobian_engine.sv    # Jacobian J, JᵀJ outer-product, and Jᵀr MAC
-│   │   │   └── levenberg_marquardt_top.sv # Master LM SoC with adaptive λ damping
 │   │   ├── irls_32bit/                  # Solver #3: IRLS Suite
-│   │   │   ├── irls_types_pkg.sv        # Package: feature matrix, labels, weight vector
-│   │   │   ├── irls_helpers.svh         # Inline helper functions
-│   │   │   ├── q16_alu.sv               # Q16.16 ALU
-│   │   │   ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │   │   ├── q16_sqrt.sv              # 24-cycle Restoring Square Root Engine
-│   │   │   ├── q16_sigmoid.sv           # Hardware Q16.16 Sigmoid Activation Unit
-│   │   │   ├── cholesky_solver_engine.sv# Hardware Cholesky linear solver
-│   │   │   ├── irls_weight_grad_engine.sv # Computes η, p, W_mm, XᵀWX, and Xᵀ(y-p)
-│   │   │   └── irls_top.sv              # Master IRLS SoC for classification
 │   │   ├── bfgs_32bit/                  # Solver #4: BFGS Quasi-Newton Suite
-│   │   │   ├── bfgs_types_pkg.sv        # Package: vector, matrix, microcode opcodes
-│   │   │   ├── bfgs_helpers.svh         # Inline helper functions
-│   │   │   ├── q16_alu.sv               # Q16.16 ALU
-│   │   │   ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │   │   ├── dfg_bfgs_engine.sv       # Programmable DFG Model Evaluator
-│   │   │   ├── bfgs_gradient_engine.sv  # Finite-difference gradient sweeper ∇f(x)
-│   │   │   ├── bfgs_matrix_update_engine.sv # Rank-2 Inverse Hessian update unit
-│   │   │   └── bfgs_top.sv              # Master BFGS SoC Accelerator
-│   │   └── cg_32bit/                    # [NEW] Solver #5: Conjugate Gradient Suite
-│   │       ├── cg_types_pkg.sv          # Package: vector, opcodes, status
-│   │       ├── cg_helpers.svh           # Inline vector helper functions
+│   │   ├── cg_32bit/                    # Solver #5: Conjugate Gradient Suite
+│   │   └── gauss_newton_32bit/          # [NEW] Solver #6: Gauss-Newton Suite
+│   │       ├── gn_types_pkg.sv          # Package: vector, observation data types
+│   │       ├── gn_helpers.svh           # Inline vector/matrix helper functions
 │   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │       ├── dfg_cg_engine.sv         # Programmable DFG Model Evaluator
-│   │       ├── cg_gradient_engine.sv    # Finite-difference gradient sweeper ∇f(x)
-│   │       ├── cg_line_search_engine.sv # Directional Curvature κ & step α engine
-│   │       └── cg_top.sv                # Master CG SoC Accelerator
+│   │       ├── q16_sqrt.sv              # 24-cycle Restoring Square Root Engine
+│   │       ├── cholesky_solver_engine.sv# Hardware Cholesky linear solver
+│   │       ├── dfg_gn_engine.sv         # DFG Model Evaluator f(t_m, x)
+│   │       ├── gn_jacobian_engine.sv    # Jacobian J, JᵀJ accumulator, and Jᵀr MAC
+│   │       └── gauss_newton_top.sv      # Master Gauss-Newton SoC Controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 7 targets)
+│       ├── Makefile                     # Build & run Makefile (all 8 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -106,7 +60,8 @@ ju_project/
 │           ├── tb_levenberg_marquardt.sv    # Levenberg-Marquardt testbench
 │           ├── tb_irls.sv                   # IRLS testbench
 │           ├── tb_bfgs.sv                   # BFGS testbench
-│           └── tb_cg.sv                     # Conjugate Gradient testbench
+│           ├── tb_cg.sv                     # Conjugate Gradient testbench
+│           └── tb_gauss_newton.sv           # Gauss-Newton testbench
 └── README.md                            # Project documentation
 ```
 
@@ -154,7 +109,12 @@ cd Playstation/sim
    make run_cg
    ```
 
-8. **Run All Solver Suites**:
+8. **Run Gauss-Newton Tests**:
+   ```bash
+   make run_gn
+   ```
+
+9. **Run All Solver Suites**:
    ```bash
    make all
    ```
@@ -184,3 +144,5 @@ cd Playstation/sim
 | **Conjugate Gradient (#5)** | 2D Coupled Quadratic $(x_0-2)^2 + (x_1-5)^2 + x_0 x_1$ | $(-0.666667, 5.333333)$ | $(-0.666580, 5.333344)$ | 2 | **PASSED** |
 | **Conjugate Gradient (#5)** | 2D Decoupled Quadratic $2(x_0-3)^2 + 3(x_1-4)^2$ | $(3.000000, 4.000000)$ | $(3.000351, 4.000107)$ | 2 | **PASSED** |
 | **Conjugate Gradient (#5)** | 3D Coupled Quadratic $(x_0-1)^2 + (x_1-2)^2 + (x_2-3)^2 + x_0 x_1$ | $(0.0, 2.0, 3.0)$ | $(-0.001358, 2.001373, 3.000031)$ | 5 | **PASSED** |
+| **Gauss-Newton (#6)** | Parabola Parameter Estimation $y(t) = a t^2 + b t + c$ | $(1.0, -2.0, 3.0)$ | $(1.000015, -1.999985, 2.999985)$ | 2 | **PASSED** |
+| **Gauss-Newton (#6)** | 2D Robotics SLAM Localization $y(t) = (t - x_c)^2 + y_c$ | $(2.0, 3.0)$ | $(2.000000, 3.000015)$ | 3 | **PASSED** |

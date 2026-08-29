@@ -1,5 +1,5 @@
 # =============================================================================
-# Makefile for Universal Hardware Accelerator Suite (Solvers #1, #2, #3, #4, #5)
+# Makefile for Universal Hardware Accelerator Suite (Solvers #1, #2, #3, #4, #5, #6)
 # Supports:
 #   1. 32-bit (Q16.16) 1D Newton Accelerator
 #   2. 64-bit (Q32.32) 1D Newton Accelerator
@@ -8,6 +8,7 @@
 #   5. Iteratively Reweighted Least Squares (IRLS) Accelerator (Solver #3)
 #   6. Quasi-Newton BFGS (Q16.16) Accelerator (Solver #4)
 #   7. Non-Linear Conjugate Gradient (CG) Accelerator (Solver #5)
+#   8. Gauss-Newton (Q16.16) Non-Linear Least Squares Accelerator (Solver #6)
 # =============================================================================
 
 SIM ?= iverilog
@@ -105,9 +106,23 @@ SRCS_CG = $(RTL_CG_DIR)/cg_types_pkg.sv \
 
 OUT_CG = sim_cg.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg
+# 8. Gauss-Newton (GN) Sources (Solver #6)
+RTL_GN_DIR = ../rtl/gauss_newton_32bit
+SRCS_GN = $(RTL_GN_DIR)/gn_types_pkg.sv \
+          $(RTL_GN_DIR)/q16_alu.sv \
+          $(RTL_GN_DIR)/q16_divider.sv \
+          $(RTL_GN_DIR)/q16_sqrt.sv \
+          $(RTL_GN_DIR)/cholesky_solver_engine.sv \
+          $(RTL_GN_DIR)/dfg_gn_engine.sv \
+          $(RTL_GN_DIR)/gn_jacobian_engine.sv \
+          $(RTL_GN_DIR)/gauss_newton_top.sv \
+          $(TB_DIR)/tb_gauss_newton.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg
+OUT_GN = sim_gauss_newton.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -161,5 +176,12 @@ compile_cg: $(SRCS_CG)
 run_cg: compile_cg
 	vvp $(OUT_CG)
 
+# GN Targets (Solver #6)
+compile_gn: $(SRCS_GN)
+	$(SIM) -g2012 -Wall -I$(RTL_GN_DIR) $(SRCS_GN) -o $(OUT_GN)
+
+run_gn: compile_gn
+	vvp $(OUT_GN)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) *.vcd *.vvp
