@@ -1,5 +1,5 @@
 # =============================================================================
-# Makefile for Universal Hardware Accelerator Suite (Solvers #1 to #7)
+# Makefile for Universal Hardware Accelerator Suite (Solvers #1 to #8)
 # Supports:
 #   1. 32-bit (Q16.16) 1D Newton Accelerator
 #   2. 64-bit (Q32.32) 1D Newton Accelerator
@@ -10,6 +10,7 @@
 #   7. Non-Linear Conjugate Gradient (CG) Accelerator (Solver #5)
 #   8. Gauss-Newton (Q16.16) Accelerator (Solver #6)
 #   9. Sequential Quadratic Programming (SQP) Constrained Accelerator (Solver #7)
+#  10. Nelder-Mead Simplex Direct Search Accelerator (Solver #8)
 # =============================================================================
 
 SIM ?= iverilog
@@ -136,9 +137,21 @@ SRCS_SQP = $(RTL_SQP_DIR)/sqp_types_pkg.sv \
 
 OUT_SQP = sim_sqp.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp
+# 10. Nelder-Mead (NM) Sources (Solver #8)
+RTL_NM_DIR = ../rtl/nelder_mead_32bit
+SRCS_NM = $(RTL_NM_DIR)/nm_types_pkg.sv \
+          $(RTL_NM_DIR)/q16_alu.sv \
+          $(RTL_NM_DIR)/q16_divider.sv \
+          $(RTL_NM_DIR)/dfg_nm_engine.sv \
+          $(RTL_NM_DIR)/nm_simplex_core.sv \
+          $(RTL_NM_DIR)/nelder_mead_top.sv \
+          $(TB_DIR)/tb_nelder_mead.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp
+OUT_NM = sim_nelder_mead.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -206,5 +219,12 @@ compile_sqp: $(SRCS_SQP)
 run_sqp: compile_sqp
 	vvp $(OUT_SQP)
 
+# NM Targets (Solver #8)
+compile_nm: $(SRCS_NM)
+	$(SIM) -g2012 -Wall -I$(RTL_NM_DIR) $(SRCS_NM) -o $(OUT_NM)
+
+run_nm: compile_nm
+	vvp $(OUT_NM)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) *.vcd *.vvp

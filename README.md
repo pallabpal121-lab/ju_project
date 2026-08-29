@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes nine specialized hardware architectures:
+The suite includes ten specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -12,11 +12,13 @@ The suite includes nine specialized hardware architectures:
 7. **Solver #5: Non-Linear Conjugate Gradient (CG) Accelerator (`Q16.16`)**: Ultra-low-area matrix-free $O(N)$ vector memory solver executing **Polak-Ribière conjugate direction updates with Powell restarts** and directional curvature line search.
 8. **Solver #6: Gauss-Newton Non-Linear Least Squares Accelerator (`Q16.16`)**: Second-order non-linear least squares engine solving $(J^T J + \lambda_{\text{eps}} I)\mathbf{p} = -J^T \mathbf{r}$ via direct hardware Cholesky factorization.
 9. **Solver #7: Sequential Quadratic Programming (SQP) Constrained Accelerator (`Q16.16`)**: Active-Set Primal-Dual constrained optimization engine solving non-linear problems under hard physical box constraints $\mathbf{l} \le \mathbf{x} \le \mathbf{u}$ with KKT Lagrange multiplier shadow prices.
+10. **Solver #8: Nelder-Mead Simplex Direct Search Accelerator (`Q16.16`)**: Derivative-free heuristic optimizer transforming an $(N+1)$-dimensional geometric simplex via hardware Reflection, Expansion, Contraction, and Shrink operations for non-differentiable or noisy black-box fitness functions.
 
 ---
 
 ## Key Features & Highlights
 
+- **Derivative-Free Geometric Simplex Engine**: Nelder-Mead hardware state machine optimizing non-smooth and noisy functions via single-cycle bit-shift geometric transformations without derivatives or matrix inversions.
 - **Active-Set Primal-Dual KKT Engine**: Solves hard inequality constrained problems in silicon, automatically classifying active boundary variables, computing shadow prices $\mu_i$, and solving reduced-order systems $H_{\text{free}} \mathbf{p}_{\text{free}} = -\mathbf{g}_{\text{free}}$ via Cholesky decomposition.
 - **Direct Hardware Normal Equation Solvers**: Solves $(J^T J + \lambda_{\text{eps}} I)\mathbf{p} = -J^T \mathbf{r}$ with single-cycle zero-cost bit-shift Jacobian calculations and hardware Cholesky factorization.
 - **Matrix-Free $O(N)$ Vector Architecture**: The Conjugate Gradient engine operates using only 4 vector registers in silicon, eliminating all matrix storage and matrix factorization overhead.
@@ -44,19 +46,17 @@ ju_project/
 │   │   ├── bfgs_32bit/                  # Solver #4: BFGS Quasi-Newton Suite
 │   │   ├── cg_32bit/                    # Solver #5: Conjugate Gradient Suite
 │   │   ├── gauss_newton_32bit/          # Solver #6: Gauss-Newton Suite
-│   │   └── sqp_32bit/                   # [NEW] Solver #7: SQP Constrained Suite
-│   │       ├── sqp_types_pkg.sv         # Package: vector, bounds, status types
-│   │       ├── sqp_helpers.svh          # Inline vector/matrix/clamping helper functions
-│   │       ├── q16_alu.sv               # Q16.16 ALU
+│   │   ├── sqp_32bit/                   # Solver #7: SQP Constrained Suite
+│   │   └── nelder_mead_32bit/           # [NEW] Solver #8: Nelder-Mead Simplex Suite
+│   │       ├── nm_types_pkg.sv          # Package: vector, simplex types, opcodes
+│   │       ├── nm_helpers.svh           # Inline vector/simplex helper functions
+│   │       ├── q16_alu.sv               # Q16.16 ALU with OP_ABS support
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │       ├── q16_sqrt.sv              # 24-cycle Restoring Square Root Engine
-│   │       ├── cholesky_solver_engine.sv# Hardware Cholesky linear solver
-│   │       ├── dfg_sqp_engine.sv        # DFG Model Evaluator f(x)
-│   │       ├── sqp_hessian_engine.sv    # Finite-difference gradient & Hessian sweeper
-│   │       ├── sqp_active_set_engine.sv # Active-set classifier & projected KKT builder
-│   │       └── sqp_top.sv               # Master SQP Constrained SoC Controller
+│   │       ├── dfg_nm_engine.sv         # DFG Model Evaluator f(x)
+│   │       ├── nm_simplex_core.sv       # Geometric Simplex Transformation Core
+│   │       └── nelder_mead_top.sv       # Master Nelder-Mead SoC Controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 9 targets)
+│       ├── Makefile                     # Build & run Makefile (all 10 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -66,7 +66,8 @@ ju_project/
 │           ├── tb_bfgs.sv                   # BFGS testbench
 │           ├── tb_cg.sv                     # Conjugate Gradient testbench
 │           ├── tb_gauss_newton.sv           # Gauss-Newton testbench
-│           └── tb_sqp.sv                    # SQP testbench
+│           ├── tb_sqp.sv                    # SQP testbench
+│           └── tb_nelder_mead.sv            # Nelder-Mead testbench
 └── README.md                            # Project documentation
 ```
 
@@ -124,7 +125,12 @@ cd Playstation/sim
    make run_sqp
    ```
 
-10. **Run All Solver Suites**:
+10. **Run Nelder-Mead Simplex Tests**:
+    ```bash
+    make run_nm
+    ```
+
+11. **Run All Solver Suites**:
     ```bash
     make all
     ```
@@ -159,3 +165,6 @@ cd Playstation/sim
 | **SQP (#7)** | 2D Paraboloid ($x_0 \le 1.5, x_1 \le 2.5$) | $(1.500000, 2.500000)$ | $(1.500000, 2.500000)$ | 1 | **PASSED** |
 | **SQP (#7)** | 2D Coupled Quadratic ($x_0 \ge 0, x_1 \ge 0$) | $(0.000000, 5.000000)$ | $(0.000000, 4.999496)$ | 2 | **PASSED** |
 | **SQP (#7)** | 3D Multi-Axis Mixed Box Constraints | $(1.0, 1.5, 2.0)$ | $(1.000000, 1.499298, 2.000000)$ | 2 | **PASSED** |
+| **Nelder-Mead (#8)** | 2D Paraboloid Direct Search | $(3.000000, 4.000000)$ | $(3.003143, 3.999542)$ | 28 | **PASSED** |
+| **Nelder-Mead (#8)** | 2D Coupled Quadratic Direct Search | $(-0.666667, 5.333333)$ | $(-0.668518, 5.332626)$ | 29 | **PASSED** |
+| **Nelder-Mead (#8)** | Non-Smooth $\|x_0 - 2\| + 2\|x_1 - 3\|$ | $(2.000000, 3.000000)$ | $(1.998215, 2.997726)$ | 30 | **PASSED** |
