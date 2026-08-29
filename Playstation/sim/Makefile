@@ -263,9 +263,23 @@ SRCS_IPM = $(RTL_IPM_DIR)/ipm_types_pkg.sv \
 
 OUT_IPM = sim_ipm.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm
+# 19. Adam / RMSProp / Momentum SGD Sources (Solver #17)
+RTL_ADAM_DIR = ../rtl/adam_32bit
+SRCS_ADAM = $(RTL_ADAM_DIR)/adam_types_pkg.sv \
+            $(RTL_ADAM_DIR)/q16_alu.sv \
+            $(RTL_ADAM_DIR)/q16_divider.sv \
+            $(RTL_ADAM_DIR)/q16_sqrt.sv \
+            $(RTL_ADAM_DIR)/dfg_adam_engine.sv \
+            $(RTL_ADAM_DIR)/adam_gradient_engine.sv \
+            $(RTL_ADAM_DIR)/adam_moment_engine.sv \
+            $(RTL_ADAM_DIR)/adam_top.sv \
+            $(TB_DIR)/tb_adam.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm
+OUT_ADAM = sim_adam.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm compile_adam
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -396,7 +410,14 @@ compile_ipm: $(SRCS_IPM)
 run_ipm: compile_ipm
 	vvp $(OUT_IPM)
 
+# Adam Targets (Solver #17)
+compile_adam: $(SRCS_ADAM)
+	$(SIM) -g2012 -Wall -I$(RTL_ADAM_DIR) $(SRCS_ADAM) -o $(OUT_ADAM)
+
+run_adam: compile_adam
+	vvp $(OUT_ADAM)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) $(OUT_ADAM) *.vcd *.vvp
 
 
