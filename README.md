@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes twelve specialized hardware architectures:
+The suite includes thirteen specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -15,11 +15,13 @@ The suite includes twelve specialized hardware architectures:
 10. **Solver #8: Nelder-Mead Simplex Direct Search Accelerator (`Q16.16`)**: Derivative-free heuristic optimizer transforming an $(N+1)$-dimensional geometric simplex via hardware Reflection, Expansion, Contraction, and Shrink operations for non-differentiable or noisy black-box fitness functions.
 11. **Solver #9: Limited-Memory BFGS (L-BFGS) Accelerator (`Q16.16`)**: High-dimensional Quasi-Newton solver operating via an $O(mN)$ circular displacement history buffer and **Two-Loop Recursion** pipeline, eliminating full matrix storage entirely.
 12. **Solver #10: Coordinate Descent / LASSO L1 Sparsity Accelerator (`Q16.16`)**: Machine learning & compressed sensing optimizer executing cyclical coordinate sweeps with a **Hardware Soft-Thresholding Operator $S_\lambda(z)$**, driving non-predictive weights to exact silicon zero.
+13. **Solver #11: Alternating Direction Method of Multipliers (ADMM) Accelerator (`Q16.16`)**: Distributed convex optimizer splitting primal consensus inversion $\mathbf{x} = (A^T A + \rho I)^{-1} \mathbf{v}$, proximal soft-thresholding $\mathbf{z} = S_{\lambda/\rho}(\mathbf{x} + \mathbf{u})$, and dual update $\mathbf{u} \leftarrow \mathbf{u} + (\mathbf{x} - \mathbf{z})$.
 
 ---
 
 ## Key Features & Highlights
 
+- **3-Phase ADMM Distributed Engine**: Splitting primal linear solve (factorized once via hardware Cholesky), proximal soft-thresholding ($S_{\lambda/\rho}$), and dual multiplier accumulation with strict primal-dual consensus.
 - **Hardware Soft-Thresholding Operator**: Real-time evaluation of $S_\lambda(z) = \text{sign}(z)\max(|z|-\lambda, 0)$, enabling true $L_1$ sparsity induction and driving irrelevant features to exact $32'h0000\_0000$ silicon zero.
 - **L-BFGS Two-Loop Recursion Pipeline**: Evaluates Quasi-Newton search directions $\mathbf{p} = -H_k \mathbf{g}_k$ using only $M=4$ displacement vectors ($\mathbf{s}_i, \mathbf{y}_i, \rho_i$) with backward/forward recursion, saving $>90\%$ silicon area compared to full matrix BFGS.
 - **Derivative-Free Geometric Simplex Engine**: Nelder-Mead hardware state machine optimizing non-smooth and noisy functions via single-cycle bit-shift geometric transformations without derivatives or matrix inversions.
@@ -53,16 +55,19 @@ ju_project/
 │   │   ├── sqp_32bit/                   # Solver #7: SQP Constrained Suite
 │   │   ├── nelder_mead_32bit/           # Solver #8: Nelder-Mead Simplex Suite
 │   │   ├── lbfgs_32bit/                 # Solver #9: L-BFGS Two-Loop Suite
-│   │   └── lasso_32bit/                 # [NEW] Solver #10: LASSO Coordinate Descent Suite
-│   │       ├── lasso_types_pkg.sv       # Package: dataset, matrix, vector types
-│   │       ├── lasso_helpers.svh        # Inline dataset/vector helper functions
+│   │   ├── lasso_32bit/                 # Solver #10: LASSO Coordinate Descent Suite
+│   │   └── admm_32bit/                  # [NEW] Solver #11: ADMM Suite
+│   │       ├── admm_types_pkg.sv        # Package: matrix, vector, dataset types
+│   │       ├── admm_helpers.svh         # Inline dataset/vector helper functions
 │   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
+│   │       ├── q16_sqrt.sv              # 24-cycle Square Root Unit
 │   │       ├── q16_soft_threshold.sv    # Single-cycle Soft-Thresholding Unit
-│   │       ├── lasso_coordinate_engine.sv# Partial residual & coordinate updater
-│   │       └── lasso_top.sv             # Master LASSO Cyclical SoC Controller
+│   │       ├── cholesky_solver_engine.sv# Hardware Cholesky Linear Solver
+│   │       ├── admm_primal_x_engine.sv  # Normal Matrix Builder & RHS Generator
+│   │       └── admm_top.sv              # Master 3-Phase ADMM SoC Controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 12 targets)
+│       ├── Makefile                     # Build & run Makefile (all 13 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -75,7 +80,8 @@ ju_project/
 │           ├── tb_sqp.sv                    # SQP testbench
 │           ├── tb_nelder_mead.sv            # Nelder-Mead testbench
 │           ├── tb_lbfgs.sv                  # L-BFGS testbench
-│           └── tb_lasso.sv                  # LASSO testbench
+│           ├── tb_lasso.sv                  # LASSO testbench
+│           └── tb_admm.sv                   # ADMM testbench
 └── README.md                            # Project documentation
 ```
 
@@ -148,7 +154,12 @@ cd Playstation/sim
     make run_lasso
     ```
 
-13. **Run All Solver Suites**:
+13. **Run ADMM Tests**:
+    ```bash
+    make run_admm
+    ```
+
+14. **Run All Solver Suites**:
     ```bash
     make all
     ```
@@ -157,7 +168,7 @@ cd Playstation/sim
 
 ## Verification Test Benchmarks
 
-| Solver | Test Case | Target Optimum ($\mathbf{x}^*$ / $\mathbf{w}^*$) | Hardware Result | Iterations | Status |
+| Solver | Test Case | Target Optimum ($\mathbf{x}^*$ / $\mathbf{w}^*$ / $\mathbf{z}^*$) | Hardware Result | Iterations | Status |
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | **Newton 1D (32-Bit)** | $f(x) = (x - 3)^2$ | $x^* = 3.0$ | $x^* = 3.001709$ | 3 | **PASSED** |
 | **Newton 1D (32-Bit)** | $f(x) = x^4 - 4x^2 + 5$ | $x^* = \sqrt{2} \approx 1.4142$ | $x^* = 1.412918$ | 5 | **PASSED** |
@@ -192,3 +203,6 @@ cd Playstation/sim
 | **LASSO (#10)** | OLS Linear Regression ($\lambda = 0.0$) | $(2.000000, 3.000000)$ | $(2.000778, 2.999374)$ | 18 | **PASSED** |
 | **LASSO (#10)** | Sparse Feature Selection ($\lambda = 1.0$) | $(4.000000, 0.000000, 0.000000)$ | $(3.966660, 0.000000, 0.000000)$ | 1 | **PASSED** |
 | **LASSO (#10)** | Compressed Sensing Sparse Recovery ($\lambda = 0.5$) | $(1.5, 0.0, 2.5, 0.0)$ | $(1.482132, 0.000000, 2.482224, 0.000000)$ | 17 | **PASSED** |
+| **ADMM (#11)** | Linear Consensus ($\lambda = 0.0, \rho = 1.0$) | $(2.000000, 3.000000)$ | $(2.000092, 2.999908)$ | 5 | **PASSED** |
+| **ADMM (#11)** | Sparse Feature Selection ($\lambda = 1.0, \rho = 1.0$) | $(4.000000, 0.000000, 0.000000)$ | $(3.966522, 0.000000, 0.000000)$ | 6 | **PASSED** |
+| **ADMM (#11)** | Compressed Sensing Sparse Recovery ($\lambda = 0.5, \rho = 1.0$) | $(1.5, 0.0, 2.5, 0.0)$ | $(1.482208, 0.000000, 2.482162, 0.000000)$ | 7 | **PASSED** |

@@ -1,5 +1,5 @@
 # =============================================================================
-# Makefile for Universal Hardware Accelerator Suite (Solvers #1 to #10)
+# Makefile for Universal Hardware Accelerator Suite (Solvers #1 to #11)
 # Supports:
 #   1. 32-bit (Q16.16) 1D Newton Accelerator
 #   2. 64-bit (Q32.32) 1D Newton Accelerator
@@ -13,6 +13,7 @@
 #  10. Nelder-Mead Simplex Direct Search Accelerator (Solver #8)
 #  11. Limited-Memory BFGS (L-BFGS) Accelerator (Solver #9)
 #  12. Coordinate Descent / LASSO L1 Sparsity Accelerator (Solver #10)
+#  13. Alternating Direction Method of Multipliers (ADMM) Accelerator (Solver #11)
 # =============================================================================
 
 SIM ?= iverilog
@@ -176,9 +177,23 @@ SRCS_LASSO = $(RTL_LASSO_DIR)/lasso_types_pkg.sv \
 
 OUT_LASSO = sim_lasso.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso
+# 13. ADMM Sources (Solver #11)
+RTL_ADMM_DIR = ../rtl/admm_32bit
+SRCS_ADMM = $(RTL_ADMM_DIR)/admm_types_pkg.sv \
+            $(RTL_ADMM_DIR)/q16_alu.sv \
+            $(RTL_ADMM_DIR)/q16_divider.sv \
+            $(RTL_ADMM_DIR)/q16_sqrt.sv \
+            $(RTL_ADMM_DIR)/q16_soft_threshold.sv \
+            $(RTL_ADMM_DIR)/cholesky_solver_engine.sv \
+            $(RTL_ADMM_DIR)/admm_primal_x_engine.sv \
+            $(RTL_ADMM_DIR)/admm_top.sv \
+            $(TB_DIR)/tb_admm.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso
+OUT_ADMM = sim_admm.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -267,5 +282,12 @@ compile_lasso: $(SRCS_LASSO)
 run_lasso: compile_lasso
 	vvp $(OUT_LASSO)
 
+# ADMM Targets (Solver #11)
+compile_admm: $(SRCS_ADMM)
+	$(SIM) -g2012 -Wall -I$(RTL_ADMM_DIR) $(SRCS_ADMM) -o $(OUT_ADMM)
+
+run_admm: compile_admm
+	vvp $(OUT_ADMM)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) *.vcd *.vvp
