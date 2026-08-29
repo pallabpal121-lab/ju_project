@@ -1,5 +1,5 @@
 # =============================================================================
-# Makefile for Universal Hardware Accelerator Suite (Solvers #1, #2, #3, #4, #5, #6)
+# Makefile for Universal Hardware Accelerator Suite (Solvers #1 to #7)
 # Supports:
 #   1. 32-bit (Q16.16) 1D Newton Accelerator
 #   2. 64-bit (Q32.32) 1D Newton Accelerator
@@ -8,7 +8,8 @@
 #   5. Iteratively Reweighted Least Squares (IRLS) Accelerator (Solver #3)
 #   6. Quasi-Newton BFGS (Q16.16) Accelerator (Solver #4)
 #   7. Non-Linear Conjugate Gradient (CG) Accelerator (Solver #5)
-#   8. Gauss-Newton (Q16.16) Non-Linear Least Squares Accelerator (Solver #6)
+#   8. Gauss-Newton (Q16.16) Accelerator (Solver #6)
+#   9. Sequential Quadratic Programming (SQP) Constrained Accelerator (Solver #7)
 # =============================================================================
 
 SIM ?= iverilog
@@ -120,9 +121,24 @@ SRCS_GN = $(RTL_GN_DIR)/gn_types_pkg.sv \
 
 OUT_GN = sim_gauss_newton.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn
+# 9. Sequential Quadratic Programming (SQP) Sources (Solver #7)
+RTL_SQP_DIR = ../rtl/sqp_32bit
+SRCS_SQP = $(RTL_SQP_DIR)/sqp_types_pkg.sv \
+           $(RTL_SQP_DIR)/q16_alu.sv \
+           $(RTL_SQP_DIR)/q16_divider.sv \
+           $(RTL_SQP_DIR)/q16_sqrt.sv \
+           $(RTL_SQP_DIR)/cholesky_solver_engine.sv \
+           $(RTL_SQP_DIR)/dfg_sqp_engine.sv \
+           $(RTL_SQP_DIR)/sqp_hessian_engine.sv \
+           $(RTL_SQP_DIR)/sqp_active_set_engine.sv \
+           $(RTL_SQP_DIR)/sqp_top.sv \
+           $(TB_DIR)/tb_sqp.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn
+OUT_SQP = sim_sqp.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -183,5 +199,12 @@ compile_gn: $(SRCS_GN)
 run_gn: compile_gn
 	vvp $(OUT_GN)
 
+# SQP Targets (Solver #7)
+compile_sqp: $(SRCS_SQP)
+	$(SIM) -g2012 -Wall -I$(RTL_SQP_DIR) $(SRCS_SQP) -o $(OUT_SQP)
+
+run_sqp: compile_sqp
+	vvp $(OUT_SQP)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) *.vcd *.vvp

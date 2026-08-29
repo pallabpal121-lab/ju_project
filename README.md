@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes eight specialized hardware architectures:
+The suite includes nine specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -10,12 +10,14 @@ The suite includes eight specialized hardware architectures:
 5. **Solver #3: Iteratively Reweighted Least Squares (IRLS) Accelerator (`Q16.16`)**: Physical machine learning & classification engine optimizing Logistic Regression and Generalized Linear Models (GLM) via $(X^T W X + \lambda I) \Delta \mathbf{w} = X^T (\mathbf{y} - \mathbf{p})$ with a hardware Sigmoid probability unit.
 6. **Solver #4: Quasi-Newton BFGS Accelerator (`Q16.16`)**: High-dimensional optimizer directly computing and updating the **Inverse Hessian Matrix ($B_k \approx H_k^{-1}$)** in silicon via symmetric Rank-2 updates, eliminating matrix inversions and second-derivative computations entirely.
 7. **Solver #5: Non-Linear Conjugate Gradient (CG) Accelerator (`Q16.16`)**: Ultra-low-area matrix-free $O(N)$ vector memory solver executing **Polak-Ribière conjugate direction updates with Powell restarts** and directional curvature line search.
-8. **Solver #6: Gauss-Newton Non-Linear Least Squares Accelerator (`Q16.16`)**: Second-order non-linear least squares engine solving $(J^T J + \lambda_{\text{eps}} I)\mathbf{p} = -J^T \mathbf{r}$ via direct hardware Cholesky factorization with zero damping overhead.
+8. **Solver #6: Gauss-Newton Non-Linear Least Squares Accelerator (`Q16.16`)**: Second-order non-linear least squares engine solving $(J^T J + \lambda_{\text{eps}} I)\mathbf{p} = -J^T \mathbf{r}$ via direct hardware Cholesky factorization.
+9. **Solver #7: Sequential Quadratic Programming (SQP) Constrained Accelerator (`Q16.16`)**: Active-Set Primal-Dual constrained optimization engine solving non-linear problems under hard physical box constraints $\mathbf{l} \le \mathbf{x} \le \mathbf{u}$ with KKT Lagrange multiplier shadow prices.
 
 ---
 
 ## Key Features & Highlights
 
+- **Active-Set Primal-Dual KKT Engine**: Solves hard inequality constrained problems in silicon, automatically classifying active boundary variables, computing shadow prices $\mu_i$, and solving reduced-order systems $H_{\text{free}} \mathbf{p}_{\text{free}} = -\mathbf{g}_{\text{free}}$ via Cholesky decomposition.
 - **Direct Hardware Normal Equation Solvers**: Solves $(J^T J + \lambda_{\text{eps}} I)\mathbf{p} = -J^T \mathbf{r}$ with single-cycle zero-cost bit-shift Jacobian calculations and hardware Cholesky factorization.
 - **Matrix-Free $O(N)$ Vector Architecture**: The Conjugate Gradient engine operates using only 4 vector registers in silicon, eliminating all matrix storage and matrix factorization overhead.
 - **Quasi-Newton Rank-2 Inverse Hessian Updates**: Direct hardware accumulation of $B_{k+1} = B_k + \gamma_1(\mathbf{s} \mathbf{s}^T) - \gamma_2(\mathbf{s} \mathbf{u}^T + \mathbf{u} \mathbf{s}^T)$, evaluating search directions $\mathbf{p} = -B \mathbf{g}$ with zero matrix inversions.
@@ -41,18 +43,20 @@ ju_project/
 │   │   ├── irls_32bit/                  # Solver #3: IRLS Suite
 │   │   ├── bfgs_32bit/                  # Solver #4: BFGS Quasi-Newton Suite
 │   │   ├── cg_32bit/                    # Solver #5: Conjugate Gradient Suite
-│   │   └── gauss_newton_32bit/          # [NEW] Solver #6: Gauss-Newton Suite
-│   │       ├── gn_types_pkg.sv          # Package: vector, observation data types
-│   │       ├── gn_helpers.svh           # Inline vector/matrix helper functions
+│   │   ├── gauss_newton_32bit/          # Solver #6: Gauss-Newton Suite
+│   │   └── sqp_32bit/                   # [NEW] Solver #7: SQP Constrained Suite
+│   │       ├── sqp_types_pkg.sv         # Package: vector, bounds, status types
+│   │       ├── sqp_helpers.svh          # Inline vector/matrix/clamping helper functions
 │   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
 │   │       ├── q16_sqrt.sv              # 24-cycle Restoring Square Root Engine
 │   │       ├── cholesky_solver_engine.sv# Hardware Cholesky linear solver
-│   │       ├── dfg_gn_engine.sv         # DFG Model Evaluator f(t_m, x)
-│   │       ├── gn_jacobian_engine.sv    # Jacobian J, JᵀJ accumulator, and Jᵀr MAC
-│   │       └── gauss_newton_top.sv      # Master Gauss-Newton SoC Controller
+│   │       ├── dfg_sqp_engine.sv        # DFG Model Evaluator f(x)
+│   │       ├── sqp_hessian_engine.sv    # Finite-difference gradient & Hessian sweeper
+│   │       ├── sqp_active_set_engine.sv # Active-set classifier & projected KKT builder
+│   │       └── sqp_top.sv               # Master SQP Constrained SoC Controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 8 targets)
+│       ├── Makefile                     # Build & run Makefile (all 9 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -61,7 +65,8 @@ ju_project/
 │           ├── tb_irls.sv                   # IRLS testbench
 │           ├── tb_bfgs.sv                   # BFGS testbench
 │           ├── tb_cg.sv                     # Conjugate Gradient testbench
-│           └── tb_gauss_newton.sv           # Gauss-Newton testbench
+│           ├── tb_gauss_newton.sv           # Gauss-Newton testbench
+│           └── tb_sqp.sv                    # SQP testbench
 └── README.md                            # Project documentation
 ```
 
@@ -114,10 +119,15 @@ cd Playstation/sim
    make run_gn
    ```
 
-9. **Run All Solver Suites**:
+9. **Run SQP Constrained Tests**:
    ```bash
-   make all
+   make run_sqp
    ```
+
+10. **Run All Solver Suites**:
+    ```bash
+    make all
+    ```
 
 ---
 
@@ -146,3 +156,6 @@ cd Playstation/sim
 | **Conjugate Gradient (#5)** | 3D Coupled Quadratic $(x_0-1)^2 + (x_1-2)^2 + (x_2-3)^2 + x_0 x_1$ | $(0.0, 2.0, 3.0)$ | $(-0.001358, 2.001373, 3.000031)$ | 5 | **PASSED** |
 | **Gauss-Newton (#6)** | Parabola Parameter Estimation $y(t) = a t^2 + b t + c$ | $(1.0, -2.0, 3.0)$ | $(1.000015, -1.999985, 2.999985)$ | 2 | **PASSED** |
 | **Gauss-Newton (#6)** | 2D Robotics SLAM Localization $y(t) = (t - x_c)^2 + y_c$ | $(2.0, 3.0)$ | $(2.000000, 3.000015)$ | 3 | **PASSED** |
+| **SQP (#7)** | 2D Paraboloid ($x_0 \le 1.5, x_1 \le 2.5$) | $(1.500000, 2.500000)$ | $(1.500000, 2.500000)$ | 1 | **PASSED** |
+| **SQP (#7)** | 2D Coupled Quadratic ($x_0 \ge 0, x_1 \ge 0$) | $(0.000000, 5.000000)$ | $(0.000000, 4.999496)$ | 2 | **PASSED** |
+| **SQP (#7)** | 3D Multi-Axis Mixed Box Constraints | $(1.0, 1.5, 2.0)$ | $(1.000000, 1.499298, 2.000000)$ | 2 | **PASSED** |
