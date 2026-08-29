@@ -249,9 +249,23 @@ SRCS_FISTA = $(RTL_FISTA_DIR)/fista_types_pkg.sv \
 
 OUT_FISTA = sim_fista.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista
+# 18. Primal-Dual Interior Point Method (IPM) Sources (Solver #16)
+RTL_IPM_DIR = ../rtl/ipm_32bit
+SRCS_IPM = $(RTL_IPM_DIR)/ipm_types_pkg.sv \
+           $(RTL_IPM_DIR)/q16_alu.sv \
+           $(RTL_IPM_DIR)/q16_divider.sv \
+           $(RTL_IPM_DIR)/q16_sqrt.sv \
+           $(RTL_IPM_DIR)/dfg_ipm_engine.sv \
+           $(RTL_IPM_DIR)/cholesky_ipm_solver.sv \
+           $(RTL_IPM_DIR)/ipm_kkt_engine.sv \
+           $(RTL_IPM_DIR)/ipm_top.sv \
+           $(TB_DIR)/tb_ipm.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista
+OUT_IPM = sim_ipm.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -375,7 +389,14 @@ compile_fista: $(SRCS_FISTA)
 run_fista: compile_fista
 	vvp $(OUT_FISTA)
 
+# IPM Targets (Solver #16)
+compile_ipm: $(SRCS_IPM)
+	$(SIM) -g2012 -Wall -I$(RTL_IPM_DIR) $(SRCS_IPM) -o $(OUT_IPM)
+
+run_ipm: compile_ipm
+	vvp $(OUT_IPM)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) *.vcd *.vvp
 
 

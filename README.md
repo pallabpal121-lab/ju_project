@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes seventeen specialized hardware architectures:
+The suite includes eighteen specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -20,11 +20,14 @@ The suite includes seventeen specialized hardware architectures:
 15. **Solver #13: Trust-Region Dogleg Non-Linear Optimizer (`Q16.16`)**: Robust global optimizer dynamically interpolating between steepest-descent **Cauchy Point ($\mathbf{p}_c = -\alpha_c \mathbf{g}$)** and unconstrained **Gauss-Newton Step ($\mathbf{p}_{gn} = -(J^T J)^{-1} \mathbf{g}$)** constrained within adaptive trust-region radius $\Delta$.
 16. **Solver #14: Particle Swarm Optimization (PSO) Accelerator (`Q16.16`)**: Multi-agent global heuristic optimization engine executing parallel velocity updates with **Hardware Xorshift PRNG**, cognitive/social acceleration, velocity clamping, and personal/global best fitness tracking over non-convex multi-modal landscapes.
 17. **Solver #15: Fast Iterative Shrinkage-Thresholding Algorithm (FISTA) (`Q16.16`)**: Accelerated proximal gradient optimizer executing **Nesterov Momentum Extrapolation** $\mathbf{y}_{k+1} = \mathbf{x}_k + \beta_k(\mathbf{x}_k - \mathbf{x}_{k-1})$ with $O(1/k^2)$ convergence rate and hardware **Soft-Thresholding Operator** $S_{\gamma \lambda}(\cdot)$ for sparse recovery.
+18. **Solver #16: Primal-Dual Interior Point Method (IPM) for QP (`Q16.16`)**: Convex quadratic programming solver evaluating perturbed KKT conditions, condensed augmented normal equations $(Q + A^T \Theta A)\Delta \mathbf{x} = - \mathbf{g}_{\text{aug}}$ via hardware **Cholesky Decomposition**, and fraction-to-the-boundary step integration ($\alpha_p, \alpha_d$).
 
 ---
 
 ## Key Features & Highlights
 
+- **Augmented Normal KKT Hardware Solver**: Evaluates the condensed $N \times N$ system $(Q + A^T \Theta A)\Delta \mathbf{x} = -\mathbf{g}_{\text{aug}}$ using hardware Cholesky decomposition, with scale-invariant diagonal damping $\Theta = Z S^{-1}$ clamped to avoid fixed-point ill-conditioning.
+- **Fraction-to-the-Boundary Step Selector**: Evaluates $\alpha_p = \min(1.0, \tau \min_{\Delta s_i < 0} (s_i / -\Delta s_i))$ and $\alpha_d = \min(1.0, \tau \min_{\Delta z_i < 0} (z_i / -\Delta z_i))$ in hardware, guaranteeing strict primal-dual interior positivity ($\mathbf{s} > \mathbf{0}, \mathbf{z} > \mathbf{0}$).
 - **Nesterov Momentum Acceleration Engine**: Evaluates recursive momentum scalar updates $t_{k+1} = \frac{1 + \sqrt{1 + 4 t_k^2}}{2}$ and extrapolation $\mathbf{y}_{k+1} = \mathbf{x}_k + \frac{t_k - 1}{t_{k+1}}(\mathbf{x}_k - \mathbf{x}_{k-1})$, delivering theoretical $O(1/k^2)$ convergence speedups.
 - **Hardware Soft-Thresholding Proximal Operator**: Real-time evaluation of $S_{\gamma \lambda}(z) = \text{sign}(z)\max(|z|-\gamma \lambda, 0)$, enabling true $L_1$ sparsity induction and driving irrelevant features to exact $32'h0000\_0000$ silicon zero.
 - **Multi-Agent Particle Swarm Engine**: Hardware state machine coordinating up to $P=8$ particles in $N=4$ dimensions, maintaining dedicated position, velocity, and personal best memory tables.
@@ -71,18 +74,19 @@ ju_project/
 │   │   ├── pgd_32bit/                   # Solver #12: PGD Suite
 │   │   ├── dogleg_32bit/                # Solver #13: Trust-Region Dogleg Suite
 │   │   ├── pso_32bit/                   # Solver #14: Particle Swarm Optimization Suite
-│   │   └── fista_32bit/                 # [NEW] Solver #15: FISTA Proximal Gradient Suite
-│   │       ├── fista_types_pkg.sv       # Package: vector types, algorithm parameters
-│   │       ├── fista_helpers.svh        # Inline vector & soft-thresholding helpers
+│   │   ├── fista_32bit/                 # Solver #15: FISTA Proximal Gradient Suite
+│   │   └── ipm_32bit/                   # [NEW] Solver #16: Primal-Dual IPM Suite
+│   │       ├── ipm_types_pkg.sv         # Package: vector/matrix types, algorithm parameters
+│   │       ├── ipm_helpers.svh          # Inline matrix/vector helpers
 │   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
 │   │       ├── q16_sqrt.sv              # 24-cycle Square Root Unit
-│   │       ├── dfg_fista_engine.sv      # Universal microcode objective evaluator f(x)
-│   │       ├── fista_gradient_engine.sv # Central finite-difference gradient engine
-│   │       ├── fista_nesterov_engine.sv # Nesterov scalar and vector extrapolation engine
-│   │       └── fista_top.sv             # Master FISTA SoC Controller
+│   │       ├── dfg_ipm_engine.sv        # Universal microcode objective evaluator f(x)
+│   │       ├── cholesky_ipm_solver.sv   # Hardware Cholesky Augmented Solver (H_aug * dx = -g_aug)
+│   │       ├── ipm_kkt_engine.sv        # KKT residual, Theta, and step engine
+│   │       └── ipm_top.sv               # Master IPM SoC Controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 17 targets)
+│       ├── Makefile                     # Build & run Makefile (all 18 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -100,7 +104,8 @@ ju_project/
 │           ├── tb_pgd.sv                    # PGD testbench
 │           ├── tb_dogleg.sv                 # Trust-Region Dogleg testbench
 │           ├── tb_pso.sv                    # Particle Swarm Optimization testbench
-│           └── tb_fista.sv                  # FISTA Proximal Gradient testbench
+│           ├── tb_fista.sv                  # FISTA Proximal Gradient testbench
+│           └── tb_ipm.sv                    # Primal-Dual IPM testbench
 └── README.md                            # Project documentation
 ```
 
@@ -198,7 +203,12 @@ cd Playstation/sim
     make run_fista
     ```
 
-18. **Run All 17 Solver Suites Regression**:
+18. **Run Primal-Dual Interior Point Method (IPM) Tests**:
+    ```bash
+    make run_ipm
+    ```
+
+19. **Run All 18 Solver Suites Regression**:
     ```bash
     make all
     ```
@@ -257,3 +267,6 @@ cd Playstation/sim
 | **FISTA (#15)** | Accelerated Smooth Convex Optimization ($\lambda = 0.0$) | $(3.000000, 4.000000)$ | $(3.002121, 4.000031)$ | 16 | **PASSED** |
 | **FISTA (#15)** | Sparse Feature Selection ($\lambda = 1.0$) | $(3.500000, 0.000000, 0.000000)$ | $(3.507629, 0.000000, 0.000000)$ | 24 | **PASSED** |
 | **FISTA (#15)** | 4D Compressed Sensing Sparse Signal Recovery ($\lambda = 0.5$) | $(0.750000, 0.000000, 1.750000, 0.000000)$ | $(0.742096, 0.000000, 1.731613, 0.000000)$ | 17 | **PASSED** |
+| **IPM (#16)** | 2D Box-Constrained Convex QP | $(1.000000, 2.000000)$ | $(0.999268, 1.999268)$ | 3 | **PASSED** |
+| **IPM (#16)** | 2D Coupled Quadratic on Half-Space | $(0.750000, 0.750000)$ | $(0.748962, 0.749100)$ | 9 | **PASSED** |
+| **IPM (#16)** | 3D Multi-Constraint Actuator Allocation QP | $(1.500000, 1.000000, 0.500000)$ | $(1.499344, 0.997971, 0.501907)$ | 4 | **PASSED** |
