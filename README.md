@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes sixteen specialized hardware architectures:
+The suite includes seventeen specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -19,11 +19,14 @@ The suite includes sixteen specialized hardware architectures:
 14. **Solver #12: Projected Gradient Descent (PGD) Accelerator (`Q16.16`)**: Multi-geometry constrained optimization engine implementing hardware projections for **Non-Negative Orthants ($\mathbf{x} \ge \mathbf{0}$)**, **Hyperbox Bounds ($\mathbf{l} \le \mathbf{x} \le \mathbf{u}$)**, **Euclidean $L_2$ Balls ($\|\mathbf{x}\|_2 \le R$)**, and **Probability Simplices ($\sum x_i = 1, x_i \ge 0$)**.
 15. **Solver #13: Trust-Region Dogleg Non-Linear Optimizer (`Q16.16`)**: Robust global optimizer dynamically interpolating between steepest-descent **Cauchy Point ($\mathbf{p}_c = -\alpha_c \mathbf{g}$)** and unconstrained **Gauss-Newton Step ($\mathbf{p}_{gn} = -(J^T J)^{-1} \mathbf{g}$)** constrained within adaptive trust-region radius $\Delta$.
 16. **Solver #14: Particle Swarm Optimization (PSO) Accelerator (`Q16.16`)**: Multi-agent global heuristic optimization engine executing parallel velocity updates with **Hardware Xorshift PRNG**, cognitive/social acceleration, velocity clamping, and personal/global best fitness tracking over non-convex multi-modal landscapes.
+17. **Solver #15: Fast Iterative Shrinkage-Thresholding Algorithm (FISTA) (`Q16.16`)**: Accelerated proximal gradient optimizer executing **Nesterov Momentum Extrapolation** $\mathbf{y}_{k+1} = \mathbf{x}_k + \beta_k(\mathbf{x}_k - \mathbf{x}_{k-1})$ with $O(1/k^2)$ convergence rate and hardware **Soft-Thresholding Operator** $S_{\gamma \lambda}(\cdot)$ for sparse recovery.
 
 ---
 
 ## Key Features & Highlights
 
+- **Nesterov Momentum Acceleration Engine**: Evaluates recursive momentum scalar updates $t_{k+1} = \frac{1 + \sqrt{1 + 4 t_k^2}}{2}$ and extrapolation $\mathbf{y}_{k+1} = \mathbf{x}_k + \frac{t_k - 1}{t_{k+1}}(\mathbf{x}_k - \mathbf{x}_{k-1})$, delivering theoretical $O(1/k^2)$ convergence speedups.
+- **Hardware Soft-Thresholding Proximal Operator**: Real-time evaluation of $S_{\gamma \lambda}(z) = \text{sign}(z)\max(|z|-\gamma \lambda, 0)$, enabling true $L_1$ sparsity induction and driving irrelevant features to exact $32'h0000\_0000$ silicon zero.
 - **Multi-Agent Particle Swarm Engine**: Hardware state machine coordinating up to $P=8$ particles in $N=4$ dimensions, maintaining dedicated position, velocity, and personal best memory tables.
 - **Hardware Xorshift Pseudo-Random Number Generator**: Single-cycle uniform fractional pseudo-random scalar generation $r \in [0, 1)$ in Q16.16 for stochastically robust cognitive and social swarm exploration.
 - **Powell Dogleg Trust-Region Interpolation Engine**: Hardware root-solver executing the quadratic formula in silicon to find the exact piecewise linear dogleg intersection $\mathbf{p}(\beta) = \mathbf{p}_c + \beta(\mathbf{p}_{gn} - \mathbf{p}_c)$ on the trust-region boundary $\|\mathbf{p}\|_2 = \Delta$.
@@ -31,7 +34,6 @@ The suite includes sixteen specialized hardware architectures:
 - **Adaptive Trust Radius Controller**: Dynamically tunes trust radius $\Delta$ based on the gain ratio $\rho = \frac{\Delta F_{\text{act}}}{\Delta m_{\text{pred}}}$, expanding $\Delta \leftarrow \min(2\Delta, \Delta_{\max})$ on high model accuracy and contracting $\Delta \leftarrow \max(0.5\Delta, \Delta_{\min})$ on model mismatch.
 - **Multi-Geometry Hardware Projection Engine**: Real-time projection operators in silicon supporting non-negativity, box clamping, Euclidean ball norm scaling $\mathbf{y} \cdot \frac{R}{\|\mathbf{y}\|_2}$, and exact probability simplex water-filling.
 - **3-Phase ADMM Distributed Engine**: Splitting primal linear solve (factorized once via hardware Cholesky), proximal soft-thresholding ($S_{\lambda/\rho}$), and dual multiplier accumulation with strict primal-dual consensus.
-- **Hardware Soft-Thresholding Operator**: Real-time evaluation of $S_\lambda(z) = \text{sign}(z)\max(|z|-\lambda, 0)$, enabling true $L_1$ sparsity induction and driving irrelevant features to exact $32'h0000\_0000$ silicon zero.
 - **L-BFGS Two-Loop Recursion Pipeline**: Evaluates Quasi-Newton search directions $\mathbf{p} = -H_k \mathbf{g}_k$ using only $M=4$ displacement vectors ($\mathbf{s}_i, \mathbf{y}_i, \rho_i$) with backward/forward recursion, saving $>90\%$ silicon area compared to full matrix BFGS.
 - **Derivative-Free Geometric Simplex Engine**: Nelder-Mead hardware state machine optimizing non-smooth and noisy functions via single-cycle bit-shift geometric transformations without derivatives or matrix inversions.
 - **Active-Set Primal-Dual KKT Engine**: Solves hard inequality constrained problems in silicon, automatically classifying active boundary variables, computing shadow prices $\mu_i$, and solving reduced-order systems $H_{\text{free}} \mathbf{p}_{\text{free}} = -\mathbf{g}_{\text{free}}$ via Cholesky decomposition.
@@ -68,18 +70,19 @@ ju_project/
 │   │   ├── admm_32bit/                  # Solver #11: ADMM Suite
 │   │   ├── pgd_32bit/                   # Solver #12: PGD Suite
 │   │   ├── dogleg_32bit/                # Solver #13: Trust-Region Dogleg Suite
-│   │   └── pso_32bit/                   # [NEW] Solver #14: Particle Swarm Optimization Suite
-│   │       ├── pso_types_pkg.sv         # Package: vector types, swarm parameters
-│   │       ├── pso_helpers.svh          # Inline vector helpers
+│   │   ├── pso_32bit/                   # Solver #14: Particle Swarm Optimization Suite
+│   │   └── fista_32bit/                 # [NEW] Solver #15: FISTA Proximal Gradient Suite
+│   │       ├── fista_types_pkg.sv       # Package: vector types, algorithm parameters
+│   │       ├── fista_helpers.svh        # Inline vector & soft-thresholding helpers
 │   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
 │   │       ├── q16_sqrt.sv              # 24-cycle Square Root Unit
-│   │       ├── pso_lfsr_prng.sv         # 32-bit Xorshift PRNG
-│   │       ├── dfg_pso_engine.sv        # Universal microcode objective evaluator f(x)
-│   │       ├── pso_velocity_engine.sv   # Cognitive/Social/Inertia velocity update engine
-│   │       └── pso_top.sv               # Master Swarm SoC Controller
+│   │       ├── dfg_fista_engine.sv      # Universal microcode objective evaluator f(x)
+│   │       ├── fista_gradient_engine.sv # Central finite-difference gradient engine
+│   │       ├── fista_nesterov_engine.sv # Nesterov scalar and vector extrapolation engine
+│   │       └── fista_top.sv             # Master FISTA SoC Controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 16 targets)
+│       ├── Makefile                     # Build & run Makefile (all 17 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -96,7 +99,8 @@ ju_project/
 │           ├── tb_admm.sv                   # ADMM testbench
 │           ├── tb_pgd.sv                    # PGD testbench
 │           ├── tb_dogleg.sv                 # Trust-Region Dogleg testbench
-│           └── tb_pso.sv                    # Particle Swarm Optimization testbench
+│           ├── tb_pso.sv                    # Particle Swarm Optimization testbench
+│           └── tb_fista.sv                  # FISTA Proximal Gradient testbench
 └── README.md                            # Project documentation
 ```
 
@@ -189,7 +193,12 @@ cd Playstation/sim
     make run_pso
     ```
 
-17. **Run All 16 Solver Suites Regression**:
+17. **Run FISTA Accelerated Proximal Gradient Tests**:
+    ```bash
+    make run_fista
+    ```
+
+18. **Run All 17 Solver Suites Regression**:
     ```bash
     make all
     ```
@@ -245,3 +254,6 @@ cd Playstation/sim
 | **PSO (#14)** | 2D Coupled Multi-Agent Optimization | $(0.666667, 2.666667)$ | $(0.583466, 2.693283)$ | 3 | **PASSED** |
 | **PSO (#14)** | 3D Sphere Global Optimization | $(1.000000, -2.000000, 3.000000)$ | $(0.909378, -1.988480, 2.887711)$ | 13 | **PASSED** |
 | **PSO (#14)** | 2D Non-Convex Curved Valley (Rosenbrock) | $(1.000000, 1.000000)$ | $(1.000000, 1.000000)$ | 1 | **PASSED** |
+| **FISTA (#15)** | Accelerated Smooth Convex Optimization ($\lambda = 0.0$) | $(3.000000, 4.000000)$ | $(3.002121, 4.000031)$ | 16 | **PASSED** |
+| **FISTA (#15)** | Sparse Feature Selection ($\lambda = 1.0$) | $(3.500000, 0.000000, 0.000000)$ | $(3.507629, 0.000000, 0.000000)$ | 24 | **PASSED** |
+| **FISTA (#15)** | 4D Compressed Sensing Sparse Signal Recovery ($\lambda = 0.5$) | $(0.750000, 0.000000, 1.750000, 0.000000)$ | $(0.742096, 0.000000, 1.731613, 0.000000)$ | 17 | **PASSED** |

@@ -235,9 +235,23 @@ SRCS_PSO = $(RTL_PSO_DIR)/pso_types_pkg.sv \
 
 OUT_PSO = sim_pso.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso
+# 17. Fast Iterative Shrinkage-Thresholding Algorithm (FISTA) Sources (Solver #15)
+RTL_FISTA_DIR = ../rtl/fista_32bit
+SRCS_FISTA = $(RTL_FISTA_DIR)/fista_types_pkg.sv \
+             $(RTL_FISTA_DIR)/q16_alu.sv \
+             $(RTL_FISTA_DIR)/q16_divider.sv \
+             $(RTL_FISTA_DIR)/q16_sqrt.sv \
+             $(RTL_FISTA_DIR)/dfg_fista_engine.sv \
+             $(RTL_FISTA_DIR)/fista_gradient_engine.sv \
+             $(RTL_FISTA_DIR)/fista_nesterov_engine.sv \
+             $(RTL_FISTA_DIR)/fista_top.sv \
+             $(TB_DIR)/tb_fista.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso
+OUT_FISTA = sim_fista.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -354,7 +368,14 @@ compile_pso: $(SRCS_PSO)
 run_pso: compile_pso
 	vvp $(OUT_PSO)
 
+# FISTA Targets (Solver #15)
+compile_fista: $(SRCS_FISTA)
+	$(SIM) -g2012 -Wall -I$(RTL_FISTA_DIR) $(SRCS_FISTA) -o $(OUT_FISTA)
+
+run_fista: compile_fista
+	vvp $(OUT_FISTA)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) *.vcd *.vvp
 
 
