@@ -2,7 +2,7 @@
 
 A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes thirteen specialized hardware architectures:
+The suite includes fourteen specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -16,11 +16,13 @@ The suite includes thirteen specialized hardware architectures:
 11. **Solver #9: Limited-Memory BFGS (L-BFGS) Accelerator (`Q16.16`)**: High-dimensional Quasi-Newton solver operating via an $O(mN)$ circular displacement history buffer and **Two-Loop Recursion** pipeline, eliminating full matrix storage entirely.
 12. **Solver #10: Coordinate Descent / LASSO L1 Sparsity Accelerator (`Q16.16`)**: Machine learning & compressed sensing optimizer executing cyclical coordinate sweeps with a **Hardware Soft-Thresholding Operator $S_\lambda(z)$**, driving non-predictive weights to exact silicon zero.
 13. **Solver #11: Alternating Direction Method of Multipliers (ADMM) Accelerator (`Q16.16`)**: Distributed convex optimizer splitting primal consensus inversion $\mathbf{x} = (A^T A + \rho I)^{-1} \mathbf{v}$, proximal soft-thresholding $\mathbf{z} = S_{\lambda/\rho}(\mathbf{x} + \mathbf{u})$, and dual update $\mathbf{u} \leftarrow \mathbf{u} + (\mathbf{x} - \mathbf{z})$.
+14. **Solver #12: Projected Gradient Descent (PGD) Accelerator (`Q16.16`)**: Multi-geometry constrained optimization engine implementing hardware projections for **Non-Negative Orthants ($\mathbf{x} \ge \mathbf{0}$)**, **Hyperbox Bounds ($\mathbf{l} \le \mathbf{x} \le \mathbf{u}$)**, **Euclidean $L_2$ Balls ($\|\mathbf{x}\|_2 \le R$)**, and **Probability Simplices ($\sum x_i = 1, x_i \ge 0$)**.
 
 ---
 
 ## Key Features & Highlights
 
+- **Multi-Geometry Hardware Projection Engine**: Real-time projection operators in silicon supporting non-negativity, box clamping, Euclidean ball norm scaling $\mathbf{y} \cdot \frac{R}{\|\mathbf{y}\|_2}$, and exact probability simplex water-filling.
 - **3-Phase ADMM Distributed Engine**: Splitting primal linear solve (factorized once via hardware Cholesky), proximal soft-thresholding ($S_{\lambda/\rho}$), and dual multiplier accumulation with strict primal-dual consensus.
 - **Hardware Soft-Thresholding Operator**: Real-time evaluation of $S_\lambda(z) = \text{sign}(z)\max(|z|-\lambda, 0)$, enabling true $L_1$ sparsity induction and driving irrelevant features to exact $32'h0000\_0000$ silicon zero.
 - **L-BFGS Two-Loop Recursion Pipeline**: Evaluates Quasi-Newton search directions $\mathbf{p} = -H_k \mathbf{g}_k$ using only $M=4$ displacement vectors ($\mathbf{s}_i, \mathbf{y}_i, \rho_i$) with backward/forward recursion, saving $>90\%$ silicon area compared to full matrix BFGS.
@@ -56,18 +58,19 @@ ju_project/
 │   │   ├── nelder_mead_32bit/           # Solver #8: Nelder-Mead Simplex Suite
 │   │   ├── lbfgs_32bit/                 # Solver #9: L-BFGS Two-Loop Suite
 │   │   ├── lasso_32bit/                 # Solver #10: LASSO Coordinate Descent Suite
-│   │   └── admm_32bit/                  # [NEW] Solver #11: ADMM Suite
-│   │       ├── admm_types_pkg.sv        # Package: matrix, vector, dataset types
-│   │       ├── admm_helpers.svh         # Inline dataset/vector helper functions
+│   │   ├── admm_32bit/                  # Solver #11: ADMM Suite
+│   │   └── pgd_32bit/                   # [NEW] Solver #12: PGD Suite
+│   │       ├── pgd_types_pkg.sv         # Package: vector types, projection modes
+│   │       ├── pgd_helpers.svh          # Inline vector helper functions
 │   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
 │   │       ├── q16_sqrt.sv              # 24-cycle Square Root Unit
-│   │       ├── q16_soft_threshold.sv    # Single-cycle Soft-Thresholding Unit
-│   │       ├── cholesky_solver_engine.sv# Hardware Cholesky Linear Solver
-│   │       ├── admm_primal_x_engine.sv  # Normal Matrix Builder & RHS Generator
-│   │       └── admm_top.sv              # Master 3-Phase ADMM SoC Controller
+│   │       ├── dfg_pgd_engine.sv        # Universal microcode objective evaluator f(x)
+│   │       ├── pgd_gradient_engine.sv   # Zero-cost bit-shift numerical gradient sweeper
+│   │       ├── pgd_projection_engine.sv # Multi-geometry projection unit
+│   │       └── pgd_top.sv               # Master PGD SoC Controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 13 targets)
+│       ├── Makefile                     # Build & run Makefile (all 14 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -81,7 +84,8 @@ ju_project/
 │           ├── tb_nelder_mead.sv            # Nelder-Mead testbench
 │           ├── tb_lbfgs.sv                  # L-BFGS testbench
 │           ├── tb_lasso.sv                  # LASSO testbench
-│           └── tb_admm.sv                   # ADMM testbench
+│           ├── tb_admm.sv                   # ADMM testbench
+│           └── tb_pgd.sv                    # PGD testbench
 └── README.md                            # Project documentation
 ```
 
@@ -159,7 +163,12 @@ cd Playstation/sim
     make run_admm
     ```
 
-14. **Run All Solver Suites**:
+14. **Run PGD Tests**:
+    ```bash
+    make run_pgd
+    ```
+
+15. **Run All Solver Suites**:
     ```bash
     make all
     ```
@@ -206,3 +215,6 @@ cd Playstation/sim
 | **ADMM (#11)** | Linear Consensus ($\lambda = 0.0, \rho = 1.0$) | $(2.000000, 3.000000)$ | $(2.000092, 2.999908)$ | 5 | **PASSED** |
 | **ADMM (#11)** | Sparse Feature Selection ($\lambda = 1.0, \rho = 1.0$) | $(4.000000, 0.000000, 0.000000)$ | $(3.966522, 0.000000, 0.000000)$ | 6 | **PASSED** |
 | **ADMM (#11)** | Compressed Sensing Sparse Recovery ($\lambda = 0.5, \rho = 1.0$) | $(1.5, 0.0, 2.5, 0.0)$ | $(1.482208, 0.000000, 2.482162, 0.000000)$ | 7 | **PASSED** |
+| **PGD (#12)** | Non-Negative Orthant ($x_0 \ge 0, x_1 \ge 0$) | $(0.000000, 4.000000)$ | $(0.000000, 4.000977)$ | 24 | **PASSED** |
+| **PGD (#12)** | Euclidean $L_2$ Ball ($\|\mathbf{x}\|_2 \le 2.0$) | $(1.200000, 1.600000)$ | $(1.200104, 1.599899)$ | 2 | **PASSED** |
+| **PGD (#12)** | Probability Simplex ($\sum x_i = 1, x_i \ge 0$) | $(0.000000, 1.000000, 0.000000)$ | $(0.000000, 1.000000, 0.000000)$ | 26 | **PASSED** |
