@@ -206,9 +206,24 @@ SRCS_PGD = $(RTL_PGD_DIR)/pgd_types_pkg.sv \
 
 OUT_PGD = sim_pgd.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd
+# 15. Trust-Region Dogleg Sources (Solver #13)
+RTL_DOGLEG_DIR = ../rtl/dogleg_32bit
+SRCS_DOGLEG = $(RTL_DOGLEG_DIR)/dogleg_types_pkg.sv \
+              $(RTL_DOGLEG_DIR)/q16_alu.sv \
+              $(RTL_DOGLEG_DIR)/q16_divider.sv \
+              $(RTL_DOGLEG_DIR)/q16_sqrt.sv \
+              $(RTL_DOGLEG_DIR)/dfg_dogleg_engine.sv \
+              $(RTL_DOGLEG_DIR)/dogleg_jacobian_engine.sv \
+              $(RTL_DOGLEG_DIR)/cholesky_solver_engine.sv \
+              $(RTL_DOGLEG_DIR)/dogleg_step_engine.sv \
+              $(RTL_DOGLEG_DIR)/dogleg_top.sv \
+              $(TB_DIR)/tb_dogleg.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd
+OUT_DOGLEG = sim_dogleg.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -300,7 +315,7 @@ run_lasso: compile_lasso
 # ADMM Targets (Solver #11)
 compile_admm: $(SRCS_ADMM)
 	$(SIM) -g2012 -Wall -I$(RTL_ADMM_DIR) $(SRCS_ADMM) -o $(OUT_ADMM)
-
+	
 run_admm: compile_admm
 	vvp $(OUT_ADMM)
 
@@ -311,5 +326,13 @@ compile_pgd: $(SRCS_PGD)
 run_pgd: compile_pgd
 	vvp $(OUT_PGD)
 
+# Dogleg Targets (Solver #13)
+compile_dogleg: $(SRCS_DOGLEG)
+	$(SIM) -g2012 -Wall -I$(RTL_DOGLEG_DIR) $(SRCS_DOGLEG) -o $(OUT_DOGLEG)
+
+run_dogleg: compile_dogleg
+	vvp $(OUT_DOGLEG)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) *.vcd *.vvp
+
