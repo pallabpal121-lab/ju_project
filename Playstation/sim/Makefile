@@ -221,9 +221,23 @@ SRCS_DOGLEG = $(RTL_DOGLEG_DIR)/dogleg_types_pkg.sv \
 
 OUT_DOGLEG = sim_dogleg.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg
+# 16. Particle Swarm Optimization (PSO) Sources (Solver #14)
+RTL_PSO_DIR = ../rtl/pso_32bit
+SRCS_PSO = $(RTL_PSO_DIR)/pso_types_pkg.sv \
+           $(RTL_PSO_DIR)/q16_alu.sv \
+           $(RTL_PSO_DIR)/q16_divider.sv \
+           $(RTL_PSO_DIR)/q16_sqrt.sv \
+           $(RTL_PSO_DIR)/pso_lfsr_prng.sv \
+           $(RTL_PSO_DIR)/dfg_pso_engine.sv \
+           $(RTL_PSO_DIR)/pso_velocity_engine.sv \
+           $(RTL_PSO_DIR)/pso_top.sv \
+           $(TB_DIR)/tb_pso.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg
+OUT_PSO = sim_pso.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -333,6 +347,14 @@ compile_dogleg: $(SRCS_DOGLEG)
 run_dogleg: compile_dogleg
 	vvp $(OUT_DOGLEG)
 
+# PSO Targets (Solver #14)
+compile_pso: $(SRCS_PSO)
+	$(SIM) -g2012 -Wall -I$(RTL_PSO_DIR) $(SRCS_PSO) -o $(OUT_PSO)
+
+run_pso: compile_pso
+	vvp $(OUT_PSO)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) *.vcd *.vvp
+
 
