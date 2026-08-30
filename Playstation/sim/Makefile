@@ -452,9 +452,22 @@ SRCS_CEM = $(RTL_CEM_DIR)/cem_types_pkg.sv \
 
 OUT_CEM = sim_cem.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf run_ukf run_mpc run_svm run_pca run_ga run_de run_cem compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm compile_adam compile_qubo compile_pdhg compile_fw compile_alm compile_dd compile_rls compile_ekf compile_ukf compile_mpc compile_svm compile_pca compile_ga compile_de compile_cem
+# 34. Natural Evolution Strategies (NES) Sources (Solver #32)
+RTL_NES_DIR = ../rtl/nes_32bit
+SRCS_NES = $(RTL_NES_DIR)/nes_types_pkg.sv \
+           $(RTL_NES_DIR)/q16_alu.sv \
+           $(RTL_NES_DIR)/q16_divider.sv \
+           $(RTL_NES_DIR)/xorshift32_prng.sv \
+           $(RTL_NES_DIR)/nes_sample_engine.sv \
+           $(RTL_NES_DIR)/nes_grad_engine.sv \
+           $(RTL_NES_DIR)/nes_top.sv \
+           $(TB_DIR)/tb_nes.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf run_ukf run_mpc run_svm run_pca run_ga run_de run_cem
+OUT_NES = sim_nes.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf run_ukf run_mpc run_svm run_pca run_ga run_de run_cem run_nes compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm compile_adam compile_qubo compile_pdhg compile_fw compile_alm compile_dd compile_rls compile_ekf compile_ukf compile_mpc compile_svm compile_pca compile_ga compile_de compile_cem compile_nes
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf run_ukf run_mpc run_svm run_pca run_ga run_de run_cem run_nes
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -690,7 +703,14 @@ compile_cem: $(SRCS_CEM)
 run_cem: compile_cem
 	vvp $(OUT_CEM)
 
+# Natural Evolution Strategies Targets (Solver #32)
+compile_nes: $(SRCS_NES)
+	$(SIM) -g2012 -Wall -I$(RTL_NES_DIR) $(SRCS_NES) -o $(OUT_NES)
+
+run_nes: compile_nes
+	vvp $(OUT_NES)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) $(OUT_ADAM) $(OUT_QUBO) $(OUT_PDHG) $(OUT_FW) $(OUT_ALM) $(OUT_DD) $(OUT_RLS) $(OUT_EKF) $(OUT_UKF) $(OUT_MPC) $(OUT_SVM) $(OUT_PCA) $(OUT_GA) $(OUT_DE) $(OUT_CEM) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) $(OUT_ADAM) $(OUT_QUBO) $(OUT_PDHG) $(OUT_FW) $(OUT_ALM) $(OUT_DD) $(OUT_RLS) $(OUT_EKF) $(OUT_UKF) $(OUT_MPC) $(OUT_SVM) $(OUT_PCA) $(OUT_GA) $(OUT_DE) $(OUT_CEM) $(OUT_NES) *.vcd *.vvp
 
 

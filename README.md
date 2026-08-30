@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation, Unscented Kalman derivative-free sigma-point filtering, Model Predictive Control (MPC) quadratic programming, Support Vector Machine Sequential Minimal Optimization (SVM-SMO), Principal Component Analysis (PCA) / Streaming SVD, Genetic Algorithm (GA) Global Search, Differential Evolution (DE) Global Search, Cross-Entropy Method (CEM) Trajectory Planning, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation, Unscented Kalman derivative-free sigma-point filtering, Model Predictive Control (MPC) quadratic programming, Support Vector Machine Sequential Minimal Optimization (SVM-SMO), Principal Component Analysis (PCA) / Streaming SVD, Genetic Algorithm (GA) Global Search, Differential Evolution (DE) Global Search, Cross-Entropy Method (CEM) Trajectory Planning, Natural Evolution Strategies (NES) Policy Search, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes thirty-three specialized hardware architectures:
+The suite includes thirty-four specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -36,11 +36,13 @@ The suite includes thirty-three specialized hardware architectures:
 31. **Solver #29: Genetic Algorithm (GA) Global Search Accelerator (`Q16.16`)**: Heuristic global search & evolutionary optimization engine executing binary tournament parent selection with hardware **Xorshift32 PRNG**, arithmetic crossover blending $\mathbf{x}_{\text{child}} = \alpha \mathbf{x}_A + (1-\alpha)\mathbf{x}_B$, stochastic polynomial mutation with box clamping, elitism preservation of champion individual $\mathbf{x}^*$, and multi-modal fitness optimization.
 32. **Solver #30: Differential Evolution (DE) Accelerator (`Q16.16`)**: High-performance continuous global optimizer executing `DE/rand/1/bin` differential mutation $\mathbf{v}_i = \mathbf{x}_{r1} + F(\mathbf{x}_{r2} - \mathbf{x}_{r3})$, binomial crossover blending, hyperbox clamping, and one-to-one greedy selection $\mathbf{x}_i^{g+1} = \arg\min(f(\mathbf{u}_i), f(\mathbf{x}_i))$.
 33. **Solver #31: Cross-Entropy Method (CEM) Trajectory Planning Accelerator (`Q16.16`)**: Stochastic continuous optimization & trajectory planning engine executing Gaussian sampling $\mathbf{x}_s \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\sigma}^2)$, elite candidate ranking, sample mean $\boldsymbol{\mu}_{\text{elite}}$ and variance $\boldsymbol{\sigma}_{\text{elite}}^2$ accumulation with hardware square root, and Polyak exponential parameter smoothing.
+34. **Solver #32: Natural Evolution Strategies (NES) / Policy Gradient Accelerator (`Q16.16`)**: Direct policy gradient search engine executing antithetic mirrored sampling $\boldsymbol{\theta} \pm \sigma \boldsymbol{\epsilon}_p$, stochastic policy gradient estimation $\mathbf{g} = \frac{1}{2 P \sigma}\sum (R_p^+ - R_p^-)\boldsymbol{\epsilon}_p$, momentum policy updates, and standard deviation annealing for robotics motor skill learning and black-box reinforcement learning.
 
 ---
 
 ## Key Features & Highlights
 
+- **Hardware Natural Evolution Strategies (NES) Engine**: Complete black-box policy gradient architecture executing antithetic mirrored sampling, stochastic search gradient estimation, and momentum parameter acceleration in silicon.
 - **Hardware Cross-Entropy Method (CEM) Engine**: Complete trajectory optimization architecture executing Gaussian distribution sampling, elite candidate ranking, and statistical variance contraction in silicon.
 - **Hardware Differential Evolution (DE) Engine**: Global continuous optimizer executing 3-parent differential mutation $\mathbf{v}_i = \mathbf{x}_{r1} + F(\mathbf{x}_{r2} - \mathbf{x}_{r3})$ and binomial crossover $\mathbf{u}_i$ with greedy selection.
 - **Hardware Genetic Algorithm (GA) Engine**: Complete evolutionary global optimizer in silicon navigating non-convex, non-differentiable, and multi-modal optimization landscapes.
@@ -119,18 +121,18 @@ ju_project/
 │   │   ├── pca_32bit/                   # Solver #28: Principal Component Analysis (PCA) Suite
 │   │   ├── ga_32bit/                    # Solver #29: Genetic Algorithm (GA) Suite
 │   │   ├── de_32bit/                    # Solver #30: Differential Evolution (DE) Suite
-│   │   └── cem_32bit/                   # [NEW] Solver #31: Cross-Entropy Method (CEM) Suite
-│   │       ├── cem_types_pkg.sv         # Package: samples, distribution μ/σ, fitness types
-│   │       ├── cem_helpers.svh          # Inlined fitness functions, bounds clamping, accessors
+│   │   ├── cem_32bit/                   # Solver #31: Cross-Entropy Method (CEM) Suite
+│   │   └── nes_32bit/                   # [NEW] Solver #32: Natural Evolution Strategies (NES) Suite
+│   │       ├── nes_types_pkg.sv         # Package: policy, perturbations ε, rewards, gradient types
+│   │       ├── nes_helpers.svh          # Inlined reward functions, bounds clamping, accessors
 │   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │       ├── q16_sqrt.sv              # 24-cycle Restoring Square Root
 │   │       ├── xorshift32_prng.sv       # 32-bit Hardware Xorshift PRNG
-│   │       ├── cem_sample_engine.sv     # Gaussian trajectory / parameter sampling engine
-│   │       ├── cem_elite_update_engine.sv# Elite ranking, mean/variance, and Polyak updater
-│   │       └── cem_top.sv               # Top-level CEM optimization SoC controller
+│   │       ├── nes_sample_engine.sv     # Antithetic mirrored perturbation generator
+│   │       ├── nes_grad_engine.sv       # Stochastic policy gradient estimator
+│   │       └── nes_top.sv               # Top-level NES optimization SoC controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 33 targets)
+│       ├── Makefile                     # Build & run Makefile (all 34 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -164,7 +166,8 @@ ju_project/
 │           ├── tb_pca.sv                    # PCA Accelerator testbench
 │           ├── tb_ga.sv                     # GA Accelerator testbench
 │           ├── tb_de.sv                     # DE Accelerator testbench
-│           └── tb_cem.sv                    # CEM Accelerator testbench
+│           ├── tb_cem.sv                    # CEM Accelerator testbench
+│           └── tb_nes.sv                    # NES Accelerator testbench
 └── README.md                            # Project documentation
 ```
 
@@ -177,12 +180,12 @@ Navigate to the simulation directory:
 cd Playstation/sim
 ```
 
-1. **Run Cross-Entropy Method (CEM) Tests**:
+1. **Run Natural Evolution Strategies (NES) Tests**:
    ```bash
-   make run_cem
+   make run_nes
    ```
 
-2. **Run All 33 Solver Builds Regression**:
+2. **Run All 34 Solver Builds Regression**:
    ```bash
    make all
    ```
@@ -289,3 +292,6 @@ cd Playstation/sim
 | **CEM (#31)** | 2D Decoupled Quadratic Minimization | $(3.000000, 4.000000), F^* = 0.0$ | $(3.002625, 3.996017), F^* = 0.000031$ | 35 iters | **PASSED** |
 | **CEM (#31)** | 2D Non-Convex Curved Rosenbrock Valley | $(1.000000, 1.000000), F^* = 0.0$ | $(0.891251, 0.787704), F^* = 0.012131$ | 39 iters | **PASSED** |
 | **CEM (#31)** | 3D Multi-Modal Landscape Optimization | $(0.0, 0.0, 0.0), F^* = 0.0$ | $(-0.004364, -0.013641, -0.022278)$ | 39 iters | **PASSED** |
+| **NES (#32)** | 2D Decoupled Quadratic Policy Maximization | $(3.000000, 4.000000), R^* = 0.0$ | $(2.938293, 3.998596), R^* = -0.003799$ | 39 iters | **PASSED** |
+| **NES (#32)** | 2D Non-Convex Curved Rosenbrock Ridge Search | $(1.000000, 1.000000), R^* = 0.0$ | $(0.944931, 0.892303), R^* = -0.003021$ | 39 iters | **PASSED** |
+| **NES (#32)** | 3D Multi-Parameter Policy Optimization | $(0.0, 0.0, 0.0), R^* = 0.0$ | $(-0.015656, 0.061462, -0.099030)$ | 39 iters | **PASSED** |
