@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation, Unscented Kalman derivative-free sigma-point filtering, Model Predictive Control (MPC) quadratic programming, Support Vector Machine Sequential Minimal Optimization (SVM-SMO), Principal Component Analysis (PCA) / Streaming SVD, Genetic Algorithm (GA) Global Search, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation, Unscented Kalman derivative-free sigma-point filtering, Model Predictive Control (MPC) quadratic programming, Support Vector Machine Sequential Minimal Optimization (SVM-SMO), Principal Component Analysis (PCA) / Streaming SVD, Genetic Algorithm (GA) Global Search, Differential Evolution (DE) Global Search, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes thirty-one specialized hardware architectures:
+The suite includes thirty-two specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -34,17 +34,17 @@ The suite includes thirty-one specialized hardware architectures:
 29. **Solver #27: Support Vector Machine Sequential Minimal Optimization (SVM-SMO) Accelerator (`Q16.16`)**: Edge machine learning & classification engine executing Platt's analytic 2-variable quadratic programming subproblem solver, kernel Gram matrix generator $K_{ij} = \mathbf{x}_i^T \mathbf{x}_j$, box clipping $0 \le \alpha_i \le C$, threshold bias update $b$, and real-time inference margin evaluation $y_{\text{pred}} = \text{sign}(\sum \alpha_j y_j K(\mathbf{x}_j, \mathbf{x}) + b)$.
 30. **Solver #28: Principal Component Analysis (PCA) / Streaming SVD Power Iteration Accelerator (`Q16.16`)**: High-speed dimensionality reduction & feature extraction engine executing sample mean $\bar{\mathbf{x}}$ and covariance matrix $\Sigma = \frac{1}{M-1}\sum (\mathbf{x}_i - \bar{\mathbf{x}})(\mathbf{x}_i - \bar{\mathbf{x}})^T$ accumulation, Gram-Schmidt orthogonalized Power Iteration $\mathbf{y} = \Sigma \mathbf{q}, \mathbf{q} = \mathbf{y}/\|\mathbf{y}\|_2$, Rayleigh quotient eigenvalue evaluation $\lambda = \mathbf{q}^T \Sigma \mathbf{q}$, Hotelling's deflation $\Sigma_{k+1} = \Sigma_k - \lambda_k \mathbf{q}_k \mathbf{q}_k^T$, online latent encoding $\mathbf{z} = V_K^T (\mathbf{x} - \bar{\mathbf{x}})$, and inverse reconstruction $\hat{\mathbf{x}} = \bar{\mathbf{x}} + V_K \mathbf{z}$.
 31. **Solver #29: Genetic Algorithm (GA) Global Search Accelerator (`Q16.16`)**: Heuristic global search & evolutionary optimization engine executing binary tournament parent selection with hardware **Xorshift32 PRNG**, arithmetic crossover blending $\mathbf{x}_{\text{child}} = \alpha \mathbf{x}_A + (1-\alpha)\mathbf{x}_B$, stochastic polynomial mutation with box clamping, elitism preservation of champion individual $\mathbf{x}^*$, and multi-modal fitness optimization.
+32. **Solver #30: Differential Evolution (DE) Accelerator (`Q16.16`)**: High-performance continuous global optimizer executing `DE/rand/1/bin` differential mutation $\mathbf{v}_i = \mathbf{x}_{r1} + F(\mathbf{x}_{r2} - \mathbf{x}_{r3})$, binomial crossover blending, hyperbox clamping, and one-to-one greedy selection $\mathbf{x}_i^{g+1} = \arg\min(f(\mathbf{u}_i), f(\mathbf{x}_i))$.
 
 ---
 
 ## Key Features & Highlights
 
-- **Hardware Genetic Algorithm (GA) Engine**: Complete evolutionary global optimizer in silicon navigating non-convex, non-differentiable, and multi-modal optimization landscapes without gradients or matrix factorizations.
-- **Pipelined Fitness Evaluation Engine (`ga_fitness_engine.sv`)**: Evaluates objective fitness $F_p = f(\mathbf{x}_p)$ across population individuals in parallel dot-product pipelines and tracks champion individual $p^* = \arg\min F_p$.
-- **Reproduction & Mutation Pipeline (`ga_reproduce_engine.sv`)**: Executes elitism preservation at slot 0, binary tournament parent selection, arithmetic crossover genome blending, and stochastic hyperbox mutation.
+- **Hardware Differential Evolution (DE) Engine**: Global continuous optimizer executing 3-parent differential mutation $\mathbf{v}_i = \mathbf{x}_{r1} + F(\mathbf{x}_{r2} - \mathbf{x}_{r3})$ and binomial crossover $\mathbf{u}_i$ with greedy selection.
+- **Hardware Genetic Algorithm (GA) Engine**: Complete evolutionary global optimizer in silicon navigating non-convex, non-differentiable, and multi-modal optimization landscapes.
 - **Hardware Principal Component Analysis (PCA) Engine**: Complete streaming dimensionality reduction, feature compression, and subspace reconstruction processor in silicon.
-- **Pipelined Sample Covariance Engine (`pca_cov_engine.sv`)**: Evaluates sample mean $\bar{\mathbf{x}}$ and sample covariance matrix $\Sigma = \frac{1}{M-1}\sum (\mathbf{x}_i - \bar{\mathbf{x}})(\mathbf{x}_i - \bar{\mathbf{x}})^T$ with hardware divider normalization.
-- **Gram-Schmidt Deflation Power Iteration Engine (`pca_power_iter_engine.sv`)**: Extracts dominant eigenvectors $\mathbf{v}_k$ and eigenvalues $\lambda_k$ with exact orthonormal Gram-Schmidt orthogonalization $\mathbf{v}_i^T \mathbf{v}_j = 0$ and restoring square root normalization.
+- **Pipelined Sample Covariance Engine (`pca_cov_engine.sv`)**: Evaluates sample mean $\bar{\mathbf{x}}$ and sample covariance matrix $\Sigma$ with hardware divider normalization.
+- **Gram-Schmidt Deflation Power Iteration Engine (`pca_power_iter_engine.sv`)**: Extracts dominant eigenvectors $\mathbf{v}_k$ and eigenvalues $\lambda_k$ with exact orthonormal Gram-Schmidt orthogonalization $\mathbf{v}_i^T \mathbf{v}_j = 0$.
 - **Online Projection & Reconstruction Pipeline (`pca_top.sv`)**: Encodes high-dimensional sensor vectors into compact latent codes $\mathbf{z} = V_K^T (\mathbf{x} - \bar{\mathbf{x}})$ and decodes back to high-fidelity reconstructions $\hat{\mathbf{x}} = \bar{\mathbf{x}} + V_K \mathbf{z}$ with $<0.03\%$ RMSE.
 - **Hardware Support Vector Machine (SVM-SMO) Engine**: Complete edge machine learning processor executing both iterative SMO dual quadratic training and single-cycle online classification inference in silicon.
 - **Real-Time Model Predictive Control (MPC) Engine**: Embedded optimal control architecture solving constrained Quadratic Programs (QP) in microsecond control loops on FPGA/ASIC.
@@ -115,16 +115,17 @@ ju_project/
 │   │   ├── mpc_32bit/                   # Solver #26: Model Predictive Control Suite
 │   │   ├── svm_smo_32bit/               # Solver #27: Support Vector Machine (SVM-SMO) Suite
 │   │   ├── pca_32bit/                   # Solver #28: Principal Component Analysis (PCA) Suite
-│   │   └── ga_32bit/                    # [NEW] Solver #29: Genetic Algorithm (GA) Suite
-│   │       ├── ga_types_pkg.sv          # Package: population, genes, fitness, function types
-│   │       ├── ga_helpers.svh           # Inlined fitness functions, bounds clamping, accessors
+│   │   ├── ga_32bit/                    # Solver #29: Genetic Algorithm (GA) Suite
+│   │   └── de_32bit/                    # [NEW] Solver #30: Differential Evolution (DE) Suite
+│   │       ├── de_types_pkg.sv          # Package: population, trial vectors, fitness, differential types
+│   │       ├── de_helpers.svh           # Inlined fitness functions, bounds clamping, accessors
 │   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── xorshift32_prng.sv       # 32-bit Hardware Xorshift PRNG
-│   │       ├── ga_fitness_engine.sv     # Pipelined population fitness evaluator
-│   │       ├── ga_reproduce_engine.sv   # Tournament selection, crossover & mutation engine
-│   │       └── ga_top.sv                # Top-level GA generation loop SoC controller
+│   │       ├── de_fitness_engine.sv     # Pipelined single-vector fitness evaluator
+│   │       ├── de_mutate_cross_engine.sv# DE/rand/1/bin mutation & binomial crossover engine
+│   │       └── de_top.sv                # Top-level DE greedy selection SoC controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 31 targets)
+│       ├── Makefile                     # Build & run Makefile (all 32 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -156,7 +157,8 @@ ju_project/
 │           ├── tb_mpc.sv                    # MPC Accelerator testbench
 │           ├── tb_svm_smo.sv                # SVM-SMO Accelerator testbench
 │           ├── tb_pca.sv                    # PCA Accelerator testbench
-│           └── tb_ga.sv                     # GA Accelerator testbench
+│           ├── tb_ga.sv                     # GA Accelerator testbench
+│           └── tb_de.sv                     # DE Accelerator testbench
 └── README.md                            # Project documentation
 ```
 
@@ -169,12 +171,12 @@ Navigate to the simulation directory:
 cd Playstation/sim
 ```
 
-1. **Run Genetic Algorithm (GA) Tests**:
+1. **Run Differential Evolution (DE) Tests**:
    ```bash
-   make run_ga
+   make run_de
    ```
 
-2. **Run All 31 Solver Suites Regression**:
+2. **Run All 32 Solver Suites Regression**:
    ```bash
    make all
    ```
@@ -275,3 +277,6 @@ cd Playstation/sim
 | **GA (#29)** | 2D Decoupled Quadratic Minimization | $(3.000000, 4.000000), F^* = 0.0$ | $(3.134064, 3.927444), F^* = 0.028488$ | 49 gens | **PASSED** |
 | **GA (#29)** | 2D Non-Convex Curved Rosenbrock Valley | $(1.000000, 1.000000), F^* = 0.0$ | $(0.833969, 0.673950), F^* = 0.032135$ | 49 gens | **PASSED** |
 | **GA (#29)** | 3D Multi-Modal Fitness Optimization | $(0.0, 0.0, 0.0), F^* = 0.0$ | $(0.067856, -0.132187, 0.067856)$ | 39 gens | **PASSED** |
+| **DE (#30)** | 2D Decoupled Quadratic Minimization | $(3.000000, 4.000000), F^* = 0.0$ | $(2.923355, 4.010330), F^* = 0.006042$ | 49 gens | **PASSED** |
+| **DE (#30)** | 2D Non-Convex Curved Rosenbrock Valley | $(1.000000, 1.000000), F^* = 0.0$ | $(0.984940, 0.968689), F^* = 0.000214$ | 49 gens | **PASSED** |
+| **DE (#30)** | 3D Multi-Modal Fitness Optimization | $(0.0, 0.0, 0.0), F^* = 0.0$ | $(0.007690, 0.001175, 0.006149)$ | 14 gens | **PASSED** |
