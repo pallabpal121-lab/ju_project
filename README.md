@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation, Unscented Kalman derivative-free sigma-point filtering, Model Predictive Control (MPC) quadratic programming, Support Vector Machine Sequential Minimal Optimization (SVM-SMO), Principal Component Analysis (PCA) / Streaming SVD, Genetic Algorithm (GA) Global Search, Differential Evolution (DE) Global Search, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation, Unscented Kalman derivative-free sigma-point filtering, Model Predictive Control (MPC) quadratic programming, Support Vector Machine Sequential Minimal Optimization (SVM-SMO), Principal Component Analysis (PCA) / Streaming SVD, Genetic Algorithm (GA) Global Search, Differential Evolution (DE) Global Search, Cross-Entropy Method (CEM) Trajectory Planning, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes thirty-two specialized hardware architectures:
+The suite includes thirty-three specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -35,11 +35,13 @@ The suite includes thirty-two specialized hardware architectures:
 30. **Solver #28: Principal Component Analysis (PCA) / Streaming SVD Power Iteration Accelerator (`Q16.16`)**: High-speed dimensionality reduction & feature extraction engine executing sample mean $\bar{\mathbf{x}}$ and covariance matrix $\Sigma = \frac{1}{M-1}\sum (\mathbf{x}_i - \bar{\mathbf{x}})(\mathbf{x}_i - \bar{\mathbf{x}})^T$ accumulation, Gram-Schmidt orthogonalized Power Iteration $\mathbf{y} = \Sigma \mathbf{q}, \mathbf{q} = \mathbf{y}/\|\mathbf{y}\|_2$, Rayleigh quotient eigenvalue evaluation $\lambda = \mathbf{q}^T \Sigma \mathbf{q}$, Hotelling's deflation $\Sigma_{k+1} = \Sigma_k - \lambda_k \mathbf{q}_k \mathbf{q}_k^T$, online latent encoding $\mathbf{z} = V_K^T (\mathbf{x} - \bar{\mathbf{x}})$, and inverse reconstruction $\hat{\mathbf{x}} = \bar{\mathbf{x}} + V_K \mathbf{z}$.
 31. **Solver #29: Genetic Algorithm (GA) Global Search Accelerator (`Q16.16`)**: Heuristic global search & evolutionary optimization engine executing binary tournament parent selection with hardware **Xorshift32 PRNG**, arithmetic crossover blending $\mathbf{x}_{\text{child}} = \alpha \mathbf{x}_A + (1-\alpha)\mathbf{x}_B$, stochastic polynomial mutation with box clamping, elitism preservation of champion individual $\mathbf{x}^*$, and multi-modal fitness optimization.
 32. **Solver #30: Differential Evolution (DE) Accelerator (`Q16.16`)**: High-performance continuous global optimizer executing `DE/rand/1/bin` differential mutation $\mathbf{v}_i = \mathbf{x}_{r1} + F(\mathbf{x}_{r2} - \mathbf{x}_{r3})$, binomial crossover blending, hyperbox clamping, and one-to-one greedy selection $\mathbf{x}_i^{g+1} = \arg\min(f(\mathbf{u}_i), f(\mathbf{x}_i))$.
+33. **Solver #31: Cross-Entropy Method (CEM) Trajectory Planning Accelerator (`Q16.16`)**: Stochastic continuous optimization & trajectory planning engine executing Gaussian sampling $\mathbf{x}_s \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\sigma}^2)$, elite candidate ranking, sample mean $\boldsymbol{\mu}_{\text{elite}}$ and variance $\boldsymbol{\sigma}_{\text{elite}}^2$ accumulation with hardware square root, and Polyak exponential parameter smoothing.
 
 ---
 
 ## Key Features & Highlights
 
+- **Hardware Cross-Entropy Method (CEM) Engine**: Complete trajectory optimization architecture executing Gaussian distribution sampling, elite candidate ranking, and statistical variance contraction in silicon.
 - **Hardware Differential Evolution (DE) Engine**: Global continuous optimizer executing 3-parent differential mutation $\mathbf{v}_i = \mathbf{x}_{r1} + F(\mathbf{x}_{r2} - \mathbf{x}_{r3})$ and binomial crossover $\mathbf{u}_i$ with greedy selection.
 - **Hardware Genetic Algorithm (GA) Engine**: Complete evolutionary global optimizer in silicon navigating non-convex, non-differentiable, and multi-modal optimization landscapes.
 - **Hardware Principal Component Analysis (PCA) Engine**: Complete streaming dimensionality reduction, feature compression, and subspace reconstruction processor in silicon.
@@ -116,16 +118,19 @@ ju_project/
 │   │   ├── svm_smo_32bit/               # Solver #27: Support Vector Machine (SVM-SMO) Suite
 │   │   ├── pca_32bit/                   # Solver #28: Principal Component Analysis (PCA) Suite
 │   │   ├── ga_32bit/                    # Solver #29: Genetic Algorithm (GA) Suite
-│   │   └── de_32bit/                    # [NEW] Solver #30: Differential Evolution (DE) Suite
-│   │       ├── de_types_pkg.sv          # Package: population, trial vectors, fitness, differential types
-│   │       ├── de_helpers.svh           # Inlined fitness functions, bounds clamping, accessors
+│   │   ├── de_32bit/                    # Solver #30: Differential Evolution (DE) Suite
+│   │   └── cem_32bit/                   # [NEW] Solver #31: Cross-Entropy Method (CEM) Suite
+│   │       ├── cem_types_pkg.sv         # Package: samples, distribution μ/σ, fitness types
+│   │       ├── cem_helpers.svh          # Inlined fitness functions, bounds clamping, accessors
 │   │       ├── q16_alu.sv               # Q16.16 ALU
+│   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
+│   │       ├── q16_sqrt.sv              # 24-cycle Restoring Square Root
 │   │       ├── xorshift32_prng.sv       # 32-bit Hardware Xorshift PRNG
-│   │       ├── de_fitness_engine.sv     # Pipelined single-vector fitness evaluator
-│   │       ├── de_mutate_cross_engine.sv# DE/rand/1/bin mutation & binomial crossover engine
-│   │       └── de_top.sv                # Top-level DE greedy selection SoC controller
+│   │       ├── cem_sample_engine.sv     # Gaussian trajectory / parameter sampling engine
+│   │       ├── cem_elite_update_engine.sv# Elite ranking, mean/variance, and Polyak updater
+│   │       └── cem_top.sv               # Top-level CEM optimization SoC controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 32 targets)
+│       ├── Makefile                     # Build & run Makefile (all 33 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -158,7 +163,8 @@ ju_project/
 │           ├── tb_svm_smo.sv                # SVM-SMO Accelerator testbench
 │           ├── tb_pca.sv                    # PCA Accelerator testbench
 │           ├── tb_ga.sv                     # GA Accelerator testbench
-│           └── tb_de.sv                     # DE Accelerator testbench
+│           ├── tb_de.sv                     # DE Accelerator testbench
+│           └── tb_cem.sv                    # CEM Accelerator testbench
 └── README.md                            # Project documentation
 ```
 
@@ -171,12 +177,12 @@ Navigate to the simulation directory:
 cd Playstation/sim
 ```
 
-1. **Run Differential Evolution (DE) Tests**:
+1. **Run Cross-Entropy Method (CEM) Tests**:
    ```bash
-   make run_de
+   make run_cem
    ```
 
-2. **Run All 32 Solver Suites Regression**:
+2. **Run All 33 Solver Builds Regression**:
    ```bash
    make all
    ```
@@ -280,3 +286,6 @@ cd Playstation/sim
 | **DE (#30)** | 2D Decoupled Quadratic Minimization | $(3.000000, 4.000000), F^* = 0.0$ | $(2.923355, 4.010330), F^* = 0.006042$ | 49 gens | **PASSED** |
 | **DE (#30)** | 2D Non-Convex Curved Rosenbrock Valley | $(1.000000, 1.000000), F^* = 0.0$ | $(0.984940, 0.968689), F^* = 0.000214$ | 49 gens | **PASSED** |
 | **DE (#30)** | 3D Multi-Modal Fitness Optimization | $(0.0, 0.0, 0.0), F^* = 0.0$ | $(0.007690, 0.001175, 0.006149)$ | 14 gens | **PASSED** |
+| **CEM (#31)** | 2D Decoupled Quadratic Minimization | $(3.000000, 4.000000), F^* = 0.0$ | $(3.002625, 3.996017), F^* = 0.000031$ | 35 iters | **PASSED** |
+| **CEM (#31)** | 2D Non-Convex Curved Rosenbrock Valley | $(1.000000, 1.000000), F^* = 0.0$ | $(0.891251, 0.787704), F^* = 0.012131$ | 39 iters | **PASSED** |
+| **CEM (#31)** | 3D Multi-Modal Landscape Optimization | $(0.0, 0.0, 0.0), F^* = 0.0$ | $(-0.004364, -0.013641, -0.022278)$ | 39 iters | **PASSED** |
