@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes twenty-three specialized hardware architectures:
+The suite includes twenty-four specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -26,18 +26,18 @@ The suite includes twenty-three specialized hardware architectures:
 21. **Solver #19: Primal-Dual Hybrid Gradient (PDHG / Chambolle-Pock) Accelerator (`Q16.16`)**: Non-smooth first-order minimax saddle-point solver alternating dual projection $\mathbf{y}_{k+1} = \text{prox}_{\sigma g^*}(\mathbf{y}_k + \sigma K \bar{\mathbf{x}}_k)$, primal proximal resolution $\mathbf{x}_{k+1} = \text{prox}_{\tau f}(\mathbf{x}_k - \tau K^T \mathbf{y}_{k+1})$, and over-relaxation extrapolation $\bar{\mathbf{x}}_{k+1} = 2\mathbf{x}_{k+1} - \mathbf{x}_k$ for Total Variation (TV) denoising and compressed sensing.
 22. **Solver #20: Frank-Wolfe / Conditional Gradient Accelerator (`Q16.16`)**: Projection-free constrained optimization engine replacing expensive Euclidean projections with a **Linear Minimization Oracle (LMO)** $\mathbf{s}_k = \arg\min_{\mathbf{s} \in \mathcal{C}} \langle \mathbf{s}, \nabla f(\mathbf{x}_k) \rangle$ over $L_1$ balls, hyperboxes, and probability simplices with exact quadratic line search and Duality Gap stopping certificates.
 23. **Solver #21: Augmented Lagrangian Method (ALM) / Method of Multipliers Accelerator (`Q16.16`)**: Equality and inequality constrained optimization engine integrating an **Augmented KKT Cholesky linear solver**, Hestenes-Powell-Rockafellar inequality penalty engine, dual multiplier updater ($\boldsymbol{\lambda} \leftarrow \boldsymbol{\lambda} + \rho(A \mathbf{x} - \mathbf{b})$, $\boldsymbol{\mu} \leftarrow \max(\mathbf{0}, \boldsymbol{\mu} + \rho(C \mathbf{x} - \mathbf{d}))$), and adaptive penalty parameter controller ($\rho$).
+24. **Solver #22: Dual Decomposition Multi-Agent Resource Allocation Engine (`Q16.16`)**: Decentralized multi-agent optimization architecture executing parallel local agent solvers $\mathbf{x}_s^*(\boldsymbol{\lambda}) = Q_s^{-1}(\mathbf{p}_s - A_s^T \boldsymbol{\lambda})$, broadcast shadow price coordinator $\boldsymbol{\lambda}_{k+1} = \boldsymbol{\lambda}_k + \alpha(\sum A_s \mathbf{x}_s - \mathbf{c})$, and market clearing for microgrid power flow and distributed edge networking.
 
 ---
 
 ## Key Features & Highlights
 
+- **Decentralized Multi-Agent Dual Decomposition Architecture**: Solves coupled resource allocation $\min \sum f_s(\mathbf{x}_s) \text{ s.t. } \sum A_s \mathbf{x}_s = \mathbf{c} \ (\text{or } \le \mathbf{c})$ via parallel local agent optimization and master shadow price updates.
+- **Parallel Local Agent Hardware Cores**: Evaluates local agent decisions $\mathbf{x}_s = Q_s^{-1}(\mathbf{p}_s - A_s^T \boldsymbol{\lambda})$ in parallel hardware pipelines without centralized state storage.
+- **Master Shadow Price Coordinator**: Aggregates total resource usage $\sum A_s \mathbf{x}_s$, computes coupling residuals $\mathbf{r} = \sum A_s \mathbf{x}_s - \mathbf{c}$, and broadcasts updated market-clearing shadow prices $\boldsymbol{\lambda}$.
 - **Hardware Augmented Lagrangian & KKT Cholesky Solver**: Evaluates the augmented primal step $(Q + \rho A^T A + \rho C_{\text{act}}^T C_{\text{act}} + \lambda_{\text{damp}} I)\Delta \mathbf{x} = -\mathbf{g}_{\text{aug}}$ via direct hardware Cholesky factorization, supporting both equality ($A \mathbf{x} = \mathbf{b}$) and inequality ($C \mathbf{x} \le \mathbf{d}$) constraints with shadow prices.
 - **Hestenes-Powell-Rockafellar Dual Engine**: Pipelined multiplier updater executing $\boldsymbol{\lambda}_{k+1} = \boldsymbol{\lambda}_k + \rho(A \mathbf{x} - \mathbf{b})$ and $\mu_{k+1, i} = \max(0, \mu_{k, i} + \rho(c_i^T \mathbf{x} - d_i))$ with active constraint classification and geometric penalty escalation.
-- **Hardware Linear Minimization Oracle (LMO)**: Evaluates extreme vertices of constraint polytopes in a single clock cycle without matrix inversions or quadratic subproblems:
-  - $L_1$ Ball ($\|\mathbf{x}\|_1 \le R$): Sparse extreme vertex selection $i^* = \arg\max |g_i|$.
-  - Hyperbox ($\mathbf{l} \le \mathbf{x} \le \mathbf{u}$): Direct coordinate-wise sign thresholding.
-  - Probability Simplex ($\sum x_i = 1, x_i \ge 0$): Discrete minimum coordinate selection.
-- **Exact Line Search & Duality Gap Engine**: Pipelined hardware step evaluator computing exact quadratic step sizes $\gamma = \frac{-\mathbf{g}^T \mathbf{d}}{\mathbf{d}^T Q \mathbf{d}}$ and certifying global suboptimality via the Frank-Wolfe Duality Gap $\text{gap} = \mathbf{g}^T (\mathbf{x} - \mathbf{s}) \le \epsilon_{\text{tol}}$.
+- **Hardware Linear Minimization Oracle (LMO)**: Evaluates extreme vertices of constraint polytopes in a single clock cycle without matrix inversions or quadratic subproblems.
 - **Chambolle-Pock First-Order Primal-Dual Engine**: Solves non-smooth saddle-point optimization $\min_{\mathbf{x}} f(\mathbf{x}) + g(K \mathbf{x})$ in hardware via alternating forward-backward primal-dual iterations with single-cycle extrapolation $\bar{\mathbf{x}} = 2\mathbf{x}_{\text{new}} - \mathbf{x}_{\text{old}}$.
 - **Hardware Ising Hamiltonian & Local Field Engine**: Evaluates single-spin flip energy changes $\Delta E_k = (1 - 2 q_k)(Q_{kk} + \sum_{j \ne k} (Q_{kj} + Q_{jk}) q_j)$ with zero-latency arithmetic, enabling millions of spin flips per second.
 - **Pipelined Boltzmann Probability Evaluator**: Evaluates $P = \exp(-\Delta E / T)$ in fixed-point via base-2 decomposition $\exp(-u) = 2^{-k} \cdot (1 - \ln(2)f + 0.240226 f^2)$, delivering $>99.9\%$ accuracy across the entire domain.
@@ -49,7 +49,6 @@ The suite includes twenty-three specialized hardware architectures:
 - **Multi-Agent Particle Swarm Engine**: Hardware state machine coordinating up to $P=8$ particles in $N=4$ dimensions, maintaining dedicated position, velocity, and personal best memory tables.
 - **Powell Dogleg Trust-Region Interpolation Engine**: Hardware root-solver executing the quadratic formula in silicon to find the exact piecewise linear dogleg intersection $\mathbf{p}(\beta) = \mathbf{p}_c + \beta(\mathbf{p}_{gn} - \mathbf{p}_c)$ on the trust-region boundary $\|\mathbf{p}\|_2 = \Delta$.
 - **Scale-Invariant Cauchy Gradient Normalizer**: Automatically normalizes large gradients $\mathbf{g}$ before computing $\alpha_c = \frac{\mathbf{g}^T \mathbf{g}}{\mathbf{g}^T B \mathbf{g}}$, completely eliminating fixed-point overflow for unbounded gradient magnitudes.
-- **Adaptive Trust Radius Controller**: Dynamically tunes trust radius $\Delta$ based on the gain ratio $\rho = \frac{\Delta F_{\text{act}}}{\Delta m_{\text{pred}}}$, expanding $\Delta \leftarrow \min(2\Delta, \Delta_{\max})$ on high model accuracy and contracting $\Delta \leftarrow \max(0.5\Delta, \Delta_{\min})$ on model mismatch.
 - **Multi-Geometry Hardware Projection Engine**: Real-time projection operators in silicon supporting non-negativity, box clamping, Euclidean ball norm scaling $\mathbf{y} \cdot \frac{R}{\|\mathbf{y}\|_2}$, and exact probability simplex water-filling.
 - **3-Phase ADMM Distributed Engine**: Splitting primal linear solve (factorized once via hardware Cholesky), proximal soft-thresholding ($S_{\lambda/\rho}$), and dual multiplier accumulation with strict primal-dual consensus.
 - **L-BFGS Two-Loop Recursion Pipeline**: Evaluates Quasi-Newton search directions $\mathbf{p} = -H_k \mathbf{g}_k$ using only $M=4$ displacement vectors ($\mathbf{s}_i, \mathbf{y}_i, \rho_i$) with backward/forward recursion, saving $>90\%$ silicon area compared to full matrix BFGS.
@@ -95,17 +94,17 @@ ju_project/
 │   │   ├── qubo_32bit/                  # Solver #18: QUBO / Simulated Annealing Suite
 │   │   ├── pdhg_32bit/                  # Solver #19: PDHG / Chambolle-Pock Suite
 │   │   ├── frank_wolfe_32bit/           # Solver #20: Frank-Wolfe Accelerator Suite
-│   │   └── alm_32bit/                   # [NEW] Solver #21: ALM Accelerator Suite
-│   │       ├── alm_types_pkg.sv         # Package: dimensions, matrices, penalty params
-│   │       ├── alm_helpers.svh          # Inline matrix/vector math & residuals
+│   │   ├── alm_32bit/                   # Solver #21: ALM Accelerator Suite
+│   │   └── dual_decomp_32bit/           # [NEW] Solver #22: Dual Decomposition Suite
+│   │       ├── dd_types_pkg.sv          # Package: dimensions, matrices, modes
+│   │       ├── dd_helpers.svh           # Inline matrix/vector math & residuals
 │   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │       ├── q16_sqrt.sv              # 24-cycle Restoring Sqrt
-│   │       ├── cholesky_alm_solver.sv   # Augmented KKT Cholesky linear solver
-│   │       ├── alm_dual_engine.sv       # Multiplier updater & penalty adapter
-│   │       └── alm_top.sv               # Master ALM SoC Controller
+│   │       ├── dd_agent_node.sv         # Parallel local agent optimization core
+│   │       ├── dd_master_engine.sv      # Master shadow price coordinator
+│   │       └── dd_top.sv                # Top-level SoC Multi-Agent Coordinator
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 23 targets)
+│       ├── Makefile                     # Build & run Makefile (all 24 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -129,7 +128,8 @@ ju_project/
 │           ├── tb_qubo.sv                   # QUBO / Simulated Annealing testbench
 │           ├── tb_pdhg.sv                   # PDHG / Chambolle-Pock testbench
 │           ├── tb_frank_wolfe.sv            # Frank-Wolfe Accelerator testbench
-│           └── tb_alm.sv                    # ALM Accelerator testbench
+│           ├── tb_alm.sv                    # ALM Accelerator testbench
+│           └── tb_dual_decomp.sv            # Dual Decomposition testbench
 └── README.md                            # Project documentation
 ```
 
@@ -142,125 +142,15 @@ Navigate to the simulation directory:
 cd Playstation/sim
 ```
 
-1. **Run 32-Bit 1D Newton Tests**:
+1. **Run Dual Decomposition Tests**:
    ```bash
-   make run_32bit
+   make run_dd
    ```
 
-2. **Run 64-Bit 1D High-Precision Tests**:
+2. **Run All 24 Solver Suites Regression**:
    ```bash
-   make run_64bit
+   make all
    ```
-
-3. **Run Multivariable N-Dimensional Tests (Cholesky Solver)**:
-   ```bash
-   make run_multivar
-   ```
-
-4. **Run Levenberg-Marquardt (LM) Tests**:
-   ```bash
-   make run_lm
-   ```
-
-5. **Run Iteratively Reweighted Least Squares (IRLS) Tests**:
-   ```bash
-   make run_irls
-   ```
-
-6. **Run Quasi-Newton BFGS Tests**:
-   ```bash
-   make run_bfgs
-   ```
-
-7. **Run Non-Linear Conjugate Gradient (CG) Tests**:
-   ```bash
-   make run_cg
-   ```
-
-8. **Run Gauss-Newton Tests**:
-   ```bash
-   make run_gn
-   ```
-
-9. **Run SQP Constrained Tests**:
-   ```bash
-   make run_sqp
-   ```
-
-10. **Run Nelder-Mead Simplex Tests**:
-    ```bash
-    make run_nm
-    ```
-
-11. **Run L-BFGS Tests**:
-    ```bash
-    make run_lbfgs
-    ```
-
-12. **Run LASSO Coordinate Descent Tests**:
-    ```bash
-    make run_lasso
-    ```
-
-13. **Run ADMM Tests**:
-    ```bash
-    make run_admm
-    ```
-
-14. **Run PGD Tests**:
-    ```bash
-    make run_pgd
-    ```
-
-15. **Run Trust-Region Dogleg Tests**:
-    ```bash
-    make run_dogleg
-    ```
-
-16. **Run Particle Swarm Optimization (PSO) Tests**:
-    ```bash
-    make run_pso
-    ```
-
-17. **Run FISTA Accelerated Proximal Gradient Tests**:
-    ```bash
-    make run_fista
-    ```
-
-18. **Run Primal-Dual Interior Point Method (IPM) Tests**:
-    ```bash
-    make run_ipm
-    ```
-
-19. **Run Adam Neural Accelerator Tests**:
-    ```bash
-    make run_adam
-    ```
-
-20. **Run QUBO / Simulated Annealing Tests**:
-    ```bash
-    make run_qubo
-    ```
-
-21. **Run PDHG / Chambolle-Pock Tests**:
-    ```bash
-    make run_pdhg
-    ```
-
-22. **Run Frank-Wolfe Tests**:
-    ```bash
-    make run_fw
-    ```
-
-23. **Run ALM Tests**:
-    ```bash
-    make run_alm
-    ```
-
-24. **Run All 23 Solver Suites Regression**:
-    ```bash
-    make all
-    ```
 
 ---
 
@@ -334,3 +224,6 @@ cd Playstation/sim
 | **ALM (#21)** | Equality Constrained QP ($x_0 + x_1 = 4.0$) | $(1.000000, 3.000000), \lambda^* = 1.0$ | $(1.000458, 3.000458), \lambda = 0.999573$ | 7 | **PASSED** |
 | **ALM (#21)** | Inequality Constrained QP ($x_0 + 2x_1 \le 3.0$) | $(1.800000, 0.600000), \mu^* = 1.2$ | $(1.800034, 0.600052), \mu = 1.200027$ | 5 | **PASSED** |
 | **ALM (#21)** | 3D Multi-Constraint Actuator Allocation | $(0.250000, 1.250000, 1.500000)$ | $(0.249390, 1.249420, 1.500839)$ | 8 | **PASSED** |
+| **Dual Decomp (#22)** | 3-Agent Microgrid Power Allocation ($6.0$ MW) | $(1.727273, 2.454545, 1.818182), \lambda^* \approx 0.545$ | $(1.727646, 2.455307, 1.818405), \lambda = 0.545227$ | 6 | **PASSED** |
+| **Dual Decomp (#22)** | 2-Agent Inequality Capacity Budget ($x_1 + x_2 \le 5.0$) | $(2.500000, 2.500000), \lambda^* = 1.5$ | $(2.500488, 2.500488), \lambda = 1.499893$ | 6 | **PASSED** |
+| **Dual Decomp (#22)** | 2D Multi-Resource Coupled Allocation | $\mathbf{x}_1^* = [1.5, 0.5], \mathbf{x}_2^* = [0.5, 1.5], \boldsymbol{\lambda}^* = [0.5, 0.5]$ | $\mathbf{x}_1 = [1.500809, 0.500809], \mathbf{x}_2 = [0.500809, 1.500809]$ | 5 | **PASSED** |
