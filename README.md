@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation & sensor fusion, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes twenty-five specialized hardware architectures:
+The suite includes twenty-six specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -28,11 +28,15 @@ The suite includes twenty-five specialized hardware architectures:
 23. **Solver #21: Augmented Lagrangian Method (ALM) / Method of Multipliers Accelerator (`Q16.16`)**: Equality and inequality constrained optimization engine integrating an **Augmented KKT Cholesky linear solver**, Hestenes-Powell-Rockafellar inequality penalty engine, dual multiplier updater ($\boldsymbol{\lambda} \leftarrow \boldsymbol{\lambda} + \rho(A \mathbf{x} - \mathbf{b})$, $\boldsymbol{\mu} \leftarrow \max(\mathbf{0}, \boldsymbol{\mu} + \rho(C \mathbf{x} - \mathbf{d}))$), and adaptive penalty parameter controller ($\rho$).
 24. **Solver #22: Dual Decomposition Multi-Agent Resource Allocation Engine (`Q16.16`)**: Decentralized multi-agent optimization architecture executing parallel local agent solvers $\mathbf{x}_s^*(\boldsymbol{\lambda}) = Q_s^{-1}(\mathbf{p}_s - A_s^T \boldsymbol{\lambda})$, broadcast shadow price coordinator $\boldsymbol{\lambda}_{k+1} = \boldsymbol{\lambda}_k + \alpha(\sum A_s \mathbf{x}_s - \mathbf{c})$, and market clearing for microgrid power flow and distributed edge networking.
 25. **Solver #23: Recursive Least Squares (RLS) Adaptive Filtering Accelerator (`Q16.16`)**: Real-time streaming adaptive filter engine executing Sherman-Morrison-Woodbury inverse covariance matrix updates $P_t = \frac{1}{\lambda}(P_{t-1} - \mathbf{k}_t \mathbf{v}_t^T)$ in $O(N^2)$ operations with exponential forgetting factor $\lambda$, Kalman gain vector pipeline $\mathbf{k}_t = \frac{P \mathbf{x}}{\lambda + \mathbf{x}^T P \mathbf{x}}$, and symmetric covariance regularization.
+26. **Solver #24: Extended Kalman Filter (EKF) Non-Linear State Estimator (`Q16.16`)**: Real-time robotics state estimation and multi-sensor fusion engine executing time-update state prediction ($\hat{\mathbf{x}}_k^- = \mathbf{f}(\hat{\mathbf{x}}, \mathbf{u}), P_k^- = F P F^T + Q$), non-linear measurement innovation ($\mathbf{y} = \mathbf{z} - \mathbf{h}(\hat{\mathbf{x}}^-)$), innovation covariance inversion ($S = H P^- H^T + R, S^{-1}$), Kalman gain matrix generation ($K = P^- H^T S^{-1}$), state update ($\hat{\mathbf{x}} = \hat{\mathbf{x}}^- + K \mathbf{y}$), and covariance update ($P = (I - K H)P^-$).
 
 ---
 
 ## Key Features & Highlights
 
+- **Extended Kalman Filter (EKF) Predict-Correct SoC Engine**: Real-time non-linear filtering for autonomous robotics navigation, range-bearing radar tracking, and multi-sensor fusion.
+- **Dedicated Time-Update Prediction Engine (`ekf_predict_engine.sv`)**: Evaluates non-linear state propagation $\mathbf{f}(\mathbf{x}, \mathbf{u})$ and computes sandwich product covariance growth $P^- = F P F^T + Q$ with symmetric enforcement in hardware.
+- **Dedicated Measurement-Update Correction Engine (`ekf_correct_engine.sv`)**: Evaluates non-linear measurement residuals $\mathbf{y} = \mathbf{z} - \mathbf{h}(\hat{\mathbf{x}}^-)$, builds innovation covariance $S = H P^- H^T + R$, computes hardware matrix inversion $S^{-1}$, generates Kalman gain $K = P^- H^T S^{-1}$, updates state $\hat{\mathbf{x}} = \hat{\mathbf{x}}^- + K \mathbf{y}$, and applies covariance reduction $P = (I - K H)P^-$.
 - **Real-Time Streaming Recursive Least Squares (RLS) Architecture**: Evaluates streaming Kalman gain and inverse covariance updates on the fly in ~50 clock cycles per sample without matrix inversions.
 - **Sherman-Morrison-Woodbury Covariance Engine**: Directly computes $P_t = \frac{1}{\lambda}(P_{t-1} - \mathbf{k}_t \mathbf{v}_t^T)$ in hardware with symmetric regularization $P_t = \frac{1}{2}(P_t + P_t^T)$ to maintain positive-definiteness.
 - **Decentralized Multi-Agent Dual Decomposition Architecture**: Solves coupled resource allocation $\min \sum f_s(\mathbf{x}_s) \text{ s.t. } \sum A_s \mathbf{x}_s = \mathbf{c} \ (\text{or } \le \mathbf{c})$ via parallel local agent optimization and master shadow price updates.
@@ -99,16 +103,17 @@ ju_project/
 │   │   ├── frank_wolfe_32bit/           # Solver #20: Frank-Wolfe Accelerator Suite
 │   │   ├── alm_32bit/                   # Solver #21: ALM Accelerator Suite
 │   │   ├── dual_decomp_32bit/           # Solver #22: Dual Decomposition Suite
-│   │   └── rls_32bit/                   # [NEW] Solver #23: RLS Adaptive Filter Suite
-│   │       ├── rls_types_pkg.sv         # Package: dimensions, matrices, forgetting factors
-│   │       ├── rls_helpers.svh          # Inline matrix/vector math & products
+│   │   ├── rls_32bit/                   # Solver #23: RLS Adaptive Filter Suite
+│   │   └── ekf_32bit/                   # [NEW] Solver #24: Extended Kalman Filter Suite
+│   │       ├── ekf_types_pkg.sv         # Package: dimensions, matrices, status codes
+│   │       ├── ekf_helpers.svh          # Inline matrix/vector math, FPF^T, HPH^T
 │   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │       ├── rls_gain_engine.sv       # Kalman gain calculator
-│   │       ├── rls_update_engine.sv     # Woodbury inverse covariance updater
-│   │       └── rls_top.sv               # Top-level streaming RLS controller
+│   │       ├── ekf_predict_engine.sv    # Time update / prediction engine
+│   │       ├── ekf_correct_engine.sv    # Measurement update / correction engine
+│   │       └── ekf_top.sv               # Top-level EKF SoC controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 25 targets)
+│       ├── Makefile                     # Build & run Makefile (all 26 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -134,7 +139,8 @@ ju_project/
 │           ├── tb_frank_wolfe.sv            # Frank-Wolfe Accelerator testbench
 │           ├── tb_alm.sv                    # ALM Accelerator testbench
 │           ├── tb_dual_decomp.sv            # Dual Decomposition testbench
-│           └── tb_rls.sv                    # RLS Adaptive Filter testbench
+│           ├── tb_rls.sv                    # RLS Adaptive Filter testbench
+│           └── tb_ekf.sv                    # EKF Accelerator testbench
 └── README.md                            # Project documentation
 ```
 
@@ -147,12 +153,12 @@ Navigate to the simulation directory:
 cd Playstation/sim
 ```
 
-1. **Run RLS Adaptive Filter Tests**:
+1. **Run Extended Kalman Filter Tests**:
    ```bash
-   make run_rls
+   make run_ekf
    ```
 
-2. **Run All 25 Solver Suites Regression**:
+2. **Run All 26 Solver Suites Regression**:
    ```bash
    make all
    ```
@@ -235,3 +241,6 @@ cd Playstation/sim
 | **RLS (#23)** | 2-Tap Real-Time Adaptive System Identification | $\mathbf{w}^* = [1.500000, -2.500000]$ | $\mathbf{w} = [1.499084, -2.496918]$ | 6 samples | **PASSED** |
 | **RLS (#23)** | 3-Tap Acoustic Echo Cancellation ($\lambda = 0.95$) | $\mathbf{w}^* = [0.800000, -1.200000, 2.000000]$ | $\mathbf{w} = [0.800308, -1.199814, 1.998749]$ | 20 samples | **PASSED** |
 | **RLS (#23)** | 4-Tap Physical Sensor Calibration ($\lambda = 0.98$) | $\mathbf{w}^* = [0.5, 1.0, -0.5, 2.5]$ | $\mathbf{w} = [0.500046, 0.999847, -0.500183, 2.497070]$ | 25 samples | **PASSED** |
+| **EKF (#24)** | 2D Non-Linear Radar Range Tracking ($z = \sqrt{p_x^2 + y_0^2}$) | $(p_x, v_x) = (15.000000, 2.000000)$ | $(p_x, v_x) = (14.977875, 1.984329)$ | 10 steps | **PASSED** |
+| **EKF (#24)** | 2D Autonomous Vehicle Kinematic Motion | $(x, y) = (6.000000, 8.000000)$ | $(x, y) = (5.989655, 8.008240)$ | 8 steps | **PASSED** |
+| **EKF (#24)** | 4D Multi-Sensor Kinematic Target Tracking | $[5.0, -7.5, 1.0, -1.5]$ | $[4.988876, -7.490707, 0.994583, -1.495499]$ | 10 steps | **PASSED** |

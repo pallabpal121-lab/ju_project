@@ -351,9 +351,21 @@ SRCS_RLS = $(RTL_RLS_DIR)/rls_types_pkg.sv \
 
 OUT_RLS = sim_rls.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm compile_adam compile_qubo compile_pdhg compile_fw compile_alm compile_dd compile_rls
+# 26. Extended Kalman Filter (EKF) Sources (Solver #24)
+RTL_EKF_DIR = ../rtl/ekf_32bit
+SRCS_EKF = $(RTL_EKF_DIR)/ekf_types_pkg.sv \
+           $(RTL_EKF_DIR)/q16_alu.sv \
+           $(RTL_EKF_DIR)/q16_divider.sv \
+           $(RTL_EKF_DIR)/ekf_predict_engine.sv \
+           $(RTL_EKF_DIR)/ekf_correct_engine.sv \
+           $(RTL_EKF_DIR)/ekf_top.sv \
+           $(TB_DIR)/tb_ekf.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls
+OUT_EKF = sim_ekf.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm compile_adam compile_qubo compile_pdhg compile_fw compile_alm compile_dd compile_rls compile_ekf
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -533,7 +545,14 @@ compile_rls: $(SRCS_RLS)
 run_rls: compile_rls
 	vvp $(OUT_RLS)
 
+# Extended Kalman Filter Targets (Solver #24)
+compile_ekf: $(SRCS_EKF)
+	$(SIM) -g2012 -Wall -I$(RTL_EKF_DIR) $(SRCS_EKF) -o $(OUT_EKF)
+
+run_ekf: compile_ekf
+	vvp $(OUT_EKF)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) $(OUT_ADAM) $(OUT_QUBO) $(OUT_PDHG) $(OUT_FW) $(OUT_ALM) $(OUT_DD) $(OUT_RLS) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) $(OUT_ADAM) $(OUT_QUBO) $(OUT_PDHG) $(OUT_FW) $(OUT_ALM) $(OUT_DD) $(OUT_RLS) $(OUT_EKF) *.vcd *.vvp
 
 
