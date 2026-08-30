@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes twenty-two specialized hardware architectures:
+The suite includes twenty-three specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -25,11 +25,14 @@ The suite includes twenty-two specialized hardware architectures:
 20. **Solver #18: Quadratic Unconstrained Binary Optimization (QUBO) / Simulated Annealing (SA) Ising Accelerator (`Q16.16`)**: Hardware Ising Hamiltonian engine minimizing $E(\mathbf{q}) = \mathbf{q}^T Q \mathbf{q}$ over binary spins $\mathbf{q} \in \{0, 1\}^N$ via single-cycle local field evaluations $\Delta E_k$, pipelined Boltzmann exponential acceptance $P = \exp(-\Delta E / T)$, hardware Xorshift stochastic sampling, and geometric thermal cooling.
 21. **Solver #19: Primal-Dual Hybrid Gradient (PDHG / Chambolle-Pock) Accelerator (`Q16.16`)**: Non-smooth first-order minimax saddle-point solver alternating dual projection $\mathbf{y}_{k+1} = \text{prox}_{\sigma g^*}(\mathbf{y}_k + \sigma K \bar{\mathbf{x}}_k)$, primal proximal resolution $\mathbf{x}_{k+1} = \text{prox}_{\tau f}(\mathbf{x}_k - \tau K^T \mathbf{y}_{k+1})$, and over-relaxation extrapolation $\bar{\mathbf{x}}_{k+1} = 2\mathbf{x}_{k+1} - \mathbf{x}_k$ for Total Variation (TV) denoising and compressed sensing.
 22. **Solver #20: Frank-Wolfe / Conditional Gradient Accelerator (`Q16.16`)**: Projection-free constrained optimization engine replacing expensive Euclidean projections with a **Linear Minimization Oracle (LMO)** $\mathbf{s}_k = \arg\min_{\mathbf{s} \in \mathcal{C}} \langle \mathbf{s}, \nabla f(\mathbf{x}_k) \rangle$ over $L_1$ balls, hyperboxes, and probability simplices with exact quadratic line search and Duality Gap stopping certificates.
+23. **Solver #21: Augmented Lagrangian Method (ALM) / Method of Multipliers Accelerator (`Q16.16`)**: Equality and inequality constrained optimization engine integrating an **Augmented KKT Cholesky linear solver**, Hestenes-Powell-Rockafellar inequality penalty engine, dual multiplier updater ($\boldsymbol{\lambda} \leftarrow \boldsymbol{\lambda} + \rho(A \mathbf{x} - \mathbf{b})$, $\boldsymbol{\mu} \leftarrow \max(\mathbf{0}, \boldsymbol{\mu} + \rho(C \mathbf{x} - \mathbf{d}))$), and adaptive penalty parameter controller ($\rho$).
 
 ---
 
 ## Key Features & Highlights
 
+- **Hardware Augmented Lagrangian & KKT Cholesky Solver**: Evaluates the augmented primal step $(Q + \rho A^T A + \rho C_{\text{act}}^T C_{\text{act}} + \lambda_{\text{damp}} I)\Delta \mathbf{x} = -\mathbf{g}_{\text{aug}}$ via direct hardware Cholesky factorization, supporting both equality ($A \mathbf{x} = \mathbf{b}$) and inequality ($C \mathbf{x} \le \mathbf{d}$) constraints with shadow prices.
+- **Hestenes-Powell-Rockafellar Dual Engine**: Pipelined multiplier updater executing $\boldsymbol{\lambda}_{k+1} = \boldsymbol{\lambda}_k + \rho(A \mathbf{x} - \mathbf{b})$ and $\mu_{k+1, i} = \max(0, \mu_{k, i} + \rho(c_i^T \mathbf{x} - d_i))$ with active constraint classification and geometric penalty escalation.
 - **Hardware Linear Minimization Oracle (LMO)**: Evaluates extreme vertices of constraint polytopes in a single clock cycle without matrix inversions or quadratic subproblems:
   - $L_1$ Ball ($\|\mathbf{x}\|_1 \le R$): Sparse extreme vertex selection $i^* = \arg\max |g_i|$.
   - Hyperbox ($\mathbf{l} \le \mathbf{x} \le \mathbf{u}$): Direct coordinate-wise sign thresholding.
@@ -91,16 +94,18 @@ ju_project/
 │   │   ├── adam_32bit/                  # Solver #17: Adam Neural Accelerator Suite
 │   │   ├── qubo_32bit/                  # Solver #18: QUBO / Simulated Annealing Suite
 │   │   ├── pdhg_32bit/                  # Solver #19: PDHG / Chambolle-Pock Suite
-│   │   └── frank_wolfe_32bit/           # [NEW] Solver #20: Frank-Wolfe Accelerator Suite
-│   │       ├── fw_types_pkg.sv          # Package: geometries, step modes, vector/matrix types
-│   │       ├── fw_helpers.svh           # Inline dot products & convex combinations
+│   │   ├── frank_wolfe_32bit/           # Solver #20: Frank-Wolfe Accelerator Suite
+│   │   └── alm_32bit/                   # [NEW] Solver #21: ALM Accelerator Suite
+│   │       ├── alm_types_pkg.sv         # Package: dimensions, matrices, penalty params
+│   │       ├── alm_helpers.svh          # Inline matrix/vector math & residuals
 │   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │       ├── fw_lmo_engine.sv         # Linear Minimization Oracle for L1, Box, Simplex
-│   │       ├── fw_step_engine.sv        # Line search & duality gap engine
-│   │       └── fw_top.sv                # Master Frank-Wolfe SoC Controller
+│   │       ├── q16_sqrt.sv              # 24-cycle Restoring Sqrt
+│   │       ├── cholesky_alm_solver.sv   # Augmented KKT Cholesky linear solver
+│   │       ├── alm_dual_engine.sv       # Multiplier updater & penalty adapter
+│   │       └── alm_top.sv               # Master ALM SoC Controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 22 targets)
+│       ├── Makefile                     # Build & run Makefile (all 23 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -123,7 +128,8 @@ ju_project/
 │           ├── tb_adam.sv                   # Adam Neural Accelerator testbench
 │           ├── tb_qubo.sv                   # QUBO / Simulated Annealing testbench
 │           ├── tb_pdhg.sv                   # PDHG / Chambolle-Pock testbench
-│           └── tb_frank_wolfe.sv            # Frank-Wolfe Accelerator testbench
+│           ├── tb_frank_wolfe.sv            # Frank-Wolfe Accelerator testbench
+│           └── tb_alm.sv                    # ALM Accelerator testbench
 └── README.md                            # Project documentation
 ```
 
@@ -246,7 +252,12 @@ cd Playstation/sim
     make run_fw
     ```
 
-23. **Run All 22 Solver Suites Regression**:
+23. **Run ALM Tests**:
+    ```bash
+    make run_alm
+    ```
+
+24. **Run All 23 Solver Suites Regression**:
     ```bash
     make all
     ```
@@ -320,3 +331,6 @@ cd Playstation/sim
 | **Frank-Wolfe (#20)** | $L_1$ Ball Constrained Quadratic (Sparse FW) | $(1.000000, 0.000000)$ | $(1.000000, 0.000000)$ | 2 | **PASSED** |
 | **Frank-Wolfe (#20)** | Probability Simplex Constrained (Simplex FW) | $(0.000000, 0.450000, 0.550000, 0.000000)$ | $(0.008865, 0.444443, 0.537033, 0.008865)$ | 50 | **PASSED** |
 | **Frank-Wolfe (#20)** | Hyperbox Constrained Quadratic (Box FW) | $(1.000000, 0.500000)$ | $(1.000000, 0.500000)$ | 3 | **PASSED** |
+| **ALM (#21)** | Equality Constrained QP ($x_0 + x_1 = 4.0$) | $(1.000000, 3.000000), \lambda^* = 1.0$ | $(1.000458, 3.000458), \lambda = 0.999573$ | 7 | **PASSED** |
+| **ALM (#21)** | Inequality Constrained QP ($x_0 + 2x_1 \le 3.0$) | $(1.800000, 0.600000), \mu^* = 1.2$ | $(1.800034, 0.600052), \mu = 1.200027$ | 5 | **PASSED** |
+| **ALM (#21)** | 3D Multi-Constraint Actuator Allocation | $(0.250000, 1.250000, 1.500000)$ | $(0.249390, 1.249420, 1.500839)$ | 8 | **PASSED** |

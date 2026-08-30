@@ -314,9 +314,22 @@ SRCS_FW = $(RTL_FW_DIR)/fw_types_pkg.sv \
 
 OUT_FW = sim_fw.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm compile_adam compile_qubo compile_pdhg compile_fw
+# 23. Augmented Lagrangian Method (ALM) Sources (Solver #21)
+RTL_ALM_DIR = ../rtl/alm_32bit
+SRCS_ALM = $(RTL_ALM_DIR)/alm_types_pkg.sv \
+           $(RTL_ALM_DIR)/q16_alu.sv \
+           $(RTL_ALM_DIR)/q16_divider.sv \
+           $(RTL_ALM_DIR)/q16_sqrt.sv \
+           $(RTL_ALM_DIR)/cholesky_alm_solver.sv \
+           $(RTL_ALM_DIR)/alm_dual_engine.sv \
+           $(RTL_ALM_DIR)/alm_top.sv \
+           $(TB_DIR)/tb_alm.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw
+OUT_ALM = sim_alm.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm compile_adam compile_qubo compile_pdhg compile_fw compile_alm
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -475,7 +488,14 @@ compile_fw: $(SRCS_FW)
 run_fw: compile_fw
 	vvp $(OUT_FW)
 
+# ALM Targets (Solver #21)
+compile_alm: $(SRCS_ALM)
+	$(SIM) -g2012 -Wall -I$(RTL_ALM_DIR) $(SRCS_ALM) -o $(OUT_ALM)
+
+run_alm: compile_alm
+	vvp $(OUT_ALM)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) $(OUT_ADAM) $(OUT_QUBO) $(OUT_PDHG) $(OUT_FW) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) $(OUT_ADAM) $(OUT_QUBO) $(OUT_PDHG) $(OUT_FW) $(OUT_ALM) *.vcd *.vvp
 
 
