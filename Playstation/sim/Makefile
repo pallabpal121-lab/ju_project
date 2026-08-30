@@ -414,9 +414,21 @@ SRCS_PCA = $(RTL_PCA_DIR)/pca_types_pkg.sv \
 
 OUT_PCA = sim_pca.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf run_ukf run_mpc run_svm run_pca compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm compile_adam compile_qubo compile_pdhg compile_fw compile_alm compile_dd compile_rls compile_ekf compile_ukf compile_mpc compile_svm compile_pca
+# 31. Genetic Algorithm (GA) Sources (Solver #29)
+RTL_GA_DIR = ../rtl/ga_32bit
+SRCS_GA = $(RTL_GA_DIR)/ga_types_pkg.sv \
+          $(RTL_GA_DIR)/q16_alu.sv \
+          $(RTL_GA_DIR)/xorshift32_prng.sv \
+          $(RTL_GA_DIR)/ga_fitness_engine.sv \
+          $(RTL_GA_DIR)/ga_reproduce_engine.sv \
+          $(RTL_GA_DIR)/ga_top.sv \
+          $(TB_DIR)/tb_ga.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf run_ukf run_mpc run_svm run_pca
+OUT_GA = sim_ga.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf run_ukf run_mpc run_svm run_pca run_ga compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm compile_adam compile_qubo compile_pdhg compile_fw compile_alm compile_dd compile_rls compile_ekf compile_ukf compile_mpc compile_svm compile_pca compile_ga
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf run_ukf run_mpc run_svm run_pca run_ga
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -631,7 +643,14 @@ compile_pca: $(SRCS_PCA)
 run_pca: compile_pca
 	vvp $(OUT_PCA)
 
+# Genetic Algorithm Targets (Solver #29)
+compile_ga: $(SRCS_GA)
+	$(SIM) -g2012 -Wall -I$(RTL_GA_DIR) $(SRCS_GA) -o $(OUT_GA)
+
+run_ga: compile_ga
+	vvp $(OUT_GA)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) $(OUT_ADAM) $(OUT_QUBO) $(OUT_PDHG) $(OUT_FW) $(OUT_ALM) $(OUT_DD) $(OUT_RLS) $(OUT_EKF) $(OUT_UKF) $(OUT_MPC) $(OUT_SVM) $(OUT_PCA) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) $(OUT_ADAM) $(OUT_QUBO) $(OUT_PDHG) $(OUT_FW) $(OUT_ALM) $(OUT_DD) $(OUT_RLS) $(OUT_EKF) $(OUT_UKF) $(OUT_MPC) $(OUT_SVM) $(OUT_PCA) $(OUT_GA) *.vcd *.vvp
 
 

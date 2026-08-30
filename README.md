@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation, Unscented Kalman derivative-free sigma-point filtering, Model Predictive Control (MPC) quadratic programming, Support Vector Machine Sequential Minimal Optimization (SVM-SMO), Principal Component Analysis (PCA) / Streaming SVD, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation, Unscented Kalman derivative-free sigma-point filtering, Model Predictive Control (MPC) quadratic programming, Support Vector Machine Sequential Minimal Optimization (SVM-SMO), Principal Component Analysis (PCA) / Streaming SVD, Genetic Algorithm (GA) Global Search, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes thirty specialized hardware architectures:
+The suite includes thirty-one specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -33,48 +33,47 @@ The suite includes thirty specialized hardware architectures:
 28. **Solver #26: Model Predictive Control (MPC) Quadratic Programming Accelerator (`Q16.16`)**: Real-time finite-horizon optimal control engine executing condensed gradient evaluation $\mathbf{g}_{\text{mpc}} = M_x \mathbf{x}_{\text{curr}} - M_{\text{ref}} \mathbf{x}_{\text{ref}}$, Nesterov accelerated projected gradient quadratic programming under physical actuator box constraints $\mathbf{U}_{\min} \le \mathbf{U} \le \mathbf{U}_{\max}$, and warm-started receding horizon actuator streaming.
 29. **Solver #27: Support Vector Machine Sequential Minimal Optimization (SVM-SMO) Accelerator (`Q16.16`)**: Edge machine learning & classification engine executing Platt's analytic 2-variable quadratic programming subproblem solver, kernel Gram matrix generator $K_{ij} = \mathbf{x}_i^T \mathbf{x}_j$, box clipping $0 \le \alpha_i \le C$, threshold bias update $b$, and real-time inference margin evaluation $y_{\text{pred}} = \text{sign}(\sum \alpha_j y_j K(\mathbf{x}_j, \mathbf{x}) + b)$.
 30. **Solver #28: Principal Component Analysis (PCA) / Streaming SVD Power Iteration Accelerator (`Q16.16`)**: High-speed dimensionality reduction & feature extraction engine executing sample mean $\bar{\mathbf{x}}$ and covariance matrix $\Sigma = \frac{1}{M-1}\sum (\mathbf{x}_i - \bar{\mathbf{x}})(\mathbf{x}_i - \bar{\mathbf{x}})^T$ accumulation, Gram-Schmidt orthogonalized Power Iteration $\mathbf{y} = \Sigma \mathbf{q}, \mathbf{q} = \mathbf{y}/\|\mathbf{y}\|_2$, Rayleigh quotient eigenvalue evaluation $\lambda = \mathbf{q}^T \Sigma \mathbf{q}$, Hotelling's deflation $\Sigma_{k+1} = \Sigma_k - \lambda_k \mathbf{q}_k \mathbf{q}_k^T$, online latent encoding $\mathbf{z} = V_K^T (\mathbf{x} - \bar{\mathbf{x}})$, and inverse reconstruction $\hat{\mathbf{x}} = \bar{\mathbf{x}} + V_K \mathbf{z}$.
+31. **Solver #29: Genetic Algorithm (GA) Global Search Accelerator (`Q16.16`)**: Heuristic global search & evolutionary optimization engine executing binary tournament parent selection with hardware **Xorshift32 PRNG**, arithmetic crossover blending $\mathbf{x}_{\text{child}} = \alpha \mathbf{x}_A + (1-\alpha)\mathbf{x}_B$, stochastic polynomial mutation with box clamping, elitism preservation of champion individual $\mathbf{x}^*$, and multi-modal fitness optimization.
 
 ---
 
 ## Key Features & Highlights
 
+- **Hardware Genetic Algorithm (GA) Engine**: Complete evolutionary global optimizer in silicon navigating non-convex, non-differentiable, and multi-modal optimization landscapes without gradients or matrix factorizations.
+- **Pipelined Fitness Evaluation Engine (`ga_fitness_engine.sv`)**: Evaluates objective fitness $F_p = f(\mathbf{x}_p)$ across population individuals in parallel dot-product pipelines and tracks champion individual $p^* = \arg\min F_p$.
+- **Reproduction & Mutation Pipeline (`ga_reproduce_engine.sv`)**: Executes elitism preservation at slot 0, binary tournament parent selection, arithmetic crossover genome blending, and stochastic hyperbox mutation.
 - **Hardware Principal Component Analysis (PCA) Engine**: Complete streaming dimensionality reduction, feature compression, and subspace reconstruction processor in silicon.
 - **Pipelined Sample Covariance Engine (`pca_cov_engine.sv`)**: Evaluates sample mean $\bar{\mathbf{x}}$ and sample covariance matrix $\Sigma = \frac{1}{M-1}\sum (\mathbf{x}_i - \bar{\mathbf{x}})(\mathbf{x}_i - \bar{\mathbf{x}})^T$ with hardware divider normalization.
 - **Gram-Schmidt Deflation Power Iteration Engine (`pca_power_iter_engine.sv`)**: Extracts dominant eigenvectors $\mathbf{v}_k$ and eigenvalues $\lambda_k$ with exact orthonormal Gram-Schmidt orthogonalization $\mathbf{v}_i^T \mathbf{v}_j = 0$ and restoring square root normalization.
 - **Online Projection & Reconstruction Pipeline (`pca_top.sv`)**: Encodes high-dimensional sensor vectors into compact latent codes $\mathbf{z} = V_K^T (\mathbf{x} - \bar{\mathbf{x}})$ and decodes back to high-fidelity reconstructions $\hat{\mathbf{x}} = \bar{\mathbf{x}} + V_K \mathbf{z}$ with $<0.03\%$ RMSE.
 - **Hardware Support Vector Machine (SVM-SMO) Engine**: Complete edge machine learning processor executing both iterative SMO dual quadratic training and single-cycle online classification inference in silicon.
-- **Pipelined Kernel Matrix Generator (`svm_kernel_engine.sv`)**: Evaluates symmetric kernel Gram matrix $K_{ij} = \mathbf{x}_i^T \mathbf{x}_j$ in parallel dot-product pipelines with zero redundant calculations.
-- **Analytic 2-Variable SMO Pair Solver (`svm_pair_solver.sv`)**: Analytically solves subproblems $(\alpha_1, \alpha_2)$ via hardware divider curvature evaluation $\eta = 2 K_{12} - K_{11} - K_{22}$, feasible box clipping $[L, H]$, and threshold bias updates $b$.
 - **Real-Time Model Predictive Control (MPC) Engine**: Embedded optimal control architecture solving constrained Quadratic Programs (QP) in microsecond control loops on FPGA/ASIC.
-- **Condensed Gradient Engine (`mpc_condense_engine.sv`)**: Evaluates linear gradient vector $\mathbf{g}_{\text{mpc}} = M_x \mathbf{x}_{\text{curr}} - M_{\text{ref}} \mathbf{x}_{\text{ref}}$ in pipelined hardware dot products without runtime state recursion.
-- **Nesterov Accelerated Projected QP Engine (`mpc_qp_engine.sv`)**: Solves $\min \frac{1}{2} \mathbf{U}^T H \mathbf{U} + \mathbf{g}^T \mathbf{U} \text{ s.t. } \mathbf{U}_{\min} \le \mathbf{U} \le \mathbf{U}_{\max}$ via accelerated extrapolation $\mathbf{Y}_{k+1} = \mathbf{V}_{k+1} + \beta(\mathbf{V}_{k+1} - \mathbf{V}_k)$ with single-cycle box clamping and early-exit tolerance detection.
 - **Unscented Kalman Filter (UKF) Sigma-Point Engine**: Derivative-free non-linear filtering capturing 3rd-order Taylor series moments without Jacobian differentiation or analytical Jacobians.
-- **Hardware Cholesky Sigma-Point Generator (`ukf_sigma_gen.sv`)**: Evaluates matrix square root $L = \text{chol}(\gamma^2 P)$ via hardware Restoring Square Root and Divider units, generating $2N+1 = 9$ deterministic sigma points $\boldsymbol{\chi}_0 = \hat{\mathbf{x}}, \boldsymbol{\chi}_i = \hat{\mathbf{x}} + \mathbf{l}_{i-1}, \boldsymbol{\chi}_{i+N} = \hat{\mathbf{x}} - \mathbf{l}_{i-1}$.
 - **Extended Kalman Filter (EKF) Predict-Correct SoC Engine**: Real-time non-linear filtering for autonomous robotics navigation, range-bearing radar tracking, and multi-sensor fusion.
 - **Real-Time Streaming Recursive Least Squares (RLS) Architecture**: Evaluates streaming Kalman gain and inverse covariance updates on the fly in ~50 clock cycles per sample without matrix inversions.
-- **Decentralized Multi-Agent Dual Decomposition Architecture**: Solves coupled resource allocation $\min \sum f_s(\mathbf{x}_s) \text{ s.t. } \sum A_s \mathbf{x}_s = \mathbf{c} \ (\text{or } \le \mathbf{c})$ via parallel local agent optimization and master shadow price updates.
-- **Hardware Augmented Lagrangian & KKT Cholesky Solver**: Evaluates the augmented primal step $(Q + \rho A^T A + \rho C_{\text{act}}^T C_{\text{act}} + \lambda_{\text{damp}} I)\Delta \mathbf{x} = -\mathbf{g}_{\text{aug}}$ via direct hardware Cholesky factorization, supporting both equality ($A \mathbf{x} = \mathbf{b}$) and inequality ($C \mathbf{x} \le \mathbf{d}$) constraints with shadow prices.
-- **Hardware Linear Minimization Oracle (LMO)**: Evaluates extreme vertices of constraint polytopes in a single clock cycle without matrix inversions or quadratic subproblems.
-- **Chambolle-Pock First-Order Primal-Dual Engine**: Solves non-smooth saddle-point optimization $\min_{\mathbf{x}} f(\mathbf{x}) + g(K \mathbf{x})$ in hardware via alternating forward-backward primal-dual iterations with single-cycle extrapolation $\bar{\mathbf{x}} = 2\mathbf{x}_{\text{new}} - \mathbf{x}_{\text{old}}$.
-- **Hardware Ising Hamiltonian & Local Field Engine**: Evaluates single-spin flip energy changes $\Delta E_k = (1 - 2 q_k)(Q_{kk} + \sum_{j \ne k} (Q_{kj} + Q_{jk}) q_j)$ with zero-latency arithmetic, enabling millions of spin flips per second.
-- **Adaptive Moment Estimation (Adam) Pipeline**: Pipelined hardware moment accumulator maintaining first moment $\mathbf{m}_t$ and second moment $\mathbf{v}_t$, evaluating coordinate-wise normalized updates $\Delta \theta_i = \frac{\alpha m_i}{\sqrt{v_i} + \epsilon}$ via a dedicated 24-cycle restoring square root and 48-cycle divider.
-- **Augmented Normal KKT Hardware Solver**: Evaluates the condensed $N \times N$ system $(Q + A^T \Theta A)\Delta \mathbf{x} = -\mathbf{g}_{\text{aug}}$ using hardware Cholesky decomposition, with scale-invariant diagonal damping $\Theta = Z S^{-1}$ clamped to avoid fixed-point ill-conditioning.
-- **Nesterov Momentum Acceleration Engine**: Evaluates recursive momentum scalar updates $t_{k+1} = \frac{1 + \sqrt{1 + 4 t_k^2}}{2}$ and extrapolation $\mathbf{y}_{k+1} = \mathbf{x}_k + \frac{t_k - 1}{t_{k+1}}(\mathbf{x}_k - \mathbf{x}_{k-1})$, delivering theoretical $O(1/k^2)$ convergence speedups.
-- **Hardware Soft-Thresholding Proximal Operator**: Real-time evaluation of $S_{\gamma \lambda}(z) = \text{sign}(z)\max(|z|-\gamma \lambda, 0)$, enabling true $L_1$ sparsity induction and driving irrelevant features to exact $32'h0000\_0000$ silicon zero.
-- **Multi-Agent Particle Swarm Engine**: Hardware state machine coordinating up to $P=8$ particles in $N=4$ dimensions, maintaining dedicated position, velocity, and personal best memory tables.
-- **Powell Dogleg Trust-Region Interpolation Engine**: Hardware root-solver executing the quadratic formula in silicon to find the exact piecewise linear dogleg intersection $\mathbf{p}(\beta) = \mathbf{p}_c + \beta(\mathbf{p}_{gn} - \mathbf{p}_c)$ on the trust-region boundary $\|\mathbf{p}\|_2 = \Delta$.
-- **Multi-Geometry Hardware Projection Engine**: Real-time projection operators in silicon supporting non-negativity, box clamping, Euclidean ball norm scaling $\mathbf{y} \cdot \frac{R}{\|\mathbf{y}\|_2}$, and exact probability simplex water-filling.
-- **3-Phase ADMM Distributed Engine**: Splitting primal linear solve (factorized once via hardware Cholesky), proximal soft-thresholding ($S_{\lambda/\rho}$), and dual multiplier accumulation with strict primal-dual consensus.
-- **L-BFGS Two-Loop Recursion Pipeline**: Evaluates Quasi-Newton search directions $\mathbf{p} = -H_k \mathbf{g}_k$ using only $M=4$ displacement vectors ($\mathbf{s}_i, \mathbf{y}_i, \rho_i$) with backward/forward recursion, saving $>90\%$ silicon area compared to full matrix BFGS.
-- **Derivative-Free Geometric Simplex Engine**: Nelder-Mead hardware state machine optimizing non-smooth and noisy functions via single-cycle bit-shift geometric transformations without derivatives or matrix inversions.
-- **Active-Set Primal-Dual KKT Engine**: Solves hard inequality constrained problems in silicon, automatically classifying active boundary variables, computing shadow prices $\mu_i$, and solving reduced-order systems $H_{\text{free}} \mathbf{p}_{\text{free}} = -\mathbf{g}_{\text{free}}$ via Cholesky decomposition.
-- **Direct Hardware Normal Equation Solvers**: Solves $(J^T J + \lambda_{\text{eps}} I)\mathbf{p} = -J^T \mathbf{r}$ with single-cycle zero-cost bit-shift Jacobian calculations and hardware Cholesky factorization.
-- **Matrix-Free $O(N)$ Vector Architecture**: The Conjugate Gradient engine operates using only 4 vector registers in silicon, eliminating all matrix storage and matrix factorization overhead.
-- **Quasi-Newton Rank-2 Inverse Hessian Updates**: Direct hardware accumulation of $B_{k+1} = B_k + \gamma_1(\mathbf{s} \mathbf{s}^T) - \gamma_2(\mathbf{s} \mathbf{u}^T + \mathbf{u} \mathbf{s}^T)$, evaluating search directions $\mathbf{p} = -B \mathbf{g}$ with zero matrix inversions.
-- **Universal Programmable Equation Engine**: Evaluates arbitrary mathematical equations without hardware redesign by using an internal microcode processor with dedicated Program Memory and Register Files.
-- **Hardware Sigmoid Activation Engine**: Single-cycle / pipelined Q16.16 Sigmoid evaluator $\sigma(\eta) = \frac{1}{1 + e^{-\eta}}$ using symmetric piecewise linear spline interpolation.
-- **Zero-Cost Bit-Shift Calculus**: Computes gradients and Hessian curvatures via numerical finite differences. Step sizes $h = 2^{-4}$ and $h = 2^{-8}$ convert all derivative divisions into single-cycle arithmetic bit-shifts.
-- **Dedicated Fixed-Point Linear Dividers & Sqrt Units**: Integrates 48-cycle / 96-cycle Radix-2 Restoring Dividers and 24-cycle Restoring Square Root units.
+- **Decentralized Multi-Agent Dual Decomposition Architecture**: Solves coupled resource allocation via parallel local agent optimization and master shadow price updates.
+- **Hardware Augmented Lagrangian & KKT Cholesky Solver**: Evaluates the augmented primal step via direct hardware Cholesky factorization, supporting both equality and inequality constraints.
+- **Hardware Linear Minimization Oracle (LMO)**: Evaluates extreme vertices of constraint polytopes in a single clock cycle without matrix inversions.
+- **Chambolle-Pock First-Order Primal-Dual Engine**: Solves non-smooth saddle-point optimization in hardware via alternating forward-backward primal-dual iterations.
+- **Hardware Ising Hamiltonian & Local Field Engine**: Evaluates single-spin flip energy changes with zero-latency arithmetic.
+- **Adaptive Moment Estimation (Adam) Pipeline**: Pipelined hardware moment accumulator maintaining first moment $\mathbf{m}_t$ and second moment $\mathbf{v}_t$.
+- **Augmented Normal KKT Hardware Solver**: Evaluates the condensed system using hardware Cholesky decomposition.
+- **Nesterov Momentum Acceleration Engine**: Evaluates recursive momentum scalar updates, delivering theoretical $O(1/k^2)$ convergence speedups.
+- **Hardware Soft-Thresholding Proximal Operator**: Real-time evaluation of $S_{\gamma \lambda}(z)$, enabling true $L_1$ sparsity induction.
+- **Multi-Agent Particle Swarm Engine**: Hardware state machine coordinating up to $P=8$ particles in $N=4$ dimensions.
+- **Powell Dogleg Trust-Region Interpolation Engine**: Hardware root-solver executing the quadratic formula in silicon.
+- **Multi-Geometry Hardware Projection Engine**: Real-time projection operators in silicon supporting non-negativity, box clamping, Euclidean ball norm scaling, and probability simplices.
+- **3-Phase ADMM Distributed Engine**: Splitting primal linear solve, proximal soft-thresholding, and dual multiplier accumulation.
+- **L-BFGS Two-Loop Recursion Pipeline**: Evaluates Quasi-Newton search directions using $M=4$ displacement vectors with backward/forward recursion.
+- **Derivative-Free Geometric Simplex Engine**: Nelder-Mead hardware state machine optimizing non-smooth and noisy functions.
+- **Active-Set Primal-Dual KKT Engine**: Solves hard inequality constrained problems in silicon with shadow prices.
+- **Direct Hardware Normal Equation Solvers**: Solves $(J^T J + \lambda_{\text{eps}} I)\mathbf{p} = -J^T \mathbf{r}$ with hardware Cholesky factorization.
+- **Matrix-Free $O(N)$ Vector Architecture**: Operates using 4 vector registers in silicon.
+- **Quasi-Newton Rank-2 Inverse Hessian Updates**: Direct hardware accumulation of $B_{k+1}$.
+- **Universal Programmable Equation Engine**: Evaluates arbitrary mathematical equations via microcode processor.
+- **Hardware Sigmoid Activation Engine**: Single-cycle / pipelined Q16.16 Sigmoid evaluator.
+- **Zero-Cost Bit-Shift Calculus**: Computes gradients and Hessian curvatures via numerical finite differences with single-cycle arithmetic bit-shifts.
+- **Dedicated Fixed-Point Linear Dividers & Sqrt Units**: Integrates 48-cycle Radix-2 Restoring Dividers and 24-cycle Restoring Square Root units.
 
 ---
 
@@ -115,17 +114,17 @@ ju_project/
 │   │   ├── ukf_32bit/                   # Solver #25: Unscented Kalman Filter Suite
 │   │   ├── mpc_32bit/                   # Solver #26: Model Predictive Control Suite
 │   │   ├── svm_smo_32bit/               # Solver #27: Support Vector Machine (SVM-SMO) Suite
-│   │   └── pca_32bit/                   # [NEW] Solver #28: Principal Component Analysis (PCA) Suite
-│   │       ├── pca_types_pkg.sv         # Package: features, covariances, eigenvectors, eigenvalues
-│   │       ├── pca_helpers.svh          # Inlined mean, covariance, Rayleigh quotient, deflation
+│   │   ├── pca_32bit/                   # Solver #28: Principal Component Analysis (PCA) Suite
+│   │   └── ga_32bit/                    # [NEW] Solver #29: Genetic Algorithm (GA) Suite
+│   │       ├── ga_types_pkg.sv          # Package: population, genes, fitness, function types
+│   │       ├── ga_helpers.svh           # Inlined fitness functions, bounds clamping, accessors
 │   │       ├── q16_alu.sv               # Q16.16 ALU
-│   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │       ├── q16_sqrt.sv              # 24-cycle Restoring Square Root
-│   │       ├── pca_cov_engine.sv        # Sample mean and covariance matrix accumulator
-│   │       ├── pca_power_iter_engine.sv # Gram-Schmidt power iteration and Rayleigh quotient solver
-│   │       └── pca_top.sv               # Top-level PCA extraction, encoding & decoding controller
+│   │       ├── xorshift32_prng.sv       # 32-bit Hardware Xorshift PRNG
+│   │       ├── ga_fitness_engine.sv     # Pipelined population fitness evaluator
+│   │       ├── ga_reproduce_engine.sv   # Tournament selection, crossover & mutation engine
+│   │       └── ga_top.sv                # Top-level GA generation loop SoC controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 30 targets)
+│       ├── Makefile                     # Build & run Makefile (all 31 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -156,7 +155,8 @@ ju_project/
 │           ├── tb_ukf.sv                    # UKF Accelerator testbench
 │           ├── tb_mpc.sv                    # MPC Accelerator testbench
 │           ├── tb_svm_smo.sv                # SVM-SMO Accelerator testbench
-│           └── tb_pca.sv                    # PCA Accelerator testbench
+│           ├── tb_pca.sv                    # PCA Accelerator testbench
+│           └── tb_ga.sv                     # GA Accelerator testbench
 └── README.md                            # Project documentation
 ```
 
@@ -169,12 +169,12 @@ Navigate to the simulation directory:
 cd Playstation/sim
 ```
 
-1. **Run Principal Component Analysis (PCA) Tests**:
+1. **Run Genetic Algorithm (GA) Tests**:
    ```bash
-   make run_pca
+   make run_ga
    ```
 
-2. **Run All 30 Solver Suites Regression**:
+2. **Run All 31 Solver Suites Regression**:
    ```bash
    make all
    ```
@@ -183,7 +183,7 @@ cd Playstation/sim
 
 ## Verification Test Benchmarks
 
-| Solver | Test Case | Target Optimum ($\mathbf{x}^*$ / $\mathbf{w}^*$ / $\boldsymbol{\theta}^*$ / $\mathbf{q}^*$ / $\boldsymbol{\alpha}^*$ / $V^*$) | Hardware Result | Iterations / Steps | Status |
+| Solver | Test Case | Target Optimum ($\mathbf{x}^*$ / $\mathbf{w}^*$ / $\boldsymbol{\theta}^*$ / $\mathbf{q}^*$ / $\boldsymbol{\alpha}^*$ / $V^*$) | Hardware Result | Iterations / Steps / Gens | Status |
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | **Newton 1D (32-Bit)** | $f(x) = (x - 3)^2$ | $x^* = 3.0$ | $x^* = 3.001709$ | 3 | **PASSED** |
 | **Newton 1D (32-Bit)** | $f(x) = x^4 - 4x^2 + 5$ | $x^* = \sqrt{2} \approx 1.4142$ | $x^* = 1.412918$ | 5 | **PASSED** |
@@ -272,3 +272,6 @@ cd Playstation/sim
 | **PCA (#28)** | 2D Correlated Point Cloud Dimensionality Reduction | $\mathbf{v}_1 = [0.447214, 0.894427]$ | $\mathbf{v}_1 = [0.447205, 0.894424]$ | 25 iters | **PASSED** |
 | **PCA (#28)** | 3D Ellipsoid Principal Axes Extraction | $\mathbf{v}_1 \cdot \mathbf{v}_2 = 0.0, \mathbf{v}_1 \cdot \mathbf{v}_3 = 0.0$ | Orthogonal ($<10^{-4}$) | 25 iters | **PASSED** |
 | **PCA (#28)** | 4D Physical Sensor Data Compression (4D $\to$ 2D) | High-Fidelity Reconstruction | $\text{RMSE} = 0.000298$ ($<0.03\%$) | 25 iters | **PASSED** |
+| **GA (#29)** | 2D Decoupled Quadratic Minimization | $(3.000000, 4.000000), F^* = 0.0$ | $(3.134064, 3.927444), F^* = 0.028488$ | 49 gens | **PASSED** |
+| **GA (#29)** | 2D Non-Convex Curved Rosenbrock Valley | $(1.000000, 1.000000), F^* = 0.0$ | $(0.833969, 0.673950), F^* = 0.032135$ | 49 gens | **PASSED** |
+| **GA (#29)** | 3D Multi-Modal Fitness Optimization | $(0.0, 0.0, 0.0), F^* = 0.0$ | $(0.067856, -0.132187, 0.067856)$ | 39 gens | **PASSED** |
