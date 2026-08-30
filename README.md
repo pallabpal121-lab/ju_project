@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation & sensor fusion, Unscented Kalman derivative-free sigma-point filtering, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation, Unscented Kalman derivative-free sigma-point filtering, Model Predictive Control (MPC) quadratic programming, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes twenty-seven specialized hardware architectures:
+The suite includes twenty-eight specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -30,11 +30,16 @@ The suite includes twenty-seven specialized hardware architectures:
 25. **Solver #23: Recursive Least Squares (RLS) Adaptive Filtering Accelerator (`Q16.16`)**: Real-time streaming adaptive filter engine executing Sherman-Morrison-Woodbury inverse covariance matrix updates $P_t = \frac{1}{\lambda}(P_{t-1} - \mathbf{k}_t \mathbf{v}_t^T)$ in $O(N^2)$ operations with exponential forgetting factor $\lambda$, Kalman gain vector pipeline $\mathbf{k}_t = \frac{P \mathbf{x}}{\lambda + \mathbf{x}^T P \mathbf{x}}$, and symmetric covariance regularization.
 26. **Solver #24: Extended Kalman Filter (EKF) Non-Linear State Estimator (`Q16.16`)**: Real-time robotics state estimation and multi-sensor fusion engine executing time-update state prediction ($\hat{\mathbf{x}}_k^- = \mathbf{f}(\hat{\mathbf{x}}, \mathbf{u}), P_k^- = F P F^T + Q$), non-linear measurement innovation ($\mathbf{y} = \mathbf{z} - \mathbf{h}(\hat{\mathbf{x}}^-)$), innovation covariance inversion ($S = H P^- H^T + R, S^{-1}$), Kalman gain matrix generation ($K = P^- H^T S^{-1}$), state update ($\hat{\mathbf{x}} = \hat{\mathbf{x}}^- + K \mathbf{y}$), and covariance update ($P = (I - K H)P^-$).
 27. **Solver #25: Unscented Kalman Filter (UKF) Sigma-Point Estimator (`Q16.16`)**: High-accuracy derivative-free non-linear state estimation engine evaluating $2N+1$ deterministic **Sigma Points** $\boldsymbol{\chi}_i$ via hardware **Cholesky Matrix Factorization** $L = \text{chol}((N+\lambda)P)$, non-linear unscented transform propagation, weighted statistical mean and covariance accumulation ($P^-, P_{zz}, P_{xz}$), Kalman gain generation ($K = P_{xz} P_{zz}^{-1}$), and covariance update ($P = P^- - K P_{zz} K^T$).
+28. **Solver #26: Model Predictive Control (MPC) Quadratic Programming Accelerator (`Q16.16`)**: Real-time finite-horizon optimal control engine executing condensed gradient evaluation $\mathbf{g}_{\text{mpc}} = M_x \mathbf{x}_{\text{curr}} - M_{\text{ref}} \mathbf{x}_{\text{ref}}$, Nesterov accelerated projected gradient quadratic programming under physical actuator box constraints $\mathbf{U}_{\min} \le \mathbf{U} \le \mathbf{U}_{\max}$, and warm-started receding horizon actuator streaming.
 
 ---
 
 ## Key Features & Highlights
 
+- **Real-Time Model Predictive Control (MPC) Engine**: Embedded optimal control architecture solving constrained Quadratic Programs (QP) in microsecond control loops on FPGA/ASIC.
+- **Condensed Gradient Engine (`mpc_condense_engine.sv`)**: Evaluates linear gradient vector $\mathbf{g}_{\text{mpc}} = M_x \mathbf{x}_{\text{curr}} - M_{\text{ref}} \mathbf{x}_{\text{ref}}$ in pipelined hardware dot products without runtime state recursion.
+- **Nesterov Accelerated Projected QP Engine (`mpc_qp_engine.sv`)**: Solves $\min \frac{1}{2} \mathbf{U}^T H \mathbf{U} + \mathbf{g}^T \mathbf{U} \text{ s.t. } \mathbf{U}_{\min} \le \mathbf{U} \le \mathbf{U}_{\max}$ via accelerated extrapolation $\mathbf{Y}_{k+1} = \mathbf{V}_{k+1} + \beta(\mathbf{V}_{k+1} - \mathbf{V}_k)$ with single-cycle box clamping and early-exit tolerance detection.
+- **Receding Horizon SoC Controller (`mpc_top.sv`)**: Automatically shifts warm-start control trajectories $\mathbf{U}_{\text{warm}} = [\mathbf{u}_1^*, \dots, \mathbf{u}_{N_p-1}^*, \mathbf{u}_{N_p-1}^*]$ and streams immediate control action $\mathbf{u}_0^*$ to physical motor drivers and servo actuators.
 - **Unscented Kalman Filter (UKF) Sigma-Point Engine**: Derivative-free non-linear filtering capturing 3rd-order Taylor series moments without Jacobian differentiation or analytical Jacobians.
 - **Hardware Cholesky Sigma-Point Generator (`ukf_sigma_gen.sv`)**: Evaluates matrix square root $L = \text{chol}(\gamma^2 P)$ via hardware Restoring Square Root and Divider units, generating $2N+1 = 9$ deterministic sigma points $\boldsymbol{\chi}_0 = \hat{\mathbf{x}}, \boldsymbol{\chi}_i = \hat{\mathbf{x}} + \mathbf{l}_{i-1}, \boldsymbol{\chi}_{i+N} = \hat{\mathbf{x}} - \mathbf{l}_{i-1}$.
 - **Pipelined UKF Prediction Engine (`ukf_predict_engine.sv`)**: Accumulates a priori mean $\hat{\mathbf{x}}^- = \sum W_i^{(m)} \boldsymbol{\chi}_i^x$ and a priori error covariance $P^- = \sum W_i^{(c)}(\boldsymbol{\chi}_i^x - \hat{\mathbf{x}}^-)(\boldsymbol{\chi}_i^x - \hat{\mathbf{x}}^-)^T + Q$ with symmetric enforcement.
@@ -110,18 +115,17 @@ ju_project/
 │   │   ├── dual_decomp_32bit/           # Solver #22: Dual Decomposition Suite
 │   │   ├── rls_32bit/                   # Solver #23: RLS Adaptive Filter Suite
 │   │   ├── ekf_32bit/                   # Solver #24: Extended Kalman Filter Suite
-│   │   └── ukf_32bit/                   # [NEW] Solver #25: Unscented Kalman Filter Suite
-│   │       ├── ukf_types_pkg.sv         # Package: dimensions, sigma points, covariance matrices
-│   │       ├── ukf_helpers.svh          # Inlined sigma indexing, mean, covariance accumulation
+│   │   ├── ukf_32bit/                   # Solver #25: Unscented Kalman Filter Suite
+│   │   └── mpc_32bit/                   # [NEW] Solver #26: Model Predictive Control Suite
+│   │       ├── mpc_types_pkg.sv         # Package: dimensions, matrices, status codes
+│   │       ├── mpc_helpers.svh          # Inlined matrix products, box clamping
 │   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │       ├── q16_sqrt.sv              # 24-cycle Restoring Square Root
-│   │       ├── ukf_sigma_gen.sv         # Cholesky sigma-point generator
-│   │       ├── ukf_predict_engine.sv    # Time update / prediction engine
-│   │       ├── ukf_correct_engine.sv    # Measurement update / correction engine
-│   │       └── ukf_top.sv               # Top-level UKF SoC controller
+│   │       ├── mpc_condense_engine.sv   # Gradient condensing engine
+│   │       ├── mpc_qp_engine.sv         # Accelerated projected gradient QP solver
+│   │       └── mpc_top.sv               # Top-level receding horizon MPC SoC controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 27 targets)
+│       ├── Makefile                     # Build & run Makefile (all 28 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -149,7 +153,8 @@ ju_project/
 │           ├── tb_dual_decomp.sv            # Dual Decomposition testbench
 │           ├── tb_rls.sv                    # RLS Adaptive Filter testbench
 │           ├── tb_ekf.sv                    # EKF Accelerator testbench
-│           └── tb_ukf.sv                    # UKF Accelerator testbench
+│           ├── tb_ukf.sv                    # UKF Accelerator testbench
+│           └── tb_mpc.sv                    # MPC Accelerator testbench
 └── README.md                            # Project documentation
 ```
 
@@ -162,12 +167,12 @@ Navigate to the simulation directory:
 cd Playstation/sim
 ```
 
-1. **Run Unscented Kalman Filter Tests**:
+1. **Run Model Predictive Control Tests**:
    ```bash
-   make run_ukf
+   make run_mpc
    ```
 
-2. **Run All 27 Solver Suites Regression**:
+2. **Run All 28 Solver Suites Regression**:
    ```bash
    make all
    ```
@@ -256,3 +261,6 @@ cd Playstation/sim
 | **UKF (#25)** | 2D Non-Linear Radar Range & Bearing Tracking ($r, \theta$) | $(p_x, p_y) = (6.000000, 11.200000)$ | $(p_x, p_y) = (6.033234, 11.170135)$ | 8 steps | **PASSED** |
 | **UKF (#25)** | 2D Autonomous Vehicle Kinematic Motion | $(p_x, p_y) = (6.000000, 8.000000)$ | $(p_x, p_y) = (5.993011, 8.007095)$ | 8 steps | **PASSED** |
 | **UKF (#25)** | 4D Multi-Sensor Kinematic Target Tracking (9 Sigma Points) | $[5.0, -7.5, 1.0, -1.5]$ | $[4.992584, -7.492889, 0.995987, -1.496185]$ | 10 steps | **PASSED** |
+| **MPC (#26)** | 1D Double Integrator Position & Velocity Setpoint Regulation | $(p, v) = (3.000000, 0.000000)$ | $(p, v) = (3.101478, -0.032965)$ | 24 steps | **PASSED** |
+| **MPC (#26)** | 2D Autonomous Mobile Robot Speed & Yaw Rate Tracking | $(v, \omega) = (1.500000, 0.500000)$ | $(v, \omega) = (1.413074, 0.470303)$ | 12 steps | **PASSED** |
+| **MPC (#26)** | Inverted Pendulum Balancing on Cart (Cart-Pole) | $\theta = 0.000000$ rad | $\theta = 0.034775$ rad | 15 steps | **PASSED** |
