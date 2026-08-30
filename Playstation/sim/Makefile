@@ -478,9 +478,23 @@ SRCS_MPPI = $(RTL_MPPI_DIR)/mppi_types_pkg.sv \
 
 OUT_MPPI = sim_mppi.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf run_ukf run_mpc run_svm run_pca run_ga run_de run_cem run_nes run_mppi compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm compile_adam compile_qubo compile_pdhg compile_fw compile_alm compile_dd compile_rls compile_ekf compile_ukf compile_mpc compile_svm compile_pca compile_ga compile_de compile_cem compile_nes compile_mppi
+# 36. Covariance Matrix Adaptation (CMA-ES) Sources (Solver #34)
+RTL_CMAES_DIR = ../rtl/cmaes_32bit
+SRCS_CMAES = $(RTL_CMAES_DIR)/cmaes_types_pkg.sv \
+             $(RTL_CMAES_DIR)/q16_alu.sv \
+             $(RTL_CMAES_DIR)/q16_divider.sv \
+             $(RTL_CMAES_DIR)/q16_sqrt.sv \
+             $(RTL_CMAES_DIR)/xorshift32_prng.sv \
+             $(RTL_CMAES_DIR)/cmaes_sample_engine.sv \
+             $(RTL_CMAES_DIR)/cmaes_update_engine.sv \
+             $(RTL_CMAES_DIR)/cmaes_top.sv \
+             $(TB_DIR)/tb_cmaes.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf run_ukf run_mpc run_svm run_pca run_ga run_de run_cem run_nes run_mppi
+OUT_CMAES = sim_cmaes.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf run_ukf run_mpc run_svm run_pca run_ga run_de run_cem run_nes run_mppi run_cmaes compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm compile_adam compile_qubo compile_pdhg compile_fw compile_alm compile_dd compile_rls compile_ekf compile_ukf compile_mpc compile_svm compile_pca compile_ga compile_de compile_cem compile_nes compile_mppi compile_cmaes
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf run_ukf run_mpc run_svm run_pca run_ga run_de run_cem run_nes run_mppi run_cmaes
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -730,7 +744,14 @@ compile_mppi: $(SRCS_MPPI)
 run_mppi: compile_mppi
 	vvp $(OUT_MPPI)
 
+# Covariance Matrix Adaptation (CMA-ES) Targets (Solver #34)
+compile_cmaes: $(SRCS_CMAES)
+	$(SIM) -g2012 -Wall -I$(RTL_CMAES_DIR) $(SRCS_CMAES) -o $(OUT_CMAES)
+
+run_cmaes: compile_cmaes
+	vvp $(OUT_CMAES)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) $(OUT_ADAM) $(OUT_QUBO) $(OUT_PDHG) $(OUT_FW) $(OUT_ALM) $(OUT_DD) $(OUT_RLS) $(OUT_EKF) $(OUT_UKF) $(OUT_MPC) $(OUT_SVM) $(OUT_PCA) $(OUT_GA) $(OUT_DE) $(OUT_CEM) $(OUT_NES) $(OUT_MPPI) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) $(OUT_ADAM) $(OUT_QUBO) $(OUT_PDHG) $(OUT_FW) $(OUT_ALM) $(OUT_DD) $(OUT_RLS) $(OUT_EKF) $(OUT_UKF) $(OUT_MPC) $(OUT_SVM) $(OUT_PCA) $(OUT_GA) $(OUT_DE) $(OUT_CEM) $(OUT_NES) $(OUT_MPPI) $(OUT_CMAES) *.vcd *.vvp
 
 

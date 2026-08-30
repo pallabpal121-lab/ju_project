@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation, Unscented Kalman derivative-free sigma-point filtering, Model Predictive Control (MPC) quadratic programming, Support Vector Machine Sequential Minimal Optimization (SVM-SMO), Principal Component Analysis (PCA) / Streaming SVD, Genetic Algorithm (GA) Global Search, Differential Evolution (DE) Global Search, Cross-Entropy Method (CEM) Trajectory Planning, Natural Evolution Strategies (NES) Policy Search, Model Predictive Path Integral (MPPI) Control, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation, Unscented Kalman derivative-free sigma-point filtering, Model Predictive Control (MPC) quadratic programming, Support Vector Machine Sequential Minimal Optimization (SVM-SMO), Principal Component Analysis (PCA) / Streaming SVD, Genetic Algorithm (GA) Global Search, Differential Evolution (DE) Global Search, Cross-Entropy Method (CEM) Trajectory Planning, Natural Evolution Strategies (NES) Policy Search, Model Predictive Path Integral (MPPI) Control, Covariance Matrix Adaptation Evolution Strategy (CMA-ES), and scientific computing on FPGA/ASIC platforms.
 
-The suite includes thirty-five specialized hardware architectures:
+The suite includes thirty-six specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -38,11 +38,13 @@ The suite includes thirty-five specialized hardware architectures:
 33. **Solver #31: Cross-Entropy Method (CEM) Trajectory Planning Accelerator (`Q16.16`)**: Stochastic continuous optimization & trajectory planning engine executing Gaussian sampling $\mathbf{x}_s \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\sigma}^2)$, elite candidate ranking, sample mean $\boldsymbol{\mu}_{\text{elite}}$ and variance $\boldsymbol{\sigma}_{\text{elite}}^2$ accumulation with hardware square root, and Polyak exponential parameter smoothing.
 34. **Solver #32: Natural Evolution Strategies (NES) / Policy Gradient Accelerator (`Q16.16`)**: Direct policy gradient search engine executing antithetic mirrored sampling $\boldsymbol{\theta} \pm \sigma \boldsymbol{\epsilon}_p$, stochastic policy gradient estimation $\mathbf{g} = \frac{1}{2 P \sigma}\sum (R_p^+ - R_p^-)\boldsymbol{\epsilon}_p$, momentum policy updates, and standard deviation annealing for robotics motor skill learning and black-box reinforcement learning.
 35. **Solver #33: Model Predictive Path Integral (MPPI) Control Accelerator (`Q16.16`)**: GPU/FPGA real-time stochastic trajectory optimization engine executing forward dynamics rollouts $\mathbf{x}_{t+1} = A \mathbf{x}_t + B (\mathbf{u}_t + \delta \mathbf{u}_{k, t})$, trajectory stage cost accumulation $S_k$, hardware softmax importance sampling weights $w_k = \frac{\exp(-\frac{1}{\lambda}(S_k - \min S_j))}{\sum \exp(-\frac{1}{\lambda}(S_i - \min S_j))}$, path-integral weighted control aggregation $\mathbf{u}_t^* = \mathbf{u}_t + \sum w_k \delta \mathbf{u}_{k, t}$, and receding horizon actuator streaming for agile robotics navigation, racing, and inverted pendulum stabilization.
+36. **Solver #34: Covariance Matrix Adaptation Evolution Strategy (CMA-ES) Accelerator (`Q16.16`)**: Gold-standard derivative-free black-box continuous optimizer executing dual antithetic mirrored sampling $\pm \mathbf{z}_A, \pm \mathbf{z}_B$, anisotropic coordinate scaling $\mathbf{y} = A \mathbf{z}$, weighted elite recombination mean shift $\mathbf{m}_{t+1} = \mathbf{m}_t + c_m \sigma \mathbf{y}_w$, Cumulative Step-Size Adaptation (CSA) on conjugate path $\mathbf{p}_\sigma$, Rank-1 Covariance matrix learning $C \leftarrow (1-c_1)C + c_1 \mathbf{p}_c \mathbf{p}_c^T$, and positive diagonal scaling updates $A_{d, d} = \sqrt{C_{d, d}}$ via hardware square root.
 
 ---
 
 ## Key Features & Highlights
 
+- **Hardware Covariance Matrix Adaptation Evolution Strategy (CMA-ES) Engine**: Gold-standard black-box continuous optimizer navigating anisotropic, ill-conditioned, and multi-modal fitness landscapes with learned covariance scaling and step-size adaptation in silicon.
 - **Hardware Model Predictive Path Integral (MPPI) Engine**: Real-time non-convex stochastic trajectory optimizer evaluating parallel trajectory rollouts, hardware softmax importance sampling weights, and path-integral weighted control aggregation in silicon.
 - **Hardware Natural Evolution Strategies (NES) Engine**: Complete black-box policy gradient architecture executing antithetic mirrored sampling, stochastic search gradient estimation, and momentum parameter acceleration in silicon.
 - **Hardware Cross-Entropy Method (CEM) Engine**: Complete trajectory optimization architecture executing Gaussian distribution sampling, elite candidate ranking, and statistical variance contraction in silicon.
@@ -125,17 +127,19 @@ ju_project/
 │   │   ├── de_32bit/                    # Solver #30: Differential Evolution (DE) Suite
 │   │   ├── cem_32bit/                   # Solver #31: Cross-Entropy Method (CEM) Suite
 │   │   ├── nes_32bit/                   # Solver #32: Natural Evolution Strategies (NES) Suite
-│   │   └── mppi_32bit/                  # [NEW] Solver #33: Model Predictive Path Integral (MPPI) Suite
-│   │       ├── mppi_types_pkg.sv        # Package: state x, control u, horizon U, cost S, weights w
-│   │       ├── mppi_helpers.svh         # Inlined dynamics step, stage/terminal costs, fixed exp
-│   │       ├── q16_alu.sv               # Q16.16 ALU
+│   │   ├── mppi_32bit/                  # Solver #33: Model Predictive Path Integral (MPPI) Suite
+│   │   └── cmaes_32bit/                 # [NEW] Solver #34: Covariance Matrix Adaptation (CMA-ES) Suite
+│   │       ├── cmaes_types_pkg.sv       # Package: param vectors, covariance matrix C, candidate array
+│   │       ├── cmaes_helpers.svh        # Helpers: matrix-vector multiply y=A*z, fitness functions
+│   │       ├── q16_alu.sv               # Q16.16 Fixed-point ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
+│   │       ├── q16_sqrt.sv              # 24-cycle Restoring Square Root unit
 │   │       ├── xorshift32_prng.sv       # 32-bit Hardware Xorshift PRNG
-│   │       ├── mppi_rollout_engine.sv   # Stochastic perturbation generator & forward dynamics
-│   │       ├── mppi_weights_engine.sv   # Pipelined softmax importance weights accumulator
-│   │       └── mppi_top.sv              # Top-level MPPI SoC controller & receding horizon streamer
+│   │       ├── cmaes_sample_engine.sv   # Dual antithetic mirrored sampling and coordinate transform
+│   │       ├── cmaes_update_engine.sv   # Recombination, step-size CSA, and diagonal covariance learning
+│   │       └── cmaes_top.sv             # Top-level CMA-ES SoC controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 35 targets)
+│       ├── Makefile                     # Build & run Makefile (all 36 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -171,7 +175,8 @@ ju_project/
 │           ├── tb_de.sv                     # DE Accelerator testbench
 │           ├── tb_cem.sv                    # CEM Accelerator testbench
 │           ├── tb_nes.sv                    # NES Accelerator testbench
-│           └── tb_mppi.sv                   # MPPI Accelerator testbench
+│           ├── tb_mppi.sv                   # MPPI Accelerator testbench
+│           └── tb_cmaes.sv                  # CMA-ES Accelerator testbench
 └── README.md                            # Project documentation
 ```
 
@@ -184,12 +189,12 @@ Navigate to the simulation directory:
 cd Playstation/sim
 ```
 
-1. **Run Model Predictive Path Integral (MPPI) Tests**:
+1. **Run Covariance Matrix Adaptation (CMA-ES) Tests**:
    ```bash
-   make run_mppi
+   make run_cmaes
    ```
 
-2. **Run All 35 Solver Builds Regression**:
+2. **Run All 36 Solver Builds Regression**:
    ```bash
    make all
    ```
@@ -302,3 +307,6 @@ cd Playstation/sim
 | **MPPI (#33)** | 1D Double Integrator Position & Velocity Setpoint Regulation | $(p, v) = (3.000000, 0.000000)$ | $(p, v) = (2.990738, -0.018188)$ | 24 steps | **PASSED** |
 | **MPPI (#33)** | 2D Autonomous Mobile Robot Speed & Yaw Rate Tracking | $(v, \omega) = (1.500000, 0.500000)$ | $(v, \omega) = (1.652298, 0.307495)$ | 24 steps | **PASSED** |
 | **MPPI (#33)** | Inverted Pendulum Upright Balancing Stabilization | $\theta = 0.000000$ rad | $\theta = 0.007462$ rad | 20 steps | **PASSED** |
+| **CMA-ES (#34)** | 2D Decoupled Quadratic Global Minimization | $(3.000000, 4.000000), F^* = 0.0$ | $(2.993118, 4.001251), F^* = 0.000046$ | 37 gens | **PASSED** |
+| **CMA-ES (#34)** | 2D Non-Convex Curved Rosenbrock Valley | $(1.000000, 1.000000), F^* = 0.0$ | $(1.010895, 1.013397), F^* = 0.000717$ | 39 gens | **PASSED** |
+| **CMA-ES (#34)** | 3D Multi-Modal Landscape Optimization | $(0.0, 0.0, 0.0), F^* = 0.0$ | $(-0.016388, 0.014496, 0.017059)$ | 39 gens | **PASSED** |
