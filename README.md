@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation & sensor fusion, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation & sensor fusion, Unscented Kalman derivative-free sigma-point filtering, and scientific computing on FPGA/ASIC platforms.
 
-The suite includes twenty-six specialized hardware architectures:
+The suite includes twenty-seven specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -29,11 +29,16 @@ The suite includes twenty-six specialized hardware architectures:
 24. **Solver #22: Dual Decomposition Multi-Agent Resource Allocation Engine (`Q16.16`)**: Decentralized multi-agent optimization architecture executing parallel local agent solvers $\mathbf{x}_s^*(\boldsymbol{\lambda}) = Q_s^{-1}(\mathbf{p}_s - A_s^T \boldsymbol{\lambda})$, broadcast shadow price coordinator $\boldsymbol{\lambda}_{k+1} = \boldsymbol{\lambda}_k + \alpha(\sum A_s \mathbf{x}_s - \mathbf{c})$, and market clearing for microgrid power flow and distributed edge networking.
 25. **Solver #23: Recursive Least Squares (RLS) Adaptive Filtering Accelerator (`Q16.16`)**: Real-time streaming adaptive filter engine executing Sherman-Morrison-Woodbury inverse covariance matrix updates $P_t = \frac{1}{\lambda}(P_{t-1} - \mathbf{k}_t \mathbf{v}_t^T)$ in $O(N^2)$ operations with exponential forgetting factor $\lambda$, Kalman gain vector pipeline $\mathbf{k}_t = \frac{P \mathbf{x}}{\lambda + \mathbf{x}^T P \mathbf{x}}$, and symmetric covariance regularization.
 26. **Solver #24: Extended Kalman Filter (EKF) Non-Linear State Estimator (`Q16.16`)**: Real-time robotics state estimation and multi-sensor fusion engine executing time-update state prediction ($\hat{\mathbf{x}}_k^- = \mathbf{f}(\hat{\mathbf{x}}, \mathbf{u}), P_k^- = F P F^T + Q$), non-linear measurement innovation ($\mathbf{y} = \mathbf{z} - \mathbf{h}(\hat{\mathbf{x}}^-)$), innovation covariance inversion ($S = H P^- H^T + R, S^{-1}$), Kalman gain matrix generation ($K = P^- H^T S^{-1}$), state update ($\hat{\mathbf{x}} = \hat{\mathbf{x}}^- + K \mathbf{y}$), and covariance update ($P = (I - K H)P^-$).
+27. **Solver #25: Unscented Kalman Filter (UKF) Sigma-Point Estimator (`Q16.16`)**: High-accuracy derivative-free non-linear state estimation engine evaluating $2N+1$ deterministic **Sigma Points** $\boldsymbol{\chi}_i$ via hardware **Cholesky Matrix Factorization** $L = \text{chol}((N+\lambda)P)$, non-linear unscented transform propagation, weighted statistical mean and covariance accumulation ($P^-, P_{zz}, P_{xz}$), Kalman gain generation ($K = P_{xz} P_{zz}^{-1}$), and covariance update ($P = P^- - K P_{zz} K^T$).
 
 ---
 
 ## Key Features & Highlights
 
+- **Unscented Kalman Filter (UKF) Sigma-Point Engine**: Derivative-free non-linear filtering capturing 3rd-order Taylor series moments without Jacobian differentiation or analytical Jacobians.
+- **Hardware Cholesky Sigma-Point Generator (`ukf_sigma_gen.sv`)**: Evaluates matrix square root $L = \text{chol}(\gamma^2 P)$ via hardware Restoring Square Root and Divider units, generating $2N+1 = 9$ deterministic sigma points $\boldsymbol{\chi}_0 = \hat{\mathbf{x}}, \boldsymbol{\chi}_i = \hat{\mathbf{x}} + \mathbf{l}_{i-1}, \boldsymbol{\chi}_{i+N} = \hat{\mathbf{x}} - \mathbf{l}_{i-1}$.
+- **Pipelined UKF Prediction Engine (`ukf_predict_engine.sv`)**: Accumulates a priori mean $\hat{\mathbf{x}}^- = \sum W_i^{(m)} \boldsymbol{\chi}_i^x$ and a priori error covariance $P^- = \sum W_i^{(c)}(\boldsymbol{\chi}_i^x - \hat{\mathbf{x}}^-)(\boldsymbol{\chi}_i^x - \hat{\mathbf{x}}^-)^T + Q$ with symmetric enforcement.
+- **Pipelined UKF Correction Engine (`ukf_correct_engine.sv`)**: Accumulates predicted measurement $\hat{\mathbf{z}} = \sum W_i^{(m)} \boldsymbol{\gamma}_i$, innovation covariance $P_{zz} = \sum W_i^{(c)}(\boldsymbol{\gamma}_i - \hat{\mathbf{z}})(\boldsymbol{\gamma}_i - \hat{\mathbf{z}})^T + R$, cross-covariance $P_{xz} = \sum W_i^{(c)}(\boldsymbol{\chi}_i - \hat{\mathbf{x}}^-)(\boldsymbol{\gamma}_i - \hat{\mathbf{z}})^T$, computes $P_{zz}^{-1}$, Kalman gain $K = P_{xz} P_{zz}^{-1}$, and posterior updates $\hat{\mathbf{x}} = \hat{\mathbf{x}}^- + K(\mathbf{z} - \hat{\mathbf{z}}), P = P^- - K P_{zz} K^T$.
 - **Extended Kalman Filter (EKF) Predict-Correct SoC Engine**: Real-time non-linear filtering for autonomous robotics navigation, range-bearing radar tracking, and multi-sensor fusion.
 - **Dedicated Time-Update Prediction Engine (`ekf_predict_engine.sv`)**: Evaluates non-linear state propagation $\mathbf{f}(\mathbf{x}, \mathbf{u})$ and computes sandwich product covariance growth $P^- = F P F^T + Q$ with symmetric enforcement in hardware.
 - **Dedicated Measurement-Update Correction Engine (`ekf_correct_engine.sv`)**: Evaluates non-linear measurement residuals $\mathbf{y} = \mathbf{z} - \mathbf{h}(\hat{\mathbf{x}}^-)$, builds innovation covariance $S = H P^- H^T + R$, computes hardware matrix inversion $S^{-1}$, generates Kalman gain $K = P^- H^T S^{-1}$, updates state $\hat{\mathbf{x}} = \hat{\mathbf{x}}^- + K \mathbf{y}$, and applies covariance reduction $P = (I - K H)P^-$.
@@ -104,16 +109,19 @@ ju_project/
 │   │   ├── alm_32bit/                   # Solver #21: ALM Accelerator Suite
 │   │   ├── dual_decomp_32bit/           # Solver #22: Dual Decomposition Suite
 │   │   ├── rls_32bit/                   # Solver #23: RLS Adaptive Filter Suite
-│   │   └── ekf_32bit/                   # [NEW] Solver #24: Extended Kalman Filter Suite
-│   │       ├── ekf_types_pkg.sv         # Package: dimensions, matrices, status codes
-│   │       ├── ekf_helpers.svh          # Inline matrix/vector math, FPF^T, HPH^T
+│   │   ├── ekf_32bit/                   # Solver #24: Extended Kalman Filter Suite
+│   │   └── ukf_32bit/                   # [NEW] Solver #25: Unscented Kalman Filter Suite
+│   │       ├── ukf_types_pkg.sv         # Package: dimensions, sigma points, covariance matrices
+│   │       ├── ukf_helpers.svh          # Inlined sigma indexing, mean, covariance accumulation
 │   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │       ├── ekf_predict_engine.sv    # Time update / prediction engine
-│   │       ├── ekf_correct_engine.sv    # Measurement update / correction engine
-│   │       └── ekf_top.sv               # Top-level EKF SoC controller
+│   │       ├── q16_sqrt.sv              # 24-cycle Restoring Square Root
+│   │       ├── ukf_sigma_gen.sv         # Cholesky sigma-point generator
+│   │       ├── ukf_predict_engine.sv    # Time update / prediction engine
+│   │       ├── ukf_correct_engine.sv    # Measurement update / correction engine
+│   │       └── ukf_top.sv               # Top-level UKF SoC controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 26 targets)
+│       ├── Makefile                     # Build & run Makefile (all 27 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -140,7 +148,8 @@ ju_project/
 │           ├── tb_alm.sv                    # ALM Accelerator testbench
 │           ├── tb_dual_decomp.sv            # Dual Decomposition testbench
 │           ├── tb_rls.sv                    # RLS Adaptive Filter testbench
-│           └── tb_ekf.sv                    # EKF Accelerator testbench
+│           ├── tb_ekf.sv                    # EKF Accelerator testbench
+│           └── tb_ukf.sv                    # UKF Accelerator testbench
 └── README.md                            # Project documentation
 ```
 
@@ -153,12 +162,12 @@ Navigate to the simulation directory:
 cd Playstation/sim
 ```
 
-1. **Run Extended Kalman Filter Tests**:
+1. **Run Unscented Kalman Filter Tests**:
    ```bash
-   make run_ekf
+   make run_ukf
    ```
 
-2. **Run All 26 Solver Suites Regression**:
+2. **Run All 27 Solver Suites Regression**:
    ```bash
    make all
    ```
@@ -244,3 +253,6 @@ cd Playstation/sim
 | **EKF (#24)** | 2D Non-Linear Radar Range Tracking ($z = \sqrt{p_x^2 + y_0^2}$) | $(p_x, v_x) = (15.000000, 2.000000)$ | $(p_x, v_x) = (14.977875, 1.984329)$ | 10 steps | **PASSED** |
 | **EKF (#24)** | 2D Autonomous Vehicle Kinematic Motion | $(x, y) = (6.000000, 8.000000)$ | $(x, y) = (5.989655, 8.008240)$ | 8 steps | **PASSED** |
 | **EKF (#24)** | 4D Multi-Sensor Kinematic Target Tracking | $[5.0, -7.5, 1.0, -1.5]$ | $[4.988876, -7.490707, 0.994583, -1.495499]$ | 10 steps | **PASSED** |
+| **UKF (#25)** | 2D Non-Linear Radar Range & Bearing Tracking ($r, \theta$) | $(p_x, p_y) = (6.000000, 11.200000)$ | $(p_x, p_y) = (6.033234, 11.170135)$ | 8 steps | **PASSED** |
+| **UKF (#25)** | 2D Autonomous Vehicle Kinematic Motion | $(p_x, p_y) = (6.000000, 8.000000)$ | $(p_x, p_y) = (5.993011, 8.007095)$ | 8 steps | **PASSED** |
+| **UKF (#25)** | 4D Multi-Sensor Kinematic Target Tracking (9 Sigma Points) | $[5.0, -7.5, 1.0, -1.5]$ | $[4.992584, -7.492889, 0.995987, -1.496185]$ | 10 steps | **PASSED** |
