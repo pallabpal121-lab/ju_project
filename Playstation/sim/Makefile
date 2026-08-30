@@ -389,9 +389,21 @@ SRCS_MPC = $(RTL_MPC_DIR)/mpc_types_pkg.sv \
 
 OUT_MPC = sim_mpc.vvp
 
-.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf run_ukf run_mpc compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm compile_adam compile_qubo compile_pdhg compile_fw compile_alm compile_dd compile_rls compile_ekf compile_ukf compile_mpc
+# 29. Support Vector Machine SMO (SVM) Sources (Solver #27)
+RTL_SVM_DIR = ../rtl/svm_smo_32bit
+SRCS_SVM = $(RTL_SVM_DIR)/svm_types_pkg.sv \
+           $(RTL_SVM_DIR)/q16_alu.sv \
+           $(RTL_SVM_DIR)/q16_divider.sv \
+           $(RTL_SVM_DIR)/svm_kernel_engine.sv \
+           $(RTL_SVM_DIR)/svm_pair_solver.sv \
+           $(RTL_SVM_DIR)/svm_top.sv \
+           $(TB_DIR)/tb_svm_smo.sv
 
-all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf run_ukf run_mpc
+OUT_SVM = sim_svm.vvp
+
+.PHONY: all clean run run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf run_ukf run_mpc run_svm compile_32bit compile_64bit compile_multivar compile_lm compile_irls compile_bfgs compile_cg compile_gn compile_sqp compile_nm compile_lbfgs compile_lasso compile_admm compile_pgd compile_dogleg compile_pso compile_fista compile_ipm compile_adam compile_qubo compile_pdhg compile_fw compile_alm compile_dd compile_rls compile_ekf compile_ukf compile_mpc compile_svm
+
+all: run_32bit run_64bit run_multivar run_lm run_irls run_bfgs run_cg run_gn run_sqp run_nm run_lbfgs run_lasso run_admm run_pgd run_dogleg run_pso run_fista run_ipm run_adam run_qubo run_pdhg run_fw run_alm run_dd run_rls run_ekf run_ukf run_mpc run_svm
 
 # 32-bit Targets
 compile_32bit: $(SRCS_32)
@@ -592,7 +604,14 @@ compile_mpc: $(SRCS_MPC)
 run_mpc: compile_mpc
 	vvp $(OUT_MPC)
 
+# Support Vector Machine Targets (Solver #27)
+compile_svm: $(SRCS_SVM)
+	$(SIM) -g2012 -Wall -I$(RTL_SVM_DIR) $(SRCS_SVM) -o $(OUT_SVM)
+
+run_svm: compile_svm
+	vvp $(OUT_SVM)
+
 clean:
-	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) $(OUT_ADAM) $(OUT_QUBO) $(OUT_PDHG) $(OUT_FW) $(OUT_ALM) $(OUT_DD) $(OUT_RLS) $(OUT_EKF) $(OUT_UKF) $(OUT_MPC) *.vcd *.vvp
+	rm -f $(OUT_32) $(OUT_64) $(OUT_MV) $(OUT_LM) $(OUT_IRLS) $(OUT_BFGS) $(OUT_CG) $(OUT_GN) $(OUT_SQP) $(OUT_NM) $(OUT_LBFGS) $(OUT_LASSO) $(OUT_ADMM) $(OUT_PGD) $(OUT_DOGLEG) $(OUT_PSO) $(OUT_FISTA) $(OUT_IPM) $(OUT_ADAM) $(OUT_QUBO) $(OUT_PDHG) $(OUT_FW) $(OUT_ALM) $(OUT_DD) $(OUT_RLS) $(OUT_EKF) $(OUT_UKF) $(OUT_MPC) $(OUT_SVM) *.vcd *.vvp
 
 

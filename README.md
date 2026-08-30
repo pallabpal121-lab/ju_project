@@ -1,8 +1,8 @@
 # Physical AI Math Hardware Optimization Accelerator Suite
 
-A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation, Unscented Kalman derivative-free sigma-point filtering, Model Predictive Control (MPC) quadratic programming, and scientific computing on FPGA/ASIC platforms.
+A high-performance, programmable **Hardware Optimization Accelerator Suite** implemented in SystemVerilog. Designed for embedded physical AI, robotics SLAM, trajectory optimization, nonlinear parameter estimation, classification, constrained optimal control, derivative-free black-box tuning, compressed sensing, distributed consensus, trust-region non-linear optimization, multi-agent swarm intelligence, accelerated proximal gradient methods, primal-dual interior point convex quadratic programming, neural network edge training, NP-hard combinatorial optimization, Total Variation (TV) image/signal reconstruction, projection-free constrained optimization, Augmented Lagrangian constrained optimization, decentralized multi-agent resource allocation, real-time adaptive filtering & system identification, Extended Kalman non-linear state estimation, Unscented Kalman derivative-free sigma-point filtering, Model Predictive Control (MPC) quadratic programming, Support Vector Machine Sequential Minimal Optimization (SVM-SMO), and scientific computing on FPGA/ASIC platforms.
 
-The suite includes twenty-eight specialized hardware architectures:
+The suite includes twenty-nine specialized hardware architectures:
 1. **Solver #1A: 1D 32-Bit Newton Accelerator (`Q16.16`)**: Lightweight fixed-point architecture for scalar non-linear equations.
 2. **Solver #1B: 1D 64-Bit Newton Accelerator (`Q32.32`)**: High-precision architecture delivering ultra-fine resolution (`2^-32 ≈ 2.328 × 10^-10`) for aerospace and scientific computing.
 3. **Solver #1C: Multivariable N-Dimensional Newton Accelerator (`Q16.16`)**: Coupled multi-variable optimization engine integrating a hardware **Cholesky decomposition linear system solver** $(H + \lambda I)\mathbf{p} = -\mathbf{g}$ to solve coupled vector optimization problems without matrix inversion.
@@ -31,11 +31,16 @@ The suite includes twenty-eight specialized hardware architectures:
 26. **Solver #24: Extended Kalman Filter (EKF) Non-Linear State Estimator (`Q16.16`)**: Real-time robotics state estimation and multi-sensor fusion engine executing time-update state prediction ($\hat{\mathbf{x}}_k^- = \mathbf{f}(\hat{\mathbf{x}}, \mathbf{u}), P_k^- = F P F^T + Q$), non-linear measurement innovation ($\mathbf{y} = \mathbf{z} - \mathbf{h}(\hat{\mathbf{x}}^-)$), innovation covariance inversion ($S = H P^- H^T + R, S^{-1}$), Kalman gain matrix generation ($K = P^- H^T S^{-1}$), state update ($\hat{\mathbf{x}} = \hat{\mathbf{x}}^- + K \mathbf{y}$), and covariance update ($P = (I - K H)P^-$).
 27. **Solver #25: Unscented Kalman Filter (UKF) Sigma-Point Estimator (`Q16.16`)**: High-accuracy derivative-free non-linear state estimation engine evaluating $2N+1$ deterministic **Sigma Points** $\boldsymbol{\chi}_i$ via hardware **Cholesky Matrix Factorization** $L = \text{chol}((N+\lambda)P)$, non-linear unscented transform propagation, weighted statistical mean and covariance accumulation ($P^-, P_{zz}, P_{xz}$), Kalman gain generation ($K = P_{xz} P_{zz}^{-1}$), and covariance update ($P = P^- - K P_{zz} K^T$).
 28. **Solver #26: Model Predictive Control (MPC) Quadratic Programming Accelerator (`Q16.16`)**: Real-time finite-horizon optimal control engine executing condensed gradient evaluation $\mathbf{g}_{\text{mpc}} = M_x \mathbf{x}_{\text{curr}} - M_{\text{ref}} \mathbf{x}_{\text{ref}}$, Nesterov accelerated projected gradient quadratic programming under physical actuator box constraints $\mathbf{U}_{\min} \le \mathbf{U} \le \mathbf{U}_{\max}$, and warm-started receding horizon actuator streaming.
+29. **Solver #27: Support Vector Machine Sequential Minimal Optimization (SVM-SMO) Accelerator (`Q16.16`)**: Edge machine learning & classification engine executing Platt's analytic 2-variable quadratic programming subproblem solver, kernel Gram matrix generator $K_{ij} = \mathbf{x}_i^T \mathbf{x}_j$, box clipping $0 \le \alpha_i \le C$, threshold bias update $b$, and real-time inference margin evaluation $y_{\text{pred}} = \text{sign}(\sum \alpha_j y_j K(\mathbf{x}_j, \mathbf{x}) + b)$.
 
 ---
 
 ## Key Features & Highlights
 
+- **Hardware Support Vector Machine (SVM-SMO) Engine**: Complete edge machine learning processor executing both iterative SMO dual quadratic training and single-cycle online classification inference in silicon.
+- **Pipelined Kernel Matrix Generator (`svm_kernel_engine.sv`)**: Evaluates symmetric kernel Gram matrix $K_{ij} = \mathbf{x}_i^T \mathbf{x}_j$ in parallel dot-product pipelines with zero redundant calculations.
+- **Analytic 2-Variable SMO Pair Solver (`svm_pair_solver.sv`)**: Analytically solves subproblems $(\alpha_1, \alpha_2)$ via hardware divider curvature evaluation $\eta = 2 K_{12} - K_{11} - K_{22}$, feasible box clipping $[L, H]$, and threshold bias updates $b$.
+- **Online Classification Inference Pipeline**: Classifies unseen sensor feature vectors $\mathbf{x}_{\text{test}}$ via $y = \text{sign}(\sum \alpha_j y_j (\mathbf{x}_j^T \mathbf{x}_{\text{test}}) + b)$ with full margin confidence score reporting.
 - **Real-Time Model Predictive Control (MPC) Engine**: Embedded optimal control architecture solving constrained Quadratic Programs (QP) in microsecond control loops on FPGA/ASIC.
 - **Condensed Gradient Engine (`mpc_condense_engine.sv`)**: Evaluates linear gradient vector $\mathbf{g}_{\text{mpc}} = M_x \mathbf{x}_{\text{curr}} - M_{\text{ref}} \mathbf{x}_{\text{ref}}$ in pipelined hardware dot products without runtime state recursion.
 - **Nesterov Accelerated Projected QP Engine (`mpc_qp_engine.sv`)**: Solves $\min \frac{1}{2} \mathbf{U}^T H \mathbf{U} + \mathbf{g}^T \mathbf{U} \text{ s.t. } \mathbf{U}_{\min} \le \mathbf{U} \le \mathbf{U}_{\max}$ via accelerated extrapolation $\mathbf{Y}_{k+1} = \mathbf{V}_{k+1} + \beta(\mathbf{V}_{k+1} - \mathbf{V}_k)$ with single-cycle box clamping and early-exit tolerance detection.
@@ -116,16 +121,17 @@ ju_project/
 │   │   ├── rls_32bit/                   # Solver #23: RLS Adaptive Filter Suite
 │   │   ├── ekf_32bit/                   # Solver #24: Extended Kalman Filter Suite
 │   │   ├── ukf_32bit/                   # Solver #25: Unscented Kalman Filter Suite
-│   │   └── mpc_32bit/                   # [NEW] Solver #26: Model Predictive Control Suite
-│   │       ├── mpc_types_pkg.sv         # Package: dimensions, matrices, status codes
-│   │       ├── mpc_helpers.svh          # Inlined matrix products, box clamping
+│   │   ├── mpc_32bit/                   # Solver #26: Model Predictive Control Suite
+│   │   └── svm_smo_32bit/               # [NEW] Solver #27: Support Vector Machine (SVM-SMO) Suite
+│   │       ├── svm_types_pkg.sv         # Package: samples, alphas, kernel matrix, status codes
+│   │       ├── svm_helpers.svh          # Inlined dataset indexers, decision evaluator, bound calculators
 │   │       ├── q16_alu.sv               # Q16.16 ALU
 │   │       ├── q16_divider.sv           # 48-cycle Restoring Divider
-│   │       ├── mpc_condense_engine.sv   # Gradient condensing engine
-│   │       ├── mpc_qp_engine.sv         # Accelerated projected gradient QP solver
-│   │       └── mpc_top.sv               # Top-level receding horizon MPC SoC controller
+│   │       ├── svm_kernel_engine.sv     # Kernel Gram matrix evaluation engine
+│   │       ├── svm_pair_solver.sv       # 2-variable analytic SMO pair solver
+│   │       └── svm_top.sv               # Top-level SVM training & inference SoC controller
 │   └── sim/                             # Simulation & Verification Environment
-│       ├── Makefile                     # Build & run Makefile (all 28 targets)
+│       ├── Makefile                     # Build & run Makefile (all 29 targets)
 │       └── tb_sv/                       # SystemVerilog testbenches
 │           ├── tb_newton_2nd_order.sv       # 32-bit 1D testbench
 │           ├── tb_newton_2nd_order_64bit.sv # 64-bit 1D testbench
@@ -154,7 +160,8 @@ ju_project/
 │           ├── tb_rls.sv                    # RLS Adaptive Filter testbench
 │           ├── tb_ekf.sv                    # EKF Accelerator testbench
 │           ├── tb_ukf.sv                    # UKF Accelerator testbench
-│           └── tb_mpc.sv                    # MPC Accelerator testbench
+│           ├── tb_mpc.sv                    # MPC Accelerator testbench
+│           └── tb_svm_smo.sv                # SVM-SMO Accelerator testbench
 └── README.md                            # Project documentation
 ```
 
@@ -167,12 +174,12 @@ Navigate to the simulation directory:
 cd Playstation/sim
 ```
 
-1. **Run Model Predictive Control Tests**:
+1. **Run Support Vector Machine (SVM-SMO) Tests**:
    ```bash
-   make run_mpc
+   make run_svm
    ```
 
-2. **Run All 28 Solver Suites Regression**:
+2. **Run All 29 Solver Suites Regression**:
    ```bash
    make all
    ```
@@ -181,7 +188,7 @@ cd Playstation/sim
 
 ## Verification Test Benchmarks
 
-| Solver | Test Case | Target Optimum ($\mathbf{x}^*$ / $\mathbf{w}^*$ / $\boldsymbol{\theta}^*$ / $\mathbf{q}^*$) | Hardware Result | Iterations / Steps | Status |
+| Solver | Test Case | Target Optimum ($\mathbf{x}^*$ / $\mathbf{w}^*$ / $\boldsymbol{\theta}^*$ / $\mathbf{q}^*$ / $\boldsymbol{\alpha}^*$) | Hardware Result | Iterations / Steps | Status |
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | **Newton 1D (32-Bit)** | $f(x) = (x - 3)^2$ | $x^* = 3.0$ | $x^* = 3.001709$ | 3 | **PASSED** |
 | **Newton 1D (32-Bit)** | $f(x) = x^4 - 4x^2 + 5$ | $x^* = \sqrt{2} \approx 1.4142$ | $x^* = 1.412918$ | 5 | **PASSED** |
@@ -264,3 +271,6 @@ cd Playstation/sim
 | **MPC (#26)** | 1D Double Integrator Position & Velocity Setpoint Regulation | $(p, v) = (3.000000, 0.000000)$ | $(p, v) = (3.101478, -0.032965)$ | 24 steps | **PASSED** |
 | **MPC (#26)** | 2D Autonomous Mobile Robot Speed & Yaw Rate Tracking | $(v, \omega) = (1.500000, 0.500000)$ | $(v, \omega) = (1.413074, 0.470303)$ | 12 steps | **PASSED** |
 | **MPC (#26)** | Inverted Pendulum Balancing on Cart (Cart-Pole) | $\theta = 0.000000$ rad | $\theta = 0.034775$ rad | 15 steps | **PASSED** |
+| **SVM-SMO (#27)** | 2D Linearly Separable Binary Classification | $100\%$ Accuracy ($y \in \{-1, +1\}$) | $100.0\%$ Accuracy (6/6 correct) | 6 passes | **PASSED** |
+| **SVM-SMO (#27)** | Soft-Margin SVM with Bounded Alphas ($C = 1.0$) | $100\%$ Accuracy ($0 \le \alpha_i \le 1.0$) | $100.0\%$ Accuracy (6/6 correct) | 6 passes | **PASSED** |
+| **SVM-SMO (#27)** | 4D Multi-Feature Physical AI Sensor Fault Detection | $100\%$ Detection ($y \in \{-1, +1\}$) | Normal $-1.025$, Fault $+0.877$ | 6 passes | **PASSED** |
