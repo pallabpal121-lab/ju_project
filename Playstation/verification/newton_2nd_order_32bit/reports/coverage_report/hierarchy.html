@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Design Hierarchy</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.treetable.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.treetable.js"></script>
+<script type="text/javascript" src="js/.colResizable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    }  });
+  $("#hierarchyTable tbody tr").mousedown(function() {
+    $("tr.selected").removeClass("selected");
+    $("td.selected").removeClass("selected");
+    $(this).addClass("selected");
+    $(this).children().addClass("selected");
+  });
+  $("tr[data-tt-id='hierarchyTable_root']").each(function () {
+    $(this).attr("style", "display:none");
+  });
+  $("tr[data-tt-parent-id='hierarchyTable_root']").each(function () {
+    $(this).attr("style", "display:table-row");
+    $("#hierarchyTable").treetable("expandNode", $(this).attr("data-tt-id"));
+  });
+  $("table").colResizable({    liveDrag:true,
+    fixed:false,
+    draggingClass:"dragging"
+  });
+});
+function expandAll() {
+  $("#hierarchyTable").treetable("expandAll");
+}
+function collapseAll() {
+  if ($("tr[data-tt-parent-id='hierarchyTable_root']").length > 0) {
+    $("tr[data-tt-parent-id='hierarchyTable_root']").each(function () {
+      var nodeId = $(this).attr("data-tt-id");
+      var node = $("#hierarchyTable").treetable("node", nodeId);
+      $("#hierarchyTable").treetable("collapseNodeRecursive", node);
+    });
+  } else {
+    $("#hierarchyTable").treetable("collapseAll");
+  }
+}
+</script>
+</head>
+<body><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Design Hierarchy</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</div>
+
+</div>
+<div class="ui-layout-center">
+<table class="noborder">
+  <tr>
+    <td class="noborder"><input type="button" value="Expand All" onClick="expandAll()"></td>
+    <td class="noborder"><input type="button" value="Collapse All" onClick="collapseAll()"></td>
+  </tr>
+</table>
+<br clear=all>
+<table id="hierarchyTable" border="0" cellpadding="0" cellspacing="0" class="sortable">
+  <thead class="table-header">
+    <tr>
+<th class="alfsrt">NAME</th><th>SCORE</th><th>LINE</th><th>TOGGLE</th><th>FSM</th><th>BRANCH</th>    </tr>
+  </thead>
+  <tbody>
+    <tr data-tt-id="hierarchyTable_root">
+<td></td><td></td><td></td><td></td><td></td><td></td>    </tr>
+    <tr data-tt-id="inst_hash_99492560" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap"><a href="mod7.html#inst_tag_7" id="tag_urg_inst_7">newton_tb_top</a></td>
+<td class="s7 cl rt"> 71.95</td>
+<td class="s8 cl rt"> 89.81</td>
+<td class="s5 cl rt"> 57.50</td>
+<td class="s6 cl rt"> 64.86</td>
+<td class="s7 cl rt"> 75.61</td>
+    </tr>
+    <tr data-tt-id="inst_hash_328425765" data-tt-parent-id="inst_hash_99492560">
+<td class="wordwrap"><a href="mod9.html#inst_tag_9" id="tag_urg_inst_9">u_dut</a></td>
+<td class="s7 cl rt"> 71.78</td>
+<td class="s8 cl rt"> 89.64</td>
+<td class="s5 cl rt"> 56.35</td>
+<td class="s6 cl rt"> 64.86</td>
+<td class="s7 cl rt"> 76.25</td>
+    </tr>
+    <tr data-tt-id="inst_hash_369131040" data-tt-parent-id="inst_hash_328425765">
+<td class="wordwrap"><a href="mod3.html#inst_tag_3" id="tag_urg_inst_3">u_deriv_engine</a></td>
+<td class="s7 cl rt"> 70.30</td>
+<td class="s9 cl rt"> 90.21</td>
+<td class="s4 cl rt"> 47.03</td>
+<td class="s6 cl rt"> 68.42</td>
+<td class="s7 cl rt"> 75.56</td>
+    </tr>
+    <tr data-tt-id="inst_hash_617795283" data-tt-parent-id="inst_hash_369131040">
+<td class="wordwrap"><a href="mod0.html#inst_tag_0" id="tag_urg_inst_0">u_dfg</a></td>
+<td class="s6 cl rt"> 67.07</td>
+<td class="s8 cl rt"> 86.32</td>
+<td class="s3 cl rt"> 35.44</td>
+<td class="s7 cl rt"> 77.78</td>
+<td class="s6 cl rt"> 68.75</td>
+    </tr>
+    <tr data-tt-id="inst_hash_1188192543" data-tt-parent-id="inst_hash_617795283">
+<td class="wordwrap"><a href="mod12.html#inst_tag_13" id="tag_urg_inst_13">u_alu</a></td>
+<td class="s7 cl rt"> 72.76</td>
+<td class="s6 cl rt"> 68.75</td>
+<td class="s9 cl rt"> 99.53</td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"> 50.00</td>
+    </tr>
+    <tr data-tt-id="inst_hash_343400166" data-tt-parent-id="inst_hash_617795283">
+<td class="wordwrap"><a href="mod11.html#inst_tag_11" id="tag_urg_inst_11">u_div</a></td>
+<td class="s6 cl rt"> 69.35</td>
+<td class="s8 cl rt"> 82.50</td>
+<td class="s5 cl rt"> 56.27</td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="s6 cl rt"> 63.64</td>
+    </tr>
+    <tr data-tt-id="inst_hash_1251742960" data-tt-parent-id="inst_hash_328425765">
+<td class="wordwrap"><a href="mod11.html#inst_tag_12" id="tag_urg_inst_12">u_solver</a></td>
+<td class="s8 cl rt"> 80.06</td>
+<td class="s8 cl rt"> 85.00</td>
+<td class="s7 cl rt"> 78.41</td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="s8 cl rt"> 81.82</td>
+    </tr>
+    <tr data-tt-id="inst_hash_1351758795" data-tt-parent-id="inst_hash_99492560">
+<td class="wordwrap"><a href="mod5.html#inst_tag_5" id="tag_urg_inst_5">vif</a></td>
+<td class="s7 cl rt"> 70.98</td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"> 70.98</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+    </tr>
+    <tr data-tt-id="inst_hash_1161439237" data-tt-parent-id="hierarchyTable_root">
+<td class="wordwrap"><a href="mod10.html#inst_tag_10" id="tag_urg_inst_10">uvm_custom_install_verdi_recording</a></td>
+<td class="s0 cl rt">  7.79</td>
+<td class="s0 cl rt">  4.63</td>
+<td class="s0 cl rt">  0.00</td>
+<td class="wht cl rt"></td>
+<td class="s1 cl rt"> 18.75</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+
+<script>
+$("#hierarchyTable").treetable({ expandable: true });
+</script>
+</body>
+</html>

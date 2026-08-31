@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: q16_alu</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_q16_alu'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_q16_alu')">q16_alu</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td></tr><tr>
+<td class="s7 cl rt"> 72.76</td>
+<td class="s6 cl rt"><a href="mod12.html#Line" > 68.75</a></td>
+<td class="s9 cl rt"><a href="mod12.html#Toggle" > 99.53</a></td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"><a href="mod12.html#Branch" > 50.00</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/user17/ju_project/Playstation/verification/newton_2nd_order_32bit/../../rtl/newton_2nd_order_32bit/q16_alu.sv')">/home/user17/ju_project/Playstation/verification/newton_2nd_order_32bit/../../rtl/newton_2nd_order_32bit/q16_alu.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod12.html#inst_tag_13"  onclick="showContent('inst_tag_13')">newton_tb_top.u_dut.u_deriv_engine.u_dfg.u_alu</a></td>
+<td class="s7 cl rt"> 72.76</td>
+<td class="s6 cl rt"><a href="mod12.html#Line" > 68.75</a></td>
+<td class="s9 cl rt"><a href="mod12.html#Toggle" > 99.53</a></td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"><a href="mod12.html#Branch" > 50.00</a></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='tag_q16_alu'>
+<hr>
+<a name="inst_tag_13"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_13" >newton_tb_top.u_dut.u_deriv_engine.u_dfg.u_alu</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td></tr><tr>
+<td class="s7 cl rt"> 72.76</td>
+<td class="s6 cl rt"><a href="mod12.html#Line" > 68.75</a></td>
+<td class="s9 cl rt"><a href="mod12.html#Toggle" > 99.53</a></td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"><a href="mod12.html#Branch" > 50.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td></tr><tr>
+<td class="s7 cl rt"> 72.76</td>
+<td class="s6 cl rt"> 68.75</td>
+<td class="s9 cl rt"> 99.53</td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"> 50.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s7 cl rt"> 72.46</td>
+<td class="s9 cl rt"> 97.44</td>
+<td class="s2 cl rt"> 21.49</td>
+<td class="s8 cl rt"> 80.00</td>
+<td class="s9 cl rt"> 90.91</td>
+<td><a href="mod0.html#inst_tag_0" >u_dfg</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td></tr><tr>
+<td colspan=6>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_q16_alu'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod12.html" >q16_alu</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s6"><td class="lf">TOTAL</td><td></td><td>16</td><td>11</td><td>68.75</td></tr>
+<tr class="s6"><td class="lf">ALWAYS</td><td>83</td><td>16</td><td>11</td><td>68.75</td></tr>
+</table>
+<pre class="code"><br clear=all>
+82                              // Default assignments to prevent unintended latches
+83         1/1                  overflow = 1'b0;
+84         1/1                  result   = 32'sd0;
+85                      
+86         1/1                  case (op)
+87                                  // -----------------------------------------------------------------
+88                                  // OP_NOP: No Operation
+89                                  // -----------------------------------------------------------------
+90                                  OP_NOP: begin
+91         <font color = "red">0/1     ==>                  result = 32'sd0;</font>
+92                                  end
+93                      
+94                                  // -----------------------------------------------------------------
+95                                  // OP_ADD: Signed Addition (result = src_a + src_b)
+96                                  // Overflow Rule: Adding two positives yielding negative, OR
+97                                  //                adding two negatives yielding positive.
+98                                  // -----------------------------------------------------------------
+99                                  OP_ADD: begin
+100        1/1                          result = src_a + src_b;
+101        1/1                          if ((src_a &gt; 0 &amp;&amp; src_b &gt; 0 &amp;&amp; result &lt; 0) ||
+102                                         (src_a &lt; 0 &amp;&amp; src_b &lt; 0 &amp;&amp; result &gt; 0)) begin
+103        <font color = "red">0/1     ==>                      overflow = 1'b1;</font>
+104                                     end
+                        MISSING_ELSE
+105                                 end
+106                     
+107                                 // -----------------------------------------------------------------
+108                                 // OP_SUB: Signed Subtraction (result = src_a - src_b)
+109                                 // Overflow Rule: Positive minus negative yielding negative, OR
+110                                 //                negative minus positive yielding positive.
+111                                 // -----------------------------------------------------------------
+112                                 OP_SUB: begin
+113        1/1                          result = src_a - src_b;
+114        1/1                          if ((src_a &gt; 0 &amp;&amp; src_b &lt; 0 &amp;&amp; result &lt; 0) ||
+115                                         (src_a &lt; 0 &amp;&amp; src_b &gt; 0 &amp;&amp; result &gt; 0)) begin
+116        <font color = "red">0/1     ==>                      overflow = 1'b1;</font>
+117                                     end
+                        MISSING_ELSE
+118                                 end
+119                     
+120                                 // -----------------------------------------------------------------
+121                                 // OP_MUL: Signed Fixed-Point Multiplication (result = (src_a * src_b) &gt;&gt; 16)
+122                                 // -----------------------------------------------------------------
+123                                 OP_MUL: begin
+124        1/1                          result   = mul_result;
+125        1/1                          overflow = mul_overflow;
+126                                 end
+127                     
+128                                 // -----------------------------------------------------------------
+129                                 // OP_NEG: Two's Complement Negation (result = -src_a)
+130                                 // -----------------------------------------------------------------
+131                                 OP_NEG: begin
+132        <font color = "red">0/1     ==>                  result = -src_a;</font>
+133                                 end
+134                     
+135                                 // -----------------------------------------------------------------
+136                                 // OP_MOV: Register-to-Register Pass-through (result = src_a)
+137                                 // -----------------------------------------------------------------
+138                                 OP_MOV: begin
+139        <font color = "red">0/1     ==>                  result = src_a;</font>
+140                                 end
+141                     
+142                                 // -----------------------------------------------------------------
+143                                 // OP_LOADC: Load Immediate Constant into Q16.16 format
+144                                 // Places 16-bit integer 'imm' into the integer slice [31:16],
+145                                 // and sets fractional bits [15:0] to zero (e.g. imm=3 -&gt; 0x00030000 = 3.0)
+146                                 // -----------------------------------------------------------------
+147                                 OP_LOADC: begin
+148        1/1                          result = {imm, 16'h0000};
+149                                 end
+150                     
+151                                 // -----------------------------------------------------------------
+152                                 // Default Case: Safe fallback
+153                                 // -----------------------------------------------------------------
+154                                 default: begin
+155        1/1                          result = 32'sd0;
+</pre>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod12.html" >q16_alu</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Totals</td>
+<td class="rt">9</td>
+<td class="rt">8</td>
+<td class="rt">88.89 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">428</td>
+<td class="rt">426</td>
+<td class="rt">99.53 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">214</td>
+<td class="rt">213</td>
+<td class="rt">99.53 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">214</td>
+<td class="rt">213</td>
+<td class="rt">99.53 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Ports</td>
+<td class="rt">6</td>
+<td class="rt">5</td>
+<td class="rt">83.33 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">234</td>
+<td class="rt">232</td>
+<td class="rt">99.15 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">117</td>
+<td class="rt">116</td>
+<td class="rt">99.15 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">117</td>
+<td class="rt">116</td>
+<td class="rt">99.15 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">194</td>
+<td class="rt">194</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">97</td>
+<td class="rt">97</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">97</td>
+<td class="rt">97</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>src_a[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>src_b[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>imm[15:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>op[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>result[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>overflow</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>product_64[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mul_result[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mul_overflow</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod12.html" >q16_alu</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Branches</td>
+<td></td>
+<td class="rt">10</td>
+<td class="rt">5</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s5">
+<td>CASE</td>
+<td class="rt">86</td>
+<td class="rt">10</td>
+<td class="rt">5</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+86                 case (op)
+                   <font color = "red">-1-</font>  
+87                     // -----------------------------------------------------------------
+88                     // OP_NOP: No Operation
+89                     // -----------------------------------------------------------------
+90                     OP_NOP: begin
+91                         result = 32'sd0;
+           <font color = "red">                ==></font>
+92                     end
+93         
+94                     // -----------------------------------------------------------------
+95                     // OP_ADD: Signed Addition (result = src_a + src_b)
+96                     // Overflow Rule: Adding two positives yielding negative, OR
+97                     //                adding two negatives yielding positive.
+98                     // -----------------------------------------------------------------
+99                     OP_ADD: begin
+100                        result = src_a + src_b;
+101                        if ((src_a > 0 && src_b > 0 && result < 0) ||
+                           <font color = "red">-2-</font>  
+102                            (src_a < 0 && src_b < 0 && result > 0)) begin
+103                            overflow = 1'b1;
+           <font color = "red">                    ==></font>
+104                        end
+                           MISSING_ELSE
+           <font color = "green">                ==></font>
+105                    end
+106        
+107                    // -----------------------------------------------------------------
+108                    // OP_SUB: Signed Subtraction (result = src_a - src_b)
+109                    // Overflow Rule: Positive minus negative yielding negative, OR
+110                    //                negative minus positive yielding positive.
+111                    // -----------------------------------------------------------------
+112                    OP_SUB: begin
+113                        result = src_a - src_b;
+114                        if ((src_a > 0 && src_b < 0 && result < 0) ||
+                           <font color = "red">-3-</font>  
+115                            (src_a < 0 && src_b > 0 && result > 0)) begin
+116                            overflow = 1'b1;
+           <font color = "red">                    ==></font>
+117                        end
+                           MISSING_ELSE
+           <font color = "green">                ==></font>
+118                    end
+119        
+120                    // -----------------------------------------------------------------
+121                    // OP_MUL: Signed Fixed-Point Multiplication (result = (src_a * src_b) >> 16)
+122                    // -----------------------------------------------------------------
+123                    OP_MUL: begin
+124                        result   = mul_result;
+           <font color = "green">                ==></font>
+125                        overflow = mul_overflow;
+126                    end
+127        
+128                    // -----------------------------------------------------------------
+129                    // OP_NEG: Two's Complement Negation (result = -src_a)
+130                    // -----------------------------------------------------------------
+131                    OP_NEG: begin
+132                        result = -src_a;
+           <font color = "red">                ==></font>
+133                    end
+134        
+135                    // -----------------------------------------------------------------
+136                    // OP_MOV: Register-to-Register Pass-through (result = src_a)
+137                    // -----------------------------------------------------------------
+138                    OP_MOV: begin
+139                        result = src_a;
+           <font color = "red">                ==></font>
+140                    end
+141        
+142                    // -----------------------------------------------------------------
+143                    // OP_LOADC: Load Immediate Constant into Q16.16 format
+144                    // Places 16-bit integer 'imm' into the integer slice [31:16],
+145                    // and sets fractional bits [15:0] to zero (e.g. imm=3 -> 0x00030000 = 3.0)
+146                    // -----------------------------------------------------------------
+147                    OP_LOADC: begin
+148                        result = {imm, 16'h0000};
+           <font color = "green">                ==></font>
+149                    end
+150        
+151                    // -----------------------------------------------------------------
+152                    // Default Case: Safe fallback
+153                    // -----------------------------------------------------------------
+154                    default: begin
+155                        result = 32'sd0;
+           <font color = "green">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uRed">
+<td align=center>OP_NOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>OP_ADD </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>OP_ADD </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>OP_SUB </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>OP_SUB </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>OP_MUL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>OP_NEG </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>OP_MOV </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>OP_LOADC </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_13">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+  <ul name="tag_q16_alu">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

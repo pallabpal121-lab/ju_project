@@ -1,0 +1,25 @@
+================================================================================
+        UNIVERSAL NEWTON 2ND-ORDER ACCELERATOR - VERIFICATION REPORT
+================================================================================
+  Generated On : 2026-08-31 17:45:51
+  Simulator    : Synopsys VCS W-2024.09 (UVM 1.1d)
+  Design       : newton_2nd_order_top (32-bit Q16.16 Fixed-Point)
+--------------------------------------------------------------------------------
+
+TEST NAME              | STATUS   | MATCH | MISMATCH | COV %    | SIM TIME  
+--------------------------------------------------------------------------------
+corner                 | PASSED   | 2     | 0        | 45.71%   | 46545 ns  
+cubic                  | PASSED   | 3     | 0        | 32.62%   | 10375 ns  
+quad                   | PASSED   | 5     | 0        | 52.14%   | 61445 ns  
+random                 | PASSED   | 15    | 0        | 69.76%   | 186505 ns 
+rational               | PASSED   | 1     | 0        | 28.81%   | 120065 ns 
+--------------------------------------------------------------------------------
+
+REGRESSION SUMMARY METRICS:
+  Total Test Cases Executed : 5
+  Passed Tests              : 5
+  Failed Tests              : 0
+  Scoreboard Transactions   : 26 Passed / 0 Mismatches
+  Overall Regression Status : 100% ALL TESTS PASSED
+  Suite Pass Rate           : 100.0%
+================================================================================

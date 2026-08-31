@@ -1,0 +1,14 @@
+# Synopsys VCS / Verdi Transient Build & Binary Artifacts
+work/
+csrc/
+simv*
+*.daidir/
+*.vdb/
+*.so
+*.o
+*.key
+.fsm.*
+.vlog*
+DVEfiles/
+ucli.key
+vc_hdrs.h

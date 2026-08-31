@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: newton_2nd_order_top</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_newton_2nd_order_top'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_newton_2nd_order_top')">newton_2nd_order_top</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td></tr><tr>
+<td class="s7 cl rt"> 74.96</td>
+<td class="s9 cl rt"><a href="mod9.html#Line" > 91.18</a></td>
+<td class="s7 cl rt"><a href="mod9.html#Toggle" > 76.53</a></td>
+<td class="s5 cl rt"><a href="mod9.html#FSM" > 57.14</a></td>
+<td class="s7 cl rt"><a href="mod9.html#Branch" > 75.00</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/user17/ju_project/Playstation/verification/newton_2nd_order_32bit/../../rtl/newton_2nd_order_32bit/newton_2nd_order_top.sv')">/home/user17/ju_project/Playstation/verification/newton_2nd_order_32bit/../../rtl/newton_2nd_order_32bit/newton_2nd_order_top.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod9.html#inst_tag_9"  onclick="showContent('inst_tag_9')">newton_tb_top.u_dut</a></td>
+<td class="s7 cl rt"> 74.96</td>
+<td class="s9 cl rt"><a href="mod9.html#Line" > 91.18</a></td>
+<td class="s7 cl rt"><a href="mod9.html#Toggle" > 76.53</a></td>
+<td class="s5 cl rt"><a href="mod9.html#FSM" > 57.14</a></td>
+<td class="s7 cl rt"><a href="mod9.html#Branch" > 75.00</a></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='tag_newton_2nd_order_top'>
+<hr>
+<a name="inst_tag_9"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_9" >newton_tb_top.u_dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td></tr><tr>
+<td class="s7 cl rt"> 74.96</td>
+<td class="s9 cl rt"><a href="mod9.html#Line" > 91.18</a></td>
+<td class="s7 cl rt"><a href="mod9.html#Toggle" > 76.53</a></td>
+<td class="s5 cl rt"><a href="mod9.html#FSM" > 57.14</a></td>
+<td class="s7 cl rt"><a href="mod9.html#Branch" > 75.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td></tr><tr>
+<td class="s7 cl rt"> 71.78</td>
+<td class="s8 cl rt"> 89.64</td>
+<td class="s5 cl rt"> 56.35</td>
+<td class="s6 cl rt"> 64.86</td>
+<td class="s7 cl rt"> 76.25</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s7 cl rt"> 72.62</td>
+<td class="s9 cl rt"> 92.86</td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"> 50.00</td>
+<td><a href="mod7.html#inst_tag_7" >newton_tb_top</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod3.html#inst_tag_3" id="tag_urg_inst_3">u_deriv_engine</a></td>
+<td class="s7 cl rt"> 70.30</td>
+<td class="s9 cl rt"> 90.21</td>
+<td class="s4 cl rt"> 47.03</td>
+<td class="s6 cl rt"> 68.42</td>
+<td class="s7 cl rt"> 75.56</td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod11.html#inst_tag_12" id="tag_urg_inst_12">u_solver</a></td>
+<td class="s8 cl rt"> 80.06</td>
+<td class="s8 cl rt"> 85.00</td>
+<td class="s7 cl rt"> 78.41</td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="s8 cl rt"> 81.82</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_newton_2nd_order_top'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod9.html" >newton_2nd_order_top</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">TOTAL</td><td></td><td>68</td><td>62</td><td>91.18</td></tr>
+<tr class="s9"><td class="lf">ALWAYS</td><td>168</td><td>68</td><td>62</td><td>91.18</td></tr>
+</table>
+<pre class="code"><br clear=all>
+167                         always_ff @(posedge clk or negedge rst_n) begin
+168        1/1                  if (!rst_n) begin
+169                                 // Reset all state and output registers
+170        1/1                      state         &lt;= TOP_IDLE;
+171        1/1                      x_reg         &lt;= Q16_ZERO;
+172        1/1                      tol_reg       &lt;= Q16_EPS_DEF;
+173        1/1                      alpha_reg     &lt;= Q16_ONE;
+174        1/1                      lambda_reg_in &lt;= Q16_LAMBDA_DEF;
+175        1/1                      max_iters_reg &lt;= 8'd50;
+176        1/1                      iter_count    &lt;= 8'd0;
+177        1/1                      status        &lt;= STATUS_IDLE;
+178        1/1                      done          &lt;= 1'b0;
+179        1/1                      busy          &lt;= 1'b0;
+180        1/1                      x_optimal     &lt;= Q16_ZERO;
+181        1/1                      f_optimal     &lt;= Q16_ZERO;
+182        1/1                      g_final       &lt;= Q16_ZERO;
+183        1/1                      deriv_start   &lt;= 1'b0;
+184        1/1                      div_start     &lt;= 1'b0;
+185        1/1                      div_dividend  &lt;= Q16_ZERO;
+186        1/1                      div_divisor   &lt;= Q16_ZERO;
+187                             end else begin
+188        1/1                      deriv_start &lt;= 1'b0; // Default pulse suppression
+189        1/1                      div_start   &lt;= 1'b0;
+190                     
+191        1/1                      case (state)
+192                                     // -------------------------------------------------------------
+193                                     // STATE: TOP_IDLE (Wait for start and register parameters)
+194                                     // -------------------------------------------------------------
+195                                     TOP_IDLE: begin
+196        1/1                              done &lt;= 1'b0;
+197        1/1                              if (start) begin
+198        1/1                                  busy          &lt;= 1'b1;
+199        1/1                                  x_reg         &lt;= x_init;
+200                                             // Use default fallbacks if inputs are zero
+201        1/1                                  tol_reg       &lt;= (tolerance != Q16_ZERO)  ? tolerance  : Q16_EPS_DEF;
+202        1/1                                  alpha_reg     &lt;= (step_alpha != Q16_ZERO) ? step_alpha : Q16_ONE;
+203        1/1                                  lambda_reg_in &lt;= (lambda_reg != Q16_ZERO) ? lambda_reg : Q16_LAMBDA_DEF;
+204        1/1                                  max_iters_reg &lt;= (max_iters != 8'd0)      ? max_iters  : 8'd50;
+205        1/1                                  iter_count    &lt;= 8'd0;
+206        1/1                                  status        &lt;= STATUS_RUNNING;
+207        1/1                                  state         &lt;= TOP_START_DERIV;
+208                                         end else begin
+209        1/1                                  busy &lt;= 1'b0;
+210                                         end
+211                                     end
+212                     
+213                                     // -------------------------------------------------------------
+214                                     // STATE: TOP_START_DERIV (Launch Derivative Engine)
+215                                     // -------------------------------------------------------------
+216                                     TOP_START_DERIV: begin
+217        1/1                              deriv_start &lt;= 1'b1; // Trigger derivative engine
+218        1/1                              state       &lt;= TOP_WAIT_DERIV;
+219                                     end
+220                     
+221                                     // -------------------------------------------------------------
+222                                     // STATE: TOP_WAIT_DERIV (Wait for 3-point sampling to finish)
+223                                     // -------------------------------------------------------------
+224                                     TOP_WAIT_DERIV: begin
+225        1/1                              if (deriv_done) begin
+226        1/1                                  state &lt;= TOP_CHECK_CONV;
+227                                         end
+                        MISSING_ELSE
+228                                     end
+229                     
+230                                     // -------------------------------------------------------------
+231                                     // STATE: TOP_CHECK_CONV (Check Convergence &amp; Iteration Limits)
+232                                     // -------------------------------------------------------------
+233                                     TOP_CHECK_CONV: begin
+234                                         // Condition 1: Gradient is sufficiently flat -&gt; CONVERGED!
+235        1/1                              if (abs_grad &lt;= tol_reg) begin
+236        1/1                                  status    &lt;= STATUS_CONVERGED;
+237        1/1                                  x_optimal &lt;= x_reg;
+238        1/1                                  f_optimal &lt;= deriv_f_val;
+239        1/1                                  g_final   &lt;= deriv_grad;
+240        1/1                                  state     &lt;= TOP_DONE;
+241                     
+242                                         // Condition 2: Exceeded max allowed iterations -&gt; STOP
+243        1/1                              end else if (iter_count &gt;= max_iters_reg) begin
+244        1/1                                  status    &lt;= STATUS_MAX_ITERS;
+245        1/1                                  x_optimal &lt;= x_reg;
+246        1/1                                  f_optimal &lt;= deriv_f_val;
+247        1/1                                  g_final   &lt;= deriv_grad;
+248        1/1                                  state     &lt;= TOP_DONE;
+249                     
+250                                         // Condition 3: Continue -&gt; Solve for Newton Step Δx = -num / den
+251                                         end else begin
+252        1/1                                  div_dividend &lt;= -deriv_step_num; // Numerator = - [ h * Δ1 ]
+253        1/1                                  div_divisor  &lt;= deriv_step_den;  // Denominator = 2 * Δ2 ± λ
+254        1/1                                  div_start    &lt;= 1'b1;            // Trigger 48-cycle divider
+255        1/1                                  state        &lt;= TOP_WAIT_SOLVE;
+256                                         end
+257                                     end
+258                     
+259                                     // -------------------------------------------------------------
+260                                     // STATE: TOP_WAIT_SOLVE (Wait for Divider to Compute Step)
+261                                     // -------------------------------------------------------------
+262                                     TOP_WAIT_SOLVE: begin
+263        1/1                              if (div_done) begin
+264                                             // Check if division by zero occurred (singular Hessian)
+265        1/1                                  if (div_by_zero) begin
+266        <font color = "red">0/1     ==>                              status    &lt;= STATUS_SINGULAR;</font>
+267        <font color = "red">0/1     ==>                              x_optimal &lt;= x_reg;</font>
+268        <font color = "red">0/1     ==>                              f_optimal &lt;= deriv_f_val;</font>
+269        <font color = "red">0/1     ==>                              g_final   &lt;= deriv_grad;</font>
+270        <font color = "red">0/1     ==>                              state     &lt;= TOP_DONE;</font>
+271                                             end else begin
+272        1/1                                      state &lt;= TOP_UPDATE_X;
+273                                             end
+274                                         end
+                        MISSING_ELSE
+275                                     end
+276                     
+277                                     // -------------------------------------------------------------
+278                                     // STATE: TOP_UPDATE_X (Update Position x = x + alpha * Δx)
+279                                     // -------------------------------------------------------------
+280                                     TOP_UPDATE_X: begin
+281        1/1                              x_reg      &lt;= x_reg + scaled_step; // Apply scaled update step
+282        1/1                              iter_count &lt;= iter_count + 1'b1;   // Increment iteration counter
+283        1/1                              state      &lt;= TOP_START_DERIV;     // Repeat loop for next iteration!
+284                                     end
+285                     
+286                                     // -------------------------------------------------------------
+287                                     // STATE: TOP_DONE (Assert Completion Strobe)
+288                                     // -------------------------------------------------------------
+289                                     TOP_DONE: begin
+290        1/1                              done  &lt;= 1'b1;
+291        1/1                              busy  &lt;= 1'b0;
+292        1/1                              state &lt;= TOP_IDLE; // Ready for next solve
+293                                     end
+294                     
+295        <font color = "red">0/1     ==>                  default: state &lt;= TOP_IDLE;</font>
+</pre>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod9.html" >newton_2nd_order_top</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Totals</td>
+<td class="rt">45</td>
+<td class="rt">26</td>
+<td class="rt">57.78 </td>
+</tr><tr class="s7">
+<td>Total Bits</td>
+<td class="rt">1568</td>
+<td class="rt">1200</td>
+<td class="rt">76.53 </td>
+</tr><tr class="s7">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">784</td>
+<td class="rt">601</td>
+<td class="rt">76.66 </td>
+</tr><tr class="s7">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">784</td>
+<td class="rt">599</td>
+<td class="rt">76.40 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Ports</td>
+<td class="rt">22</td>
+<td class="rt">11</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s7">
+<td>Port Bits</td>
+<td class="rt">572</td>
+<td class="rt">406</td>
+<td class="rt">70.98 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">286</td>
+<td class="rt">204</td>
+<td class="rt">71.33 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">286</td>
+<td class="rt">202</td>
+<td class="rt">70.63 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s6">
+<td>Signals</td>
+<td class="rt">23</td>
+<td class="rt">15</td>
+<td class="rt">65.22 </td>
+</tr><tr class="s7">
+<td>Signal Bits</td>
+<td class="rt">996</td>
+<td class="rt">794</td>
+<td class="rt">79.72 </td>
+</tr><tr class="s7">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">498</td>
+<td class="rt">397</td>
+<td class="rt">79.72 </td>
+</tr><tr class="s7">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">498</td>
+<td class="rt">397</td>
+<td class="rt">79.72 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_addr[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_addr[4:3]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.imm[15:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.src_b[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.src_b[3]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.src_a[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.src_a[3]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.dst[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.op[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>start</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>x_init[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>tolerance[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>tolerance[31:11]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>step_alpha[12:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>step_alpha[16:13]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>step_alpha[31:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lambda_reg[9:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lambda_reg[31:10]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>max_iters[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>max_iters[7]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>x_optimal[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>f_optimal[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>g_final[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>g_final[31:3]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>iter_count[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>iter_count[5]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>iter_count[7:6]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>status[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>status[2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>done</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>busy</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>state[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>x_reg[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>tol_reg[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>tol_reg[31:11]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>alpha_reg[12:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>alpha_reg[16:13]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>alpha_reg[31:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>lambda_reg_in[9:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>lambda_reg_in[31:10]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>max_iters_reg[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>max_iters_reg[7]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>deriv_start</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>deriv_f_val[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>deriv_grad[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>deriv_grad[31:3]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>deriv_step_num[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>deriv_step_den[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>deriv_done</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>deriv_busy</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>div_start</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>div_dividend[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>div_divisor[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>div_quotient[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>div_done</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>div_by_zero</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>div_busy</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>scaled_step_64[12:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>scaled_step_64[63:13]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>scaled_step[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>abs_grad[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>abs_grad[22:3]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>abs_grad[31:23]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<hr>
+<a name="FSM"></a>
+FSM Coverage for Module : <a href="mod9.html" >newton_2nd_order_top</a><br clear=all>
+<table align=left class="noborder">
+<caption><b>Summary for FSM :: state</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th><th nowrap width=200></th></tr><tr class="wht">
+<td>States</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+<td>(Not included in score)</td>
+</tr><tr class="s5">
+<td>Transitions</td>
+<td class="rt">14</td>
+<td class="rt">8</td>
+<td class="rt">57.14 </td>
+<td></td>
+</tr><tr class="wht">
+<td>Sequences</td>
+<td class="rt">0</td>
+<td class="rt">0</td>
+<td></td>
+<td></td>
+</tr></table><br clear=all>
+<b>State, Transition and Sequence Details for FSM :: state</b><hr>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">states</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>TOP_CHECK_CONV</td>
+<td class="rt">226</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>TOP_DONE</td>
+<td class="rt">240</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>TOP_IDLE</td>
+<td class="rt">170</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>TOP_START_DERIV</td>
+<td class="rt">207</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>TOP_UPDATE_X</td>
+<td class="rt">272</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>TOP_WAIT_DERIV</td>
+<td class="rt">218</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>TOP_WAIT_SOLVE</td>
+<td class="rt">255</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">transitions</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>TOP_CHECK_CONV->TOP_DONE</td>
+<td class="rt">240</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>TOP_CHECK_CONV->TOP_IDLE</td>
+<td class="rt">170</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>TOP_CHECK_CONV->TOP_WAIT_SOLVE</td>
+<td class="rt">255</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>TOP_DONE->TOP_IDLE</td>
+<td class="rt">170</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>TOP_IDLE->TOP_START_DERIV</td>
+<td class="rt">207</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>TOP_START_DERIV->TOP_IDLE</td>
+<td class="rt">170</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>TOP_START_DERIV->TOP_WAIT_DERIV</td>
+<td class="rt">218</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>TOP_UPDATE_X->TOP_IDLE</td>
+<td class="rt">170</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>TOP_UPDATE_X->TOP_START_DERIV</td>
+<td class="rt">283</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>TOP_WAIT_DERIV->TOP_CHECK_CONV</td>
+<td class="rt">226</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>TOP_WAIT_DERIV->TOP_IDLE</td>
+<td class="rt">170</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>TOP_WAIT_SOLVE->TOP_DONE</td>
+<td class="rt">270</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>TOP_WAIT_SOLVE->TOP_IDLE</td>
+<td class="rt">170</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>TOP_WAIT_SOLVE->TOP_UPDATE_X</td>
+<td class="rt">272</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod9.html" >newton_2nd_order_top</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s7">
+<td>Branches</td>
+<td></td>
+<td class="rt">24</td>
+<td class="rt">18</td>
+<td class="rt">75.00 </td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">127</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s7">
+<td>IF</td>
+<td class="rt">168</td>
+<td class="rt">22</td>
+<td class="rt">16</td>
+<td class="rt">72.73 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+127            assign abs_grad = (deriv_grad[31]) ? -deriv_grad : deriv_grad;
+                                                  <font color = "green">-1-</font>  
+                                                  <font color = "green">==></font>  
+                                                  <font color = "green">==></font>  
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+168                if (!rst_n) begin
+                   <font color = "green">-1-</font>  
+169                    // Reset all state and output registers
+170                    state         <= TOP_IDLE;
+           <font color = "green">            ==></font>
+171                    x_reg         <= Q16_ZERO;
+172                    tol_reg       <= Q16_EPS_DEF;
+173                    alpha_reg     <= Q16_ONE;
+174                    lambda_reg_in <= Q16_LAMBDA_DEF;
+175                    max_iters_reg <= 8'd50;
+176                    iter_count    <= 8'd0;
+177                    status        <= STATUS_IDLE;
+178                    done          <= 1'b0;
+179                    busy          <= 1'b0;
+180                    x_optimal     <= Q16_ZERO;
+181                    f_optimal     <= Q16_ZERO;
+182                    g_final       <= Q16_ZERO;
+183                    deriv_start   <= 1'b0;
+184                    div_start     <= 1'b0;
+185                    div_dividend  <= Q16_ZERO;
+186                    div_divisor   <= Q16_ZERO;
+187                end else begin
+188                    deriv_start <= 1'b0; // Default pulse suppression
+189                    div_start   <= 1'b0;
+190        
+191                    case (state)
+                       <font color = "red">-2-</font>  
+192                        // -------------------------------------------------------------
+193                        // STATE: TOP_IDLE (Wait for start and register parameters)
+194                        // -------------------------------------------------------------
+195                        TOP_IDLE: begin
+196                            done <= 1'b0;
+197                            if (start) begin
+                               <font color = "green">-3-</font>  
+198                                busy          <= 1'b1;
+199                                x_reg         <= x_init;
+200                                // Use default fallbacks if inputs are zero
+201                                tol_reg       <= (tolerance != Q16_ZERO)  ? tolerance  : Q16_EPS_DEF;
+                                                                             <font color = "red">-4-</font>  
+                                                                             <font color = "green">==></font>  
+                                                                             <font color = "red">==></font>  
+202                                alpha_reg     <= (step_alpha != Q16_ZERO) ? step_alpha : Q16_ONE;
+                                                                             <font color = "red">-5-</font>  
+                                                                             <font color = "green">==></font>  
+                                                                             <font color = "red">==></font>  
+203                                lambda_reg_in <= (lambda_reg != Q16_ZERO) ? lambda_reg : Q16_LAMBDA_DEF;
+                                                                             <font color = "red">-6-</font>  
+                                                                             <font color = "green">==></font>  
+                                                                             <font color = "red">==></font>  
+204                                max_iters_reg <= (max_iters != 8'd0)      ? max_iters  : 8'd50;
+                                                                             <font color = "red">-7-</font>  
+                                                                             <font color = "green">==></font>  
+                                                                             <font color = "red">==></font>  
+205                                iter_count    <= 8'd0;
+206                                status        <= STATUS_RUNNING;
+207                                state         <= TOP_START_DERIV;
+208                            end else begin
+209                                busy <= 1'b0;
+           <font color = "green">                        ==></font>
+210                            end
+211                        end
+212        
+213                        // -------------------------------------------------------------
+214                        // STATE: TOP_START_DERIV (Launch Derivative Engine)
+215                        // -------------------------------------------------------------
+216                        TOP_START_DERIV: begin
+217                            deriv_start <= 1'b1; // Trigger derivative engine
+           <font color = "green">                    ==></font>
+218                            state       <= TOP_WAIT_DERIV;
+219                        end
+220        
+221                        // -------------------------------------------------------------
+222                        // STATE: TOP_WAIT_DERIV (Wait for 3-point sampling to finish)
+223                        // -------------------------------------------------------------
+224                        TOP_WAIT_DERIV: begin
+225                            if (deriv_done) begin
+                               <font color = "green">-8-</font>  
+226                                state <= TOP_CHECK_CONV;
+           <font color = "green">                        ==></font>
+227                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+228                        end
+229        
+230                        // -------------------------------------------------------------
+231                        // STATE: TOP_CHECK_CONV (Check Convergence & Iteration Limits)
+232                        // -------------------------------------------------------------
+233                        TOP_CHECK_CONV: begin
+234                            // Condition 1: Gradient is sufficiently flat -> CONVERGED!
+235                            if (abs_grad <= tol_reg) begin
+                               <font color = "green">-9-</font>  
+236                                status    <= STATUS_CONVERGED;
+           <font color = "green">                        ==></font>
+237                                x_optimal <= x_reg;
+238                                f_optimal <= deriv_f_val;
+239                                g_final   <= deriv_grad;
+240                                state     <= TOP_DONE;
+241        
+242                            // Condition 2: Exceeded max allowed iterations -> STOP
+243                            end else if (iter_count >= max_iters_reg) begin
+                                        <font color = "green">-10-</font>  
+244                                status    <= STATUS_MAX_ITERS;
+           <font color = "green">                        ==></font>
+245                                x_optimal <= x_reg;
+246                                f_optimal <= deriv_f_val;
+247                                g_final   <= deriv_grad;
+248                                state     <= TOP_DONE;
+249        
+250                            // Condition 3: Continue -> Solve for Newton Step Δx = -num / den
+251                            end else begin
+252                                div_dividend <= -deriv_step_num; // Numerator = - [ h * Δ1 ]
+           <font color = "green">                        ==></font>
+253                                div_divisor  <= deriv_step_den;  // Denominator = 2 * Δ2 ± λ
+254                                div_start    <= 1'b1;            // Trigger 48-cycle divider
+255                                state        <= TOP_WAIT_SOLVE;
+256                            end
+257                        end
+258        
+259                        // -------------------------------------------------------------
+260                        // STATE: TOP_WAIT_SOLVE (Wait for Divider to Compute Step)
+261                        // -------------------------------------------------------------
+262                        TOP_WAIT_SOLVE: begin
+263                            if (div_done) begin
+                               <font color = "green">-11-</font>  
+264                                // Check if division by zero occurred (singular Hessian)
+265                                if (div_by_zero) begin
+                                   <font color = "red">-12-</font>  
+266                                    status    <= STATUS_SINGULAR;
+           <font color = "red">                            ==></font>
+267                                    x_optimal <= x_reg;
+268                                    f_optimal <= deriv_f_val;
+269                                    g_final   <= deriv_grad;
+270                                    state     <= TOP_DONE;
+271                                end else begin
+272                                    state <= TOP_UPDATE_X;
+           <font color = "green">                            ==></font>
+273                                end
+274                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+275                        end
+276        
+277                        // -------------------------------------------------------------
+278                        // STATE: TOP_UPDATE_X (Update Position x = x + alpha * Δx)
+279                        // -------------------------------------------------------------
+280                        TOP_UPDATE_X: begin
+281                            x_reg      <= x_reg + scaled_step; // Apply scaled update step
+           <font color = "green">                    ==></font>
+282                            iter_count <= iter_count + 1'b1;   // Increment iteration counter
+283                            state      <= TOP_START_DERIV;     // Repeat loop for next iteration!
+284                        end
+285        
+286                        // -------------------------------------------------------------
+287                        // STATE: TOP_DONE (Assert Completion Strobe)
+288                        // -------------------------------------------------------------
+289                        TOP_DONE: begin
+290                            done  <= 1'b1;
+           <font color = "green">                    ==></font>
+291                            busy  <= 1'b0;
+292                            state <= TOP_IDLE; // Ready for next solve
+293                        end
+294        
+295                        default: state <= TOP_IDLE;
+           <font color = "red">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>-8-</th><th nowrap width=80>-9-</th><th nowrap width=80>-10-</th><th nowrap width=80>-11-</th><th nowrap width=80>-12-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>TOP_IDLE </td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>TOP_IDLE </td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>TOP_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>TOP_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>TOP_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>TOP_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>TOP_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>TOP_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>TOP_IDLE </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>TOP_START_DERIV </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>TOP_WAIT_DERIV </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>TOP_WAIT_DERIV </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>TOP_CHECK_CONV </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>TOP_CHECK_CONV </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>TOP_CHECK_CONV </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>TOP_WAIT_SOLVE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>TOP_WAIT_SOLVE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>TOP_WAIT_SOLVE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>TOP_UPDATE_X </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>TOP_DONE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_9">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#FSM">FSM</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+  <ul name="tag_newton_2nd_order_top">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#FSM">FSM</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>
