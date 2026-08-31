@@ -1,0 +1,18 @@
+* =============================================================================
+* File: sram_6t_cell.spice
+* Target Technology: SkyWater 130nm (sky130_fd_pr) / 1.8V
+* Description: Transistor-Level Standard 6T Static RAM Bitcell
+* =============================================================================
+
+.subckt SRAM_6T_CELL WL BL BLB VDD VSS
+* Cross-coupled inverters
+XM_P1 Q  QB VDD VDD sky130_fd_pr__pfet_01v8 W=0.5u L=0.15u
+XM_N1 Q  QB VSS VSS sky130_fd_pr__nfet_01v8 W=0.8u L=0.15u
+
+XM_P2 QB Q  VDD VDD sky130_fd_pr__pfet_01v8 W=0.5u L=0.15u
+XM_N2 QB Q  VSS VSS sky130_fd_pr__nfet_01v8 W=0.8u L=0.15u
+
+* Access pass-transistors
+XM_AX1 BL  WL Q  VSS sky130_fd_pr__nfet_01v8 W=0.6u L=0.15u
+XM_AX2 BLB WL QB VSS sky130_fd_pr__nfet_01v8 W=0.6u L=0.15u
+.ends SRAM_6T_CELL

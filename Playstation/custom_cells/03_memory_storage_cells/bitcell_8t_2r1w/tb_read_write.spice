@@ -1,0 +1,31 @@
+* =============================================================================
+* 8T Register File Bitcell Read/Write Margin & Transient Testbench
+* =============================================================================
+.include "schematic.spice"
+
+* Supplies
+VVDD VDD 0 DC 1.8V
+VVSS VSS 0 DC 0.0V
+
+* Control & Data Inputs
+VWL_W  WL_W  0 PULSE(0 1.8 100ps 30ps 30ps 500ps 2ns)
+VBL_W  BL_W  0 PULSE(0 1.8 0ps   30ps 30ps 1ns   2ns)
+VBLB_W BLB_W 0 PULSE(1.8 0 0ps   30ps 30ps 1ns   2ns)
+
+* Read Wordlines
+VWL_RA WL_RA 0 PULSE(0 1.8 800ps 30ps 30ps 400ps 2ns)
+VWL_RB WL_RB 0 PULSE(0 1.8 800ps 30ps 30ps 400ps 2ns)
+
+* Precharge Bitlines to VDD
+RPRE_A BL_RA VDD 1k
+RPRE_B BL_RB VDD 1k
+
+* Bitline Capacitance (16-word column: ~30 fF)
+CBL_A BL_RA 0 30fF
+CBL_B BL_RB 0 30fF
+
+* DUT
+XDUT WL_W BL_W BLB_W WL_RA BL_RA WL_RB BL_RB VDD VSS BITCELL_8T_2R1W
+
+.tran 1ps 4ns
+.end

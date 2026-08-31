@@ -1,0 +1,33 @@
+* =============================================================================
+* Transient Analysis & Delay Characterization Testbench for 4:2 Compressor
+* =============================================================================
+.include "schematic.spice"
+
+* Power Supplies
+VVDD VDD 0 DC 1.8V
+VVSS VSS 0 DC 0.0V
+
+* Input Stimuli (Pulse Generators)
+VX1 X1 0 PULSE(0 1.8 100ps 50ps 50ps 2ns 4ns)
+VX2 X2 0 PULSE(0 1.8 200ps 50ps 50ps 1ns 2ns)
+VX3 X3 0 PULSE(0 1.8 150ps 50ps 50ps 3ns 6ns)
+VX4 X4 0 PULSE(0 1.8 250ps 50ps 50ps 1.5ns 3ns)
+VCIN CIN 0 PULSE(0 1.8 0ps 50ps 50ps 4ns 8ns)
+
+* Output Capacitive Loading (Fanout of 4 Inverters: ~10 fF)
+CL_SUM   SUM   0 10fF
+CL_CARRY CARRY 0 10fF
+CL_COUT  COUT  0 10fF
+
+* Device Under Test (DUT)
+XDUT X1 X2 X3 X4 CIN SUM CARRY COUT VDD VSS COMPRESSOR_4TO2
+
+* Transient Simulation Control
+.tran 1ps 10ns
+
+* Delay Measurements
+.measure tran tpd_x1_to_sum TRIG V(X1)=0.9 RISE=1 TARG V(SUM)=0.9 RISE=1
+.measure tran tpd_x1_to_cout TRIG V(X1)=0.9 RISE=1 TARG V(COUT)=0.9 RISE=1
+.measure tran avg_power AVG P(VVDD) FROM=0ns TO=10ns
+
+.end

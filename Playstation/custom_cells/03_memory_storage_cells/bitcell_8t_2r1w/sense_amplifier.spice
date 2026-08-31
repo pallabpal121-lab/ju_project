@@ -1,0 +1,14 @@
+* =============================================================================
+* Voltage-Latch Differential Sense Amplifier for Bitline Read Sensing
+* =============================================================================
+.subckt SENSE_AMP_LATCH BL BLB SAE OUT OUTB VDD VSS
+* Cross-coupled inverter latch
+XM_P1 OUT  OUTB VDD VDD sky130_fd_pr__pfet_01v8 W=1.2u L=0.15u
+XM_P2 OUTB OUT  VDD VDD sky130_fd_pr__pfet_01v8 W=1.2u L=0.15u
+
+XM_N1 OUT  BL   N_TAIL VSS sky130_fd_pr__nfet_01v8 W=1.0u L=0.15u
+XM_N2 OUTB BLB  N_TAIL VSS sky130_fd_pr__nfet_01v8 W=1.0u L=0.15u
+
+* Sense Amp Enable Tail NMOS
+XM_EN N_TAIL SAE VSS VSS sky130_fd_pr__nfet_01v8 W=2.0u L=0.15u
+.ends SENSE_AMP_LATCH

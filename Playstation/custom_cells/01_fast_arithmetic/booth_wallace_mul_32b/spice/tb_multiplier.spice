@@ -1,0 +1,7 @@
+* Full 32-bit Multiplier Macro Transient Analysis
+.include "../../04_specialized_logic_cells/compressor_4to2/spice/compressor_4to2.spice"
+.include "../../04_specialized_logic_cells/booth_encoder_cell/spice/booth_encoder.spice"
+VVDD VDD 0 DC 1.8V
+VVSS VSS 0 DC 0.0V
+* Verification stimulus
+.tran 10ps 20ns

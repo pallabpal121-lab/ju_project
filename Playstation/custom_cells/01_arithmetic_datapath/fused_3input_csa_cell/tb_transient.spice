@@ -1,0 +1,10 @@
+* Transient Testbench for Fused 3:2 Curvature CSA Slice
+.include "schematic.spice"
+VVDD VDD 0 DC 1.8V
+VVSS VSS 0 DC 0.0V
+VA A 0 PULSE(0 1.8 100ps 50ps 50ps 2ns 4ns)
+VB B 0 PULSE(0 1.8 150ps 50ps 50ps 1ns 2ns)
+VC C 0 PULSE(0 1.8 200ps 50ps 50ps 3ns 6ns)
+XDUT A B C SUM COUT VDD VSS FUSED_CSA_SLICE
+.tran 1ps 10ns
+.measure tran tpd_csa_sum TRIG V(A)=0.9 RISE=1 TARG V(SUM)=0.9 RISE=1

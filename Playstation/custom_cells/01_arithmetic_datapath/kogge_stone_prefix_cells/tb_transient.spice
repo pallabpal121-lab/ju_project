@@ -1,0 +1,12 @@
+* Transient Testbench for Kogge-Stone Prefix Cells (Black & Gray Operators)
+.include "schematic.spice"
+VVDD VDD 0 DC 1.8V
+VVSS VSS 0 DC 0.0V
+VG_IK G_IK 0 PULSE(0 1.8 100ps 50ps 50ps 2ns 4ns)
+VP_IK P_IK 0 PULSE(0 1.8 150ps 50ps 50ps 2ns 4ns)
+VG_KJ G_KJ 0 PULSE(0 1.8 200ps 50ps 50ps 3ns 6ns)
+VP_KJ P_KJ 0 PULSE(0 1.8 250ps 50ps 50ps 3ns 6ns)
+XBLACK G_IK P_IK G_KJ P_KJ G_IJ P_IJ VDD VSS KS_BLACK_CELL
+XGRAY  G_IK P_IK G_KJ      G_GRAY    VDD VSS KS_GRAY_CELL
+.tran 1ps 10ns
+.measure tran tpd_black_g TRIG V(G_IK)=0.9 RISE=1 TARG V(G_IJ)=0.9 RISE=1

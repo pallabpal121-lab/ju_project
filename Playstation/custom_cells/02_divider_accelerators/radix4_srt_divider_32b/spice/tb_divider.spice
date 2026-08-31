@@ -1,0 +1,5 @@
+* Radix-4 SRT Divider Macro Transient Analysis
+.include "../../02_divider_accelerators/cas_divider_slice_cell/spice/cas_cell.spice"
+VVDD VDD 0 DC 1.8V
+VVSS VSS 0 DC 0.0V
+.tran 10ps 20ns

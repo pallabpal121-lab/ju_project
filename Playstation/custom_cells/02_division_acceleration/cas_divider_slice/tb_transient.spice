@@ -1,0 +1,23 @@
+* =============================================================================
+* Transient Analysis for Controlled Add/Subtract (CAS) Bit-Slice
+* =============================================================================
+.include "schematic.spice"
+
+VVDD VDD 0 DC 1.8V
+VVSS VSS 0 DC 0.0V
+
+VA A 0 PULSE(0 1.8 100ps 30ps 30ps 1ns 2ns)
+VB B 0 PULSE(0 1.8 150ps 30ps 30ps 2ns 4ns)
+VCIN CIN 0 PULSE(0 1.8 200ps 30ps 30ps 4ns 8ns)
+VCTRL CTRL 0 PULSE(0 1.8 0ps 50ps 50ps 5ns 10ns)
+
+CL_SUM  SUM  0 10fF
+CL_COUT COUT 0 10fF
+
+XDUT A B CIN CTRL SUM COUT VDD VSS CAS_CELL
+
+.tran 1ps 10ns
+.measure tran tpd_a_to_sum TRIG V(A)=0.9 RISE=1 TARG V(SUM)=0.9 RISE=1
+.measure tran tpd_ctrl_to_cout TRIG V(CTRL)=0.9 RISE=1 TARG V(COUT)=0.9 RISE=1
+
+.end

@@ -1,0 +1,10 @@
+* Transient Testbench for Radix-4 Booth Selector Cell
+.include "schematic.spice"
+VVDD VDD 0 DC 1.8V
+VVSS VSS 0 DC 0.0V
+VYP Y_PLUS 0 PULSE(0 1.8 100ps 50ps 50ps 4ns 8ns)
+VYC Y_CURR 0 PULSE(0 1.8 200ps 50ps 50ps 2ns 4ns)
+VYM Y_PREV 0 PULSE(0 1.8 300ps 50ps 50ps 1ns 2ns)
+XDUT Y_PLUS Y_CURR Y_PREV SINGLE DOUBLE NEG VDD VSS BOOTH_ENCODER
+.tran 1ps 10ns
+.measure tran tpd_yplus_to_neg TRIG V(Y_PLUS)=0.9 RISE=1 TARG V(NEG)=0.9 RISE=1

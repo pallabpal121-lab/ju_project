@@ -1,0 +1,46 @@
+* =============================================================================
+* File: bitcell_8t_2r1w.spice
+* Target Technology: SkyWater 130nm (sky130_fd_pr) / 1.8V
+* Description: Transistor-Level 8-Transistor Dual-Read Single-Write (2R1W) Static Bitcell
+*
+* Port List:
+*   WL_W   : Write Wordline
+*   BL_W   : Write Bitline
+*   BLB_W  : Complementary Write Bitline
+*   WL_RA  : Read Wordline Port A
+*   BL_RA  : Read Bitline Port A (Single-ended precharged)
+*   WL_RB  : Read Wordline Port B
+*   BL_RB  : Read Bitline Port B (Single-ended precharged)
+* =============================================================================
+
+.subckt BITCELL_8T_2R1W WL_W BL_W BLB_W WL_RA BL_RA WL_RB BL_RB VDD VSS
+* -----------------------------------------------------------------------------
+* 1. 6T Core Storage Inverters (Cross-Coupled Latch)
+* -----------------------------------------------------------------------------
+* Inverter 1 (Drives Q, inputs QB)
+XM_P1 Q QB VDD VDD sky130_fd_pr__pfet_01v8 W=0.7u L=0.15u
+XM_N1 Q QB VSS VSS sky130_fd_pr__nfet_01v8 W=1.0u L=0.15u
+
+* Inverter 2 (Drives QB, inputs Q)
+XM_P2 QB Q VDD VDD sky130_fd_pr__pfet_01v8 W=0.7u L=0.15u
+XM_N2 QB Q VSS VSS sky130_fd_pr__nfet_01v8 W=1.0u L=0.15u
+
+* -----------------------------------------------------------------------------
+* 2. Differential Write Access Pass-Gates
+* -----------------------------------------------------------------------------
+XM_W1 BL_W  WL_W Q  VSS sky130_fd_pr__nfet_01v8 W=0.8u L=0.15u
+XM_W2 BLB_W WL_W QB VSS sky130_fd_pr__nfet_01v8 W=0.8u L=0.15u
+
+* -----------------------------------------------------------------------------
+* 3. Decoupled Read Port A (2T Read Stack - Read-Disturb Free!)
+* -----------------------------------------------------------------------------
+XM_RD_A1 BL_RA WL_RA ND_A VSS sky130_fd_pr__nfet_01v8 W=0.8u L=0.15u
+XM_RD_A2 ND_A  QB    VSS  VSS sky130_fd_pr__nfet_01v8 W=0.8u L=0.15u
+
+* -----------------------------------------------------------------------------
+* 4. Decoupled Read Port B (2T Read Stack)
+* -----------------------------------------------------------------------------
+XM_RD_B1 BL_RB WL_RB ND_B VSS sky130_fd_pr__nfet_01v8 W=0.8u L=0.15u
+XM_RD_B2 ND_B  QB    VSS  VSS sky130_fd_pr__nfet_01v8 W=0.8u L=0.15u
+
+.ends BITCELL_8T_2R1W
