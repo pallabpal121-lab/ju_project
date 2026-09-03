@@ -28,26 +28,54 @@ class newton_seq_item extends uvm_sequence_item;
     logic [7:0]         iter_count;
     status_t            status;
 
-    // Constraints
+    // Constraints with Distribution Weights & Fallback Testing
     constraint c_tol {
-        tolerance inside {[32'h0000_0010 : 32'h0000_0800]};
+        tolerance dist {
+            32'h0000_0000                   := 5,  // Exercises RTL fallback to Q16_EPS_DEF
+            [32'h0000_0010 : 32'h0000_003F] := 30, // Tight tolerance (tol_tight coverage bin)
+            [32'h0000_0040 : 32'h0000_0100] := 35, // Medium tolerance (tol_med coverage bin)
+            [32'h0000_0101 : 32'h0000_0800] := 30  // Loose tolerance (tol_loose coverage bin)
+        };
     }
 
     constraint c_alpha {
-        step_alpha inside {32'h0001_0000, 32'h0000_8000, 32'h0000_C000};
+        step_alpha dist {
+            32'h0000_0000 := 5,  // Exercises RTL fallback to Q16_ONE (1.0)
+            32'h0001_0000 := 35, // 1.0 (full_step)
+            32'h0000_C000 := 15, // 0.75
+            32'h0000_8000 := 25, // 0.5 (half_step)
+            32'h0000_4000 := 10, // 0.25
+            32'h0000_2000 := 10  // 0.125
+        };
     }
 
     // Denominator Safety Floor Threshold (Clamping Limit)
     constraint c_lambda {
-        lambda_reg inside {[32'h0000_0080 : 32'h0000_0400]};
+        lambda_reg dist {
+            32'h0000_0000                   := 5,  // Exercises RTL fallback to Q16_LAMBDA_DEF
+            [32'h0000_0080 : 32'h0000_0100] := 35, // Lower clamp range (0.002 - 0.004)
+            [32'h0000_0101 : 32'h0000_0200] := 35, // Medium clamp range (0.004 - 0.008)
+            [32'h0000_0201 : 32'h0000_0400] := 25  // Upper clamp range (0.008 - 0.016)
+        };
     }
 
     constraint c_max_iters {
-        max_iters inside {[8'd10 : 8'd80]};
+        max_iters dist {
+            8'd0           := 5,  // Exercises RTL fallback to 8'd50
+            [8'd5  : 8'd10]:= 20, // Low iteration limits (it_low bin)
+            [8'd11 : 8'd40]:= 45, // Medium iteration limits (it_med bin)
+            [8'd41 : 8'd80]:= 30  // High iteration limits (it_high bin)
+        };
     }
 
     constraint c_x_init {
-        x_init inside {[-32'sd3276800 : 32'sd3276800]}; // Range [-50.0, +50.0]
+        x_init dist {
+            [-32'sd3276800 : -32'sd655360] := 20, // neg_large (< -10.0)
+            [-32'sd655359  : -32'sd65536]  := 20, // neg_small (-10.0 to -1.0)
+            [-32'sd65535   :  32'sd65535]  := 25, // zero_near (-1.0 to +1.0)
+            [ 32'sd65536   :  32'sd655360] := 20, // pos_small (+1.0 to +10.0)
+            [ 32'sd655361  :  32'sd3276800] := 15  // pos_large (> +10.0)
+        };
     }
 
     `uvm_object_utils_begin(newton_seq_item)
