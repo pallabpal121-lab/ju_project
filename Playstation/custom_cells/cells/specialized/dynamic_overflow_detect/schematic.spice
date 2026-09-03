@@ -1,0 +1,92 @@
+* =============================================================================
+* File: dynamic_overflow_detect.spice
+* Target Technology: SCL 180nm CMOS PDK (ts18scl) / 1.8V Standard Cells
+* Description: Fast 17-bit Multiplier Overflow & Zero/One Equality Detector
+* =============================================================================
+
+.subckt DYNAMIC_OVERFLOW_DETECT B0 B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 B12 B13 B14 B15 B16 OVERFLOW VDD VSS
+* -----------------------------------------------------------------------------
+* Stage 1: Tree-based NOR & NAND for 17 bits
+* -----------------------------------------------------------------------------
+* 4-bit NOR groups for all-zeros check
+XNOR0 B0 B1 B2 B3 NOR0_OUT VDD VSS SCL180_NOR4
+XNOR1 B4 B5 B6 B7 NOR1_OUT VDD VSS SCL180_NOR4
+XNOR2 B8 B9 B10 B11 NOR2_OUT VDD VSS SCL180_NOR4
+XNOR3 B12 B13 B14 B15 NOR3_OUT VDD VSS SCL180_NOR4
+XINV_B16 B16 B16_B VDD VSS SCL180_INV_1X
+
+* Combine NOR outputs: ALL_ZEROS = NOR0 & NOR1 & NOR2 & NOR3 & ~B16
+XAND_ZERO NOR0_OUT NOR1_OUT NOR2_OUT NOR3_OUT AND_ZERO_MID VDD VSS SCL180_AND4
+XAND_ZERO_FINAL AND_ZERO_MID B16_B ALL_ZEROS VDD VSS SCL180_AND2
+
+* 4-bit NAND groups for all-ones check
+XNAND0 B0 B1 B2 B3 NAND0_OUT VDD VSS SCL180_NAND4
+XNAND1 B4 B5 B6 B7 NAND1_OUT VDD VSS SCL180_NAND4
+XNAND2 B8 B9 B10 B11 NAND2_OUT VDD VSS SCL180_NAND4
+XNAND3 B12 B13 B14 B15 NAND3_OUT VDD VSS SCL180_NAND4
+
+* Combine NAND outputs: ALL_ONES = (&B0..15) & B16
+* NANDx outputs are inverted, so NOR of NANDs gives AND
+XINV_N0 NAND0_OUT AND0_OUT VDD VSS SCL180_INV_1X
+XINV_N1 NAND1_OUT AND1_OUT VDD VSS SCL180_INV_1X
+XINV_N2 NAND2_OUT AND2_OUT VDD VSS SCL180_INV_1X
+XINV_N3 NAND3_OUT AND3_OUT VDD VSS SCL180_INV_1X
+
+XAND_ONE AND0_OUT AND1_OUT AND2_OUT AND3_OUT AND_ONE_MID VDD VSS SCL180_AND4
+XAND_ONE_FINAL AND_ONE_MID B16 ALL_ONES VDD VSS SCL180_AND2
+
+* -----------------------------------------------------------------------------
+* Stage 2: OVERFLOW = ~(ALL_ZEROS | ALL_ONES) = NOR2(ALL_ZEROS, ALL_ONES)
+* -----------------------------------------------------------------------------
+XNOR_OVF ALL_ZEROS ALL_ONES OVERFLOW VDD VSS SCL180_NOR2
+.ends DYNAMIC_OVERFLOW_DETECT
+
+* =============================================================================
+* Elementary Subcircuits
+* =============================================================================
+.subckt SCL180_INV_1X IN OUT VDD VSS
+XM1 OUT IN VDD VDD p18.1 W=1.0u L=0.18u
+XM2 OUT IN VSS VSS n18.1 W=0.5u L=0.18u
+.ends SCL180_INV_1X
+
+.subckt SCL180_NOR2 A B Y VDD VSS
+XM1 N1 A VDD VDD p18.1 W=1.6u L=0.18u
+XM2 Y  B N1  VDD p18.1 W=1.6u L=0.18u
+XM3 Y  A VSS VSS n18.1 W=0.5u L=0.18u
+XM4 Y  B VSS VSS n18.1 W=0.5u L=0.18u
+.ends SCL180_NOR2
+
+.subckt SCL180_NOR4 A B C D Y VDD VSS
+XM1 N1 A VDD VDD p18.1 W=3.2u L=0.18u
+XM2 N2 B N1  VDD p18.1 W=3.2u L=0.18u
+XM3 N3 C N2  VDD p18.1 W=3.2u L=0.18u
+XM4 Y  D N3  VDD p18.1 W=3.2u L=0.18u
+XM5 Y  A VSS VSS n18.1 W=0.5u L=0.18u
+XM6 Y  B VSS VSS n18.1 W=0.5u L=0.18u
+XM7 Y  C VSS VSS n18.1 W=0.5u L=0.18u
+XM8 Y  D VSS VSS n18.1 W=0.5u L=0.18u
+.ends SCL180_NOR4
+
+.subckt SCL180_NAND4 A B C D Y VDD VSS
+XM1 Y A VDD VDD p18.1 W=1.0u L=0.18u
+XM2 Y B VDD VDD p18.1 W=1.0u L=0.18u
+XM3 Y C VDD VDD p18.1 W=1.0u L=0.18u
+XM4 Y D VDD VDD p18.1 W=1.0u L=0.18u
+XM5 Y  A N1  VSS n18.1 W=1.6u L=0.18u
+XM6 N1 B N2  VSS n18.1 W=1.6u L=0.18u
+XM7 N2 C N3  VSS n18.1 W=1.6u L=0.18u
+XM8 N3 D VSS VSS n18.1 W=1.6u L=0.18u
+.ends SCL180_NAND4
+
+.subckt SCL180_AND2 A B Y VDD VSS
+XM1 Y_B A VDD VDD p18.1 W=0.8u L=0.18u
+XM2 Y_B B VDD VDD p18.1 W=0.8u L=0.18u
+XM3 Y_B A MID VSS n18.1 W=0.6u L=0.18u
+XM4 MID B VSS VSS n18.1 W=0.6u L=0.18u
+XI1 Y_B Y VDD VSS SCL180_INV_1X
+.ends SCL180_AND2
+
+.subckt SCL180_AND4 A B C D Y VDD VSS
+XNAND A B C D Y_B VDD VSS SCL180_NAND4
+XINV Y_B Y VDD VSS SCL180_INV_1X
+.ends SCL180_AND4

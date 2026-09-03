@@ -1,0 +1,18 @@
+* =============================================================================
+* File: sram_6t_cell.spice
+* Target Technology: SCL 180nm CMOS PDK (ts18scl) / 1.8V
+* Description: Transistor-Level Standard 6T Static RAM Bitcell
+* =============================================================================
+
+.subckt SRAM_6T_CELL WL BL BLB VDD VSS
+* Cross-coupled inverters
+XM_P1 Q  QB VDD VDD p18.1 W=0.5u L=0.18u
+XM_N1 Q  QB VSS VSS n18.1 W=0.8u L=0.18u
+
+XM_P2 QB Q  VDD VDD p18.1 W=0.5u L=0.18u
+XM_N2 QB Q  VSS VSS n18.1 W=0.8u L=0.18u
+
+* Access pass-transistors
+XM_AX1 BL  WL Q  VSS n18.1 W=0.6u L=0.18u
+XM_AX2 BLB WL QB VSS n18.1 W=0.6u L=0.18u
+.ends SRAM_6T_CELL

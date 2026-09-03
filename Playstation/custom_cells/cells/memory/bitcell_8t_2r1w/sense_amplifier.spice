@@ -1,0 +1,14 @@
+* =============================================================================
+* Voltage-Latch Differential Sense Amplifier for Bitline Read Sensing
+* =============================================================================
+.subckt SENSE_AMP_LATCH BL BLB SAE OUT OUTB VDD VSS
+* Cross-coupled inverter latch
+XM_P1 OUT  OUTB VDD VDD p18.1 W=1.2u L=0.18u
+XM_P2 OUTB OUT  VDD VDD p18.1 W=1.2u L=0.18u
+
+XM_N1 OUT  BL   N_TAIL VSS n18.1 W=1.0u L=0.18u
+XM_N2 OUTB BLB  N_TAIL VSS n18.1 W=1.0u L=0.18u
+
+* Sense Amp Enable Tail NMOS
+XM_EN N_TAIL SAE VSS VSS n18.1 W=2.0u L=0.18u
+.ends SENSE_AMP_LATCH

@@ -1,0 +1,22 @@
+* =============================================================================
+* Transient Analysis for Transmission-Gate Multiplexer (TG_MUX2_1BIT)
+* =============================================================================
+.include "schematic.spice"
+
+VVDD VDD 0 DC 1.8V
+VVSS VSS 0 DC 0.0V
+
+VIN0 IN0 0 PULSE(0 1.8 100ps 30ps 30ps 1ns 2ns)
+VIN1 IN1 0 PULSE(1.8 0 100ps 30ps 30ps 1ns 2ns)
+VSEL SEL 0 PULSE(0 1.8 500ps 30ps 30ps 2ns 4ns)
+VSELB SEL_B 0 PULSE(1.8 0 500ps 30ps 30ps 2ns 4ns)
+
+CL_OUT OUT 0 10fF
+
+XDUT IN0 IN1 SEL SEL_B OUT VDD VSS TG_MUX2_1BIT
+
+.tran 1ps 10ns
+.measure tran tpd_in0_to_out TRIG V(IN0) VAL=0.9 RISE=1 TARG V(OUT) VAL=0.9 RISE=1
+.measure tran tpd_sel_to_out TRIG V(SEL) VAL=0.9 RISE=1 TARG V(OUT) VAL=0.9 FALL=1
+
+.end

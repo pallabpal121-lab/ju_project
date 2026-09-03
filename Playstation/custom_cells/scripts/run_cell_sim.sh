@@ -9,19 +9,21 @@ WS_DIR="$(dirname "$SCRIPT_DIR")"
 
 source "$WS_DIR/config/env_virtuoso.sh"
 
-CELL_NAME="${1:-booth_selector_cell}"
+CELL_NAME="${1:-compressor_4to2}"
 
 echo "=========================================================================="
-echo " Cadence Spectre Transient Simulation: $CELL_NAME"
+echo " Cadence Spectre Simulation: $CELL_NAME"
 echo "=========================================================================="
 
 mkdir -p "$WS_DIR/logs" "$WS_DIR/reports" "$WS_DIR/outputs" "$WS_DIR/work"
 
-# Locate testbench
-TB_PATH=$(find "$WS_DIR" -name "tb_*.spice" -o -name "tb_*.scs" -o -name "tb_*.sp" | grep -i "$CELL_NAME" | head -n 1 || true)
+# Locate testbench in cells/ directory
+TB_PATH=$(find "$WS_DIR/cells" -name "tb_*.spice" -o -name "tb_*.scs" -o -name "tb_*.sp" | grep -i "$CELL_NAME" | head -n 1 || true)
 
 if [ -z "$TB_PATH" ]; then
-    echo "[ERROR] Testbench not found for cell: $CELL_NAME"
+    echo "[ERROR] Testbench not found for cell: $CELL_NAME in $WS_DIR/cells"
+    echo "Available cells with testbenches:"
+    find "$WS_DIR/cells" -name "tb_*.spice" | sed -e "s|$WS_DIR/cells/||g"
     exit 1
 fi
 
@@ -41,6 +43,7 @@ simulator lang=spice
 .end
 EOF
 
+echo "Cell Directory   : $TB_DIR"
 echo "Testbench Source : $TB_PATH"
 echo "Simulation Deck  : $RUN_DECK"
 echo "Spectre Log      : $LOG_FILE"
@@ -49,8 +52,10 @@ echo "Analysis Report  : $REPORT_FILE"
 
 cd "$WS_DIR/work"
 
-# Run Spectre
+# Run Cadence Spectre with include search paths
 spectre -64 \
+    -I"$TB_DIR" \
+    -I"$WS_DIR/config" \
     +log "$LOG_FILE" \
     -format psfbin \
     -raw "$RAW_DIR" \
@@ -61,7 +66,7 @@ echo "==========================================================================
 echo " CADENCE SPECTRE SIMULATION REPORT" >> "$REPORT_FILE"
 echo " Cell Design     : $CELL_NAME" >> "$REPORT_FILE"
 echo " Timestamp       : $(date)" >> "$REPORT_FILE"
-echo " Simulator       : Cadence Spectre (21.1.0 64-bit)" >> "$REPORT_FILE"
+echo " Simulator       : Cadence Spectre (64-bit)" >> "$REPORT_FILE"
 echo " Testbench File  : $TB_PATH" >> "$REPORT_FILE"
 echo " Log Location    : $LOG_FILE" >> "$REPORT_FILE"
 echo " Waveform Data   : $RAW_DIR" >> "$REPORT_FILE"
@@ -69,11 +74,13 @@ echo "==========================================================================
 echo "" >> "$REPORT_FILE"
 echo "=== Simulation Metrics ===" >> "$REPORT_FILE"
 grep -E "Number of accepted tran steps|Transient Analysis|Maximum value achieved|Intrinsic tran analysis time" "$LOG_FILE" >> "$REPORT_FILE" || true
+
 if [ -f "$WS_DIR/work/${CELL_NAME}_run.measure" ]; then
     echo "" >> "$REPORT_FILE"
     echo "=== Timing & Delay Measurements (.measure) ===" >> "$REPORT_FILE"
     grep "=" "$WS_DIR/work/${CELL_NAME}_run.measure" | grep -v -E "date|design|version|Measurement|Analysis" >> "$REPORT_FILE" || true
 fi
+
 echo "" >> "$REPORT_FILE"
 echo "=== Status ===" >> "$REPORT_FILE"
 grep -E "spectre completes with" "$LOG_FILE" >> "$REPORT_FILE" || true

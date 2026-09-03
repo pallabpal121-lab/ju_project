@@ -1,0 +1,25 @@
+* =============================================================================
+* Transient Analysis for Radix-4 Booth Encoder Cell
+* =============================================================================
+.include "schematic.spice"
+
+VVDD VDD 0 DC 1.8V
+VVSS VSS 0 DC 0.0V
+
+* Inputs: Y_PLUS, Y_CURR, Y_PREV
+VY_PLUS Y_PLUS 0 PULSE(0 1.8 0ps   30ps 30ps 2ns 4ns)
+VY_CURR Y_CURR 0 PULSE(0 1.8 100ps 30ps 30ps 1ns 2ns)
+VY_PREV Y_PREV 0 PULSE(0 1.8 200ps 30ps 30ps 500ps 1ns)
+
+CL_SINGLE SINGLE 0 10fF
+CL_DOUBLE DOUBLE 0 10fF
+CL_NEG    NEG    0 10fF
+
+XDUT Y_PLUS Y_CURR Y_PREV SINGLE DOUBLE NEG VDD VSS BOOTH_ENCODER
+
+.tran 1ps 10ns
+.measure tran tpd_single TRIG V(Y_CURR) VAL=0.9 RISE=1 TARG V(SINGLE) VAL=0.9 RISE=1
+.measure tran tpd_double TRIG V(Y_PLUS) VAL=0.9 RISE=1 TARG V(DOUBLE) VAL=0.9 RISE=1
+.measure tran tpd_neg    TRIG V(Y_PLUS) VAL=0.9 RISE=1 TARG V(NEG)    VAL=0.9 RISE=1
+
+.end

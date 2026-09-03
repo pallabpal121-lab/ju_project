@@ -1,2 +1,2 @@
-devselect := sky130_fd_pr__pfet_01v8 pmos4
-devselect := sky130_fd_pr__nfet_01v8 nmos4
+devselect := p18.1 pmos4
+devselect := n18.1 nmos4

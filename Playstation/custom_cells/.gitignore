@@ -1,8 +1,9 @@
-# Cadence Virtuoso & Spectre runtime artifacts
+# Cadence Virtuoso & Spectre runtime simulation artifacts
 work/
 outputs/
 logs/
 reports/
+scratch/
 test_run.raw/
 *.raw/
 *.raw
@@ -11,7 +12,7 @@ test_run.raw/
 cds.log*
 pvs.log*
 spiceIn.log
+*.mr0
+*.mt0
+*.measure
 .cadence/
-.oalib
-*/.oalib
-work/*

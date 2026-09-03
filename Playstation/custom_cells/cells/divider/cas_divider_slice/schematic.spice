@@ -1,0 +1,40 @@
+* =============================================================================
+* Full-Custom Controlled Add / Subtract (CAS) 1-Bit Slice Cell
+* =============================================================================
+.subckt CAS_CELL A B CIN CTRL SUM COUT VDD VSS
+* Control and input inverters
+XINV_CTRL CTRL CTRL_B VDD VSS SCL180_INV_1X
+XINV_B B B_B VDD VSS SCL180_INV_1X
+XINV_A A A_B VDD VSS SCL180_INV_1X
+XINV_C CIN CIN_B VDD VSS SCL180_INV_1X
+
+* B_MOD = B ^ CTRL
+XXOR_B B B_B CTRL CTRL_B B_MOD B_MOD_B VDD VSS TG_XOR2
+
+* SUM = A ^ B_MOD ^ CIN
+XXOR_AB A A_B B_MOD B_MOD_B AB AB_B VDD VSS TG_XOR2
+XXOR_S  AB AB_B CIN CIN_B SUM SUM_B VDD VSS TG_XOR2
+
+* COUT = AB ? CIN : A (TG MUX)
+XMUX_COUT CIN A AB AB_B COUT VDD VSS TG_MUX2
+.ends CAS_CELL
+
+.subckt SCL180_INV_1X IN OUT VDD VSS
+XM1 OUT IN VDD VDD p18.1 W=1.0u L=0.18u
+XM2 OUT IN VSS VSS n18.1 W=0.5u L=0.18u
+.ends SCL180_INV_1X
+
+.subckt TG_XOR2 A A_B B B_B OUT OUT_B VDD VSS
+XM1 B   A_B OUT VDD p18.1 W=0.8u L=0.18u
+XM2 B   A   OUT VSS n18.1 W=0.5u L=0.18u
+XM3 B_B A   OUT VDD p18.1 W=0.8u L=0.18u
+XM4 B_B A_B OUT VSS n18.1 W=0.5u L=0.18u
+XINVO OUT OUT_B VDD VSS SCL180_INV_1X
+.ends TG_XOR2
+
+.subckt TG_MUX2 A B SEL SEL_B OUT VDD VSS
+XM1 A SEL_B OUT VDD p18.1 W=0.8u L=0.18u
+XM2 A SEL   OUT VSS n18.1 W=0.5u L=0.18u
+XM3 B SEL   OUT VDD p18.1 W=0.8u L=0.18u
+XM4 B SEL_B OUT VSS n18.1 W=0.5u L=0.18u
+.ends TG_MUX2

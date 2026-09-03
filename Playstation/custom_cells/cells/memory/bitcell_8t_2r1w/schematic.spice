@@ -1,0 +1,23 @@
+* =============================================================================
+* Full-Custom 8T Dual-Read Single-Write (2R1W) Static Memory Bitcell
+* =============================================================================
+.subckt BITCELL_8T_2R1W WL_W BL_W BLB_W WL_RA BL_RA WL_RB BL_RB VDD VSS
+* 1. 6T Static Core Storage Latch
+XM_P1 Q  QB VDD VDD p18.1 W=0.7u L=0.18u
+XM_N1 Q  QB VSS VSS n18.1 W=1.0u L=0.18u
+
+XM_P2 QB Q  VDD VDD p18.1 W=0.7u L=0.18u
+XM_N2 QB Q  VSS VSS n18.1 W=1.0u L=0.18u
+
+* 2. Differential Write Pass-Gates (Enabled by WL_W)
+XM_W1 BL_W  WL_W Q  VSS n18.1 W=0.8u L=0.18u
+XM_W2 BLB_W WL_W QB VSS n18.1 W=0.8u L=0.18u
+
+* 3. Decoupled Read Port A Stack (Driven by QB)
+XM_RA1 BL_RA WL_RA ND_A VSS n18.1 W=0.8u L=0.18u
+XM_RA2 ND_A  QB    VSS  VSS n18.1 W=0.8u L=0.18u
+
+* 4. Decoupled Read Port B Stack (Driven by QB)
+XM_RB1 BL_RB WL_RB ND_B VSS n18.1 W=0.8u L=0.18u
+XM_RB2 ND_B  QB    VSS  VSS n18.1 W=0.8u L=0.18u
+.ends BITCELL_8T_2R1W

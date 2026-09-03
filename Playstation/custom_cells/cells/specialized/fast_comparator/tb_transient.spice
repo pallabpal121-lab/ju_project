@@ -1,0 +1,21 @@
+* =============================================================================
+* Transient Analysis for Fast Magnitude Comparator Bit-Slice
+* =============================================================================
+.include "schematic.spice"
+
+VVDD VDD 0 DC 1.8V
+VVSS VSS 0 DC 0.0V
+
+VA A 0 PULSE(0 1.8 100ps 30ps 30ps 1ns 2ns)
+VB B 0 PULSE(0 1.8 150ps 30ps 30ps 2ns 4ns)
+
+CL_EQ EQ_BIT 0 10fF
+CL_GT GT_BIT 0 10fF
+
+XDUT A B EQ_BIT GT_BIT VDD VSS CMP_BITSLICE
+
+.tran 1ps 10ns
+.measure tran tpd_eq TRIG V(A) VAL=0.9 RISE=1 TARG V(EQ_BIT) VAL=0.9 FALL=1
+.measure tran tpd_gt TRIG V(A) VAL=0.9 RISE=1 TARG V(GT_BIT) VAL=0.9 RISE=1
+
+.end

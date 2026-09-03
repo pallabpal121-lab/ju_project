@@ -1,7 +1,9 @@
-# Full-Custom Transistor-Level IC Design Library
-## Universal Newton 2nd-Order 32-Bit Accelerator
+# Full-Custom Transistor-Level IC Design & Verification Library
+## High-Performance Datapath Cells (Cadence Virtuoso & Spectre Flow)
 
-This directory contains full-custom transistor-level integrated circuit (IC) designs developed from scratch at the device, schematic, and layout level (not synthesized standard cells).
+This repository contains the full-custom transistor-level integrated circuit (IC) designs developed from scratch at the device, schematic, and layout level for high-speed datapath acceleration.
+
+The repository is structured strictly for **custom transistor design, SPICE/Spectre simulation, and Virtuoso verification**, adhering to industrial EDA directory conventions.
 
 ---
 
@@ -9,66 +11,147 @@ This directory contains full-custom transistor-level integrated circuit (IC) des
 
 ```
 custom_cells/
-├── 01_arithmetic_datapath/
-│   ├── compressor_4to2/           # 28T Transmission-Gate 4:2 Compressor
-│   │   ├── schematic.spice        # Transistor netlist with W/L sizing
-│   │   ├── tb_transient.spice     # SPICE transient analysis & delay testbench
-│   │   └── DESIGN_GUIDE.md        # Euler paths, transistor sizing & stick diagrams
+├── cells/                               # Full-Custom Transistor-Level Standard Cells
+│   ├── arithmetic/
+│   │   ├── booth_encoder/               # Radix-4 Modified Booth Encoder
+│   │   │   ├── schematic.spice          # Transistor netlist (W/L sizing)
+│   │   │   └── tb_transient.spice       # Spectre transient simulation testbench
+│   │   ├── booth_selector/              # Radix-4 Booth Partial Product Selector
+│   │   │   ├── schematic.spice
+│   │   │   └── tb_transient.spice
+│   │   ├── compressor_4to2/             # 28T TG 4:2 Carry-Save Compressor
+│   │   │   ├── schematic.spice
+│   │   │   └── tb_transient.spice
+│   │   ├── csa_3to2_slice/              # Fused 3:2 Carry-Save Slice Cell
+│   │   │   ├── schematic.spice
+│   │   │   └── tb_transient.spice
+│   │   └── kogge_stone_cells/           # PG, Black (AOI21), Gray, Sum (XOR) cells
+│   │       ├── schematic.spice
+│   │       └── tb_transient.spice
 │   │
-│   ├── booth_selector_cell/       # Radix-4 Modified Booth PP Generator Cell
-│   │   ├── schematic.spice
-│   │   ├── tb_transient.spice
-│   │   └── DESIGN_GUIDE.md
+│   ├── divider/
+│   │   ├── cas_divider_slice/           # Controlled Add/Subtract (CAS) 1-bit slice
+│   │   │   ├── schematic.spice
+│   │   │   └── tb_transient.spice
+│   │   └── srt_radix4_stage/            # Radix-4 SRT Division Stage with CSA
+│   │       ├── schematic.spice
+│   │       └── tb_transient.spice
 │   │
-│   ├── kogge_stone_prefix_cells/  # Prefix Operators (PG, Black, Gray, Sum Cells)
-│   │   ├── black_cell.spice       # Transistor-level AOI21 prefix dot-operator
-│   │   ├── gray_cell.spice
-│   │   └── sum_cell.spice
+│   ├── memory/
+│   │   ├── bitcell_8t_2r1w/             # 8T Dual-Read Single-Write Bitcell & Sense Amp
+│   │   │   ├── schematic.spice
+│   │   │   ├── sense_amplifier.spice
+│   │   │   └── tb_read_write.spice
+│   │   └── sram_6t_cell/                # 6T Static RAM Bitcell
+│   │       ├── schematic.spice
+│   │       └── tb_snm.spice
 │   │
-│   └── fused_3input_csa_cell/     # Fused 3:2 Carry-Save Slice for 2nd Derivatives
-│       ├── schematic.spice
-│       └── tb_transient.spice
+│   └── specialized/
+│       ├── dynamic_overflow_detect/     # Fast dynamic overflow detector
+│       │   ├── schematic.spice
+│       │   └── tb_transient.spice
+│       ├── fast_comparator/             # Magnitude comparator bit-slice
+│       │   ├── schematic.spice
+│       │   └── tb_transient.spice
+│       └── tg_mux/                      # Transmission Gate MUX (2:1 and 4:1)
+│           ├── schematic.spice
+│           └── tb_transient.spice
 │
-├── 02_division_acceleration/
-│   ├── cas_divider_slice/         # Controlled Add/Subtract (CAS) 1-bit Slice
-│   │   ├── schematic.spice
-│   │   └── tb_transient.spice
-│   │
-│   └── srt_radix4_stage/          # Radix-4 SRT Division Stage with CSA Accumulator
-│       ├── schematic.spice
-│       └── DESIGN_GUIDE.md
+├── behavioral/                          # SystemVerilog behavioral models (for co-simulation)
+│   ├── booth_encoder.sv
+│   ├── compressor_4to2.sv
+│   ├── cas_cell.sv
+│   ├── dynamic_overflow_detect.sv
+│   ├── fast_comparator_32b.sv
+│   └── tg_mux.sv
 │
-├── 03_memory_storage_cells/
-│   ├── bitcell_8t_2r1w/           # 8T Dual-Read Single-Write Register File Bitcell
-│   │   ├── schematic.spice        # Cross-coupled inverters + decoupled read buffers
-│   │   ├── sense_amplifier.spice  # Voltage-latch differential sense amp
-│   │   └── tb_read_write.spice    # Read/write margin & timing testbench
-│   │
-│   └── sram_6t_prog_cell/         # Dense 6T Static RAM Bitcell for Microcode Storage
-│       ├── schematic.spice
-│       └── tb_snm.spice           # Static Noise Margin (SNM) butterfly curve test
+├── macros/                              # Multi-bit datapath modules (reference)
+│   ├── booth_wallace_mul_32b/
+│   ├── fused_3input_adder_32b/
+│   ├── kogge_stone_adder_32b/
+│   ├── radix4_srt_divider_32b/
+│   ├── regfile_2r1w_16x32b/
+│   └── sram_prog_mem_32x32b/
 │
-└── docs/
-    ├── TRANSISTOR_SIZING_THEORY.md# Logical Effort, W/L ratios, Euler paths
-    └── CIRCUIT_SCHEMATICS.md      # Transistor-level schematic diagrams
+├── oa_libs/                             # Persistent OpenAccess Database
+│   └── custom_cells_oa/                 # Virtuoso cellviews (schematics, symbols, layouts)
+│
+├── config/                              # EDA & PDK Environment Configuration
+│   ├── cds.lib                          # Virtuoso library definitions
+│   ├── env_virtuoso.sh                  # Cadence & PDK environment variables
+│   ├── devmap.txt                       # SPICE-to-Virtuoso device mapping
+│   ├── models.spice                     # Core 1.8V transistor SPICE models
+│   └── models.scs                       # Spectre include wrapper
+│
+├── scripts/                             # Cadence Automation Scripts
+│   ├── import_schematic.sh              # SpiceIn automated schematic generator
+│   ├── open_design.sh                   # Virtuoso GUI launcher (schematic/layout)
+│   ├── run_cell_sim.sh                  # Spectre batch runner & measurement extractor
+│   └── view_wave.sh                     # Cadence ViVA waveform viewer launcher
+│
+├── docs/                                # Technical Architecture & Theory
+│   ├── CIRCUIT_SCHEMATICS.md            # Transistor topologies & node connections
+│   ├── TRANSISTOR_SIZING_THEORY.md      # Logical effort, Euler paths, stick diagrams
+│   ├── PPA_OPTIMIZATION_REPORT.md       # Custom cell vs standard-cell PPA benchmarks
+│   └── SCL180_PDK_MIGRATION_GUIDE.md    # SCL 180nm PDK integration guide
+│
+├── Makefile                             # Push-button simulation & design cockpit
+│
+├── work/                                # Ephemeral run scratchpad (gitignored)
+├── logs/                                # Spectre simulation logs (gitignored)
+├── reports/                             # Timing & measurement reports (gitignored)
+└── outputs/                             # Raw waveform datasets (.raw / PSF) (gitignored)
 ```
 
 ---
 
-## 2. Why Full-Custom Transistor Design for this RTL?
+## 2. Push-Button Workflow (Makefile Targets)
 
-1. **q16_divider.sv (48-cycle bottleneck)**:
-   - RTL does sequential 32-bit subtractions each cycle.
-   - **Custom Design**: Radix-4 SRT cell with redundant Carry-Save Accumulator (CSA). Cuts cycle count to 24 cycles and removes the 32-bit carry-propagate delay from the critical clock loop!
+All tasks are centralized through the top-level [Makefile](file:///home/user17/Desktop/ju_project/Playstation/custom_cells/Makefile):
 
-2. **q16_alu.sv 32x32 Multiplication (Fmax bottleneck)**:
-   - Synthesis infers large, high-power gate trees with significant glitching.
-   - **Custom Design**: 28-transistor Transmission-Gate 4:2 compressors and Radix-4 Booth selectors. Reduces XOR critical path delay to 3 gate delays per stage with zero glitch propagation.
+| Command | Action |
+| :--- | :--- |
+| `make check` | Verify Cadence Virtuoso and Spectre binaries and license servers |
+| `make sim CELL=<name>` | Run Spectre transient simulation & generate automated verification report |
+| `make sim_all` | Run Spectre simulation regression across all 12 custom cells |
+| `make wave CELL=<name>` | Launch Cadence ViVA Waveform Viewer for the cell simulation dataset |
+| `make schematic CELL=<name>` | Import SPICE netlist into Cadence Virtuoso OpenAccess schematic view |
+| `make view_schematic CELL=<n>` | Open the schematic diagram directly in Virtuoso GUI |
+| `make view_layout CELL=<name>` | Open the layout editor directly in Virtuoso GUI |
+| `make virtuoso` | Launch Cadence Virtuoso Library Manager |
+| `make clean` | Remove runtime logs, waveforms, reports & lockfiles (**preserves `oa_libs/`**) |
 
-3. **dfg_equation_engine.sv Register File (Area bottleneck)**:
-   - RTL uses 16 x 32 D-flip-flops + wide 16:1 mux trees (~16,000 transistors).
-   - **Custom Design**: 8T Static RAM Bitcell with precharged bitlines (~4,500 transistors, 70% area reduction, sub-0.3ns read access).
+---
 
-4. **derivative_engine.sv Curvature Unit (f_+ - 2*f_0 + f_-)**:
-   - RTL requires two serial adder/subtractor operations.
-   - **Custom Design**: Fused 3:2 Carry-Save slice cell computing 3-operand curvature in a single gate delay.
+## 3. Custom Cell Catalog
+
+| Domain | Cell Name | Architecture / Topology | Key Characteristics |
+| :--- | :--- | :--- | :--- |
+| **Arithmetic** | `compressor_4to2` | 28T Transmission-Gate 4:2 Compressor | 3 gate delays per stage, zero glitching |
+| **Arithmetic** | `booth_encoder` | Radix-4 Booth Encoder | Generates `single`, `double`, `neg` controls |
+| **Arithmetic** | `booth_selector` | TG-based Partial Product Mux | Low-capacitance transmission gate selection |
+| **Arithmetic** | `csa_3to2_slice` | Fused 3:2 Carry-Save Slice | Single-gate-delay 3-operand adder slice |
+| **Arithmetic** | `kogge_stone_cells` | Prefix Operators (`PG`, `Black`, `Gray`, `Sum`) | High-speed parallel-prefix carry generation |
+| **Divider** | `cas_divider_slice` | Controlled Add/Subtract Bit-Slice | Dynamic add/subtract operation with fast mux carry |
+| **Divider** | `srt_radix4_stage` | Radix-4 SRT Stage Slice | Radix-4 quotient digit selection stage |
+| **Memory** | `bitcell_8t_2r1w` | 8T Dual-Read Single-Write Bitcell + Sense Amp | Decoupled read buffer stacks, sub-0.3ns access |
+| **Memory** | `sram_6t_cell` | 6T Static RAM Bitcell | High-density cross-coupled inverter storage cell |
+| **Specialized**| `dynamic_overflow_detect` | 17-bit Multiplier Overflow Detector | Tree-based NOR/NAND fast zero/one detection |
+| **Specialized**| `fast_comparator` | Magnitude Comparator Bit-Slice | Fast equality and greater-than bit slice |
+| **Specialized**| `tg_mux` | Transmission Gate Mux (2:1 and 4:1) | Low insertion delay, rail-to-rail swing |
+
+---
+
+## 4. Simulation & Verification Flow
+
+To simulate any cell using Cadence Spectre:
+```bash
+make sim CELL=compressor_4to2
+```
+
+The automated runner executes:
+1. Assembles top-level simulation deck with PDK transistor model cards.
+2. Invokes Cadence Spectre with 64-bit precision and PSF binary output.
+3. Automatically parses transient steps, convergence metrics, and `.measure` timing delays.
+4. Generates an automated verification report in `reports/<cell_name>_report.txt`.
+5. Saves waveform database in `outputs/<cell_name>.raw` for inspection in Cadence ViVA (`make wave CELL=<cell_name>`).

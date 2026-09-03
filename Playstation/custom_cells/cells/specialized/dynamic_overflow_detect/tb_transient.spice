@@ -1,0 +1,35 @@
+* =============================================================================
+* Transient Analysis for Dynamic Overflow Detector
+* =============================================================================
+.include "schematic.spice"
+
+VVDD VDD 0 DC 1.8V
+VVSS VSS 0 DC 0.0V
+
+* Multiplier upper bits B0..B16
+VB0  B0  0 DC 0.0V
+VB1  B1  0 DC 0.0V
+VB2  B2  0 DC 0.0V
+VB3  B3  0 DC 0.0V
+VB4  B4  0 DC 0.0V
+VB5  B5  0 DC 0.0V
+VB6  B6  0 DC 0.0V
+VB7  B7  0 DC 0.0V
+VB8  B8  0 DC 0.0V
+VB9  B9  0 DC 0.0V
+VB10 B10 0 DC 0.0V
+VB11 B11 0 DC 0.0V
+VB12 B12 0 DC 0.0V
+VB13 B13 0 DC 0.0V
+VB14 B14 0 DC 0.0V
+VB15 B15 0 DC 0.0V
+VB16 B16 0 PULSE(0 1.8 1ns 30ps 30ps 2ns 4ns)
+
+CL_OUT OVERFLOW 0 10fF
+
+XDUT B0 B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 B12 B13 B14 B15 B16 OVERFLOW VDD VSS DYNAMIC_OVERFLOW_DETECT
+
+.tran 1ps 10ns
+.measure tran tpd_overflow TRIG V(B16) VAL=0.9 RISE=1 TARG V(OVERFLOW) VAL=0.9 RISE=1
+
+.end

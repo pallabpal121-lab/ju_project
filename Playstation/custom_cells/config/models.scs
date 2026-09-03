@@ -1,14 +1,6 @@
 // =============================================================================
-// Cadence Spectre Transistor Model Card
+// Cadence Spectre Transistor Model Card (SCL 180nm PDK Include)
 // =============================================================================
+simulator lang=spice
+.lib '/home/user17/Synopsys/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/models/ts18scl/v2.0/hspice/ts18sl_scl.lib' tt_18
 simulator lang=spectre
-
-// 1.8V NMOS Device Model
-model sky130_fd_pr__nfet_01v8 mos1 type=n \
-    vto=0.45 tox=4.1e-9 u0=500.0 kp=170e-6 lambda=0.05 \
-    gamma=0.4 phi=0.65 cgso=2.5e-10 cgdo=2.5e-10
-
-// 1.8V PMOS Device Model
-model sky130_fd_pr__pfet_01v8 mos1 type=p \
-    vto=-0.45 tox=4.1e-9 u0=200.0 kp=70e-6 lambda=0.05 \
-    gamma=0.4 phi=0.65 cgso=2.5e-10 cgdo=2.5e-10
