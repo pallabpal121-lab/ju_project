@@ -7,7 +7,23 @@ set target_library [list standard_cells.db custom_cells_sky130_tt.db]
 set link_library   [list * standard_cells.db custom_cells_sky130_tt.db]
 
 # Read SystemVerilog RTL and Custom Cell Wrappers
-analyze -format sverilog [list     ../04_specialized_logic_cells/compressor_4to2/hdl/compressor_4to2.sv     ../04_specialized_logic_cells/booth_encoder_cell/hdl/booth_encoder.sv     ../04_specialized_logic_cells/fast_comparator_32b/hdl/fast_comparator_32b.sv     ../04_specialized_logic_cells/dynamic_overflow_detect/hdl/dynamic_overflow_detect.sv     ../02_divider_accelerators/cas_divider_slice_cell/hdl/cas_cell.sv     ../01_fast_arithmetic/kogge_stone_adder_32b/hdl/kogge_stone_adder_32b.sv     ../01_fast_arithmetic/fused_3input_adder_32b/hdl/fused_3input_adder_32b.sv     ../01_fast_arithmetic/booth_wallace_mul_32b/hdl/booth_wallace_mul_32b.sv     ../02_divider_accelerators/radix4_srt_divider_32b/hdl/radix4_srt_divider_32b.sv     /home/pallab-pal/ju_project/Playstation/rtl/newton_2nd_order_32bit/newton_types_pkg.sv     /home/pallab-pal/ju_project/Playstation/rtl/newton_2nd_order_32bit/q16_alu.sv     /home/pallab-pal/ju_project/Playstation/rtl/newton_2nd_order_32bit/q16_divider.sv     /home/pallab-pal/ju_project/Playstation/rtl/newton_2nd_order_32bit/dfg_equation_engine.sv     /home/pallab-pal/ju_project/Playstation/rtl/newton_2nd_order_32bit/derivative_engine.sv     /home/pallab-pal/ju_project/Playstation/rtl/newton_2nd_order_32bit/newton_2nd_order_top.sv ]
+analyze -format sverilog [list \
+    ../04_specialized_logic_cells/compressor_4to2/hdl/compressor_4to2.sv \
+    ../04_specialized_logic_cells/booth_encoder_cell/hdl/booth_encoder.sv \
+    ../04_specialized_logic_cells/fast_comparator_32b/hdl/fast_comparator_32b.sv \
+    ../04_specialized_logic_cells/dynamic_overflow_detect/hdl/dynamic_overflow_detect.sv \
+    ../02_divider_accelerators/cas_divider_slice_cell/hdl/cas_cell.sv \
+    ../01_fast_arithmetic/kogge_stone_adder_32b/hdl/kogge_stone_adder_32b.sv \
+    ../01_fast_arithmetic/fused_3input_adder_32b/hdl/fused_3input_adder_32b.sv \
+    ../01_fast_arithmetic/booth_wallace_mul_32b/hdl/booth_wallace_mul_32b.sv \
+    ../02_divider_accelerators/radix4_srt_divider_32b/hdl/radix4_srt_divider_32b.sv \
+    ../../rtl/newton_2nd_order_32bit/newton_types_pkg.sv \
+    ../../rtl/newton_2nd_order_32bit/q16_alu.sv \
+    ../../rtl/newton_2nd_order_32bit/q16_divider.sv \
+    ../../rtl/newton_2nd_order_32bit/dfg_equation_engine.sv \
+    ../../rtl/newton_2nd_order_32bit/derivative_engine.sv \
+    ../../rtl/newton_2nd_order_32bit/newton_2nd_order_top.sv \
+]
 
 elaborate newton_2nd_order_top
 current_design newton_2nd_order_top

@@ -1,0 +1,17 @@
+# Cadence Virtuoso & Spectre runtime artifacts
+work/
+outputs/
+logs/
+reports/
+test_run.raw/
+*.raw/
+*.raw
+*.psf*
+*.cdslck*
+cds.log*
+pvs.log*
+spiceIn.log
+.cadence/
+.oalib
+*/.oalib
+work/*

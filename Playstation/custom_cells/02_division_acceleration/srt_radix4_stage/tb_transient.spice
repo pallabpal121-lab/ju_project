@@ -6,6 +6,6 @@ VCTRL CTRL 0 PULSE(0 1.8 100ps 50ps 50ps 4ns 8ns)
 VX X 0 PULSE(0 1.8 150ps 50ps 50ps 2ns 4ns)
 VY Y 0 PULSE(0 1.8 200ps 50ps 50ps 1ns 2ns)
 VCIN CIN 0 PULSE(0 1.8 0ps 50ps 50ps 3ns 6ns)
-XDUT CTRL X Y CIN SUM COUT VDD VSS CAS_CELL
+XDUT X Y CIN CTRL SUM COUT VDD VSS CAS_CELL
 .tran 1ps 10ns
-.measure tran tpd_cas_sum TRIG V(X)=0.9 RISE=1 TARG V(SUM)=0.9 RISE=1
+.measure tran tpd_cas_sum TRIG V(X) VAL=0.9 RISE=1 TARG V(SUM) VAL=0.9 RISE=1

@@ -1,0 +1,19 @@
+* =============================================================================
+* SPICE Transistor Models and Subcircuit Wrappers for 1.8V Standard Cells
+* Target: Cadence Spectre / Virtuoso Analog Simulation
+* =============================================================================
+
+simulator lang=spice
+
+.subckt sky130_fd_pr__pfet_01v8 d g s b W=1.0u L=0.15u
+M1 d g s b pmos_core w=1.0u l=0.15u
+.ends sky130_fd_pr__pfet_01v8
+
+.subckt sky130_fd_pr__nfet_01v8 d g s b W=0.5u L=0.15u
+M1 d g s b nmos_core w=0.5u l=0.15u
+.ends sky130_fd_pr__nfet_01v8
+
+.model nmos_core nmos level=1 vto=0.45 kp=170u lambda=0.05 gamma=0.4 phi=0.65 tox=4.1n
+.model pmos_core pmos level=1 vto=-0.45 kp=70u lambda=0.05 gamma=0.4 phi=0.65 tox=4.1n
+
+simulator lang=spectre

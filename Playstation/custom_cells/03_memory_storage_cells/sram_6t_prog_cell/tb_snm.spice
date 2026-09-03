@@ -1,10 +1,13 @@
-* Static Noise Margin (SNM) Butterfly Curve Testbench for 6T SRAM
+* Static Noise Margin (SNM) & Retention Testbench for 6T SRAM
 .include "schematic.spice"
+
 VVDD VDD 0 DC 1.8V
 VVSS VSS 0 DC 0.0V
 VWL  WL  0 DC 0.0V
 VBL  BL  0 DC 1.8V
-VBLB BL_B 0 DC 1.8V
-XDUT WL BL BL_B Q Q_B VDD VSS SRAM_6T_CELL
-* DC Sweep for Butterfly Curve
-.dc V(Q) 0 1.8 0.01
+VBLB BLB 0 DC 1.8V
+
+XDUT WL BL BLB VDD VSS SRAM_6T_CELL
+
+.tran 1ps 4ns
+.end

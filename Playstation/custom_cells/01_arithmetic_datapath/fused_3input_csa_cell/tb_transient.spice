@@ -5,6 +5,6 @@ VVSS VSS 0 DC 0.0V
 VA A 0 PULSE(0 1.8 100ps 50ps 50ps 2ns 4ns)
 VB B 0 PULSE(0 1.8 150ps 50ps 50ps 1ns 2ns)
 VC C 0 PULSE(0 1.8 200ps 50ps 50ps 3ns 6ns)
-XDUT A B C SUM COUT VDD VSS FUSED_CSA_SLICE
+XDUT A B C SUM CARRY VDD VSS CSA_3TO2_SLICE
 .tran 1ps 10ns
-.measure tran tpd_csa_sum TRIG V(A)=0.9 RISE=1 TARG V(SUM)=0.9 RISE=1
+.measure tran tpd_csa_sum TRIG V(A) VAL=0.9 RISE=1 TARG V(SUM) VAL=0.9 RISE=1

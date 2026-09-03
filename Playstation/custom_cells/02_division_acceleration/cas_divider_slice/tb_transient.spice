@@ -17,7 +17,7 @@ CL_COUT COUT 0 10fF
 XDUT A B CIN CTRL SUM COUT VDD VSS CAS_CELL
 
 .tran 1ps 10ns
-.measure tran tpd_a_to_sum TRIG V(A)=0.9 RISE=1 TARG V(SUM)=0.9 RISE=1
-.measure tran tpd_ctrl_to_cout TRIG V(CTRL)=0.9 RISE=1 TARG V(COUT)=0.9 RISE=1
+.measure tran tpd_a_to_sum TRIG V(A) VAL=0.9 RISE=1 TARG V(SUM) VAL=0.9 RISE=1
+.measure tran tpd_ctrl_to_cout TRIG V(CTRL) VAL=0.9 RISE=1 TARG V(COUT) VAL=0.9 RISE=1
 
 .end

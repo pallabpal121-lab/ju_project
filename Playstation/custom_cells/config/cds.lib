@@ -1,0 +1,19 @@
+# Cadence Virtuoso Library Definition File (cds.lib)
+# Universal Newton 2nd-Order Accelerator Custom Cell Design Library
+
+INCLUDE $CDSHOME/share/cdssetup/cds.lib
+
+# Reference PDK & Standard Cadence Libraries
+DEFINE GPDK090 /home/user17/Cadence/PDK_Foundry/tool/foundry/cds_ff_mpt_v_0.5/lib/gpdk090
+DEFINE analogLib $CDSHOME/tools/dfII/etc/cdslib/artist/analogLib
+DEFINE functional $CDSHOME/tools/dfII/etc/cdslib/artist/functional
+DEFINE basic $CDSHOME/tools/dfII/etc/cdslib/basic
+DEFINE sample $CDSHOME/tools/dfII/etc/cdslib/sample
+
+# Full-Custom Accelerator Design Libraries
+DEFINE custom_cells_oa /home/user17/Desktop/ju_project/Playstation/custom_cells/work/custom_cells_oa
+DEFINE custom_cells /home/user17/Desktop/ju_project/Playstation/custom_cells
+DEFINE arithmetic_datapath /home/user17/Desktop/ju_project/Playstation/custom_cells/01_arithmetic_datapath
+DEFINE division_accel /home/user17/Desktop/ju_project/Playstation/custom_cells/02_division_acceleration
+DEFINE memory_storage /home/user17/Desktop/ju_project/Playstation/custom_cells/03_memory_storage_cells
+DEFINE specialized_logic /home/user17/Desktop/ju_project/Playstation/custom_cells/04_specialized_logic_cells

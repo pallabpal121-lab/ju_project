@@ -26,8 +26,8 @@ XDUT X1 X2 X3 X4 CIN SUM CARRY COUT VDD VSS COMPRESSOR_4TO2
 .tran 1ps 10ns
 
 * Delay Measurements
-.measure tran tpd_x1_to_sum TRIG V(X1)=0.9 RISE=1 TARG V(SUM)=0.9 RISE=1
-.measure tran tpd_x1_to_cout TRIG V(X1)=0.9 RISE=1 TARG V(COUT)=0.9 RISE=1
+.measure tran tpd_x1_to_sum TRIG V(X1) VAL=0.9 RISE=1 TARG V(SUM) VAL=0.9 RISE=1
+.measure tran tpd_x1_to_cout TRIG V(X1) VAL=0.9 RISE=1 TARG V(COUT) VAL=0.9 RISE=1
 .measure tran avg_power AVG P(VVDD) FROM=0ns TO=10ns
 
 .end
