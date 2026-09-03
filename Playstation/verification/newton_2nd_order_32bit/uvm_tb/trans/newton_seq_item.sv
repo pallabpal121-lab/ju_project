@@ -37,6 +37,7 @@ class newton_seq_item extends uvm_sequence_item;
         step_alpha inside {32'h0001_0000, 32'h0000_8000, 32'h0000_C000};
     }
 
+    // Denominator Safety Floor Threshold (Clamping Limit)
     constraint c_lambda {
         lambda_reg inside {[32'h0000_0080 : 32'h0000_0400]};
     }

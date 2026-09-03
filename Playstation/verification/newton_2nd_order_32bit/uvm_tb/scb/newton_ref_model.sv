@@ -121,6 +121,8 @@ class newton_ref_model extends uvm_object;
             logic signed [31:0] diff_1st, diff_2nd;
             q16_t grad, step_num, step_den, abs_g;
             q16_t div_step, scaled_step;
+            q16_t raw_curv, abs_curv, clamped_step;
+            logic signed [32:0] x_full_sum;
             bit dbz;
 
             // 1. Sample 3 points
@@ -135,10 +137,13 @@ class newton_ref_model extends uvm_object;
             grad     = diff_1st <<< 3;
             step_num = diff_1st >>> 4;
 
-            if (diff_2nd >= 0)
-                step_den = (diff_2nd <<< 1) + lam_val;
+            // Floor-clamped denominator: pure Newton when >= lam_val, clamped to lam_val otherwise
+            raw_curv = diff_2nd <<< 1;
+            abs_curv = (raw_curv >= 0) ? raw_curv : -raw_curv;
+            if (abs_curv >= lam_val)
+                step_den = raw_curv;
             else
-                step_den = (diff_2nd <<< 1) - lam_val;
+                step_den = (raw_curv >= 0) ? lam_val : -lam_val;
 
             abs_g = (grad[31]) ? -grad : grad;
 
@@ -167,9 +172,25 @@ class newton_ref_model extends uvm_object;
                 return;
             end
 
-            // 5. Scaled update
+            // 5. Scaled update with step bounding & saturating addition
             scaled_step = q16_mul(alpha_val, div_step);
-            x_curr      = x_curr + scaled_step;
+
+            if (scaled_step > 32'sh000A_0000)
+                clamped_step = 32'sh000A_0000;
+            else if (scaled_step < -32'sh000A_0000)
+                clamped_step = -32'sh000A_0000;
+            else
+                clamped_step = scaled_step;
+
+            x_full_sum = {x_curr[31], x_curr} + {clamped_step[31], clamped_step};
+
+            if ((~x_curr[31]) && (~clamped_step[31]) && x_full_sum[31])
+                x_curr = 32'sh7FFF_FFFF;
+            else if (x_curr[31] && clamped_step[31] && (~x_full_sum[31]))
+                x_curr = 32'sh8000_0000;
+            else
+                x_curr = x_full_sum[31:0];
+
             iter_count  = iter_count + 1'b1;
         end
     endfunction

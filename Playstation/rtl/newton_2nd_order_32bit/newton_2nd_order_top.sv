@@ -122,6 +122,27 @@ module newton_2nd_order_top (
     assign scaled_step_64 = 64'(alpha_reg) * 64'(div_quotient);
     assign scaled_step    = scaled_step_64[47:16];
 
+    // Trust-Region Step Bounding (Clamp maximum step jump to ±10.0 in Q16.16)
+    localparam signed [31:0] MAX_STEP_BOUND = 32'sh000A_0000; // +10.0
+    localparam signed [31:0] MIN_STEP_BOUND = -MAX_STEP_BOUND; // -10.0
+
+    logic signed [31:0] clamped_step;
+    assign clamped_step = (scaled_step > MAX_STEP_BOUND) ? MAX_STEP_BOUND :
+                          (scaled_step < MIN_STEP_BOUND) ? MIN_STEP_BOUND :
+                          scaled_step;
+
+    // 32-bit Saturating Position Adder (Guarantees no 2's complement wrap-around)
+    logic signed [32:0] x_full_sum;
+    logic signed [31:0] x_sat_sum;
+    assign x_full_sum = {x_reg[31], x_reg} + {clamped_step[31], clamped_step};
+
+    wire pos_overflow = (~x_reg[31]) & (~clamped_step[31]) & x_full_sum[31];
+    wire neg_overflow = (x_reg[31])  & (clamped_step[31])  & (~x_full_sum[31]);
+
+    assign x_sat_sum = pos_overflow ? 32'sh7FFF_FFFF :
+                       neg_overflow ? 32'sh8000_0000 :
+                       x_full_sum[31:0];
+
     // Absolute value of gradient for convergence testing: |g(x)|
     q16_t abs_grad;
     assign abs_grad = (deriv_grad[31]) ? -deriv_grad : deriv_grad;
@@ -278,7 +299,7 @@ module newton_2nd_order_top (
                 // STATE: TOP_UPDATE_X (Update Position x = x + alpha * Δx)
                 // -------------------------------------------------------------
                 TOP_UPDATE_X: begin
-                    x_reg      <= x_reg + scaled_step; // Apply scaled update step
+                    x_reg      <= x_sat_sum;           // Apply bounded, saturated update step
                     iter_count <= iter_count + 1'b1;   // Increment iteration counter
                     state      <= TOP_START_DERIV;     // Repeat loop for next iteration!
                 end

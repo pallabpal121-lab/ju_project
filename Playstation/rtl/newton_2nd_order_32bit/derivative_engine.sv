@@ -206,13 +206,24 @@ module derivative_engine (
                     // Since h = 2^-4, multiplying by 2^-4 is right shift by 4 (>>> 4)
                     step_num <= diff_1st >>> 4;
 
-                    // 4. Newton Step Denominator = 2 * diff_2nd ± lambda_reg:
-                    // Multiplying by 2 is left shift by 1 (<<< 1)
-                    // We add lambda_reg with the same sign as diff_2nd to prevent zero denominator
-                    if (diff_2nd >= 0) begin
-                        step_den <= (diff_2nd <<< 1) + lambda_reg;
-                    end else begin
-                        step_den <= (diff_2nd <<< 1) - lambda_reg;
+                    // 4. Newton Step Denominator with Floor Clamping:
+                    // If curvature magnitude |2 * diff_2nd| is >= safety floor (lambda_reg),
+                    // run with pure, un-damped Newton curvature (zero damping distortion).
+                    // If curvature is below the safety floor, clamp to floor preserving sign.
+                    begin
+                        q16_t raw_curv;
+                        q16_t abs_curv;
+                        q16_t min_floor;
+
+                        raw_curv  = diff_2nd <<< 1;
+                        abs_curv  = (raw_curv >= 0) ? raw_curv : -raw_curv;
+                        min_floor = (lambda_reg != Q16_ZERO) ? lambda_reg : Q16_LAMBDA_DEF;
+
+                        if (abs_curv >= min_floor) begin
+                            step_den <= raw_curv;
+                        end else begin
+                            step_den <= (raw_curv >= 0) ? min_floor : -min_floor;
+                        end
                     end
 
                     state <= DERIV_DONE;
