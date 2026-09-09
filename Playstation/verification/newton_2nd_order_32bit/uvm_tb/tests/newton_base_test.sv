@@ -18,6 +18,7 @@ class newton_base_test extends uvm_test;
 
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+        uvm_top.set_timeout(50ms, 1);
         env = newton_env::type_id::create("env", this);
     endfunction
 

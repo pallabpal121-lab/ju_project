@@ -61,16 +61,24 @@ module newton_tb_top;
         .busy       (vif.busy)
     );
 
-    // UVM Setup & Waveform Dump
+    // UVM Setup & Conditional Waveform Dump
     initial begin
         string dump_file;
         uvm_config_db#(virtual newton_if)::set(null, "*", "vif", vif);
 
-        if (!$value$plusargs("DUMPFILE=%s", dump_file)) begin
-            dump_file = "outputs/sim_waveform.vcd";
+        // Waveform dumping enabled only when +DUMP is requested
+        if ($test$plusargs("DUMP")) begin
+            if ($test$plusargs("FSDB")) begin
+                $fsdbDumpfile("outputs/novas.fsdb");
+                $fsdbDumpvars(0, newton_tb_top);
+            end else begin
+                if (!$value$plusargs("DUMPFILE=%s", dump_file)) begin
+                    dump_file = "outputs/sim_waveform.vcd";
+                end
+                $dumpfile(dump_file);
+                $dumpvars(0, newton_tb_top);
+            end
         end
-        $dumpfile(dump_file);
-        $dumpvars(0, newton_tb_top);
 
         run_test();
     end

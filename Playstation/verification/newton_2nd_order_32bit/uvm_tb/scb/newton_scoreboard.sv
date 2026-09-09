@@ -96,7 +96,7 @@ class newton_scoreboard extends uvm_scoreboard;
         if (mismatch_count == 0 && match_count > 0) begin
             `uvm_info(get_type_name(), "  >>> TEST STATUS: ALL CHECKS PASSED PERFECTLY! <<<", UVM_NONE)
         end else if (match_count == 0) begin
-            `uvm_warning(get_type_name(), "  >>> TEST STATUS: NO TRANSACTIONS EVALUATED! <<<")
+            `uvm_error("SCB_NO_TX", "  >>> TEST STATUS: SIMULATION FAILED - NO TRANSACTIONS EVALUATED! <<<")
         end else begin
             `uvm_error(get_type_name(), "  >>> TEST STATUS: SIMULATION FAILED WITH MISMATCHES! <<<")
         end

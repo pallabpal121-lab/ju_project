@@ -12,7 +12,8 @@ package newton_agent_pkg;
     `include "uvm_macros.svh"
     import newton_types_pkg::*;
 
-    // Transaction item & agent components
+    // VIP Configuration & Transaction item
+    `include "newton_agent_config.sv"
     `include "newton_seq_item.sv"
     `include "newton_sequencer.sv"
     `include "newton_driver.sv"

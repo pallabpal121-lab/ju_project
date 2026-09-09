@@ -1,0 +1,23 @@
+// =============================================================================
+// File Name   : newton_agent_config.sv
+// Class Name  : newton_agent_config (VIP Agent Configuration Object)
+// Project     : Universal Newton 2nd-Order Optimization Accelerator UVM TB
+// =============================================================================
+
+`ifndef NEWTON_AGENT_CONFIG_SV
+`define NEWTON_AGENT_CONFIG_SV
+
+class newton_agent_config extends uvm_object;
+    `uvm_object_utils(newton_agent_config)
+
+    uvm_active_passive_enum is_active          = UVM_ACTIVE;
+    virtual newton_if       vif;
+    int unsigned            max_timeout_cycles = 50000;
+
+    function new(string name = "newton_agent_config");
+        super.new(name);
+    endfunction
+
+endclass : newton_agent_config
+
+`endif // NEWTON_AGENT_CONFIG_SV

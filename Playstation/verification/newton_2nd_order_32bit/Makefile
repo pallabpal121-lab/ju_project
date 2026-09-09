@@ -22,7 +22,9 @@ COV_DB      = $(WORK_DIR)/simv.vdb
 # Default Test Parameters
 TEST        ?= newton_quadratic_test
 VERB        ?= UVM_MEDIUM
-SEED        ?= 1
+SEED        ?= $(shell date +%s)
+DUMP        ?= 0
+DUMP_FLAGS   = $(if $(filter 1,$(DUMP)),+DUMP +FSDB,)
 
 # Synopsys VCS Compilation Flags (with Code & Functional Coverage)
 VCS_FLAGS   = \
@@ -47,7 +49,8 @@ SIM_FLAGS   = \
 	-cm line+tgl+branch+fsm+assert \
 	-cm_dir $(COV_DB) \
 	-cm_log $(LOGS_DIR)/cm_sim.log \
-	+DUMPFILE=$(WAVEFORM)
+	+DUMPFILE=$(WAVEFORM) \
+	$(DUMP_FLAGS)
 
 .PHONY: all help init compile run regression report verdi clean quad cubic rational corner random
 
@@ -156,14 +159,18 @@ regression: compile
 report: init
 	@python3 $(SCRIPTS_DIR)/gen_report.py $(LOGS_DIR) $(REPORTS_DIR)
 	@if [ -d "$(COV_DB)" ]; then \
-		urg -dir $(COV_DB) -report $(REPORTS_DIR)/coverage_report > /dev/null 2>&1 || true; \
+		urg -dir $(COV_DB) -report $(REPORTS_DIR)/coverage_report -elfile $(REPORTS_DIR)/newton_cov.el > /dev/null 2>&1 || true; \
 		echo ">>> [URG] Synopsys Coverage HTML report available at: $(REPORTS_DIR)/coverage_report/dashboard.html"; \
 	fi
 	@cat $(REPORTS_DIR)/regression_summary.rpt
 
 verdi:
 	@echo ">>> [Verdi] Launching Synopsys Verdi Debugger..."
-	verdi -dbdir $(WORK_DIR)/simv.daidir -ssf $(WAVEFORM) &
+	@if [ -f "$(OUTPUTS_DIR)/novas.fsdb" ]; then \
+		verdi -dbdir $(WORK_DIR)/simv.daidir -ssf $(OUTPUTS_DIR)/novas.fsdb & \
+	else \
+		verdi -dbdir $(WORK_DIR)/simv.daidir -ssf $(WAVEFORM) & \
+	fi
 
 clean:
 	@echo ">>> Cleaning all verification build and simulation artifacts..."

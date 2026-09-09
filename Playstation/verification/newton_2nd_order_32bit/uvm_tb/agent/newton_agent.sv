@@ -10,6 +10,7 @@
 class newton_agent extends uvm_agent;
     `uvm_component_utils(newton_agent)
 
+    newton_agent_config                  cfg;
     newton_driver                        drv;
     newton_sequencer                     sqr;
     newton_monitor                       mon;
@@ -22,6 +23,9 @@ class newton_agent extends uvm_agent;
 
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+        if (uvm_config_db#(newton_agent_config)::get(this, "", "cfg", cfg)) begin
+            set_is_active(cfg.is_active);
+        end
         mon = newton_monitor::type_id::create("mon", this);
         if (get_is_active() == UVM_ACTIVE) begin
             drv = newton_driver::type_id::create("drv", this);
