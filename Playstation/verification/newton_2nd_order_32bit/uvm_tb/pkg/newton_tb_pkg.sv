@@ -1,6 +1,6 @@
 // =============================================================================
 // File Name   : newton_tb_pkg.sv
-// Module Name : newton_tb_pkg (SystemVerilog UVM Package)
+// Package Name: newton_tb_pkg (Unified Umbrella Package)
 // Project     : Universal Newton 2nd-Order Optimization Accelerator UVM TB
 // =============================================================================
 
@@ -12,30 +12,16 @@ package newton_tb_pkg;
     `include "uvm_macros.svh"
     import newton_types_pkg::*;
 
-    `include "newton_seq_item.sv"
-    `include "newton_sequencer.sv"
-    `include "newton_driver.sv"
-    `include "newton_monitor.sv"
-    `include "newton_ref_model.sv"
-    `include "newton_scoreboard.sv"
-    `include "newton_coverage.sv"
-    `include "newton_agent.sv"
-    `include "newton_env.sv"
+    // Import modular sub-packages
+    import newton_agent_pkg::*;
+    import newton_seq_pkg::*;
+    import newton_env_pkg::*;
+    import newton_test_pkg::*;
 
-    // Sequences
-    `include "newton_base_seq.sv"
-    `include "newton_quadratic_seq.sv"
-    `include "newton_cubic_seq.sv"
-    `include "newton_rational_seq.sv"
-    `include "newton_corner_seq.sv"
-    `include "newton_random_seq.sv"
-
-    // Tests
-    `include "newton_base_test.sv"
-    `include "newton_quadratic_test.sv"
-    `include "newton_cubic_test.sv"
-    `include "newton_rational_test.sv"
-    `include "newton_corner_test.sv"
-    `include "newton_random_test.sv"
+    // Export all sub-packages for unified/backward-compatible scope
+    export newton_agent_pkg::*;
+    export newton_seq_pkg::*;
+    export newton_env_pkg::*;
+    export newton_test_pkg::*;
 
 endpackage : newton_tb_pkg

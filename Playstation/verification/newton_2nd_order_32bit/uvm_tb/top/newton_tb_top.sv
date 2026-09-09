@@ -9,6 +9,10 @@
 import uvm_pkg::*;
 `include "uvm_macros.svh"
 import newton_types_pkg::*;
+import newton_agent_pkg::*;
+import newton_seq_pkg::*;
+import newton_env_pkg::*;
+import newton_test_pkg::*;
 import newton_tb_pkg::*;
 
 module newton_tb_top;

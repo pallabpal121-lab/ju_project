@@ -34,7 +34,7 @@ VCS_FLAGS   = \
 	-kdb \
 	-lca \
 	+vcs+lic+wait \
-	-cm line+tgl+branch+fsm \
+	-cm line+tgl+branch+fsm+assert \
 	-cm_log $(LOGS_DIR)/cm_compile.log \
 	-Mdir=$(WORK_DIR)/csrc \
 	-o $(SIMV) \
@@ -44,7 +44,7 @@ VCS_FLAGS   = \
 # Runtime VCS Execution Options
 SIM_FLAGS   = \
 	+ntb_random_seed=$(SEED) \
-	-cm line+tgl+branch+fsm \
+	-cm line+tgl+branch+fsm+assert \
 	-cm_dir $(COV_DB) \
 	-cm_log $(LOGS_DIR)/cm_sim.log \
 	+DUMPFILE=$(WAVEFORM)

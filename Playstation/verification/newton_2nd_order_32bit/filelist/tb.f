@@ -13,5 +13,9 @@
 +incdir+./uvm_tb/top
 
 ./uvm_tb/if/newton_if.sv
+./uvm_tb/pkg/newton_agent_pkg.sv
+./uvm_tb/pkg/newton_seq_pkg.sv
+./uvm_tb/pkg/newton_env_pkg.sv
+./uvm_tb/pkg/newton_test_pkg.sv
 ./uvm_tb/pkg/newton_tb_pkg.sv
 ./uvm_tb/top/newton_tb_top.sv

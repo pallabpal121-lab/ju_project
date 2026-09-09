@@ -1,83 +1,387 @@
 * =============================================================================
 * File: booth_encoder.spice
 * Target Technology: SCL 180nm CMOS PDK (ts18scl) / 1.8V Standard Cells
-* Description: Transistor-Level Radix-4 Booth Encoder & Partial Product Selector
+* Description: Full-Custom Transistor-Level Radix-4 Booth Encoder & Selector
+* Architecture: 100% Pure Static Complementary CMOS (PUN to VDD, PDN to VSS)
+* Compatibility: Cadence Virtuoso IC618 (SpiceIn / schCheck clean) & Spectre
+* Note: SPICE MOSFET terminal order: Drain Gate Source Bulk
 * =============================================================================
 
+* =============================================================================
+* TOP-LEVEL SUBCIRCUIT: Radix-4 Modified Booth Encoder
+* -----------------------------------------------------------------------------
+* Truth Table:
+*   Y_PLUS Y_CURR Y_PREV | Factor | SINGLE DOUBLE NEG
+*     0      0      0    |    0   |   0      0     0
+*     0      0      1    |   +1   |   1      0     0
+*     0      1      0    |   +1   |   1      0     0
+*     0      1      1    |   +2   |   0      1     0
+*     1      0      0    |   -2   |   0      1     1
+*     1      0      1    |   -1   |   1      0     1
+*     1      1      0    |   -1   |   1      0     1
+*     1      1      1    |    0   |   0      0     0
+*
+* Boolean Logic:
+*   SINGLE = Y_CURR ^ Y_PREV
+*   DOUBLE = (~Y_PLUS & Y_CURR & Y_PREV) | (Y_PLUS & ~Y_CURR & ~Y_PREV)
+*   NEG    = Y_PLUS & (~Y_CURR | ~Y_PREV)
+* =============================================================================
 .subckt BOOTH_ENCODER Y_PLUS Y_CURR Y_PREV SINGLE DOUBLE NEG VDD VSS
-* Local Inverters
-XINY1 Y_PLUS Y_PLUS_B VDD VSS SCL180_INV_1X
-XINY2 Y_CURR Y_CURR_B VDD VSS SCL180_INV_1X
-XINY3 Y_PREV Y_PREV_B VDD VSS SCL180_INV_1X
 
-* SINGLE = Y_PREV ^ Y_CURR
-XXOR1 Y_PREV Y_PREV_B Y_CURR Y_CURR_B SINGLE SINGLE_B VDD VSS TG_XOR2
+* -----------------------------------------------------------------------------
+* Stage 1: Local Input Inverters (Generate True Complements for Dual Networks)
+* -----------------------------------------------------------------------------
+* Inverter XINV_YP: Generates Y_PLUS_B (~Y_PLUS)
+*   Input = Y_PLUS, Output = Y_PLUS_B, VDD = VDD, VSS = VSS
+XINV_YP Y_PLUS Y_PLUS_B VDD VSS SCL180_INV_1X
 
-* DOUBLE = (Y_PLUS & ~Y_CURR & ~Y_PREV) | (~Y_PLUS & Y_CURR & Y_PREV)
-XAND1 Y_PLUS Y_CURR_B Y_PREV_B T1 VDD VSS SCL180_AND3
-XAND2 Y_PLUS_B Y_CURR Y_PREV T2 VDD VSS SCL180_AND3
-XOR1  T1 T2 DOUBLE VDD VSS SCL180_OR2
+* Inverter XINV_YC: Generates Y_CURR_B (~Y_CURR)
+*   Input = Y_CURR, Output = Y_CURR_B, VDD = VDD, VSS = VSS
+XINV_YC Y_CURR Y_CURR_B VDD VSS SCL180_INV_1X
 
-* NEG = Y_PLUS & (~Y_CURR | ~Y_PREV)
-XNAND1 Y_CURR Y_PREV NAND12 VDD VSS SCL180_NAND2
-XAND3  Y_PLUS NAND12 NEG VDD VSS SCL180_AND2
+* Inverter XINV_YM: Generates Y_PREV_B (~Y_PREV)
+*   Input = Y_PREV, Output = Y_PREV_B, VDD = VDD, VSS = VSS
+XINV_YM Y_PREV Y_PREV_B VDD VSS SCL180_INV_1X
+
+* -----------------------------------------------------------------------------
+* Stage 2: SINGLE Generator (Pure Static CMOS XOR2: SINGLE = Y_CURR ^ Y_PREV)
+*   Inputs: A=Y_CURR, A_B=Y_CURR_B, B=Y_PREV, B_B=Y_PREV_B
+*   Output: SINGLE
+* -----------------------------------------------------------------------------
+XXOR_S Y_CURR Y_CURR_B Y_PREV Y_PREV_B SINGLE VDD VSS CMOS_XOR2_CORE
+
+* -----------------------------------------------------------------------------
+* Stage 3: DOUBLE Generator (Pure Static CMOS Compound AOI23 + Inverter)
+*   Inputs: Y_PLUS, Y_PLUS_B, Y_CURR, Y_CURR_B, Y_PREV, Y_PREV_B
+*   Output: DOUBLE
+* -----------------------------------------------------------------------------
+XGEN_D Y_PLUS Y_PLUS_B Y_CURR Y_CURR_B Y_PREV Y_PREV_B DOUBLE VDD VSS BOOTH_DOUBLE_GEN
+
+* -----------------------------------------------------------------------------
+* Stage 4: NEG Generator (Pure Static CMOS Compound OAI21 + Inverter)
+*   Inputs: Y_PLUS, Y_CURR_B, Y_PREV_B
+*   Output: NEG
+* -----------------------------------------------------------------------------
+XGEN_N Y_PLUS Y_CURR_B Y_PREV_B NEG VDD VSS BOOTH_NEG_GEN
+
 .ends BOOTH_ENCODER
 
+
+* =============================================================================
+* TOP-LEVEL SUBCIRCUIT: Radix-4 Booth Partial Product Selector Bit-Slice
+* -----------------------------------------------------------------------------
+* Selects between 0, 1X (X_CURR), 2X (X_PREV) and inverts conditionally if NEG=1
+*
+* Logic:
+*   MAG    = (SINGLE & X_CURR) | (DOUBLE & X_PREV)
+*   PP_OUT = MAG ^ NEG
+* =============================================================================
 .subckt BOOTH_SELECTOR X_CURR X_PREV SINGLE DOUBLE NEG PP_OUT VDD VSS
-* Selects between 0, X, 2*X (X_PREV) and inverts if NEG=1
-XINV_NEG NEG NEG_B VDD VSS SCL180_INV_1X
-XMUX_MAG X_PREV X_CURR DOUBLE SINGLE MAG VDD VSS TG_MUX2
-* Conditional Invert via XOR with NEG
-XXOR_NEG MAG MAG_B NEG NEG_B PP_OUT PP_OUT_B VDD VSS TG_XOR2
+
+* -----------------------------------------------------------------------------
+* Step 1: Magnitude Selection via Static CMOS AOI22 Gate
+*   MAG_B = ~((SINGLE & X_CURR) | (DOUBLE & X_PREV))
+*   Inputs: A=SINGLE, B=X_CURR, C=DOUBLE, D=X_PREV
+*   Output: MAG_B
+* -----------------------------------------------------------------------------
+XAOI_MAG SINGLE X_CURR DOUBLE X_PREV MAG_B VDD VSS CMOS_AOI22
+
+* -----------------------------------------------------------------------------
+* Step 2: Buffers to generate true MAG and NEG_B signals
+* -----------------------------------------------------------------------------
+* Inverts MAG_B to generate true MAG
+XINV_MAG  MAG_B MAG     VDD VSS SCL180_INV_1X
+* Inverts NEG to generate complement NEG_B
+XINV_NEG  NEG   NEG_B   VDD VSS SCL180_INV_1X
+
+* -----------------------------------------------------------------------------
+* Step 3: Conditional Inversion via Static CMOS XOR2
+*   PP_OUT = MAG ^ NEG
+*   If NEG = 0 -> PP_OUT = MAG
+*   If NEG = 1 -> PP_OUT = ~MAG
+* -----------------------------------------------------------------------------
+XXOR_SIGN MAG MAG_B NEG NEG_B PP_OUT VDD VSS CMOS_XOR2_CORE
+
 .ends BOOTH_SELECTOR
 
-* Basic Standard Gate Subcircuits
+
+* =============================================================================
+* LEAF CELL: Pure Static CMOS XOR2 Core
+* -----------------------------------------------------------------------------
+* Logic: OUT = A ^ B
+* Inputs: A, A_B, B, B_B
+* Output: OUT
+* Architecture:
+*   PUN: Dual series-parallel PMOS network pulling XNOR node to VDD when A==B
+*   PDN: Dual parallel branches of series NMOS pulling XNOR to VSS when A!=B
+*   Driver: Final CMOS inverter to produce true XOR output (OUT = ~XNOR)
+* =============================================================================
+.subckt CMOS_XOR2_CORE A A_B B B_B OUT VDD VSS
+
+* -----------------------------------------------------------------------------
+* Pull-Up Network (PUN): PMOS transistors connected to VDD rail
+* -----------------------------------------------------------------------------
+* PMOS XM_P1: Drain=N_P1, Gate=A, Source=VDD, Bulk=VDD
+*   -> Turns ON when A=0 (LOW); pulls intermediate node N_P1 up to VDD
+XM_P1 N_P1 A VDD VDD p18.1 W=1.2u L=0.18u
+
+* PMOS XM_P2: Drain=N_P1, Gate=B_B, Source=VDD, Bulk=VDD
+*   -> Turns ON when B=1 (B_B=0, LOW); pulls intermediate node N_P1 up to VDD
+XM_P2 N_P1 B_B VDD VDD p18.1 W=1.2u L=0.18u
+
+* PMOS XM_P3: Drain=XNOR, Gate=A_B, Source=N_P1, Bulk=VDD
+*   -> Turns ON when A=1 (A_B=0, LOW); connects N_P1 to output node XNOR
+XM_P3 XNOR A_B N_P1 VDD p18.1 W=1.2u L=0.18u
+
+* PMOS XM_P4: Drain=XNOR, Gate=B, Source=N_P1, Bulk=VDD
+*   -> Turns ON when B=0 (LOW); connects N_P1 to output node XNOR
+XM_P4 XNOR B N_P1 VDD p18.1 W=1.2u L=0.18u
+
+* -----------------------------------------------------------------------------
+* Pull-Down Network (PDN): NMOS transistors connected to VSS rail
+* -----------------------------------------------------------------------------
+* Branch 1: Conducts when A=1 and B=0 (A=1, B_B=1)
+* NMOS XM_N1: Drain=XNOR, Gate=A, Source=N_N1, Bulk=VSS
+*   -> Turns ON when A=1 (HIGH); connects XNOR to intermediate node N_N1
+XM_N1 XNOR A N_N1 VSS n18.1 W=0.6u L=0.18u
+
+* NMOS XM_N2: Drain=N_N1, Gate=B_B, Source=VSS, Bulk=VSS
+*   -> Turns ON when B=0 (B_B=1, HIGH); pulls node N_N1 down to VSS
+XM_N2 N_N1 B_B VSS VSS n18.1 W=0.6u L=0.18u
+
+* Branch 2: Conducts when A=0 and B=1 (A_B=1, B=1)
+* NMOS XM_N3: Drain=XNOR, Gate=A_B, Source=N_N2, Bulk=VSS
+*   -> Turns ON when A=0 (A_B=1, HIGH); connects XNOR to intermediate node N_N2
+XM_N3 XNOR A_B N_N2 VSS n18.1 W=0.6u L=0.18u
+
+* NMOS XM_N4: Drain=N_N2, Gate=B, Source=VSS, Bulk=VSS
+*   -> Turns ON when B=1 (HIGH); pulls node N_N2 down to VSS
+XM_N4 N_N2 B VSS VSS n18.1 W=0.6u L=0.18u
+
+* -----------------------------------------------------------------------------
+* Output Inverter: Produces true XOR output (OUT = ~XNOR = A ^ B)
+* -----------------------------------------------------------------------------
+* PMOS XM_OP: Drain=OUT, Gate=XNOR, Source=VDD, Bulk=VDD
+*   -> Turns ON when XNOR=0 (A!=B); drives OUT to VDD (1.8V)
+XM_OP OUT XNOR VDD VDD p18.1 W=1.6u L=0.18u
+
+* NMOS XM_ON: Drain=OUT, Gate=XNOR, Source=VSS, Bulk=VSS
+*   -> Turns ON when XNOR=1 (A==B); pulls OUT down to VSS (0V)
+XM_ON OUT XNOR VSS VSS n18.1 W=0.8u L=0.18u
+
+.ends CMOS_XOR2_CORE
+
+
+* =============================================================================
+* LEAF CELL: Pure Static CMOS DOUBLE Generator (14 Transistors)
+* -----------------------------------------------------------------------------
+* Logic:
+*   DOUBLE_B = ~((~Y_PLUS & Y_CURR & Y_PREV) | (Y_PLUS & ~Y_CURR & ~Y_PREV))
+*   DOUBLE   = ~DOUBLE_B
+* Condition: DOUBLE = 1 only for triplets 011 (+2) and 100 (-2)
+* =============================================================================
+.subckt BOOTH_DOUBLE_GEN Y_PLUS Y_PLUS_B Y_CURR Y_CURR_B Y_PREV Y_PREV_B DOUBLE VDD VSS
+
+* -----------------------------------------------------------------------------
+* Pull-Down Network (PDN): 2 Parallel Branches of 3 Series NMOS Transistors
+* -----------------------------------------------------------------------------
+* Branch 1: Active on triplet 011 (+2) -> Y_PLUS_B=1, Y_CURR=1, Y_PREV=1
+* NMOS XM_ND1: Drain=DOUBLE_B, Gate=Y_PLUS_B, Source=N_D1, Bulk=VSS
+*   -> Turns ON when Y_PLUS=0 (Y_PLUS_B=1); connects DOUBLE_B to N_D1
+XM_ND1 DOUBLE_B Y_PLUS_B N_D1 VSS n18.1 W=0.8u L=0.18u
+
+* NMOS XM_ND2: Drain=N_D1, Gate=Y_CURR, Source=N_D2, Bulk=VSS
+*   -> Turns ON when Y_CURR=1; connects N_D1 to N_D2
+XM_ND2 N_D1 Y_CURR N_D2 VSS n18.1 W=0.8u L=0.18u
+
+* NMOS XM_ND3: Drain=N_D2, Gate=Y_PREV, Source=VSS, Bulk=VSS
+*   -> Turns ON when Y_PREV=1; pulls N_D2 down to ground VSS
+XM_ND3 N_D2 Y_PREV VSS VSS n18.1 W=0.8u L=0.18u
+
+* Branch 2: Active on triplet 100 (-2) -> Y_PLUS=1, Y_CURR_B=1, Y_PREV_B=1
+* NMOS XM_ND4: Drain=DOUBLE_B, Gate=Y_PLUS, Source=N_D3, Bulk=VSS
+*   -> Turns ON when Y_PLUS=1; connects DOUBLE_B to N_D3
+XM_ND4 DOUBLE_B Y_PLUS N_D3 VSS n18.1 W=0.8u L=0.18u
+
+* NMOS XM_ND5: Drain=N_D3, Gate=Y_CURR_B, Source=N_D4, Bulk=VSS
+*   -> Turns ON when Y_CURR=0 (Y_CURR_B=1); connects N_D3 to N_D4
+XM_ND5 N_D3 Y_CURR_B N_D4 VSS n18.1 W=0.8u L=0.18u
+
+* NMOS XM_ND6: Drain=N_D4, Gate=Y_PREV_B, Source=VSS, Bulk=VSS
+*   -> Turns ON when Y_PREV=0 (Y_PREV_B=1); pulls N_D4 down to ground VSS
+XM_ND6 N_D4 Y_PREV_B VSS VSS n18.1 W=0.8u L=0.18u
+
+* -----------------------------------------------------------------------------
+* Pull-Up Network (PUN): PMOS Dual Network (Pulls DOUBLE_B to VDD on non-double)
+* Group 1: 3 PMOS in parallel from VDD to intermediate node MID_P
+* Group 2: 3 PMOS in parallel from MID_P to output node DOUBLE_B
+* -----------------------------------------------------------------------------
+* PMOS XM_PD1: Drain=MID_P, Gate=Y_PLUS_B, Source=VDD, Bulk=VDD
+*   -> Turns ON when Y_PLUS=1 (Y_PLUS_B=0); pulls MID_P to VDD
+XM_PD1 MID_P Y_PLUS_B VDD VDD p18.1 W=1.2u L=0.18u
+
+* PMOS XM_PD2: Drain=MID_P, Gate=Y_CURR, Source=VDD, Bulk=VDD
+*   -> Turns ON when Y_CURR=0; pulls MID_P to VDD
+XM_PD2 MID_P Y_CURR VDD VDD p18.1 W=1.2u L=0.18u
+
+* PMOS XM_PD3: Drain=MID_P, Gate=Y_PREV, Source=VDD, Bulk=VDD
+*   -> Turns ON when Y_PREV=0; pulls MID_P to VDD
+XM_PD3 MID_P Y_PREV VDD VDD p18.1 W=1.2u L=0.18u
+
+* PMOS XM_PD4: Drain=DOUBLE_B, Gate=Y_PLUS, Source=MID_P, Bulk=VDD
+*   -> Turns ON when Y_PLUS=0; connects MID_P to DOUBLE_B
+XM_PD4 DOUBLE_B Y_PLUS MID_P VDD p18.1 W=1.2u L=0.18u
+
+* PMOS XM_PD5: Drain=DOUBLE_B, Gate=Y_CURR_B, Source=MID_P, Bulk=VDD
+*   -> Turns ON when Y_CURR=1 (Y_CURR_B=0); connects MID_P to DOUBLE_B
+XM_PD5 DOUBLE_B Y_CURR_B MID_P VDD p18.1 W=1.2u L=0.18u
+
+* PMOS XM_PD6: Drain=DOUBLE_B, Gate=Y_PREV_B, Source=MID_P, Bulk=VDD
+*   -> Turns ON when Y_PREV=1 (Y_PREV_B=0); connects MID_P to DOUBLE_B
+XM_PD6 DOUBLE_B Y_PREV_B MID_P VDD p18.1 W=1.2u L=0.18u
+
+* -----------------------------------------------------------------------------
+* Output Buffer Inverter: Drives DOUBLE output (DOUBLE = ~DOUBLE_B)
+* -----------------------------------------------------------------------------
+* PMOS XM_IDP: Drain=DOUBLE, Gate=DOUBLE_B, Source=VDD, Bulk=VDD
+*   -> Turns ON when DOUBLE_B=0 (Active Double); drives DOUBLE to 1.8V
+XM_IDP DOUBLE DOUBLE_B VDD VDD p18.1 W=2.0u L=0.18u
+
+* NMOS XM_IDN: Drain=DOUBLE, Gate=DOUBLE_B, Source=VSS, Bulk=VSS
+*   -> Turns ON when DOUBLE_B=1; discharges DOUBLE to 0.0V
+XM_IDN DOUBLE DOUBLE_B VSS VSS n18.1 W=1.0u L=0.18u
+
+.ends BOOTH_DOUBLE_GEN
+
+
+* =============================================================================
+* LEAF CELL: Pure Static CMOS NEG Generator (8 Transistors)
+* -----------------------------------------------------------------------------
+* Logic:
+*   NEG   = Y_PLUS & (~Y_CURR | ~Y_PREV) = Y_PLUS & (Y_CURR_B | Y_PREV_B)
+*   NEG_B = ~(Y_PLUS & (Y_CURR_B | Y_PREV_B))
+*   NEG   = ~NEG_B
+* Condition: NEG = 1 for triplets 100 (-2), 101 (-1), and 110 (-1).
+*            NEG = 0 for all 0xx patterns and 111 (zero magnitude).
+* =============================================================================
+.subckt BOOTH_NEG_GEN Y_PLUS Y_CURR_B Y_PREV_B NEG VDD VSS
+
+* -----------------------------------------------------------------------------
+* Pull-Down Network (PDN): Y_PLUS in series with parallel pair (Y_CURR_B | Y_PREV_B)
+* -----------------------------------------------------------------------------
+* NMOS XM_NN1: Drain=NEG_B, Gate=Y_PLUS, Source=N_N1, Bulk=VSS
+*   -> Turns ON when Y_PLUS=1 (Negative range); connects NEG_B to internal node N_N1
+XM_NN1 NEG_B Y_PLUS N_N1 VSS n18.1 W=0.8u L=0.18u
+
+* NMOS XM_NN2: Drain=N_N1, Gate=Y_CURR_B, Source=VSS, Bulk=VSS
+*   -> Turns ON when Y_CURR=0 (Y_CURR_B=1); pulls N_N1 down to VSS
+XM_NN2 N_N1 Y_CURR_B VSS VSS n18.1 W=0.8u L=0.18u
+
+* NMOS XM_NN3: Drain=N_N1, Gate=Y_PREV_B, Source=VSS, Bulk=VSS
+*   -> Turns ON when Y_PREV=0 (Y_PREV_B=1); pulls N_N1 down to VSS
+XM_NN3 N_N1 Y_PREV_B VSS VSS n18.1 W=0.8u L=0.18u
+
+* -----------------------------------------------------------------------------
+* Pull-Up Network (PUN): Pulls NEG_B to VDD when operation is non-negative or 111
+* -----------------------------------------------------------------------------
+* Branch 1: Single PMOS gated by Y_PLUS (Active when Y_PLUS=0)
+* PMOS XM_PN1: Drain=NEG_B, Gate=Y_PLUS, Source=VDD, Bulk=VDD
+*   -> Turns ON when Y_PLUS=0 (Positive operations); pulls NEG_B to VDD
+XM_PN1 NEG_B Y_PLUS VDD VDD p18.1 W=1.2u L=0.18u
+
+* Branch 2: Two series PMOS gated by Y_CURR_B and Y_PREV_B (Active on triplet 111)
+* PMOS XM_PN2: Drain=MID_P, Gate=Y_CURR_B, Source=VDD, Bulk=VDD
+*   -> Turns ON when Y_CURR=1 (Y_CURR_B=0); connects VDD to MID_P
+XM_PN2 MID_P Y_CURR_B VDD VDD p18.1 W=1.2u L=0.18u
+
+* PMOS XM_PN3: Drain=NEG_B, Gate=Y_PREV_B, Source=MID_P, Bulk=VDD
+*   -> Turns ON when Y_PREV=1 (Y_PREV_B=0); pulls NEG_B to MID_P (VDD)
+XM_PN3 NEG_B Y_PREV_B MID_P VDD p18.1 W=1.2u L=0.18u
+
+* -----------------------------------------------------------------------------
+* Output Buffer Inverter: Drives NEG output (NEG = ~NEG_B)
+* -----------------------------------------------------------------------------
+* PMOS XM_INP: Drain=NEG, Gate=NEG_B, Source=VDD, Bulk=VDD
+*   -> Turns ON when NEG_B=0 (Negative operation); pulls NEG to 1.8V
+XM_INP NEG NEG_B VDD VDD p18.1 W=2.0u L=0.18u
+
+* NMOS XM_INN: Drain=NEG, Gate=NEG_B, Source=VSS, Bulk=VSS
+*   -> Turns ON when NEG_B=1; discharges NEG to 0.0V
+XM_INN NEG NEG_B VSS VSS n18.1 W=1.0u L=0.18u
+
+.ends BOOTH_NEG_GEN
+
+
+* =============================================================================
+* LEAF CELL: Pure Static CMOS 2-Wide 2-Input AND-OR-INVERT Gate (CMOS_AOI22)
+* -----------------------------------------------------------------------------
+* Logic: Y = ~((A & B) | (C & D))
+* Transistor Count: 8 Transistors
+* Used for glitch-free magnitude selection in BOOTH_SELECTOR:
+*   A=SINGLE, B=X_CURR, C=DOUBLE, D=X_PREV
+* =============================================================================
+.subckt CMOS_AOI22 A B C D Y VDD VSS
+
+* -----------------------------------------------------------------------------
+* Pull-Down Network (PDN): 2 Parallel Branches of 2 Series NMOS Transistors
+* -----------------------------------------------------------------------------
+* Branch 1: Pulls Y to VSS when A=1 and B=1 (SINGLE=1 and X_CURR=1)
+* NMOS XM_N1: Drain=Y, Gate=A, Source=N_N1, Bulk=VSS
+*   -> Turns ON when A=1; connects output Y to node N_N1
+XM_N1 Y A N_N1 VSS n18.1 W=0.6u L=0.18u
+
+* NMOS XM_N2: Drain=N_N1, Gate=B, Source=VSS, Bulk=VSS
+*   -> Turns ON when B=1; pulls node N_N1 down to VSS
+XM_N2 N_N1 B VSS VSS n18.1 W=0.6u L=0.18u
+
+* Branch 2: Pulls Y to VSS when C=1 and D=1 (DOUBLE=1 and X_PREV=1)
+* NMOS XM_N3: Drain=Y, Gate=C, Source=N_N2, Bulk=VSS
+*   -> Turns ON when C=1; connects output Y to node N_N2
+XM_N3 Y C N_N2 VSS n18.1 W=0.6u L=0.18u
+
+* NMOS XM_N4: Drain=N_N2, Gate=D, Source=VSS, Bulk=VSS
+*   -> Turns ON when D=1; pulls node N_N2 down to VSS
+XM_N4 N_N2 D VSS VSS n18.1 W=0.6u L=0.18u
+
+* -----------------------------------------------------------------------------
+* Pull-Up Network (PUN): Series-Parallel Dual PMOS Network
+*   Topology: (A | B) in series with (C | D)
+* -----------------------------------------------------------------------------
+* Upper Parallel Pair: Connects VDD to intermediate node MID_P
+* PMOS XM_P1: Drain=MID_P, Gate=A, Source=VDD, Bulk=VDD
+*   -> Turns ON when A=0; pulls MID_P to VDD
+XM_P1 MID_P A VDD VDD p18.1 W=1.2u L=0.18u
+
+* PMOS XM_P2: Drain=MID_P, Gate=B, Source=VDD, Bulk=VDD
+*   -> Turns ON when B=0; pulls MID_P to VDD
+XM_P2 MID_P B VDD VDD p18.1 W=1.2u L=0.18u
+
+* Lower Parallel Pair: Connects MID_P to output node Y
+* PMOS XM_P3: Drain=Y, Gate=C, Source=MID_P, Bulk=VDD
+*   -> Turns ON when C=0; connects MID_P to output Y
+XM_P3 Y C MID_P VDD p18.1 W=1.2u L=0.18u
+
+* PMOS XM_P4: Drain=Y, Gate=D, Source=MID_P, Bulk=VDD
+*   -> Turns ON when D=0; connects MID_P to output Y
+XM_P4 Y D MID_P VDD p18.1 W=1.2u L=0.18u
+
+.ends CMOS_AOI22
+
+
+* =============================================================================
+* LEAF CELL: Basic Static CMOS Inverter (1X Drive Strength)
+* -----------------------------------------------------------------------------
+* Logic: OUT = ~IN
+* Transistor Count: 2 Transistors
+* =============================================================================
 .subckt SCL180_INV_1X IN OUT VDD VSS
-XM1 OUT IN VDD VDD p18.1 W=1.0u L=0.18u
+
+* PMOS XM1: Drain=OUT, Gate=IN, Source=VDD, Bulk=VDD
+*   -> Turns ON when IN=0 (LOW); pulls OUT up to VDD (1.8V)
+XM1 OUT IN VDD VDD p18.1 W=1.2u L=0.18u
+
+* NMOS XM2: Drain=OUT, Gate=IN, Source=VSS, Bulk=VSS
+*   -> Turns ON when IN=1 (HIGH); discharges OUT down to VSS (0.0V)
 XM2 OUT IN VSS VSS n18.1 W=0.5u L=0.18u
+
 .ends SCL180_INV_1X
-
-.subckt SCL180_AND2 A B Y VDD VSS
-XN1 A B Y_B VDD VSS SCL180_NAND2
-XI1 Y_B Y VDD VSS SCL180_INV_1X
-.ends SCL180_AND2
-
-.subckt SCL180_NAND2 A B Y VDD VSS
-XM1 Y A VDD VDD p18.1 W=0.8u L=0.18u
-XM2 Y B VDD VDD p18.1 W=0.8u L=0.18u
-XM3 Y A MID VSS n18.1 W=0.6u L=0.18u
-XM4 MID B VSS VSS n18.1 W=0.6u L=0.18u
-.ends SCL180_NAND2
-
-.subckt SCL180_OR2 A B Y VDD VSS
-XM1 MID A VDD VDD p18.1 W=1.0u L=0.18u
-XM2 Y_B B MID VDD p18.1 W=1.0u L=0.18u
-XM3 Y_B A VSS VSS n18.1 W=0.5u L=0.18u
-XM4 Y_B B VSS VSS n18.1 W=0.5u L=0.18u
-XI1 Y_B Y VDD VSS SCL180_INV_1X
-.ends SCL180_OR2
-
-.subckt SCL180_AND3 A B C Y VDD VSS
-XM1 Y_B A VDD VDD p18.1 W=0.8u L=0.18u
-XM2 Y_B B VDD VDD p18.1 W=0.8u L=0.18u
-XM3 Y_B C VDD VDD p18.1 W=0.8u L=0.18u
-XM4 Y_B A N1 VSS n18.1 W=0.7u L=0.18u
-XM5 N1 B N2 VSS n18.1 W=0.7u L=0.18u
-XM6 N2 C VSS VSS n18.1 W=0.7u L=0.18u
-XI1 Y_B Y VDD VSS SCL180_INV_1X
-.ends SCL180_AND3
-
-.subckt TG_XOR2 A A_B B B_B OUT OUT_B VDD VSS
-XM1 B   A_B OUT VDD p18.1 W=0.8u L=0.18u
-XM2 B   A   OUT VSS n18.1 W=0.5u L=0.18u
-XM3 B_B A   OUT VDD p18.1 W=0.8u L=0.18u
-XM4 B_B A_B OUT VSS n18.1 W=0.5u L=0.18u
-XINVO OUT OUT_B VDD VSS SCL180_INV_1X
-.ends TG_XOR2
-
-.subckt TG_MUX2 A B SEL SEL_B OUT VDD VSS
-XM1 A SEL_B OUT VDD p18.1 W=0.8u L=0.18u
-XM2 A SEL   OUT VSS n18.1 W=0.5u L=0.18u
-XM3 B SEL   OUT VDD p18.1 W=0.8u L=0.18u
-XM4 B SEL_B OUT VSS n18.1 W=0.5u L=0.18u
-.ends TG_MUX2
