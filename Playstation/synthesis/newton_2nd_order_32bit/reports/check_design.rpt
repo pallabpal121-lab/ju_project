@@ -1,0 +1,45 @@
+ 
+****************************************
+check_design summary:
+Version:     W-2024.09-SP1
+Date:        Thu Sep 10 16:10:24 2026
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Cells                                                              16
+    Cells do not drive (LINT-1)                                    16
+
+Designs                                                             1
+    Multiply instantiated designs (LINT-45)                         1
+
+Nets                                                                6
+    Unloaded nets (LINT-2)                                          6
+--------------------------------------------------------------------------------
+
+Warning: In design 'newton_2nd_order_top', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'newton_2nd_order_top', cell 'C2835' does not drive any nets. (LINT-1)
+Warning: In design 'newton_2nd_order_top', cell 'C2840' does not drive any nets. (LINT-1)
+Warning: In design 'derivative_engine', cell 'C2173' does not drive any nets. (LINT-1)
+Warning: In design 'derivative_engine', cell 'C2176' does not drive any nets. (LINT-1)
+Warning: In design 'derivative_engine', cell 'C2181' does not drive any nets. (LINT-1)
+Warning: In design 'derivative_engine', cell 'C2187' does not drive any nets. (LINT-1)
+Warning: In design 'q16_divider', cell 'C1529' does not drive any nets. (LINT-1)
+Warning: In design 'q16_divider', cell 'C1532' does not drive any nets. (LINT-1)
+Warning: In design 'q16_divider', cell 'C1538' does not drive any nets. (LINT-1)
+Warning: In design 'q16_divider', cell 'C1543' does not drive any nets. (LINT-1)
+Warning: In design 'dfg_equation_engine', cell 'C7082' does not drive any nets. (LINT-1)
+Warning: In design 'dfg_equation_engine', cell 'C7087' does not drive any nets. (LINT-1)
+Warning: In design 'q16_alu', cell 'C169' does not drive any nets. (LINT-1)
+Warning: In design 'q16_alu', cell 'C176' does not drive any nets. (LINT-1)
+Warning: In design 'q16_alu', cell 'C183' does not drive any nets. (LINT-1)
+Warning: In design 'newton_2nd_order_top', net 'div_busy' driven by pin 'u_solver/busy' has no loads. (LINT-2)
+Warning: In design 'newton_2nd_order_top', net 'deriv_busy' driven by pin 'u_deriv_engine/busy' has no loads. (LINT-2)
+Warning: In design 'newton_2nd_order_top', net 'u_deriv_engine/dfg_busy' driven by pin 'u_deriv_engine/u_dfg/busy' has no loads. (LINT-2)
+Warning: In design 'newton_2nd_order_top', net 'u_deriv_engine/u_dfg/div_busy' driven by pin 'u_deriv_engine/u_dfg/u_div/busy' has no loads. (LINT-2)
+Warning: In design 'newton_2nd_order_top', net 'u_deriv_engine/u_dfg/div_by_zero' driven by pin 'u_deriv_engine/u_dfg/u_div/div_by_zero' has no loads. (LINT-2)
+Warning: In design 'newton_2nd_order_top', net 'u_deriv_engine/u_dfg/alu_overflow' driven by pin 'u_deriv_engine/u_dfg/u_alu/overflow' has no loads. (LINT-2)
+Information: Design 'q16_divider' is instantiated 2 times. (LINT-45)
+         Cell 'u_solver' in design 'newton_2nd_order_top' 
+         Cell 'u_deriv_engine/u_dfg/u_div' in design 'newton_2nd_order_top' 
+1

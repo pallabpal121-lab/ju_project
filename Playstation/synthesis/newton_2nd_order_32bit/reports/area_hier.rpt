@@ -1,0 +1,175 @@
+ 
+****************************************
+Report : area
+Design : newton_2nd_order_top
+Version: W-2024.09-SP1
+Date   : Thu Sep 10 16:11:38 2026
+****************************************
+
+Library(s) Used:
+
+    tsl18fs120_typ (File: /home/user17/Synopsys/Design_Compiler/lib/tsl18fs120_typ.db)
+
+Number of ports:                         1225
+Number of nets:                         13362
+Number of cells:                        11596
+Number of combinational cells:           9027
+Number of sequential cells:              2487
+Number of macros/black boxes:               0
+Number of buf/inv:                       1445
+Number of references:                      83
+
+Combinational area:              15948.500000
+Buf/Inv area:                     1210.750000
+Noncombinational area:           12514.500000
+Macro/Black Box area:                0.000000
+Net Interconnect area:           10534.881194
+
+Total cell area:                 28463.000000
+Total area:                      38997.881194
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area            Local cell area
+                                  -------------------  ------------------------------ 
+Hierarchical cell                 Absolute    Percent  Combi-      Noncombi-   Black-
+                                  Total       Total    national    national    boxes   Design
+--------------------------------  ----------  -------  ----------  ----------  ------  -------------------------------------------
+newton_2nd_order_top              28463.0000    100.0   5405.7500   1604.0000  0.0000  newton_2nd_order_top
+clk_gate_div_divisor_reg              4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2nd_order_top_0
+clk_gate_state_reg                    4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2nd_order_top_5
+clk_gate_status_reg                   4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2nd_order_top_2
+clk_gate_tol_reg_reg                  4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2nd_order_top_3
+clk_gate_x_optimal_reg                4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2nd_order_top_1
+clk_gate_x_reg_reg                    4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2nd_order_top_4
+u_deriv_engine                    19827.5000     69.7   1279.2500   1034.2500  0.0000  derivative_engine
+u_deriv_engine/clk_gate_dfg_x_in_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_derivative_engine_4
+u_deriv_engine/clk_gate_f_minus_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_derivative_engine_0
+u_deriv_engine/clk_gate_f_plus_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_derivative_engine_1
+u_deriv_engine/clk_gate_f_val_reg     4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_derivative_engine_3
+u_deriv_engine/clk_gate_gradient_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_derivative_engine_2
+u_deriv_engine/clk_gate_state_reg     4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_derivative_engine_5
+u_deriv_engine/u_dfg              17485.5000     61.4   2738.5000   8103.7500  0.0000  dfg_equation_engine
+u_deriv_engine/u_dfg/clk_gate_div_dividend_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_1
+u_deriv_engine/u_dfg/clk_gate_f_out_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_2
+u_deriv_engine/u_dfg/clk_gate_pc_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_3
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[0][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_0
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[10][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_41
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[11][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_40
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[12][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_39
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[13][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_38
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[14][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_37
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[15][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_36
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[16][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_35
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[17][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_34
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[18][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_33
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[19][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_32
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[1][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_50
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[20][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_31
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[21][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_30
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[22][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_29
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[23][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_28
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[24][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_27
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[25][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_26
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[26][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_25
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[27][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_24
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[28][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_23
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[29][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_22
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[2][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_49
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[30][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_21
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[31][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_20
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[3][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_48
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[4][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_47
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[5][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_46
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[6][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_45
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[7][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_44
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[8][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_43
+u_deriv_engine/u_dfg/clk_gate_prog_mem_reg[9][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_42
+u_deriv_engine/u_dfg/clk_gate_reg_file_reg[0]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_19
+u_deriv_engine/u_dfg/clk_gate_reg_file_reg[10]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_9
+u_deriv_engine/u_dfg/clk_gate_reg_file_reg[11]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_8
+u_deriv_engine/u_dfg/clk_gate_reg_file_reg[12]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_7
+u_deriv_engine/u_dfg/clk_gate_reg_file_reg[13]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_6
+u_deriv_engine/u_dfg/clk_gate_reg_file_reg[14]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_5
+u_deriv_engine/u_dfg/clk_gate_reg_file_reg[15]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_4
+u_deriv_engine/u_dfg/clk_gate_reg_file_reg[1]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_18
+u_deriv_engine/u_dfg/clk_gate_reg_file_reg[2]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_17
+u_deriv_engine/u_dfg/clk_gate_reg_file_reg[3]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_16
+u_deriv_engine/u_dfg/clk_gate_reg_file_reg[4]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_15
+u_deriv_engine/u_dfg/clk_gate_reg_file_reg[5]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_14
+u_deriv_engine/u_dfg/clk_gate_reg_file_reg[6]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_13
+u_deriv_engine/u_dfg/clk_gate_reg_file_reg[7]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_12
+u_deriv_engine/u_dfg/clk_gate_reg_file_reg[8]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_11
+u_deriv_engine/u_dfg/clk_gate_reg_file_reg[9]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_equation_engine_10
+u_deriv_engine/u_dfg/u_alu         4839.5000     17.0   4839.5000      0.0000  0.0000  q16_alu
+u_deriv_engine/u_dfg/u_div         1561.5000      5.5    827.7500    719.5000  0.0000  q16_divider_0
+u_deriv_engine/u_dfg/u_div/clk_gate_abs_div_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_q16_divider_0_0
+u_deriv_engine/u_dfg/u_div/clk_gate_count_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_q16_divider_0_1
+u_deriv_engine/u_dfg/u_div/clk_gate_quotient_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_q16_divider_0_2
+u_solver                           1597.2500      5.6    857.7500    725.2500  0.0000  q16_divider_1
+u_solver/clk_gate_abs_div_reg         4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_q16_divider_1_0
+u_solver/clk_gate_count_reg           4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_q16_divider_1_1
+u_solver/clk_gate_quotient_reg        4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_q16_divider_1_2
+--------------------------------  ----------  -------  ----------  ----------  ------  -------------------------------------------
+Total                                                  15948.5000  12514.5000  0.0000
+
+1

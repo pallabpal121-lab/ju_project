@@ -1,0 +1,185 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : newton_2nd_order_top
+Version: W-2024.09-SP1
+Date   : Thu Sep 10 16:11:39 2026
+****************************************
+
+
+   max_transition
+
+                             Required        Actual
+   Net                      Transition     Transition        Slack
+   -----------------------------------------------------------------
+   u_deriv_engine/u_dfg/u_div/n225
+                               0.500          0.841         -0.341  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U3/I
+                               0.500          0.841         -0.341  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U367/A
+                               0.500          0.841         -0.341  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U384/A2
+                               0.500          0.841         -0.341  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U366/ZN
+                               0.500          0.841         -0.341  (VIOLATED)
+   u_solver/n341               0.500          0.633         -0.133  (VIOLATED)
+       PIN :   u_solver/U3/I
+                               0.500          0.633         -0.133  (VIOLATED)
+       PIN :   u_solver/U76/I
+                               0.500          0.633         -0.133  (VIOLATED)
+       PIN :   u_solver/U482/A
+                               0.500          0.633         -0.133  (VIOLATED)
+       PIN :   u_solver/U499/A2
+                               0.500          0.633         -0.133  (VIOLATED)
+       PIN :   u_solver/U7/ZN
+                               0.500          0.633         -0.133  (VIOLATED)
+   u_deriv_engine/u_dfg/n308
+                               0.500          0.527         -0.027  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/U264/A3
+                               0.500          0.527         -0.027  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/U265/A2
+                               0.500          0.527         -0.027  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/U560/ZN
+                               0.500          0.527         -0.027  (VIOLATED)
+   div_divisor[31]             0.500          0.517         -0.017  (VIOLATED)
+       PIN :   div_divisor_reg[31]/Q
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_solver/U5/I
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_solver/U392/I
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_solver/U533/A2
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_solver/U538/A2
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_solver/U573/A2
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_solver/U583/A2
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_solver/U588/A2
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_solver/U593/A2
+                               0.500          0.517         -0.017  (VIOLATED)
+   u_deriv_engine/u_dfg/div_divisor[31]
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/div_divisor_reg[31]/Q
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U4/I
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U141/I
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U513/A2
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U518/A2
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U548/A2
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U553/A2
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U563/A2
+                               0.500          0.517         -0.017  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U568/A2
+                               0.500          0.517         -0.017  (VIOLATED)
+   u_deriv_engine/u_dfg/u_div/n415
+                               0.500          0.510         -0.010  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U405/A
+                               0.500          0.510         -0.010  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U417/A
+                               0.500          0.510         -0.010  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U424/A
+                               0.500          0.510         -0.010  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U431/A
+                               0.500          0.510         -0.010  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U435/A
+                               0.500          0.510         -0.010  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U437/A
+                               0.500          0.510         -0.010  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U441/A
+                               0.500          0.510         -0.010  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U443/A
+                               0.500          0.510         -0.010  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U447/A
+                               0.500          0.510         -0.010  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U449/A
+                               0.500          0.510         -0.010  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U453/A
+                               0.500          0.510         -0.010  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U455/A
+                               0.500          0.510         -0.010  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U459/A
+                               0.500          0.510         -0.010  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U465/A
+                               0.500          0.510         -0.010  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U579/A
+                               0.500          0.510         -0.010  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U71/ZN
+                               0.500          0.510         -0.010  (VIOLATED)
+   alpha_reg[21]               0.500          0.509         -0.009  (VIOLATED)
+       PIN :   U1471/A2        0.500          0.509         -0.009  (VIOLATED)
+       PIN :   U2342/A2        0.500          0.509         -0.009  (VIOLATED)
+       PIN :   U2383/A2        0.500          0.509         -0.009  (VIOLATED)
+       PIN :   U1970/A2        0.500          0.509         -0.009  (VIOLATED)
+       PIN :   U2159/A2        0.500          0.509         -0.009  (VIOLATED)
+       PIN :   U2186/A2        0.500          0.509         -0.009  (VIOLATED)
+       PIN :   U818/I          0.500          0.509         -0.009  (VIOLATED)
+       PIN :   alpha_reg_reg[21]/Q
+                               0.500          0.509         -0.009  (VIOLATED)
+   u_deriv_engine/u_dfg/u_div/n321
+                               0.500          0.508         -0.008  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U408/A
+                               0.500          0.508         -0.008  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U412/A
+                               0.500          0.508         -0.008  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U415/A
+                               0.500          0.508         -0.008  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U421/A
+                               0.500          0.508         -0.008  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U428/A
+                               0.500          0.508         -0.008  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U461/A
+                               0.500          0.508         -0.008  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U467/A
+                               0.500          0.508         -0.008  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U471/A
+                               0.500          0.508         -0.008  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U473/A
+                               0.500          0.508         -0.008  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U477/A
+                               0.500          0.508         -0.008  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U479/A
+                               0.500          0.508         -0.008  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U483/A
+                               0.500          0.508         -0.008  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U485/A
+                               0.500          0.508         -0.008  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U489/A
+                               0.500          0.508         -0.008  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U491/A
+                               0.500          0.508         -0.008  (VIOLATED)
+       PIN :   u_deriv_engine/u_dfg/u_div/U62/ZN
+                               0.500          0.508         -0.008  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      8                 -0.561  
+
+   max_fanout
+
+                             Required        Actual
+   Net                        Fanout         Fanout          Slack
+   -----------------------------------------------------------------
+   rst_n (dont_touch)         16.000       1254.618       -1238.618 (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      1               -1238.618 
+
+   max_area
+
+                             Required        Actual
+   Design                      Area           Area           Slack
+   -----------------------------------------------------------------
+   newton_2nd_order_top        0.000       38997.883      -38997.883
+                                                                    (VIOLATED)
+
+
+1

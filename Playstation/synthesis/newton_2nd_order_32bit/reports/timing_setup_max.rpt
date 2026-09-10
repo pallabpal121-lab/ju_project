@@ -1,0 +1,1595 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 20
+Design : newton_2nd_order_top
+Version: W-2024.09-SP1
+Date   : Thu Sep 10 16:11:38 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tsl18fs120_typ   Library: tsl18fs120_typ
+Wire Load Model Mode: enclosed
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[30]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2606/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[30]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[30]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[29]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2608/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[29]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[29]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[28]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2610/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[28]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[28]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[27]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2612/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[27]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[27]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[26]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2614/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[26]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[26]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[25]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2619/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[25]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[25]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[24]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2622/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[24]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[24]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[23]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2627/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[23]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[23]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[22]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2635/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[22]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[22]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[21]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2640/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[21]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[21]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[20]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2645/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[20]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[20]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[19]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2651/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[19]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[19]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[18]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2656/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[18]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[18]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[17]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2663/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[17]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[17]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[16]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2667/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[16]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[16]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[15]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2678/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[15]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[15]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[14]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2682/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[14]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[14]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: alpha_reg_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: x_reg_reg[13]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                   0.000      0.000
+  clock network delay (ideal)             1.000      1.000
+  alpha_reg_reg[1]/CP (dfcrq1)            0.000      1.000 r
+  alpha_reg_reg[1]/Q (dfcrq1)             0.315      1.315 f
+  U819/ZN (inv0d1)                        0.177      1.492 r
+  U682/ZN (inv0d4)                        0.097      1.590 f
+  U354/ZN (xn02d4)                        0.355      1.945 r
+  U440/Z (buffda)                         0.230      2.175 r
+  U1143/ZN (nd02d1)                       0.237      2.412 f
+  U822/Z (buffd3)                         0.323      2.734 f
+  U821/Z (buffd3)                         0.252      2.986 f
+  U1920/ZN (oai22d1)                      0.216      3.202 r
+  U2022/S (ad01d1)                        0.362      3.564 f
+  U2106/CO (ad01d1)                       0.322      3.886 f
+  U2103/CO (ad01d1)                       0.309      4.195 f
+  U2108/CO (ad01d1)                       0.269      4.464 f
+  U2035/S (ad01d1)                        0.354      4.818 r
+  U2102/S (ad01d1)                        0.312      5.130 f
+  U298/ZN (nr02d1)                        0.172      5.302 r
+  U304/ZN (nr02d0)                        0.115      5.417 f
+  U2129/ZN (aoi21d2)                      0.276      5.693 r
+  U2136/ZN (oai21d1)                      0.058      5.750 f
+  U2137/ZN (aoi21d1)                      0.160      5.911 r
+  U288/Z (bufbd4)                         0.222      6.133 r
+  U2413/ZN (oai21d1)                      0.075      6.208 f
+  U2440/ZN (xn02d7)                       0.409      6.617 f
+  U755/ZN (aoi31d2)                       0.324      6.941 r
+  U2495/ZN (nr02d2)                       0.034      6.976 f
+  U483/Z (buffd7)                         0.175      7.151 f
+  U2547/Z (an02d1)                        0.140      7.291 f
+  U274/ZN (nr02d1)                        0.170      7.461 r
+  U2573/ZN (oai21d1)                      0.088      7.549 f
+  U2576/ZN (aoi21d1)                      0.211      7.760 r
+  U2582/ZN (oai21d1)                      0.075      7.836 f
+  U2583/ZN (aoi21d1)                      0.211      8.046 r
+  U2597/ZN (oai21d1)                      0.114      8.160 f
+  U2598/ZN (aoi21d1)                      0.223      8.383 r
+  U2599/ZN (oai21d1)                      0.108      8.491 f
+  U458/CO (ad01d1)                        0.272      8.763 f
+  U457/CO (ad01d1)                        0.269      9.032 f
+  U266/CO (ad01d1)                        0.269      9.301 f
+  U396/CO (ad01d2)                        0.273      9.574 f
+  U456/CO (ad01d1)                        0.239      9.813 f
+  U455/Z (xr02d1)                         0.265     10.078 r
+  U383/ZN (aoim21d2)                      0.247     10.325 r
+  U264/ZN (inv0d1)                        0.066     10.391 f
+  U257/ZN (inv0d4)                        0.186     10.577 r
+  U2689/ZN (oaim21d1)                     0.137     10.714 r
+  x_reg_reg[13]/D (dfcrq1)                0.000     10.714 r
+  data arrival time                                 10.714
+
+  clock clk (rise edge)                  10.000     10.000
+  clock network delay (ideal)             1.000     11.000
+  clock uncertainty                      -0.200     10.800
+  x_reg_reg[13]/CP (dfcrq1)               0.000     10.800 r
+  library setup time                     -0.086     10.714
+  data required time                                10.714
+  -----------------------------------------------------------
+  data required time                                10.714
+  data arrival time                                -10.714
+  -----------------------------------------------------------
+  slack (MET)                                        0.001
+
+
+  Startpoint: u_deriv_engine/u_dfg/pc_reg[4]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: u_deriv_engine/u_dfg/reg_file_reg[1][31]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_equation_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/u_dfg/pc_reg[4]/CP (dfcrq1)             0.000      1.000 r
+  u_deriv_engine/u_dfg/pc_reg[4]/Q (dfcrq1)              0.413      1.413 r
+  u_deriv_engine/u_dfg/U263/ZN (inv0d2)                  0.077      1.490 f
+  u_deriv_engine/u_dfg/U368/ZN (inv0d2)                  0.063      1.553 r
+  u_deriv_engine/u_dfg/U369/ZN (nd12d2)                  0.134      1.687 r
+  u_deriv_engine/u_dfg/U408/ZN (nr02d2)                  0.080      1.767 f
+  u_deriv_engine/u_dfg/U142/ZN (inv0d1)                  0.162      1.930 r
+  u_deriv_engine/u_dfg/U253/ZN (invbd4)                  0.268      2.198 f
+  u_deriv_engine/u_dfg/U252/Z (aoim22d1)                 0.142      2.340 r
+  u_deriv_engine/u_dfg/U108/ZN (nd04d0)                  0.135      2.475 f
+  u_deriv_engine/u_dfg/U470/ZN (nr02d1)                  0.137      2.612 r
+  u_deriv_engine/u_dfg/U471/ZN (nd03d2)                  0.122      2.734 f
+  u_deriv_engine/u_dfg/U64/ZN (nd02d1)                   0.187      2.921 r
+  u_deriv_engine/u_dfg/U49/ZN (nr02d7)                   0.463      3.384 f
+  u_deriv_engine/u_dfg/U491/ZN (aoi22d1)                 0.199      3.583 r
+  u_deriv_engine/u_dfg/U492/ZN (nd04d1)                  0.101      3.683 f
+  u_deriv_engine/u_dfg/U343/Z (or02d4)                   0.450      4.133 f
+  u_deriv_engine/u_dfg/u_alu/src_a[23] (q16_alu)         0.000      4.133 f
+  u_deriv_engine/u_dfg/u_alu/U417/ZN (xn02d2)            0.302      4.435 r
+  u_deriv_engine/u_dfg/u_alu/U517/Z (an12d1)             0.254      4.689 r
+  u_deriv_engine/u_dfg/u_alu/U716/Z (buffd3)             0.306      4.995 r
+  u_deriv_engine/u_dfg/u_alu/U323/ZN (aoi22d1)           0.086      5.082 f
+  u_deriv_engine/u_dfg/u_alu/U1123/ZN (oai21d1)          0.087      5.168 r
+  u_deriv_engine/u_dfg/u_alu/U1124/Z (xr02d1)            0.228      5.397 f
+  u_deriv_engine/u_dfg/u_alu/U1315/CO (ah01d1)           0.191      5.587 f
+  u_deriv_engine/u_dfg/u_alu/U1272/CO (ah01d1)           0.194      5.781 f
+  u_deriv_engine/u_dfg/u_alu/U1266/CO (ad01d1)           0.263      6.045 f
+  u_deriv_engine/u_dfg/u_alu/U1249/S (ad01d1)            0.351      6.396 r
+  u_deriv_engine/u_dfg/u_alu/U1286/S (ad01d1)            0.318      6.714 f
+  u_deriv_engine/u_dfg/u_alu/U1361/CO (ad01d1)           0.266      6.980 f
+  u_deriv_engine/u_dfg/u_alu/U1345/S (ad01d1)            0.351      7.331 r
+  u_deriv_engine/u_dfg/u_alu/U1347/S (ad01d1)            0.311      7.642 f
+  u_deriv_engine/u_dfg/u_alu/U1363/ZN (nd02d1)           0.121      7.764 r
+  u_deriv_engine/u_dfg/u_alu/U1365/ZN (oai21d1)          0.088      7.852 f
+  u_deriv_engine/u_dfg/u_alu/U1369/ZN (aoi21d1)          0.223      8.074 r
+  u_deriv_engine/u_dfg/u_alu/U1530/ZN (oai21d1)          0.068      8.142 f
+  u_deriv_engine/u_dfg/u_alu/U224/ZN (nd12d1)            0.161      8.303 f
+  u_deriv_engine/u_dfg/u_alu/U154/ZN (inv0d1)            0.072      8.375 r
+  u_deriv_engine/u_dfg/u_alu/U2077/ZN (oai21d1)          0.083      8.458 f
+  u_deriv_engine/u_dfg/u_alu/U2090/ZN (aoi21d1)          0.211      8.669 r
+  u_deriv_engine/u_dfg/u_alu/U2099/ZN (oai21d1)          0.110      8.779 f
+  u_deriv_engine/u_dfg/u_alu/U2106/ZN (aoi21d1)          0.212      8.991 r
+  u_deriv_engine/u_dfg/u_alu/U2110/ZN (oai21d1)          0.105      9.095 f
+  u_deriv_engine/u_dfg/u_alu/U219/CO (ad01d1)            0.269      9.365 f
+  u_deriv_engine/u_dfg/u_alu/U217/CO (ad01d1)            0.267      9.632 f
+  u_deriv_engine/u_dfg/u_alu/U216/CO (ad01d1)            0.262      9.894 f
+  u_deriv_engine/u_dfg/u_alu/U2247/ZN (aoi22d1)          0.134     10.027 r
+  u_deriv_engine/u_dfg/u_alu/U2272/Z (xr02d1)            0.219     10.247 f
+  u_deriv_engine/u_dfg/u_alu/U2280/ZN (oaim211d1)        0.139     10.386 f
+  u_deriv_engine/u_dfg/u_alu/result[31] (q16_alu)        0.000     10.386 f
+  u_deriv_engine/u_dfg/U182/ZN (nd02d1)                  0.086     10.471 r
+  u_deriv_engine/u_dfg/U1779/ZN (nd12d2)                 0.067     10.538 f
+  u_deriv_engine/u_dfg/U181/Z (buffd7)                   0.165     10.703 f
+  u_deriv_engine/u_dfg/reg_file_reg[1][31]/D (dfcrq1)    0.000     10.703 f
+  data arrival time                                                10.703
+
+  clock clk (rise edge)                                 10.000     10.000
+  clock network delay (ideal)                            1.000     11.000
+  clock uncertainty                                     -0.200     10.800
+  u_deriv_engine/u_dfg/reg_file_reg[1][31]/CP (dfcrq1)
+                                                         0.000     10.800 r
+  library setup time                                    -0.088     10.712
+  data required time                                               10.712
+  --------------------------------------------------------------------------
+  data required time                                               10.712
+  data arrival time                                               -10.703
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.009
+
+
+  Startpoint: u_deriv_engine/u_dfg/pc_reg[4]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: u_deriv_engine/u_dfg/reg_file_reg[2][31]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_equation_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/u_dfg/pc_reg[4]/CP (dfcrq1)             0.000      1.000 r
+  u_deriv_engine/u_dfg/pc_reg[4]/Q (dfcrq1)              0.413      1.413 r
+  u_deriv_engine/u_dfg/U263/ZN (inv0d2)                  0.077      1.490 f
+  u_deriv_engine/u_dfg/U368/ZN (inv0d2)                  0.063      1.553 r
+  u_deriv_engine/u_dfg/U369/ZN (nd12d2)                  0.134      1.687 r
+  u_deriv_engine/u_dfg/U408/ZN (nr02d2)                  0.080      1.767 f
+  u_deriv_engine/u_dfg/U142/ZN (inv0d1)                  0.162      1.930 r
+  u_deriv_engine/u_dfg/U253/ZN (invbd4)                  0.268      2.198 f
+  u_deriv_engine/u_dfg/U252/Z (aoim22d1)                 0.142      2.340 r
+  u_deriv_engine/u_dfg/U108/ZN (nd04d0)                  0.135      2.475 f
+  u_deriv_engine/u_dfg/U470/ZN (nr02d1)                  0.137      2.612 r
+  u_deriv_engine/u_dfg/U471/ZN (nd03d2)                  0.122      2.734 f
+  u_deriv_engine/u_dfg/U64/ZN (nd02d1)                   0.187      2.921 r
+  u_deriv_engine/u_dfg/U49/ZN (nr02d7)                   0.463      3.384 f
+  u_deriv_engine/u_dfg/U491/ZN (aoi22d1)                 0.199      3.583 r
+  u_deriv_engine/u_dfg/U492/ZN (nd04d1)                  0.101      3.683 f
+  u_deriv_engine/u_dfg/U343/Z (or02d4)                   0.450      4.133 f
+  u_deriv_engine/u_dfg/u_alu/src_a[23] (q16_alu)         0.000      4.133 f
+  u_deriv_engine/u_dfg/u_alu/U417/ZN (xn02d2)            0.302      4.435 r
+  u_deriv_engine/u_dfg/u_alu/U517/Z (an12d1)             0.254      4.689 r
+  u_deriv_engine/u_dfg/u_alu/U716/Z (buffd3)             0.306      4.995 r
+  u_deriv_engine/u_dfg/u_alu/U323/ZN (aoi22d1)           0.086      5.082 f
+  u_deriv_engine/u_dfg/u_alu/U1123/ZN (oai21d1)          0.087      5.168 r
+  u_deriv_engine/u_dfg/u_alu/U1124/Z (xr02d1)            0.228      5.397 f
+  u_deriv_engine/u_dfg/u_alu/U1315/CO (ah01d1)           0.191      5.587 f
+  u_deriv_engine/u_dfg/u_alu/U1272/CO (ah01d1)           0.194      5.781 f
+  u_deriv_engine/u_dfg/u_alu/U1266/CO (ad01d1)           0.263      6.045 f
+  u_deriv_engine/u_dfg/u_alu/U1249/S (ad01d1)            0.351      6.396 r
+  u_deriv_engine/u_dfg/u_alu/U1286/S (ad01d1)            0.318      6.714 f
+  u_deriv_engine/u_dfg/u_alu/U1361/CO (ad01d1)           0.266      6.980 f
+  u_deriv_engine/u_dfg/u_alu/U1345/S (ad01d1)            0.351      7.331 r
+  u_deriv_engine/u_dfg/u_alu/U1347/S (ad01d1)            0.311      7.642 f
+  u_deriv_engine/u_dfg/u_alu/U1363/ZN (nd02d1)           0.121      7.764 r
+  u_deriv_engine/u_dfg/u_alu/U1365/ZN (oai21d1)          0.088      7.852 f
+  u_deriv_engine/u_dfg/u_alu/U1369/ZN (aoi21d1)          0.223      8.074 r
+  u_deriv_engine/u_dfg/u_alu/U1530/ZN (oai21d1)          0.068      8.142 f
+  u_deriv_engine/u_dfg/u_alu/U224/ZN (nd12d1)            0.161      8.303 f
+  u_deriv_engine/u_dfg/u_alu/U154/ZN (inv0d1)            0.072      8.375 r
+  u_deriv_engine/u_dfg/u_alu/U2077/ZN (oai21d1)          0.083      8.458 f
+  u_deriv_engine/u_dfg/u_alu/U2090/ZN (aoi21d1)          0.211      8.669 r
+  u_deriv_engine/u_dfg/u_alu/U2099/ZN (oai21d1)          0.110      8.779 f
+  u_deriv_engine/u_dfg/u_alu/U2106/ZN (aoi21d1)          0.212      8.991 r
+  u_deriv_engine/u_dfg/u_alu/U2110/ZN (oai21d1)          0.105      9.095 f
+  u_deriv_engine/u_dfg/u_alu/U219/CO (ad01d1)            0.269      9.365 f
+  u_deriv_engine/u_dfg/u_alu/U217/CO (ad01d1)            0.267      9.632 f
+  u_deriv_engine/u_dfg/u_alu/U216/CO (ad01d1)            0.262      9.894 f
+  u_deriv_engine/u_dfg/u_alu/U2247/ZN (aoi22d1)          0.134     10.027 r
+  u_deriv_engine/u_dfg/u_alu/U2272/Z (xr02d1)            0.219     10.247 f
+  u_deriv_engine/u_dfg/u_alu/U2280/ZN (oaim211d1)        0.139     10.386 f
+  u_deriv_engine/u_dfg/u_alu/result[31] (q16_alu)        0.000     10.386 f
+  u_deriv_engine/u_dfg/U182/ZN (nd02d1)                  0.086     10.471 r
+  u_deriv_engine/u_dfg/U1779/ZN (nd12d2)                 0.067     10.538 f
+  u_deriv_engine/u_dfg/U181/Z (buffd7)                   0.165     10.703 f
+  u_deriv_engine/u_dfg/reg_file_reg[2][31]/D (dfcrq1)    0.000     10.703 f
+  data arrival time                                                10.703
+
+  clock clk (rise edge)                                 10.000     10.000
+  clock network delay (ideal)                            1.000     11.000
+  clock uncertainty                                     -0.200     10.800
+  u_deriv_engine/u_dfg/reg_file_reg[2][31]/CP (dfcrq1)
+                                                         0.000     10.800 r
+  library setup time                                    -0.088     10.712
+  data required time                                               10.712
+  --------------------------------------------------------------------------
+  data required time                                               10.712
+  data arrival time                                               -10.703
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.009
+
+
+1

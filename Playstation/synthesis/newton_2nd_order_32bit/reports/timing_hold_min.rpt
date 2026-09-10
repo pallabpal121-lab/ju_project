@@ -1,0 +1,737 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -max_paths 20
+Design : newton_2nd_order_top
+Version: W-2024.09-SP1
+Date   : Thu Sep 10 16:11:38 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tsl18fs120_typ   Library: tsl18fs120_typ
+Wire Load Model Mode: enclosed
+
+  Startpoint: u_deriv_engine/step_den_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[0]/CP (dfcrq1)             0.000      1.000 r
+  u_deriv_engine/step_den_reg[0]/Q (dfcrq1)              0.311      1.311 f
+  u_deriv_engine/step_den[0] (derivative_engine)         0.000      1.311 f
+  div_divisor_reg[0]/D (dfcrq1)                          0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[0]/CP (dfcrq1)                         0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[1]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[1]/CP (dfcrq1)             0.000      1.000 r
+  u_deriv_engine/step_den_reg[1]/Q (dfcrq1)              0.311      1.311 f
+  u_deriv_engine/step_den[1] (derivative_engine)         0.000      1.311 f
+  div_divisor_reg[1]/D (dfcrq1)                          0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[1]/CP (dfcrq1)                         0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[2]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[2]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[2]/CP (dfcrq1)             0.000      1.000 r
+  u_deriv_engine/step_den_reg[2]/Q (dfcrq1)              0.311      1.311 f
+  u_deriv_engine/step_den[2] (derivative_engine)         0.000      1.311 f
+  div_divisor_reg[2]/D (dfcrq1)                          0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[2]/CP (dfcrq1)                         0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[3]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[3]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[3]/CP (dfcrq1)             0.000      1.000 r
+  u_deriv_engine/step_den_reg[3]/Q (dfcrq1)              0.311      1.311 f
+  u_deriv_engine/step_den[3] (derivative_engine)         0.000      1.311 f
+  div_divisor_reg[3]/D (dfcrq1)                          0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[3]/CP (dfcrq1)                         0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[4]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[4]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[4]/CP (dfcrq1)             0.000      1.000 r
+  u_deriv_engine/step_den_reg[4]/Q (dfcrq1)              0.311      1.311 f
+  u_deriv_engine/step_den[4] (derivative_engine)         0.000      1.311 f
+  div_divisor_reg[4]/D (dfcrq1)                          0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[4]/CP (dfcrq1)                         0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[5]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[5]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[5]/CP (dfcrq1)             0.000      1.000 r
+  u_deriv_engine/step_den_reg[5]/Q (dfcrq1)              0.311      1.311 f
+  u_deriv_engine/step_den[5] (derivative_engine)         0.000      1.311 f
+  div_divisor_reg[5]/D (dfcrq1)                          0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[5]/CP (dfcrq1)                         0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[6]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[6]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[6]/CP (dfcrq1)             0.000      1.000 r
+  u_deriv_engine/step_den_reg[6]/Q (dfcrq1)              0.311      1.311 f
+  u_deriv_engine/step_den[6] (derivative_engine)         0.000      1.311 f
+  div_divisor_reg[6]/D (dfcrq1)                          0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[6]/CP (dfcrq1)                         0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[7]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[7]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[7]/CP (dfcrq1)             0.000      1.000 r
+  u_deriv_engine/step_den_reg[7]/Q (dfcrq1)              0.311      1.311 f
+  u_deriv_engine/step_den[7] (derivative_engine)         0.000      1.311 f
+  div_divisor_reg[7]/D (dfcrq1)                          0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[7]/CP (dfcrq1)                         0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[8]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[8]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[8]/CP (dfcrq1)             0.000      1.000 r
+  u_deriv_engine/step_den_reg[8]/Q (dfcrq1)              0.311      1.311 f
+  u_deriv_engine/step_den[8] (derivative_engine)         0.000      1.311 f
+  div_divisor_reg[8]/D (dfcrq1)                          0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[8]/CP (dfcrq1)                         0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[9]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[9]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[9]/CP (dfcrq1)             0.000      1.000 r
+  u_deriv_engine/step_den_reg[9]/Q (dfcrq1)              0.311      1.311 f
+  u_deriv_engine/step_den[9] (derivative_engine)         0.000      1.311 f
+  div_divisor_reg[9]/D (dfcrq1)                          0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[9]/CP (dfcrq1)                         0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[10]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[10]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[10]/CP (dfcrq1)            0.000      1.000 r
+  u_deriv_engine/step_den_reg[10]/Q (dfcrq1)             0.311      1.311 f
+  u_deriv_engine/step_den[10] (derivative_engine)        0.000      1.311 f
+  div_divisor_reg[10]/D (dfcrq1)                         0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[10]/CP (dfcrq1)                        0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[11]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[11]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[11]/CP (dfcrq1)            0.000      1.000 r
+  u_deriv_engine/step_den_reg[11]/Q (dfcrq1)             0.311      1.311 f
+  u_deriv_engine/step_den[11] (derivative_engine)        0.000      1.311 f
+  div_divisor_reg[11]/D (dfcrq1)                         0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[11]/CP (dfcrq1)                        0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[12]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[12]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[12]/CP (dfcrq1)            0.000      1.000 r
+  u_deriv_engine/step_den_reg[12]/Q (dfcrq1)             0.311      1.311 f
+  u_deriv_engine/step_den[12] (derivative_engine)        0.000      1.311 f
+  div_divisor_reg[12]/D (dfcrq1)                         0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[12]/CP (dfcrq1)                        0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[13]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[13]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[13]/CP (dfcrq1)            0.000      1.000 r
+  u_deriv_engine/step_den_reg[13]/Q (dfcrq1)             0.311      1.311 f
+  u_deriv_engine/step_den[13] (derivative_engine)        0.000      1.311 f
+  div_divisor_reg[13]/D (dfcrq1)                         0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[13]/CP (dfcrq1)                        0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[14]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[14]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[14]/CP (dfcrq1)            0.000      1.000 r
+  u_deriv_engine/step_den_reg[14]/Q (dfcrq1)             0.311      1.311 f
+  u_deriv_engine/step_den[14] (derivative_engine)        0.000      1.311 f
+  div_divisor_reg[14]/D (dfcrq1)                         0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[14]/CP (dfcrq1)                        0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[15]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[15]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[15]/CP (dfcrq1)            0.000      1.000 r
+  u_deriv_engine/step_den_reg[15]/Q (dfcrq1)             0.311      1.311 f
+  u_deriv_engine/step_den[15] (derivative_engine)        0.000      1.311 f
+  div_divisor_reg[15]/D (dfcrq1)                         0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[15]/CP (dfcrq1)                        0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[16]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[16]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[16]/CP (dfcrq1)            0.000      1.000 r
+  u_deriv_engine/step_den_reg[16]/Q (dfcrq1)             0.311      1.311 f
+  u_deriv_engine/step_den[16] (derivative_engine)        0.000      1.311 f
+  div_divisor_reg[16]/D (dfcrq1)                         0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[16]/CP (dfcrq1)                        0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[17]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[17]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[17]/CP (dfcrq1)            0.000      1.000 r
+  u_deriv_engine/step_den_reg[17]/Q (dfcrq1)             0.311      1.311 f
+  u_deriv_engine/step_den[17] (derivative_engine)        0.000      1.311 f
+  div_divisor_reg[17]/D (dfcrq1)                         0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[17]/CP (dfcrq1)                        0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[18]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[18]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[18]/CP (dfcrq1)            0.000      1.000 r
+  u_deriv_engine/step_den_reg[18]/Q (dfcrq1)             0.311      1.311 f
+  u_deriv_engine/step_den[18] (derivative_engine)        0.000      1.311 f
+  div_divisor_reg[18]/D (dfcrq1)                         0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[18]/CP (dfcrq1)                        0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+  Startpoint: u_deriv_engine/step_den_reg[19]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: div_divisor_reg[19]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  derivative_engine  35000                 tsl18fs120_typ
+  newton_2nd_order_top
+                     35000                 tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  u_deriv_engine/step_den_reg[19]/CP (dfcrq1)            0.000      1.000 r
+  u_deriv_engine/step_den_reg[19]/Q (dfcrq1)             0.311      1.311 f
+  u_deriv_engine/step_den[19] (derivative_engine)        0.000      1.311 f
+  div_divisor_reg[19]/D (dfcrq1)                         0.000      1.311 f
+  data arrival time                                                 1.311
+
+  clock clk (rise edge)                                  0.000      0.000
+  clock network delay (ideal)                            1.000      1.000
+  clock uncertainty                                      0.100      1.100
+  div_divisor_reg[19]/CP (dfcrq1)                        0.000      1.100 r
+  library hold time                                     -0.008      1.092
+  data required time                                                1.092
+  --------------------------------------------------------------------------
+  data required time                                                1.092
+  data arrival time                                                -1.311
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.219
+
+
+1

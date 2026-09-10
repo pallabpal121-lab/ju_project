@@ -1,0 +1,11 @@
+work/
+alib/
+command.log
+default.svf
+filenames.log
+view.log
+*.mr
+*.pvl
+*.syn
+*.pvk
+cksum_dir/

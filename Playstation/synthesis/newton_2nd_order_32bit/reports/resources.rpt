@@ -1,0 +1,270 @@
+ 
+****************************************
+Report : resources
+Design : newton_2nd_order_top
+Version: W-2024.09-SP1
+Date   : Thu Sep 10 16:11:39 2026
+****************************************
+
+
+Resource Report for this hierarchy in file
+        ../../rtl/newton_2nd_order_32bit/newton_2nd_order_top.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| mult_x_1       | DW_mult_tc     | a_width=32 | mult_122 (newton_2nd_order_top.sv:122) |
+     |                | b_width=32 |                            |
+| gt_x_2         | DW_cmp         | width=32   | gt_130 (newton_2nd_order_top.sv:130) |
+| lt_x_3         | DW_cmp         | width=32   | lt_130 (newton_2nd_order_top.sv:130) |
+| add_x_5        | DW01_add       | width=32   | add_137 (newton_2nd_order_top.sv:137) |
+| sub_x_7        | DW01_sub       | width=32   | sub_148 (newton_2nd_order_top.sv:148) |
+| lte_x_9        | DW_cmp         | width=32   | lte_256 (newton_2nd_order_top.sv:256) |
+| gte_x_10       | DW_cmp         | width=8    | gte_264 (newton_2nd_order_top.sv:264) |
+| sub_x_11       | DW01_sub       | width=32   | sub_273 (newton_2nd_order_top.sv:273) |
+| add_x_12       | DW01_inc       | width=8    | add_303 (newton_2nd_order_top.sv:303) |
+=============================================================================
+
+
+Datapath Extraction Report
+
+Information: Operator associated with resources 'gt_130 (newton_2nd_order_top.sv:130)' in design 'newton_2nd_order_top' breaks the datapath extraction because there is leakage due to truncation on the fanout of its driver 'mult_122 (newton_2nd_order_top.sv:122)'.  (HDL-120)
+
+Information: Operator associated with resources 'sub_148 (newton_2nd_order_top.sv:148)' in design 'newton_2nd_order_top' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'C2745 (newton_2nd_order_top.sv:148)'.  (HDL-120)
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| mult_x_1           | DW_mult_tc       | pparch (area,speed)                 |
+|                    |                  | mult_arch: benc_radix4              |
+| gt_x_2             | DW_cmp           | apparch (area)     |                |
+| lt_x_3             | DW_cmp           | apparch (area)     |                |
+| add_x_5            | DW01_add         | pparch (area,speed)                 |
+| sub_x_7            | DW01_sub         | apparch (area)     |                |
+| lte_x_9            | DW_cmp           | apparch (area)     |                |
+| gte_x_10           | DW_cmp           | apparch (area)     |                |
+| sub_x_11           | DW01_sub         | apparch (area)     |                |
+| add_x_12           | DW01_inc         | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : q16_divider_1
+****************************************
+
+Resource Report for this hierarchy in file
+        ../../rtl/newton_2nd_order_32bit/q16_divider.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=32   | sub_124 (q16_divider.sv:124) |
+| sub_x_2        | DW01_sub       | width=32   | sub_125 (q16_divider.sv:125) |
+| gt_x_3         | DW_cmp         | width=6    | gt_140 (q16_divider.sv:140) |
+| gte_x_4        | DW_cmp         | width=32   | gte_142 (q16_divider.sv:142) |
+| sub_x_5        | DW01_sub       | width=31   | sub_144 (q16_divider.sv:144) |
+| sub_x_6        | DW01_dec       | width=6    | sub_149 (q16_divider.sv:149) |
+| sub_x_7        | DW01_sub       | width=32   | sub_162 (q16_divider.sv:162) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_1            | DW01_sub         | apparch (area)     |                |
+| sub_x_2            | DW01_sub         | apparch (area)     |                |
+| gt_x_3             | DW_cmp           | apparch (area)     |                |
+| gte_x_4            | DW_cmp           | apparch (area)     |                |
+| sub_x_5            | DW01_sub         | apparch (area)     |                |
+| sub_x_6            | DW01_dec         | apparch (area)     |                |
+| sub_x_7            | DW01_sub         | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : derivative_engine
+****************************************
+
+Resource Report for this hierarchy in file
+        ../../rtl/newton_2nd_order_32bit/derivative_engine.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=32   | sub_198 (derivative_engine.sv:198) |
+| gte_x_2        | DW_cmp         | width=32   | gte_219 (derivative_engine.sv:219) |
+| gte_x_3        | DW_cmp         | width=32   | gte_222 (derivative_engine.sv:222) |
+| sub_x_4        | DW01_sub       | width=32   | sub_225 (derivative_engine.sv:225) |
+| DP_OP_36J4_122_4478             |            |                            |
+|                | DP_OP_36J4_122_4478 |       |                            |
+| DP_OP_38J4_123_7940             |            |                            |
+|                | DP_OP_38J4_123_7940 |       |                            |
+=============================================================================
+
+Datapath Report for DP_OP_36J4_122_4478
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_36J4_122_4478  | sub_199 (derivative_engine.sv:199)                  |
+|                      | add_199 (derivative_engine.sv:199)                  |
+|                      | sub_219 (derivative_engine.sv:219)                  |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 31    |                                          |
+| I2    | PI   | Signed   | 31    |                                          |
+| I3    | PI   | Signed   | 31    |                                          |
+| T34   | IFO  | Signed   | 32    | O1 << 1                                  |
+| O1    | PO   | Signed   | 31    | I1 - I2 + I3 (derivative_engine.sv:199)  |
+| O2    | PO   | Signed   | 32    | $signed(1'b0) - T34 (derivative_engine.sv:219) |
+==============================================================================
+
+Datapath Report for DP_OP_38J4_123_7940
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_38J4_123_7940  | add_165 (derivative_engine.sv:165)                  |
+|                      | sub_177 (derivative_engine.sv:177)                  |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Unsigned | 1     |                                          |
+| O1    | PO   | Signed   | 32    | addsub(I1,$unsigned(13'b1000000000000),I2) ( derivative_engine.sv:165 derivative_engine.sv:177 ) |
+==============================================================================
+
+
+Datapath Extraction Report
+
+Information: Operator associated with resources 'gte_219 (derivative_engine.sv:219)' in design 'derivative_engine' breaks the datapath extraction because there is leakage due to truncation on the fanout of its driver 'sub_199 (derivative_engine.sv:199) add_199 (derivative_engine.sv:199)'.  (HDL-120)
+
+Information: Operator associated with resources 'sub_219 (derivative_engine.sv:219)' in design 'derivative_engine' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'C2130 (derivative_engine.sv:219)'.  (HDL-120)
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_1            | DW01_sub         | apparch (area)     |                |
+| gte_x_2            | DW_cmp           | apparch (area)     |                |
+| gte_x_3            | DW_cmp           | apparch (area)     |                |
+| sub_x_4            | DW01_sub         | apparch (area)     |                |
+| DP_OP_36J4_122_4478                   |                    |                |
+|                    | DP_OP_36J4_122_4478 | str (area)      |                |
+| DP_OP_38J4_123_7940                   |                    |                |
+|                    | DP_OP_38J4_123_7940 | str (area)      |                |
+===============================================================================
+
+ 
+****************************************
+Design : dfg_equation_engine
+****************************************
+
+Resource Report for this hierarchy in file
+        ../../rtl/newton_2nd_order_32bit/dfg_equation_engine.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| add_x_2        | DW01_inc       | width=5    | add_203 (dfg_equation_engine.sv:203) |
+       |                |            | add_214 (dfg_equation_engine.sv:214) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| add_x_2            | DW01_inc         | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : q16_divider_0
+****************************************
+
+Resource Report for this hierarchy in file
+        ../../rtl/newton_2nd_order_32bit/q16_divider.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=32   | sub_124 (q16_divider.sv:124) |
+| sub_x_2        | DW01_sub       | width=32   | sub_125 (q16_divider.sv:125) |
+| gt_x_3         | DW_cmp         | width=6    | gt_140 (q16_divider.sv:140) |
+| gte_x_4        | DW_cmp         | width=32   | gte_142 (q16_divider.sv:142) |
+| sub_x_5        | DW01_sub       | width=31   | sub_144 (q16_divider.sv:144) |
+| sub_x_6        | DW01_dec       | width=6    | sub_149 (q16_divider.sv:149) |
+| sub_x_7        | DW01_sub       | width=32   | sub_162 (q16_divider.sv:162) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_1            | DW01_sub         | apparch (area)     |                |
+| sub_x_2            | DW01_sub         | apparch (area)     |                |
+| gt_x_3             | DW_cmp           | apparch (area)     |                |
+| gte_x_4            | DW_cmp           | apparch (area)     |                |
+| sub_x_5            | DW01_sub         | apparch (area)     |                |
+| sub_x_6            | DW01_dec         | apparch (area)     |                |
+| sub_x_7            | DW01_sub         | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : q16_alu
+****************************************
+
+Resource Report for this hierarchy in file
+        ../../rtl/newton_2nd_order_32bit/q16_alu.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| mult_x_1       | DW_mult_tc     | a_width=32 | mult_67 (q16_alu.sv:67)    |
+|                |                | b_width=32 |                            |
+| DP_OP_23J4_126_1583             |            |                            |
+|                | DP_OP_23J4_126_1583 |       |                            |
+=============================================================================
+
+Datapath Report for DP_OP_23J4_126_1583
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_23J4_126_1583  | add_100 (q16_alu.sv:100) sub_113 (q16_alu.sv:113)   |
+|                      | sub_132 (q16_alu.sv:132)                            |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| O1    | PO   | Signed   | 32    | addsub(I1,I2,I3) ( q16_alu.sv:100 q16_alu.sv:113 q16_alu.sv:132 ) |
+==============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| mult_x_1           | DW_mult_tc       | pparch (area,speed)                 |
+|                    |                  | mult_arch: benc_radix8              |
+| DP_OP_23J4_126_1583                   |                    |                |
+|                    | DP_OP_23J4_126_1583 | str (area,speed)                 |
+===============================================================================
+
+1

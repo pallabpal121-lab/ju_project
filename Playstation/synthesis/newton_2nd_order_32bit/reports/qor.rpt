@@ -1,0 +1,86 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'newton_2nd_order_top' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : qor
+Design : newton_2nd_order_top
+Version: W-2024.09-SP1
+Date   : Thu Sep 10 16:11:38 2026
+****************************************
+
+
+  Timing Path Group 'clk'
+  -----------------------------------
+  Levels of Logic:              44.00
+  Critical Path Length:          9.71
+  Critical Path Slack:           0.00
+  Critical Path Clk Period:     10.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:         74
+  Hierarchical Port Count:        939
+  Leaf Cell Count:              11514
+  Buf/Inv Cell Count:            1445
+  Buf Cell Count:                 186
+  Inv Cell Count:                1263
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:      9027
+  Sequential Cell Count:         2487
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:    15948.500000
+  Noncombinational Area: 12514.500000
+  Buf/Inv Area:           1210.750000
+  Total Buffer Area:           317.50
+  Total Inverter Area:         914.25
+  Macro/Black Box Area:      0.000000
+  Net Area:              10534.881194
+  -----------------------------------
+  Cell Area:             28463.000000
+  Design Area:           38997.881194
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:         12464
+  Nets With Violations:             9
+  Max Trans Violations:             8
+  Max Cap Violations:               0
+  Max Fanout Violations:            1
+  -----------------------------------
+
+
+  Hostname: ams17iccoe.jadavpuruniversity.in
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    1.71
+  Logic Optimization:                  4.92
+  Mapping Optimization:                6.54
+  -----------------------------------------
+  Overall Compile Time:               30.02
+  Overall Compile Wall Clock Time:    30.54
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1
