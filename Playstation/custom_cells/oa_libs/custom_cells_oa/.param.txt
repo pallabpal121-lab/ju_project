@@ -1,38 +1,45 @@
-cellTag  CMOS_XOR2
-CMOS_XOR2 XM_IA_P W,string,1.2e-06#L,string,1.8e-07#
-CMOS_XOR2 XM_IA_N W,string,5e-07#L,string,1.8e-07#
-CMOS_XOR2 XM_IB_P W,string,1.2e-06#L,string,1.8e-07#
-CMOS_XOR2 XM_IB_N W,string,5e-07#L,string,1.8e-07#
-CMOS_XOR2 XM_P1 W,string,1.2e-06#L,string,1.8e-07#
-CMOS_XOR2 XM_P2 W,string,1.2e-06#L,string,1.8e-07#
-CMOS_XOR2 XM_P3 W,string,1.2e-06#L,string,1.8e-07#
-CMOS_XOR2 XM_P4 W,string,1.2e-06#L,string,1.8e-07#
-CMOS_XOR2 XM_N1 W,string,6e-07#L,string,1.8e-07#
-CMOS_XOR2 XM_N2 W,string,6e-07#L,string,1.8e-07#
-CMOS_XOR2 XM_N3 W,string,6e-07#L,string,1.8e-07#
-CMOS_XOR2 XM_N4 W,string,6e-07#L,string,1.8e-07#
-CMOS_XOR2 XM_OP W,string,1.2e-06#L,string,1.8e-07#
-CMOS_XOR2 XM_ON W,string,5e-07#L,string,1.8e-07#
-cellTag  CMOS_MUX2
-CMOS_MUX2 XM_INVS_P W,string,1.2e-06#L,string,1.8e-07#
-CMOS_MUX2 XM_INVS_N W,string,5e-07#L,string,1.8e-07#
-CMOS_MUX2 XM_P1 W,string,1.2e-06#L,string,1.8e-07#
-CMOS_MUX2 XM_P2 W,string,1.2e-06#L,string,1.8e-07#
-CMOS_MUX2 XM_P3 W,string,1.2e-06#L,string,1.8e-07#
-CMOS_MUX2 XM_P4 W,string,1.2e-06#L,string,1.8e-07#
-CMOS_MUX2 XM_N1 W,string,6e-07#L,string,1.8e-07#
-CMOS_MUX2 XM_N2 W,string,6e-07#L,string,1.8e-07#
-CMOS_MUX2 XM_N3 W,string,6e-07#L,string,1.8e-07#
-CMOS_MUX2 XM_N4 W,string,6e-07#L,string,1.8e-07#
-CMOS_MUX2 XM_OP W,string,1.2e-06#L,string,1.8e-07#
-CMOS_MUX2 XM_ON W,string,5e-07#L,string,1.8e-07#
-cellTag  COMPRESSOR_4TO2
-COMPRESSOR_4TO2 XXOR1 
-COMPRESSOR_4TO2 XXOR2 
-COMPRESSOR_4TO2 XXOR3 
-COMPRESSOR_4TO2 XMUX_COUT 
-COMPRESSOR_4TO2 XXOR4 
-COMPRESSOR_4TO2 XMUX_CARRY 
 cellTag  SCL180_INV_1X
-SCL180_INV_1X XM1 W,string,1.2e-06#L,string,1.8e-07#
+SCL180_INV_1X XM1 W,string,1e-06#L,string,1.8e-07#
 SCL180_INV_1X XM2 W,string,5e-07#L,string,1.8e-07#
+cellTag  CMOS_XNOR2
+CMOS_XNOR2 XM_P1 W,string,1.4e-06#L,string,1.8e-07#
+CMOS_XNOR2 XM_P2 W,string,1.4e-06#L,string,1.8e-07#
+CMOS_XNOR2 XM_P3 W,string,1.4e-06#L,string,1.8e-07#
+CMOS_XNOR2 XM_P4 W,string,1.4e-06#L,string,1.8e-07#
+CMOS_XNOR2 XM_N1 W,string,7e-07#L,string,1.8e-07#
+CMOS_XNOR2 XM_N2 W,string,7e-07#L,string,1.8e-07#
+CMOS_XNOR2 XM_N3 W,string,7e-07#L,string,1.8e-07#
+CMOS_XNOR2 XM_N4 W,string,7e-07#L,string,1.8e-07#
+cellTag  SCL180_INV_2X
+SCL180_INV_2X XM1 W,string,2e-06#L,string,1.8e-07#
+SCL180_INV_2X XM2 W,string,1e-06#L,string,1.8e-07#
+cellTag  CMOS_AOI22_BOOTH
+CMOS_AOI22_BOOTH XM_N1 W,string,9e-07#L,string,1.8e-07#
+CMOS_AOI22_BOOTH XM_N2 W,string,9e-07#L,string,1.8e-07#
+CMOS_AOI22_BOOTH XM_N3 W,string,9e-07#L,string,1.8e-07#
+CMOS_AOI22_BOOTH XM_N4 W,string,9e-07#L,string,1.8e-07#
+CMOS_AOI22_BOOTH XM_N5 W,string,9e-07#L,string,1.8e-07#
+CMOS_AOI22_BOOTH XM_N6 W,string,9e-07#L,string,1.8e-07#
+CMOS_AOI22_BOOTH XM_P1 W,string,1.6e-06#L,string,1.8e-07#
+CMOS_AOI22_BOOTH XM_P2 W,string,1.6e-06#L,string,1.8e-07#
+CMOS_AOI22_BOOTH XM_P3 W,string,1.6e-06#L,string,1.8e-07#
+CMOS_AOI22_BOOTH XM_P4 W,string,1.6e-06#L,string,1.8e-07#
+CMOS_AOI22_BOOTH XM_P5 W,string,1.6e-06#L,string,1.8e-07#
+CMOS_AOI22_BOOTH XM_P6 W,string,1.6e-06#L,string,1.8e-07#
+cellTag  CMOS_OAI21
+CMOS_OAI21 XM_N1 W,string,8e-07#L,string,1.8e-07#
+CMOS_OAI21 XM_N2 W,string,8e-07#L,string,1.8e-07#
+CMOS_OAI21 XM_N3 W,string,8e-07#L,string,1.8e-07#
+CMOS_OAI21 XM_P1 W,string,1.6e-06#L,string,1.8e-07#
+CMOS_OAI21 XM_P2 W,string,1.6e-06#L,string,1.8e-07#
+CMOS_OAI21 XM_P3 W,string,1.6e-06#L,string,1.8e-07#
+cellTag  BOOTH_ENCODER
+BOOTH_ENCODER XINV_YP 
+BOOTH_ENCODER XINV_YC 
+BOOTH_ENCODER XINV_YM 
+BOOTH_ENCODER XXNOR_SNG 
+BOOTH_ENCODER XBUF_SNG 
+BOOTH_ENCODER XAOI_DBL 
+BOOTH_ENCODER XBUF_DBL 
+BOOTH_ENCODER XOAI_NEG 
+BOOTH_ENCODER XBUF_NEG 

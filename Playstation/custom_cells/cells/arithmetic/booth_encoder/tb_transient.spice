@@ -1,25 +1,98 @@
 * =============================================================================
-* Transient Analysis for Radix-4 Booth Encoder Cell
+* Testbench: tb_transient.spice
+* Module   : BOOTH_ENCODER (Static CMOS Radix-4)
+* Target   : SCL 180nm CMOS PDK (1.8V Standard Cells)
+* Description: Exhaustive 8-State Transient Verification with 20fF Fan-Out Loads
 * =============================================================================
+
 .include "schematic.spice"
 
+* Power Supplies
 VVDD VDD 0 DC 1.8V
 VVSS VSS 0 DC 0.0V
 
-* Inputs: Y_PLUS, Y_CURR, Y_PREV
-VY_PLUS Y_PLUS 0 PULSE(0 1.8 0ps   30ps 30ps 2ns 4ns)
-VY_CURR Y_CURR 0 PULSE(0 1.8 100ps 30ps 30ps 1ns 2ns)
-VY_PREV Y_PREV 0 PULSE(0 1.8 200ps 30ps 30ps 500ps 1ns)
+* -----------------------------------------------------------------------------
+* Exhaustive 8-State Stimulus: Steps through 000 -> 001 -> 010 -> 011 -> 100 -> 101 -> 110 -> 111 -> 000
+* Each state holds for 1.0 ns with 40 ps transition time.
+* -----------------------------------------------------------------------------
+* Y_PLUS: Low for 0..4ns (000-011), High for 4..8ns (100-111)
+VY_PLUS Y_PLUS 0 PWL(0ns 0V 4.00ns 0V 4.04ns 1.8V 8.00ns 1.8V 8.04ns 0V 9.00ns 0V)
 
-CL_SINGLE SINGLE 0 10fF
-CL_DOUBLE DOUBLE 0 10fF
-CL_NEG    NEG    0 10fF
+* Y_CURR: Toggles every 2 ns (0 for 000-001, 1 for 010-011, 0 for 100-101, 1 for 110-111)
+VY_CURR Y_CURR 0 PWL(0ns 0V 2.00ns 0V 2.04ns 1.8V 4.00ns 1.8V 4.04ns 0V 6.00ns 0V 6.04ns 1.8V 8.00ns 1.8V 8.04ns 0V 9.00ns 0V)
 
+* Y_PREV: Toggles every 1 ns (Alternates 0 and 1 across each state)
+VY_PREV Y_PREV 0 PWL(0ns 0V 1.00ns 0V 1.04ns 1.8V 2.00ns 1.8V 2.04ns 0V 3.00ns 0V 3.04ns 1.8V 4.00ns 1.8V 4.04ns 0V 5.00ns 0V 5.04ns 1.8V 6.00ns 1.8V 6.04ns 0V 7.00ns 0V 7.04ns 1.8V 8.00ns 1.8V 8.04ns 0V 9.00ns 0V)
+
+* -----------------------------------------------------------------------------
+* Realistic Output Loading: 20fF (~32 parallel Booth Selector gates + wiring)
+* -----------------------------------------------------------------------------
+CL_SINGLE SINGLE 0 20fF
+CL_DOUBLE DOUBLE 0 20fF
+CL_NEG    NEG    0 20fF
+
+* Device Under Test
 XDUT Y_PLUS Y_CURR Y_PREV SINGLE DOUBLE NEG VDD VSS BOOTH_ENCODER
 
-.tran 1ps 10ns
-.measure tran tpd_single TRIG V(Y_CURR) VAL=0.9 RISE=1 TARG V(SINGLE) VAL=0.9 RISE=1
-.measure tran tpd_double TRIG V(Y_PLUS) VAL=0.9 RISE=1 TARG V(DOUBLE) VAL=0.9 RISE=1
-.measure tran tpd_neg    TRIG V(Y_PLUS) VAL=0.9 RISE=1 TARG V(NEG)    VAL=0.9 RISE=1
+* -----------------------------------------------------------------------------
+* Simulation Controls & Delay Measurements
+* -----------------------------------------------------------------------------
+.tran 1ps 9ns
+
+* Propagation Delays: Low-to-High (tpdLH)
+.measure tran tpd_single_rise TRIG V(Y_PREV) VAL=0.9 RISE=1 TARG V(SINGLE) VAL=0.9 RISE=1
+.measure tran tpd_double_rise TRIG V(Y_PREV) VAL=0.9 RISE=2 TARG V(DOUBLE) VAL=0.9 RISE=1
+.measure tran tpd_neg_rise    TRIG V(Y_PLUS) VAL=0.9 RISE=1 TARG V(NEG)    VAL=0.9 RISE=1
+
+* Propagation Delays: High-to-Low (tpdHL)
+.measure tran tpd_single_fall TRIG V(Y_PREV) VAL=0.9 RISE=2 TARG V(SINGLE) VAL=0.9 FALL=1
+.measure tran tpd_double_fall TRIG V(Y_PREV) VAL=0.9 RISE=3 TARG V(DOUBLE) VAL=0.9 FALL=1
+.measure tran tpd_neg_fall    TRIG V(Y_PREV) VAL=0.9 RISE=4 TARG V(NEG)    VAL=0.9 FALL=1
+
+* Output Slew (10% to 90% rise time at 20fF load)
+.measure tran trise_single TRIG V(SINGLE) VAL=0.18 RISE=1 TARG V(SINGLE) VAL=1.62 RISE=1
+.measure tran trise_double TRIG V(DOUBLE) VAL=0.18 RISE=1 TARG V(DOUBLE) VAL=1.62 RISE=1
+.measure tran trise_neg    TRIG V(NEG)    VAL=0.18 RISE=1 TARG V(NEG)    VAL=1.62 RISE=1
+
+* Truth Table State Verification at Midpoints (0V or 1.8V)
+* State 0: 000 (Expect: S=0, D=0, N=0)
+.measure tran v_sng_000 FIND V(SINGLE) AT=0.5ns
+.measure tran v_dbl_000 FIND V(DOUBLE) AT=0.5ns
+.measure tran v_neg_000 FIND V(NEG)    AT=0.5ns
+
+* State 1: 001 (Expect: S=1, D=0, N=0)
+.measure tran v_sng_001 FIND V(SINGLE) AT=1.5ns
+.measure tran v_dbl_001 FIND V(DOUBLE) AT=1.5ns
+.measure tran v_neg_001 FIND V(NEG)    AT=1.5ns
+
+* State 2: 010 (Expect: S=1, D=0, N=0)
+.measure tran v_sng_010 FIND V(SINGLE) AT=2.5ns
+.measure tran v_dbl_010 FIND V(DOUBLE) AT=2.5ns
+.measure tran v_neg_010 FIND V(NEG)    AT=2.5ns
+
+* State 3: 011 (Expect: S=0, D=1, N=0)
+.measure tran v_sng_011 FIND V(SINGLE) AT=3.5ns
+.measure tran v_dbl_011 FIND V(DOUBLE) AT=3.5ns
+.measure tran v_neg_011 FIND V(NEG)    AT=3.5ns
+
+* State 4: 100 (Expect: S=0, D=1, N=1)
+.measure tran v_sng_100 FIND V(SINGLE) AT=4.5ns
+.measure tran v_dbl_100 FIND V(DOUBLE) AT=4.5ns
+.measure tran v_neg_100 FIND V(NEG)    AT=4.5ns
+
+* State 5: 101 (Expect: S=1, D=0, N=1)
+.measure tran v_sng_101 FIND V(SINGLE) AT=5.5ns
+.measure tran v_dbl_101 FIND V(DOUBLE) AT=5.5ns
+.measure tran v_neg_101 FIND V(NEG)    AT=5.5ns
+
+* State 6: 110 (Expect: S=1, D=0, N=1)
+.measure tran v_sng_110 FIND V(SINGLE) AT=6.5ns
+.measure tran v_dbl_110 FIND V(DOUBLE) AT=6.5ns
+.measure tran v_neg_110 FIND V(NEG)    AT=6.5ns
+
+* State 7: 111 (Expect: S=0, D=0, N=0)
+.measure tran v_sng_111 FIND V(SINGLE) AT=7.5ns
+.measure tran v_dbl_111 FIND V(DOUBLE) AT=7.5ns
+.measure tran v_neg_111 FIND V(NEG)    AT=7.5ns
 
 .end
