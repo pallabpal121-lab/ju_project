@@ -19,15 +19,16 @@ class newton_cubic_seq extends newton_base_seq;
 
     virtual task body();
         newton_seq_item item;
-        q16_t test_guesses[3] = '{
+        q16_t test_guesses[4] = '{
             32'h0002_8000, // x_init = +2.5 -> reaches x* = +1.0
             32'hFFFD_8000, // x_init = -2.5 -> reaches x* = -1.0
-            32'h0001_0000  // x_init = +1.0 -> immediate convergence
+            32'h0001_0000, // x_init = +1.0 -> immediate convergence
+            32'hFFFF_FD70  // x_init = -0.01 -> small negative curvature exercises -min_floor branch
         };
 
         `uvm_info(get_type_name(), "Executing Cubic Sequence: f(x) = x^3 - 3x ...", UVM_LOW)
 
-        for (int t = 0; t < 3; t++) begin
+        for (int t = 0; t < 4; t++) begin
             item = newton_seq_item::type_id::create($sformatf("cubic_item_%0d", t));
             start_item(item);
 

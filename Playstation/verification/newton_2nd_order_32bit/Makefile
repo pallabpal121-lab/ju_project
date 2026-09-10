@@ -45,6 +45,7 @@ VCS_FLAGS   = \
 
 # Runtime VCS Execution Options
 SIM_FLAGS   = \
+	-no_save \
 	+ntb_random_seed=$(SEED) \
 	-cm line+tgl+branch+fsm+assert \
 	-cm_dir $(COV_DB) \
@@ -54,7 +55,7 @@ SIM_FLAGS   = \
 
 .PHONY: all help init compile run regression report verdi clean quad cubic rational corner random
 
-all: compile run
+all: compile run report
 
 init:
 	@mkdir -p $(WORK_DIR) $(LOGS_DIR) $(OUTPUTS_DIR) $(REPORTS_DIR)
@@ -73,7 +74,7 @@ help:
 	@echo "======================================================================"
 	@echo "  Available Make Targets:"
 	@echo "    source env_vcs.sh              - Source Synopsys tool licenses & paths"
-	@echo "    make all (or make)             - Compile and run default test"
+	@echo "    make all (or make)             - Compile, run default test, and generate report"
 	@echo "    make compile                   - Compile RTL and UVM Testbench"
 	@echo "    make run [TEST=...] [VERB=...] - Run specific UVM test"
 	@echo "    make regression                - Run full regression & generate reports"

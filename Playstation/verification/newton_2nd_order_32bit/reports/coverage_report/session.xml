@@ -1,6 +1,6 @@
-<session version="1.1" release="W-2024.09" timestp="2026-08-31 12:15:51 GMT">
+<session version="1.1" release="W-2024.09" timestp="2026-09-10 06:45:21 GMT">
   <info>
-    <attr name="datetime" value="Mon Aug 31 17:45:54 2026
+    <attr name="datetime" value="Thu Sep 10 12:15:23 2026
 "/>
     <attr name="command" value="urg -dir work/simv.vdb -report reports/coverage_report"/>
     <attr name="top_instance" value="newton_tb_top,uvm_custom_install_verdi_recording"/>
@@ -16,17 +16,17 @@
   </hvp>
   <old_coverage>
   <scope type="top" name="top">
-    <metric name="Line" value="257/675" />
-    <metric name="Toggle" value="4232/7372" />
-    <metric name="FSM" value="24/37" />
-    <metric name="Branch" value="71/130" />
-    <metric name="Group" value="88.5714%" />
+    <metric name="Line" value="275/678" />
+    <metric name="Toggle" value="4631/7570" />
+    <metric name="FSM" value="25/37" />
+    <metric name="Branch" value="86/141" />
+    <metric name="Group" value="100%" />
   </scope>
   <scope type="instance" name="top">
   </scope>
   <scope type="group" name="top">
     <scope type="group" name="newton_tb_pkg::newton_coverage::cg_solver">
-      <metric name="Group" value="88.5714%" />
+      <metric name="Group" value="100%" />
     </scope>
   </scope>
   <scope type="assert" name="Statistics">
