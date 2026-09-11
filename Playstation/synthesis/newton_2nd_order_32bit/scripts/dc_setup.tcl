@@ -36,4 +36,4 @@ set alib_library_analysis_path "${WORK_DIR}/alib"
 file mkdir ${alib_library_analysis_path}
 
 # Setup Formality SVF record
-set_svf "${OUTPUTS_DIR}/${DESIGN_NAME}.svf"
+set_svf "${OUTPUTS_DB_DIR}/${DESIGN_NAME}.svf"

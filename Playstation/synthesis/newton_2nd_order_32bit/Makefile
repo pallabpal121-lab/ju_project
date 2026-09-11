@@ -46,7 +46,7 @@ syn:
 	@echo " Log File     : $(SYNTH_LOG)                                          "
 	@echo "======================================================================"
 	@SYNTH_CLK_PERIOD=$(CLK_PERIOD) TECH_NODE=$(TECH_NODE) CORNER=$(CORNER) \
-		$(DC_SHELL) -64bit -f $(RUN_SYN_SCRIPT) 2>&1 | tee $(SYNTH_LOG)
+		$(DC_SHELL) -64bit -output_log_file $(LOGS_DIR)/command.log -f $(RUN_SYN_SCRIPT) 2>&1 | tee $(SYNTH_LOG)
 	@echo "======================================================================"
 	@echo " Synthesis completed. Generating Sign-Off Report..."
 	@$(MAKE) --no-print-directory reports
@@ -58,7 +58,7 @@ check_design:
 	@mkdir -p $(WORK_DIR) $(LOGS_DIR) $(REPORTS_DIR) $(OUTPUTS_DIR)
 	@echo "Running RTL lint, elaboration and link check..."
 	@SYNTH_CLK_PERIOD=$(CLK_PERIOD) TECH_NODE=$(TECH_NODE) CORNER=$(CORNER) \
-		$(DC_SHELL) -64bit -x "source $(SCRIPTS_DIR)/common_setup.tcl; source $(SCRIPTS_DIR)/dc_setup.tcl; source $(SCRIPTS_DIR)/read_design.tcl; exit" 2>&1 | tee $(LOGS_DIR)/check_design.log
+		$(DC_SHELL) -64bit -output_log_file $(LOGS_DIR)/command.log -x "source $(SCRIPTS_DIR)/common_setup.tcl; source $(SCRIPTS_DIR)/dc_setup.tcl; source $(SCRIPTS_DIR)/read_design.tcl; exit" 2>&1 | tee $(LOGS_DIR)/check_design.log
 
 # ------------------------------------------------------------------------------
 # 3. Interactive Graphical User Interface (Design Vision)
@@ -81,12 +81,15 @@ reports:
 # 5. Cleanups
 # ------------------------------------------------------------------------------
 clean:
-	@echo ">>> Cleaning all synthesis build, report, and log artifacts..."
+	@echo ">>> Cleaning temporary synthesis scratch, logs, and parser cache..."
+	rm -rf $(WORK_DIR)/* $(LOGS_DIR)/* command.log default.svf filenames.log view.log alib cksum_dir *.mr *.pvl *.syn *.pvk
+	@echo ">>> Scratch clean completed."
+
+distclean:
+	@echo ">>> Cleaning all generated outputs, reports, deliverables, and scratch..."
 	rm -rf $(WORK_DIR)/* $(LOGS_DIR)/* $(OUTPUTS_DIR)/* $(REPORTS_DIR)/*
 	rm -rf SYNTHESIS_SIGNOFF.md command.log default.svf filenames.log view.log alib cksum_dir *.mr *.pvl *.syn *.pvk
-	@echo ">>> Clean completed."
-
-distclean: clean
+	@echo ">>> Distclean completed."
 
 # ------------------------------------------------------------------------------
 # 6. Help Target

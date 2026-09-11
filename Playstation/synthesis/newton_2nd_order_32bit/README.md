@@ -19,31 +19,59 @@ The flow adheres to the Synopsys Reference Methodology (RM) and implements all c
 ## Directory Layout
 
 ```text
-Playstation/synthesis/
-├── .synopsys_dc.setup            # DC startup file (search paths, target/link/synthetic libs)
+Playstation/synthesis/newton_2nd_order_32bit/
 ├── env_dc.sh                     # Shell environment initialization script
 ├── Makefile                      # Top-level GNU Makefile for flow automation
 ├── README.md                     # Directory and flow documentation
-├── filelist/
-│   ├── rtl.f                     # SystemVerilog source list with include directories
-│   └── rtl_syn.tcl               # Tcl file list for analyze/elaborate
-├── constraints/
+├── SYNTHESIS_SIGNOFF.md          # Top-level executive sign-off summary
+├── .synopsys_dc.setup            # DC startup file (search paths, WORK lib, target/link libs)
+├── .gitignore                    # Ignore temporary caches and logs
+├── constraints/                  # Timing, environmental, and exception constraints
 │   ├── newton_2nd_order_top.sdc  # Primary SDC timing constraints (100 MHz default)
 │   ├── design_env.sdc            # Environmental constraints (operating condition, loads, drivers)
 │   └── timing_exceptions.sdc     # False path and multicycle timing exceptions
-├── scripts/
-│   ├── common_setup.tcl          # Shared parameters (clock, frequency, node selection)
-│   ├── dc_setup.tcl              # Target library selection and SVF recording
-│   ├── read_design.tcl           # Analyze, elaborate, link, and check_design
+├── filelist/
+│   ├── rtl.f                     # SystemVerilog source list with include directories
+│   └── rtl_syn.tcl               # Tcl file list for analyze/elaborate
+├── scripts/                      # Modular synthesis automation scripts
 │   ├── apply_constraints.tcl     # SDC sourcing and cost function goals
+│   ├── common_setup.tcl          # Shared parameters (clock, frequency, node selection)
 │   ├── compile_design.tcl        # Optimization engine (compile_ultra / compile)
-│   ├── generate_reports.tcl      # Comprehensive QoR, area, timing, power reports
+│   ├── dc_setup.tcl              # Target library selection and SVF recording
 │   ├── export_outputs.tcl        # Netlist, SDC, SDF, and DDC file exports
+│   ├── gen_report.py             # Python QoR extractor & sign-off markdown generator
+│   ├── generate_reports.tcl      # Comprehensive QoR, area, timing, power reports
+│   ├── read_design.tcl           # Analyze, elaborate, link, and check_design
+│   ├── run_check.sh              # Quick linting wrapper script
+│   ├── run_dc.sh                 # Command-line synthesis launcher
+│   ├── run_gui.sh                # Design Vision GUI launcher
 │   └── run_synthesis.tcl         # Master synthesis automation execution script
-├── reports/                      # Generated synthesis reports (.rpt)
-├── outputs/                      # Mapped netlist (.v), SDC, SDF, and DDC database
-├── logs/                         # Synthesis execution logs
-└── work/                         # Temporary working directory and ALIB cache
+├── logs/                         # Synthesis execution and command logs
+│   ├── check_design.log
+│   ├── command.log
+│   └── synthesis.log
+├── reports/                      # Categorized sign-off reports
+│   ├── qor.rpt                   # Top-level Quality of Results summary
+│   ├── timing/                   # Setup/hold timing and constraint checks
+│   │   ├── check_timing.rpt
+│   │   ├── timing_hold_min.rpt
+│   │   └── timing_setup_max.rpt
+│   ├── area/                     # Hierarchical cell area and DesignWare resources
+│   │   ├── area_hier.rpt
+│   │   └── resources.rpt
+│   ├── power/                    # Power dissipation and clock gating
+│   │   ├── clock_gating.rpt
+│   │   └── power.rpt
+│   └── checks/                   # Linting, constraint violations, and standard cells
+│       ├── check_design.rpt
+│       ├── constraint_violators.rpt
+│       └── references.rpt
+├── outputs/                      # Categorized backend deliverables
+│   ├── netlist/                  # Gate-level structural Verilog netlist (.netlist.v)
+│   ├── constraints/              # Synthesized SDC constraints (.sdc)
+│   ├── delays/                   # Back-annotation delay model (.sdf)
+│   └── db/                       # Formal verification (.svf) and binary databases (.ddc)
+└── work/                         # Tool internal scratch, WORK library, and ALIB cache
 ```
 
 ---

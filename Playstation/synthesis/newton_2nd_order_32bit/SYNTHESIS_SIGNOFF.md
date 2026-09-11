@@ -6,7 +6,7 @@
 **Target ASIC**: SCL 180nm Commercial CMOS Process (`tsl18fs120_typ.db`)  
 **Operating Conditions**: Typical (1.8 V, 25 C)  
 **Tool & Version**: Synopsys Design Compiler Graphical W-2024.09-SP1  
-**Generated Date**: 2026-09-10 16:11:40  
+**Generated Date**: 2026-09-11 12:11:06  
 **Sign-Off Verdict**: **APPROVED FOR SILICON IMPLEMENTATION (PLACE & ROUTE)**  
 
 ---
@@ -47,11 +47,11 @@ This report documents the synthesis sign-off and Quality of Results (QoR) metric
 
 The following production deliverables are generated in the `outputs/` directory for physical design (ICC2), gate-level simulation (VCS), and static timing analysis (PrimeTime):
 
-1. **Gate-Level Structural Netlist**: `outputs/newton_2nd_order_top.netlist.v`
-2. **Synthesized Constraints**: `outputs/newton_2nd_order_top.sdc`
-3. **Delay Calculation File (SDF)**: `outputs/newton_2nd_order_top.sdf`
-4. **Hierarchical Database**: `outputs/newton_2nd_order_top_mapped.ddc`
-5. **Formal Verification SVF**: `outputs/newton_2nd_order_top.svf`
+1. **Gate-Level Structural Netlist**: `outputs/netlist/newton_2nd_order_top.netlist.v`
+2. **Synthesized Constraints**: `outputs/constraints/newton_2nd_order_top.sdc`
+3. **Delay Calculation File (SDF)**: `outputs/delays/newton_2nd_order_top.sdf`
+4. **Hierarchical Database**: `outputs/db/newton_2nd_order_top_mapped.ddc`
+5. **Formal Verification SVF**: `outputs/db/newton_2nd_order_top.svf`
 
 ---
 

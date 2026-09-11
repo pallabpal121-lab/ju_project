@@ -14,13 +14,16 @@ set hdlin_sv_packages true
 set hdlin_check_no_latch true
 set hdlin_enable_presto_for_vhdl true
 
+# Ensure WORK library is bound to ./work
+define_design_lib WORK -path ${WORK_DIR}
+
 # 1. Analyze: Parse HDL syntax and generate intermediate representation
 echo "INFO: Analyzing SystemVerilog design files..."
-analyze -format sverilog ${RTL_SOURCE_FILES}
+analyze -format sverilog -work WORK ${RTL_SOURCE_FILES}
 
 # 2. Elaborate: Build generic logic hierarchy (GTECH) and resolve parameters
 echo "INFO: Elaborating top-level design '${DESIGN_NAME}'..."
-elaborate ${DESIGN_NAME}
+elaborate ${DESIGN_NAME} -work WORK
 
 # Set current working design
 current_design ${DESIGN_NAME}
@@ -31,10 +34,10 @@ link
 
 # 4. Check Design: Detect unconnected pins, multiple drivers, latches, combinational loops
 echo "INFO: Performing comprehensive design lint checks..."
-check_design -multiple_designs > "${REPORTS_DIR}/check_design.rpt"
+check_design -multiple_designs > "${REPORTS_CHECKS_DIR}/check_design.rpt"
 
 # 5. Save intermediate unmapped generic netlist
-write -format ddc -hierarchy -output "${OUTPUTS_DIR}/${DESIGN_NAME}_unmapped.ddc"
+write -format ddc -hierarchy -output "${OUTPUTS_DB_DIR}/${DESIGN_NAME}_unmapped.ddc"
 
 echo "INFO: Reading and linking completed successfully."
 echo "======================================================================"

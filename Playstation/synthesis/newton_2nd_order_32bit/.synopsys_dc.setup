@@ -42,10 +42,12 @@ set link_library      [list * ${target_library} ${synthetic_library}]
 set symbol_library    [list generic.sdb]
 
 # ------------------------------------------------------------------------------
-# 3. ALIB (Advanced Library Optimization Cache) Path
+# 3. Working Directory and ALIB Cache Path
 # ------------------------------------------------------------------------------
-set alib_library_analysis_path "./work/alib"
+file mkdir ./work
 file mkdir ./work/alib
+define_design_lib WORK -path ./work
+set alib_library_analysis_path "./work/alib"
 
 # ------------------------------------------------------------------------------
 # 4. Tool & Compilation Defaults

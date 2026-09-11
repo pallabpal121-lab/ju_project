@@ -24,7 +24,7 @@ set_max_dynamic_power 0 mW
 
 # 5. Sanity check timing constraints before optimization
 echo "INFO: Checking timing constraints consistency..."
-check_timing > "${REPORTS_DIR}/check_timing.rpt"
+check_timing > "${REPORTS_TIMING_DIR}/check_timing.rpt"
 
 echo "INFO: Constraints applied and verified."
 echo "======================================================================"

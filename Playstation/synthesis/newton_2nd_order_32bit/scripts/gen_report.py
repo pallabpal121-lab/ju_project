@@ -18,17 +18,27 @@ def read_file(path):
     with open(path, "r", errors="ignore") as f:
         return f.read()
 
-qor_file = os.path.join(reports_dir, "qor.rpt")
-if not os.path.exists(qor_file) or os.path.getsize(qor_file) == 0:
+def find_report(filename, subdir=""):
+    if subdir:
+        sub_path = os.path.join(reports_dir, subdir, filename)
+        if os.path.exists(sub_path):
+            return sub_path
+    flat_path = os.path.join(reports_dir, filename)
+    if os.path.exists(flat_path):
+        return flat_path
+    return ""
+
+qor_file = find_report("qor.rpt")
+if not qor_file or os.path.getsize(qor_file) == 0:
     print(f"INFO: No synthesis reports found in '{reports_dir}/'. Please execute 'make syn' first.")
     sys.exit(0)
 
 qor_content = read_file(qor_file)
-area_content = read_file(os.path.join(reports_dir, "area_hier.rpt"))
-timing_setup_content = read_file(os.path.join(reports_dir, "timing_setup_max.rpt"))
-timing_hold_content = read_file(os.path.join(reports_dir, "timing_hold_min.rpt"))
-power_content = read_file(os.path.join(reports_dir, "power.rpt"))
-violators_content = read_file(os.path.join(reports_dir, "constraint_violators.rpt"))
+area_content = read_file(find_report("area_hier.rpt", "area"))
+timing_setup_content = read_file(find_report("timing_setup_max.rpt", "timing"))
+timing_hold_content = read_file(find_report("timing_hold_min.rpt", "timing"))
+power_content = read_file(find_report("power.rpt", "power"))
+violators_content = read_file(find_report("constraint_violators.rpt", "checks"))
 
 # Parse QoR
 wns_m = re.search(r"Worst Negative Slack:\s*([\-\d\.]+)", qor_content)
@@ -141,11 +151,11 @@ This report documents the synthesis sign-off and Quality of Results (QoR) metric
 
 The following production deliverables are generated in the `outputs/` directory for physical design (ICC2), gate-level simulation (VCS), and static timing analysis (PrimeTime):
 
-1. **Gate-Level Structural Netlist**: `outputs/newton_2nd_order_top.netlist.v`
-2. **Synthesized Constraints**: `outputs/newton_2nd_order_top.sdc`
-3. **Delay Calculation File (SDF)**: `outputs/newton_2nd_order_top.sdf`
-4. **Hierarchical Database**: `outputs/newton_2nd_order_top_mapped.ddc`
-5. **Formal Verification SVF**: `outputs/newton_2nd_order_top.svf`
+1. **Gate-Level Structural Netlist**: `outputs/netlist/newton_2nd_order_top.netlist.v`
+2. **Synthesized Constraints**: `outputs/constraints/newton_2nd_order_top.sdc`
+3. **Delay Calculation File (SDF)**: `outputs/delays/newton_2nd_order_top.sdf`
+4. **Hierarchical Database**: `outputs/db/newton_2nd_order_top_mapped.ddc`
+5. **Formal Verification SVF**: `outputs/db/newton_2nd_order_top.svf`
 
 ---
 

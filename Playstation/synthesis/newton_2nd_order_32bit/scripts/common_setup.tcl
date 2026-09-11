@@ -39,11 +39,30 @@ set SCRIPTS_DIR     "./scripts"
 set CONSTRAINTS_DIR "./constraints"
 set FILELIST_DIR    "./filelist"
 
+# Categorized Subdirectories
+set REPORTS_TIMING_DIR "${REPORTS_DIR}/timing"
+set REPORTS_AREA_DIR   "${REPORTS_DIR}/area"
+set REPORTS_POWER_DIR  "${REPORTS_DIR}/power"
+set REPORTS_CHECKS_DIR "${REPORTS_DIR}/checks"
+
+set OUTPUTS_NETLIST_DIR     "${OUTPUTS_DIR}/netlist"
+set OUTPUTS_CONSTRAINTS_DIR "${OUTPUTS_DIR}/constraints"
+set OUTPUTS_DELAYS_DIR      "${OUTPUTS_DIR}/delays"
+set OUTPUTS_DB_DIR          "${OUTPUTS_DIR}/db"
+
 # Ensure runtime directories exist
 file mkdir ${WORK_DIR}
 file mkdir ${LOGS_DIR}
 file mkdir ${REPORTS_DIR}
 file mkdir ${OUTPUTS_DIR}
+file mkdir ${REPORTS_TIMING_DIR}
+file mkdir ${REPORTS_AREA_DIR}
+file mkdir ${REPORTS_POWER_DIR}
+file mkdir ${REPORTS_CHECKS_DIR}
+file mkdir ${OUTPUTS_NETLIST_DIR}
+file mkdir ${OUTPUTS_CONSTRAINTS_DIR}
+file mkdir ${OUTPUTS_DELAYS_DIR}
+file mkdir ${OUTPUTS_DB_DIR}
 
 echo "======================================================================"
 echo " Design Synthesis Configuration"
