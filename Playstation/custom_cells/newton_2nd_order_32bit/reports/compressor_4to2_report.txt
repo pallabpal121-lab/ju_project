@@ -1,0 +1,23 @@
+==========================================================================
+ CADENCE SPECTRE SIMULATION REPORT
+ Cell Design     : compressor_4to2
+ Timestamp       : Fri Sep 11 12:53:20 IST 2026
+ Simulator       : Cadence Spectre (64-bit)
+ Testbench File  : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/cells/arithmetic/compressor_4to2/tb_transient.spice
+ Log Location    : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/logs/compressor_4to2_spectre.log
+ Waveform Data   : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/outputs/compressor_4to2.raw
+==========================================================================
+
+=== Simulation Metrics ===
+Transient Analysis `timeSweep': time = (0 s -> 10 ns)
+Number of accepted tran steps =             969
+Maximum value achieved for any signal of each quantity: 
+Intrinsic tran analysis time:    CPU = 119.8 ms, elapsed = 124.005 ms.
+
+=== Timing & Delay Measurements (.measure) ===
+avg_power             =  -0.000213601 
+tpd_x1_to_cout        =  2.13413e-10 
+tpd_x1_to_sum         =  5.47947e-11 
+
+=== Status ===
+spectre completes with 0 errors, 4 warnings, and 10 notices.

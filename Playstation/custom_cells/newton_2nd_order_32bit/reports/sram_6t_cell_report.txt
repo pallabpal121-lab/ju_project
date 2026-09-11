@@ -1,0 +1,18 @@
+==========================================================================
+ CADENCE SPECTRE SIMULATION REPORT
+ Cell Design     : sram_6t_cell
+ Timestamp       : Fri Sep 11 12:53:36 IST 2026
+ Simulator       : Cadence Spectre (64-bit)
+ Testbench File  : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/cells/memory/sram_6t_cell/tb_snm.spice
+ Log Location    : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/logs/sram_6t_cell_spectre.log
+ Waveform Data   : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/outputs/sram_6t_cell.raw
+==========================================================================
+
+=== Simulation Metrics ===
+Transient Analysis `timeSweep': time = (0 s -> 4 ns)
+Number of accepted tran steps =             70
+Maximum value achieved for any signal of each quantity: 
+Intrinsic tran analysis time:    CPU = 2.759 ms, elapsed = 6.8872 ms.
+
+=== Status ===
+spectre completes with 0 errors, 4 warnings, and 15 notices.

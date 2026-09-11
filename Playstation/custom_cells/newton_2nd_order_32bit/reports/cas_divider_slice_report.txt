@@ -1,0 +1,22 @@
+==========================================================================
+ CADENCE SPECTRE SIMULATION REPORT
+ Cell Design     : cas_divider_slice
+ Timestamp       : Fri Sep 11 12:53:26 IST 2026
+ Simulator       : Cadence Spectre (64-bit)
+ Testbench File  : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/cells/divider/cas_divider_slice/tb_transient.spice
+ Log Location    : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/logs/cas_divider_slice_spectre.log
+ Waveform Data   : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/outputs/cas_divider_slice.raw
+==========================================================================
+
+=== Simulation Metrics ===
+Transient Analysis `timeSweep': time = (0 s -> 10 ns)
+Number of accepted tran steps =             698
+Maximum value achieved for any signal of each quantity: 
+Intrinsic tran analysis time:    CPU = 38.734 ms, elapsed = 42.855 ms.
+
+=== Timing & Delay Measurements (.measure) ===
+tpd_a_to_sum          =  3.2459e-09 
+tpd_ctrl_to_cout      =  1.37112e-10 
+
+=== Status ===
+spectre completes with 0 errors, 4 warnings, and 13 notices.

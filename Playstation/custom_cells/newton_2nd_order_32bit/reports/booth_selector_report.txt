@@ -1,0 +1,21 @@
+==========================================================================
+ CADENCE SPECTRE SIMULATION REPORT
+ Cell Design     : booth_selector
+ Timestamp       : Fri Sep 11 12:53:18 IST 2026
+ Simulator       : Cadence Spectre (64-bit)
+ Testbench File  : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/cells/arithmetic/booth_selector/tb_transient.spice
+ Log Location    : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/logs/booth_selector_spectre.log
+ Waveform Data   : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/outputs/booth_selector.raw
+==========================================================================
+
+=== Simulation Metrics ===
+Transient Analysis `timeSweep': time = (0 s -> 6 ns)
+Number of accepted tran steps =             240
+Maximum value achieved for any signal of each quantity: 
+Intrinsic tran analysis time:    CPU = 12.066 ms, elapsed = 16.14 ms.
+
+=== Timing & Delay Measurements (.measure) ===
+tpd_select_single     =  2.91889e-10 
+
+=== Status ===
+spectre completes with 0 errors, 4 warnings, and 17 notices.

@@ -1,0 +1,22 @@
+==========================================================================
+ CADENCE SPECTRE SIMULATION REPORT
+ Cell Design     : fast_comparator
+ Timestamp       : Fri Sep 11 12:53:39 IST 2026
+ Simulator       : Cadence Spectre (64-bit)
+ Testbench File  : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/cells/specialized/fast_comparator/tb_transient.spice
+ Log Location    : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/logs/fast_comparator_spectre.log
+ Waveform Data   : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/outputs/fast_comparator.raw
+==========================================================================
+
+=== Simulation Metrics ===
+Transient Analysis `timeSweep': time = (0 s -> 10 ns)
+Number of accepted tran steps =             526
+Maximum value achieved for any signal of each quantity: 
+Intrinsic tran analysis time:    CPU = 17.103 ms, elapsed = 21.306 ms.
+
+=== Timing & Delay Measurements (.measure) ===
+tpd_eq                =  3.16315e-09 
+tpd_gt                =  2.25141e-09 
+
+=== Status ===
+spectre completes with 0 errors, 4 warnings, and 15 notices.

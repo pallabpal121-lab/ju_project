@@ -1,0 +1,53 @@
+==========================================================================
+ CADENCE SPECTRE SIMULATION REPORT
+ Cell Design     : booth_encoder
+ Timestamp       : Fri Sep 11 12:53:17 IST 2026
+ Simulator       : Cadence Spectre (64-bit)
+ Testbench File  : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/cells/arithmetic/booth_encoder/tb_transient.spice
+ Log Location    : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/logs/booth_encoder_spectre.log
+ Waveform Data   : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/outputs/booth_encoder.raw
+==========================================================================
+
+=== Simulation Metrics ===
+Transient Analysis `timeSweep': time = (0 s -> 9 ns)
+Number of accepted tran steps =             439
+Maximum value achieved for any signal of each quantity: 
+Intrinsic tran analysis time:    CPU = 28.41 ms, elapsed = 32.4681 ms.
+
+=== Timing & Delay Measurements (.measure) ===
+tpd_double_fall       =  2.67909e-10 
+tpd_double_rise       =  2.36688e-10 
+tpd_neg_fall          =  2.79102e-10 
+tpd_neg_rise          =  1.95654e-10 
+tpd_single_fall       =  2.85356e-10 
+tpd_single_rise       =  1.73169e-10 
+trise_double          =  1.75217e-10 
+trise_neg             =  1.57165e-10 
+trise_single          =  1.87761e-10 
+v_dbl_000             =  3.58402e-09 
+v_dbl_001             =  9.7191e-06 
+v_dbl_010             =  1.04516e-05 
+v_dbl_011             =  1.78983 
+v_dbl_100             =  1.79998 
+v_dbl_101             =  0.000305979 
+v_dbl_110             =  2.77746e-06 
+v_dbl_111             =  1.13984e-05 
+v_neg_000             =  3.58402e-09 
+v_neg_001             =  6.45825e-07 
+v_neg_010             =  2.95405e-09 
+v_neg_011             =  1.36771e-07 
+v_neg_100             =  1.79679 
+v_neg_101             =  1.79998 
+v_neg_110             =  1.8 
+v_neg_111             =  0.000522564 
+v_sng_000             =  4.29972e-09 
+v_sng_001             =  1.79383 
+v_sng_010             =  1.7999 
+v_sng_011             =  0.000714303 
+v_sng_100             =  6.34343e-06 
+v_sng_101             =  1.79349 
+v_sng_110             =  1.79991 
+v_sng_111             =  0.000886354 
+
+=== Status ===
+spectre completes with 0 errors, 4 warnings, and 11 notices.

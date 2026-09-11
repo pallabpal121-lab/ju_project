@@ -1,0 +1,21 @@
+==========================================================================
+ CADENCE SPECTRE SIMULATION REPORT
+ Cell Design     : srt_radix4_stage
+ Timestamp       : Fri Sep 11 12:53:28 IST 2026
+ Simulator       : Cadence Spectre (64-bit)
+ Testbench File  : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/cells/divider/srt_radix4_stage/tb_transient.spice
+ Log Location    : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/logs/srt_radix4_stage_spectre.log
+ Waveform Data   : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/outputs/srt_radix4_stage.raw
+==========================================================================
+
+=== Simulation Metrics ===
+Transient Analysis `timeSweep': time = (0 s -> 10 ns)
+Number of accepted tran steps =             717
+Maximum value achieved for any signal of each quantity: 
+Intrinsic tran analysis time:    CPU = 36.852 ms, elapsed = 41.0271 ms.
+
+=== Timing & Delay Measurements (.measure) ===
+tpd_cas_sum           =  2.53775e-10 
+
+=== Status ===
+spectre completes with 0 errors, 4 warnings, and 16 notices.

@@ -9,4 +9,4 @@ DEFINE cds_generic /home/user17/Synopsys/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_
 DEFINE sheetBorder /home/user17/Synopsys/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/amslibs/cds_oa/cdslibs/sheetBorder
 
 # Full-Custom Accelerator Design Library
-DEFINE custom_cells_oa /home/user17/Desktop/ju_project/Playstation/custom_cells/oa_libs/custom_cells_oa
+DEFINE custom_cells_oa /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/oa_libs/custom_cells_oa

@@ -2,7 +2,6 @@
 work/
 outputs/
 logs/
-reports/
 scratch/
 test_run.raw/
 *.raw/

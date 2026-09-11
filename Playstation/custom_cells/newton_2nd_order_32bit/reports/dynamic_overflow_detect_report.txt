@@ -1,0 +1,21 @@
+==========================================================================
+ CADENCE SPECTRE SIMULATION REPORT
+ Cell Design     : dynamic_overflow_detect
+ Timestamp       : Fri Sep 11 12:53:38 IST 2026
+ Simulator       : Cadence Spectre (64-bit)
+ Testbench File  : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/cells/specialized/dynamic_overflow_detect/tb_transient.spice
+ Log Location    : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/logs/dynamic_overflow_detect_spectre.log
+ Waveform Data   : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/outputs/dynamic_overflow_detect.raw
+==========================================================================
+
+=== Simulation Metrics ===
+Transient Analysis `timeSweep': time = (0 s -> 10 ns)
+Number of accepted tran steps =             301
+Maximum value achieved for any signal of each quantity: 
+Intrinsic tran analysis time:    CPU = 48.948 ms, elapsed = 53.2498 ms.
+
+=== Timing & Delay Measurements (.measure) ===
+tpd_overflow          =  2.60416e-10 
+
+=== Status ===
+spectre completes with 0 errors, 4 warnings, and 17 notices.

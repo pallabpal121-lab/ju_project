@@ -1,0 +1,21 @@
+==========================================================================
+ CADENCE SPECTRE SIMULATION REPORT
+ Cell Design     : csa_3to2_slice
+ Timestamp       : Fri Sep 11 12:53:22 IST 2026
+ Simulator       : Cadence Spectre (64-bit)
+ Testbench File  : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/cells/arithmetic/csa_3to2_slice/tb_transient.spice
+ Log Location    : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/logs/csa_3to2_slice_spectre.log
+ Waveform Data   : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/outputs/csa_3to2_slice.raw
+==========================================================================
+
+=== Simulation Metrics ===
+Transient Analysis `timeSweep': time = (0 s -> 10 ns)
+Number of accepted tran steps =             482
+Maximum value achieved for any signal of each quantity: 
+Intrinsic tran analysis time:    CPU = 20.467 ms, elapsed = 24.554 ms.
+
+=== Timing & Delay Measurements (.measure) ===
+tpd_csa_sum           =  1.29219e-10 
+
+=== Status ===
+spectre completes with 0 errors, 4 warnings, and 16 notices.

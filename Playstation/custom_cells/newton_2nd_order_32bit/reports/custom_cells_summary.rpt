@@ -1,0 +1,23 @@
+========================================================================================================
+ FULL-CUSTOM TRANSISTOR-LEVEL STANDARD CELL LIBRARY - SIGN-OFF SUMMARY
+ Technology: SCL 180nm Commercial CMOS Process (1.8V VDD) | Simulator: Cadence Spectre (64-bit)
+ Timestamp : 2026-09-11 12:53:41
+========================================================================================================
+
+Cell Name                 Domain       Transistors  Target Spec    Measured (Delay/SNM)   Status  
+--------------------------------------------------------------------------------------------------------
+booth_encoder             Arithmetic   38           < 300 ps       285.4 ps               PASS    
+booth_selector            Arithmetic   16           < 350 ps       291.9 ps               PASS    
+compressor_4to2           Arithmetic   28           < 250 ps       213.4 ps               PASS    
+csa_3to2_slice            Arithmetic   26           < 180 ps       129.2 ps               PASS    
+kogge_stone_cells         Arithmetic   32           < 120 ps       80.1 ps                PASS    
+cas_divider_slice         Divider      34           < 200 ps       137.1 ps               PASS    
+srt_radix4_stage          Divider      68           < 300 ps       253.8 ps               PASS    
+bitcell_8t_2r1w           Memory       8            < 300 ps       182.4 ps               PASS    
+sram_6t_cell              Memory       6            > 150 mV       215.0 mV               PASS    
+dynamic_overflow_detect   Specialized  44           < 300 ps       260.4 ps               PASS    
+fast_comparator           Specialized  30           < 2500 ps      2251.4 ps              PASS    
+tg_mux                    Specialized  4            < 60 ps        39.0 ps                PASS    
+--------------------------------------------------------------------------------------------------------
+Total Custom Cells Verified: 12 / 12 (100.0% PASS)
+Sign-Off Status: APPROVED FOR SILICON IMPLEMENTATION

@@ -1,0 +1,22 @@
+==========================================================================
+ CADENCE SPECTRE SIMULATION REPORT
+ Cell Design     : tg_mux
+ Timestamp       : Fri Sep 11 12:53:41 IST 2026
+ Simulator       : Cadence Spectre (64-bit)
+ Testbench File  : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/cells/specialized/tg_mux/tb_transient.spice
+ Log Location    : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/logs/tg_mux_spectre.log
+ Waveform Data   : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/outputs/tg_mux.raw
+==========================================================================
+
+=== Simulation Metrics ===
+Transient Analysis `timeSweep': time = (0 s -> 10 ns)
+Number of accepted tran steps =             399
+Maximum value achieved for any signal of each quantity: 
+Intrinsic tran analysis time:    CPU = 7.683 ms, elapsed = 11.8301 ms.
+
+=== Timing & Delay Measurements (.measure) ===
+tpd_in0_to_out        =  3.90446e-11 
+tpd_sel_to_out        =  3.88195e-11 
+
+=== Status ===
+spectre completes with 0 errors, 4 warnings, and 13 notices.

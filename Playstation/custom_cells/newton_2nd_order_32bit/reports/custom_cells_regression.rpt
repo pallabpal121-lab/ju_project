@@ -1,0 +1,21 @@
+================================================================================
+ CADENCE SPECTRE REGRESSION AUDIT REPORT
+ Date: 2026-09-11 12:53:41
+================================================================================
+
+Test Index   Cell Name                  Simulator Log                    Verdict 
+--------------------------------------------------------------------------------
+[01/12]     booth_encoder              booth_encoder_spectre.log        PASS    
+[02/12]     booth_selector             booth_selector_spectre.log       PASS    
+[03/12]     compressor_4to2            compressor_4to2_spectre.log      PASS    
+[04/12]     csa_3to2_slice             csa_3to2_slice_spectre.log       PASS    
+[05/12]     kogge_stone_cells          kogge_stone_cells_spectre.log    PASS    
+[06/12]     cas_divider_slice          cas_divider_slice_spectre.log    PASS    
+[07/12]     srt_radix4_stage           srt_radix4_stage_spectre.log     PASS    
+[08/12]     bitcell_8t_2r1w            bitcell_8t_2r1w_spectre.log      PASS    
+[09/12]     sram_6t_cell               sram_6t_cell_spectre.log         PASS    
+[10/12]     dynamic_overflow_detect    dynamic_overflow_detect_spectre.log PASS    
+[11/12]     fast_comparator            fast_comparator_spectre.log      PASS    
+[12/12]     tg_mux                     tg_mux_spectre.log               PASS    
+--------------------------------------------------------------------------------
+Regression Verdict: 12 PASSED, 0 FAILED

@@ -1,0 +1,21 @@
+==========================================================================
+ CADENCE SPECTRE SIMULATION REPORT
+ Cell Design     : kogge_stone_cells
+ Timestamp       : Fri Sep 11 12:53:24 IST 2026
+ Simulator       : Cadence Spectre (64-bit)
+ Testbench File  : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/cells/arithmetic/kogge_stone_cells/tb_transient.spice
+ Log Location    : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/logs/kogge_stone_cells_spectre.log
+ Waveform Data   : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/outputs/kogge_stone_cells.raw
+==========================================================================
+
+=== Simulation Metrics ===
+Transient Analysis `timeSweep': time = (0 s -> 10 ns)
+Number of accepted tran steps =             397
+Maximum value achieved for any signal of each quantity: 
+Intrinsic tran analysis time:    CPU = 17.805 ms, elapsed = 21.7681 ms.
+
+=== Timing & Delay Measurements (.measure) ===
+tpd_black_g           =  8.00906e-11 
+
+=== Status ===
+spectre completes with 0 errors, 4 warnings, and 16 notices.

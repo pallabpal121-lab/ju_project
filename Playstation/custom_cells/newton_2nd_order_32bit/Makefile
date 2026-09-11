@@ -36,7 +36,7 @@ ALL_CELLS := \
 	fast_comparator \
 	tg_mux
 
-.PHONY: help check preflight virtuoso gui schematic view_schematic view_layout sch layout sim sim_all wave clean
+.PHONY: help check preflight virtuoso gui schematic view_schematic view_layout sch layout sim sim_all regression reports wave clean
 
 help:
 	@echo "=========================================================================="
@@ -44,9 +44,11 @@ help:
 	@echo " Cadence Virtuoso IC618 & Spectre Simulation Flow"
 	@echo "=========================================================================="
 	@echo " Simulation & Verification:"
-	@echo "   make sim CELL=<name>         Run Spectre simulation & generate report"
+	@echo "   make sim CELL=<name>         Run Spectre simulation for target cell"
 	@echo "   make wave CELL=<name>        Open Cadence ViVA Waveform Viewer"
-	@echo "   make sim_all                 Run automated simulation across all 12 cells"
+	@echo "   make regression              Run automated 12-cell regression & sign-off"
+	@echo "   make sim_all                 Alias for make regression"
+	@echo "   make reports                 Compile metrics & generate CUSTOM_CELLS_SIGNOFF.md"
 	@echo ""
 	@echo " Schematic & Layout (Cadence Virtuoso):"
 	@echo "   make schematic CELL=<name>   Generate Virtuoso schematic from SPICE netlist"
@@ -68,14 +70,14 @@ help:
 
 check:
 	@echo "=== Checking Cadence Virtuoso & Spectre Environment ==="
-	@which virtuoso || { echo "[ERROR] Virtuoso not found in PATH. Run: source $(CONFIG_DIR)/env_virtuoso.sh"; exit 1; }
-	@which spectre  || { echo "[ERROR] Spectre not found in PATH. Run: source $(CONFIG_DIR)/env_virtuoso.sh"; exit 1; }
+	@which virtuoso || { echo "[ERROR] Virtuoso not found in PATH. Run: source ./env_virtuoso.sh"; exit 1; }
+	@which spectre  || { echo "[ERROR] Spectre not found in PATH. Run: source ./env_virtuoso.sh"; exit 1; }
 	@"$(VIRTUOSO)" -W
 	@"$(SPECTRE)" -V
 	@echo "[PASS] Cadence Virtuoso & Spectre are ready."
 
 preflight:
-	@test -f $(CONFIG_DIR)/cds.lib || { echo "[ERROR] Missing $(CONFIG_DIR)/cds.lib" >&2; exit 1; }
+	@test -f $(CURDIR)/cds.lib || test -f $(CONFIG_DIR)/cds.lib || { echo "[ERROR] Missing cds.lib" >&2; exit 1; }
 	@mkdir -p $(WORK_DIR) $(LOG_DIR) $(REPORT_DIR) $(OUTPUT_DIR) $(OA_DIR)
 	@cp -f $(CONFIG_DIR)/cds.lib $(WORK_DIR)/cds.lib
 
@@ -101,20 +103,13 @@ layout: view_layout
 sim: preflight check
 	@bash $(SCRIPTS_DIR)/run_cell_sim.sh "$(CELL)"
 
-sim_all: preflight check
-	@echo "=========================================================================="
-	@echo " Running Spectre Simulation Regression on All Custom Cells"
-	@echo "=========================================================================="
-	@for c in $(ALL_CELLS); do \
-		echo "--------------------------------------------------------"; \
-		bash $(SCRIPTS_DIR)/run_cell_sim.sh "$$c"; \
-	done
-	@echo "=========================================================================="
-	@echo "[PASS] All cell simulations completed successfully."
-	@echo "Logs     : $(LOG_DIR)/"
-	@echo "Reports  : $(REPORT_DIR)/"
-	@echo "Waveforms: $(OUTPUT_DIR)/"
-	@echo "=========================================================================="
+regression: preflight check
+	@bash $(SCRIPTS_DIR)/run_regression.sh
+
+sim_all: regression
+
+reports: preflight
+	@python3 $(SCRIPTS_DIR)/gen_report.py "$(WORK_DIR)" "$(LOG_DIR)" "$(REPORT_DIR)"
 
 wave: preflight check
 	@bash $(SCRIPTS_DIR)/view_wave.sh "$(CELL)"
@@ -122,7 +117,7 @@ wave: preflight check
 clean:
 	@echo "Cleaning temporary simulation runtime files, logs, and lockfiles..."
 	@rm -rf $(WORK_DIR)/* $(LOG_DIR)/* $(OUTPUT_DIR)/* $(REPORT_DIR)/*
-	@rm -f *.log *.cdslck cds.log* pvs.log* spiceIn.log
-	@find . -name "*.cdslck" -delete 2>/dev/null || true
+	@rm -f *.log *.cdslck cds.log* pvs.log* spiceIn.log *.measure *.mt0 *.mr0 *.raw *.tr0
+	@find . -maxdepth 2 -name "*.cdslck" -delete 2>/dev/null || true
 	@mkdir -p $(WORK_DIR) $(LOG_DIR) $(OUTPUT_DIR) $(REPORT_DIR)
 	@echo "[PASS] Workspace cleaned (oa_libs/ database preserved)."

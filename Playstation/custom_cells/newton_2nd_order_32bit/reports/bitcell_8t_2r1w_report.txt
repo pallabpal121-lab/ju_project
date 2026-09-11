@@ -1,0 +1,18 @@
+==========================================================================
+ CADENCE SPECTRE SIMULATION REPORT
+ Cell Design     : bitcell_8t_2r1w
+ Timestamp       : Fri Sep 11 12:53:34 IST 2026
+ Simulator       : Cadence Spectre (64-bit)
+ Testbench File  : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/cells/memory/bitcell_8t_2r1w/tb_read_write.spice
+ Log Location    : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/logs/bitcell_8t_2r1w_spectre.log
+ Waveform Data   : /home/user17/Desktop/ju_project/Playstation/custom_cells/newton_2nd_order_32bit/outputs/bitcell_8t_2r1w.raw
+==========================================================================
+
+=== Simulation Metrics ===
+Transient Analysis `timeSweep': time = (0 s -> 4 ns)
+Number of accepted tran steps =             217
+Maximum value achieved for any signal of each quantity: 
+Intrinsic tran analysis time:    CPU = 6.655 ms, elapsed = 10.7851 ms.
+
+=== Status ===
+spectre completes with 0 errors, 4 warnings, and 15 notices.

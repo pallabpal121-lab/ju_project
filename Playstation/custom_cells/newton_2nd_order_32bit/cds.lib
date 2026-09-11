@@ -1,0 +1,3 @@
+# Cadence Virtuoso Library Definitions for Custom Cells
+# Includes core analogLib, PDK libraries, and custom_cells_oa OpenAccess library
+INCLUDE ./config/cds.lib
