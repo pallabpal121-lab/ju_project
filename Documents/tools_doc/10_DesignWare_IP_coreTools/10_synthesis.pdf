@@ -1,0 +1,4008 @@
+%PDF-1.1
+%‚„œ”
+1 0 obj
+<<
+/Producer (Acrobat Distiller Command 3.01 for Solaris 2.3 and later \(SPARC\))
+/Creator (Microsoft Word 8.0)
+/Title (Synthesis in coreBuilder and coreConsultant)
+/Author (Mark Noll)
+/ModDate (D:20000731145622)
+/Subject (coreBuilder Application Note)
+/CreationDate (D:20000731145622)
+>>
+endobj
+3 0 obj
+<<
+/Length 773
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 327.69 49.17 Tm
+0 g
+BX /GS1 gs EX
+-0.002 Tc
+0.013 Tw
+[(Sy)-8(nthe)-12(s)-8(i)3(s in c)-8(o)0(r)-6(e)0(B)-10(u)0(i)-9(l)3(der)-6( and )12(c)-8(o)0(r)-18(e)0(Con)-12(s)4(u)-12(l)3(ta)-12(nt)]TJ
+ET
+q
+1 i 
+518.85 35.13 5.52 -6.84 re
+W* n
+BT
+9.96 0 0 9.96 518.85 25.77 Tm
+0 Tc
+0 Tw
+(1)Tj
+ET
+Q
+BT
+24 0 0 24 140.13 557.85 Tm
+0 Tc
+0.002 Tw
+(Synthesis in coreBuilder and)Tj
+0 -1.155 TD
+[(coreConsult)13(ant)]TJ
+ET
+1 i 
+138.69 523.89 384.72 -0.36 re
+f
+BT
+/F1 1 Tf
+14.04 0 0 14.04 329.13 332.85 Tm
+-0.004 Tc
+0.008 Tw
+[(cor)-8(e)-4(Bui)-8(l)-8(d)0(er)-8( Appli)-8(cati)-8(on Note)]TJ
+/F3 1 Tf
+-4.9403 -1.7949 TD
+0 Tc
+0.004 Tw
+[(Mark Noll)8(, )8(Syn)9(opsys De)9(sign)9( Reuse)9( Gro)9(up)]TJ
+14.4108 -3.5728 TD
+0.001 Tc
+0.003 Tw
+[(Jul)9(y)-3( 200)10(0)]TJ
+ET
+endstream
+endobj
+4 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 5 0 R
+/F3 6 0 R
+>>
+/ExtGState <<
+/GS1 7 0 R
+>>
+>>
+endobj
+10 0 obj
+<<
+/Length 1583
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 327.69 49.17 Tm
+0 g
+BX /GS1 gs EX
+-0.002 Tc
+0.013 Tw
+[(Sy)-8(nthe)-12(s)-8(i)3(s in c)-8(o)0(r)-6(e)0(B)-10(u)0(i)-9(l)3(der)-6( and )12(c)-8(o)0(r)-18(e)0(Con)-12(s)4(u)-12(l)3(ta)-12(nt)]TJ
+ET
+q
+1 i 
+518.85 35.13 5.52 -6.84 re
+W* n
+BT
+9.96 0 0 9.96 518.85 25.77 Tm
+0 Tc
+0 Tw
+(2)Tj
+ET
+Q
+BT
+/F1 1 Tf
+18 0 0 18 90.09 689.73 Tm
+[(Abstra)-6(ct)]TJ
+ET
+1 i 
+88.65 707.85 434.76 -0.36 re
+f
+BT
+/F3 1 Tf
+14.04 0 0 14.04 140.13 654.69 Tm
+0 Tc
+0.004 Tw
+[(This app)9(lica)9(t)-4(ion)9( no)9(te )8(define)9(s a me)9(thodol)8(ogy )8(for )8(synth)9(e)0(si)8(zing)]TJ
+0 -1.1453 TD
+[(design)9(s )8(in )8(coreConsul)8(tant. It )8(co)9(ver)8(s)-4( material)8( for b)9(o)0(th)9( the )8(co)9(re)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(develope)10(r and)10( )8(the core)10( in)10(tegra)10(tor)9(.)-3( A)10( pro)10(ce)10(ss will)9( be )8(defin)10(ed)]TJ
+0 -1.1539 TD
+0 Tc
+-0.004 Tw
+[(for ta)9(king)9( )-8(both )-8(new)13( )-8(and)9( )-8(lega)9(cy core)9(s through)9( the process )-8(of)]TJ
+0 -1.1453 TD
+0.004 Tw
+[(con)9(strai)8(nt de)9(finiti)8(on, )8(speci)8(f)-4(i)8(c)-4(a)9(t)-4(ion o)9(f)4( synthe)9(sis in)9(tent )8(that)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(drive)10(s)-3( )8(the)10( scrip)10(t genera)10(tion)10( pro)10(ce)10(ss, a)10(nd )8(then)10( a)10(ctual)9(ly)]TJ
+T*
+[(syn)10(the)10(s)-3(i)9(z)-3(ing)10( a )8(core. Thi)9(s)5( document al)9(so p)10(rovi)9(des a)10( step)10( by)]TJ
+T*
+0 Tc
+0.004 Tw
+[(step)9( pro)9(ce)9(ss )8(to )8(follow)13( when )8(the)9( re)9(sulti)8(ng )8(QoR doe)9(s not mee)9(t)]TJ
+T*
+0.001 Tc
+-0.005 Tw
+[(the spe)10(c)-3(i)9(f)-3(ied con)10(s)5(train)10(ts.)]TJ
+ET
+endstream
+endobj
+11 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 5 0 R
+/F3 6 0 R
+>>
+/ExtGState <<
+/GS1 7 0 R
+>>
+>>
+endobj
+13 0 obj
+<<
+/Length 4579
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 327.69 49.17 Tm
+0 g
+BX /GS1 gs EX
+-0.002 Tc
+0.013 Tw
+[(Sy)-8(nthe)-12(s)-8(i)3(s in c)-8(o)0(r)-6(e)0(B)-10(u)0(i)-9(l)3(der)-6( and )12(c)-8(o)0(r)-18(e)0(Con)-12(s)4(u)-12(l)3(ta)-12(nt)]TJ
+ET
+q
+1 i 
+518.85 35.13 5.52 -6.84 re
+W* n
+BT
+9.96 0 0 9.96 518.85 25.77 Tm
+0 Tc
+0 Tw
+(3)Tj
+ET
+Q
+BT
+/F1 1 Tf
+18 0 0 18 90.09 689.73 Tm
+0.001 Tc
+[(Introducti)6(on)]TJ
+ET
+1 i 
+88.65 707.85 434.76 -0.36 re
+f
+BT
+/F3 1 Tf
+14.04 0 0 14.04 140.13 654.69 Tm
+0 Tc
+0.004 Tw
+[(There are)9( th)9(ree p)9(rimary )8(step)9(s)4( th)9(at must )8(be )8(followed)9( in)9( order)]TJ
+0 -1.1453 TD
+0.001 Tc
+0.003 Tw
+[(to )8(synth)10(e)1(si)9(ze)10( a d)10(e)1(sign)10( u)10(s)-3(ing)10( coreConsu)10(l)1(tan)10(t)5(. Fir)9(s)-3(t, )8(the)10( de)10(sig)10(n)]TJ
+T*
+0 Tc
+0.004 Tw
+[(must be)9( properl)8(y con)9(s)4(trained)9(. Constrain)9(ts in)9(clude)9( in)9(formatio)9(n)]TJ
+0 -1.1539 TD
+[(such a)9(s)-4( )8(input arr)8(ival)8( )8(times, ma)9(ximum ar)8(ea, and)9( poin)9(t-to)9(-poin)9(t)]TJ
+0 -1.1453 TD
+0.001 Tc
+0.003 Tw
+[(timing e)10(x)5(cep)10(t)-3(ion)10(s. Se)10(cond)10(, in)10(forma)10(t)-3(ion)10( must b)10(e)1( pr)9(ovide)10(d )8(to)]TJ
+T*
+0 Tc
+0.004 Tw
+[(control )8(the)9( syn)9(t)-4(he)9(sis )8(scr)8(ipt gener)8(ation)9( pro)9(ce)9(ss within)]TJ
+T*
+0.001 Tc
+-0.005 Tw
+[(coreCon)10(sultant. )-8(Fina)10(lly, a synthe)10(si)9(s strategy )-8(i)9(s)-3( cho)10(s)-3(en)10(, )-8(and)]TJ
+T*
+0.003 Tw
+[(syn)10(the)10(s)-3(i)9(s)-3( )8(scripts are)10( genera)10(ted)10(.)-3( )8(In)10( most )8(ca)10(se)10(s, all)9( of the)]TJ
+T*
+-0.005 Tw
+[(informa)10(t)-3(ion excep)10(t)-3( for)9( )-8(the)10( syn)10(the)10(s)-3(i)9(s)-3( strate)10(g)1(y )-8(are)10( )-8(pro)10(vided)10( )-8(by)]TJ
+0 -1.1539 TD
+0.003 Tw
+[(the )8(core)10( de)10(velope)10(r, )8(and)10( the)10(n)1( o)10(v)-3(errid)10(den when)10( ne)10(ce)10(ssa)10(ry by)]TJ
+0 -1.1453 TD
+0 Tc
+0.004 Tw
+[(the )8(core)9( in)9(tegra)9(tor)8(.)-4( The)9( ou)9(tline)9( of this do)9(cument )8(follows)]TJ
+T*
+[(these )8(three)9( step)9(s, and)9( in)9(clude)9(s a )8(final)8( section)9( on )8(approa)9(che)9(s)]TJ
+T*
+[(to )8(ta)9(ke when)9( )8(con)9(strai)8(nts a)9(re n)9(o)0(t being)9( met, and )8(an ap)9(pendix)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(of p)10(roblems )8(to wa)10(tch)10( ou)10(t )8(for)9(.)]TJ
+0 -2.0001 TD
+0 Tc
+0.004 Tw
+[(In mo)9(st )8(cases, )8(the)9( core i)8(n)0(teg)9(rator)8( )8(should)9( )8(simply be)9( able)9( to)]TJ
+0 -1.1453 TD
+0.002 Tc
+0.002 Tw
+[(spe)11(c)-2(if)6(y )8(con)11(t)-2(e)11(xtua)11(l)2( )8(con)11(str)10(aint)6(s)6(,)-2( )8(sele)11(ct)6( a)11( s)6(y)-2(n)11(t)-2(he)11(sis)6( )8(stra)11(t)-2(eg)11(y,)]TJ
+0 -1.1539 TD
+0.001 Tc
+[(and ge)10(t )8(the)10( re)10(sults the)10(y)5( need)10(. Thi)9(s)-3( )8(is be)10(cau)10(s)-3(e )8(the)10( co)10(re)]TJ
+0 -1.1453 TD
+0 Tc
+0.004 Tw
+[(develope)9(r )8(should)9( ha)9(ve )8(spe)9(c)-4(i)8(f)-4(ied)9( syn)9(t)-4(hesis in)9(tent \()8(c)-4(on)9(stra)9(ints)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(and )8(stra)10(t)-3(eg)10(y )8(con)10(t)-3(rol)9( a)10(ttrib)10(ute)10(s)-3(\))9( fo)10(r op)10(timal)9( syn)10(t)-3(hesis re)10(sults.)]TJ
+T*
+[(Each)10( su)10(b-se)10(c)5(tion)10( is )8(tagged)10( as appl)9(ying )8(to ei)9(ther)9( )8(core)]TJ
+T*
+0 Tc
+0.004 Tw
+[(developmen)9(t, )8(core)9( integra)9(tion, or)8( bo)9(th. Core)9( developer)8(s)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(should)10( read)10( this en)10(tire)10( document carefu)10(lly and)10( stri)9(ve)10( to)10( follo)10(w)]TJ
+0 -1.1539 TD
+0 Tc
+0.004 Tw
+[(the me)9(thodol)8(ogy a)9(s)-4( )8(clo)9(s)-4(el)8(y a)9(s)4( possible. Co)9(re i)8(n)0(tegr)8(ator)8(s)]TJ
+0 -1.1453 TD
+0.001 Tc
+0.003 Tw
+[(should)10( onl)9(y n)10(eed )8(to )8(loo)10(k a)10(t)-3( )8(the)10( section)10(s mar)9(k)-3(ed)10( a)10(s)-3( ap)10(plyi)9(n)1(g)]TJ
+T*
+[(to in)10(tegr)9(ation)10(.)]TJ
+0 -2.0001 TD
+0 Tc
+0.004 Tw
+[(There are)9( a )8(number )8(of tab)9(les o)9(f)-4( a)9(t)-4(tribu)9(tes in)9( thi)8(s)4( do)9(cument.)]TJ
+0 -1.1453 TD
+0.001 Tc
+0.003 Tw
+[(In o)10(rder )8(to)10( pro)10(vide)10( a )8(fo)10(cus on)10( the mo)10(st impor)9(tan)10(t)-3( a)10(t)5(tribu)10(tes,)]TJ
+T*
+0 Tc
+0.004 Tw
+[(the a)9(t)4(tribu)9(tes )8(that are)9( mo)9(st impor)8(tant )8(to )8(fo)9(cus on)9( are)9( sh)9(own)]TJ
+T*
+[(in bold)9( in)9( each o)9(f)-4( )8(the)9( ta)9(bles.)]TJ
+0 -2.0086 TD
+0.001 Tc
+0.003 Tw
+[(This do)10(cumen)10(t)-3( i)9(s)5( focu)10(sed)10( on )8(the)10( primary RTL-to)10(-ga)10(te)10(s )8(flow)]TJ
+0 -1.1453 TD
+[(and there)10(fore)10( doe)10(s no)10(t )8(discu)10(ss an)10(y )8(of th)10(e )8(following)10( to)10(pics:)]TJ
+T*
+0 Tc
+0.004 Tw
+[(test inse)9(r)0(tio)9(n)0(, cl)8(ock )8(gatin)9(g, or)8( timing)9( model)8( genera)9(tion)9(.)]TJ
+ET
+endstream
+endobj
+14 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 5 0 R
+/F3 6 0 R
+>>
+/ExtGState <<
+/GS1 7 0 R
+>>
+>>
+endobj
+16 0 obj
+<<
+/Length 9089
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 327.69 49.17 Tm
+0 g
+BX /GS1 gs EX
+-0.002 Tc
+0.013 Tw
+[(Sy)-8(nthe)-12(s)-8(i)3(s in c)-8(o)0(r)-6(e)0(B)-10(u)0(i)-9(l)3(der)-6( and )12(c)-8(o)0(r)-18(e)0(Con)-12(s)4(u)-12(l)3(ta)-12(nt)]TJ
+ET
+q
+1 i 
+518.85 35.13 5.52 -6.84 re
+W* n
+BT
+9.96 0 0 9.96 518.85 25.77 Tm
+0 Tc
+0 Tw
+(4)Tj
+ET
+Q
+BT
+/F1 1 Tf
+18 0 0 18 90.09 701.73 Tm
+0 Tc
+0.002 Tw
+[(Constraint S)20(p)-2(ecification)]TJ
+ET
+1 i 
+88.65 719.85 434.76 -0.36 re
+f
+BT
+/F3 1 Tf
+14.04 0 0 14.04 140.13 666.69 Tm
+-0.004 Tw
+[(Careful and complete)9( )-8(spe)9(c)-4(i)8(f)-4(ication)9( )-8(o)9(f)-4( con)9(s)-4(traints )-8(is cri)8(t)-4(ical)8( fo)9(r)]TJ
+0 -1.1453 TD
+0.001 Tc
+0.003 Tw
+[(obtaining)10( good)10( )8(syn)10(the)10(s)-3(i)9(s)-3( re)10(sul)9(t)5(s. Constrain)10(ts )8(should)10( be)10( fully)]TJ
+T*
+[(spe)10(c)-3(ifie)10(d )8(for)9( all d)10(e)1(sig)10(n)1(s \(and)10( their )8(respe)10(cti)9(v)-3(e p)10(orts\))9( tha)10(t)5( are)]TJ
+0 -1.1539 TD
+[(going )8(to b)10(e)1( ind)10(ivid)10(ually )8(compiled)10(. This se)10(t o)10(f)5( de)10(sign)10(s de)10(fines)]TJ
+/F4 1 Tf
+0 -1.1453 TD
+0 Tc
+0.004 Tw
+[(the \221)8(c)-4(ompile)9( )8(fron)9(tier\222)8(, a)9( topic di)8(scussed)9( in )8(detai)8(l in)9( the)]TJ
+T*
+[(\221Selecting)9( the)9( Compila)9(tion)9( Frontie)9(r \(d)9(evel)8(opment\)\222)8( )8(section)]TJ
+T*
+[(later)8( in )8(thi)8(s)-4( )8(documen)9(t. )8(If )8(constrai)8(nts a)9(re n)9(o)0(t sp)9(eci)8(f)-4(ied)9( on)9( the)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(leaf )8(leve)10(l)1( de)10(sign)10(s, )8(then)10( co)10(re in)10(tegra)10(tor)9(s)-3( )8(sho)10(uld be)10( dir)9(ected)10( to)]TJ
+T*
+[(utili)9(ze d)10(e)1(sign)10( budge)10(ting)10( )8(for )]TJ
+/F1 1 Tf
+12.1543 0 TD
+-0.007 Tc
+(all)Tj
+/F4 1 Tf
+1.1026 0 TD
+0 Tc
+0.004 Tw
+[( i)8(nitial)8( )8(compile)9(s. One)9( thing )8(tha)9(t)]TJ
+-13.2569 -1.1539 TD
+[(simplifi)8(e)0(s the pr)8(ocess o)9(f)4( se)9(tting a)9(t)4(tribu)9(tes i)8(s)-4( )8(the)9( conce)9(p)0(t of)]TJ
+0 -1.1453 TD
+0.001 Tc
+0.003 Tw
+[(attr)9(ibute)10( inhe)10(ritan)10(ce)10(. Mo)10(st a)10(t)-3(tributes suppor)9(t au)10(toma)10(tic)]TJ
+T*
+0 Tc
+0.004 Tw
+[(inheritan)9(ce)9(. For)8( e)9(x)-4(ample)9( an i)8(nput dela)9(y )8(se)9(t on a)9( )8(top-level)]TJ
+T*
+[(port will au)9(toma)9(tical)8(l)0(y be)9( se)9(t on a)9(ll di)8(rectl)8(y )8(conne)9(cted l)8(o)0(wer)]TJ
+T*
+[(level)8( por)8(ts. The)9( )8(table)9( below li)8(sts the a)9(t)4(tribu)9(tes )8(that )8(should)9( be)]TJ
+T*
+[(set. For add)9(itiona)9(l in)9(forma)9(t)-4(ion)9( abou)9(t any )8(of )8(these a)9(t)-4(tributes,)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(please)10( re)10(fer )8(to)10( th)10(e a)10(s)5(soci)9(ated)10( man)10( page)10(. )8(In )8(additi)9(on )8(to)10( the)]TJ
+0 -1.1539 TD
+[(stan)10(dard)10( con)10(s)5(train)10(ts, poin)10(t )8(to p)10(oint )8(timing e)10(x)5(cep)10(t)-3(ion)10(s \(whi)9(ch)]TJ
+0 -1.1453 TD
+0 Tc
+0.004 Tw
+[(should)9( be)9( avo)9(ided a)9(t)4( all)8( co)9(sts from )8(the d)9(e)0(si)8(gn pe)9(rspe)9(ctive\))]TJ
+T*
+[(should)9( be)9( spe)9(c)-4(i)8(f)-4(ied )8(if they do)9( e)9(x)-4(ist )8(in )8(the)9( design.)]TJ
+/F1 1 Tf
+9 0 0 9 144.09 351.93 Tm
+0.002 Tc
+(Design)Tj
+0 -1.1467 TD
+0.001 Tc
+(Attributes)Tj
+16.1067 1.1467 TD
+0.001 Tw
+(Input Port)Tj
+0 -1.1467 TD
+(Attributes)Tj
+16 1.1467 TD
+0 Tc
+0.002 Tw
+[(O)5(u)-2(tput Port)]TJ
+0 -1.1467 TD
+0.001 Tc
+(Attributes)Tj
+ET
+139.65 367.77 143.88 -1.32 re
+f
+283.65 367.77 1.32 -1.32 re
+f
+285.09 367.77 142.44 -1.32 re
+f
+427.65 367.77 1.32 -1.32 re
+f
+429.09 367.77 142.44 -1.32 re
+f
+BT
+/F3 1 Tf
+9 0 0 9 144.09 317.73 Tm
+[(M)7(a)-3(x)8(Area)]TJ
+/F1 1 Tf
+16.1067 0 TD
+-0.001 Tc
+[(Driv)-5(i)-3(n)]TJ
+ET
+q
+289.05 326.13 47.64 -8.52 re
+W* n
+BT
+9 0 0 9 314.61 317.73 Tm
+0 Tc
+0 Tw
+(g)Tj
+ET
+Q
+BT
+9 0 0 9 320.13 317.73 Tm
+0.002 Tc
+[(Cell)-10707(M)8(axO)7(ut)]TJ
+ET
+q
+433.05 326.13 71.16 -8.52 re
+W* n
+BT
+9 0 0 9 466.05 317.73 Tm
+0 Tc
+0 Tw
+(p)Tj
+ET
+Q
+BT
+9 0 0 9 471.57 317.73 Tm
+0.001 Tc
+(utDela)Tj
+ET
+q
+433.05 326.13 71.16 -8.52 re
+W* n
+BT
+9 0 0 9 499.17 317.73 Tm
+0 Tc
+0 Tw
+(y)Tj
+ET
+Q
+139.65 333.57 143.88 -1.32 re
+f
+283.65 333.57 1.32 -1.32 re
+f
+285.09 333.57 142.44 -1.32 re
+f
+427.65 333.57 1.32 -1.32 re
+f
+429.09 333.57 142.44 -1.32 re
+f
+BT
+/F3 1 Tf
+9 0 0 9 289.05 302.61 Tm
+0.004 Tc
+[(InputD)6(e)13(la)]TJ
+ET
+q
+289.05 311.13 43.08 -9.48 re
+W* n
+BT
+9 0 0 9 327.69 302.61 Tm
+0 Tc
+0 Tw
+(y)Tj
+ET
+Q
+BT
+9 0 0 9 433.05 302.61 Tm
+[(M)10(a)0(x)11(O)9(utputD)6(e)0(la)]TJ
+ET
+q
+433.05 311.13 114.72 -9.48 re
+W* n
+BT
+9 0 0 9 495.69 302.61 Tm
+0 Tc
+0 Tw
+(y)Tj
+ET
+Q
+BT
+9 0 0 9 500.13 302.61 Tm
+[(Fal)13(lin)]TJ
+ET
+q
+433.05 311.13 114.72 -9.48 re
+W* n
+BT
+9 0 0 9 521.73 302.61 Tm
+0 Tc
+0 Tw
+(g)Tj
+ET
+Q
+BT
+9 0 0 9 526.77 302.61 Tm
+-0.014 Tc
+(Ed)Tj
+ET
+q
+433.05 311.13 114.72 -9.48 re
+W* n
+BT
+9 0 0 9 537.69 302.61 Tm
+0 Tc
+0 Tw
+(g)Tj
+ET
+Q
+BT
+9 0 0 9 542.73 302.61 Tm
+0 Tc
+0 Tw
+(e)Tj
+ET
+139.65 317.61 143.88 -0.6 re
+f
+283.65 317.61 0.6 -0.6 re
+f
+284.37 317.61 143.16 -0.6 re
+f
+427.65 317.61 0.6 -0.6 re
+f
+428.37 317.61 143.16 -0.6 re
+f
+BT
+/F1 1 Tf
+9 0 0 9 289.05 286.53 Tm
+0.003 Tc
+[(M)9(axIn)]TJ
+ET
+q
+289.05 294.93 63.6 -9.36 re
+W* n
+BT
+9 0 0 9 314.61 286.53 Tm
+0 Tc
+(p)Tj
+ET
+Q
+BT
+9 0 0 9 320.13 286.53 Tm
+0.001 Tc
+(utDela)Tj
+ET
+q
+289.05 294.93 63.6 -9.36 re
+W* n
+BT
+9 0 0 9 347.61 286.53 Tm
+0 Tc
+(y)Tj
+ET
+Q
+BT
+9 0 0 9 433.05 286.53 Tm
+0.002 Tc
+[(M)8(inO)7(ut)]TJ
+ET
+q
+433.05 294.93 69.12 -9.36 re
+W* n
+BT
+9 0 0 9 464.01 286.53 Tm
+0 Tc
+(p)Tj
+ET
+Q
+BT
+9 0 0 9 469.53 286.53 Tm
+0.001 Tc
+(utDela)Tj
+ET
+q
+433.05 294.93 69.12 -9.36 re
+W* n
+BT
+9 0 0 9 497.13 286.53 Tm
+0 Tc
+(y)Tj
+ET
+Q
+139.65 301.53 143.88 -0.6 re
+f
+283.65 301.53 0.6 -0.6 re
+f
+284.37 301.53 143.16 -0.6 re
+f
+427.65 301.53 0.6 -0.6 re
+f
+428.37 301.53 143.16 -0.6 re
+f
+BT
+/F3 1 Tf
+9 0 0 9 289.05 270.57 Tm
+0.004 Tc
+[(M)10(a)0(x)11(I)2(nputD)6(e)0(la)]TJ
+ET
+q
+289.05 279.09 107.64 -9.48 re
+W* n
+BT
+9 0 0 9 344.73 270.57 Tm
+0 Tc
+(y)Tj
+ET
+Q
+BT
+9 0 0 9 349.17 270.57 Tm
+[(Fa)13(llin)]TJ
+ET
+q
+289.05 279.09 107.64 -9.48 re
+W* n
+BT
+9 0 0 9 370.65 270.57 Tm
+0 Tc
+(g)Tj
+ET
+Q
+BT
+9 0 0 9 375.69 270.57 Tm
+0 Tc
+(Ed)Tj
+ET
+q
+289.05 279.09 107.64 -9.48 re
+W* n
+BT
+9 0 0 9 386.73 270.57 Tm
+(g)Tj
+ET
+Q
+BT
+9 0 0 9 391.65 270.57 Tm
+0.004 Tc
+[(e)-4040(M)10(inO)9(u)0(tputD)6(e)0(l)13(a)]TJ
+ET
+q
+433.05 279.09 112.2 -9.48 re
+W* n
+BT
+9 0 0 9 493.17 270.57 Tm
+0 Tc
+(y)Tj
+ET
+Q
+BT
+9 0 0 9 497.61 270.57 Tm
+[(Fall)13(in)]TJ
+ET
+q
+433.05 279.09 112.2 -9.48 re
+W* n
+BT
+9 0 0 9 519.21 270.57 Tm
+0 Tc
+(g)Tj
+ET
+Q
+BT
+9 0 0 9 524.25 270.57 Tm
+-0.014 Tc
+(Ed)Tj
+ET
+q
+433.05 279.09 112.2 -9.48 re
+W* n
+BT
+9 0 0 9 535.17 270.57 Tm
+0 Tc
+(g)Tj
+ET
+Q
+BT
+9 0 0 9 540.21 270.57 Tm
+0 Tc
+(e)Tj
+ET
+139.65 285.57 143.88 -0.6 re
+f
+283.65 285.57 0.6 -0.6 re
+f
+284.37 285.57 143.16 -0.6 re
+f
+427.65 285.57 0.6 -0.6 re
+f
+428.37 285.57 143.16 -0.6 re
+f
+BT
+/F1 1 Tf
+9 0 0 9 289.05 254.61 Tm
+0.002 Tc
+[(M)8(inIn)]TJ
+ET
+q
+289.05 263.01 61.68 -9.36 re
+W* n
+BT
+9 0 0 9 312.57 254.61 Tm
+0 Tc
+(p)Tj
+ET
+Q
+BT
+9 0 0 9 318.09 254.61 Tm
+0.001 Tc
+(utDela)Tj
+ET
+q
+289.05 263.01 61.68 -9.36 re
+W* n
+BT
+9 0 0 9 345.69 254.61 Tm
+0 Tc
+(y)Tj
+ET
+Q
+BT
+/F3 1 Tf
+9 0 0 9 433.05 254.61 Tm
+0.003 Tc
+[(O)8(u)-1(tputD)5(e)-1(l)12(a)]TJ
+ET
+q
+433.05 263.13 50.04 -9.48 re
+W* n
+BT
+9 0 0 9 478.65 254.61 Tm
+0 Tc
+(y)Tj
+ET
+Q
+139.65 269.61 143.88 -0.6 re
+f
+283.65 269.61 0.6 -0.6 re
+f
+284.37 269.61 143.16 -0.6 re
+f
+427.65 269.61 0.6 -0.6 re
+f
+428.37 269.61 143.16 -0.6 re
+f
+BT
+9 0 0 9 289.05 238.53 Tm
+0.004 Tc
+[(M)10(i)-1(nInputD)6(e)13(la)]TJ
+ET
+q
+289.05 247.05 105.24 -9.48 re
+W* n
+BT
+9 0 0 9 342.21 238.53 Tm
+0 Tc
+(y)Tj
+ET
+Q
+BT
+9 0 0 9 346.65 238.53 Tm
+[(Fal)13(lin)]TJ
+ET
+q
+289.05 247.05 105.24 -9.48 re
+W* n
+BT
+9 0 0 9 368.13 238.53 Tm
+0 Tc
+(g)Tj
+ET
+Q
+BT
+9 0 0 9 373.17 238.53 Tm
+0 Tc
+(Ed)Tj
+ET
+q
+289.05 247.05 105.24 -9.48 re
+W* n
+BT
+9 0 0 9 384.21 238.53 Tm
+(g)Tj
+ET
+Q
+BT
+9 0 0 9 389.25 238.53 Tm
+(e)Tj
+/F1 1 Tf
+4.8667 0 TD
+0.002 Tc
+[(PinLoadCou)13(nt)]TJ
+ET
+139.65 253.53 143.88 -0.6 re
+f
+283.65 253.53 0.6 -0.6 re
+f
+284.37 253.53 143.16 -0.6 re
+f
+427.65 253.53 0.6 -0.6 re
+f
+428.37 253.53 143.16 -0.6 re
+f
+BT
+9 0 0 9 433.05 222.57 Tm
+(PinLoadT)Tj
+ET
+q
+433.05 230.97 56.64 -9.36 re
+W* n
+BT
+9 0 0 9 474.09 222.57 Tm
+0.004 Tc
+(yp)Tj
+ET
+Q
+BT
+9 0 0 9 484.65 222.57 Tm
+0 Tc
+(e)Tj
+ET
+139.65 237.57 143.88 -0.6 re
+f
+283.65 237.57 0.6 -0.6 re
+f
+284.37 237.57 143.16 -0.6 re
+f
+427.65 237.57 0.6 -0.6 re
+f
+428.37 237.57 143.16 -0.6 re
+f
+139.65 221.61 143.88 -1.32 re
+f
+283.65 221.61 1.32 -1.32 re
+f
+285.09 221.61 142.44 -1.32 re
+f
+427.65 221.61 1.32 -1.32 re
+f
+429.09 221.61 142.44 -1.32 re
+f
+BT
+15.96 0 0 15.96 140.13 163.65 Tm
+-0.001 Tc
+0.001 Tw
+[(Initial )-8(Defi)-9(n)1(iti)-9(on for Ne)-9(w C)-8(o)1(res \(d)-7(evel)-9(op)-7(me)-9(nt\))]TJ
+ET
+138.69 179.97 384.72 -0.36 re
+f
+BT
+/F4 1 Tf
+14.04 0 0 14.04 140.13 129.09 Tm
+0.001 Tc
+0.003 Tw
+[(Constra)10(ints )8(for)9( new )8(core)10(s ca)10(n be)10( wri)9(tten)10( in)10( one)10( of two)10( ways)14(.)]TJ
+0 -1.1453 TD
+0 Tc
+0.004 Tw
+[(First, )8(con)9(s)-4(train)9(ts can be)9( wri)8(tten)9( u)9(s)-4(ing)9( the)9( )8(coreBuil)8(der)]TJ
+T*
+-0.004 Tw
+[(command synta)9(x)4( )-8(\()]TJ
+/F5 1 Tf
+8.1541 0 TD
+-0.002 Tc
+(set_port_attribute)Tj
+/F4 1 Tf
+10.7696 0 TD
+0 Tc
+0 Tw
+(,)Tj
+/F5 1 Tf
+-18.9237 -1.1453 TD
+-0.002 Tc
+(set_design_attribute)Tj
+/F4 1 Tf
+11.9662 0 TD
+0.001 Tc
+0.003 Tw
+[(, e)10(t)-3(c.\))9( and)10( stored)10( in)10( TCL in)10(tent)]TJ
+ET
+endstream
+endobj
+17 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 5 0 R
+/F3 6 0 R
+/F4 18 0 R
+/F5 19 0 R
+>>
+/ExtGState <<
+/GS1 7 0 R
+>>
+>>
+endobj
+21 0 obj
+<<
+/Length 5461
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 327.69 49.17 Tm
+0 g
+BX /GS1 gs EX
+-0.002 Tc
+0.013 Tw
+[(Sy)-8(nthe)-12(s)-8(i)3(s in c)-8(o)0(r)-6(e)0(B)-10(u)0(i)-9(l)3(der)-6( and )12(c)-8(o)0(r)-18(e)0(Con)-12(s)4(u)-12(l)3(ta)-12(nt)]TJ
+ET
+q
+1 i 
+518.85 35.13 5.52 -6.84 re
+W* n
+BT
+9.96 0 0 9.96 518.85 25.77 Tm
+0 Tc
+0 Tw
+(5)Tj
+ET
+Q
+BT
+14.04 0 0 14.04 140.13 706.89 Tm
+0.001 Tc
+0.003 Tw
+[(file)10(s a)10(s)5(socia)10(t)-3(ed)10( with)10( ea)10(ch)10( design. )8(For )8(example)10(, co)10(nstrain)10(ts)]TJ
+/F4 1 Tf
+0 -1.1453 TD
+[(for )8(desig)10(n )8(top)10( would g)10(o)1( in)10( the )8(file)10( \221to)10(p)1(.tcl\222. When)10( usi)9(ng )8(thi)9(s)]TJ
+T*
+[(approach)10( )8(you)10( can)10( )8(take)10( ad)10(van)10(t)-3(age)10( of u)10(t)-3(ility command)10(s su)10(ch)]TJ
+0 -1.1539 TD
+0.002 Tc
+(as )Tj
+/F5 1 Tf
+1.3419 0 TD
+-0.002 Tc
+(all_designs)Tj
+/F4 1 Tf
+6.5729 0 TD
+0.004 Tc
+(, )Tj
+/F5 1 Tf
+0.5641 0 TD
+-0.002 Tc
+(all_inputs)Tj
+/F4 1 Tf
+5.9831 0 TD
+-0.002 Tw
+[(, and)7( )]TJ
+/F5 1 Tf
+2.4873 0 TD
+(all_outputs)Tj
+/F4 1 Tf
+6.5814 0 TD
+0.004 Tc
+0 Tw
+[(. N)8(o)13(te)]TJ
+-23.5307 -1.1453 TD
+-0.008 Tc
+0.012 Tw
+[(a)-8(l)-8(s)-12(o t)-12(h)-8(at t)-12(h)-8(e )]TJ
+/F5 1 Tf
+5.7181 0 TD
+-0.002 Tc
+(all_inputs)Tj
+/F4 1 Tf
+5.9831 0 TD
+-0.001 Tc
+-0.003 Tw
+( and )Tj
+/F5 1 Tf
+2.2223 0 TD
+-0.002 Tc
+(all_outputs)Tj
+/F4 1 Tf
+6.5814 0 TD
+0.007 Tw
+[( commands)]TJ
+-20.505 -1.1453 TD
+-0.001 Tc
+0.005 Tw
+[(s)-5(uppor)7(t)-5( )8(opt)-5(io)8(ns f)-5(o)8(r re)8(st)-5(ri)7(c)-5(t)-5(ing)8( )8(t)-5(he )8(port list. I)-5(n)8( par)7(t)-5(i)7(c)-5(ular)7(,)-5( )8(y)-5(o)-1(u)]TJ
+T*
+0.001 Tc
+-0.005 Tw
+[(can use)10( the )]TJ
+/F5 1 Tf
+5.4446 0 TD
+-0.002 Tc
+(-no_primary)Tj
+/F4 1 Tf
+6.5814 0 TD
+0 Tc
+0.004 Tw
+[( )8(swi)8(t)4(ch when)9( )8(specifying)9( por)8(t in)9(te)9(n)9(t)]TJ
+-12.0261 -1.1453 TD
+-0.004 Tw
+[(on )-8(sub-de)9(sign)9( )-8(por)8(ts )-8(so tha)9(t)-4( you)9( )-8(onl)8(y set value)9(s on sub-)]TJ
+T*
+0.004 Tw
+[(design)9( por)8(ts )8(that are)9( no)9(t in)9(heriting )8(value)9(s fr)8(om high)9( le)9(vel)]TJ
+0 -1.1539 TD
+[(ports. The )8(table)9( in)9( appendi)8(x A i)8(ndicate)9(s)-4( )8(the)9( )8(corre)9(sponding)]TJ
+0 -1.1453 TD
+[(DC commands )8(for )8(tho)9(s)-4(e)9( who ar)8(e u)9(s)-4(ed)9( to)9( )8(that )8(syn)9(ta)9(x.)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(Constra)10(ints )8(shou)10(ld alwa)10(y)5(s be)10( )8(spe)10(c)-3(ifie)10(d in)10( a)10( te)10(chnolo)10(gy)]TJ
+T*
+0 Tc
+0.004 Tw
+[(portable)9( )8(format u)9(s)-4(ing)9( the)9( formula)9(s a)9(v)-4(ailabl)8(e )8(for)8( each)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(con)10(strai)9(nt attribu)10(te)10(. For)9( e)10(x)-3(ample, inpu)10(t dela)10(y )8(should)10( be)]TJ
+T*
+[(spe)10(c)-3(ifie)10(d u)10(s)-3(ing)10( th)10(e \221)]TJ
+/F6 1 Tf
+8.7695 0 TD
+-0.002 Tc
+(percent_of_period\222)Tj
+/F3 1 Tf
+10.7696 0 TD
+0.001 Tc
+[( fo)10(rmu)10(la an)10(d)]TJ
+-19.5391 -1.1453 TD
+[(driving)10( )8(cells )8(should)10( be)10( sp)10(eci)9(f)-3(ied)10( using)]TJ
+/F4 1 Tf
+0 -1.1539 TD
+0 Tc
+0 Tw
+(\221)Tj
+/F5 1 Tf
+0.2222 0 TD
+-0.002 Tc
+(select_by_function)Tj
+/F4 1 Tf
+10.7696 0 TD
+0 Tc
+0.004 Tw
+(\222 or \221)Tj
+/F5 1 Tf
+1.8975 0 TD
+-0.002 Tc
+[(s)8(elect_by_class)]TJ
+/F4 1 Tf
+8.9661 0 TD
+0 Tc
+(\222.)Tj
+-21.8554 -2.0001 TD
+[(Constra)9(ints )8(can)9( al)8(so )8(be wri)8(t)-4(ten u)9(s)-4(ing)9( )8(versi)8(on 1)9(.)-4(1)9( of )8(the)]TJ
+0 -1.1453 TD
+-0.003 Tc
+-0.001 Tw
+[(Sy)-7(nops)-7(ys )-8(Des)-7(i)-3(gn )-8(Cons)-7(t)-7(r)5(aints )-8(\(SDC\) s)-7(y)-7(n)6(t)-7(a)6(x.)-7( )-8(This)-7( )-8(is )-8(a )-8(TCL-)]TJ
+T*
+0 Tc
+0.004 Tw
+[(based)9(  )8(synta)9(x)4( common)9( to bo)9(th)9( Design)9( Compiler)8( and)]TJ
+T*
+[(PrimeTime for)8( )8(spe)9(c)-4(ifying)9( constrain)9(t informa)9(t)-4(ion)9(. See)9( the)]TJ
+T*
+-0.001 Tc
+[(Design Compile)8(r )]TJ
+/F5 1 Tf
+7.6584 0 TD
+-0.002 Tc
+(write_sdc)Tj
+/F4 1 Tf
+5.3848 0 TD
+0 Tc
+[( )8(man p)9(age )8(for)8( de)9(tail)8(s o)9(f)-4( )8(the)]TJ
+-13.0432 -1.1539 TD
+0.001 Tc
+-0.005 Tw
+[(syn)10(ta)10(x. )-8(When)10( )-8(u)10(s)-3(ing the)10( )-8(SDC syn)10(ta)10(x, con)10(strai)9(nts for)9( )-8(de)10(sign)]TJ
+0 -1.1453 TD
+0.003 Tw
+[(top )8(shoul)9(d be)10( )8(stor)9(ed in)10( a)10( fil)9(e)1( named)10( \221top.sd)10(c\222.)]TJ
+/F1 1 Tf
+15.96 0 0 15.96 140.13 287.13 Tm
+-0.001 Tc
+0.009 Tw
+[(Initial Defi)-9(n)1(iti)-9(on )8(for )8(Le)-9(gacy Cores \(de)-9(velo)-7(pme)-9(nt\))]TJ
+ET
+1 i 
+138.69 303.45 384.72 -0.36 re
+f
+BT
+/F4 1 Tf
+14.04 0 0 14.04 140.13 252.57 Tm
+0 Tc
+-0.004 Tw
+[(For )-8(lega)9(cy core)9(s, )-8(th)9(e same approa)9(ch as )-8(de)9(fined)9( )-8(abo)9(ve for)]TJ
+T*
+0.004 Tw
+[(new cor)8(e)0(s should)9( be )8(used)9(. Exi)8(s)4(ting)9( write_)9(scrip)9(t ou)9(tpu)9(t)-4( )8(from)]TJ
+T*
+[(Design Compile)9(r )8(can)9( be )8(used)9( a)9(s)-4( a)9( guide)9( )8(to )8(valu)9(es of e)9(x)-4(i)8(stin)9(g)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(attr)9(ibute)10(s)5(, bu)10(t as wa)10(s )8(sta)10(ted)10( pre)10(viou)10(sl)9(y, )8(values )8(should)10( be)]TJ
+T*
+[(made te)10(chnol)9(ogy indep)10(enden)10(t.)]TJ
+0 -2.0001 TD
+-0.005 Tw
+[(Another)9( )-8(appr)9(oach)10( to )-8(de)10(finin)10(g con)10(str)9(aints for)9( coreBuil)9(der )-8(i)9(s)5( )-8(to)]TJ
+0 -1.1539 TD
+0 Tc
+0.004 Tw
+[(expor)8(t )8(them)12( from)12( Desig)9(n)0( Compiler)8( in)9( SDC format. Thi)8(s)4( is not)]TJ
+0 -1.1453 TD
+-0.004 Tw
+[(the )-8(p)9(refe)9(rred)9( )-8(approa)9(ch)9( )-8(during)9( core deve)9(lopment since the)]TJ
+T*
+0.004 Tw
+[(value)9(s a)9(re )8(te)9(chnolog)9(y dependen)9(t. Se)9(e the)9( next se)9(ction )8(of th)9(e)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(documen)10(t )8(for)9( when )8(thi)9(s)-3( i)9(s)5( appropr)9(iate)10(.)]TJ
+ET
+endstream
+endobj
+22 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 5 0 R
+/F3 6 0 R
+/F4 18 0 R
+/F5 19 0 R
+/F6 23 0 R
+>>
+/ExtGState <<
+/GS1 7 0 R
+>>
+>>
+endobj
+25 0 obj
+<<
+/Length 7619
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 327.69 49.17 Tm
+0 g
+BX /GS1 gs EX
+-0.002 Tc
+0.013 Tw
+[(Sy)-8(nthe)-12(s)-8(i)3(s in c)-8(o)0(r)-6(e)0(B)-10(u)0(i)-9(l)3(der)-6( and )12(c)-8(o)0(r)-18(e)0(Con)-12(s)4(u)-12(l)3(ta)-12(nt)]TJ
+ET
+q
+1 i 
+518.85 35.13 5.52 -6.84 re
+W* n
+BT
+9.96 0 0 9.96 518.85 25.77 Tm
+0 Tc
+0 Tw
+(6)Tj
+ET
+Q
+BT
+/F1 1 Tf
+15.96 0 0 15.96 140.13 703.53 Tm
+-0.001 Tc
+0.009 Tw
+[(Specifyi)-9(ng Co)-7(ntex)-9(tual Co)-7(nstrain)-7(ts \(in)-7(t)1(egra)-9(tio)-7(n)1(\))]TJ
+ET
+1 i 
+138.69 719.85 384.72 -0.36 re
+f
+BT
+/F3 1 Tf
+14.04 0 0 14.04 140.13 668.97 Tm
+0.001 Tc
+0.003 Tw
+[(When a )8(cor)9(e)1( i)9(s)-3( )8(going)10( to)10( be)10( inte)10(grated in)10(to)10( a )8(design)10(, it ha)10(s a)]TJ
+0 -1.1453 TD
+[(parti)9(c)-3(ular)9( usage )8(con)10(t)-3(e)10(x)-3(t, )8(and i)9(s)5( being)10( syn)10(t)-3(he)10(size)10(d in)10(to)10( a)]TJ
+T*
+[(parti)9(c)-3(ular)9( te)10(chnol)9(ogy. Sin)10(ce no)10(ne o)10(f)5( this )8(info)10(r)1(mation)10( i)9(s)]TJ
+T*
+[(available)10( when)10( the)10( core)10( is bein)10(g de)10(velop)10(ed, th)10(ese)10( )8(con)10(strain)10(ts)]TJ
+0 -1.1539 TD
+[(must be)10( spe)10(c)-3(i)9(f)-3(ied)10( during)10( )8(core)10( integ)10(rati)9(on. Conte)10(x)5(tual)]TJ
+0 -1.1453 TD
+[(con)10(strai)9(nts )8(fall)9( in)10(to two )8(ca)10(tegorie)10(s. The )8(fi)9(rst i)9(n)1(clud)10(es)]TJ
+T*
+[(tech)10(nolog)10(y )8(spe)10(c)-3(ific in)10(formatio)10(n )8(su)10(ch a)10(s)-3( wi)9(reload)10( model)9(s,)]TJ
+T*
+-0.001 Tc
+0.005 Tw
+[(operat)-5(ing)8( )8(c)-5(ondi)7(t)-5(ions, DRC c)-5(o)8(nst)-5(rain)8(t)-5(s, and)8( def)-5(i)7(nit)-5(io)8(n o)8(f)-5( )8(t)-5(h)-1(e)]TJ
+T*
+0 Tc
+[(clo)9(c)-4(k wave)9(form)12(. The)9( second)9( in)9(clude)9(s info)9(r)0(mation)9( )8(such a)9(s)]TJ
+T*
+0.001 Tc
+-0.005 Tw
+[(context spe)10(c)-3(i)9(f)-3(ic value)10(s for)9( )-8(most con)10(s)-3(train)10(ts )-8(on)10( )-8(the)10( top-le)10(vel)]TJ
+0 -1.1539 TD
+0 Tc
+0.004 Tw
+[(ports o)9(f)-4( )8(the)9( de)9(sign)9(. )8(In ma)9(ny case)9(s the)9( core)9( developer)8( ca)9(n)]TJ
+0 -1.1453 TD
+0.001 Tc
+-0.005 Tw
+[(spe)10(c)-3(ify reasonable)10( )-8(de)10(faults )-8(for)9( the)10(s)-3(e con)10(str)9(aints, )-8(pa)10(rti)9(c)-3(ularly)]TJ
+T*
+0.003 Tw
+[(when si)9(gnals in)10(to)10( and )8(out o)10(f)-3( )8(the )8(cor)9(e)1( are)10( regi)9(stered)10(.)]TJ
+T*
+[(However, value)10(s )8(for)9( inpu)10(t and)10( ou)10(tpu)10(t)-3( de)10(lay and)10( other)]TJ
+T*
+0.002 Tc
+[(con)11(strai)10(nts )8(often )8(need)11( to)11( be)11( spe)11(c)-2(i)10(f)-2(ied)11( sp)11(eci)10(f)-2(i)10(c)-2(all)10(y )8(for)10( the)]TJ
+T*
+0 Tc
+0.004 Tw
+[(context )8(the)9( core i)8(s)4( being)9( u)9(s)-4(ed i)8(n)0(.)]TJ
+0 -2.0001 TD
+0.001 Tc
+0.003 Tw
+[(If th)10(e de)10(sign)10( ha)10(s a)10(lread)10(y b)10(een in)10(tegr)9(ated)10( on)10(ce)10(, an)10( al)9(terna)10(tive)]TJ
+0 -1.1539 TD
+[(approach)10( )8(to g)10(enerate a)10(c)5(cura)10(te )8(con)10(t)-3(e)10(x)-3(t and)10( te)10(chnol)9(ogy)]TJ
+0 -1.1453 TD
+0 Tc
+-0.004 Tw
+[(related)9( )-8(constrain)9(ts for)8( )-8(syn)9(t)-4(he)9(sis )-8(i)8(s)-4( to use)9( the )]TJ
+/F5 1 Tf
+19.9665 0 TD
+-0.002 Tc
+(write_sdc)Tj
+/F3 1 Tf
+-19.9665 -1.1453 TD
+0 Tc
+0.004 Tw
+[(command in)9( De)9(sign Compil)8(er )8(to)9( genera)9(te )8(accura)9(te)9( top)9( le)9(ve)9(l)]TJ
+T*
+[(con)9(strai)8(nts )8(for)8( coreConsultan)9(t, whi)8(c)-4(h)9( can)9( )8(then )8(be r)8(ead i)8(n)]TJ
+T*
+0.002 Tc
+0.002 Tw
+[(using)11( the)11( )]TJ
+/F5 1 Tf
+4.3335 0 TD
+-0.002 Tc
+(read_sdc)Tj
+/F3 1 Tf
+4.7865 0 TD
+0.001 Tc
+-0.005 Tw
+[( command)10(. Plea)10(se see)10( )-8(th)10(e)]TJ
+-9.12 -1.1453 TD
+0 Tc
+[(coreCon)9(sultant )-8(man page for)8( )]TJ
+/F5 1 Tf
+13.1457 0 TD
+-0.002 Tc
+(read_sdc)Tj
+/F3 1 Tf
+4.7865 0 TD
+0.001 Tc
+0.003 Tw
+[( r)9(egarding)10( limi)9(t)-3(ati)9(o)1(n)10(s)]TJ
+-17.9322 -1.1539 TD
+0 Tc
+0.004 Tw
+[(in te)9(rms of )8(suppor)8(ted)9( command)9(s and )8(optio)9(ns.)]TJ
+0 -2.0001 TD
+0.001 Tc
+0.003 Tw
+[(The followin)10(g )8(table)10( li)9(sts )8(the)10( te)10(chnol)9(ogy spe)10(c)-3(ifi)9(c)-3( )8(con)10(s)5(train)10(ts)]TJ
+0 -1.1453 TD
+0 Tc
+0.004 Tw
+[(that are)9( no)9(t )8(typically )8(set un)9(til )8(core)9( in)9(tegra)9(tion)9( time)9(.)]TJ
+/F1 1 Tf
+9 0 0 9 144.09 217.53 Tm
+0.002 Tc
+(Design)Tj
+0 -1.1467 TD
+0.001 Tc
+(Attributes)Tj
+16.1067 1.1467 TD
+-0.001 Tc
+(Port)Tj
+0 -1.1467 TD
+0.001 Tc
+(Attributes)Tj
+16 1.1467 TD
+0.002 Tc
+(Clock)Tj
+0 -1.1467 TD
+0.001 Tc
+(Attributes)Tj
+ET
+139.65 233.37 143.88 -1.32 re
+f
+283.65 233.37 1.32 -1.32 re
+f
+285.09 233.37 142.44 -1.32 re
+f
+427.65 233.37 1.32 -1.32 re
+f
+429.09 233.37 142.44 -1.32 re
+f
+BT
+/F3 1 Tf
+9 0 0 9 144.09 183.33 Tm
+0.004 Tc
+[(M)10(a)0(x)11(C)6(ap)-12387(M)10(a)0(x)11(C)6(ap)-12280(C)6(l)-1(oc)11(k)11(F)2(allLat)15(enc)]TJ
+ET
+q
+433.05 191.85 68.52 -8.64 re
+W* n
+BT
+9 0 0 9 497.13 183.33 Tm
+0 Tc
+0 Tw
+(y)Tj
+ET
+Q
+139.65 199.17 143.88 -1.32 re
+f
+283.65 199.17 1.32 -1.32 re
+f
+285.09 199.17 142.44 -1.32 re
+f
+427.65 199.17 1.32 -1.32 re
+f
+429.09 199.17 142.44 -1.32 re
+f
+BT
+9 0 0 9 144.09 168.21 Tm
+[(M)10(a)0(x)11(F)2(anout)-11091(M)10(i)-1(nC)6(ap)-12547(C)6(l)-1(oc)11(k)11(H)6(oldU)6(nc)11(ertaint)]TJ
+ET
+q
+433.05 176.73 86.64 -9.48 re
+W* n
+BT
+9 0 0 9 515.25 168.21 Tm
+0 Tc
+0 Tw
+(y)Tj
+ET
+Q
+139.65 183.21 143.88 -0.6 re
+f
+283.65 183.21 0.6 -0.6 re
+f
+284.37 183.21 143.16 -0.6 re
+f
+427.65 183.21 0.6 -0.6 re
+f
+428.37 183.21 143.16 -0.6 re
+f
+BT
+9 0 0 9 144.09 152.13 Tm
+[(M)10(i)-1(nC)6(ap)-12653(M)10(a)0(x)11(F)2(anout)-10985(C)6(l)-1(oc)11(k)11(R)6(is)11(eLatenc)]TJ
+ET
+q
+433.05 160.65 72 -9.48 re
+W* n
+BT
+9 0 0 9 500.61 152.13 Tm
+0 Tc
+0 Tw
+(y)Tj
+ET
+Q
+139.65 167.13 143.88 -0.6 re
+f
+283.65 167.13 0.6 -0.6 re
+f
+284.37 167.13 143.16 -0.6 re
+f
+427.65 167.13 0.6 -0.6 re
+f
+428.37 167.13 143.16 -0.6 re
+f
+BT
+9 0 0 9 144.09 136.17 Tm
+0.003 Tc
+[(O)8(peratin)]TJ
+ET
+q
+144.09 144.69 100.08 -9.48 re
+W* n
+BT
+9 0 0 9 178.65 136.17 Tm
+0 Tc
+0 Tw
+(g)Tj
+ET
+Q
+BT
+9 0 0 9 183.69 136.17 Tm
+0.004 Tc
+[(C)6(ond)13(itio)13(ns)11(Bes)11(t)-4985(M)10(a)0(x)11(T)2(rans)11(ition)-9707(C)6(loc)11(k)11(S)4(etupU)6(nc)11(ertain)13(t)]TJ
+ET
+q
+433.05 144.69 91.56 -9.48 re
+W* n
+BT
+9 0 0 9 520.17 136.17 Tm
+0 Tc
+0 Tw
+(y)Tj
+ET
+Q
+139.65 151.17 143.88 -0.6 re
+f
+283.65 151.17 0.6 -0.6 re
+f
+284.37 151.17 143.16 -0.6 re
+f
+427.65 151.17 0.6 -0.6 re
+f
+428.37 151.17 143.16 -0.6 re
+f
+BT
+/F1 1 Tf
+9 0 0 9 144.09 120.21 Tm
+0 Tc
+0 Tw
+(O)Tj
+ET
+q
+144.09 128.61 115.08 -9.36 re
+W* n
+BT
+9 0 0 9 151.05 120.21 Tm
+(p)Tj
+ET
+Q
+BT
+9 0 0 9 156.57 120.21 Tm
+0.003 Tc
+[(er)5(atin)]TJ
+ET
+q
+144.09 128.61 115.08 -9.36 re
+W* n
+BT
+9 0 0 9 181.17 120.21 Tm
+0 Tc
+(g)Tj
+ET
+Q
+BT
+9 0 0 9 186.69 120.21 Tm
+[(Condit)15(ionsW)13(o)0(rst)]TJ
+/F3 1 Tf
+27.3733 0 TD
+0.004 Tc
+[(C)6(l)-1(oc)11(k)11(S)4(ourc)11(e)0(FallL)13(atenc)]TJ
+ET
+q
+433.05 128.73 97.08 -9.48 re
+W* n
+BT
+9 0 0 9 525.69 120.21 Tm
+0 Tc
+(y)Tj
+ET
+Q
+139.65 135.21 143.88 -0.6 re
+f
+283.65 135.21 0.6 -0.6 re
+f
+284.37 135.21 143.16 -0.6 re
+f
+427.65 135.21 0.6 -0.6 re
+f
+428.37 135.21 143.16 -0.6 re
+f
+BT
+9 0 0 9 144.09 104.13 Tm
+0.003 Tc
+[(ParentW)14(i)-2(reLo)12(ad)-24868(C)5(l)-2(oc)10(k)10(S)3(ourc)10(e)-1(R)5(i)-2(s)10(eLatenc)]TJ
+ET
+q
+433.05 112.65 100.56 -9.48 re
+W* n
+BT
+9 0 0 9 529.17 104.13 Tm
+0 Tc
+(y)Tj
+ET
+Q
+139.65 119.13 143.88 -0.6 re
+f
+283.65 119.13 0.6 -0.6 re
+f
+284.37 119.13 143.16 -0.6 re
+f
+427.65 119.13 0.6 -0.6 re
+f
+428.37 119.13 143.16 -0.6 re
+f
+BT
+9 0 0 9 144.09 88.17 Tm
+0.004 Tc
+[(WireLo)13(ad)]TJ
+/F1 1 Tf
+32.1067 0 TD
+0 Tc
+(C)Tj
+ET
+q
+433.05 96.57 45.12 -9.36 re
+W* n
+BT
+9 0 0 9 439.53 88.17 Tm
+(y)Tj
+ET
+Q
+BT
+9 0 0 9 444.57 88.17 Tm
+0.003 Tc
+[(cleTi)14(m)-1(e)]TJ
+ET
+139.65 103.17 143.88 -0.6 re
+f
+283.65 103.17 143.88 -0.36 re
+f
+427.65 103.17 143.88 -0.6 re
+f
+139.65 87.09 143.88 -0.6 re
+f
+283.65 87.09 0.6 -0.6 re
+f
+284.37 87.09 143.16 -0.6 re
+f
+427.65 87.09 0.6 -0.6 re
+f
+428.37 87.09 143.16 -0.6 re
+f
+endstream
+endobj
+26 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 5 0 R
+/F3 6 0 R
+/F5 19 0 R
+>>
+/ExtGState <<
+/GS1 7 0 R
+>>
+>>
+endobj
+28 0 obj
+<<
+/Length 6627
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 327.69 49.17 Tm
+0 g
+BX /GS1 gs EX
+-0.002 Tc
+0.013 Tw
+[(Sy)-8(nthe)-12(s)-8(i)3(s in c)-8(o)0(r)-6(e)0(B)-10(u)0(i)-9(l)3(der)-6( and )12(c)-8(o)0(r)-18(e)0(Con)-12(s)4(u)-12(l)3(ta)-12(nt)]TJ
+ET
+q
+1 i 
+518.85 35.13 5.52 -6.84 re
+W* n
+BT
+9.96 0 0 9.96 518.85 25.77 Tm
+0 Tc
+0 Tw
+(7)Tj
+ET
+Q
+BT
+9 0 0 9 144.09 704.85 Tm
+0.003 Tc
+[(WireLo)12(adG)8(rou)12(p)]TJ
+/F1 1 Tf
+32.1067 0 TD
+(FixHold)Tj
+ET
+1 i 
+139.65 719.85 143.88 -0.6 re
+f
+283.65 719.85 0.6 -0.6 re
+f
+284.37 719.85 143.16 -0.6 re
+f
+427.65 719.85 0.6 -0.6 re
+f
+428.37 719.85 143.16 -0.6 re
+f
+BT
+/F3 1 Tf
+9 0 0 9 144.09 688.77 Tm
+[(WireLo)12(adM)9(inBl)12(oc)10(k)10(S)3(iz)10(e)-21828(I)1(nterC)5(l)-2(oc)10(k)10(F)1(al)12(lU)5(nc)10(ertain)12(t)]TJ
+ET
+q
+433.05 697.29 100.56 -9.36 re
+W* n
+BT
+9 0 0 9 529.17 688.77 Tm
+0 Tc
+0 Tw
+(y)Tj
+ET
+Q
+139.65 703.89 143.88 -0.6 re
+f
+283.65 703.89 0.6 -0.6 re
+f
+284.37 703.89 143.16 -0.6 re
+f
+427.65 703.89 0.6 -0.6 re
+f
+428.37 703.89 143.16 -0.6 re
+f
+BT
+9 0 0 9 144.09 672.81 Tm
+[(WireLo)12(adM)9(ode)-25308(InterC)5(loc)10(k)10(R)5(is)10(eU)5(nc)10(ertaint)]TJ
+ET
+q
+433.05 681.33 104.16 -9.48 re
+W* n
+BT
+9 0 0 9 532.77 672.81 Tm
+0 Tc
+0 Tw
+(y)Tj
+ET
+Q
+139.65 687.81 143.88 -0.6 re
+f
+283.65 687.81 0.6 -0.6 re
+f
+284.37 687.81 143.16 -0.6 re
+f
+427.65 687.81 0.6 -0.6 re
+f
+428.37 687.81 143.16 -0.6 re
+f
+BT
+9 0 0 9 433.05 656.85 Tm
+0.004 Tc
+[(M)10(a)0(x)11(T)2(rans)11(itionD)6(el)13(a)]TJ
+ET
+q
+433.05 665.37 79.56 -9.48 re
+W* n
+BT
+9 0 0 9 508.17 656.85 Tm
+0 Tc
+0 Tw
+(y)Tj
+ET
+Q
+139.65 671.85 143.88 -0.6 re
+f
+283.65 671.85 0.6 -0.6 re
+f
+284.37 671.85 143.16 -0.6 re
+f
+427.65 671.85 0.6 -0.6 re
+f
+428.37 671.85 143.16 -0.6 re
+f
+BT
+9 0 0 9 433.05 640.77 Tm
+0.003 Tc
+[(M)9(i)-2(nTrans)10(iti)12(onD)5(el)12(a)]TJ
+ET
+q
+433.05 649.29 77.04 -9.36 re
+W* n
+BT
+9 0 0 9 505.65 640.77 Tm
+0 Tc
+0 Tw
+(y)Tj
+ET
+Q
+139.65 655.89 143.88 -0.6 re
+f
+283.65 655.89 0.6 -0.6 re
+f
+284.37 655.89 143.16 -0.6 re
+f
+427.65 655.89 0.6 -0.6 re
+f
+428.37 655.89 143.16 -0.6 re
+f
+BT
+9 0 0 9 433.05 624.81 Tm
+[(Wav)9(e)-2(form)]TJ
+ET
+139.65 639.81 143.88 -0.6 re
+f
+283.65 639.81 0.6 -0.6 re
+f
+284.37 639.81 143.16 -0.6 re
+f
+427.65 639.81 0.6 -0.6 re
+f
+428.37 639.81 143.16 -0.6 re
+f
+139.65 623.85 143.88 -1.32 re
+f
+283.65 623.85 1.32 -1.32 re
+f
+285.09 623.85 142.44 -1.32 re
+f
+427.65 623.85 1.32 -1.32 re
+f
+429.09 623.85 142.44 -1.32 re
+f
+BT
+/F1 1 Tf
+18 0 0 18 90.09 564.09 Tm
+-0.001 Tc
+0.003 Tw
+[(Controlling t)5(h)-3(e Synthesis Process)]TJ
+ET
+88.65 582.21 434.76 -0.36 re
+f
+BT
+/F3 1 Tf
+14.04 0 0 14.04 140.13 529.05 Tm
+0 Tc
+-0.004 Tw
+[(Each)9( )-8(of the following)9( section)9(s defin)9(es )-8(a differen)9(t )-8(aspe)9(ct )-8(o)9(f)]TJ
+0 -1.1453 TD
+0.004 Tw
+[(control o)9(v)-4(er)8( )8(the )8(synthesi)8(s)4( scrip)9(t )8(generator)8(. Wi)8(thin)9( each)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(section)10( a)10( number)9( of rela)10(ted)10( attribu)10(te)10(s will)9( be)10( de)10(fined)10( which)]TJ
+T*
+[(provide)10( )8(control o)10(v)-3(er)9( a)10( par)9(ticul)9(ar )8(fun)10(cti)9(on o)10(r)1( )8(fun)10(ction)10(s within)]TJ
+T*
+-0.005 Tw
+[(the synthesi)9(s)5( )-8(scrip)10(t genera)10(tor)9(.)]TJ
+/F1 1 Tf
+15.96 0 0 15.96 140.13 427.29 Tm
+-0.001 Tc
+0.001 Tw
+[(Selectin)-7(g the Co)-7(m)-7(p)1(ilati)-9(on )-8(Fro)-7(ntier )-8(\(deve)-9(lop)-7(m)1(e)-9(nt\))]TJ
+ET
+138.69 443.61 384.72 -0.36 re
+f
+BT
+/F3 1 Tf
+14.04 0 0 14.04 140.13 392.73 Tm
+0 Tc
+0.004 Tw
+[(The defa)9(ult compile )8(strategy for )8(coreCon)9(sul)8(t)-4(an)9(t i)8(s)-4( )8(top-down)9(.)]TJ
+0 -1.1539 TD
+[(However, many design)9(s )8(are )8(too)9( large)9( )8(to )8(suppor)8(t thi)8(s)4( stra)9(teg)9(y)]TJ
+0 -1.1453 TD
+[(or el)8(se )8(ta)9(ke )8(too)9( long)9( to warran)9(t the)9( bene)9(fi)8(ts o)9(f)-4( a)9( )8(top-down)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(compile)10(. )8(In )8(the)10(s)-3(e)10( ca)10(se)10(s a)10( bo)10(ttom-up o)10(r)1( pa)10(rtial)9( bo)10(ttom-up)]TJ
+T*
+0 Tc
+0.004 Tw
+[(str)8(ateg)9(y is pre)9(ferred)9(. Proper)8( )8(setting)9( o)9(f)-4( a)9( hand)9(ful)8( of a)9(ttrib)9(utes)]TJ
+T*
+[(allows )8(for)8( an)9(y )8(compile)9( stra)9(teg)9(y)-4( b)9(e)0(tween)9( fully top-down)9( and)]TJ
+T*
+[(full)8(y bo)9(ttom-up. The )8(following)9( )8(table)9( defines )8(the d)9(e)0(sig)9(n)]TJ
+T*
+[(attr)8(ibute)9(s)4( tha)9(t)4( define whi)8(c)-4(h)9( designs will )8(be )8(compiled)9(, and)9( the)]TJ
+0 -1.1539 TD
+[(order in)9( whi)8(c)-4(h )8(the)9(y)-4( a)9(re )8(compiled)9(, by Desi)8(gn Compiler)8( \(i)8(.e.)]TJ
+0 -1.1453 TD
+0.001 Tc
+0.003 Tw
+[(which d)10(e)1(sign)10(s make)10( up)10( th)10(e )8(compila)10(tion )8(fro)10(n)1(tier)9(\).)]TJ
+/F1 1 Tf
+9 0 0 9 144.09 206.73 Tm
+[(Attribute)-8936(D)3(escription)]TJ
+ET
+139.65 222.57 116.88 -1.32 re
+f
+256.65 222.57 1.32 -1.32 re
+f
+258.09 222.57 263.88 -1.32 re
+f
+BT
+9 0 0 9 144.09 182.85 Tm
+0.002 Tc
+[(M)8(a)-2(pBlockIndi)13(vidu)13(ally)]TJ
+/F3 1 Tf
+13.1067 0 TD
+0.004 Tc
+-0.002 Tw
+[(Indic)11(a)0(tes)11( th)13(at th)13(e g)13(i)-1(v)11(en des)11(ig)13(n s)11(hou)13(ld b)13(e)0( c)11(o)0(m)10(p)0(ile)13(d in)13(div)11(i)-1(du)13(ally)]TJ
+0 -1.1467 TD
+0.003 Tc
+-0.001 Tw
+[(\(i.e. o)12(n)-1( th)12(e c)10(o)-1(m)9(p)-1(ile )13(front)14(ier\).)]TJ
+ET
+139.65 198.69 116.88 -1.32 re
+f
+256.65 198.69 1.32 -1.32 re
+f
+258.09 198.69 263.88 -1.32 re
+f
+BT
+9 0 0 9 144.09 149.49 Tm
+0.004 Tc
+[(M)10(apSubbl)13(o)]TJ
+5.0667 0 TD
+-0.007 Tc
+[(cksI)-9(n)-11(d)-11(i)-12(vi)]TJ
+3.8267 0 TD
+0.004 Tc
+-0.002 Tw
+[(dually)-1576(Indic)11(a)0(tes)11( th)13(at e)13(a)0(c)11(h)0( of t)15(he im)10(m)10(edi)13(ate s)11(ub-d)13(e)0(s)11(i)-1(gns)11( of)15( the )13(giv)11(e)0(n)]TJ
+4.2133 -1.1467 TD
+[(des)11(ign s)11(hou)13(ld )13(be c)11(o)0(m)10(p)0(il)13(ed i)13(ndiv)11(i)-1(d)13(ual)13(ly)11(. Equiv)11(a)0(l)13(ent t)15(o)0( s)11(e)0(tti)13(ng)]TJ
+T*
+[(M)10(apBloc)11(k)11(I)2(ndiv)11(i)-1(dua)13(lly)11( on )13(eac)11(h im)10(m)10(edi)13(ate s)11(ub-d)13(e)0(s)11(i)-1(gn.)]TJ
+ET
+139.65 164.49 116.88 -0.6 re
+f
+256.65 164.49 0.6 -0.6 re
+f
+257.37 164.49 264.6 -0.6 re
+f
+BT
+9 0 0 9 144.09 105.69 Tm
+[(C)6(o)0(m)10(p)0(ileO)9(r)4(der)-6863(Indic)11(a)0(tes)11( th)13(e ord)13(e)0(r i)13(n)0( w)6(h)0(ic)11(h t)15(o)0( c)11(o)0(m)10(p)0(ile )13(des)11(igns)11( w)6(i)-1(t)15(h)0(in )13(the )13(giv)11(e)0(n)]TJ
+13.1067 -1.1467 TD
+[(des)11(ign. T)15(h)0(is)11( attr)17(ibut)15(e s)11(hou)13(ld be)13( s)11(e)0(t to )13(a l)13(i)-1(s)11(t)2( of i)13(n)0(s)11(t)2(anc)11(e nam)10(es)]TJ
+T*
+0.003 Tc
+-0.001 Tw
+[(w)5(i)-2(thin )13(the )13(giv)10(en d)12(e)-1(s)10(i)-2(gn )13(and )13(ind)12(i)-2(c)10(a)-1(tes)10( \(for t)14(hat t)14(hat ar)16(e g)12(o)-1(ing)12( to)]TJ
+ET
+139.65 120.69 116.88 -0.6 re
+f
+256.65 120.69 0.6 -0.6 re
+f
+257.37 120.69 264.6 -0.6 re
+f
+139.65 82.89 116.88 -0.6 re
+f
+256.65 82.89 0.6 -0.6 re
+f
+257.37 82.89 264.6 -0.6 re
+f
+endstream
+endobj
+29 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 5 0 R
+/F3 6 0 R
+>>
+/ExtGState <<
+/GS1 7 0 R
+>>
+>>
+endobj
+30 0 obj
+<<
+/Type /XObject
+/Subtype /Image
+/Name /Im1
+/Width 625
+/Height 289
+/BitsPerComponent 8
+/ColorSpace 31 0 R
+/Length 3449
+/Filter /LZWDecode
+>>
+stream
+Ä;†P8$ÑBaP∏d6àDbQ8§V-åFcQ∏‰v=êHdR9$ñM'îJeR∏x]/òLfS9§÷a,úNgSπ‰ˆ}?†Pd†	’ÖG§RiT∫e6ù,£N*4˙•V≠W¨VkRúÆª[∞XlV;%ñs_î⁄,÷ªe∂›oµ⁄§˜+Ö÷Ìwº^eWJÍ˝¿`pR⁄.áƒbmó…&3è»drU.O-óÃfcÿËD∆+úÕhtZ<∂Ç3äi¥öΩf∂Û™ÅÍ"{v◊m∑≠Ì&ª=∆˜}ø∞Ó•ÓÈºKi¿‰ryW=üã„Ú˙]>§[aûœt:ΩæÁv5◊·¿π¯N˜óÕÁÑ¯%€C£Ë¯|u⁄Ø€˜¸ø_º«”Ó˚=os˘¿çªLÏΩè˙¸¿∞lΩ@T¡¨,»¬0O	=0º=∞MlŸ!∞dA≈
+tE¡dM∆äÄŒEë$G ±F±j«RÑëGê”; “á%…à√I/´;& í™˜…$§É…R¥Ω/¥ÚƒåÙÀ-å¡3Õt]2ÀSdª4ŒﬁÌN3¨Ì)¨Ûºı=Œp˜?Œ3Î…@Pì¸P¥LΩCƒ¥U&—ëuI»TåoJSï-”4ÏSM√¥ıET≈GS¡’,πTUê-U$’µã˜WÃ5ïlÙ=Ûe9[◊éÙ{_ÿ›{a÷jççZXñK}1´≥ïg¡ˆsâ.YÖ¨À⁄O…k€èÖ≥3Gˆ≠ªqØ÷¸µ1\óKÅsVØ≈≈u^Ë„]˜çÏ™]ï3°zﬁ˜Íè|‘-M˘`ä+Û`.±a4ºùÅ·xã7 IXn%ã©µé◊X∆<û„TBAê„˘*áAQô&Mï£ôU"bfóOŸ>eõ´ïUéÁÌ¬¥™é}efå˙œ°huæäÎ'z^ìÇÈ⁄by®È˜Ü©©dæ´kkZ¬ÆÎuÓ¡ØFzF√;lhæÕ6Ï˜ˆ”5){~€Gn[ÇôûnunÍåÌy˛ÛdÔn˙Ø¿ÔÚ∑	¡G{ÔhÒX≈‘\>9yrß$Õ¨|ø+∆,kõÕœúˆ_ÃÙ]ÕHãoQ”;Ω_R∑u›cóÿıÎiŸ7Ωøj∏w]√Yﬁ˜kØÅﬂ3>Çªxﬁ#!‰¯ÎøôÂ0~öºz^É_“£˛¬GÍ˙›∑µÏ±Á∫≤¸LkÚ¸j◊—Û1ˇ_“ß˝ﬂgóÔ˝ÍO‚æ≤øÍü_√J˝€&i˛¿Á π°Ä∞úºSI‡aÇ ’¡8"¿çkjπ¯m†¥[n¸‹BD{¨_™û(Xˇ\-qî‰Bgﬂô á*√ógﬁÑ=ÜN!8∏ãŒ§GlÒ*$XÅ¢yMä/¬)∂òPb¨TÜLŸ_+à≤Ã¢ª>1Öô≈ı~£3åÖ*4ïh÷∫£|l@q≈k«H‰Å#≤ƒè1›WFÿÎüRèj¢A∑t/ ‰ÖäJíD7©pQäP≤I¯"â(ù‰ºïSÚ=EIòŒådÛÜìÖ≈ ó)ä¨£uR©3 à‹ú•bUïŒ&KO-ùÇêó‚Y»©/cúªwä.aHyã0“¸¿<”*HJŸé±SÑœyHÛÃ¬…5&úâX3mÃππ7Õ‹’Ö≈ ûÀ9Á.ÖŸ@.˘∞sÃÀjV.œÀ;ì‰Ùu≥ÍhœôÌ>Á¸[îîÌœäÍßÂ°4)ÇPiÍTßü¥J$–π[?®Ñ˜¢‘f—öe'ïLHå‘“Ëî§dÿﬁ'§ûØŒ5&%¥±:8ƒ{M[E+Eî‡ÓÍvË„Ì0TtΩ`3Z ª¶Ì@è°“4»ﬁ'y&Eg‘ôT®ùRUUr5:ß°JTö“E(Ut…pÆjƒ¨)u\HÏZ®ø‰ñk:ÌU)ïaVâ1Zñ•l¨ïv∑‘d]g÷0πX
+«GÎ„ìØu¨∆Xe	a*MVàï·ƒU˙ﬁælr”≠5Ç»Ÿ#•a≈ãØ65]V◊ëN©%~°ñ]7⁄g¯õ≠-¨µ
+î‘{ghiµ§∞E˛–X Ωb,e∏∏÷)Î{bX›√J6bﬂ‹´óní}≤π‰€j∫_,Õö∑6≤ËŸªãmÌ≠=´Õ!kvS˝«∫äJÀ^K}g¨˝„∫ınŒ^Î√jÏ‚ÃÆ5 Î]46œ-t»ªñvˆ\ÎGjoΩ¯ºò]◊{ÛÉ0m˝¿h⁄Í◊˙ã|&M®¶ò`‰û¢iLd¥æòO‚ÇŒ>zw>p™ ÑâF*+înã—K'ç±Ωß8·Ÿ„Et†N'~TqÚcËuë≤="«ô'c	·É≤n
+»* ALÑˆÚ% 5_%‰≈˚ãÔ]√π!√fHcò°Æfó˘©eÊƒÂïqç¢…˘eÃÊËiö3;núÓ˝√¨˘üÒì#ù3± N§'°'2«–⁄ú‰ÍQ4fu“.˛rÆ–±®ù⁄Z›fÈ{˘ôW;DY≈£IÀJÌ®4˙±CñØ• „±ufa“◊Y }kq¨∆H7w[`U2«QΩ◊RÛIäıj•<S[*Ù≤té∂|••ª7¥móIvæ”—Ï—ÉÏñ…$[RÅihõRµ6¯ß˜:Üj,QÓÕ¡ee”±RyﬁmÎÆ⁄Ís‹πN	oKÑ¶õ(êXÕhD`ﬁ16ÇØ˘cÖ‚∫Ê§T∂˚·úL˛q¶Ÿ‘sŒgÀå¸„«¯ÊVå|ä49uiƒôi^‰;Új∫Ö´ 7O*WnÇ∫Ï¡òy•œï⁄/Œa∂3¥ ‹—%›1≥)RÁ(‡4.èÇyŸÛFk≠„6nü≠˙ÒãÒµ∑ﬁØ´öˇZ(\£ÑrN∑òﬂ∂^Ïp=Ó:.ø•ªNyÓ'ıÚΩéﬂ›ù:*ÔiÔı~˙Ód˚Á~0£¯D+Ã?eáﬁ ÷¡Æa„ëÖ\K…¯Ÿ|ı·d/‹æj
+π◊ù¢~ìÙ0eÜ=Ë£Ùg®ÅS\∏√à≥åΩ|»¨2∆lÌñ¡ã716⁄o{ ËDnâR®¸D1ÄõºWë≥cÂæ€O#$úö_Hƒ˝N«ÂT«˚>%AπY,f‡z6ÒñË≠	¢^âúì£E∞mûˇwÔõÌOÛhù˘ˇgËá»js˛Ωˇ≠ˇ#*ˇè˝ )÷˛Õ&é˛OÊD.ÇﬂÆ¢Œç`JÈpÊÓÕÓ@˚´0)Ò–2ÊNñ≠–ApHÂê0„pMÓìpKÍ•p`¸ê"Â0p!0$ÿ¨g∞ﬁ[GùêÑO0=]PS–ï	p_–}	0_∞õ)ò»p≠
+pY
+ëµ0ªƒxPáP®·œüÓpr€NTH™nÔL4≈≠ákˇ.°
+‰€‚`J¥+æΩh¯§Âr”LP√pÎK¬'—ßÛÒƒ±LHœ≠S–ˆ.ã—
+Q—/ë+,YGØÕ|˙¯Î2ƒQ\ã
+‡¿ΩqE±p¬ëcÃQzl±Z^Q`s±f}£≈aX≤ÜÌãFﬁπoJßQ~ëqùë∞9≠πÀ˝¿A$ª—≈Q∞0oÓ[˛¬1√ø±4º
+KêiÒïqß”Ò˘ˆ±—1ë˛πt·Qπ™fkR–ÒÔPÔ»Vjé‹¥≠Ç˘*Õêm-BæQ™æ≤“9«ÏÒGè+$q˝&çÅq'ëÉ|¡#ëKëuåÎrd_„?$≈µ%“m´1(–—R_$ëŒBrã&rè Õˇr°ëo%r®Ë}R¬Ú|∫·ÌrùJ≥'N¡"qãQNë&≤ì'qC≤ïrc.—ıÚ∞pmW-B≤õpÂ!-ø'è=3r ¯ëÂÖ.sÓÒ—“?Óc"µ≤≠!”0“ôõ#“Xê”(iì-	Òœ%R◊1S=5S]5Ì¬À´36¨…%25R∑A6qÒ(S[-ÛY+2K"í0πÜ t≥pa≤4≥y34ì3$SÅ8ìzã˜8r—7≤Å4Ì≠:Cs<}3QÀ$3äîqy'Ú˝#1ë(1ª(í¢ÓrÎ/Rœ8R¡.Ú$>¡Ú˙â≥π1h≈;—Í´˚3Ì-≤›“s2'#6ﬂÛ„:”]9r/7T+ì˘AìÉAQ◊)¥;A”CBtB˚Õ‹ET#±Yìs<ì°&Ù?Dé◊,j°6ÛÔ/rÿÚ3ËˆìŸ2s	%∞ÀE“ó*sb,–y#)9≥Û+R≈C´H¥õHRÒ3¥óJîß)Ù´K¢5ÙÉTù"G©≥ßJ–€Bî"¯4ø<‘µL≠OÙªLî¡C‘EMÀMÊÅIT∑N’JüLÙÛMt„NtáPtâO‘˚P’ó4ëK‘•K4π	‘«PÿÓ›Qtı3ï%S”Nµ-NÙ≈1î˘Q5NUGPTØT4˜QSU5UU[TîÈQïeRÙ!5!T]RtÀUOıYWP˛µÖ Ø‘–Õi∞¢•Y)πY˝É€ ïç I„ZP —Xï®£5≠[µá /÷Á’òõb
+endstream
+endobj
+33 0 obj
+<<
+/Length 4722
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 327.69 49.17 Tm
+0 g
+BX /GS1 gs EX
+-0.002 Tc
+0.013 Tw
+[(Sy)-8(nthe)-12(s)-8(i)3(s in c)-8(o)0(r)-6(e)0(B)-10(u)0(i)-9(l)3(der)-6( and )12(c)-8(o)0(r)-18(e)0(Con)-12(s)4(u)-12(l)3(ta)-12(nt)]TJ
+ET
+q
+1 i 
+518.85 35.13 5.52 -6.84 re
+W* n
+BT
+9.96 0 0 9.96 518.85 25.77 Tm
+0 Tc
+0 Tw
+(8)Tj
+ET
+Q
+BT
+9 0 0 9 262.05 710.85 Tm
+0.003 Tc
+-0.001 Tw
+[(be c)10(o)-1(m)9(p)-1(ile)12(d\) the)12( ord)12(e)-1(r in w)18(h)-1(ic)10(h th)12(e c)10(o)-1(m)9(p)-1(ile s)10(h)12(ould)12( oc)10(c)10(u)-1(r. By)]TJ
+0 -1.1467 TD
+[(defau)12(lt, d)12(e)-1(s)10(i)-2(gns)10( are)12( c)10(o)-1(m)9(p)-1(iled )13(in )13(order )13(bas)10(ed o)12(n)-1( th)12(e perc)10(e)-1(n)12(t)1(age)]TJ
+0 -1.16 TD
+[(of ports)10( th)12(at ar)16(e c)10(onnec)10(te)12(d direc)10(t)14(ly)10( to th)12(e to)12(p des)10(i)12(gn, u)12(nder )13(the)]TJ
+0 -1.1467 TD
+0.004 Tc
+-0.002 Tw
+[(as)11(s)11(u)0(m)10(p)0(tion that)15( thes)11(e )13(des)11(igns)11( ar)17(e in)13(heren)13(tly)11( m)10(o)0(re ac)11(c)11(u)0(rate)13(ly)]TJ
+T*
+[(c)11(ons)11(trained.)15( This)11( at)15(trib)13(ute s)11(hou)13(ld )13(not ty)11(pic)11(a)13(lly)11( nee)13(d to )13(be s)11(e)0(t.)]TJ
+ET
+1 i 
+139.65 719.85 116.88 -0.6 re
+f
+256.65 719.85 0.6 -0.6 re
+f
+257.37 719.85 264.6 -0.6 re
+f
+BT
+/F1 1 Tf
+9 0 0 9 144.09 646.29 Tm
+0.001 Tc
+(Uniquify)Tj
+/F3 1 Tf
+13.1067 0 TD
+0.003 Tc
+-0.001 Tw
+[(If TR)5(U)5(E)3( \(the )13(defa)12(u)-1(lt\) )13(the )13(des)10(ign w)18(ill )13(be u)12(n)-1(iq)12(uifi)12(ed b)12(e)-1(fore)12( any)]TJ
+0 -1.1467 TD
+[(c)10(o)-1(m)9(p)-1(iles)10( oc)10(c)10(u)-1(r. If FALSE, t)14(h)-1(is)10( des)10(ig)12(n wil)12(l)-2( be)12( c)10(o)-1(m)9(p)-1(iled)]TJ
+T*
+0.004 Tc
+-0.002 Tw
+[(indiv)11(i)-1(d)13(ual)13(ly)11(, ind)13(epen)13(dent)15( of t)15(he s)11(e)0(tt)15(ings)11( of M)10(a)13(pBloc)11(k)11(I)2(ndiv)11(i)-1(d)13(ual)13(ly)]TJ
+T*
+-0.008 Tc
+0.01 Tw
+[(o)-12(n)-12( t)-10(h)1(i)-13(s)-1( d)-12(e)-12(s)-1(i)-13(g)-12(n)-12(,)-10( )13(o)-12(r)-8( Ma)-12(p)-12(S)-8(ub)-12(b)-12(l)-13(o)-12(cksI)-10(n)-12(d)-12(i)-13(vi)-13(d)-12(u)1(a)-12(l)-13(l)-13(y)-1( on)-12( t)-10(h)1(e)-12( p)-12(a)-12(r)5(e)-12(n)-12(t)]TJ
+0 -1.16 TD
+0.004 Tc
+[(des)11(ign.)]TJ
+ET
+139.65 661.41 116.88 -0.6 re
+f
+256.65 661.41 0.6 -0.6 re
+f
+257.37 661.41 264.6 -0.6 re
+f
+BT
+9 0 0 9 144.09 581.85 Tm
+0.003 Tc
+-0.001 Tw
+[(R)5(epres)10(entat)14(iv)10(eC)5(ontex)10(t)-2919(A)3(pplies)10( o)12(n)-1(ly)10( to )13(des)10(igns)10( th)12(at U)5(n)-1(i)12(qui)12(fy)10( FALSE. In)12(dic)10(a)-1(tes)10( w)5(h)-1(ic)10(h)]TJ
+13.1067 -1.1467 TD
+0.004 Tc
+-0.002 Tw
+[(c)11(e)0(ll ins)11(t)2(anc)11(e s)11(h)0(o)13(u)0(ld)13( be c)11(har)17(ac)11(teriz)11(ed pr)17(ior t)15(o)0( c)11(o)0(m)10(p)0(ili)13(ng t)15(he no)13(n-)]TJ
+0 -1.16 TD
+[(uniqu)13(e des)11(i)13(gn. T)15(he v)11(a)0(l)13(ue s)11(houl)13(d b)13(e)0( a f)15(u)0(ll)13( ins)11(t)2(anc)11(e )13(nam)10(e)]TJ
+0 -1.1467 TD
+0.003 Tc
+-0.001 Tw
+[(relativ)10(e)-1( )13(to th)12(e to)12(p des)10(ig)12(n.)]TJ
+ET
+139.65 596.85 116.88 -0.6 re
+f
+256.65 596.85 0.6 -0.6 re
+f
+257.37 596.85 264.6 -0.6 re
+f
+139.65 542.73 116.88 -1.32 re
+f
+256.65 542.73 1.32 -1.32 re
+f
+258.09 542.73 263.88 -1.32 re
+f
+BT
+14.04 0 0 14.04 140.13 494.13 Tm
+0 Tc
+0.004 Tw
+[(As )8(a gen)9(eral )8(guideline)9(, se)9(t Ma)9(pBlo)9(ckIndi)8(viduall)8(y on e)9(a)0(ch)]TJ
+0 -1.1453 TD
+[(design)9( to)9( be)9( )8(compiled)9( indi)8(viduall)8(y. Al)8(so, )8(set Uniqui)8(fy )8(to)]TJ
+T*
+[(FALSE on)9( de)9(sign)9(s wi)8(th la)9(rge )8(numbers o)9(f)-4( i)8(n)0(stan)9(ces i)8(f)-4( )8(tho)9(s)-4(e)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(design)10(s )8(are l)9(arge)10( enough)10( to)10( meri)9(t i)9(ndivid)10(ual )8(compila)10(tion)10(.)]TJ
+0 -1.1539 TD
+[(Consider)9( the)10( )8(following)10( de)10(sign )8(hierar)9(ch)10(y:)]TJ
+ET
+q
+377.88 0 0 166.32 140.13 248.3701 cm
+/Im1 Do
+Q
+BT
+14.04 0 0 14.04 140.13 223.29 Tm
+0 Tc
+0.004 Tw
+[(The desi)8(gns )8(shown wi)8(th d)9(a)0(she)9(d)0( lin)9(es are)9( to)9( be)9( compiled)]TJ
+0 -1.1453 TD
+[(individua)9(lly. The)9( in)9(sta)9(nce)9( name)9(s)-4( o)9(f)4( the)9( three)9( E )8(instan)9(t)-4(iation)9(s)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(are E1)10(, )8(E2, and)10( E3)10( re)10(specti)9(vel)9(y)-3(, and)10( all )8(othe)10(r in)10(stan)10(ce)]TJ
+T*
+0 Tc
+0.004 Tw
+[(names ma)9(tch )8(the)9( de)9(sign )8(name. Then )8(the)9( fo)9(llowing i)8(n)0(ten)9(t)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(should)10( be)10( spe)10(c)-3(i)9(f)-3(ied:)]TJ
+/F5 1 Tf
+9.96 0 0 9.96 140.13 135.81 Tm
+0.002 Tc
+0 Tw
+(set_design_attribute -design H MapBlockIndividually TRUE)Tj
+0 -1.0001 TD
+(set_design_attribute -design D MapBlockIndividually TRUE)Tj
+T*
+(set_design_attribute -design C MapSubblocksIndividually TRUE)Tj
+0 -1.0121 TD
+(set_design_attribute -design E Uniquify FALSE)Tj
+0 -1.0001 TD
+(set_design_attribute -design E RepresentativeContext B/E1)Tj
+ET
+endstream
+endobj
+34 0 obj
+<<
+/ProcSet [/PDF /Text /ImageC /ImageI]
+/Font <<
+/F1 5 0 R
+/F3 6 0 R
+/F5 19 0 R
+>>
+/XObject <<
+/Im1 30 0 R
+>>
+/ExtGState <<
+/GS1 7 0 R
+>>
+/ColorSpace <<
+/CS1 31 0 R
+>>
+>>
+endobj
+31 0 obj
+[/Indexed /DeviceRGB 255 35 0 R]
+endobj
+35 0 obj
+<<
+/Filter /ASCII85Decode
+/Length 924
+>>
+stream
+z!&FTT<<*#C!!&De!4r42h#IHT)?;Q?!)56L)D_@L1B;#P!.[cD-;=J79`USa!4-8;
+1M-W!AcU%r!9Se3!.Y&7J,k+M!<8Ge!1<g]R/iY]!!'>*=gJ+7bQ%Xe!+sFTbiSm*
+joBJb!9X:]!<3%LrrE'T&HEU`s%4./!#dYR*WQ-[*WI.?ruM,I+942A!!"EDG:3GC
+/cUha!(nsG!&FTT1D'UC+ojDT&MjD21B93e!!"rpUc/:E3rf4@3r_73s#U1l4oetU
+!(96T!(Ddn7K>qK!!#VG0hMEG9c="+9c?_+kY2&$:B1Ak!!#uss&B'"=9&;%=8u@&
+s&]5)>Q7r5!01@c!+8&W?iU19`;jKo!+ogeAcVjI+olH[Ui$0ODu]lXic/u<\on&Q
+F`m_,])QpQ!-_47G6#7'!!%O"!.]S"JH%-M!<7X=KnTM_M#RI4!#ggrdYn/+Na?%P
+!6C?'s,rQFP0!ZdrrAHC!1B62R/f%2s-]8Ts-[K_RfK(QrrAj4DPR8,VZ-Xp!<9&!
+XfVTTYQ+X+YQ(fXs0)J&Y_W:c492^o4L5$"Zi@G@s8TJN!5!Z-])[Ars8To'_SQ9Q
+`;oqXWW:72!6iYTbQ+'Ts3/^ek03l*b\$n!bl>oLs31KCdYs.5!7o^$s4<(5g&M*.
+bQ-W&s5U*Zk"Pj<k"Xt<bi\p*kaS(*!:/qNs6e)2rr<'!<<3'!!<<';ru)pXBH@-Q
+,6,&,s"c_9Hoh<-7/t(ts%QMn!*B2]=9&;4s(5mCb\7"sFoS4Zs8RKH3e76\M#Z(f
+s&YB`[Z^[jRK&\Ms)k@A!36(ZYQ)bKs8TG*ZaKfW[f;N,s$Y$0YK[#Ybl>o2s4tp!
+m`b_2fDgZ_s30O'Wp]o2s8N*!s!e!J;ZHcCs8Skos31NCrr<$!zzzzzzzzzzzz~>
+endstream
+endobj
+37 0 obj
+<<
+/Length 5018
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 327.69 49.17 Tm
+0 g
+BX /GS1 gs EX
+-0.002 Tc
+0.013 Tw
+[(Sy)-8(nthe)-12(s)-8(i)3(s in c)-8(o)0(r)-6(e)0(B)-10(u)0(i)-9(l)3(der)-6( and )12(c)-8(o)0(r)-18(e)0(Con)-12(s)4(u)-12(l)3(ta)-12(nt)]TJ
+ET
+q
+1 i 
+518.85 35.13 5.52 -6.84 re
+W* n
+BT
+9.96 0 0 9.96 518.85 25.77 Tm
+0 Tc
+0 Tw
+(9)Tj
+ET
+Q
+BT
+14.04 0 0 14.04 140.13 706.89 Tm
+0 Tc
+0.004 Tw
+[(The followin)9(g de)9(sign)9(s will )8(then)9( be )8(compiled)9(: E, F, G)9(,)-4( H)13(,)-4( D)13(,)-4( A.)]TJ
+0 -1.1453 TD
+[(The top)9( de)9(sign)9( impli)8(citl)8(y )8(has MapBlo)9(ckInd)9(i)0(vid)9(ually )8(set on)9( it.)]TJ
+T*
+[(The order)8( of )8(compila)9(tion wi)8(thin)9( si)8(bling)9( designs \(li)8(ke)9( F and)9( G)9(\))]TJ
+0 -1.1539 TD
+[(is d)9(e)0(termine)9(d b)9(y)4( the)9( )8(tool )8(unless th)9(e CompileO)9(rder )8(attribu)9(te )8(i)8(s)]TJ
+0 -1.1453 TD
+0.001 Tc
+0.003 Tw
+[(set on)10( de)10(sign)10( C to )8(for)9(c)-3(e a)10( )8(spe)10(c)-3(ifi)9(c)5( order)9(. )8(Othe)10(rwise)10( th)10(e only)]TJ
+T*
+0 Tc
+0.004 Tw
+[(guarante)9(e)0( i)8(s)-4( )8(tha)9(t)-4( l)8(o)0(wer le)9(vel)8( blo)9(cks are )8(compil)8(ed be)9(fore)9( )8(the)9(i)0(r)]TJ
+T*
+[(parent blo)9(cks. The)9( CompileOrde)9(r a)9(t)-4(tribute )8(should)9( no)9(t)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(typi)9(c)-3(all)9(y need)10( to)10( be )8(se)10(t si)9(nce)10( the )8(tool)9( fig)10(ure)10(s ou)10(t )8(an in)10(telli)9(ge)10(nt)]TJ
+T*
+[(ordering)10( based on)10( how)14( accura)10(tel)9(y)-3( e)10(a)1(ch )8(de)10(sign)10( is)]TJ
+0 -1.1539 TD
+[(con)10(strai)9(ned.)]TJ
+/F1 1 Tf
+15.96 0 0 15.96 140.13 524.61 Tm
+0 Tc
+0 Tw
+[(Ungr)-9(oupi)-8(ng )-8(and)-6( Hierarc)-8(h)2(y Preserva)-8(tio)-6(n)]TJ
+ET
+1 i 
+138.69 540.93 384.72 -0.36 re
+f
+BT
+15.96 0 0 15.96 140.13 506.01 Tm
+-0.001 Tc
+[(\(devel)-9(op)-7(men)-7(t)1(\))]TJ
+/F3 1 Tf
+14.04 0 0 14.04 140.13 471.57 Tm
+0.001 Tc
+0.003 Tw
+[(This )8(se)10(ction)10( o)10(f)-3( )8(the)10( do)10(cument de)10(fine)10(s a)10(t)-3(tribu)10(tes u)10(s)-3(ed)10( to)]TJ
+0 -1.1453 TD
+[(control wha)10(t)5( the)10( final )8(desi)9(gn hi)9(erar)9(chy is go)10(ing )8(to)10( loo)10(k li)9(ke)10(.)]TJ
+T*
+0 Tc
+0.004 Tw
+[(These a)9(t)4(tribu)9(tes pla)9(y a la)9(rge r)8(ole i)8(n)0( )8(the )8(fina)9(l QoR)13( of )8(the)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(design)10( so i)9(t)-3( i)9(s)5( impor)9(tant )8(to un)10(derstand)10( exa)10(c)5(tl)9(y )8(how )8(they wor)9(k)5(.)]TJ
+T*
+0 Tc
+0.004 Tw
+[(The tabl)8(e bel)8(ow de)9(fine)9(s )8(the)9( design a)9(t)4(tribu)9(tes a)9(s)-4(socia)9(t)-4(ed)9( with)]TJ
+0 -1.1539 TD
+[(ungrouping)9(.)]TJ
+/F1 1 Tf
+9 0 0 9 144.09 366.09 Tm
+0.001 Tc
+[(Attribute)-8936(D)3(escription)]TJ
+ET
+139.65 381.93 116.88 -1.32 re
+f
+256.65 381.93 1.32 -1.32 re
+f
+258.09 381.93 268.44 -1.32 re
+f
+BT
+11.04 0 0 11.04 144.09 340.29 Tm
+-0.001 Tc
+[(PreserveHi)-6(e)1(ra)12(rchy)]TJ
+/F3 1 Tf
+10.6848 0 TD
+-0.002 Tc
+0.007 Tw
+[(I)-7(ndicat)-7(e)0(s)9( t)-7(h)0(a)11(t)-7( )11(t)-7(he given)11( design should n)11(e)0(ver be)]TJ
+0 -1.1413 TD
+[(ungr)-6(ouped.)]TJ
+ET
+139.65 358.17 116.88 -1.32 re
+f
+256.65 358.17 1.32 -1.32 re
+f
+258.09 358.17 268.44 -1.32 re
+f
+BT
+11.04 0 0 11.04 144.09 302.37 Tm
+[(Pr)-6(eser)-6(veBounda)11(r)-6(i)3(es)-1654(I)-7(ndicat)-7(e)0(s)9( t)-7(h)0(a)11(t)-7( )11(t)-7(he bounda)11(r)-6(i)3(es o)11(f)-7( )11(t)-7(he given)11( design)]TJ
+10.6848 -1.1413 TD
+[(should be pr)-6(e)11(s)-2(er)-6(ved)11(.)-7( )11(Im)-6(plies Pr)-6(ese)11(r)-6(veHier)-6(a)0(r)-6(c)-2(hy)9( and)]TJ
+0 -1.1522 TD
+[(pr)-6(event)-7(s)9( boundary op)11(t)-7(i)3(m)-6(i)3(zat)-7(i)3(on)11( by Design Co)11(m)-6(p)0(iler)-6(.)]TJ
+ET
+139.65 319.29 116.88 -0.6 re
+f
+256.65 319.29 0.6 -0.6 re
+f
+257.37 319.29 269.16 -0.6 re
+f
+BT
+/F1 1 Tf
+11.04 0 0 11.04 145.05 251.61 Tm
+[(UngroupSubbl)-7(ocks)]TJ
+/F3 1 Tf
+10.5978 0 TD
+0.008 Tw
+[(I)-8(ndicat)-8(e)-1(s)8( t)-8(h)-1(a)10(t)-8( )11(t)-8(he given)10( design should h)10(a)-1(ve all o)10(f)-8( it)-8(s)]TJ
+0 -1.1413 TD
+[(sub-)-7(designs ung)10(r)-7(ouped p)10(r)-7(ior)-7( )11(t)-8(o)10( t)-8(h)-1(e)10( init)-8(ial com)-7(p)-1(ile.)]TJ
+T*
+[(Any sub-)-7(designs)8( wit)-8(h P)12(r)-7(eser)-7(veHier)-7(a)10(r)-7(c)-3(hy)8( set to)]TJ
+0 -1.1522 TD
+[(TRUE will be pr)-7(eser)-7(ved)10( so i)12(t)-8( is po)10(ssible t)-8(o)10( do pa)10(r)-7(t)-8(ial)]TJ
+0 -1.1413 TD
+[(ungr)-6(ouping.)]TJ
+ET
+139.65 268.65 116.88 -0.6 re
+f
+256.65 268.65 0.6 -0.6 re
+f
+257.37 268.65 269.16 -0.6 re
+f
+BT
+11.04 0 0 11.04 145.05 175.65 Tm
+0.007 Tw
+[(Ungr)-6(oup)-6772(I)-7(ndicat)-7(e)0(s)9( t)-7(h)0(a)11(t)-7( )11(t)-7(he given)11( design should b)11(e)0( ung)11(r)-6(ouped)]TJ
+10.5978 -1.1413 TD
+[(whenever)-6( a)11( cont)-7(aining design)11( is co)11(m)-6(p)0(iled.)]TJ
+ET
+139.65 192.69 116.88 -0.6 re
+f
+256.65 192.69 0.6 -0.6 re
+f
+257.37 192.69 269.16 -0.6 re
+f
+139.65 154.65 116.88 -1.32 re
+f
+256.65 154.65 1.32 -1.32 re
+f
+258.09 154.65 268.44 -1.32 re
+f
+BT
+14.04 0 0 14.04 140.13 106.05 Tm
+0 Tc
+0.004 Tw
+[(Each)9( of )8(these a)9(t)-4(tributes de)9(faults to)9( FALSE)9(, so)9( b)9(y)-4( de)9(faul)8(t,)]TJ
+0 -1.1453 TD
+[(blocks are)9( no)9(t au)9(toma)9(tica)9(lly ungro)9(uped )8(prior)8( to)9( )8(compile, but)]TJ
+ET
+endstream
+endobj
+38 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 5 0 R
+/F3 6 0 R
+>>
+/ExtGState <<
+/GS1 7 0 R
+>>
+>>
+endobj
+39 0 obj
+<<
+/Type /XObject
+/Subtype /Image
+/Name /Im2
+/Width 635
+/Height 300
+/BitsPerComponent 8
+/ColorSpace 31 0 R
+/Length 3700
+/Filter /LZWDecode
+>>
+stream
+Ä;†P8$ÑBaP∏d6àDbQ8§V-åFcQ∏‰v=êHdR9$ñM'îJeR∏»]/òLfS9§÷a,úNgSπ‰ˆ}?†Pg@
+
+çG§RiT∫e6ÖDú‘)’:•V≠W¨Veï*›jΩ_∞XlV:]rWf≤ZmVªe∂›¥Jn6˚•÷ÌwºNÓr{›Ê˝¿`pP´ÏóÉƒbqXªGé∆drY<•ÍãïÃfsYº|VcûŒhtZ=$/!ô≈4˙]f∑]~’¡51=éøm∑‹cvìM¶Á}ø‡XvÆÈºﬁ%√‡Úy\ªñÓ]ƒóÔyù>ßVœ«‚Ò¢é∑wΩﬂÑm{]®s¡ÁÙu<]íÊÙ¸~[ùèª›¯|ˇ_Ω◊ÿÅæÌ3˘¿éVœ∂P
+¸¿∞l¡@Ô¸Áº∞|-≥på(Ç¡O1ƒcNõ6hl≈JØƒêDMFä‹»E±,GÀuF±toH
+ßBKÑã»RLî§1—Ùç#Æ\•)ßíl†‘J‰©-ÀâD≠∞íÀe.Ãì*>√√≤ƒ¡L”l‹–*3|Â9≈ÛåÈ;œ/<œìîO8O¥Õ?µT2PéïE TKèFRUà“tç,R∞≠/M∆4ÀﬂNTM=:‘5,/Qø5U’˝WWøuk	XVè”Õ1U5≠tÙGµÌ}4◊vb©XïïÖc∫sZÕ5Ÿl1f8í5ùi’ã›≠cZñÀ3hLsµoªˆ‰¥¸\WÃ€\∑ﬂl\˜j€tµ≈›yøÆëx^óÀ|MçUŸ}`
+M˘$"¯É¨X6åaXF™·∏Z[·¯™Eà÷hÌqãcä61WcX¶;ëªtÕGè‰ôJ=îTòæEïeYe>ìfYÜm/ãñ_õ‡9´∂≥ÁyÂ›üRâ∆â°c∫>ä®Ë:Eõ•QÎ÷õßWZÖ©jö¶≠Bß˙ﬁ≥ßÍvÍÅØk˙Æ√u(;&ÀUmH∂ŒÌ˚\Á∂‡´.„πLª¶¶„{∆Õæ*õ÷˝7H÷Ôuv
+çÔ/ƒƒZ9«Ò‹ÖK…cJˇ1ÀT\•5Õs‹Ây–ÛÏo7—@ù:A“_›FÁ÷ikWU◊\=Ü¢∂v}•ì€j˝«y›C=ˇ{w¯^%‹Á+øë„4æ_íºyﬁc5Ë˘Îœ©È2>ø™ÿxæ«à¿{π_√Ôa?≈{_"ÈÙ∫Ï_Ÿı-?€|ﬂÇï˘+¨üÒ˚bØVf€¸n∆Qˇh âTOkn»e†tÅÆÆ	H*Õ ºaêdŒöHôt5∞~988Õ|$Ñ≠∫Ω≥Y
+°[%]“¡8`Q·´˘Ü%z§√Åa‹@á»ºhÑ¿é\G~—*$»òÙ¢|MwpÌ¥ƒR}öÏXkQhû≈»ØôÑQ)—Ç/≈Fty„$Yå–Z4≈sÂô¥p*—∂*∆∑¸éL>=ïà«£˙»è•f@»Ï‚,Öá)∂H¬û©‰:Xí
+ûG)X‰™Lì*
+KñI7&°åù~(™Q*	K(—ÑßR™T)Ÿ>ñÂc≤GR≈;ÀIdê%≤mó2›  Ùq.À\æés	Lp£f$îJì%Ã«S3ëZ\òŒuD(â°&ºÑPsdÍÕ7ØÁΩò≥rŒÃèdä3:A
+ƒ7;V* ùì¿ˆùÈœ=…≥µüÌéNC=>Ë}7Ì8:A◊P4˛–&CCè•
+O¥{,)D≈PÙhÎ$Ë1FΩèîVê1:K
+hîÈ|¥ùÇ—hJSÕõÙ≤SH_L≈"=TπÒSgõNºËxq:û!:ã<©Ù"Gà∂°©≈}%(Ç$dµ$˛Æ∫ÑÈ\ΩOZ¥:´öjèFjµ]W*/Œ$GõÇ5¨4…€’Í¥Àh]KZıFí/Çdá+Bjõ–&∞÷ö∏´”MG≠ïMxWô◊aj˝!Ø®.ûX7¨ò¨I›∞’ æŸ3€diEr≠»—E÷T√^‰[XÚÀ kcÌéa6jø;ªhÍ•ó∂&Ö"XäÌ`+{3£∂¡£⁄Z_k,˙M∑äD€≈	o®ßµ	U´Ù-e¨≈~µVÍÕÆKoFÎïƒèW[8r≠mcìóΩ zÍanäO¥	z^™‡®nÂ‘ßj‚ãZK”MÔ%·d¬˙]„}t/ç¡∫wæ˝],	LoÕz¨˜÷»`À¸ÙÔmx¥ñw·$GyÓ≤‹∑◊"ˇ·)g.nØˆJóWzç]ØΩ?¬∂…Å‡2Î8*›ˆ≠WfÑ›úgÅ‘ﬁ0¡ur¶VºkÜqæ8ñ∏⁄©c4ovÅôö⁄Í„ê'Õmæl5cÈÌZÚFRaª4ï **+XrÓﬁ∏\snƒ€À˘w+ßj…òa˛)9ŸöfÎ«ù≤õÃïÉ<eº1sïUœπâ”fªóóÀF¬ô©Ãgª†Fê9Z:ìgCúûà¿⁄C?≠1°(nç–&äùjAßoVö_∞Î;∑ùGa5RQ“YYƒJ?3näXLÀX·mo9Ò˚\PízNª/ãÑÚŸ[d≠œØÁ˙⁄ÊFŒƒÙ‰vû¿r;]s°%ñàvŒ—€mâl§r„ØiNË–{™«ó5≠2ÿííﬁ-ö ﬂπqΩ•û¯T÷ã!Jù˚)7¸ñ¬w _’é¡*>ª›üÔû¬OM‹Kq‰ÌàΩˆ¢„3ç”P|7cìnº∑Q=xKx”{„ú©◊¢tˇ»y(‚º≥5r.m$‹bQ<¡£5'œ8∑2UâûX5∂M–ﬂ˝g$= «∂FNÉz|âÉ≤Õ∂™ﬁôº˙"Í“˝Ω,nÆºs™∂ÃıBˆvXﬂö;?fÏù£µFáÊØ;}≈dLø´˜C”›¶{;‘≥wO€˝t|ıF˙Ìß©*Ïˇ6g›û*…FÈÙ◊cœÑÚK«_6”#‚wòâ>h‰¯µÂm3Û~ã8πG=ó=?ùäK°¸:LÎªÙCÑpÿZØkáJd‹Û›‹Á«£˝˚¡wÔ
+ô|Hf‡V‹0{¥ÂöÔöÒ·Î„úüJ¸M—ü¨Ÿ˚5*m!ïfá‡‘àÔvú+VÜ>¸≈€›ˆ◊ò$«Í˝.˙¡…}˝øÑûò1ˆ…ˇ˙Äâé•eﬁùG≥ ÑE …îH¨ë– ‚ﬁ|/⁄Ôß4}Ÿå^¶gîzã…èrñà»èBB	ö‹-®s-Lb;Àú∫PX…¶ôÏäÁ∞d -tÿ≠öù…Êû-éŸ∞|Á´e0rÿ∞tŸiﬁi∞èI‡ûpïêìêj«≠dÓ‚ØçjÇ¬˛ç∞µ
+£Œ¡
+ê≠Ÿ
+∞R≥pª¶’ê»p«0 ∆ç8\N˜êËÏpÏ˝–3'π+›ÆÍp’–◊±Ê/N≤ÀÕDK0ÁëPÎ5B∂’ÏìQeq3!ÌSP˝∞ÒQI±L}g¡qÈq6ÊÒÒGQg-/∞¯∞ÀjªN±Ã?
+NÏôÉÃ±œ„∞ƒŒÉÕêπn/ã"≥uÒë1—ÄºQ◊—∑øê“n–f·ûƒL/#Ñ;lÉëJ’1æ—1cQÀCÌL«…jO±ÜÀ1äÈ,°Ò¡RÒÈ±Ω!èI l™ˆK´Ôr¨<„±ú∞Ò9¨®Œs—òƒÏARI"“
+°Ú c√2?$qü$≤T≤ífìFàı—t√p>\™äÓí1&4≈r9“j|ÚLªœkêbM,(q˝"ÍKë#mÖ$-'1i%rm+R∑rd\èÉ"¨%Ì#2Ø(“≥&í=$Q„$2ø-“ﬁ˜íG*-ù&Úì.Q£Ú^^Úã!r	%±5"L˜≤ì	+ê]1RÀÉ2¡ÒÊ’fu*≤’ì"s —µ"{)˚!;*Q˘41¬ÁÚ~¨”p“á0◊3rO5≤Ê–ÛI!≤„13/±œ4J›”è–Z`S^_”c3ÛÉ7ª2ìì5ï9w4≥0“ù-´›”™·Û°9®≥3â8Û#.ó/ni-—-1√.”s<åY6s-=rq%ìxçìΩ65,“ï/RÎ?3'=éK5sjä¨5;çπ8íÄƒq@Œsç>Û√@2;<Ì?B ≈ÎS;*z≤¥, ≈)31C?’<s˜CÙ)é˚/˙¥¥M1í˘Ei>¥C¥?ìÕDíñiS—+”À>GC”ﬂDA„-3øAìÂDSEBSıI®ÂÛV‹”›qÛF3§éÙ\Œta6”oG¥G5ìiFT±4°J'î«MOCˆ“í≠HìLø?≥GK4√Kq≈N3zåáL¥•E≤ˇEÛù9îmgKìÁ9Ï2¥µ4TBè‘7Pœ9O4q-J‘˚=µMµNu-GTﬂMïSU(Òk!n)Pîã=5e‘´t’#≥!M’[.èıÉaîPıCVıID_ÕV¥ÈW≥V%XPR“à7<=3’âEUÅÛVm€tØWUïY5áZ”ßYs≈Uï´Zí\œSU’ª[ïØ[œÁu°WƒΩ\5µA’\uﬂµå•µë\’ôW5…[5⁄áëSZ5¡^µÛ^ıÉ[Y’Ì[u„_V	5—s]ñ]’õ!U≈\∂`∂%_tç>ï•Rv/aÙΩ`ˆ! udz’iH69WvAcˆaxƒı’S∂Sc5Òb∂Yfq%YÙ«a∂fñC`vcG6?ÛıeWgÆóÙ≥Fˆh6Öbuœg—H6ëIı)jsMjt-kÊÑ–{pòŸê}ëpõl≠ô	ûOpó∞ãlùêπkT3e≠˜nV©nÜIn‘So˘o∂˝o˜p7pw	p∑p˜q#\  
+endstream
+endobj
+40 0 obj
+<<
+/Type /XObject
+/Subtype /Image
+/Name /Im3
+/Width 635
+/Height 300
+/BitsPerComponent 8
+/ColorSpace 41 0 R
+/Length 3325
+/Filter /LZWDecode
+>>
+stream
+Ä=†P8$ÑBaP∏d6àDbQ8§V-åFcQ∏‰v=êHdR9$ñM'îJeR∏»]/òLfS9§÷a,úNgSπ‰ˆ}?†Pg@
+
+çG§RiT∫e6ÖDú‘)’:•V≠W¨Veï*›jΩ_∞XlV:]rWf≤ZmVªe∂›¥Jn6˚•÷ÌwºNÓr{›Ê˝¿`pP´ÏóÉƒbqXªGé∆drY<•ÍãïÃfsYº|VcûŒhtZ=$/!ô≈4˙]f∑]~’¡51=éøm∑‹cvìM¶Á}ø‡XvØiºﬁ%√‡Úy\ªñÓ]ƒóÔyù>ßVœ«‚Ò¢é∑wΩﬂÑm{]®s¡ÁÙu<]íÊÙ¸~[ùèª›¯|ˇ_Ω◊ÿÅæÌ3˘¿éVœ∂P
+¸¿∞l¡@Ô¸Áº∞|-≥på(Ç¡O1ƒcNõ6hl≈JØƒêDMFä‹»E±,GÀuF±toH
+ßBKÑã»RLî§1—Ùç#Æ\•)ßíl†‘J‰©-ÀâD≠∞íÀe.Ãì*>√√≤ƒ¡L”l‹–*3|Â9≈ÛåÈ;œ/<œìîO8O¥Õ?µT2PéïE TKèFRUà“tç,R∞≠/M∆4ÀﬂNTM=:‘5,/Qø5U’˝WWøuk	XVè”·5“ï≠tÙ«µÌ}4◊v¯Ë™U≈Öc”Æzà≥X÷EùYn#€#Yˆ≠Ohÿ∞]ek[åÂïhœSªqº•≥p¥÷m…u∑◊=•1º∂›ŸyÆ∞››t^7•Ù÷^◊ΩÌﬁWﬁ¨Ãd¢œ`8¶‡◊ÉPå]X^$∫Mxnàa8û4®Ÿò∂.ñ„8ﬁD√-ä˚GLYT¶dÿ˛\éb9^d†ÿŸm]3‰9ût¸dŸ∂nêf9ﬁÖíMô~ç†g:tΩÈî¸Ω§ÈY’¶ÈÀñ°®·Zû©™•Z±Ø›5û≈Æ,˙æ¡n∞ªMrΩl€=ëòÌ[\´∂Ì’Æ·∏ÓIÓΩ∫ÂzõE'˚ﬁ˘çoıO †p\Øpº>i∫qT∆Ò !»Œ˚‹FãrÛ;ÃPt’IB»|ˇA*p\⁄/”gù=π‘ı]Z±ƒı‘Á˙•™◊i⁄“√∂çuîßÉﬁZ˚œGŸ1æâvûn`±Â>\Ò›∏t'ïÑzT?´ ÛãgwÏ—æ›é˙¯«¡9˚ˇLœä|ø;qÔ›˛Áëˆ}“„π˚Ë«·˙¬ﬂﬂ˛KÀ˚àˇ?¯ ll2P	[í(H`
+SÕ“A`ëÍÅØtŒòò1P2∑Épt≈A¯@m‡¬U∞=ß¬uxÓXÅ&ÖçZË?
+ã·òÑ–÷B®qLÃ;áàâßıÂ”¥C}‰n#’Ω"SèâëN'ÖK¥;ãG\“Ex∞˜û≥‰ãÜñ/E˜°û|c_ëB3@Â…ƒläQµF¯·O§rééqî>∏ªcŸwRr=«ôå‰!jÒË§∆Y‹Ÿƒ~êßGHˆÀ‰RU:rVKC(-&"IÃìíu§I˘$eé¥£îèL…W!#
+¥™ïf©O*9^πeÑñ–ëΩ+…r˝eªq YK5©•·>óÂzbÃc†I!YOXs-ÃM†Q¶£…ô“FkÕŸ§ÅflmñSç&*…≤–¶*€x3ú≤N∆e:¢GùœBy∏I·'§j ú0fœ“ ä'€‡ú,ÎœR◊@^%ä≥ÂPáA>ËS,G9æQ
+#DëÕkÙå¿öh˙∞£±™§*B©®E#HjJì©∫SJ©ZK£SÿÆ”Zb¯a9ßR≈˚R‘˘E)›<K¥Õu‘
+ÉPîE>M¥i®S•S’Ì ©UIµÿ„T*¬5õp¢¶’VüVkºÜ’Ü≤U9¡SjÎ¨µ¨Ô÷ñQ5h≠uñ∂’ÂŸ\d—CX!Ë…JÏ∏Í#Òî5^æ»™˜_¨‰∞6-ΩX{adâuÌµ∫YK˘,πÙØÎ: Ã©ïfbe†ÖmaXß/l˝êfà€VÂ´i¶}®µ4æ’Dª$∞mÖÇØ6Ãı§‰ymmøDè…ªL7„ÌU√^7÷û˙¢Ô€{ó∫NZ»#€ùszDπÌëª]+ßu’÷∏UöT3≈|ËÆÎ4õ˜!…ük|ìÌÃY∫ÂÃô^äEzÓ<ÿØwºˆﬂªYvoõûsW¶ı`[ÙÙSM¸Bw≈z‡w∂7y_ÊÔ|Ô%§@ß0ÂKÑ≠’˘¬∏rÏ˛kÆ“hØ∏d÷∫Ã\R∞È–àX≈`Ï·ï ƒ6{,O|1dºÿ©∆cú]ãÀ.>ƒπ∫‹,ÜÒ‘f:«xäF‰¨gè◊Ê6[YK<<º√2≥÷Àì-blπîr¸ÂÃëøbúÉMóNmÃÍ)a9∞ÈscwŒY÷ÉÊT’ú”Ó|†π„=‡,âüV)Œ(”:RZS±•¸∆òÀDùñÅ–x¿™È;ÎÇÔnïùπ˚›ZAtŸT“zRÂd<ﬂI4≈‚ 	ªJæÿë™ıebºy7W"€†˙f¡ñ6gVÎ∏mÜ6.≥©;Gi€Dç∞∆º—d÷
+®=m≠ò&c9⁄ä3€tß∑ |r◊Ø%ÂùΩL©Ωv{hÏn\…πÈ6·›(Øv<-›p’‹; foVΩœÓ˘Y:´Nï˝«hx¢µ…&◊ì¬w˛‹,\- q+Oºˆœπ|Y‰.+√xq¬ﬂ‹oW’m‡àxÊSŸª˜çmè…–¸PÊS”ñÏcª≈3©ãöÍÌ•¨9G2Á\“⁄rôô¿ûdl‹ZZπ◊N_«ß”Í]3¶÷~¯‘1ÈnŒÉı^≠X˙Úøü[ã≠Ëû√Vhj[ËÀˇùıNœy‘ÓﬂËÓÍGÚ^'#;ƒùÓ€˜æwIIﬁ˜ß„ΩÈKü3º`}Oƒtµ‡™ﬂ*ögâ˘.Éf_ôÚ›±[yØ)Ê¸‰æÓ˛W–aÔEÈ=G•ÚÎóQÌﬂUÈπºŸˆ^Ω£úæ÷∂Ωo¥aÁW€§ç-Óö/∂—?‡|);>G≈lk∑‰|üïÚÌlÓû~&¢€oâı˛–ãøMÔ}ú Ü~ü‹˚ﬂ| ˚‹qü‰Åhœˆ~õÏdˇ7Á˚ªeAÍ¸YˇÙ˛_ÿ∑“®co ˇ∆(ˇM™0/ˇoÁ ç~/l/˚H8Ä*N•Ø˛fjßãÂ(ë3 p4Ü08^∞1Ë`Ï…PHx˝∞;0@‰PQ\äé˙§cph0oPq.Ä#a©2’JÕ∞ÑîÏzÅÉêøP0*dnﬁ©ÈL©pòÃ–¶ÓÅ-®≠P∏& ı¿¸pƒªovÍM
+ËÅ≠eÏ·â„0“˚0‹´Oç∞‰ü‘Kœ“‡ÈXK.qŒ`ÅŒêÚ— dõpıÔã&1q
+∞ˆ0—´q$ud;pÁÈΩë"‰n\ˆ∞˘Q	±>˘Q6èë)QO	ì€ém◊œﬂ–±’«Q~ıQøÏÕ—Ñ˛±b÷1ìR⁄qöˇ1jπëç≠êŸ1•q{/µê∑ªg“ªè«qgq¿˜—`‘πêÏµë´Ìç⁄‘®ÔÎ˙ä¢¥±Âë¨…»”M)—PœÚ˘Òã Ë∆}í rCé5´qÁ·≤!ÒΩ"29ÚP…#ë#Lü"Qe ≤Q")êˇ$âi!±ôÒ——É&ëï{'ú˜R#2'pªrA&rá&±-(Õu)&∂kq°'ë≥q’(Ús1s*Q√'“ú›¶ß“ó*Ò”Ú≠'≤©,í√,œ_'ÚK(1Î%r;%±Û"l!1Y+≠Ì+Ú7$R‰q=.RÌq©!íı$Ú?K·02ã+ì(e1í·1s2s#“˘3-≥#2≥,Û1≤ÈˆíŸ&3-Û?'SU32S/“_3sQ*≥+PÛ.1›so2åˇ“ƒÙO)Ò·6≤À+sA.S}-R±)R”8“◊/#6ìò⁄ß5ìâ9≥á%ìs6—M9Ûe8Sw7±ﬂ<3è;sã;3qì:±â:I=y<≥ó=2«1Œã:SÈ&“	)3ÚÛqZa;2ÛÂ>¥?S5>Û·@S≠;SÁ>3ΩA…As˙î@î£≤›%3˘A‘AS⁄Á≠ßA4Ct=B‘;4—lÁ‘#DÙ%CîMEÛÅE4CEtaDîGBî&Ú3ˇ6tEE¥K@‘5G≈CFÒE‘ÅB¥cDG¥YIÙkHT?‘eI¥iI4ss˜JTQIçcI‘£HÙßKî}K∞Ô<Ô%L¥’J±I©LÙ—N>∞î‰¶tÎJ®±NÛ©
+Î£OTÒOçOO“-P	PµPıQ5QuQµQÔÄ  
+endstream
+endobj
+43 0 obj
+<<
+/Length 2241
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 327.69 49.17 Tm
+0 g
+BX /GS1 gs EX
+-0.002 Tc
+0.013 Tw
+[(Sy)-8(nthe)-12(s)-8(i)3(s in c)-8(o)0(r)-6(e)0(B)-10(u)0(i)-9(l)3(der)-6( and )12(c)-8(o)0(r)-18(e)0(Con)-12(s)4(u)-12(l)3(ta)-12(nt)]TJ
+ET
+q
+1 i 
+513.33 35.13 11.04 -6.84 re
+W* n
+BT
+9.96 0 0 9.96 513.33 25.77 Tm
+(10)Tj
+ET
+Q
+BT
+14.04 0 0 14.04 140.13 706.89 Tm
+0 Tc
+0.004 Tw
+[(they migh)9(t g)9(e)0(t ungrou)9(ped p)9(rior)8( to)9( one)9( of )8(the i)8(n)0(cremen)9(tal)]TJ
+0 -1.1453 TD
+[(compile)9(s i)8(f)-4( )8(the)9(y)4( are )8(small)8( enough)9(. As a )8(general)8( guid)9(eline)9(, se)9(t)]TJ
+T*
+[(UngroupSubblo)9(cks where)9(ver )8(possible)9(, as i)8(t)-4( will)8( impro)9(ve)]TJ
+0 -1.1539 TD
+0.001 Tc
+0.003 Tw
+[(QoR. The)10( Pre)10(ser)9(v)-3(eHierar)9(ch)10(y an)10(d P)10(rese)10(r)1(veB)10(oundarie)10(s)]TJ
+0 -1.1453 TD
+[(attr)9(ibute)10(s)5( sh)10(ould )8(be )8(se)10(t onl)9(y when a)10(b)1(sol)9(u)1(tel)9(y)5( necessar)9(y)-3( )8(to)]TJ
+T*
+[(preser)9(ve)10( a h)10(ierar)9(chy or)9( par)9(ti)9(cular)9( boundar)9(y. A)10(s)5( an )8(example,)]TJ
+T*
+[(con)10(s)-3(ider)9( the)10( )8(following)10( hierar)9(ch)10(y:)]TJ
+ET
+q
+385.8 0 0 162 140.13 433.1701 cm
+/Im2 Do
+Q
+BT
+14.04 0 0 14.04 140.13 408.21 Tm
+0 Tc
+-0.004 Tw
+[(Assume tha)9(t)-4( the blocks shown)9( )-8(with)9( )-8(da)9(shed)9( )-8(line)9(s should)9( )-8(be)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(ungrouped)10( and)10( tha)10(t)-3( we)10( want )8(to p)10(rese)10(r)1(ve)10( )8(the h)10(ierar)9(ch)10(y o)10(f)-3( )8(the)]TJ
+0 -1.1539 TD
+0 Tc
+0.004 Tw
+[(blocks )8(shown in)9( bold)9(. This ca)9(n be)9( a)9(c)-4(complishe)9(d wi)8(th )8(the)]TJ
+0 -1.1453 TD
+[(following)9( inte)9(n)0(t.)]TJ
+/F5 1 Tf
+9.96 0 0 9.96 140.13 336.81 Tm
+0.002 Tc
+0 Tw
+(set_design_attribute -design B Ungroup TRUE)Tj
+0 -1 TD
+(set_design_attribute -design C UngroupSubblocks TRUE)Tj
+0 -1.0121 TD
+(set_design_attribute -design C PreserveHierarchy TRUE)Tj
+0 -1 TD
+(set_design_attribute -design D UngroupSubblocks TRUE)Tj
+T*
+(set_design_attribute -design I PreserveHierarchy TRUE)Tj
+/F3 1 Tf
+14.04 0 0 14.04 140.13 269.73 Tm
+0 Tc
+0.004 Tw
+[(Just after)8( th)9(e ini)8(tial)8( compile, )8(the h)9(ierar)8(chy will)8( loo)9(k li)8(ke)9( the)]TJ
+0 -1.1453 TD
+[(following)9(:)]TJ
+ET
+q
+385.8 0 0 160.92 140.13 77.8501 cm
+/Im3 Do
+Q
+endstream
+endobj
+44 0 obj
+<<
+/ProcSet [/PDF /Text /ImageC /ImageI]
+/Font <<
+/F3 6 0 R
+/F5 19 0 R
+>>
+/XObject <<
+/Im2 39 0 R
+/Im3 40 0 R
+>>
+/ExtGState <<
+/GS1 7 0 R
+>>
+/ColorSpace <<
+/CS1 31 0 R
+/CS2 41 0 R
+>>
+>>
+endobj
+41 0 obj
+[/Indexed /DeviceRGB 255 45 0 R]
+endobj
+45 0 obj
+<<
+/Filter /ASCII85Decode
+/Length 949
+>>
+stream
+z!&FTT<<*#C!!&De!4r42h#IHT)?;Q?!)56L!&FTn1B93e!+nIrJ5$"D9`QM7!)6/f
+R99NrAcMgC!&J3eAnD%eErb?Q!!%NL5_&ibJ,oV;!!&De9pl!LZN(!3!*QW.ZciCL
+bQ)8!!6jR*!9O9&joFQD!!*$!JH#WL1D'U'(]R)F!!!onNZJ0"*?G/#NrL."?m#G*
++ohTk:j4;f/M7!_0*"U!!!"eT!&G2e1ElfT1D)DC+u93T1B7D6D59)jSN?fN3]d:%
+Sc:bN]064&5QF2?rr>KFdRF4,7fWN]0el9#!)4@39hcO#!9d,WG>A2=:]LJpW;fit
+X&o?$=',E'X8c9$>?h,4>QBdj!!$Cl5[XQl@`8=Z+ol4e,%^iTCa&jr!2OK4E,YdW
+ET1tXs13@Qs)iJaFh7Tqrr@7=:NlfNI/j7t.fb*M!.b)"J,oV$7"p<pLku'2M?"QR
+s3ci+!01AlNW@.`s8S7Fs,tJ'P5bNM1B<i21RS5!RK&\C!<8I!kaMRETDnneDJl6M
+Unje\VZ-Xp!<9&!XfVTTYQ+X+YQ(fXs0)J&Y_W:c492^o4L5$"Zi@G@s8TJN[^NUE
+]7#+>!._ias1q+?_>jST!<:'=aN2F&bX;HTbXBYTREY]Tbl?hLs8U;Ts3/^ebi\rL
+rrCK+N7%^Wec>a%LpPe7gY:K_h95lY!<;)Z!9QuUk2oD#!6jU*!9foAkQ'r7!:B1@
+s6e)2rr<'!<<3'!!<<';ru)pXBH@-Q,6,&,s"c_9Hoh<-7/t(ts%QMn!*B2]=9&;4
+s(5mCb\7"sFoS4Zs8RKH3e76\M#Z(fs&YB`[Z^[jRK&\Ms)k@A!36(ZYQ)bKs8TG*
+ZaKfW[f;N,s$Y$0YK[#Ybl>o2s4tp!m`b_2fDgZ_s30O'Wp]o2s8N*!s!e!J;ZHcC
+s8Skos31NCrr<$!zzzzzz~>
+endstream
+endobj
+47 0 obj
+<<
+/Length 5973
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 327.69 49.17 Tm
+0 g
+BX /GS1 gs EX
+-0.002 Tc
+0.013 Tw
+[(Sy)-8(nthe)-12(s)-8(i)3(s in c)-8(o)0(r)-6(e)0(B)-10(u)0(i)-9(l)3(der)-6( and )12(c)-8(o)0(r)-18(e)0(Con)-12(s)4(u)-12(l)3(ta)-12(nt)]TJ
+ET
+q
+1 i 
+513.33 35.13 11.04 -6.84 re
+W* n
+BT
+9.96 0 0 9.96 513.33 25.77 Tm
+(11)Tj
+ET
+Q
+BT
+14.04 0 0 14.04 140.13 706.89 Tm
+0 Tc
+0.004 Tw
+[(During the in)9(cremen)9(tal)8( compiles, the)9( onl)8(y )8(block tha)9(t)4( can)9( now)]TJ
+0 -1.1453 TD
+[(be ungro)9(uped i)8(s)4( D \(a)9(ssuming )8(E ha)9(s not bee)9(n uni)8(quifie)9(d\).)]TJ
+T*
+[(This will)8( occur)8( i)8(f)-4( D)13( is under)8( )8(the )8(ungroupin)9(g )8(thre)9(shold)9(.)]TJ
+/F1 1 Tf
+15.96 0 0 15.96 140.13 637.29 Tm
+-0.001 Tc
+0.001 Tw
+[(Desig)-7(n Ch)-7(aracteris)-9(tics )-8(\(dev)-9(elopm)-7(e)-9(nt\))]TJ
+ET
+1 i 
+138.69 653.61 384.72 -0.36 re
+f
+BT
+/F3 1 Tf
+14.04 0 0 14.04 140.13 602.73 Tm
+0.001 Tc
+0.003 Tw
+[(The attribu)10(te)10(s in)10( )8(the d)10(e)1(sig)10(n)1( chara)10(cteri)9(sti)9(cs ca)10(tegor)9(y de)10(scrib)10(e)]TJ
+0 -1.1539 TD
+[(the )8(con)10(t)-3(en)10(t o)10(f)5( the)10( di)9(ffe)10(rent de)10(sign)10(s a)10(nd po)10(rts. The)10(s)-3(e)]TJ
+0 -1.1453 TD
+[(attr)9(ibute)10(s)5( sh)10(ould )8(all b)10(e)1( )8(set whene)10(ver)9( the)10(y)5( appl)9(y )8(to)10( an)10(y)]TJ
+T*
+[(design)10( or)9( por)9(t on)10( or )8(abo)10(ve )8(the)10( )8(compile fron)10(tier)9(.)]TJ
+/F1 1 Tf
+9 0 0 9 144.09 529.41 Tm
+[(Attribute)-6936(D)3(escription)]TJ
+ET
+139.65 545.25 98.88 -1.32 re
+f
+238.65 545.25 1.32 -1.32 re
+f
+240.09 545.25 277.44 -1.32 re
+f
+BT
+11.04 0 0 11.04 144.09 503.61 Tm
+-0.003 Tc
+[(CanFl)-8(at)-7(t)-7(e)-1(n)]TJ
+/F3 1 Tf
+9.0543 0 TD
+0.008 Tw
+[(I)-8(ndicat)-8(e)-1(s)8( t)-8(h)-1(a)10(t)-8( )11(t)-8(he given)10( design )11(m)-7(i)2(ght)-8( ben)10(ef)-8(it fr)-7(om)]TJ
+0 -1.1413 TD
+[(f)-8(l)2(at)-8(t)-8(ening )11(t)-8(o)10( sum-)-7(of-)-7(p)-1(r)-7(odu)10(ct)-8(s)8( f)-8(o)10(r)-7(m)4(.)-8( This)8( is )11(f)-8(l)2(at)-8(t)-8(ening)10( of)]TJ
+0 -1.1522 TD
+0.007 Tw
+[(levels of)-7( logic wit)-7(hin a)11( single hier)-6(a)11(r)-6(chy, and)11( does no)11(t)]TJ
+0 -1.1413 TD
+[(change t)-7(h)0(e)11( logical hier)-6(ar)-6(chy)9( in any)9( way.)]TJ
+ET
+139.65 521.37 98.88 -1.32 re
+f
+238.65 521.37 1.32 -1.32 re
+f
+240.09 521.37 277.44 -1.32 re
+f
+BT
+/F1 1 Tf
+11.04 0 0 11.04 145.05 440.37 Tm
+0.001 Tc
+[(H)6(asA)6(rithme)14(tic)]TJ
+/F3 1 Tf
+8.9674 0 TD
+-0.003 Tc
+0.008 Tw
+[(I)-8(ndicat)-8(e)-1(s)8( t)-8(h)-1(a)10(t)-8( )11(t)-8(he given)10( design con)10(t)-8(ains a)10(r)-7(it)-8(hm)-7(e)10(t)-8(ic)]TJ
+0 -1.1522 TD
+0.007 Tw
+[(com)-6(ponents and)11( m)-6(i)3(gh)11(t)-7( bene)11(f)-7(i)3(t)-7( )11(f)-7(r)-6(o)11(m)5( special ar)-6(it)-7(h)11(m)-6(e)11(t)-7(ic)]TJ
+0 -1.1413 TD
+[(or)-6(ient)-7(ed op)11(t)-7(i)3(m)-6(i)3(zat)-7(i)3(on)11( such )11(as B)13(O)-7(A )11(\()-6(a)0(ssu)11(m)-6(i)3(ng)]TJ
+T*
+0.008 Tw
+[(appr)-7(opr)-7(iat)-8(e)10( DC licenses a)10(r)-7(ea available\))]TJ
+ET
+139.65 457.29 98.88 -0.6 re
+f
+238.65 457.29 0.6 -0.6 re
+f
+239.37 457.29 278.16 -0.6 re
+f
+BT
+11.04 0 0 11.04 144.09 377.01 Tm
+[(HighFanout)-3910(I)-8(ndicat)-8(e)-1(s)8( t)-8(h)-1(a)10(t)-8( )11(t)-8(he given)10( port)-8( is)8( likely t)-8(o)-1( ha)10(ve high)]TJ
+9.0543 -1.1413 TD
+[(f)-8(anout and )11(m)-7(i)2(ght benef)-8(it fr)-7(o)10(m)-7( special bu)10(f)-8(f)-8(e)10(r)]TJ
+0 -1.1522 TD
+0.007 Tw
+[(opt)-7(im)-6(izat)-7(ions)9( such a)11(s)-2( buff)-7(e)11(r)-6( balancing.)]TJ
+ET
+139.65 393.93 98.88 -0.6 re
+f
+238.65 393.93 0.6 -0.6 re
+f
+239.37 393.93 278.16 -0.6 re
+f
+BT
+11.04 0 0 11.04 144.09 326.25 Tm
+0.008 Tw
+[(I)-8(s)-3(Pipelined)-4186(I)-8(ndicat)-8(e)-1(s)8( t)-8(h)-1(a)10(t)-8( )11(t)-8(he given)10( design is pipelined and)10( m)-7(i)2(ght)]TJ
+9.0543 -1.1413 TD
+[(benef)-8(it)-8( )11(f)-8(r)-7(o)10(m)-7( )11(special opt)-8(im)-7(iza)10(t)-8(ion such)10( as)8( BRT)]TJ
+T*
+0.007 Tw
+[(\()-6(a)0(ssum)-6(i)3(ng)11( appr)-6(op)11(r)-6(i)3(at)-7(e DC)13( licenses ar)-6(ea)11( available\))-6(.)]TJ
+ET
+139.65 343.29 98.88 -0.6 re
+f
+238.65 343.29 0.6 -0.6 re
+f
+239.37 343.29 278.16 -0.6 re
+f
+BT
+11.04 0 0 11.04 144.09 275.61 Tm
+[(Pr)-6(eser)-6(ve)11(M)-6(apping)-1239(I)-7(ndicat)-7(e)0(s)9( t)-7(h)0(a)11(t)-7( )11(t)-7(he given)11( design is al)13(r)-6(eady )11(m)-6(apped)11( and)]TJ
+9.0543 -1.1413 TD
+0.008 Tw
+[(should not)-8( b)10(e)-1( )11(m)-7(odif)-8(i)2(ed in any)8( way. This is)8( essen)10(t)-8(ially)]TJ
+0 -1.1522 TD
+0.007 Tw
+[(equivalent)-7( t)-7(o)11( putt)-7(i)3(ng a )11(dont)-7(_)11(t)-7(ouch on)11( t)-7(h)0(e)11( design.)]TJ
+ET
+139.65 292.53 98.88 -0.6 re
+f
+238.65 292.53 0.6 -0.6 re
+f
+239.37 292.53 278.16 -0.6 re
+f
+BT
+11.04 0 0 11.04 144.09 224.97 Tm
+[(Pr)-6(eser)-6(veS)13(t)-7(r)-6(u)0(c)9(t)-7(ur)-6(e)-1011(I)-7(ndicat)-7(e)0(s)9( t)-7(h)0(a)11(t)-7( )11(t)-7(he given)11( design con)11(t)-7(ains s)9(t)-7(r)-6(u)11(ct)-7(u)11(r)-6(ing)]TJ
+9.0543 -1.1522 TD
+[(t)-7(hat should be)11( pr)-6(ese)11(r)-6(ved and)11( )11(t)-7(her)-6(e)11(f)-7(or)-6(e)11( no s)9(t)-7(r)-6(u)11(ct)-7(u)11(r)-6(al)]TJ
+0 -1.1413 TD
+[(opt)-7(im)-6(izat)-7(ion )11(should be done)11(.)]TJ
+ET
+139.65 241.89 98.88 -0.6 re
+f
+238.65 241.89 0.6 -0.6 re
+f
+239.37 241.89 278.16 -0.6 re
+f
+BT
+/F1 1 Tf
+11.04 0 0 11.04 144.09 174.21 Tm
+[(Pur)-5(e)-1(l)-8(y)-1(St)-7(r)-5(u)-1(c)10(t)-7(ur)-5(a)10(l)]TJ
+/F3 1 Tf
+9.0543 0 TD
+[(I)-7(ndicat)-7(e)0(s)9( t)-7(h)0(a)11(t)-7( )11(t)-7(he given)11( design con)11(t)-7(ains only)9( str)-6(u)0(ct)-7(u)11(r)-6(al)]TJ
+0 -1.1413 TD
+[(RTL code and)11( does no)11(t)-7( n)11(eed )11(t)-7(o)0( be)11( co)11(m)-6(p)0(iled dur)-6(ing)]TJ
+0 -1.1522 TD
+0.008 Tw
+[(t)-8(he init)-8(ial \(t)-8(echnology )11(m)-7(apping\) com)-7(p)-1(ile s)8(t)-8(ep)10(.)-8( Sett)-8(ing)]TJ
+0 -1.1413 TD
+[(t)-8(h)-1(is wher)-7(e)10( applicable will help wit)-8(h r)-7(un )11(t)-8(i)2(m)-7(e)10(,)-8( bu)10(t)-8( ha)10(s no)]TJ
+0 -1.1522 TD
+-0.004 Tc
+[(im)-8(pact on )11(Q)-9(o)-2(R.)]TJ
+ET
+139.65 191.13 98.88 -0.6 re
+f
+238.65 191.13 0.6 -0.6 re
+f
+239.37 191.13 278.16 -0.6 re
+f
+139.65 115.17 98.88 -1.32 re
+f
+238.65 115.17 1.32 -1.32 re
+f
+240.09 115.17 277.44 -1.32 re
+f
+endstream
+endobj
+48 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 5 0 R
+/F3 6 0 R
+>>
+/ExtGState <<
+/GS1 7 0 R
+>>
+>>
+endobj
+52 0 obj
+<<
+/Length 6008
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 327.69 49.17 Tm
+0 g
+BX /GS1 gs EX
+-0.002 Tc
+0.013 Tw
+[(Sy)-8(nthe)-12(s)-8(i)3(s in c)-8(o)0(r)-6(e)0(B)-10(u)0(i)-9(l)3(der)-6( and )12(c)-8(o)0(r)-18(e)0(Con)-12(s)4(u)-12(l)3(ta)-12(nt)]TJ
+ET
+q
+1 i 
+513.33 35.13 11.04 -6.84 re
+W* n
+BT
+9.96 0 0 9.96 513.33 25.77 Tm
+(12)Tj
+ET
+Q
+BT
+/F1 1 Tf
+15.96 0 0 15.96 140.13 703.53 Tm
+-0.001 Tc
+0.001 Tw
+[(Tuni)-9(ng )-8(for C)-8(o)1(n)-7(t)1(ext)-6( \(d)-7(evelo)-7(pm)-7(ent )-8(and)-7( int)-6(e)-1(gra)-9(t)1(ion\))]TJ
+ET
+1 i 
+138.69 719.85 384.72 -0.36 re
+f
+BT
+/F3 1 Tf
+14.04 0 0 14.04 140.13 668.97 Tm
+0.001 Tc
+0.003 Tw
+[(Just as in)10( th)10(e )8(ca)10(se o)10(f)5( con)10(s)5(train)10(ts, ther)9(e i)9(s)-3( )8(a )8(se)10(t o)10(f)-3( )8(attribu)10(tes)]TJ
+0 -1.1453 TD
+0 Tc
+0.004 Tw
+[(controlling)9( th)9(e )8(script gene)9(rato)9(r)0( )8(that are)9( somewhat technol)8(og)9(y)]TJ
+T*
+[(and /or )8(con)9(t)-4(e)9(x)-4(t depend)9(ent. Wi)8(th)9( one)9( excep)9(t)-4(ion)9(, )8(the)9(s)-4(e)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(attr)9(ibute)10(s)5( sh)10(ould )8(probabl)9(y )8(not be)10( sp)10(eci)9(f)-3(ied)10( unle)10(ss )8(con)10(stra)10(ints)]TJ
+0 -1.1539 TD
+0 Tc
+0.004 Tw
+[(are no)9(t b)9(eing )8(properl)8(y sa)9(ti)8(sfied)9(. The e)9(x)-4(ception i)8(s)4( a )8(cri)8(t)-4(i)8(c)-4(al)]TJ
+0 -1.1453 TD
+[(one a)9(s)-4( i)8(t)4( probabl)8(y has more)9( impa)9(ct on)9( the)9( gener)8(ated)9( )8(stra)9(t)-4(eg)9(y)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(than )8(any o)10(t)-3(her)9( attribu)10(te)10(. The)10( attribu)10(te)10( Op)10(timiza)10(tionP)10(riori)9(ties)]TJ
+T*
+[(should)10( be)10( se)10(t on e)10(a)1(ch)10( de)10(sign)10( on )8(the)10( )8(compile )8(fron)10(tier)9(. No)10(te)]TJ
+T*
+[(that i)9(t)-3( do)10(es no)10(t ha)10(ve)10( to)10( be)10( )8(set to)10( )8(the )8(same)10( va)10(lue o)10(n)1( e)10(v)-3(er)9(y)]TJ
+T*
+0 Tc
+0.004 Tw
+[(design)9(. The)9( following )8(table)9( li)8(sts the)9( )8(context/te)9(chnolog)9(y)]TJ
+0 -1.1539 TD
+0.001 Tc
+-0.005 Tw
+[(spe)10(c)-3(ifi)9(c)5( )-8(stra)10(teg)10(y)-3( con)10(t)-3(rol attribu)10(te)10(s.)]TJ
+/F1 1 Tf
+9 0 0 9 144.09 482.97 Tm
+[(Attribute)-9936(D)3(escription)]TJ
+ET
+139.65 498.81 125.88 -1.32 re
+f
+265.65 498.81 1.32 -1.32 re
+f
+267.09 498.81 277.44 -1.32 re
+f
+BT
+/F3 1 Tf
+11.04 0 0 11.04 144.09 457.17 Tm
+-0.003 Tc
+0.008 Tw
+[(Cr)-7(it)-8(icalPat)-8(h)-1(Cr)-7(ank)-3742(I)-8(ndicat)-8(e)-1(s)8( t)-8(h)-1(a)10(t)-8( when)10( doing a high)10( eff)-8(o)-1(rt)-8( co)10(m)-7(p)-1(ile and)]TJ
+11.5 -1.1413 TD
+[(t)-8(i)2(m)-7(i)2(ng is no)10(t)-8( being)10( m)-7(e)10(t)-8(,)3( an e)10(x)-3(tr)-7(a a)10(t)-8(t)-8(e)10(m)-7(p)-1(t a)10(t)-8( c)8(r)-7(it)-8(ical pat)-8(h)]TJ
+T*
+[(r)-7(e)-1(synt)-8(h)-1(e)10(s)-3(is \()-7(C)2(PR\) should be)10( tr)-7(ied,)-8( )11(specif)-8(ically on)]TJ
+0 -1.1522 TD
+[(pat)-8(hs wit)-8(hin )11(t)-8(h)-1(e)10( given design )11(t)-8(hat have)10( t)-8(h)-1(e)10( wor)-7(s)8(t)]TJ
+0 -1.1413 TD
+0.007 Tw
+[(t)-7(i)3(m)-6(i)3(ng slack)9(.)-7( This)9( is an ex)9(pensive ope)11(r)-6(a)0(t)-7(i)3(on.)]TJ
+ET
+139.65 475.05 125.88 -1.32 re
+f
+265.65 475.05 1.32 -1.32 re
+f
+267.09 475.05 277.44 -1.32 re
+f
+BT
+11.04 0 0 11.04 145.05 381.33 Tm
+0.008 Tw
+[(Cr)-7(it)-8(icalTim)-7(i)2(ng)-5382(I)-8(ndicat)-8(e)-1(s)8( t)-8(h)-1(a)10(t)-8( )11(t)-8(he given)10( port)-8( is)8( t)-8(i)2(m)-7(i)2(ng)10( cr)-7(it)-8(ical and)]TJ
+11.413 -1.1522 TD
+0.007 Tw
+[(causes it t)-7(o)11( be inse)11(r)-6(t)-7(ed)11( int)-7(o)11( it)-7(s own)11( pat)-7(h)11( gr)-6(oup)11( dur)-6(ing)]TJ
+0 -1.1413 TD
+[(t)-7(i)3(m)-6(i)3(ng )11(f)-7(o)0(cused op)11(t)-7(i)3(m)-6(i)3(za)11(t)-7(i)3(on.)]TJ
+ET
+139.65 398.25 125.88 -0.6 re
+f
+265.65 398.25 0.6 -0.6 re
+f
+266.37 398.25 278.16 -0.6 re
+f
+BT
+/F1 1 Tf
+11.04 0 0 11.04 144.09 330.57 Tm
+-0.004 Tc
+[(O)-9(p)-2(ti)-9(m)5(i)-9(zati)-9(onPr)5(i)-9(orit)-8(i)-9(e)-2(s)]TJ
+/F3 1 Tf
+11.5 0 TD
+-0.002 Tc
+[(Specif)-7(ies goals and)11( t)-7(h)0(e)11( r)-6(e)0(lat)-7(i)3(ve)11( im)-6(port)-7(ance)11( of t)-7(h)0(e)]TJ
+/F4 1 Tf
+0 -1.1413 TD
+0.008 Tw
+[(goals f)-8(o)-1(r t)-8(h)-1(e)10( given de)10(sign.)-8( Can)10( be se)10(t)-8( )11(t)-8(o)10( \221t)-8(im)-7(ing\222,)]TJ
+0 -1.1522 TD
+-0.004 Tc
+[(\221t)-9(im)-8(ing_ar)-8(ea\222,)-9( \221ar)-8(ea_)9(t)-9(i)1(m)-8(i)1(ng\222, or \221ar)-8(ea\222. It)-9( is )11(cr)-8(it)-9(ical )11(t)-9(hat)]TJ
+0 -1.1413 TD
+-0.002 Tc
+0.007 Tw
+[(t)-7(h)0(is is se)11(t)-7( p)11(r)-6(oper)-6(ly)9( on eac)9(h design being)11( compiled.)]TJ
+ET
+139.65 347.61 125.88 -0.6 re
+f
+265.65 347.61 0.6 -0.6 re
+f
+266.37 347.61 278.16 -0.6 re
+f
+BT
+11.04 0 0 11.04 144.09 267.21 Tm
+0.008 Tw
+[(O)-8(v)-3(erconstr)-7(ain)-5295(I)-8(ndicat)-8(e)-1(s)8( t)-8(h)-1(a)10(t)-8( du)10(r)-7(i)2(ng compilat)-8(i)2(on t)-8(h)-1(e)10( given design)]TJ
+11.5 -1.1413 TD
+0.007 Tw
+[(should be ove)11(r)-6(-)-6(c)-2(ons)9(t)-7(r)-6(ained)11( by )11(t)-7(he )11(specif)-7(ied)]TJ
+T*
+[(percent)-7(age)11( of t)-7(h)0(e)11( cycle)11( t)-7(i)3(me)11( \()5(v)-2(alue should be)11( bet)-7(ween)]TJ
+0 -1.1522 TD
+0.008 Tw
+[(0 and 1)10(\))-7(. This is u)10(s)-3(ef)-8(ul in )11(cert)-8(ain sit)-8(u)-1(a)10(t)-8(ions )11(f)-8(o)-1(r sever)-7(e)-1(ly)]TJ
+0 -1.1413 TD
+[(t)-8(i)2(m)-7(i)2(ng c)8(r)-7(it)-8(ical designs.)]TJ
+ET
+139.65 284.25 125.88 -0.6 re
+f
+265.65 284.25 0.6 -0.6 re
+f
+266.37 284.25 278.16 -0.6 re
+f
+BT
+11.04 0 0 11.04 144.09 191.25 Tm
+[(Under)-7(constr)-7(ain)-4740(I)-8(ndicat)-8(e)-1(s)8( t)-8(h)-1(a)10(t)-8( du)10(r)-7(i)2(ng compilat)-8(i)2(on t)-8(h)-1(e)10( given design)]TJ
+11.5 -1.1413 TD
+[(should be under-)-7(c)-3(ons)8(t)-8(r)-7(ained)10( by )11(t)-8(he s)8(pecif)-8(ied)]TJ
+0 -1.1522 TD
+0.007 Tw
+[(percent)-7(age)11( of t)-7(h)0(e)11( cycle)11( t)-7(i)3(me)11( \()5(v)-2(alue should be)11( bet)-7(ween)]TJ
+0 -1.1413 TD
+0.008 Tw
+[(0 and 1)10(\))-7(. This is u)10(s)-3(ef)-8(ul in )11(cert)-8(ain sit)-8(u)-1(a)10(t)-8(ions )11(f)-8(o)-1(r ar)-7(ea)]TJ
+T*
+[(cr)-7(it)-8(ical designs )11(t)-8(hat easily )11(m)-7(e)-1(t t)-8(i)12(m)-7(i)2(ng.)]TJ
+ET
+139.65 208.29 125.88 -0.6 re
+f
+265.65 208.29 0.6 -0.6 re
+f
+266.37 208.29 278.16 -0.6 re
+f
+139.65 132.21 125.88 -0.6 re
+f
+265.65 132.21 0.6 -0.6 re
+f
+266.37 132.21 278.16 -0.6 re
+f
+endstream
+endobj
+53 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 5 0 R
+/F3 6 0 R
+/F4 18 0 R
+>>
+/ExtGState <<
+/GS1 7 0 R
+>>
+>>
+endobj
+55 0 obj
+<<
+/Length 3945
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 327.69 49.17 Tm
+0 g
+BX /GS1 gs EX
+-0.002 Tc
+0.013 Tw
+[(Sy)-8(nthe)-12(s)-8(i)3(s in c)-8(o)0(r)-6(e)0(B)-10(u)0(i)-9(l)3(der)-6( and )12(c)-8(o)0(r)-18(e)0(Con)-12(s)4(u)-12(l)3(ta)-12(nt)]TJ
+ET
+q
+1 i 
+513.33 35.13 11.04 -6.84 re
+W* n
+BT
+9.96 0 0 9.96 513.33 25.77 Tm
+(13)Tj
+ET
+Q
+BT
+/F1 1 Tf
+18 0 0 18 90.09 701.73 Tm
+-0.001 Tc
+0.003 Tw
+[(Using the Synthesis S)19(t)-1(rategies)]TJ
+ET
+1 i 
+88.65 719.85 434.76 -0.36 re
+f
+BT
+15.96 0 0 15.96 140.13 657.33 Tm
+0 Tc
+0 Tw
+[(Durin)-6(g)2( Core )-8(Devel)-8(op)-6(men)-6(t)]TJ
+ET
+138.69 673.65 384.72 -0.36 re
+f
+BT
+/F3 1 Tf
+14.04 0 0 14.04 140.13 622.77 Tm
+0.001 Tc
+0.003 Tw
+[(Afte)10(r )8(spe)10(c)-3(ifying)10( all)9( syn)10(t)-3(he)10(sis in)10(ten)10(t)-3( a)10(s)5( comple)10(tel)9(y)-3( )8(as po)10(ssi)9(bl)9(e)]TJ
+0 -1.1453 TD
+0 Tc
+0.004 Tw
+[(as d)9(e)0(fine)9(d in)9( )8(the p)9(revi)8(ous )8(section)9(s )8(of th)9(e do)9(cumen)9(t)-4(, the b)9(e)0(st)]TJ
+T*
+[(approach)9( i)8(s)-4( )8(to)9( tr)8(y a )8(simple)9( de)9(fault )8(compile)9(. Thi)8(s)-4( will)8( do)9( an)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(initial)9( compi)9(le o)10(f)5( eve)10(r)1(ything)10( on)10( the)10( )8(compile)10( fron)10(tier)9(, foll)9(owed)]TJ
+0 -1.1539 TD
+0 Tc
+0.004 Tw
+[(by o)9(ne in)9(cremen)9(tal)8( compile. If tha)9(t)4( does no)9(t give rea)9(sona)9(ble)]TJ
+/F4 1 Tf
+0 -1.1453 TD
+[(resul)8(ts, then)9( )8(try agai)8(n wi)8(th )8(the)9( QoR e)9(f)4(fort )8(set to \221hi)8(gh\222. This)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(will enable)10( more)10( aggre)10(ssive)10( op)10(timiza)10(tion)10( durin)10(g )8(the)10( fir)9(s)5(t )8(two)]TJ
+T*
+[(compile)10( passe)10(s, and)10( will)9( add )8(a )8(se)10(cond i)9(n)1(cr)9(emental)9( )8(compile.)]TJ
+T*
+0 Tc
+0.004 Tw
+[(See )8(the n)9(e)0(xt )8(se)9(ction \221Wha)9(t to)9( do)9( When )8(QoR G)9(oals are)9( no)9(t)]TJ
+T*
+[(Met\222 i)8(f)-4( )8(the)9( de)9(sign)9( is )8(still)8( no)9(t mee)9(t)-4(ing)9( )8(constrain)9(ts.)]TJ
+/F1 1 Tf
+15.96 0 0 15.96 140.13 440.49 Tm
+0 Tw
+[(Durin)-6(g)2( Core )-8(Inte)-8(gration)]TJ
+ET
+138.69 456.81 384.72 -0.36 re
+f
+BT
+/F4 1 Tf
+14.04 0 0 14.04 140.13 405.93 Tm
+0.001 Tc
+0.003 Tw
+[(The fir)9(s)5(t )8(step i)9(s)5( to)10( en)10(sure)10( tha)10(t)5( all )8(of th)10(e con)10(t)-3(ext-ba)10(sed)10( in)10(tent)]TJ
+T*
+[(has )8(been )8(spe)10(c)-3(i)9(f)-3(ied)10( as a)10(ccu)10(rate)10(l)1(y a)10(s)-3( possible)10(, a)10(s)5( defi)9(ned i)9(n)]TJ
+0 -1.1539 TD
+0 Tc
+0.004 Tw
+[(the p)9(revi)8(ous )8(section)9(s of th)9(e do)9(cumen)9(t)-4(. If th)9(e )8(core)9( de)9(veloper)]TJ
+0 -1.1453 TD
+-0.004 Tw
+[(provided)9( sugge)9(sti)8(ons )-8(abou)9(t )-8(se)9(ttings for the)9( )-8(syn)9(t)-4(he)9(sis)]TJ
+T*
+[(str)8(ateg)9(y )-8(\(QoR Effort, )-8(etc.\), then the)9(s)-4(e)9( )-8(sh)9(ould be followed)9( )-8(as)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(clo)10(s)-3(ely a)10(s)-3( p)10(o)1(ssible)10(. )8(Othe)10(rwise)10(,)-3( )8(follow)14( the)10( guid)10(eline)10(s gi)9(ven)]TJ
+T*
+[(above)10( fo)10(r )8(the)10( cor)9(e)1( de)10(velop)10(er.)]TJ
+/F1 1 Tf
+18 0 0 18 90.09 270.09 Tm
+0 Tc
+[(What to )7(do)4( When)4( QoR )7(Goals are not Met)]TJ
+ET
+88.65 288.21 434.76 -0.36 re
+f
+BT
+/F4 1 Tf
+14.04 0 0 14.04 140.13 235.05 Tm
+0.001 Tc
+-0.005 Tw
+[(The )-8(followin)10(g se)10(ction)10(s )-8(pro)10(vide)10( )-8(idea)10(s for ch)10(ange)10(s tha)10(t)-3( can)10( )-8(be)]TJ
+0 -1.1539 TD
+0 Tc
+0.004 Tw
+[(made to)9( help)9( improve)9( differen)9(t asp)9(e)0(cts o)9(f)-4( )8(the)9( QoR )8(of a)]TJ
+0 -1.1453 TD
+0.001 Tc
+[(design)10(.)]TJ
+/F1 1 Tf
+15.96 0 0 15.96 140.13 165.33 Tm
+-0.001 Tc
+0.001 Tw
+[(Impro)-7(vin)-7(g Ti)-9(min)-7(g)1( an)-7(d Area)]TJ
+ET
+138.69 181.65 384.72 -0.36 re
+f
+BT
+/F7 1 Tf
+14.04 0 0 14.04 140.13 129.81 Tm
+0 Tc
+0 Tw
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+( )Tj
+/F4 1 Tf
+0.8209 0 TD
+0.001 Tc
+0.003 Tw
+[(Make )8(sure)10( all)9( stra)10(teg)10(y)-3( )8(con)10(t)-3(rol)9( attribu)10(te)10(s h)10(a)1(ve)10( been)]TJ
+0 -1.1453 TD
+0 Tc
+0.004 Tw
+[(spe)9(c)-4(ifie)9(d a)9(s)-4( )8(accuratel)8(y a)9(s)-4( )8(po)9(ssibl)8(e.)]TJ
+ET
+endstream
+endobj
+56 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 5 0 R
+/F3 6 0 R
+/F4 18 0 R
+/F7 57 0 R
+>>
+/ExtGState <<
+/GS1 7 0 R
+>>
+>>
+endobj
+59 0 obj
+<<
+/Length 4716
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 327.69 49.17 Tm
+0 g
+BX /GS1 gs EX
+-0.002 Tc
+0.013 Tw
+[(Sy)-8(nthe)-12(s)-8(i)3(s in c)-8(o)0(r)-6(e)0(B)-10(u)0(i)-9(l)3(der)-6( and )12(c)-8(o)0(r)-18(e)0(Con)-12(s)4(u)-12(l)3(ta)-12(nt)]TJ
+ET
+q
+1 i 
+513.33 35.13 11.04 -6.84 re
+W* n
+BT
+9.96 0 0 9.96 513.33 25.77 Tm
+(14)Tj
+ET
+Q
+BT
+/F7 1 Tf
+14.04 0 0 14.04 140.13 705.93 Tm
+0 Tc
+0 Tw
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+0.004 Tw
+[( )-539(If a )8(newer )8(ver)8(s)-4(ion)9( of De)9(sign Compile)9(r is )8(avai)8(lable)9(,)]TJ
+0.8205 -1.1453 TD
+[(switching)9( DC versio)9(ns i)8(s)-4( a)9( )8(simple wa)9(y )8(to)9( impro)9(ve )8(QoR. Be)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(sure)10( to)10( regen)10(erate )8(the)10( syn)10(t)-3(hesi)9(s)5( scrip)10(ts )8(targe)10(ting)10( th)10(e new)]TJ
+T*
+[(ver)9(s)-3(ion )8(prior)9( to)10( runni)9(ng )8(the)10( scrip)10(ts.)]TJ
+/F7 1 Tf
+-1.2821 -2.0684 TD
+0 Tc
+0 Tw
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+0.004 Tw
+[( )-539(If you ha)9(ve)9( a)9(cce)9(ss to)9( DC-Ultra )8(but ha)9(ve n)9(o)0(t been)9( u)9(s)-4(ing )8(it)]TJ
+0.8205 -1.1538 TD
+0.001 Tc
+0.003 Tw
+[(yet \()9(k)-3(e)10(y)-3(s no)10(t )8(vi)9(sible )8(or e)10(x)-3(pli)9(ci)9(tly di)9(sabled)10( in)10( S)10(y)-3(nth)10(e)1(si)9(ze)]TJ
+0 -1.1453 TD
+-0.005 Tw
+[(acti)9(vi)9(ty\), )-8(enablin)10(g thi)9(s)-3( fea)10(t)-3(ure and regenera)10(ting)10( )-8(the)]TJ
+T*
+0 Tc
+0.004 Tw
+[(syn)9(the)9(s)-4(i)8(s)-4( )8(scripts will p)9(rovid)9(e impro)9(ved)9( QoR)13(.)]TJ
+/F7 1 Tf
+-1.2821 -2.0684 TD
+0 Tw
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+0.004 Tw
+[( )-539(Review )8(setting)9(s of th)9(e un)9(grouping)9( and)9( hierar)8(ch)9(y)]TJ
+0.8205 -1.1453 TD
+-0.001 Tc
+[(pres)-5(er)7(v)-5(a)8(t)-5(ion)8( att)-5(ribute)8(s)-5( \(Ungr)7(oupSubblocks, Ungroup)8(,)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(Preser)9(veHierar)9(ch)10(y, P)10(r)1(e)10(s)-3(er)9(veBo)10(undaries\). )8(Tr)9(y )8(to)10( se)10(t the)]TJ
+T*
+-0.003 Tc
+0.007 Tw
+[(f)-7(irst t)-7(w)1(o TRUE as muc)-7(h)-3( as poss)-7(ible and )8(t)-7(he )8(latt)-7(e)-3(r t)-7(w)1(o)]TJ
+0 -1.1538 TD
+0 Tc
+0.004 Tw
+[(FALSE \()8(t)-4(he )8(defa)9(ult\))8( a)9(s)-4( mu)9(ch)9( as po)9(ssible. Removi)8(ng)]TJ
+0 -1.1453 TD
+[(logical)8( bounda)9(ries red)9(uce)9(s)4( restri)8(c)4(tions on)9( what De)9(sign)]TJ
+T*
+-0.001 Tc
+[(Compiler can op)8(timi)7(ze.)]TJ
+/F7 1 Tf
+-1.2821 -2.0684 TD
+0 Tc
+0 Tw
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+0.001 Tc
+0.003 Tw
+[( )-539(If you ha)10(ve)10( Uniqui)9(fy )8(set to)10( FALSE)10( on)10( a)10( number)9( of de)10(sign)10(s,)]TJ
+0.8205 -1.1453 TD
+[(con)10(s)-3(ider)9( se)10(tting i)9(t)5( to)10( )8(true. )8(If Uniqui)9(fy i)9(s)-3( se)10(t )8(to FAL)10(SE o)10(n)]TJ
+T*
+0 Tc
+0.004 Tw
+[(small d)9(e)0(sig)9(n)0(s, )8(con)9(s)-4(ider)8( lea)9(ving)9( Uniqui)8(fy FALSE)9(, b)9(u)0(t al)8(so)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(setting)10( Ungroup)10( on)10( the)10( de)10(sign)10(.)]TJ
+/F1 1 Tf
+15.96 0 0 15.96 140.13 339.93 Tm
+-0.001 Tc
+0.001 Tw
+[(Impro)-7(vin)-7(g Jus)-9(t)1( Ti)-9(min)-7(g)]TJ
+ET
+1 i 
+138.69 356.25 384.72 -0.36 re
+f
+BT
+/F7 1 Tf
+14.04 0 0 14.04 140.13 304.41 Tm
+0 Tc
+0 Tw
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+-0.004 Tw
+[( )-547(Change )-8(Op)9(timization)9(Priori)8(tie)9(s)-4( to be )-8(more)9( timing fo)9(cu)9(sed.)]TJ
+/F4 1 Tf
+0.8209 -1.1446 TD
+0.004 Tw
+[(For exampl)8(e, changing)9( fr)8(om \221)8(t)-4(iming_area\222)8( )8(to \221)8(t)-4(iming\222)8(, )8(or)]TJ
+0 -1.1539 TD
+0.001 Tc
+0.003 Tw
+[(from \221a)10(rea\222 )8(to)10( \221timing)10(_area\222)9( on)10( de)10(signs )8(that are)10( no)10(t)]TJ
+0 -1.1453 TD
+-0.005 Tw
+[(meeting con)10(s)5(train)10(ts.)]TJ
+/F7 1 Tf
+-1.2824 -2.069 TD
+0 Tc
+0 Tw
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+( )Tj
+/F4 1 Tf
+0.8209 0 TD
+0.004 Tw
+[(If th)9(ere )8(are j)8(u)0(st a)9( )8(few end)9(point por)8(ts )8(cau)9(s)-4(ing)9( problem)12(s, try)]TJ
+0 -1.1453 TD
+[(setting)9( the Cri)8(t)-4(i)8(c)-4(alTiming a)9(t)-4(tribute on)9( )8(these po)9(rts.)]TJ
+/F7 1 Tf
+-1.2824 -2.0689 TD
+0 Tw
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+( )Tj
+/F4 1 Tf
+0.8209 0 TD
+0.001 Tc
+-0.005 Tw
+[(Try setting)10( the Over)9(con)10(s)5(train attribu)10(te)10( )-8(on tho)10(s)-3(e)10( )-8(de)10(signs)]TJ
+0 -1.1453 TD
+-0.001 Tc
+0.005 Tw
+[(t)-5(hat are)8( )8(c)-5(ausing p)8(roblems. This should)8( not )8(t)-5(y)-5(p)-1(i)7(c)-5(all)7(y be )8(s)-5(e)8(t)]TJ
+T*
+0 Tc
+[(to o)9(v)-4(er)8( )8(constrain)9( b)9(y)-4( mor)8(e)0( )8(than)9( 15%)9( \(i)8(.e. value <=)11( 0.15\).)]TJ
+/F7 1 Tf
+-1.2824 -2.0687 TD
+0 Tw
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+( )Tj
+/F4 1 Tf
+0.8209 0 TD
+0.004 Tw
+[(Try )8(setting)9( )8(the Cri)8(t)-4(icalPa)9(thCran)9(k a)9(t)-4(tribute on)9( )8(those)]TJ
+0 -1.1453 TD
+-0.004 Tw
+[(design)9(s tha)9(t)-4( are cau)9(s)-4(ing)9( )-8(problem)12(s. )-8(No)9(te tha)9(t)-4( thi)8(s)-4( can)]TJ
+0 -1.1539 TD
+0.001 Tc
+0.003 Tw
+[(cau)10(s)-3(e a)10( large)10( in)10(crea)10(se)10( in )8(run )8(time)10(.)]TJ
+ET
+endstream
+endobj
+60 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 5 0 R
+/F3 6 0 R
+/F4 18 0 R
+/F7 57 0 R
+>>
+/ExtGState <<
+/GS1 7 0 R
+>>
+>>
+endobj
+62 0 obj
+<<
+/Length 4481
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 327.69 49.17 Tm
+0 g
+BX /GS1 gs EX
+-0.002 Tc
+0.013 Tw
+[(Sy)-8(nthe)-12(s)-8(i)3(s in c)-8(o)0(r)-6(e)0(B)-10(u)0(i)-9(l)3(der)-6( and )12(c)-8(o)0(r)-18(e)0(Con)-12(s)4(u)-12(l)3(ta)-12(nt)]TJ
+ET
+q
+1 i 
+513.33 35.13 11.04 -6.84 re
+W* n
+BT
+9.96 0 0 9.96 513.33 25.77 Tm
+(15)Tj
+ET
+Q
+BT
+/F1 1 Tf
+15.96 0 0 15.96 140.13 703.53 Tm
+0 Tc
+0 Tw
+[(Impro)-6(vin)-6(g Jus)-8(t)2( Area)]TJ
+ET
+1 i 
+138.69 719.85 384.72 -0.36 re
+f
+BT
+/F7 1 Tf
+14.04 0 0 14.04 140.13 668.01 Tm
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+0.004 Tw
+[( )-539(Change Op)9(timization)9(Priori)8(tie)9(s)-4( )8(to )8(be more)9( are)9(a )8(focused)9(.)]TJ
+/F4 1 Tf
+0.8209 -1.1437 TD
+[(For exampl)8(e, changing)9( fr)8(om \221)8(t)-4(iming_area\222)8( )8(to \221)8(area\222)8(, or)8( )8(from)]TJ
+0 -1.1453 TD
+0.001 Tc
+0.003 Tw
+[(\221timing\222)9( to)10( \221timing_area\222)9( on)10( de)10(sign)10(s )8(tha)10(t)-3( are)10( no)10(t mee)10(t)-3(ing)]TJ
+T*
+0.002 Tc
+[(con)11(strai)10(nt)6(s.)]TJ
+/F1 1 Tf
+15.96 0 0 15.96 140.13 582.33 Tm
+-0.001 Tc
+0.001 Tw
+[(Impro)-7(vin)-7(g Ru)-7(n Ti)-9(me)]TJ
+ET
+138.69 598.65 384.72 -0.36 re
+f
+BT
+/F7 1 Tf
+14.04 0 0 14.04 140.13 546.81 Tm
+0 Tc
+0 Tw
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+( )Tj
+/F4 1 Tf
+0.8209 0.0013 TD
+0.004 Tw
+[(Set )8(the)9( MaxArea)9( attribu)9(te)9( on d)9(e)0(sig)9(n)0(s on)9( or )8(above )8(the)]TJ
+0 -1.1453 TD
+[(compile)9( fron)9(tier)8(. Unless thi)8(s)4( attribu)9(te)9( is set, )8(the)9( scrip)9(t)]TJ
+T*
+[(generato)9(r)0( u)9(s)-4(e)9(s)-4( \221)8(s)-4(e)9(t)-4(_max_)9(area )8(0\222 )8(for)8( all )8(designs e)9(x)-4(cept)]TJ
+0 -1.1539 TD
+[(those wi)8(th )8(Optimi)8(z)-4(ationPrior)8(itie)9(s se)9(t to)9( \221timing\222, which do)]TJ
+0 -1.1453 TD
+0.001 Tc
+0.003 Tw
+[(not g)10(e)1(t an)10( area)10( co)10(nstrain)10(t.)]TJ
+/F7 1 Tf
+-1.2824 -2.0696 TD
+0 Tc
+0 Tw
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+( )Tj
+/F4 1 Tf
+0.8209 0.0011 TD
+-0.001 Tc
+0.005 Tw
+[(Mak)-5(e)-1( )8(s)-5(ure)8( Pure)8(ly)-5(S)8(t)-5(ru)8(c)-5(t)3(ural )8(is set t)-5(o)8( TRUE on)8( de)8(s)-5(ign)8(s)-5( )8(t)-5(h)-1(a)8(t)]TJ
+0 -1.1453 TD
+0.001 Tc
+0.003 Tw
+[(contain n)10(o)1( log)10(ic \(i)9(.e. onl)9(y i)9(n)1(stan)10(tiati)9(ons o)10(f)-3( o)10(t)-3(her)9( de)10(sign)10(s\).)]TJ
+/F7 1 Tf
+-1.2824 -2.0694 TD
+0 Tc
+0 Tw
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+( )Tj
+/F4 1 Tf
+0.8209 0 TD
+0.004 Tw
+[(Lower th)9(e )8(compile)9( fr)8(ontie)9(r. Note)9( that this may ha)9(ve)9( a)]TJ
+0 -1.1453 TD
+-0.004 Tw
+[(negati)8(v)-4(e impact on )-8(Q)9(o)0(R.)]TJ
+/F7 1 Tf
+-1.2824 -2.0693 TD
+0 Tw
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+( )Tj
+/F4 1 Tf
+0.8209 0 TD
+0.004 Tw
+[(Set Uniq)9(uify to)9( FALSE)9( on)9( multipl)8(y in)9(stan)9(t)-4(ia)9(ted )8(desi)8(gns.)]TJ
+/F7 1 Tf
+-1.2824 -2.0693 TD
+0 Tw
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+( )Tj
+/F4 1 Tf
+0.8209 0 TD
+0.004 Tw
+[(Disable )8(the)9( DC-Ultra)9( li)8(cense in)9( the S)9(y)-4(nthe)9(size \221Li)8(cen)9(s)-4(e)9(s)-4(\222)]TJ
+0 -1.1453 TD
+0.001 Tc
+0.003 Tw
+[(tab. Note )8(that )8(thi)9(s)-3( will)9( ha)10(ve a)10( nega)10(ti)9(ve impa)10(ct o)10(n)1( QoR)14(.)]TJ
+/F8 1 Tf
+18 0 0 18 90.09 278.73 Tm
+0 Tc
+[(Appendix \226 Problems to )7(W)37(a)3(tch Out )7(For)]TJ
+ET
+88.65 296.85 434.76 -0.36 re
+f
+BT
+/F7 1 Tf
+14.04 0 0 14.04 140.13 242.73 Tm
+0 Tw
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+( )Tj
+/F4 1 Tf
+0.8209 0 TD
+0.004 Tw
+[(Results get wor)8(s)-4(e be)9(tween)9( \221ini)8(tial\222)8( and)9( \221incr1\222 o)9(r)0( be)9(tween)]TJ
+0 -1.1453 TD
+0.001 Tc
+0.003 Tw
+[(\221incr1\222)9( and)10( \221in)10(cr2\222)9(.)]TJ
+0 -2.0086 TD
+0 Tc
+0.004 Tw
+[(This pr)8(oblem i)8(s)4( caused)9( b)9(y)-4( )8(se)9(tting)9( WireL)9(oadMinBlo)9(ckSize)]TJ
+0 -1.1453 TD
+0.001 Tc
+0.003 Tw
+[(to a)10( )8(value)10( tha)10(t)5( is )8(too )8(small. There)10( i)9(s)-3( a)10(n)1( ung)10(rouping)10( step)]TJ
+T*
+0 Tc
+0.004 Tw
+[(that o)9(c)-4(curs ju)9(st prior)8( )8(to )8(the)9( two)9( in)9(cremen)9(tal )8(compile)9(s. )8(If)]TJ
+T*
+[(ungrouping)9( a d)9(e)0(sign)9( )8(cau)9(s)-4(es )8(i)8(t)-4(\222s wireload)9( model)8( to )8(change)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(dramati)9(c)-3(all)9(y, th)10(en )8(the)10( timing)10( o)10(f)-3( )8(the)10( design )8(can)10( )8(change)]TJ
+T*
+0 Tc
+0.004 Tw
+[(signi)8(fica)9(ntl)8(y)-4( )8(simpl)8(y)-4( b)9(y)4( doing)9( )8(the u)9(ngrouping)9(. Ide)9(ally, the)]TJ
+0 -1.1539 TD
+0.001 Tc
+-0.005 Tw
+[(WireLoadMinBlo)10(ckS)10(ize)10( )-8(a)10(ttri)9(bute)10( should be)10( )-8(se)10(t to)10( )-8(a valu)10(e)]TJ
+0 -1.1453 TD
+0.003 Tw
+[(just abo)10(ve)10( th)10(e )8(size o)10(f)-3( )8(the)10( large)10(st de)10(sign)10( )8(that i)9(s)-3( g)10(oing )8(to)10( be)]TJ
+ET
+endstream
+endobj
+63 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 5 0 R
+/F3 6 0 R
+/F4 18 0 R
+/F7 57 0 R
+/F8 64 0 R
+>>
+/ExtGState <<
+/GS1 7 0 R
+>>
+>>
+endobj
+66 0 obj
+<<
+/Length 1182
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 327.69 49.17 Tm
+0 g
+BX /GS1 gs EX
+-0.002 Tc
+0.013 Tw
+[(Sy)-8(nthe)-12(s)-8(i)3(s in c)-8(o)0(r)-6(e)0(B)-10(u)0(i)-9(l)3(der)-6( and )12(c)-8(o)0(r)-18(e)0(Con)-12(s)4(u)-12(l)3(ta)-12(nt)]TJ
+ET
+q
+1 i 
+513.33 35.13 11.04 -6.84 re
+W* n
+BT
+9.96 0 0 9.96 513.33 25.77 Tm
+(16)Tj
+ET
+Q
+BT
+14.04 0 0 14.04 158.13 706.89 Tm
+0 Tc
+0.004 Tw
+[(ungrouped)9(. Thi)8(s)-4( will)8( pre)9(ven)9(t)-4( a)9(n)0(y change)9( in )8(timing)9( during)]TJ
+0 -1.1453 TD
+[(ungrouping)9(.)]TJ
+/F7 1 Tf
+-1.2824 -2.0701 TD
+0 Tw
+(\267)Tj
+/F3 1 Tf
+0.4615 0 TD
+-0.004 Tw
+[( )-547(Design con)9(t)-4(ain)9(s unmapped)9( )-8(logi)8(c )-8(a)9(f)-4(ter the)9( )-8(ini)8(tial compile)9(.)]TJ
+0.8205 -2 TD
+0.004 Tw
+[(This i)8(s)-4( )8(typi)8(call)8(y )8(caused )8(by setting)9( the)9( Pur)8(elyS)9(t)-4(ru)9(ctural)]TJ
+0 -1.1539 TD
+0.001 Tc
+0.003 Tw
+[(attr)9(ibute)10( on)10( a)10( desi)9(gn )8(tha)10(t)-3( )8(con)10(t)-3(ain)10(s lo)10(gic. )8(Thi)9(s)5( attribu)10(te)]TJ
+0 -1.1453 TD
+[(should)10( onl)9(y b)10(e)1( )8(set on)10( de)10(sign)10(s )8(tha)10(t)-3( )8(con)10(t)-3(ain h)10(ierar)9(chi)9(c)-3(al)9( cel)9(l)]TJ
+T*
+-0.001 Tc
+0.005 Tw
+[(instantia)8(tion)8(s and wir)7(e)-1(s.)]TJ
+ET
+endstream
+endobj
+67 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F3 6 0 R
+/F7 57 0 R
+>>
+/ExtGState <<
+/GS1 7 0 R
+>>
+>>
+endobj
+68 0 obj
+<<
+/Type /Halftone
+/HalftoneType 1
+/HalftoneName (Default)
+/Frequency 60
+/Angle 45
+/SpotFunction /Round
+>>
+endobj
+7 0 obj
+<<
+/Type /ExtGState
+/SA false
+/OP false
+/HT /Default
+>>
+endobj
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F1
+/BaseFont /Helvetica-Bold
+>>
+endobj
+6 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F3
+/BaseFont /Helvetica
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F4
+/Encoding 69 0 R
+/BaseFont /Helvetica
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F5
+/BaseFont /Courier
+>>
+endobj
+23 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F6
+/Encoding 70 0 R
+/BaseFont /Courier
+>>
+endobj
+57 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F7
+/BaseFont /Symbol
+>>
+endobj
+64 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F8
+/Encoding 69 0 R
+/BaseFont /Helvetica-Bold
+>>
+endobj
+69 0 obj
+<<
+/Type /Encoding
+/Differences [ 0/grave/acute/circumflex/tilde/macron/breve/dotaccent/dieresis
+/ring/cedilla/hungarumlaut/ogonek/caron/dotlessi/fi/fl
+/Lslash/lslash/Zcaron/zcaron/minus 39/quotesingle 96/grave 130/quotesinglbase
+/florin/quotedblbase/ellipsis/dagger/daggerdbl/circumflex/perthousand/Scaron
+/guilsinglleft/OE 145/quoteleft/quoteright/quotedblleft/quotedblright/bullet/endash
+/emdash/tilde/trademark/scaron/guilsinglright/oe 159/Ydieresis 164/currency
+ 166/brokenbar 168/dieresis/copyright/ordfeminine 172/logicalnot/hyphen/registered/macron
+/degree/plusminus/twosuperior/threesuperior/acute/mu 183/periodcentered/cedilla
+/onesuperior/ordmasculine 188/onequarter/onehalf/threequarters 192/Agrave/Aacute/Acircumflex
+/Atilde/Adieresis/Aring/AE/Ccedilla/Egrave/Eacute/Ecircumflex
+/Edieresis/Igrave/Iacute/Icircumflex/Idieresis/Eth/Ntilde/Ograve
+/Oacute/Ocircumflex/Otilde/Odieresis/multiply/Oslash/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/germandbls/agrave/aacute/acircumflex
+/atilde/adieresis/aring/ae/ccedilla/egrave/eacute/ecircumflex
+/edieresis/igrave/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash/ugrave/uacute
+/ucircumflex/udieresis/yacute/thorn/ydieresis
+]
+>>
+endobj
+70 0 obj
+<<
+/Type /Encoding
+/Differences [ 0/grave/acute/circumflex/tilde/macron/breve/dotaccent/dieresis
+/ring/cedilla/hungarumlaut/ogonek/caron/dotlessi/fi/fl
+/Lslash/lslash/Zcaron/zcaron/minus 39/quotesingle 96/grave 130/quotesinglbase
+/florin/quotedblbase/ellipsis/dagger/daggerdbl/circumflex/perthousand/Scaron
+/guilsinglleft/OE 145/quoteleft/quoteright/quotedblleft/quotedblright/bullet/endash
+/emdash/tilde/trademark/scaron/guilsinglright/oe 159/Ydieresis 164/currency
+ 166/brokenbar 168/dieresis/copyright/ordfeminine 172/logicalnot/hyphen/registered/macron
+/degree/plusminus/twosuperior/threesuperior/acute/mu 183/periodcentered/cedilla
+/onesuperior/ordmasculine 188/onequarter/onehalf/threequarters 192/Agrave/Aacute/Acircumflex
+/Atilde/Adieresis/Aring/AE/Ccedilla/Egrave/Eacute/Ecircumflex
+/Edieresis/Igrave/Iacute/Icircumflex/Idieresis/Eth/Ntilde/Ograve
+/Oacute/Ocircumflex/Otilde/Odieresis/multiply/Oslash/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/germandbls/agrave/aacute/acircumflex
+/atilde/adieresis/aring/ae/ccedilla/egrave/eacute/ecircumflex
+/edieresis/igrave/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash/ugrave/uacute
+/ucircumflex/udieresis/yacute/thorn/ydieresis
+]
+>>
+endobj
+2 0 obj
+<<
+/Type /Page
+/Parent 8 0 R
+/Resources 4 0 R
+/Contents 3 0 R
+>>
+endobj
+9 0 obj
+<<
+/Type /Page
+/Parent 8 0 R
+/Resources 11 0 R
+/Contents 10 0 R
+>>
+endobj
+12 0 obj
+<<
+/Type /Page
+/Parent 8 0 R
+/Resources 14 0 R
+/Contents 13 0 R
+>>
+endobj
+15 0 obj
+<<
+/Type /Page
+/Parent 8 0 R
+/Resources 17 0 R
+/Contents 16 0 R
+>>
+endobj
+20 0 obj
+<<
+/Type /Page
+/Parent 8 0 R
+/Resources 22 0 R
+/Contents 21 0 R
+>>
+endobj
+24 0 obj
+<<
+/Type /Page
+/Parent 8 0 R
+/Resources 26 0 R
+/Contents 25 0 R
+>>
+endobj
+27 0 obj
+<<
+/Type /Page
+/Parent 8 0 R
+/Resources 29 0 R
+/Contents 28 0 R
+>>
+endobj
+32 0 obj
+<<
+/Type /Page
+/Parent 8 0 R
+/Resources 34 0 R
+/Contents 33 0 R
+>>
+endobj
+36 0 obj
+<<
+/Type /Page
+/Parent 8 0 R
+/Resources 38 0 R
+/Contents 37 0 R
+>>
+endobj
+42 0 obj
+<<
+/Type /Page
+/Parent 8 0 R
+/Resources 44 0 R
+/Contents 43 0 R
+>>
+endobj
+46 0 obj
+<<
+/Type /Page
+/Parent 50 0 R
+/Resources 48 0 R
+/Contents 47 0 R
+>>
+endobj
+51 0 obj
+<<
+/Type /Page
+/Parent 50 0 R
+/Resources 53 0 R
+/Contents 52 0 R
+>>
+endobj
+54 0 obj
+<<
+/Type /Page
+/Parent 50 0 R
+/Resources 56 0 R
+/Contents 55 0 R
+>>
+endobj
+58 0 obj
+<<
+/Type /Page
+/Parent 50 0 R
+/Resources 60 0 R
+/Contents 59 0 R
+>>
+endobj
+61 0 obj
+<<
+/Type /Page
+/Parent 50 0 R
+/Resources 63 0 R
+/Contents 62 0 R
+>>
+endobj
+65 0 obj
+<<
+/Type /Page
+/Parent 50 0 R
+/Resources 67 0 R
+/Contents 66 0 R
+>>
+endobj
+8 0 obj
+<<
+/Type /Pages
+/Kids [2 0 R 9 0 R 12 0 R 15 0 R 20 0 R 24 0 R 27 0 R 32 0 R 36 0 R 42 0 R]
+/Count 10
+/Parent 49 0 R
+>>
+endobj
+50 0 obj
+<<
+/Type /Pages
+/Kids [46 0 R 51 0 R 54 0 R 58 0 R 61 0 R 65 0 R]
+/Count 6
+/Parent 49 0 R
+>>
+endobj
+49 0 obj
+<<
+/Type /Pages
+/Kids [8 0 R 50 0 R ]
+/Count 16
+/MediaBox [0 0 612 792]
+>>
+endobj
+71 0 obj
+<<
+/Type /Catalog
+/Pages 49 0 R
+/OpenAction [2 0 R /XYZ null null null]
+/PageMode /UseNone
+>>
+endobj
+xref
+0 72
+0000000000 65535 f 
+0000000016 00000 n 
+0000093645 00000 n 
+0000000320 00000 n 
+0000001144 00000 n 
+0000090514 00000 n 
+0000090599 00000 n 
+0000090443 00000 n 
+0000094975 00000 n 
+0000093725 00000 n 
+0000001248 00000 n 
+0000002884 00000 n 
+0000093807 00000 n 
+0000002989 00000 n 
+0000007621 00000 n 
+0000093890 00000 n 
+0000007726 00000 n 
+0000016868 00000 n 
+0000090679 00000 n 
+0000090777 00000 n 
+0000093973 00000 n 
+0000016995 00000 n 
+0000022509 00000 n 
+0000090856 00000 n 
+0000094056 00000 n 
+0000022647 00000 n 
+0000030319 00000 n 
+0000094139 00000 n 
+0000030435 00000 n 
+0000037115 00000 n 
+0000037220 00000 n 
+0000045808 00000 n 
+0000094222 00000 n 
+0000040845 00000 n 
+0000045620 00000 n 
+0000045857 00000 n 
+0000094305 00000 n 
+0000046856 00000 n 
+0000051927 00000 n 
+0000052032 00000 n 
+0000055908 00000 n 
+0000061905 00000 n 
+0000094388 00000 n 
+0000059409 00000 n 
+0000061703 00000 n 
+0000061954 00000 n 
+0000094471 00000 n 
+0000062978 00000 n 
+0000069004 00000 n 
+0000095219 00000 n 
+0000095110 00000 n 
+0000094555 00000 n 
+0000069109 00000 n 
+0000075170 00000 n 
+0000094639 00000 n 
+0000075286 00000 n 
+0000079284 00000 n 
+0000090952 00000 n 
+0000094723 00000 n 
+0000079411 00000 n 
+0000084180 00000 n 
+0000094807 00000 n 
+0000084307 00000 n 
+0000088841 00000 n 
+0000091030 00000 n 
+0000094891 00000 n 
+0000088979 00000 n 
+0000090214 00000 n 
+0000090320 00000 n 
+0000091133 00000 n 
+0000092389 00000 n 
+0000095310 00000 n 
+trailer
+<<
+/Size 72
+/Root 71 0 R
+/Info 1 0 R
+/ID [<c35dac1f93c21b2d483c7261b0da8237><c35dac1f93c21b2d483c7261b0da8237>]
+>>
+startxref
+95420
+%%EOF

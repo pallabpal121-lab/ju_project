@@ -1,0 +1,1041 @@
+%PDF-1.1
+%‚„œ”
+9 0 obj
+<<
+/Producer (Acrobat Distiller Command 3.01 for Solaris 2.3 and later \(SPARC\))
+/Creator (Microsoft Word 8.0)
+/Title (Utilizing Conditional Cells and Ports)
+/Author (Mark Noll)
+/ModDate (D:20000731153711)
+/Subject (coreBuilder Application Note)
+/CreationDate (D:20000731153711)
+>>
+endobj
+11 0 obj
+<<
+/Length 681
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 366.09 60.09 Tm
+0 g
+BX /GS1 gs EX
+-0.003 Tc
+0.002 Tw
+[(Util)-10(i)-10(z)3(in)-13(g Co)-13(nd)-13(iti)-10(ona)-13(l Ce)-13(ll)-10(s )-12(and P)-11(o)-1(r)-7(t)-14(s)]TJ
+15.3381 -2.3736 TD
+0 Tc
+0 Tw
+(1)Tj
+24 0 0 24 140.13 556.29 Tm
+-0.001 Tc
+0.003 Tw
+[(Utiliz)-6(ing Con)-5(d)0(itio)-5(nal Ce)-5(lls and Ports)]TJ
+ET
+1 i 
+138.69 550.05 384.72 -0.36 re
+f
+BT
+/F1 1 Tf
+14.04 0 0 14.04 329.01 357.93 Tm
+-0.003 Tc
+0.007 Tw
+[(cor)-7(e)-3(Bui)-7(l)-7(d)1(e)6(r)-7( Appli)-7(cati)-7(on Note)]TJ
+/F3 1 Tf
+-4.9318 -1.8035 TD
+-0.001 Tc
+0.005 Tw
+[(Mark Noll)7(, Synopsys De)8(sign)8( Reuse G)8(roup)]TJ
+14.4108 -3.607 TD
+0.001 Tc
+0.003 Tw
+[(Jul)9(y)-3( 20)10(00)]TJ
+ET
+endstream
+endobj
+12 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 13 0 R
+/F3 14 0 R
+>>
+/ExtGState <<
+/GS1 15 0 R
+>>
+>>
+endobj
+17 0 obj
+<<
+/Length 1152
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 366.09 60.09 Tm
+0 g
+BX /GS1 gs EX
+-0.003 Tc
+0.002 Tw
+[(Util)-10(i)-10(z)3(in)-13(g Co)-13(nd)-13(iti)-10(ona)-13(l Ce)-13(ll)-10(s )-12(and P)-11(o)-1(r)-7(t)-14(s)]TJ
+15.3381 -2.3736 TD
+0 Tc
+0 Tw
+(2)Tj
+/F1 1 Tf
+18 0 0 18 90.09 689.49 Tm
+-0.002 Tc
+(Abstract)Tj
+ET
+1 i 
+88.65 707.85 434.76 -0.36 re
+f
+BT
+/F3 1 Tf
+14.04 0 0 14.04 140.13 654.45 Tm
+0 Tc
+0.004 Tw
+[(Support )8(for )8(con)9(f)-4(igura)9(tion)9( i)8(s)-4( o)9(ne o)9(f)4( the)9( )8(key featu)9(res o)9(f)]TJ
+0 -1.1624 TD
+0.001 Tc
+-0.005 Tw
+[(coreBui)9(lder)9(. In )-8(a)10(ddition to)10( )-8(the)10( stan)10(dard)10( )-8(con)10(f)-3(igu)10(ratio)10(n via)]TJ
+0 -1.1539 TD
+0 Tc
+0.004 Tw
+[(parameter)8(s sup)9(porte)9(d)0( b)9(y)4( VHDL and)9( Ver)8(ilog, )8(coreBui)8(lder)]TJ
+0 -1.1624 TD
+0.001 Tc
+0.003 Tw
+[(suppor)9(ts )8(the)10( con)10(ditio)10(nal i)9(n)1(clu)10(s)-3(io)10(n o)10(f)-3( b)10(o)1(th)10( )8(cells and)10( por)9(ts)]TJ
+T*
+0 Tc
+0.004 Tw
+[(within a)9( de)9(sign)9(. This )8(appli)8(ca)9(tion )8(note)9( de)9(scribe)9(s h)9(o)0(w to )8(ta)9(ke)]TJ
+T*
+[(advan)9(tage)9( of )8(this )8(function)9(ality in b)9(o)0(th)9( VHDL an)9(d Ve)9(rilog)9(.)]TJ
+ET
+endstream
+endobj
+18 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 13 0 R
+/F3 14 0 R
+>>
+/ExtGState <<
+/GS1 15 0 R
+>>
+>>
+endobj
+19 0 obj
+<<
+/Length 4663
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 366.09 60.09 Tm
+0 g
+BX /GS1 gs EX
+-0.003 Tc
+0.002 Tw
+[(Util)-10(i)-10(z)3(in)-13(g Co)-13(nd)-13(iti)-10(ona)-13(l Ce)-13(ll)-10(s )-12(and P)-11(o)-1(r)-7(t)-14(s)]TJ
+15.3381 -2.3736 TD
+0 Tc
+0 Tw
+(3)Tj
+/F1 1 Tf
+18 0 0 18 90.09 689.49 Tm
+0.001 Tc
+[(Introducti)6(on)]TJ
+ET
+1 i 
+88.65 707.85 434.76 -0.36 re
+f
+BT
+/F3 1 Tf
+14.04 0 0 14.04 140.13 654.45 Tm
+0 Tc
+0.004 Tw
+[(Configura)9(tion)9( of RTL de)9(sign)9(s is mo)9(st commonl)8(y handle)9(d )8(via)]TJ
+0 -1.1624 TD
+[(parameter)8(s \(generics a)9(nd )8(con)9(s)-4(tants )8(in VHDL)9(, o)9(r)0( par)8(ams an)9(d)]TJ
+0 -1.1539 TD
+[(`)-111(define)9(s in )8(Verilog\))8(. Howe)9(ver)8( it i)8(s)-4( )8(also)9( po)9(ssible)9( to)9( confi)8(gure)]TJ
+/F4 1 Tf
+0 -1.1624 TD
+[(VHDL base)9(d)0( de)9(sign)9(s using )8(the)9( \221gene)9(rate\222)8( )8(sta)9(temen)9(t)-4( )8(to)]TJ
+T*
+[(condi)8(tionall)8(y in)9(clude)9( cel)8(l)0(s and)9( other )8(functionali)8(ty. )8(Also,)]TJ
+T*
+[(Verilog )8(sup)9(ports the)9( )8(con)9(c)-4(ept o)9(f)-4( a)9( pre-pr)8(o)9(c)-4(essor)8( that can b)9(e)]TJ
+T*
+0.001 Tc
+-0.005 Tw
+[(used)10( )-8(to)10( condi)9(tionally incl)9(ude and exclude)10( )-8(arbi)9(trar)9(y )-8(se)10(ction)10(s o)10(f)]TJ
+0 -1.1539 TD
+0.003 Tw
+[(code)10(. )8(In )8(order)9( to)10( be )8(able)10( to pro)10(perl)9(y )8(synthe)10(si)9(ze)10( a d)10(e)1(sig)10(n)1(,)]TJ
+0 -1.1624 TD
+0 Tc
+0.004 Tw
+[(coreBui)8(lder)8( must ha)9(ve)9( a)9( model )8(tha)9(t)-4( )8(accura)9(tel)8(y)-4( r)8(epre)9(sents th)9(e)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(design)10( hiera)10(rch)10(y)5(. Thi)9(s)-3( mea)10(n)1(s th)10(at th)10(e )8(tool)9( must u)10(nder)9(sta)10(nd)]TJ
+T*
+[(what i)9(s)-3( )8(being)10( co)10(nditi)9(onall)9(y i)9(n)1(clu)10(ded a)10(nd e)10(x)5(cluded)10( from )8(the)]TJ
+T*
+-0.005 Tw
+[(design)10(. )-8(The)10( coreBui)9(lder tool)9( curren)10(tl)9(y suppo)10(rts )-8(th)10(e)]TJ
+0 -1.1539 TD
+0.003 Tw
+[(condi)9(tional)9( in)10(clu)10(s)-3(ion)10( \(or)9( exclu)10(s)-3(ion\))9( o)10(f)-3( )8(cell)9( in)10(stan)10(t)-3(ia)10(tion)10(s )8(and)]TJ
+0 -1.1624 TD
+0 Tc
+0.004 Tw
+[(port defi)8(nitio)9(ns. This )8(is hand)9(led a)9(u)0(tomati)8(call)8(y )8(for)8( cell)8(s in)]TJ
+T*
+[(VHDL sin)9(c)-4(e)9( the)9( parser)8( )8(see)9(s)-4( and)9( und)9(erstand)9(s the)9( \221gen)9(erate\222)]TJ
+T*
+[(sta)9(temen)9(t)-4(s in)9( th)9(at langua)9(ge. Howeve)9(r, for)8( por)8(ts in)9( VHDL )8(an)9(d)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(cell)9(s an)10(d po)10(rts i)9(n)1( Ve)10(rilog)10(, e)10(x)5(tra wor)9(k)5( is req)10(uired)10( to)10( )8(suppor)9(t)]TJ
+0 -1.1539 TD
+0 Tc
+0.004 Tw
+[(condi)8(tional)8( in)9(clu)9(s)-4(ion)9(. Thi)8(s)-4( A)9(ppli)8(cati)8(on No)9(te d)9(e)0(scribe)9(s what i)8(s)]TJ
+0 -1.1624 TD
+0.001 Tc
+0.003 Tw
+[(required)10( to)10( u)10(t)-3(ili)9(ze )8(the)10(s)-3(e )8(fea)10(t)-3(ure)10(s.)]TJ
+/F1 1 Tf
+18 0 0 18 90.09 321.57 Tm
+0.001 Tw
+[(Conditi)6(onal )7(Inclusio)5(n of)7( Cells)]TJ
+ET
+88.65 339.93 434.76 -0.36 re
+f
+BT
+/F4 1 Tf
+14.04 0 0 14.04 140.13 286.53 Tm
+0.003 Tw
+[(The foll)9(owing ap)10(plie)10(s )8(to )8(Verilog)10( onl)9(y )8(since)10( th)10(is i)9(s)-3( han)10(dled)]TJ
+T*
+0 Tc
+0.004 Tw
+[(automatical)8(ly fo)9(r VHDL)9(.)]TJ
+0 -2.0172 TD
+0.001 Tc
+0.003 Tw
+[(In o)10(rder)9( to)10( suppor)9(t condi)9(tiona)10(l in)10(clu)10(s)-3(ion )8(of a)10( cell i)9(n)1( a)10( Veril)9(og)]TJ
+0 -1.1624 TD
+0 Tc
+0.004 Tw
+[(design)9(, )8(two )8(thing)9(s must )8(be d)9(one. Fir)8(s)-4(t, an)9( a)9(ttr)8(ibute mu)9(st be)]TJ
+0 -1.1539 TD
+0.001 Tc
+0.003 Tw
+[(applied )8(to)10( the)10( )8(cell)9( to)10( indi)9(ca)10(te )8(to)10( co)10(reBuilde)10(r when)10( i)9(t)-3( )8(should)10( b)10(e)]TJ
+0 -1.1624 TD
+0 Tc
+0.004 Tw
+[(include)9(d. Se)9(cond)9(, a)9( text )8(sub)9(s)-4(titu)9(tion)9( pragma)9( must )8(be add)9(ed)]TJ
+T*
+0.001 Tc
+-0.005 Tw
+[(to the)10( )-8(HDL code so that )-8(th)10(e te)10(xt )-8(in)10(stan)10(t)-3(ia)10(ting)10( )-8(the)10( cell)9( )-8(is)]TJ
+T*
+0.003 Tw
+[(include)10(d or)9( e)10(xcl)9(uded)10( based o)10(n)1( )8(the )8(con)10(f)-3(igur)9(atio)10(n o)10(f)-3( )8(the)]TJ
+T*
+0 Tc
+0.004 Tw
+[(design)9(. The)9( a)9(ttri)8(bute)9( )8(to )8(se)9(t on)9( )8(the )8(cell)8( is )8(called)9( Ge)9(nera)9(teIf. Its)]TJ
+0 -1.1539 TD
+0.001 Tc
+0.003 Tw
+[(value)10( should)10( be )8(a par)9(ameter)9( e)10(x)-3(pre)10(ssion )8(tha)10(t)-3( e)10(v)-3(alu)10(ate)10(s)5( to)]TJ
+0 -1.1624 TD
+[(true)10( when )8(the)10( ce)10(ll )8(should)10( be)10( in)10(cluded)10( in )8(th)10(e de)10(sign)10(. The)]TJ
+T*
+[(attr)9(ibute)10( )8(can)10( be a)10(pplied)10( vi)9(a re)10(use)10(-pragma)10(s)-3( in)10( )8(the HDL)10( co)10(de)]TJ
+T*
+[(\(the)10( pre)10(ferred)10( metho)10(d\) o)10(r)1( )8(via)10( a )8(call)9( to )8(se)10(t_ce)10(ll_attrib)10(ute)10( in)10( a)]TJ
+ET
+endstream
+endobj
+20 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 13 0 R
+/F3 14 0 R
+/F4 21 0 R
+>>
+/ExtGState <<
+/GS1 15 0 R
+>>
+>>
+endobj
+23 0 obj
+<<
+/Length 4059
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 366.09 60.09 Tm
+0 g
+BX /GS1 gs EX
+-0.003 Tc
+0.002 Tw
+[(Util)-10(i)-10(z)3(in)-13(g Co)-13(nd)-13(iti)-10(ona)-13(l Ce)-13(ll)-10(s )-12(and P)-11(o)-1(r)-7(t)-14(s)]TJ
+15.3381 -2.3736 TD
+0 Tc
+0 Tw
+(4)Tj
+14.04 0 0 14.04 140.13 706.77 Tm
+0.004 Tw
+[(TCL inten)9(t )8(file)9(. )8(An e)9(x)-4(ample)9( i)8(s)-4( )8(shown)9( below. Note )8(tha)9(t)-4( )8(the)9(y)]TJ
+0 -1.1624 TD
+0.001 Tc
+0.003 Tw
+[(also)10( include)10( the)10( manda)10(tor)9(y)-3( )8(te)10(xt-sub)10(s)5(titu)10(tion)10( pragma)10(s)5(.)]TJ
+/F6 1 Tf
+9 0 0 9 140.13 668.01 Tm
+0 Tc
+0 Tw
+(// Instance U2 is only included when constant \221W\222 has the value 3.)Tj
+0 -1 TD
+(// The constant is defined in myconstants.inc.)Tj
+T*
+(\221include myconstants.inc)Tj
+T*
+(module top \(in1, in2, out1, out2\);)Tj
+T*
+(  input in1;)Tj
+T*
+(  input in2;)Tj
+T*
+(  output out1;)Tj
+T*
+(  output out2;)Tj
+0 -2 TD
+(  U1 mysubmodule\(in1, out1\);)Tj
+0 -1 TD
+(  // reuse-pragma attr GenerateIf @W==3)Tj
+T*
+(  // reuse-pragma startSub [parameter_conditional_text %subText @W==3])Tj
+T*
+(  U2 mysubmodule\(in2, out2\);)Tj
+T*
+(endmodule;)Tj
+/F3 1 Tf
+14.04 0 0 14.04 140.13 524.25 Tm
+0.001 Tc
+0.003 Tw
+[(The fir)9(s)5(t re)10(use-)9(pragma)10( line)10( se)10(ts )8(the)10( Genera)10(te)10(If attrib)10(ute)10( on)]TJ
+0 -1.1624 TD
+0 Tc
+0.004 Tw
+[(U2 sin)9(c)-4(e)9( it i)8(s)-4( )8(the)9( next obje)9(ct de)9(fined)9( in)9( the)9( Ver)8(ilog)9( file)9(. The)]TJ
+T*
+[(implica)9(t)-4(ion)9( is that U2 a)9(ppear)8(s o)9(nly when)9( W ha)9(s )8(the)9( )8(value)9( 3.)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(The se)10(cond)10( reu)10(se-p)10(ragma l)9(ine d)10(e)1(fin)10(e)1(s a )8(te)10(xt )8(sub)10(sti)9(tution.)]TJ
+T*
+[(This )8(form )8(of su)10(bstitu)10(tio)10(n)1( pra)10(gma re)10(place)10(s)5( th)10(e ne)10(xt li)9(ne a)10( file)]TJ
+0 -1.1539 TD
+0.002 Tc
+[(w)6(i)2(th )8(the)11( res)6(ult)6( of)6( )8(the )8(give)11(n)2( T)6(C)6(L)2( )8(com)6(m)6(and)11(. )8(In)11( thi)10(s)6( ca)11(se)11(, )8(the)]TJ
+0 -1.1624 TD
+0 Tc
+0.004 Tw
+[(built-in)9( parame)9(t)-4(er_cond)9(ition)9(al_text )8(command)9( is bein)9(g u)9(s)-4(ed.)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(This )8(command)10( will re)10(turn)10( )8(the )8(cell)9( in)10(sta)10(ntia)10(tion)10( line)10( i)9(f)-3( an)10(d onl)9(y)]TJ
+T*
+[(if W)13( is 3)10(.)-3( The)10( blo)10(ck format o)10(f)-3( )8(the)10( su)10(bstitu)10(tion)10( pra)10(gma )8(can)]TJ
+T*
+[(also)10( be )8(used)10( o)10(f)-3( )8(the)10( ce)10(ll in)10(stan)10(tiati)9(on )8(ta)10(kes up)10( more)10( than)10( one)]TJ
+0 -1.1539 TD
+-0.001 Tc
+0.005 Tw
+[(line, as )8(shown b)8(elow.)]TJ
+/F6 1 Tf
+9 0 0 9 140.13 338.85 Tm
+0 Tc
+0 Tw
+(// reuse-pragma startSub U2 [parameter_conditional_text %subText @W==3])Tj
+0 -1 TD
+(U2 mysubmodule\(in2,)Tj
+T*
+(               in3\);)Tj
+T*
+(// reuse-pragma endSub U2)Tj
+/F4 1 Tf
+14.04 0 0 14.04 140.13 284.97 Tm
+0.001 Tc
+0.003 Tw
+[(Note )8(tha)10(t)-3( )8(the )8(to)10(ken)10( \221U2\222 a)10(ppearing)10( in)10( bo)10(th )8(the)10( star)9(tSub)10( and)]TJ
+0 -1.1624 TD
+0 Tc
+-0.004 Tw
+[(endSub pragma)9(s)-4( can)9( )-8(be any strin)9(g, )-8(provided)9( )-8(that )-8(they)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(match)10(, )8(as th)10(is de)10(fine)10(s )8(the)10( blo)10(ck o)10(f)-3( )8(text to)10( be)10( repla)10(ced)10(.)]TJ
+0 -2.0172 TD
+[(To te)10(st this functiona)10(lity, pa)10(ckage)10( the)10( )8(core)10(, in)10(stall )8(it, a)10(nd )8(the)10(n)]TJ
+0 -1.1539 TD
+[(crea)10(te a)10(n)1( in)10(tegra)10(tion)10( wor)9(ksp)10(ace)10( u)10(s)-3(ing)10( co)10(reConsultan)10(t. Then)]TJ
+0 -1.1624 TD
+0 Tc
+0.004 Tw
+[(comple)9(te )8(the)9( Spe)9(cifyCon)9(f)-4(igura)9(tion )8(a)9(ctivi)8(ty on)9(ce wi)8(th W)12( )8(set to)]TJ
+T*
+0.001 Tc
+0.003 Tw
+[(3 and)10( on)10(ce wi)9(thou)10(t. )8(A)10( review o)10(f)-3( )8(the)10( co)10(nfigu)10(red )8(sou)10(r)1(ce)10( )8(code)]TJ
+T*
+0 Tc
+-0.004 Tw
+[(should)9( show that )-8(U2 is )-8(pre)9(sen)9(t)-4( )-8(i)8(n)0( the first ca)9(se )-8(an)9(d )-8(no)9(t )-8(in th)9(e)]TJ
+T*
+(second.)Tj
+/F1 1 Tf
+18 0 0 18 90.09 102.93 Tm
+0.001 Tc
+0.001 Tw
+[(Conditi)6(onal )7(Inclusio)5(n of)7( Ports)]TJ
+ET
+1 i 
+88.65 121.29 434.76 -0.36 re
+f
+endstream
+endobj
+24 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 13 0 R
+/F3 14 0 R
+/F4 21 0 R
+/F6 25 0 R
+>>
+/ExtGState <<
+/GS1 15 0 R
+>>
+>>
+endobj
+26 0 obj
+<<
+/Length 3862
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 366.09 60.09 Tm
+0 g
+BX /GS1 gs EX
+-0.003 Tc
+0.002 Tw
+[(Util)-10(i)-10(z)3(in)-13(g Co)-13(nd)-13(iti)-10(ona)-13(l Ce)-13(ll)-10(s )-12(and P)-11(o)-1(r)-7(t)-14(s)]TJ
+15.3381 -2.3736 TD
+0 Tc
+0 Tw
+(5)Tj
+14.04 0 0 14.04 140.13 706.77 Tm
+0.004 Tw
+[(The con)9(ditio)9(nal i)8(n)0(clu)9(s)-4(io)9(n o)9(f)-4( p)9(orts works )8(in e)9(x)-4(a)9(c)-4(tly th)9(e )8(same)]TJ
+0 -1.1624 TD
+[(was a)9(s)-4( )8(it doe)9(s )8(for)8( ce)9(lls. The Ge)9(nerateIf a)9(t)4(tribu)9(te mu)9(st be)]TJ
+0 -1.1539 TD
+0.001 Tc
+0.003 Tw
+[(applied )8(to)10( the)10( por)9(t to)10( indi)9(ca)10(te )8(to)10( the)10( da)10(ta)10( model whe)10(n)1( i)9(t)]TJ
+0 -1.1624 TD
+0 Tc
+0.004 Tw
+[(should)9( be)9( pre)9(sen)9(t)-4(, and)9( a )8(te)9(xt-sub)9(s)4(titu)9(tion)9( pragma)9( must be)]TJ
+T*
+0.001 Tc
+-0.005 Tw
+[(provide)10(d to enable)10( )-8(th)10(e con)10(f)-3(igured)10( code to)10( )-8(be)10( )-8(written)10( )-8(out)]TJ
+T*
+0.003 Tw
+[(properl)9(y ba)10(sed)10( on)10( th)10(e )8(con)10(f)-3(igura)10(tion)10(. A)10( Ver)9(ilog )8(exampl)9(e i)9(s)]TJ
+T*
+0 Tc
+-0.004 Tw
+(shown below.)Tj
+/F5 1 Tf
+9 0 0 9 90.09 586.53 Tm
+0 Tw
+(// module top contains 1 input and 1 output, unless)Tj
+/F6 1 Tf
+0 -1 TD
+(// constant \221W\222 has value 3. In that case, there)Tj
+T*
+(// is an extra input \221in2\222, and extra output \221out2\222.)Tj
+T*
+(\221include myconstants.inc)Tj
+T*
+(module top \(in1)Tj
+T*
+(  // reuse-pragma startSub [parameter_conditional_text \226design top %subText @W==3])Tj
+T*
+(  ,in2)Tj
+T*
+(  ,out1)Tj
+T*
+(  // reuse-pragma startSub [parameter_conditional_text \226design top %subText @W==3])Tj
+T*
+(  ,out2)Tj
+T*
+(\);)Tj
+T*
+(  input in1;)Tj
+T*
+(  // reuse-pragma attr GenerateIf @W==3)Tj
+T*
+(  // reuse-pragma startSub [parameter_conditional_text \226design top %subText @W==3])Tj
+T*
+(  input in2;)Tj
+T*
+(  output out1;)Tj
+T*
+(  // reuse-pragma attr GenerateIf @W==3)Tj
+T*
+(  // reuse-pragma startSub [parameter_conditional_text \226design top %subText @W==3])Tj
+T*
+(  output out2;)Tj
+T*
+( endmodule;)Tj
+/F3 1 Tf
+14.04 0 0 14.04 140.13 388.65 Tm
+0.001 Tc
+0.003 Tw
+[(Note )8(tha)10(t)-3( )8(the )8(sub)10(s)5(titu)10(tion)10( pragma)10(s)5( must b)10(e)1( pr)9(ovid)10(ed )8(for)9( )]TJ
+/F1 1 Tf
+24.8385 0 TD
+-0.003 Tc
+(both)Tj
+/F3 1 Tf
+-24.8385 -1.1539 TD
+0 Tc
+0.004 Tw
+[(the )8(port de)9(clara)9(tion )8(withi)8(n)0( )8(the)9( module)9( statement and)9( th)9(e)]TJ
+0 -1.1624 TD
+0.001 Tc
+0.003 Tw
+[(secondar)9(y d)10(e)1(fini)9(tion)10( whi)9(c)-3(h i)9(ndicate)10(s)-3( )8(the)10( por)9(t )8(type. )8(In b)10(o)1(th)]TJ
+T*
+[(cases, )8(the)10( blo)10(ck )8(sub)10(sti)9(tu)10(tion me)10(chan)10(ism)13( cou)10(ld b)10(e)1( u)10(s)-3(ed)10(,)]TJ
+T*
+0 Tc
+0.004 Tw
+[(though)9( it would)9( requi)8(re r)8(e-orderi)8(ng )8(the)9( por)8(ts to u)9(s)-4(e)9( it with)9(in)]TJ
+T*
+[(the mod)9(ule )8(decl)8(arati)8(on. For )8(tha)9(t)-4( )8(reason, the e)9(x)-4(ample)9( below)]TJ
+0 -1.1539 TD
+[(shows this onl)8(y within)9( the p)9(ort type)9( de)9(clara)9(tion)9( section)9(.)]TJ
+/F6 1 Tf
+9 0 0 9 90.09 268.53 Tm
+0 Tw
+(input in1;)Tj
+0 -1 TD
+(output out1;)Tj
+T*
+(// reuse-pragma attr GenerateIf @W==3)Tj
+T*
+(// reuse-pragma startSub W3 [parameter_conditional_text \226design top %subText @W==3])Tj
+T*
+(input in2;)Tj
+T*
+(// reuse-pragma attr GenerateIf @W==3)Tj
+T*
+(output out2;)Tj
+T*
+(// reuse-pragma endSub W3)Tj
+/F3 1 Tf
+14.04 0 0 14.04 140.13 178.65 Tm
+0.004 Tw
+[(A complete)9( Ver)8(ilog e)9(x)-4(ampl)8(e )8(con)9(t)-4(aining )8(bo)9(th co)9(nd)9(ition)9(al cell)8(s)]TJ
+0 -1.1624 TD
+[(and por)8(ts, and)9( a )8(VHDL e)9(x)-4(ample )8(con)9(t)-4(ainin)9(g )8(condi)8(tional)8( por)8(ts)]TJ
+T*
+[(are gi)8(ven)9( in )8(the)9( ne)9(xt )8(section)9(.)]TJ
+/F1 1 Tf
+18 0 0 18 90.09 106.41 Tm
+0.002 Tw
+(Complete Examples)Tj
+ET
+1 i 
+88.65 124.77 434.76 -0.36 re
+f
+BT
+/F6 1 Tf
+9 0 0 9 81.09 77.25 Tm
+0 Tw
+(// module top contains 1 input and 1 output, unless)Tj
+ET
+endstream
+endobj
+27 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 13 0 R
+/F3 14 0 R
+/F5 28 0 R
+/F6 25 0 R
+>>
+/ExtGState <<
+/GS1 15 0 R
+>>
+>>
+endobj
+30 0 obj
+<<
+/Length 2769
+>>
+stream
+BT
+/F3 1 Tf
+9.96 0 0 9.96 366.09 60.09 Tm
+0 g
+BX /GS1 gs EX
+-0.003 Tc
+0.002 Tw
+[(Util)-10(i)-10(z)3(in)-13(g Co)-13(nd)-13(iti)-10(ona)-13(l Ce)-13(ll)-10(s )-12(and P)-11(o)-1(r)-7(t)-14(s)]TJ
+15.3381 -2.3736 TD
+0 Tc
+0 Tw
+(6)Tj
+/F6 1 Tf
+9 0 0 9 81.09 712.65 Tm
+(// constant \221W\222 has value 3. In that case, there)Tj
+0 -1 TD
+(// is an extra input \221in2\222, and extra output \221out2\222 and an)Tj
+T*
+(// extra cell instantiation \221U2\222.)Tj
+T*
+(\221include myconstants.inc)Tj
+T*
+(module top \(in1)Tj
+T*
+(  // reuse-pragma startSub [parameter_conditional_text \226design top %subText @W==3])Tj
+T*
+(  ,in2)Tj
+T*
+(  ,out1)Tj
+T*
+(  // reuse-pragma startSub [parameter_conditional_text \226design top %subText @W==3])Tj
+T*
+(  ,out2)Tj
+T*
+(  \);)Tj
+T*
+(  input in1;)Tj
+T*
+(  // reuse-pragma attr GenerateIf @W==3)Tj
+T*
+(  // reuse-pragma startSub [parameter_conditional_text \226design top %subText @W==3])Tj
+T*
+(  input in2;)Tj
+T*
+(  output out1;)Tj
+T*
+(  // reuse-pragma attr GenerateIf @W==3)Tj
+T*
+(  // reuse-pragma startSub [parameter_conditional_text \226design top %subText @W==3])Tj
+T*
+(  output out2;)Tj
+0 -2 TD
+(  U1 mysubmodule\(in1, out1\);)Tj
+0 -1 TD
+(  // reuse-pragma attr GenerateIf @W==3)Tj
+T*
+(  // reuse-pragma startSub [parameter_conditional_text %subText @W==3])Tj
+T*
+(  U2 mysubmodule\(in2, out2\);)Tj
+T*
+(endmodule;)Tj
+/F7 1 Tf
+12 0 0 12 256.41 471.81 Tm
+[(Exam)13(ple 1: V)-8(erilog)]TJ
+/F6 1 Tf
+9 0 0 9 81.09 421.53 Tm
+(-- entity top contains 1 input and 1 output, unless)Tj
+T*
+(-- constant \221W\222 has value 3. In that case, there)Tj
+T*
+(-- is an extra input \221in2\222, and extra output \221out2\222 and an)Tj
+T*
+(-- extra cell instantiation \221U2\222.)Tj
+T*
+(package myconstantpkg is)Tj
+T*
+(  constant W : natural range 0 to 5 := 3;)Tj
+T*
+(end myconstantpkg;)Tj
+T*
+(library work;)Tj
+T*
+(use work.myconstantpkg.all;)Tj
+T*
+(entity top is)Tj
+T*
+(  port\(in1: in bit;)Tj
+T*
+(    -- reuse-pragma attr GenerateIf @W==3)Tj
+T*
+(    -- reuse-pragma startSub [parameter_conditional_text \226design top %subText @W==3])Tj
+T*
+(    in2: in bit;)Tj
+T*
+(    out1: out bit;)Tj
+T*
+(    -- reuse-pragma attr GenerateIf @W==3)Tj
+T*
+(    -- reuse-pragma startSub [parameter_conditional_text \226design top %subText @W==3])Tj
+T*
+(    out2: out bit)Tj
+T*
+(  \);)Tj
+T*
+(end top;)Tj
+0 -2 TD
+(architecture structural of top is)Tj
+0 -1 TD
+(  component)Tj
+T*
+(    mysubmodule port\(A : in std_logic; Z : out std_logic\);)Tj
+T*
+(  end component;)Tj
+T*
+(begin)Tj
+T*
+(  U1: mysubmodule port map\(A => in1, Z => out1\);)Tj
+T*
+(  G1: if \(W = 3\) generate)Tj
+T*
+(    U2: mysubmodule port map\(A => in2, Z => out2\);)Tj
+T*
+(  end generate G1;)Tj
+T*
+(end structural;)Tj
+/F1 1 Tf
+9.96 0 0 9.96 289.77 128.37 Tm
+-0.001 Tc
+0.012 Tw
+[(Exampl)-12(e )12(2:)-5( VHDL)]TJ
+ET
+endstream
+endobj
+31 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/F1 13 0 R
+/F3 14 0 R
+/F6 25 0 R
+/F7 32 0 R
+>>
+/ExtGState <<
+/GS1 15 0 R
+>>
+>>
+endobj
+33 0 obj
+<<
+/Type /Halftone
+/HalftoneType 1
+/HalftoneName (Default)
+/Frequency 60
+/Angle 45
+/SpotFunction /Round
+>>
+endobj
+15 0 obj
+<<
+/Type /ExtGState
+/SA false
+/OP false
+/HT /Default
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F1
+/BaseFont /Helvetica-Bold
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F3
+/BaseFont /Helvetica
+>>
+endobj
+21 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F4
+/Encoding 34 0 R
+/BaseFont /Helvetica
+>>
+endobj
+28 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F5
+/BaseFont /Courier
+>>
+endobj
+25 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F6
+/Encoding 35 0 R
+/BaseFont /Courier
+>>
+endobj
+32 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F7
+/BaseFont /Times-Bold
+>>
+endobj
+34 0 obj
+<<
+/Type /Encoding
+/Differences [ 0/grave/acute/circumflex/tilde/macron/breve/dotaccent/dieresis
+/ring/cedilla/hungarumlaut/ogonek/caron/dotlessi/fi/fl
+/Lslash/lslash/Zcaron/zcaron/minus 39/quotesingle 96/grave 130/quotesinglbase
+/florin/quotedblbase/ellipsis/dagger/daggerdbl/circumflex/perthousand/Scaron
+/guilsinglleft/OE 145/quoteleft/quoteright/quotedblleft/quotedblright/bullet/endash
+/emdash/tilde/trademark/scaron/guilsinglright/oe 159/Ydieresis 164/currency
+ 166/brokenbar 168/dieresis/copyright/ordfeminine 172/logicalnot/hyphen/registered/macron
+/degree/plusminus/twosuperior/threesuperior/acute/mu 183/periodcentered/cedilla
+/onesuperior/ordmasculine 188/onequarter/onehalf/threequarters 192/Agrave/Aacute/Acircumflex
+/Atilde/Adieresis/Aring/AE/Ccedilla/Egrave/Eacute/Ecircumflex
+/Edieresis/Igrave/Iacute/Icircumflex/Idieresis/Eth/Ntilde/Ograve
+/Oacute/Ocircumflex/Otilde/Odieresis/multiply/Oslash/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/germandbls/agrave/aacute/acircumflex
+/atilde/adieresis/aring/ae/ccedilla/egrave/eacute/ecircumflex
+/edieresis/igrave/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash/ugrave/uacute
+/ucircumflex/udieresis/yacute/thorn/ydieresis
+]
+>>
+endobj
+35 0 obj
+<<
+/Type /Encoding
+/Differences [ 0/grave/acute/circumflex/tilde/macron/breve/dotaccent/dieresis
+/ring/cedilla/hungarumlaut/ogonek/caron/dotlessi/fi/fl
+/Lslash/lslash/Zcaron/zcaron/minus 39/quotesingle 96/grave 130/quotesinglbase
+/florin/quotedblbase/ellipsis/dagger/daggerdbl/circumflex/perthousand/Scaron
+/guilsinglleft/OE 145/quoteleft/quoteright/quotedblleft/quotedblright/bullet/endash
+/emdash/tilde/trademark/scaron/guilsinglright/oe 159/Ydieresis 164/currency
+ 166/brokenbar 168/dieresis/copyright/ordfeminine 172/logicalnot/hyphen/registered/macron
+/degree/plusminus/twosuperior/threesuperior/acute/mu 183/periodcentered/cedilla
+/onesuperior/ordmasculine 188/onequarter/onehalf/threequarters 192/Agrave/Aacute/Acircumflex
+/Atilde/Adieresis/Aring/AE/Ccedilla/Egrave/Eacute/Ecircumflex
+/Edieresis/Igrave/Iacute/Icircumflex/Idieresis/Eth/Ntilde/Ograve
+/Oacute/Ocircumflex/Otilde/Odieresis/multiply/Oslash/Ugrave/Uacute
+/Ucircumflex/Udieresis/Yacute/Thorn/germandbls/agrave/aacute/acircumflex
+/atilde/adieresis/aring/ae/ccedilla/egrave/eacute/ecircumflex
+/edieresis/igrave/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash/ugrave/uacute
+/ucircumflex/udieresis/yacute/thorn/ydieresis
+]
+>>
+endobj
+10 0 obj
+<<
+/Type /Page
+/Parent 16 0 R
+/Resources 12 0 R
+/Contents 11 0 R
+>>
+endobj
+1 0 obj
+<<
+/Type /Page
+/Parent 16 0 R
+/Resources 18 0 R
+/Contents 17 0 R
+>>
+endobj
+3 0 obj
+<<
+/Type /Page
+/Parent 16 0 R
+/Resources 20 0 R
+/Contents 19 0 R
+>>
+endobj
+22 0 obj
+<<
+/Type /Page
+/Parent 16 0 R
+/Resources 24 0 R
+/Contents 23 0 R
+>>
+endobj
+6 0 obj
+<<
+/Type /Page
+/Parent 16 0 R
+/Resources 27 0 R
+/Contents 26 0 R
+>>
+endobj
+29 0 obj
+<<
+/Type /Page
+/Parent 16 0 R
+/Resources 31 0 R
+/Contents 30 0 R
+>>
+endobj
+16 0 obj
+<<
+/Type /Pages
+/Kids [10 0 R 1 0 R 3 0 R 22 0 R 6 0 R 29 0 R]
+/Count 6
+/MediaBox [0 0 612 792]
+>>
+endobj
+36 0 obj
+<<
+/Count 5
+/First 2 0 R
+/Last 8 0 R
+>>
+endobj
+2 0 obj
+<<
+/Title (Abstract)
+/Dest [1 0 R /FitH 708]
+/Parent 36 0 R
+/Next 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Title (Introduction)
+/Dest [3 0 R /FitH 708]
+/Parent 36 0 R
+/Prev 2 0 R
+/Next 5 0 R
+>>
+endobj
+5 0 obj
+<<
+/Title (Conditional Inclusion of Cells)
+/Dest [3 0 R /FitH 340]
+/Parent 36 0 R
+/Prev 4 0 R
+/Next 7 0 R
+>>
+endobj
+7 0 obj
+<<
+/Title (Conditional Inclusion of Ports)
+/Dest [6 0 R /FitH 122]
+/Parent 36 0 R
+/Prev 5 0 R
+/Next 8 0 R
+>>
+endobj
+8 0 obj
+<<
+/Title (Complete Examples)
+/Dest [6 0 R /FitH 125]
+/Parent 36 0 R
+/Prev 7 0 R
+>>
+endobj
+37 0 obj
+<<
+/Type /Catalog
+/Pages 16 0 R
+/Outlines 36 0 R
+/OpenAction [10 0 R /XYZ null null null]
+/PageMode /UseNone
+>>
+endobj
+xref
+0 38
+0000000000 65535 f 
+0000021855 00000 n 
+0000022443 00000 n 
+0000021938 00000 n 
+0000022533 00000 n 
+0000022639 00000 n 
+0000022105 00000 n 
+0000022763 00000 n 
+0000022887 00000 n 
+0000000016 00000 n 
+0000021771 00000 n 
+0000000314 00000 n 
+0000001047 00000 n 
+0000018737 00000 n 
+0000018823 00000 n 
+0000018665 00000 n 
+0000022272 00000 n 
+0000001155 00000 n 
+0000002360 00000 n 
+0000002468 00000 n 
+0000007184 00000 n 
+0000018904 00000 n 
+0000022021 00000 n 
+0000007303 00000 n 
+0000011415 00000 n 
+0000019081 00000 n 
+0000011545 00000 n 
+0000015460 00000 n 
+0000019002 00000 n 
+0000022188 00000 n 
+0000015590 00000 n 
+0000018412 00000 n 
+0000019177 00000 n 
+0000018542 00000 n 
+0000019259 00000 n 
+0000020515 00000 n 
+0000022387 00000 n 
+0000022986 00000 n 
+trailer
+<<
+/Size 38
+/Root 37 0 R
+/Info 9 0 R
+/ID [<ebd4f8766cf23b65f014424e9ea3fb91><ebd4f8766cf23b65f014424e9ea3fb91>]
+>>
+startxref
+23114
+%%EOF

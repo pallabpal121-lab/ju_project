@@ -31,7 +31,6 @@ Playstation/synthesis/newton_2nd_order_32bit/
 │   ├── design_env.sdc            # Environmental constraints (operating condition, loads, drivers)
 │   └── timing_exceptions.sdc     # False path and multicycle timing exceptions
 ├── filelist/
-│   ├── rtl.f                     # SystemVerilog source list with include directories
 │   └── rtl_syn.tcl               # Tcl file list for analyze/elaborate
 ├── scripts/                      # Modular synthesis automation scripts
 │   ├── apply_constraints.tcl     # SDC sourcing and cost function goals
