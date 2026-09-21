@@ -1,75 +1,70 @@
 // =============================================================================
-// File Name   : multivar_helpers.svh
-// Description : Fast, synthesizable inline functions for packed vector/matrix access
+// Company / Institution : Jadavpur University (Dept. of ETCE)
+// Project               : Dedicated AI Hardware Accelerator
+// File Name             : multivar_helpers.svh
+// Description           : Synthesizable Inline Helper Functions for Packed
+//                         Vectors and Matrices.
+//                         Provides clean, industry-grade bit-slice extraction
+//                         and update functions for N-dimensional optimization.
 // =============================================================================
 
 `ifndef MULTIVAR_HELPERS_SVH
 `define MULTIVAR_HELPERS_SVH
 
-function automatic q16_t get_vec(input vec_t v, input logic [1:0] idx);
-    case (idx)
-        2'd0: return v[31:0];
-        2'd1: return v[63:32];
-        2'd2: return v[95:64];
-        2'd3: return v[127:96];
-    endcase
+import newton_multivar_pkg::*;
+
+// -----------------------------------------------------------------------------
+// Function    : get_vec
+// Description : Extracts a 32-bit Q16.16 scalar element from a packed vector.
+// Inputs      : v   - Packed state vector of type vec_t (MAX_VARS * 32 bits)
+//               idx - Variable index (0 <= idx < MAX_VARS)
+// Returns     : 32-bit signed Q16.16 value at index idx.
+// -----------------------------------------------------------------------------
+function automatic q16_t get_vec(input vec_t v, input int idx);
+    return v[idx * 32 +: 32];
 endfunction
 
-function automatic vec_t set_vec(input vec_t v, input logic [1:0] idx, input q16_t val);
+// -----------------------------------------------------------------------------
+// Function    : set_vec
+// Description : Updates a 32-bit Q16.16 scalar element within a packed vector.
+// Inputs      : v   - Original packed vector (vec_t)
+//               idx - Target variable index (0 <= idx < MAX_VARS)
+//               val - New 32-bit signed Q16.16 value to insert
+// Returns     : Updated packed vector (vec_t).
+// -----------------------------------------------------------------------------
+function automatic vec_t set_vec(input vec_t v, input int idx, input q16_t val);
     vec_t res;
     res = v;
-    case (idx)
-        2'd0: res[31:0]   = val;
-        2'd1: res[63:32]  = val;
-        2'd2: res[95:64]  = val;
-        2'd3: res[127:96] = val;
-    endcase
+    res[idx * 32 +: 32] = val;
     return res;
 endfunction
 
-function automatic q16_t get_mat(input mat_t m, input logic [1:0] r, input logic [1:0] c);
-    case ({r, c})
-        4'd0:  return m[31:0];
-        4'd1:  return m[63:32];
-        4'd2:  return m[95:64];
-        4'd3:  return m[127:96];
-        4'd4:  return m[159:128];
-        4'd5:  return m[191:160];
-        4'd6:  return m[223:192];
-        4'd7:  return m[255:224];
-        4'd8:  return m[287:256];
-        4'd9:  return m[319:288];
-        4'd10: return m[351:320];
-        4'd11: return m[383:352];
-        4'd12: return m[415:384];
-        4'd13: return m[447:416];
-        4'd14: return m[479:448];
-        4'd15: return m[511:480];
-    endcase
+// -----------------------------------------------------------------------------
+// Function    : get_mat
+// Description : Extracts a 32-bit Q16.16 matrix element from a packed matrix.
+// Inputs      : m - Packed matrix of type mat_t (MAX_VARS * MAX_VARS * 32 bits)
+//               r - Row index (0 <= r < MAX_VARS)
+//               c - Column index (0 <= c < MAX_VARS)
+// Returns     : 32-bit signed Q16.16 value at position (r, c).
+// -----------------------------------------------------------------------------
+function automatic q16_t get_mat(input mat_t m, input int r, input int c);
+    return m[(r * MAX_VARS + c) * 32 +: 32];
 endfunction
 
-function automatic mat_t set_mat(input mat_t m, input logic [1:0] r, input logic [1:0] c, input q16_t val);
+// -----------------------------------------------------------------------------
+// Function    : set_mat
+// Description : Updates a 32-bit Q16.16 matrix element within a packed matrix.
+// Inputs      : m   - Original packed matrix (mat_t)
+//               r   - Target row index (0 <= r < MAX_VARS)
+//               c   - Target column index (0 <= c < MAX_VARS)
+//               val - New 32-bit signed Q16.16 value to insert
+// Returns     : Updated packed matrix (mat_t).
+// -----------------------------------------------------------------------------
+function automatic mat_t set_mat(input mat_t m, input int r, input int c, input q16_t val);
     mat_t res;
     res = m;
-    case ({r, c})
-        4'd0:  res[31:0]   = val;
-        4'd1:  res[63:32]  = val;
-        4'd2:  res[95:64]  = val;
-        4'd3:  res[127:96] = val;
-        4'd4:  res[159:128] = val;
-        4'd5:  res[191:160] = val;
-        4'd6:  res[223:192] = val;
-        4'd7:  res[255:224] = val;
-        4'd8:  res[287:256] = val;
-        4'd9:  res[319:288] = val;
-        4'd10: res[351:320] = val;
-        4'd11: res[383:352] = val;
-        4'd12: res[415:384] = val;
-        4'd13: res[447:416] = val;
-        4'd14: res[479:448] = val;
-        4'd15: res[511:480] = val;
-    endcase
+    res[(r * MAX_VARS + c) * 32 +: 32] = val;
     return res;
 endfunction
 
-`endif
+`endif // MULTIVAR_HELPERS_SVH

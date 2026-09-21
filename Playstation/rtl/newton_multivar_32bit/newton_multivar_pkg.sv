@@ -29,13 +29,17 @@ package newton_multivar_pkg;
     // -------------------------------------------------------------------------
     // SECTION 2: VECTOR & MATRIX DEFINITIONS (Robust Packed Bit-Vectors)
     // -------------------------------------------------------------------------
-    localparam int MAX_VARS = 4; // Maximum supported variable dimensions (N <= 4)
+    localparam int MAX_VARS          = 16; // Maximum supported variable dimensions (N <= MAX_VARS)
+    localparam int VAR_BITS          = $clog2(MAX_VARS);
+    localparam int NUM_VARS_BITS     = $clog2(MAX_VARS + 1);
 
-    // Packed Vector: 4 x 32-bit = 128-bit vector [x3, x2, x1, x0]
-    typedef logic signed [127:0] vec_t;
+    // Packed Vector: MAX_VARS x 32-bit
+    localparam int VEC_WIDTH         = MAX_VARS * 32;
+    typedef logic signed [VEC_WIDTH-1:0] vec_t;
 
-    // Packed Matrix: 4 x 4 x 32-bit = 512-bit matrix
-    typedef logic signed [511:0] mat_t;
+    // Packed Matrix: MAX_VARS x MAX_VARS x 32-bit
+    localparam int MAT_WIDTH         = MAX_VARS * MAX_VARS * 32;
+    typedef logic signed [MAT_WIDTH-1:0] mat_t;
 
     // -------------------------------------------------------------------------
     // SECTION 3: MICRO-OPCODES FOR MULTIVARIABLE DFG ENGINE
@@ -48,8 +52,8 @@ package newton_multivar_pkg;
         OP_DIV    = 4'd4, // r[dst] = (r[src_a] << 16) / r[src_b]
         OP_NEG    = 4'd5, // r[dst] = -r[src_a]
         OP_MOV    = 4'd6, // r[dst] = r[src_a]
-        OP_LOADC  = 4'd7, // r[dst] = {imm[15:0], 16'h0000}
-        OP_END    = 4'd8  // End of program / Output scalar f(x) in r[15]
+        OP_LOADC  = 4'd7, // r[dst] = {imm[12:0], 16'h0000}
+        OP_END    = 4'd8  // End of program / Output scalar f(x) in r[REG_RESULT]
     } opcode_t;
 
     // -------------------------------------------------------------------------
@@ -57,16 +61,16 @@ package newton_multivar_pkg;
     // -------------------------------------------------------------------------
     typedef struct packed {
         opcode_t            op;    // 4-bit Opcode
-        logic [3:0]         dst;   // Destination register index (r0..r15)
-        logic [3:0]         src_a; // Source A register index (r0..r15)
-        logic [3:0]         src_b; // Source B register index (r0..r15)
-        logic signed [15:0] imm;   // 16-bit signed immediate constant
+        logic [4:0]         dst;   // 5-bit Destination register index (r0..r31)
+        logic [4:0]         src_a; // 5-bit Source A register index (r0..r31)
+        logic [4:0]         src_b; // 5-bit Source B register index (r0..r31)
+        logic signed [12:0] imm;   // 13-bit signed immediate constant
     } instr_t;
 
-    localparam int NUM_REGS   = 16;
-    localparam int PROG_DEPTH = 32;
+    localparam int NUM_REGS   = 32;
+    localparam int PROG_DEPTH = 64;
 
-    localparam int REG_RESULT = 15;
+    localparam int REG_RESULT = 31;
 
     // -------------------------------------------------------------------------
     // SECTION 5: SOLVER STATUS CODES

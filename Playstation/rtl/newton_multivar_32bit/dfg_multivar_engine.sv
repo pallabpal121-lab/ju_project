@@ -18,17 +18,17 @@ module dfg_multivar_engine (
     input  logic               rst_n,       // Active-Low Reset
 
     // Programming Interface
-    input  logic               prog_en,     // Program Write Enable
-    input  logic [4:0]         prog_addr,   // Program Memory Address (0..31)
-    input  instr_t             prog_data,   // 32-bit Microcode Instruction Word
+    input  logic                                  prog_en,     // Program Write Enable
+    input  logic [$clog2(PROG_DEPTH)-1:0]         prog_addr,   // Program Memory Address
+    input  instr_t                                prog_data,   // 32-bit Microcode Instruction Word
 
     // Evaluation Interface
-    input  logic               start_eval,  // 1-cycle strobe to begin evaluating f(x)
-    input  logic [2:0]         num_vars,    // Active dimension N (1..4)
-    input  vec_t               x_vec,       // Input vector [x0, x1, x2, x3]
-    output q16_t               f_out,       // Evaluated scalar result f(x)
-    output logic               eval_done,   // 1-cycle completion strobe
-    output logic               busy         // High while equation is executing
+    input  logic                          start_eval,  // 1-cycle strobe to begin evaluating f(x)
+    input  logic [NUM_VARS_BITS-1:0]      num_vars,    // Active dimension N (1..MAX_VARS)
+    input  vec_t                          x_vec,       // Input vector [x0, x1, ...]
+    output q16_t                          f_out,       // Evaluated scalar result f(x)
+    output logic                          eval_done,   // 1-cycle completion strobe
+    output logic                          busy         // High while equation is executing
 );
 
     // -------------------------------------------------------------------------
@@ -36,7 +36,7 @@ module dfg_multivar_engine (
     // -------------------------------------------------------------------------
     instr_t prog_mem [0:PROG_DEPTH-1];
     q16_t   reg_file [0:NUM_REGS-1];
-    logic [4:0] pc;
+    logic [$clog2(PROG_DEPTH)-1:0] pc;
 
     typedef enum logic [1:0] {
         ENG_IDLE       = 2'd0,
@@ -49,7 +49,7 @@ module dfg_multivar_engine (
 
     // ALU Signals
     q16_t               alu_src_a, alu_src_b;
-    logic signed [15:0] alu_imm;
+    logic signed [12:0] alu_imm;
     opcode_t            alu_op;
     q16_t               alu_result;
     logic               alu_overflow;
@@ -125,7 +125,7 @@ module dfg_multivar_engine (
                         pc   <= '0;
                         for (int i = 0; i < MAX_VARS; i++) begin
                             if (i < num_vars) begin
-                                reg_file[i] <= get_vec(x_vec, 2'(i));
+                                reg_file[i] <= get_vec(x_vec, i);
                             end
                         end
                         state <= ENG_FETCH_EXEC;

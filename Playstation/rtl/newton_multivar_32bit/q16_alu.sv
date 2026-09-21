@@ -13,7 +13,7 @@ import newton_multivar_pkg::*;
 module q16_alu (
     input  logic signed [31:0]  src_a,
     input  logic signed [31:0]  src_b,
-    input  logic signed [15:0]  imm,
+    input  logic signed [12:0]  imm,
     input  opcode_t             op,
     output logic signed [31:0]  result,
     output logic                overflow
@@ -66,7 +66,7 @@ module q16_alu (
             end
 
             OP_LOADC: begin
-                result = {imm, 16'h0000};
+                result = {{3{imm[12]}}, imm, 16'h0000};
             end
 
             default: begin
