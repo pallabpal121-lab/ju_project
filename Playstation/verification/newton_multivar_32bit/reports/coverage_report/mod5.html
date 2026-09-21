@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: newton_bcd_top</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_newton_bcd_top'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_newton_bcd_top')">newton_bcd_top</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 97.89</td>
+<td class="s9 cl rt"><a href="mod5.html#Line" > 98.89</a></td>
+<td class="s9 cl rt"><a href="mod5.html#Toggle" > 95.72</a></td>
+<td class="s10 cl rt"><a href="mod5.html#FSM" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod5.html#Branch" > 96.97</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_multivar_32bit/../../rtl/newton_multivar_32bit/newton_bcd_top.sv')">/home/user17/Desktop/ju_project/Playstation/verification/newton_multivar_32bit/../../rtl/newton_multivar_32bit/newton_bcd_top.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod5.html#inst_tag_5"  onclick="showContent('inst_tag_5')">newton_axi_tb_top.u_dut.u_bcd_core</a></td>
+<td class="s9 cl rt"> 97.89</td>
+<td class="s9 cl rt"><a href="mod5.html#Line" > 98.89</a></td>
+<td class="s9 cl rt"><a href="mod5.html#Toggle" > 95.72</a></td>
+<td class="s10 cl rt"><a href="mod5.html#FSM" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod5.html#Branch" > 96.97</a></td>
+<td class="wht cl rt"></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='tag_newton_bcd_top'>
+<hr>
+<a name="inst_tag_5"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_5" >newton_axi_tb_top.u_dut.u_bcd_core</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 97.89</td>
+<td class="s9 cl rt"><a href="mod5.html#Line" > 98.89</a></td>
+<td class="s9 cl rt"><a href="mod5.html#Toggle" > 95.72</a></td>
+<td class="s10 cl rt"><a href="mod5.html#FSM" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod5.html#Branch" > 96.97</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 97.23</td>
+<td class="s9 cl rt"> 97.27</td>
+<td class="s9 cl rt"> 97.70</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 93.97</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 96.44</td>
+<td class="s9 cl rt"> 98.17</td>
+<td class="s9 cl rt"> 98.11</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s8 cl rt"> 89.47</td>
+<td class="wht cl rt"></td>
+<td><a href="mod12.html#inst_tag_12" >u_dut</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod8.html#inst_tag_8" id="tag_urg_inst_8">u_core</a></td>
+<td class="s9 cl rt"> 97.01</td>
+<td class="s9 cl rt"> 96.74</td>
+<td class="s9 cl rt"> 98.54</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 92.77</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_newton_bcd_top'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod5.html" >newton_bcd_top</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">TOTAL</td><td></td><td>90</td><td>89</td><td>98.89</td></tr>
+<tr class="s9"><td class="lf">ALWAYS</td><td>103</td><td>90</td><td>89</td><td>98.89</td></tr>
+</table>
+<pre class="code"><br clear=all>
+102                         always_ff @(posedge clk or negedge rst_n) begin
+103        1/1                  if (!rst_n) begin
+104        1/1                      state           &lt;= BCD_IDLE;
+105        1/1                      x_reg           &lt;= '0;
+106        1/1                      num_vars_reg    &lt;= { {(NUM_VARS_BITS-2){1'b0}}, 2'd2 };
+107        1/1                      tol_reg         &lt;= Q16_EPS_DEF;
+108        1/1                      alpha_reg       &lt;= Q16_ONE;
+109        1/1                      lambda_reg_in   &lt;= Q16_LAMBDA_DEF;
+110        1/1                      max_sweeps_reg  &lt;= 8'd50;
+111        1/1                      sweep_count     &lt;= 8'd0;
+112        1/1                      phase           &lt;= 1'b0;
+113        1/1                      pair_i          &lt;= '0;
+114        1/1                      pair_j          &lt;= '0;
+115        1/1                      core_idx_i      &lt;= '0;
+116        1/1                      core_idx_j      &lt;= '0;
+117        1/1                      core_start      &lt;= 1'b0;
+118        1/1                      max_delta_sweep &lt;= Q16_ZERO;
+119        1/1                      max_delta_last  &lt;= Q16_ZERO;
+120        1/1                      x_optimal       &lt;= '0;
+121        1/1                      f_optimal       &lt;= Q16_ZERO;
+122        1/1                      status          &lt;= STATUS_IDLE;
+123        1/1                      done            &lt;= 1'b0;
+124        1/1                      busy            &lt;= 1'b0;
+125                             end else begin
+126        1/1                      core_start &lt;= 1'b0;
+127                     
+128        1/1                      case (state)
+129                                     // -------------------------------------------------------------
+130                                     // STATE: BCD_IDLE
+131                                     // -------------------------------------------------------------
+132                                     BCD_IDLE: begin
+133        1/1                              done &lt;= 1'b0;
+134        1/1                              if (start) begin
+135        1/1                                  busy            &lt;= 1'b1;
+136        1/1                                  num_vars_reg    &lt;= (num_vars &gt;= 2) ? num_vars : { {(NUM_VARS_BITS-2){1'b0}}, 2'd2 };
+137        1/1                                  tol_reg         &lt;= (tolerance != Q16_ZERO)  ? tolerance  : Q16_EPS_DEF;
+138        1/1                                  alpha_reg       &lt;= (step_alpha != Q16_ZERO) ? step_alpha : Q16_ONE;
+139        1/1                                  lambda_reg_in   &lt;= (lambda_reg != Q16_ZERO) ? lambda_reg : Q16_LAMBDA_DEF;
+140        1/1                                  max_sweeps_reg  &lt;= (max_sweeps != 8'd0)     ? max_sweeps : 8'd50;
+141        1/1                                  sweep_count     &lt;= 8'd0;
+142        1/1                                  x_reg           &lt;= x_init;
+143        1/1                                  phase           &lt;= 1'b0;
+144        1/1                                  status          &lt;= STATUS_RUNNING;
+145        1/1                                  state           &lt;= BCD_SETUP_SWEEP;
+146                                         end else begin
+147        1/1                                  busy &lt;= 1'b0;
+148                                         end
+149                                     end
+150                     
+151                                     // -------------------------------------------------------------
+152                                     // STATE: BCD_SETUP_SWEEP
+153                                     // -------------------------------------------------------------
+154                                     BCD_SETUP_SWEEP: begin
+155        1/1                              max_delta_sweep &lt;= Q16_ZERO;
+156        1/1                              if (!phase) begin
+157                                             // Phase 0: Disjoint pairs (0, 1), (2, 3), ...
+158        1/1                                  pair_i &lt;= '0;
+159        1/1                                  pair_j &lt;= { {(NUM_VARS_BITS-1){1'b0}}, 1'b1 };
+160                                         end else begin
+161                                             // Phase 1: Interleaved pairs (1, 2), (3, 4), ...
+162        1/1                                  pair_i &lt;= { {(NUM_VARS_BITS-1){1'b0}}, 1'b1 };
+163        1/1                                  pair_j &lt;= { {(NUM_VARS_BITS-2){1'b0}}, 2'd2 };
+164                                         end
+165        1/1                              state &lt;= BCD_START_PAIR;
+166                                     end
+167                     
+168                                     // -------------------------------------------------------------
+169                                     // STATE: BCD_START_PAIR
+170                                     // -------------------------------------------------------------
+171                                     BCD_START_PAIR: begin
+172        1/1                              core_idx_i &lt;= pair_i;
+173        1/1                              core_idx_j &lt;= pair_j;
+174        1/1                              core_start &lt;= 1'b1;
+175        1/1                              state      &lt;= BCD_WAIT_PAIR;
+176                                     end
+177                     
+178                                     // -------------------------------------------------------------
+179                                     // STATE: BCD_WAIT_PAIR
+180                                     // -------------------------------------------------------------
+181                                     BCD_WAIT_PAIR: begin
+182        1/1                              if (core_done) begin
+183                                             // Update state vector X with new values
+184        1/1                                  tmp_x = x_reg;
+185        1/1                                  tmp_x = set_vec(tmp_x, pair_i, get_vec(tmp_x, pair_i) + core_delta_i);
+186        1/1                                  tmp_x = set_vec(tmp_x, pair_j, get_vec(tmp_x, pair_j) + core_delta_j);
+187        1/1                                  x_reg &lt;= tmp_x;
+188                     
+189                                             // Track maximum step in this sweep
+190        1/1                                  abs_di = (core_delta_i &lt; 32'sd0) ? -core_delta_i : core_delta_i;
+191        1/1                                  abs_dj = (core_delta_j &lt; 32'sd0) ? -core_delta_j : core_delta_j;
+192        2/2                                  if (abs_di &gt; max_delta_sweep) max_delta_sweep &lt;= abs_di;
+                        MISSING_ELSE
+193        2/2                                  if (abs_dj &gt; max_delta_sweep &amp;&amp; abs_dj &gt; abs_di) max_delta_sweep &lt;= abs_dj;
+                        MISSING_ELSE
+194                     
+195        1/1                                  state &lt;= BCD_ADVANCE_PAIR;
+196                                         end
+                        MISSING_ELSE
+197                                     end
+198                     
+199                                     // -------------------------------------------------------------
+200                                     // STATE: BCD_ADVANCE_PAIR
+201                                     // -------------------------------------------------------------
+202                                     BCD_ADVANCE_PAIR: begin
+203        1/1                              if (phase &amp;&amp; pair_j == '0) begin
+204                                             // Just completed ring-closing pair (num_vars-1, 0)
+205        1/1                                  state &lt;= BCD_CHECK_SWEEP;
+206        1/1                              end else if (pair_j + 2 &lt; num_vars_reg) begin
+207        1/1                                  pair_i &lt;= pair_i + 2;
+208        1/1                                  pair_j &lt;= pair_j + 2;
+209        1/1                                  state  &lt;= BCD_START_PAIR;
+210        1/1                              end else if (phase &amp;&amp; num_vars_reg &gt; 2 &amp;&amp; pair_j &lt; num_vars_reg) begin
+211                                             // Close the ring in phase 1: couple (num_vars-1, 0)
+212        1/1                                  pair_i &lt;= num_vars_reg - 1'b1;
+213        1/1                                  pair_j &lt;= '0;
+214        1/1                                  state  &lt;= BCD_START_PAIR;
+215                                         end else begin
+216        1/1                                  state &lt;= BCD_CHECK_SWEEP;
+217                                         end
+218                                     end
+219                     
+220                                     // -------------------------------------------------------------
+221                                     // STATE: BCD_CHECK_SWEEP
+222                                     // -------------------------------------------------------------
+223                                     BCD_CHECK_SWEEP: begin
+224        1/1                              sweep_count    &lt;= sweep_count + 1'b1;
+225        1/1                              max_delta_last &lt;= max_delta_sweep;
+226                     
+227                                         // Convergence condition
+228        1/1                              if (max_delta_sweep &lt;= tol_reg) begin
+229        1/1                                  status    &lt;= STATUS_CONVERGED;
+230        1/1                                  x_optimal &lt;= x_reg;
+231        1/1                                  f_optimal &lt;= core_f_val;
+232        1/1                                  state     &lt;= BCD_DONE;
+233        1/1                              end else if (sweep_count + 1'b1 &gt;= max_sweeps_reg) begin
+234        1/1                                  status    &lt;= STATUS_MAX_ITERS;
+235        1/1                                  x_optimal &lt;= x_reg;
+236        1/1                                  f_optimal &lt;= core_f_val;
+237        1/1                                  state     &lt;= BCD_DONE;
+238                                         end else begin
+239        1/1                                  phase &lt;= ~phase; // Alternate between disjoint and interleaved
+240        1/1                                  state &lt;= BCD_SETUP_SWEEP;
+241                                         end
+242                                     end
+243                     
+244                                     // -------------------------------------------------------------
+245                                     // STATE: BCD_DONE
+246                                     // -------------------------------------------------------------
+247                                     BCD_DONE: begin
+248        1/1                              done  &lt;= 1'b1;
+249        1/1                              busy  &lt;= 1'b0;
+250        1/1                              state &lt;= BCD_IDLE;
+251                                     end
+252                     
+253        <font color = "red">0/1     ==>                  default: state &lt;= BCD_IDLE;</font>
+</pre>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod5.html" >newton_bcd_top</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s6">
+<td>Totals</td>
+<td class="rt">45</td>
+<td class="rt">31</td>
+<td class="rt">68.89 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">5208</td>
+<td class="rt">4985</td>
+<td class="rt">95.72 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">2604</td>
+<td class="rt">2493</td>
+<td class="rt">95.74 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">2604</td>
+<td class="rt">2492</td>
+<td class="rt">95.70 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Ports</td>
+<td class="rt">23</td>
+<td class="rt">20</td>
+<td class="rt">86.96 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">2504</td>
+<td class="rt">2476</td>
+<td class="rt">98.88 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">1252</td>
+<td class="rt">1238</td>
+<td class="rt">98.88 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">1252</td>
+<td class="rt">1238</td>
+<td class="rt">98.88 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Signals</td>
+<td class="rt">22</td>
+<td class="rt">11</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s9">
+<td>Signal Bits</td>
+<td class="rt">2704</td>
+<td class="rt">2509</td>
+<td class="rt">92.79 </td>
+</tr><tr class="s9">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">1352</td>
+<td class="rt">1255</td>
+<td class="rt">92.83 </td>
+</tr><tr class="s9">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">1352</td>
+<td class="rt">1254</td>
+<td class="rt">92.75 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_n</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_addr[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.imm[12:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.src_b[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.src_a[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.dst[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.op[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>start</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>num_vars[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>x_init[511:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>tolerance[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>step_alpha[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lambda_reg[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>max_sweeps[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>x_optimal[511:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>f_optimal[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>max_delta_last[19:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>max_delta_last[23:20]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>max_delta_last[24]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>max_delta_last[31:25]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>sweep_count[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>sweep_count[7:6]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>status[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>status[2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>done</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>busy</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>state[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>x_reg[511:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>num_vars_reg[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>tol_reg[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>tol_reg[15:11]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>tol_reg[16]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>tol_reg[31:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>alpha_reg[13:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>alpha_reg[16:14]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>alpha_reg[31:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>lambda_reg_in[22:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>lambda_reg_in[23]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>lambda_reg_in[31:24]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>max_sweeps_reg[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>max_sweeps_reg[7:6]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>phase</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>pair_i[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>pair_i[4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>pair_j[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>pair_j[4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>max_delta_sweep[19:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>max_delta_sweep[23:20]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>max_delta_sweep[24]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>max_delta_sweep[31:25]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>core_start</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>core_idx_i[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>core_idx_i[4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>core_idx_j[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>core_idx_j[4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>core_delta_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>core_delta_j[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>core_f_val[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>core_done</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>core_busy</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>abs_di[19:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>abs_di[23:20]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>abs_di[24]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>abs_di[31:25]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>abs_dj[19:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>abs_dj[31:20]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>tmp_x[511:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="FSM"></a>
+FSM Coverage for Module : <a href="mod5.html" >newton_bcd_top</a><br clear=all>
+<table align=left class="noborder">
+<caption><b>Summary for FSM :: state</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th><th nowrap width=200></th></tr><tr class="wht">
+<td>States</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+<td>(Not included in score)</td>
+</tr><tr class="s10">
+<td>Transitions</td>
+<td class="rt">14</td>
+<td class="rt">14</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr><tr class="wht">
+<td>Sequences</td>
+<td class="rt">0</td>
+<td class="rt">0</td>
+<td></td>
+<td></td>
+</tr></table><br clear=all>
+<b>State, Transition and Sequence Details for FSM :: state</b><hr>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">states</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>BCD_ADVANCE_PAIR</td>
+<td class="rt">195</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_CHECK_SWEEP</td>
+<td class="rt">205</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_DONE</td>
+<td class="rt">232</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_IDLE</td>
+<td class="rt">104</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_SETUP_SWEEP</td>
+<td class="rt">145</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_START_PAIR</td>
+<td class="rt">165</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_WAIT_PAIR</td>
+<td class="rt">175</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">transitions</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>BCD_ADVANCE_PAIR->BCD_CHECK_SWEEP</td>
+<td class="rt">205</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_ADVANCE_PAIR->BCD_IDLE</td>
+<td class="rt">104</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_ADVANCE_PAIR->BCD_START_PAIR</td>
+<td class="rt">209</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_CHECK_SWEEP->BCD_DONE</td>
+<td class="rt">232</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_CHECK_SWEEP->BCD_IDLE</td>
+<td class="rt">104</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_CHECK_SWEEP->BCD_SETUP_SWEEP</td>
+<td class="rt">240</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_DONE->BCD_IDLE</td>
+<td class="rt">104</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_IDLE->BCD_SETUP_SWEEP</td>
+<td class="rt">145</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_SETUP_SWEEP->BCD_IDLE</td>
+<td class="rt">104</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_SETUP_SWEEP->BCD_START_PAIR</td>
+<td class="rt">165</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_START_PAIR->BCD_IDLE</td>
+<td class="rt">104</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_START_PAIR->BCD_WAIT_PAIR</td>
+<td class="rt">175</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_WAIT_PAIR->BCD_ADVANCE_PAIR</td>
+<td class="rt">195</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>BCD_WAIT_PAIR->BCD_IDLE</td>
+<td class="rt">104</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod5.html" >newton_bcd_top</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Branches</td>
+<td></td>
+<td class="rt">33</td>
+<td class="rt">32</td>
+<td class="rt">96.97 </td>
+</tr><tr class="s9">
+<td>IF</td>
+<td class="rt">103</td>
+<td class="rt">33</td>
+<td class="rt">32</td>
+<td class="rt">96.97 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+103                if (!rst_n) begin
+                   <font color = "green">-1-</font>  
+104                    state           <= BCD_IDLE;
+           <font color = "green">            ==></font>
+105                    x_reg           <= '0;
+106                    num_vars_reg    <= { {(NUM_VARS_BITS-2){1'b0}}, 2'd2 };
+107                    tol_reg         <= Q16_EPS_DEF;
+108                    alpha_reg       <= Q16_ONE;
+109                    lambda_reg_in   <= Q16_LAMBDA_DEF;
+110                    max_sweeps_reg  <= 8'd50;
+111                    sweep_count     <= 8'd0;
+112                    phase           <= 1'b0;
+113                    pair_i          <= '0;
+114                    pair_j          <= '0;
+115                    core_idx_i      <= '0;
+116                    core_idx_j      <= '0;
+117                    core_start      <= 1'b0;
+118                    max_delta_sweep <= Q16_ZERO;
+119                    max_delta_last  <= Q16_ZERO;
+120                    x_optimal       <= '0;
+121                    f_optimal       <= Q16_ZERO;
+122                    status          <= STATUS_IDLE;
+123                    done            <= 1'b0;
+124                    busy            <= 1'b0;
+125                end else begin
+126                    core_start <= 1'b0;
+127        
+128                    case (state)
+                       <font color = "red">-2-</font>  
+129                        // -------------------------------------------------------------
+130                        // STATE: BCD_IDLE
+131                        // -------------------------------------------------------------
+132                        BCD_IDLE: begin
+133                            done <= 1'b0;
+134                            if (start) begin
+                               <font color = "green">-3-</font>  
+135                                busy            <= 1'b1;
+136                                num_vars_reg    <= (num_vars >= 2) ? num_vars : { {(NUM_VARS_BITS-2){1'b0}}, 2'd2 };
+                                                                      <font color = "green">-4-</font>  
+                                                                      <font color = "green">==></font>  
+                                                                      <font color = "green">==></font>  
+137                                tol_reg         <= (tolerance != Q16_ZERO)  ? tolerance  : Q16_EPS_DEF;
+                                                                               <font color = "green">-5-</font>  
+                                                                               <font color = "green">==></font>  
+                                                                               <font color = "green">==></font>  
+138                                alpha_reg       <= (step_alpha != Q16_ZERO) ? step_alpha : Q16_ONE;
+                                                                               <font color = "green">-6-</font>  
+                                                                               <font color = "green">==></font>  
+                                                                               <font color = "green">==></font>  
+139                                lambda_reg_in   <= (lambda_reg != Q16_ZERO) ? lambda_reg : Q16_LAMBDA_DEF;
+                                                                               <font color = "green">-7-</font>  
+                                                                               <font color = "green">==></font>  
+                                                                               <font color = "green">==></font>  
+140                                max_sweeps_reg  <= (max_sweeps != 8'd0)     ? max_sweeps : 8'd50;
+                                                                               <font color = "green">-8-</font>  
+                                                                               <font color = "green">==></font>  
+                                                                               <font color = "green">==></font>  
+141                                sweep_count     <= 8'd0;
+142                                x_reg           <= x_init;
+143                                phase           <= 1'b0;
+144                                status          <= STATUS_RUNNING;
+145                                state           <= BCD_SETUP_SWEEP;
+146                            end else begin
+147                                busy <= 1'b0;
+           <font color = "green">                        ==></font>
+148                            end
+149                        end
+150        
+151                        // -------------------------------------------------------------
+152                        // STATE: BCD_SETUP_SWEEP
+153                        // -------------------------------------------------------------
+154                        BCD_SETUP_SWEEP: begin
+155                            max_delta_sweep <= Q16_ZERO;
+156                            if (!phase) begin
+                               <font color = "green">-9-</font>  
+157                                // Phase 0: Disjoint pairs (0, 1), (2, 3), ...
+158                                pair_i <= '0;
+           <font color = "green">                        ==></font>
+159                                pair_j <= { {(NUM_VARS_BITS-1){1'b0}}, 1'b1 };
+160                            end else begin
+161                                // Phase 1: Interleaved pairs (1, 2), (3, 4), ...
+162                                pair_i <= { {(NUM_VARS_BITS-1){1'b0}}, 1'b1 };
+           <font color = "green">                        ==></font>
+163                                pair_j <= { {(NUM_VARS_BITS-2){1'b0}}, 2'd2 };
+164                            end
+165                            state <= BCD_START_PAIR;
+166                        end
+167        
+168                        // -------------------------------------------------------------
+169                        // STATE: BCD_START_PAIR
+170                        // -------------------------------------------------------------
+171                        BCD_START_PAIR: begin
+172                            core_idx_i <= pair_i;
+           <font color = "green">                    ==></font>
+173                            core_idx_j <= pair_j;
+174                            core_start <= 1'b1;
+175                            state      <= BCD_WAIT_PAIR;
+176                        end
+177        
+178                        // -------------------------------------------------------------
+179                        // STATE: BCD_WAIT_PAIR
+180                        // -------------------------------------------------------------
+181                        BCD_WAIT_PAIR: begin
+182                            if (core_done) begin
+                               <font color = "green">-10-</font>  
+183                                // Update state vector X with new values
+184                                tmp_x = x_reg;
+185                                tmp_x = set_vec(tmp_x, pair_i, get_vec(tmp_x, pair_i) + core_delta_i);
+186                                tmp_x = set_vec(tmp_x, pair_j, get_vec(tmp_x, pair_j) + core_delta_j);
+187                                x_reg <= tmp_x;
+188        
+189                                // Track maximum step in this sweep
+190                                abs_di = (core_delta_i < 32'sd0) ? -core_delta_i : core_delta_i;
+                                                                    <font color = "green">-11-</font>  
+                                                                    <font color = "green">==></font>  
+                                                                    <font color = "green">==></font>  
+191                                abs_dj = (core_delta_j < 32'sd0) ? -core_delta_j : core_delta_j;
+                                                                    <font color = "green">-12-</font>  
+                                                                    <font color = "green">==></font>  
+                                                                    <font color = "green">==></font>  
+192                                if (abs_di > max_delta_sweep) max_delta_sweep <= abs_di;
+                                   <font color = "green">-13-</font>  
+           <font color = "green">                        ==></font>
+                                   MISSING_ELSE
+           <font color = "green">                        ==></font>
+193                                if (abs_dj > max_delta_sweep && abs_dj > abs_di) max_delta_sweep <= abs_dj;
+                                   <font color = "green">-14-</font>  
+           <font color = "green">                        ==></font>
+                                   MISSING_ELSE
+           <font color = "green">                        ==></font>
+194        
+195                                state <= BCD_ADVANCE_PAIR;
+196                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+197                        end
+198        
+199                        // -------------------------------------------------------------
+200                        // STATE: BCD_ADVANCE_PAIR
+201                        // -------------------------------------------------------------
+202                        BCD_ADVANCE_PAIR: begin
+203                            if (phase && pair_j == '0) begin
+                               <font color = "green">-15-</font>  
+204                                // Just completed ring-closing pair (num_vars-1, 0)
+205                                state <= BCD_CHECK_SWEEP;
+           <font color = "green">                        ==></font>
+206                            end else if (pair_j + 2 < num_vars_reg) begin
+                                        <font color = "green">-16-</font>  
+207                                pair_i <= pair_i + 2;
+           <font color = "green">                        ==></font>
+208                                pair_j <= pair_j + 2;
+209                                state  <= BCD_START_PAIR;
+210                            end else if (phase && num_vars_reg > 2 && pair_j < num_vars_reg) begin
+                                        <font color = "green">-17-</font>  
+211                                // Close the ring in phase 1: couple (num_vars-1, 0)
+212                                pair_i <= num_vars_reg - 1'b1;
+           <font color = "green">                        ==></font>
+213                                pair_j <= '0;
+214                                state  <= BCD_START_PAIR;
+215                            end else begin
+216                                state <= BCD_CHECK_SWEEP;
+           <font color = "green">                        ==></font>
+217                            end
+218                        end
+219        
+220                        // -------------------------------------------------------------
+221                        // STATE: BCD_CHECK_SWEEP
+222                        // -------------------------------------------------------------
+223                        BCD_CHECK_SWEEP: begin
+224                            sweep_count    <= sweep_count + 1'b1;
+225                            max_delta_last <= max_delta_sweep;
+226        
+227                            // Convergence condition
+228                            if (max_delta_sweep <= tol_reg) begin
+                               <font color = "green">-18-</font>  
+229                                status    <= STATUS_CONVERGED;
+           <font color = "green">                        ==></font>
+230                                x_optimal <= x_reg;
+231                                f_optimal <= core_f_val;
+232                                state     <= BCD_DONE;
+233                            end else if (sweep_count + 1'b1 >= max_sweeps_reg) begin
+                                        <font color = "green">-19-</font>  
+234                                status    <= STATUS_MAX_ITERS;
+           <font color = "green">                        ==></font>
+235                                x_optimal <= x_reg;
+236                                f_optimal <= core_f_val;
+237                                state     <= BCD_DONE;
+238                            end else begin
+239                                phase <= ~phase; // Alternate between disjoint and interleaved
+           <font color = "green">                        ==></font>
+240                                state <= BCD_SETUP_SWEEP;
+241                            end
+242                        end
+243        
+244                        // -------------------------------------------------------------
+245                        // STATE: BCD_DONE
+246                        // -------------------------------------------------------------
+247                        BCD_DONE: begin
+248                            done  <= 1'b1;
+           <font color = "green">                    ==></font>
+249                            busy  <= 1'b0;
+250                            state <= BCD_IDLE;
+251                        end
+252        
+253                        default: state <= BCD_IDLE;
+           <font color = "red">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>-8-</th><th nowrap width=80>-9-</th><th nowrap width=80>-10-</th><th nowrap width=80>-11-</th><th nowrap width=80>-12-</th><th nowrap width=80>-13-</th><th nowrap width=80>-14-</th><th nowrap width=80>-15-</th><th nowrap width=80>-16-</th><th nowrap width=80>-17-</th><th nowrap width=80>-18-</th><th nowrap width=80>-19-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_IDLE </td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_IDLE </td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_IDLE </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_SETUP_SWEEP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_SETUP_SWEEP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_START_PAIR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_WAIT_PAIR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_WAIT_PAIR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_WAIT_PAIR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_WAIT_PAIR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_WAIT_PAIR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_WAIT_PAIR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_WAIT_PAIR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_WAIT_PAIR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_WAIT_PAIR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_ADVANCE_PAIR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_ADVANCE_PAIR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_ADVANCE_PAIR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_ADVANCE_PAIR </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_CHECK_SWEEP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_CHECK_SWEEP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_CHECK_SWEEP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>BCD_DONE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_5">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#FSM">FSM</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+  <ul name="tag_newton_bcd_top">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#FSM">FSM</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

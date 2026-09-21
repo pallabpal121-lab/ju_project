@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: newton_axi_if</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_newton_axi_if'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_newton_axi_if')">newton_axi_if</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 96.37</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod2.html#Toggle" > 92.74</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod2.html#Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_multivar_32bit/./uvm_tb/if/newton_axi_if.sv')">/home/user17/Desktop/ju_project/Playstation/verification/newton_multivar_32bit/./uvm_tb/if/newton_axi_if.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod2.html#inst_tag_2"  onclick="showContent('inst_tag_2')">newton_axi_tb_top.vif</a></td>
+<td class="s9 cl rt"> 96.37</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod2.html#Toggle" > 92.74</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod2.html#Assert" >100.00</a></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='tag_newton_axi_if'>
+<hr>
+<a name="inst_tag_2"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_2" >newton_axi_tb_top.vif</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 96.37</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod2.html#Toggle" > 92.74</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod2.html#Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 96.37</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 92.74</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 91.67</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td><a href="mod3.html#inst_tag_3" >newton_axi_tb_top</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=7>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_newton_axi_if'>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod2.html" >newton_axi_if</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s7">
+<td>Totals</td>
+<td class="rt">24</td>
+<td class="rt">19</td>
+<td class="rt">79.17 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">234</td>
+<td class="rt">217</td>
+<td class="rt">92.74 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">117</td>
+<td class="rt">109</td>
+<td class="rt">93.16 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">117</td>
+<td class="rt">108</td>
+<td class="rt">92.31 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Ports</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s7">
+<td>Port Bits</td>
+<td class="rt">4</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s5">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Signals</td>
+<td class="rt">22</td>
+<td class="rt">18</td>
+<td class="rt">81.82 </td>
+</tr><tr class="s9">
+<td>Signal Bits</td>
+<td class="rt">230</td>
+<td class="rt">214</td>
+<td class="rt">93.04 </td>
+</tr><tr class="s9">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">115</td>
+<td class="rt">107</td>
+<td class="rt">93.04 </td>
+</tr><tr class="s9">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">115</td>
+<td class="rt">107</td>
+<td class="rt">93.04 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>s_axi_aclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_aresetn</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>rst_force_n</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_aresetn_eff</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_awaddr[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>s_axi_awaddr[11:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_awprot[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_awvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_awready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_wstrb[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_wvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_wready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_bresp[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>s_axi_bvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_bready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_araddr[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>s_axi_araddr[11:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_arprot[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_arvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_arready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_rdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_rresp[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>s_axi_rvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_axi_rready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>irq_done</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Assert"></a>
+Assert Coverage for Module : <a href="mod2.html" >newton_axi_if</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#351636551" >Assertions</a></td>
+<td class="wht cl rt">18</td>
+<td class="s10 cl rt">18</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">18</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#244422446" >Cover properties</a></td>
+<td class="wht cl rt">10</td>
+<td class="s10 cl rt">10</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">10</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#195669261" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">28</td>
+<td class="s10 cl rt">28</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">28</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="351636551"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="143795923"></a>
+A_AR_ALIGN</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">1146</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1198082605"></a>
+A_AR_STABLE</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">3</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="546598546"></a>
+A_AW_ALIGN</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">4333</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1888477074"></a>
+A_AW_STABLE</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">3</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="215795321"></a>
+A_BRESP_VALID</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">4353</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1079649778"></a>
+A_B_STABLE</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">24</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="197919540"></a>
+A_IRQ_PULSE</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">88</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="624070620"></a>
+A_NO_X_ARVALID</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">1146</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1304784489"></a>
+A_NO_X_AWVALID</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">4333</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="658469351"></a>
+A_NO_X_RVALID</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">1163</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="2036151092"></a>
+A_NO_X_WVALID</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">4332</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1790516705"></a>
+A_PROT_KNOWN</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">4333</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="2000403013"></a>
+A_RESET_RECOVERY</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">250</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1477100331"></a>
+A_RESET_STATE</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">750</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="393913993"></a>
+A_RRESP_VALID</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">1163</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1257768450"></a>
+A_R_STABLE</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">20</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1633719352"></a>
+A_WSTRB_NONZERO</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">4329</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="565617657"></a>
+A_W_STABLE</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">3</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="244422446"></a>
+<b>Cover Directives for Properties: Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Matches</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="1911711901"></a>
+C_AR_HANDSHAKE</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">1143</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1692860926"></a>
+C_AW_HANDSHAKE</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">4330</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="347148207"></a>
+C_AXI_READ_HANDSHAKE</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">1143</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1811623594"></a>
+C_AXI_WRITE_HANDSHAKE</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">4328</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="649335718"></a>
+C_B_HANDSHAKE</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">4329</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="802802279"></a>
+C_IRQ_DONE_PULSE</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">88</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1393407526"></a>
+C_IRQ_DONE_TRIGGER</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">88</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="720539335"></a>
+C_RESET_RECOVERY</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">250</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="827454390"></a>
+C_R_HANDSHAKE</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">1143</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="995931717"></a>
+C_W_HANDSHAKE</td>
+<td class="s9 cl rt">479977</td>
+<td class="s9 cl rt">4329</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_2">
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Assert">Assert</a>    </li>
+  </ul>
+  <ul name="tag_newton_axi_if">
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Assert">Assert</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

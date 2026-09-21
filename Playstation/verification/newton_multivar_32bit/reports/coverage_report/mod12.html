@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: newton_bcd_axi_lite</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_newton_bcd_axi_lite'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_newton_bcd_axi_lite')">newton_bcd_axi_lite</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 96.44</td>
+<td class="s9 cl rt"><a href="mod12.html#Line" > 98.17</a></td>
+<td class="s9 cl rt"><a href="mod12.html#Toggle" > 98.11</a></td>
+<td class="s10 cl rt"><a href="mod12.html#FSM" >100.00</a></td>
+<td class="s8 cl rt"><a href="mod12.html#Branch" > 89.47</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_multivar_32bit/../../rtl/newton_multivar_32bit/newton_bcd_axi_lite.sv')">/home/user17/Desktop/ju_project/Playstation/verification/newton_multivar_32bit/../../rtl/newton_multivar_32bit/newton_bcd_axi_lite.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod12.html#inst_tag_12"  onclick="showContent('inst_tag_12')">newton_axi_tb_top.u_dut</a></td>
+<td class="s9 cl rt"> 96.44</td>
+<td class="s9 cl rt"><a href="mod12.html#Line" > 98.17</a></td>
+<td class="s9 cl rt"><a href="mod12.html#Toggle" > 98.11</a></td>
+<td class="s10 cl rt"><a href="mod12.html#FSM" >100.00</a></td>
+<td class="s8 cl rt"><a href="mod12.html#Branch" > 89.47</a></td>
+<td class="wht cl rt"></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='tag_newton_bcd_axi_lite'>
+<hr>
+<a name="inst_tag_12"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_12" >newton_axi_tb_top.u_dut</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 96.44</td>
+<td class="s9 cl rt"><a href="mod12.html#Line" > 98.17</a></td>
+<td class="s9 cl rt"><a href="mod12.html#Toggle" > 98.11</a></td>
+<td class="s10 cl rt"><a href="mod12.html#FSM" >100.00</a></td>
+<td class="s8 cl rt"><a href="mod12.html#Branch" > 89.47</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 97.14</td>
+<td class="s9 cl rt"> 97.47</td>
+<td class="s9 cl rt"> 97.76</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 93.33</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 91.67</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td><a href="mod3.html#inst_tag_3" >newton_axi_tb_top</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod5.html#inst_tag_5" id="tag_urg_inst_5">u_bcd_core</a></td>
+<td class="s9 cl rt"> 97.23</td>
+<td class="s9 cl rt"> 97.27</td>
+<td class="s9 cl rt"> 97.70</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 93.97</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_newton_bcd_axi_lite'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod12.html" >newton_bcd_axi_lite</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">TOTAL</td><td></td><td>109</td><td>107</td><td>98.17</td></tr>
+<tr class="s9"><td class="lf">ALWAYS</td><td>151</td><td>41</td><td>40</td><td>97.56</td></tr>
+<tr class="s10"><td class="lf">ROUTINE</td><td>214</td><td>20</td><td>20</td><td>100.00</td></tr>
+<tr class="s9"><td class="lf">ALWAYS</td><td>248</td><td>19</td><td>18</td><td>94.74</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>283</td><td>6</td><td>6</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ROUTINE</td><td>295</td><td>23</td><td>23</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+150                         always_ff @(posedge s_axi_aclk or negedge s_axi_aresetn) begin
+151        1/1                  if (!s_axi_aresetn) begin
+152        1/1                      w_state         &lt;= W_IDLE;
+153        1/1                      aw_ready_reg    &lt;= 1'b0;
+154        1/1                      w_ready_reg     &lt;= 1'b0;
+155        1/1                      b_valid_reg     &lt;= 1'b0;
+156        1/1                      aw_addr_latched &lt;= '0;
+157        1/1                      reg_start_pulse &lt;= 1'b0;
+158        1/1                      reg_prog_en     &lt;= 1'b0;
+159        1/1                      reg_prog_addr   &lt;= '0;
+160        1/1                      reg_prog_data   &lt;= '0;
+161        1/1                      reg_num_vars    &lt;= 5'd16;
+162        1/1                      reg_tolerance   &lt;= Q16_EPS_DEF;
+163        1/1                      reg_alpha       &lt;= Q16_ONE;
+164        1/1                      reg_lambda      &lt;= Q16_LAMBDA_DEF;
+165        1/1                      reg_max_sweeps  &lt;= 8'd20;
+166        1/1                      reg_x_init      &lt;= '0;
+167                             end else begin
+168        1/1                      reg_start_pulse &lt;= 1'b0;
+169        1/1                      reg_prog_en     &lt;= 1'b0;
+170                     
+171        1/1                      case (w_state)
+172                                     W_IDLE: begin
+173        1/1                              aw_ready_reg &lt;= 1'b1;
+174        1/1                              w_ready_reg  &lt;= 1'b1;
+175        1/1                              if (s_axi_awvalid &amp;&amp; aw_ready_reg) begin
+176        1/1                                  aw_addr_latched &lt;= s_axi_awaddr;
+177        1/1                                  aw_ready_reg    &lt;= 1'b0;
+178        1/1                                  if (s_axi_wvalid &amp;&amp; w_ready_reg) begin
+179        1/1                                      w_ready_reg &lt;= 1'b0;
+180        1/1                                      b_valid_reg &lt;= 1'b1;
+181        1/1                                      w_state     &lt;= W_RESP;
+182                                                 // Write execution
+183        1/1                                      execute_write(s_axi_awaddr, s_axi_wdata);
+184                                             end else begin
+185        1/1                                      w_state &lt;= W_DATA;
+186                                             end
+187                                         end
+                        MISSING_ELSE
+188                                     end
+189                     
+190                                     W_DATA: begin
+191        1/1                              if (s_axi_wvalid) begin
+192        1/1                                  w_ready_reg &lt;= 1'b0;
+193        1/1                                  b_valid_reg &lt;= 1'b1;
+194        1/1                                  w_state     &lt;= W_RESP;
+195        1/1                                  execute_write(aw_addr_latched, s_axi_wdata);
+196                                         end
+                        MISSING_ELSE
+197                                     end
+198                     
+199                                     W_RESP: begin
+200        1/1                              if (s_axi_bready) begin
+201        1/1                                  b_valid_reg  &lt;= 1'b0;
+202        1/1                                  aw_ready_reg &lt;= 1'b1;
+203        1/1                                  w_ready_reg  &lt;= 1'b1;
+204        1/1                                  w_state      &lt;= W_IDLE;
+205                                         end
+                        MISSING_ELSE
+206                                     end
+207                     
+208        <font color = "red">0/1     ==>                  default: w_state &lt;= W_IDLE;</font>
+209                                 endcase
+210                             end
+211                         end
+212                     
+213                         task automatic execute_write(input logic [11:0] addr, input logic [31:0] data);
+214        1/1                  if (addr == ADDR_REG_CTRL) begin
+215        2/2                      if (data[0]) reg_start_pulse &lt;= 1'b1;
+                        MISSING_ELSE
+216        1/1                  end else if (addr == ADDR_REG_NUM_VARS) begin
+217        1/1                      reg_num_vars &lt;= data[NUM_VARS_BITS-1:0];
+218        1/1                  end else if (addr == ADDR_REG_TOLERANCE) begin
+219        1/1                      reg_tolerance &lt;= data;
+220        1/1                  end else if (addr == ADDR_REG_ALPHA) begin
+221        1/1                      reg_alpha &lt;= data;
+222        1/1                  end else if (addr == ADDR_REG_LAMBDA) begin
+223        1/1                      reg_lambda &lt;= data;
+224        1/1                  end else if (addr == ADDR_REG_MAX_SWEEPS) begin
+225        1/1                      reg_max_sweeps &lt;= data[7:0];
+226        1/1                  end else if (addr == ADDR_REG_PROG_ADDR) begin
+227        1/1                      reg_prog_addr &lt;= data[$clog2(PROG_DEPTH)-1:0];
+228        1/1                  end else if (addr == ADDR_REG_PROG_DATA) begin
+229        1/1                      reg_prog_data &lt;= data;
+230        1/1                      reg_prog_en   &lt;= 1'b1; // Auto-strobe write enable on data write
+231        1/1                  end else if (addr &gt;= ADDR_STATE_VEC_BASE &amp;&amp; addr &lt; (ADDR_STATE_VEC_BASE + (MAX_VARS * 4))) begin
+232                                 // State variable write: x_init[i]
+233        1/1                      reg_x_init &lt;= set_vec(reg_x_init, (addr - ADDR_STATE_VEC_BASE) &gt;&gt; 2, data);
+234                             end
+                        MISSING_ELSE
+235                         endtask
+236                     
+237                         // -------------------------------------------------------------------------
+238                         // AXI4-Lite Read Channel State Machine
+239                         // -------------------------------------------------------------------------
+240                         typedef enum logic [1:0] {
+241                             R_IDLE = 2'd0,
+242                             R_READ = 2'd1
+243                         } r_state_t;
+244                     
+245                         r_state_t r_state;
+246                     
+247                         always_ff @(posedge s_axi_aclk or negedge s_axi_aresetn) begin
+248        1/1                  if (!s_axi_aresetn) begin
+249        1/1                      r_state         &lt;= R_IDLE;
+250        1/1                      ar_ready_reg    &lt;= 1'b0;
+251        1/1                      r_valid_reg     &lt;= 1'b0;
+252        1/1                      r_data_reg      &lt;= '0;
+253        1/1                      ar_addr_latched &lt;= '0;
+254                             end else begin
+255        1/1                      case (r_state)
+256                                     R_IDLE: begin
+257        1/1                              ar_ready_reg &lt;= 1'b1;
+258        1/1                              if (s_axi_arvalid &amp;&amp; ar_ready_reg) begin
+259        1/1                                  ar_addr_latched &lt;= s_axi_araddr;
+260        1/1                                  ar_ready_reg    &lt;= 1'b0;
+261        1/1                                  r_valid_reg     &lt;= 1'b1;
+262        1/1                                  r_data_reg      &lt;= execute_read(s_axi_araddr);
+263        1/1                                  r_state         &lt;= R_READ;
+264                                         end
+                        MISSING_ELSE
+265                                     end
+266                     
+267                                     R_READ: begin
+268        1/1                              if (s_axi_rready) begin
+269        1/1                                  r_valid_reg  &lt;= 1'b0;
+270        1/1                                  ar_ready_reg &lt;= 1'b1;
+271        1/1                                  r_state      &lt;= R_IDLE;
+272                                         end
+                        MISSING_ELSE
+273                                     end
+274                     
+275        <font color = "red">0/1     ==>                  default: r_state &lt;= R_IDLE;</font>
+276                                 endcase
+277                             end
+278                         end
+279                     
+280                         logic status_done_latch;
+281                     
+282                         always_ff @(posedge s_axi_aclk or negedge s_axi_aresetn) begin
+283        1/1                  if (!s_axi_aresetn) begin
+284        1/1                      status_done_latch &lt;= 1'b0;
+285                             end else begin
+286        1/1                      if (reg_start_pulse) begin
+287        1/1                          status_done_latch &lt;= 1'b0;
+288        1/1                      end else if (core_done) begin
+289        1/1                          status_done_latch &lt;= 1'b1;
+290                                 end
+                        MISSING_ELSE
+291                             end
+292                         end
+293                     
+294                         function automatic logic [31:0] execute_read(input logic [11:0] addr);
+295        1/1                  if (addr == ADDR_REG_CTRL) begin
+296        1/1                      return 32'd0;
+297        1/1                  end else if (addr == ADDR_REG_STATUS) begin
+298                                 // [0: busy, 1: done, 4:2: status_code]
+299        1/1                      return {27'd0, core_status, status_done_latch, core_busy};
+300        1/1                  end else if (addr == ADDR_REG_NUM_VARS) begin
+301        1/1                      return {{(32-NUM_VARS_BITS){1'b0}}, reg_num_vars};
+302        1/1                  end else if (addr == ADDR_REG_TOLERANCE) begin
+303        1/1                      return reg_tolerance;
+304        1/1                  end else if (addr == ADDR_REG_ALPHA) begin
+305        1/1                      return reg_alpha;
+306        1/1                  end else if (addr == ADDR_REG_LAMBDA) begin
+307        1/1                      return reg_lambda;
+308        1/1                  end else if (addr == ADDR_REG_MAX_SWEEPS) begin
+309        1/1                      return {24'd0, reg_max_sweeps};
+310        1/1                  end else if (addr == ADDR_REG_SWEEP_COUNT) begin
+311        1/1                      return {24'd0, core_sweep_count};
+312        1/1                  end else if (addr == ADDR_REG_F_OPTIMAL) begin
+313        1/1                      return core_f_optimal;
+314        1/1                  end else if (addr == ADDR_REG_MAX_DELTA) begin
+315        1/1                      return core_max_delta_last;
+316        1/1                  end else if (addr &gt;= ADDR_STATE_VEC_BASE &amp;&amp; addr &lt; (ADDR_STATE_VEC_BASE + (MAX_VARS * 4))) begin
+317                                 // Read optimal variable: x_optimal[i]
+318        1/1                      return get_vec(core_x_optimal, (addr - ADDR_STATE_VEC_BASE) &gt;&gt; 2);
+319                             end else begin
+320        1/1                      return 32'hDEAD_BEEF;
+</pre>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod12.html" >newton_bcd_axi_lite</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Totals</td>
+<td class="rt">54</td>
+<td class="rt">44</td>
+<td class="rt">81.48 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">2862</td>
+<td class="rt">2808</td>
+<td class="rt">98.11 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">1431</td>
+<td class="rt">1404</td>
+<td class="rt">98.11 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">1431</td>
+<td class="rt">1404</td>
+<td class="rt">98.11 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Ports</td>
+<td class="rt">22</td>
+<td class="rt">18</td>
+<td class="rt">81.82 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">230</td>
+<td class="rt">214</td>
+<td class="rt">93.04 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">115</td>
+<td class="rt">107</td>
+<td class="rt">93.04 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">115</td>
+<td class="rt">107</td>
+<td class="rt">93.04 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Signals</td>
+<td class="rt">32</td>
+<td class="rt">26</td>
+<td class="rt">81.25 </td>
+</tr><tr class="s9">
+<td>Signal Bits</td>
+<td class="rt">2632</td>
+<td class="rt">2594</td>
+<td class="rt">98.56 </td>
+</tr><tr class="s9">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">1316</td>
+<td class="rt">1297</td>
+<td class="rt">98.56 </td>
+</tr><tr class="s9">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">1316</td>
+<td class="rt">1297</td>
+<td class="rt">98.56 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>s_axi_aclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_aresetn</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_awaddr[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_awaddr[11:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_awprot[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_awvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_awready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>s_axi_wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_wstrb[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_wvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_wready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>s_axi_bresp[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>s_axi_bvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>s_axi_bready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_araddr[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_araddr[11:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_arprot[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_arvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>s_axi_arready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>s_axi_rdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>s_axi_rresp[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>s_axi_rvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>s_axi_rready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>irq_done</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>reg_start_pulse</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_num_vars[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_tolerance[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_alpha[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_lambda[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_max_sweeps[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_x_init[511:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_prog_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_prog_addr[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_prog_data.imm[12:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_prog_data.src_b[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_prog_data.src_a[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_prog_data.dst[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_prog_data.op[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>core_x_optimal[511:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>core_f_optimal[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>core_max_delta_last[19:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>core_max_delta_last[23:20]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>core_max_delta_last[24]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>core_max_delta_last[31:25]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>core_sweep_count[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>core_sweep_count[7:6]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>core_status[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>core_status[2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>core_done</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>core_busy</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>aw_ready_reg</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>w_ready_reg</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>b_valid_reg</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>aw_addr_latched[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>aw_addr_latched[11:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>ar_ready_reg</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>r_valid_reg</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>r_data_reg[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>ar_addr_latched[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>ar_addr_latched[11:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>w_state[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>r_state[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>r_state[1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>status_done_latch</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="FSM"></a>
+FSM Coverage for Module : <a href="mod12.html" >newton_bcd_axi_lite</a><br clear=all>
+<table align=left class="noborder">
+<caption><b>Summary for FSM :: w_state</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th><th nowrap width=200></th></tr><tr class="wht">
+<td>States</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+<td>(Not included in score)</td>
+</tr><tr class="s10">
+<td>Transitions</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr><tr class="wht">
+<td>Sequences</td>
+<td class="rt">0</td>
+<td class="rt">0</td>
+<td></td>
+<td></td>
+</tr></table><br clear=all>
+<b>State, Transition and Sequence Details for FSM :: w_state</b><hr>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">states</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>W_DATA</td>
+<td class="rt">185</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>W_IDLE</td>
+<td class="rt">152</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>W_RESP</td>
+<td class="rt">181</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">transitions</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>W_DATA->W_IDLE</td>
+<td class="rt">152</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>W_DATA->W_RESP</td>
+<td class="rt">194</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>W_IDLE->W_DATA</td>
+<td class="rt">185</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>W_IDLE->W_RESP</td>
+<td class="rt">181</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>W_RESP->W_IDLE</td>
+<td class="rt">152</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod12.html" >newton_bcd_axi_lite</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">19</td>
+<td class="rt">17</td>
+<td class="rt">89.47 </td>
+</tr><tr class="s8">
+<td>IF</td>
+<td class="rt">151</td>
+<td class="rt">9</td>
+<td class="rt">8</td>
+<td class="rt">88.89 </td>
+</tr><tr class="s8">
+<td>IF</td>
+<td class="rt">248</td>
+<td class="rt">6</td>
+<td class="rt">5</td>
+<td class="rt">83.33 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">283</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+151                if (!s_axi_aresetn) begin
+                   <font color = "green">-1-</font>  
+152                    w_state         <= W_IDLE;
+           <font color = "green">            ==></font>
+153                    aw_ready_reg    <= 1'b0;
+154                    w_ready_reg     <= 1'b0;
+155                    b_valid_reg     <= 1'b0;
+156                    aw_addr_latched <= '0;
+157                    reg_start_pulse <= 1'b0;
+158                    reg_prog_en     <= 1'b0;
+159                    reg_prog_addr   <= '0;
+160                    reg_prog_data   <= '0;
+161                    reg_num_vars    <= 5'd16;
+162                    reg_tolerance   <= Q16_EPS_DEF;
+163                    reg_alpha       <= Q16_ONE;
+164                    reg_lambda      <= Q16_LAMBDA_DEF;
+165                    reg_max_sweeps  <= 8'd20;
+166                    reg_x_init      <= '0;
+167                end else begin
+168                    reg_start_pulse <= 1'b0;
+169                    reg_prog_en     <= 1'b0;
+170        
+171                    case (w_state)
+                       <font color = "red">-2-</font>  
+172                        W_IDLE: begin
+173                            aw_ready_reg <= 1'b1;
+174                            w_ready_reg  <= 1'b1;
+175                            if (s_axi_awvalid && aw_ready_reg) begin
+                               <font color = "green">-3-</font>  
+176                                aw_addr_latched <= s_axi_awaddr;
+177                                aw_ready_reg    <= 1'b0;
+178                                if (s_axi_wvalid && w_ready_reg) begin
+                                   <font color = "green">-4-</font>  
+179                                    w_ready_reg <= 1'b0;
+           <font color = "green">                            ==></font>
+180                                    b_valid_reg <= 1'b1;
+181                                    w_state     <= W_RESP;
+182                                    // Write execution
+183                                    execute_write(s_axi_awaddr, s_axi_wdata);
+184                                end else begin
+185                                    w_state <= W_DATA;
+           <font color = "green">                            ==></font>
+186                                end
+187                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+188                        end
+189        
+190                        W_DATA: begin
+191                            if (s_axi_wvalid) begin
+                               <font color = "green">-5-</font>  
+192                                w_ready_reg <= 1'b0;
+           <font color = "green">                        ==></font>
+193                                b_valid_reg <= 1'b1;
+194                                w_state     <= W_RESP;
+195                                execute_write(aw_addr_latched, s_axi_wdata);
+196                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+197                        end
+198        
+199                        W_RESP: begin
+200                            if (s_axi_bready) begin
+                               <font color = "green">-6-</font>  
+201                                b_valid_reg  <= 1'b0;
+           <font color = "green">                        ==></font>
+202                                aw_ready_reg <= 1'b1;
+203                                w_ready_reg  <= 1'b1;
+204                                w_state      <= W_IDLE;
+205                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+206                        end
+207        
+208                        default: w_state <= W_IDLE;
+           <font color = "red">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>W_IDLE </td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>W_IDLE </td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>W_IDLE </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>W_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>W_DATA </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>W_RESP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>W_RESP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+248                if (!s_axi_aresetn) begin
+                   <font color = "green">-1-</font>  
+249                    r_state         <= R_IDLE;
+           <font color = "green">            ==></font>
+250                    ar_ready_reg    <= 1'b0;
+251                    r_valid_reg     <= 1'b0;
+252                    r_data_reg      <= '0;
+253                    ar_addr_latched <= '0;
+254                end else begin
+255                    case (r_state)
+                       <font color = "red">-2-</font>  
+256                        R_IDLE: begin
+257                            ar_ready_reg <= 1'b1;
+258                            if (s_axi_arvalid && ar_ready_reg) begin
+                               <font color = "green">-3-</font>  
+259                                ar_addr_latched <= s_axi_araddr;
+           <font color = "green">                        ==></font>
+260                                ar_ready_reg    <= 1'b0;
+261                                r_valid_reg     <= 1'b1;
+262                                r_data_reg      <= execute_read(s_axi_araddr);
+263                                r_state         <= R_READ;
+264                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+265                        end
+266        
+267                        R_READ: begin
+268                            if (s_axi_rready) begin
+                               <font color = "green">-4-</font>  
+269                                r_valid_reg  <= 1'b0;
+           <font color = "green">                        ==></font>
+270                                ar_ready_reg <= 1'b1;
+271                                r_state      <= R_IDLE;
+272                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+273                        end
+274        
+275                        default: r_state <= R_IDLE;
+           <font color = "red">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>R_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>R_IDLE </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>R_READ </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>R_READ </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+283                if (!s_axi_aresetn) begin
+                   <font color = "green">-1-</font>  
+284                    status_done_latch <= 1'b0;
+           <font color = "green">            ==></font>
+285                end else begin
+286                    if (reg_start_pulse) begin
+                       <font color = "green">-2-</font>  
+287                        status_done_latch <= 1'b0;
+           <font color = "green">                ==></font>
+288                    end else if (core_done) begin
+                                <font color = "green">-3-</font>  
+289                        status_done_latch <= 1'b1;
+           <font color = "green">                ==></font>
+290                    end
+                       MISSING_ELSE
+           <font color = "green">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_12">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#FSM">FSM</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+  <ul name="tag_newton_bcd_axi_lite">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#FSM">FSM</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

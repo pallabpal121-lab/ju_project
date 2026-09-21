@@ -1,0 +1,2348 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: newton_2var_core</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_newton_2var_core'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_newton_2var_core')">newton_2var_core</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 98.46</td>
+<td class="s9 cl rt"><a href="mod8.html#Line" > 99.28</a></td>
+<td class="s9 cl rt"><a href="mod8.html#Toggle" > 97.06</a></td>
+<td class="s10 cl rt"><a href="mod8.html#FSM" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod8.html#Branch" > 97.50</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_multivar_32bit/../../rtl/newton_multivar_32bit/newton_2var_core.sv')">/home/user17/Desktop/ju_project/Playstation/verification/newton_multivar_32bit/../../rtl/newton_multivar_32bit/newton_2var_core.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod8.html#inst_tag_8"  onclick="showContent('inst_tag_8')">newton_axi_tb_top.u_dut.u_bcd_core.u_core</a></td>
+<td class="s9 cl rt"> 98.46</td>
+<td class="s9 cl rt"><a href="mod8.html#Line" > 99.28</a></td>
+<td class="s9 cl rt"><a href="mod8.html#Toggle" > 97.06</a></td>
+<td class="s10 cl rt"><a href="mod8.html#FSM" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod8.html#Branch" > 97.50</a></td>
+<td class="wht cl rt"></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='tag_newton_2var_core'>
+<hr>
+<a name="inst_tag_8"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_8" >newton_axi_tb_top.u_dut.u_bcd_core.u_core</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 98.46</td>
+<td class="s9 cl rt"><a href="mod8.html#Line" > 99.28</a></td>
+<td class="s9 cl rt"><a href="mod8.html#Toggle" > 97.06</a></td>
+<td class="s10 cl rt"><a href="mod8.html#FSM" >100.00</a></td>
+<td class="s9 cl rt"><a href="mod8.html#Branch" > 97.50</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 97.01</td>
+<td class="s9 cl rt"> 96.74</td>
+<td class="s9 cl rt"> 98.54</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 92.77</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 97.89</td>
+<td class="s9 cl rt"> 98.89</td>
+<td class="s9 cl rt"> 95.72</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 96.97</td>
+<td class="wht cl rt"></td>
+<td><a href="mod5.html#inst_tag_5" >u_bcd_core</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod14.html#inst_tag_14" id="tag_urg_inst_14">u_dfg</a></td>
+<td class="s9 cl rt"> 97.86</td>
+<td class="s9 cl rt"> 97.94</td>
+<td class="s9 cl rt"> 99.73</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 93.75</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod17.html#inst_tag_18" id="tag_urg_inst_18">u_div</a></td>
+<td class="s8 cl rt"> 88.79</td>
+<td class="s8 cl rt"> 85.00</td>
+<td class="s9 cl rt"> 97.42</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s7 cl rt"> 72.73</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_newton_2var_core'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod8.html" >newton_2var_core</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">TOTAL</td><td></td><td>139</td><td>138</td><td>99.28</td></tr>
+<tr class="s10"><td class="lf">ROUTINE</td><td>103</td><td>2</td><td>2</td><td>100.00</td></tr>
+<tr class="s9"><td class="lf">ALWAYS</td><td>138</td><td>137</td><td>136</td><td>99.27</td></tr>
+</table>
+<pre class="code"><br clear=all>
+102                             logic signed [63:0] prod;
+103        1/1                  prod = 64'(a) * 64'(b);
+104        1/1                  return prod[47:16];
+105                         endfunction
+106                     
+107                         // Submodule: Multivariable DFG Engine
+108                         dfg_multivar_engine u_dfg (
+109                             .clk        (clk),
+110                             .rst_n      (rst_n),
+111                             .prog_en    (prog_en),
+112                             .prog_addr  (prog_addr),
+113                             .prog_data  (prog_data),
+114                             .start_eval (dfg_start),
+115                             .num_vars   (num_vars),
+116                             .x_vec      (dfg_x_in),
+117                             .f_out      (dfg_f_out),
+118                             .eval_done  (dfg_done),
+119                             .busy       (dfg_busy)
+120                         );
+121                     
+122                         // Submodule: Divider for 2x2 Cramer's Rule
+123                         q16_divider u_div (
+124                             .clk        (clk),
+125                             .rst_n      (rst_n),
+126                             .start      (div_start),
+127                             .dividend   (div_dividend),
+128                             .divisor    (div_divisor),
+129                             .quotient   (div_quotient),
+130                             .done       (div_done),
+131                             .div_by_zero(div_by_zero),
+132                             .busy       (div_busy)
+133                         );
+134                     
+135                         vec_t tmp_vec;
+136                     
+137                         always_ff @(posedge clk or negedge rst_n) begin
+138        1/1                  if (!rst_n) begin
+139        1/1                      state        &lt;= C2_IDLE;
+140        1/1                      dfg_start    &lt;= 1'b0;
+141        1/1                      div_start    &lt;= 1'b0;
+142        1/1                      dfg_x_in     &lt;= '0;
+143        1/1                      f_val        &lt;= Q16_ZERO;
+144        1/1                      f_0          &lt;= Q16_ZERO;
+145        1/1                      f_pi         &lt;= Q16_ZERO;
+146        1/1                      f_mi         &lt;= Q16_ZERO;
+147        1/1                      f_pj         &lt;= Q16_ZERO;
+148        1/1                      f_mj         &lt;= Q16_ZERO;
+149        1/1                      f_pp         &lt;= Q16_ZERO;
+150        1/1                      f_pm         &lt;= Q16_ZERO;
+151        1/1                      f_mp         &lt;= Q16_ZERO;
+152        1/1                      f_mm         &lt;= Q16_ZERO;
+153        1/1                      g_i          &lt;= Q16_ZERO;
+154        1/1                      g_j          &lt;= Q16_ZERO;
+155        1/1                      A_00         &lt;= Q16_ZERO;
+156        1/1                      A_11         &lt;= Q16_ZERO;
+157        1/1                      A_01         &lt;= Q16_ZERO;
+158        1/1                      det          &lt;= Q16_ZERO;
+159        1/1                      num_i        &lt;= Q16_ZERO;
+160        1/1                      num_j        &lt;= Q16_ZERO;
+161        1/1                      p_i_reg      &lt;= Q16_ZERO;
+162        1/1                      p_j_reg      &lt;= Q16_ZERO;
+163        1/1                      delta_i      &lt;= Q16_ZERO;
+164        1/1                      delta_j      &lt;= Q16_ZERO;
+165        1/1                      div_dividend &lt;= Q16_ZERO;
+166        1/1                      div_divisor  &lt;= Q16_ZERO;
+167        1/1                      done         &lt;= 1'b0;
+168        1/1                      busy         &lt;= 1'b0;
+169                             end else begin
+170        1/1                      dfg_start &lt;= 1'b0;
+171        1/1                      div_start &lt;= 1'b0;
+172                     
+173        1/1                      case (state)
+174                                     C2_IDLE: begin
+175        1/1                              done &lt;= 1'b0;
+176        1/1                              if (start) begin
+177        1/1                                  busy  &lt;= 1'b1;
+178        1/1                                  state &lt;= C2_START_F0;
+179                                         end else begin
+180        1/1                                  busy &lt;= 1'b0;
+181                                         end
+182                                     end
+183                     
+184                                     // 1. Center Sample: f(X)
+185                                     C2_START_F0: begin
+186        1/1                              dfg_x_in  &lt;= x_full;
+187        1/1                              dfg_start &lt;= 1'b1;
+188        1/1                              state     &lt;= C2_WAIT_F0;
+189                                     end
+190                     
+191                                     C2_WAIT_F0: begin
+192        1/1                              if (dfg_done) begin
+193        1/1                                  f_0   &lt;= dfg_f_out;
+194        1/1                                  f_val &lt;= dfg_f_out;
+195        1/1                                  state &lt;= C2_START_PI;
+196                                         end
+                        MISSING_ELSE
+197                                     end
+198                     
+199                                     // 2. Sample x_i + h
+200                                     C2_START_PI: begin
+201        1/1                              dfg_x_in  &lt;= set_vec(x_full, idx_i, get_vec(x_full, idx_i) + Q16_H_STEP);
+202        1/1                              dfg_start &lt;= 1'b1;
+203        1/1                              state     &lt;= C2_WAIT_PI;
+204                                     end
+205                     
+206                                     C2_WAIT_PI: begin
+207        1/1                              if (dfg_done) begin
+208        1/1                                  f_pi  &lt;= dfg_f_out;
+209        1/1                                  state &lt;= C2_START_MI;
+210                                         end
+                        MISSING_ELSE
+211                                     end
+212                     
+213                                     // 3. Sample x_i - h
+214                                     C2_START_MI: begin
+215        1/1                              dfg_x_in  &lt;= set_vec(x_full, idx_i, get_vec(x_full, idx_i) - Q16_H_STEP);
+216        1/1                              dfg_start &lt;= 1'b1;
+217        1/1                              state     &lt;= C2_WAIT_MI;
+218                                     end
+219                     
+220                                     C2_WAIT_MI: begin
+221        1/1                              if (dfg_done) begin
+222        1/1                                  f_mi  &lt;= dfg_f_out;
+223        1/1                                  state &lt;= C2_START_PJ;
+224                                         end
+                        MISSING_ELSE
+225                                     end
+226                     
+227                                     // 4. Sample x_j + h
+228                                     C2_START_PJ: begin
+229        1/1                              dfg_x_in  &lt;= set_vec(x_full, idx_j, get_vec(x_full, idx_j) + Q16_H_STEP);
+230        1/1                              dfg_start &lt;= 1'b1;
+231        1/1                              state     &lt;= C2_WAIT_PJ;
+232                                     end
+233                     
+234                                     C2_WAIT_PJ: begin
+235        1/1                              if (dfg_done) begin
+236        1/1                                  f_pj  &lt;= dfg_f_out;
+237        1/1                                  state &lt;= C2_START_MJ;
+238                                         end
+                        MISSING_ELSE
+239                                     end
+240                     
+241                                     // 5. Sample x_j - h
+242                                     C2_START_MJ: begin
+243        1/1                              dfg_x_in  &lt;= set_vec(x_full, idx_j, get_vec(x_full, idx_j) - Q16_H_STEP);
+244        1/1                              dfg_start &lt;= 1'b1;
+245        1/1                              state     &lt;= C2_WAIT_MJ;
+246                                     end
+247                     
+248                                     C2_WAIT_MJ: begin
+249        1/1                              if (dfg_done) begin
+250        1/1                                  f_mj  &lt;= dfg_f_out;
+251        1/1                                  state &lt;= C2_START_PP;
+252                                         end
+                        MISSING_ELSE
+253                                     end
+254                     
+255                                     // 6. Sample x_i + h, x_j + h
+256                                     C2_START_PP: begin
+257        1/1                              tmp_vec   = set_vec(x_full, idx_i, get_vec(x_full, idx_i) + Q16_H_STEP);
+258        1/1                              tmp_vec   = set_vec(tmp_vec, idx_j, get_vec(x_full, idx_j) + Q16_H_STEP);
+259        1/1                              dfg_x_in  &lt;= tmp_vec;
+260        1/1                              dfg_start &lt;= 1'b1;
+261        1/1                              state     &lt;= C2_WAIT_PP;
+262                                     end
+263                     
+264                                     C2_WAIT_PP: begin
+265        1/1                              if (dfg_done) begin
+266        1/1                                  f_pp  &lt;= dfg_f_out;
+267        1/1                                  state &lt;= C2_START_PM;
+268                                         end
+                        MISSING_ELSE
+269                                     end
+270                     
+271                                     // 7. Sample x_i + h, x_j - h
+272                                     C2_START_PM: begin
+273        1/1                              tmp_vec   = set_vec(x_full, idx_i, get_vec(x_full, idx_i) + Q16_H_STEP);
+274        1/1                              tmp_vec   = set_vec(tmp_vec, idx_j, get_vec(x_full, idx_j) - Q16_H_STEP);
+275        1/1                              dfg_x_in  &lt;= tmp_vec;
+276        1/1                              dfg_start &lt;= 1'b1;
+277        1/1                              state     &lt;= C2_WAIT_PM;
+278                                     end
+279                     
+280                                     C2_WAIT_PM: begin
+281        1/1                              if (dfg_done) begin
+282        1/1                                  f_pm  &lt;= dfg_f_out;
+283        1/1                                  state &lt;= C2_START_MP;
+284                                         end
+                        MISSING_ELSE
+285                                     end
+286                     
+287                                     // 8. Sample x_i - h, x_j + h
+288                                     C2_START_MP: begin
+289        1/1                              tmp_vec   = set_vec(x_full, idx_i, get_vec(x_full, idx_i) - Q16_H_STEP);
+290        1/1                              tmp_vec   = set_vec(tmp_vec, idx_j, get_vec(x_full, idx_j) + Q16_H_STEP);
+291        1/1                              dfg_x_in  &lt;= tmp_vec;
+292        1/1                              dfg_start &lt;= 1'b1;
+293        1/1                              state     &lt;= C2_WAIT_MP;
+294                                     end
+295                     
+296                                     C2_WAIT_MP: begin
+297        1/1                              if (dfg_done) begin
+298        1/1                                  f_mp  &lt;= dfg_f_out;
+299        1/1                                  state &lt;= C2_START_MM;
+300                                         end
+                        MISSING_ELSE
+301                                     end
+302                     
+303                                     // 9. Sample x_i - h, x_j - h
+304                                     C2_START_MM: begin
+305        1/1                              tmp_vec   = set_vec(x_full, idx_i, get_vec(x_full, idx_i) - Q16_H_STEP);
+306        1/1                              tmp_vec   = set_vec(tmp_vec, idx_j, get_vec(x_full, idx_j) - Q16_H_STEP);
+307        1/1                              dfg_x_in  &lt;= tmp_vec;
+308        1/1                              dfg_start &lt;= 1'b1;
+309        1/1                              state     &lt;= C2_WAIT_MM;
+310                                     end
+311                     
+312                                     C2_WAIT_MM: begin
+313        1/1                              if (dfg_done) begin
+314        1/1                                  f_mm  &lt;= dfg_f_out;
+315        1/1                                  state &lt;= C2_CALC_2X2;
+316                                         end
+                        MISSING_ELSE
+317                                     end
+318                     
+319                                     // -------------------------------------------------------------
+320                                     // Compute 2x2 Gradient and Hessian
+321                                     // -------------------------------------------------------------
+322                                     C2_CALC_2X2: begin
+323                                         // Gradient components
+324        1/1                              g_i &lt;= (f_pi - f_mi) &lt;&lt;&lt; 3;
+325        1/1                              g_j &lt;= (f_pj - f_mj) &lt;&lt;&lt; 3;
+326                     
+327                                         // Hessian components + damping
+328        1/1                              A_00 &lt;= ((f_pi - (f_0 &lt;&lt;&lt; 1) + f_mi) &lt;&lt;&lt; 8) + lambda_reg;
+329        1/1                              A_11 &lt;= ((f_pj - (f_0 &lt;&lt;&lt; 1) + f_mj) &lt;&lt;&lt; 8) + lambda_reg;
+330        1/1                              A_01 &lt;= (f_pp - f_pm - f_mp + f_mm) &lt;&lt;&lt; 6;
+331                     
+332                                         // Determinant: det = A_00 * A_11 - A_01^2
+333        1/1                              det  &lt;= q16_mul(((f_pi - (f_0 &lt;&lt;&lt; 1) + f_mi) &lt;&lt;&lt; 8) + lambda_reg,
+334                                                         ((f_pj - (f_0 &lt;&lt;&lt; 1) + f_mj) &lt;&lt;&lt; 8) + lambda_reg) -
+335                                                 q16_mul((f_pp - f_pm - f_mp + f_mm) &lt;&lt;&lt; 6,
+336                                                         (f_pp - f_pm - f_mp + f_mm) &lt;&lt;&lt; 6);
+337                     
+338                                         // Numerators for Cramer's rule:
+339                                         // p_i = (-g_i * A_11 + g_j * A_01) / det
+340                                         // p_j = (-g_j * A_00 + g_i * A_01) / det
+341        1/1                              num_i &lt;= -q16_mul((f_pi - f_mi) &lt;&lt;&lt; 3, ((f_pj - (f_0 &lt;&lt;&lt; 1) + f_mj) &lt;&lt;&lt; 8) + lambda_reg) +
+342                                                   q16_mul((f_pj - f_mj) &lt;&lt;&lt; 3, (f_pp - f_pm - f_mp + f_mm) &lt;&lt;&lt; 6);
+343                     
+344        1/1                              num_j &lt;= -q16_mul((f_pj - f_mj) &lt;&lt;&lt; 3, ((f_pi - (f_0 &lt;&lt;&lt; 1) + f_mi) &lt;&lt;&lt; 8) + lambda_reg) +
+345                                                   q16_mul((f_pi - f_mi) &lt;&lt;&lt; 3, (f_pp - f_pm - f_mp + f_mm) &lt;&lt;&lt; 6);
+346                     
+347        1/1                              state &lt;= C2_DIV_I;
+348                                     end
+349                     
+350                                     // Divide p_i = num_i / det
+351                                     C2_DIV_I: begin
+352        1/1                              if (det &lt;= 32'sd16) begin
+353                                             // Ill-conditioned fallback: gradient descent step
+354        1/1                                  p_i_reg &lt;= -g_i;
+355        1/1                                  p_j_reg &lt;= -g_j;
+356        1/1                                  delta_i &lt;= -q16_mul(step_alpha, g_i);
+357        1/1                                  delta_j &lt;= -q16_mul(step_alpha, g_j);
+358        1/1                                  state   &lt;= C2_DONE;
+359                                         end else begin
+360        1/1                                  div_dividend &lt;= num_i;
+361        1/1                                  div_divisor  &lt;= det;
+362        1/1                                  div_start    &lt;= 1'b1;
+363        1/1                                  state        &lt;= C2_WAIT_DIVI;
+364                                         end
+365                                     end
+366                     
+367                                     C2_WAIT_DIVI: begin
+368        1/1                              if (div_done) begin
+369        1/1                                  p_i_reg   &lt;= div_quotient;
+370        1/1                                  delta_i   &lt;= q16_mul(step_alpha, div_quotient);
+371        1/1                                  state     &lt;= C2_DIV_J;
+372                                         end
+                        MISSING_ELSE
+373                                     end
+374                     
+375                                     // Divide p_j = num_j / det
+376                                     C2_DIV_J: begin
+377        1/1                              div_dividend &lt;= num_j;
+378        1/1                              div_divisor  &lt;= det;
+379        1/1                              div_start    &lt;= 1'b1;
+380        1/1                              state        &lt;= C2_WAIT_DIVJ;
+381                                     end
+382                     
+383                                     C2_WAIT_DIVJ: begin
+384        1/1                              if (div_done) begin
+385        1/1                                  p_j_reg   &lt;= div_quotient;
+386        1/1                                  delta_j   &lt;= q16_mul(step_alpha, div_quotient);
+387        1/1                                  state     &lt;= C2_DONE;
+388                                         end
+                        MISSING_ELSE
+389                                     end
+390                     
+391                                     C2_DONE: begin
+392        1/1                              done  &lt;= 1'b1;
+393        1/1                              busy  &lt;= 1'b0;
+394        1/1                              state &lt;= C2_IDLE;
+395                                     end
+396                     
+397        <font color = "red">0/1     ==>                  default: state &lt;= C2_IDLE;</font>
+</pre>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod8.html" >newton_2var_core</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s7">
+<td>Totals</td>
+<td class="rt">54</td>
+<td class="rt">42</td>
+<td class="rt">77.78 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">5006</td>
+<td class="rt">4859</td>
+<td class="rt">97.06 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">2503</td>
+<td class="rt">2433</td>
+<td class="rt">97.20 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">2503</td>
+<td class="rt">2426</td>
+<td class="rt">96.92 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Ports</td>
+<td class="rt">21</td>
+<td class="rt">17</td>
+<td class="rt">80.95 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">1462</td>
+<td class="rt">1383</td>
+<td class="rt">94.60 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">731</td>
+<td class="rt">692</td>
+<td class="rt">94.66 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">731</td>
+<td class="rt">691</td>
+<td class="rt">94.53 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s7">
+<td>Signals</td>
+<td class="rt">33</td>
+<td class="rt">25</td>
+<td class="rt">75.76 </td>
+</tr><tr class="s9">
+<td>Signal Bits</td>
+<td class="rt">3544</td>
+<td class="rt">3476</td>
+<td class="rt">98.08 </td>
+</tr><tr class="s9">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">1772</td>
+<td class="rt">1741</td>
+<td class="rt">98.25 </td>
+</tr><tr class="s9">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">1772</td>
+<td class="rt">1735</td>
+<td class="rt">97.91 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_n</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_addr[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.imm[12:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.src_b[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.src_a[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.dst[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>prog_data.op[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>start</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>num_vars[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>x_full[511:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>idx_i[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>idx_i[4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>idx_j[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>idx_j[4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lambda_reg[22:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lambda_reg[23]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lambda_reg[31:24]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>step_alpha[13:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>step_alpha[16:14]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>step_alpha[31:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>delta_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>delta_j[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>f_val[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>done</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>busy</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>state[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>dfg_start</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>dfg_x_in[511:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>dfg_f_out[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>dfg_done</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>dfg_busy</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>f_0[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>f_pi[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>f_mi[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>f_pj[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>f_mj[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>f_pp[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>f_pm[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>f_mp[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>f_mm[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>g_i[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>g_i[31:3]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>g_j[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>g_j[31:3]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>A_00[22:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>A_00[23]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>A_00[31:24]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>A_11[22:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>A_11[23]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>A_11[31:24]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>A_01[5:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>A_01[31:6]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>det[28:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>det[30:29]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>det[31]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>num_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>num_j[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>p_i_reg[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>p_j_reg[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>div_start</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>div_dividend[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>div_divisor[28:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>div_divisor[30:29]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>div_divisor[31]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>div_quotient[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>div_done</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>div_by_zero</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>div_busy</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>tmp_vec[511:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="FSM"></a>
+FSM Coverage for Module : <a href="mod8.html" >newton_2var_core</a><br clear=all>
+<table align=left class="noborder">
+<caption><b>Summary for FSM :: state</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th><th nowrap width=200></th></tr><tr class="wht">
+<td>States</td>
+<td class="rt">25</td>
+<td class="rt">25</td>
+<td class="rt">100.00</td>
+<td>(Not included in score)</td>
+</tr><tr class="s10">
+<td>Transitions</td>
+<td class="rt">49</td>
+<td class="rt">49</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr><tr class="wht">
+<td>Sequences</td>
+<td class="rt">0</td>
+<td class="rt">0</td>
+<td></td>
+<td></td>
+</tr></table><br clear=all>
+<b>State, Transition and Sequence Details for FSM :: state</b><hr>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">states</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>C2_CALC_2X2</td>
+<td class="rt">315</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_DIV_I</td>
+<td class="rt">347</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_DIV_J</td>
+<td class="rt">371</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_DONE</td>
+<td class="rt">358</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_F0</td>
+<td class="rt">178</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_MI</td>
+<td class="rt">209</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_MJ</td>
+<td class="rt">237</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_MM</td>
+<td class="rt">299</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_MP</td>
+<td class="rt">283</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_PI</td>
+<td class="rt">195</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_PJ</td>
+<td class="rt">223</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_PM</td>
+<td class="rt">267</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_PP</td>
+<td class="rt">251</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_DIVI</td>
+<td class="rt">363</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_DIVJ</td>
+<td class="rt">380</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_F0</td>
+<td class="rt">188</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_MI</td>
+<td class="rt">217</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_MJ</td>
+<td class="rt">245</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_MM</td>
+<td class="rt">309</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_MP</td>
+<td class="rt">293</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_PI</td>
+<td class="rt">203</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_PJ</td>
+<td class="rt">231</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_PM</td>
+<td class="rt">277</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_PP</td>
+<td class="rt">261</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">transitions</td><td>Line No.</td><td class="alfsrt">Covered</td></tr><tr class="uGreen">
+<td nowrap>C2_CALC_2X2->C2_DIV_I</td>
+<td class="rt">347</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_CALC_2X2->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_DIV_I->C2_DONE</td>
+<td class="rt">358</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_DIV_I->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_DIV_I->C2_WAIT_DIVI</td>
+<td class="rt">363</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_DIV_J->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_DIV_J->C2_WAIT_DIVJ</td>
+<td class="rt">380</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_DONE->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_IDLE->C2_START_F0</td>
+<td class="rt">178</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_F0->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_F0->C2_WAIT_F0</td>
+<td class="rt">188</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_MI->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_MI->C2_WAIT_MI</td>
+<td class="rt">217</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_MJ->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_MJ->C2_WAIT_MJ</td>
+<td class="rt">245</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_MM->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_MM->C2_WAIT_MM</td>
+<td class="rt">309</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_MP->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_MP->C2_WAIT_MP</td>
+<td class="rt">293</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_PI->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_PI->C2_WAIT_PI</td>
+<td class="rt">203</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_PJ->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_PJ->C2_WAIT_PJ</td>
+<td class="rt">231</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_PM->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_PM->C2_WAIT_PM</td>
+<td class="rt">277</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_PP->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_START_PP->C2_WAIT_PP</td>
+<td class="rt">261</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_DIVI->C2_DIV_J</td>
+<td class="rt">371</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_DIVI->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_DIVJ->C2_DONE</td>
+<td class="rt">387</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_DIVJ->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_F0->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_F0->C2_START_PI</td>
+<td class="rt">195</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_MI->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_MI->C2_START_PJ</td>
+<td class="rt">223</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_MJ->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_MJ->C2_START_PP</td>
+<td class="rt">251</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_MM->C2_CALC_2X2</td>
+<td class="rt">315</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_MM->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_MP->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_MP->C2_START_MM</td>
+<td class="rt">299</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_PI->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_PI->C2_START_MI</td>
+<td class="rt">209</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_PJ->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_PJ->C2_START_MJ</td>
+<td class="rt">237</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_PM->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_PM->C2_START_MP</td>
+<td class="rt">283</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_PP->C2_IDLE</td>
+<td class="rt">139</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td nowrap>C2_WAIT_PP->C2_START_PM</td>
+<td class="rt">267</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod8.html" >newton_2var_core</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Branches</td>
+<td></td>
+<td class="rt">40</td>
+<td class="rt">39</td>
+<td class="rt">97.50 </td>
+</tr><tr class="s9">
+<td>IF</td>
+<td class="rt">138</td>
+<td class="rt">40</td>
+<td class="rt">39</td>
+<td class="rt">97.50 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+138                if (!rst_n) begin
+                   <font color = "green">-1-</font>  
+139                    state        <= C2_IDLE;
+           <font color = "green">            ==></font>
+140                    dfg_start    <= 1'b0;
+141                    div_start    <= 1'b0;
+142                    dfg_x_in     <= '0;
+143                    f_val        <= Q16_ZERO;
+144                    f_0          <= Q16_ZERO;
+145                    f_pi         <= Q16_ZERO;
+146                    f_mi         <= Q16_ZERO;
+147                    f_pj         <= Q16_ZERO;
+148                    f_mj         <= Q16_ZERO;
+149                    f_pp         <= Q16_ZERO;
+150                    f_pm         <= Q16_ZERO;
+151                    f_mp         <= Q16_ZERO;
+152                    f_mm         <= Q16_ZERO;
+153                    g_i          <= Q16_ZERO;
+154                    g_j          <= Q16_ZERO;
+155                    A_00         <= Q16_ZERO;
+156                    A_11         <= Q16_ZERO;
+157                    A_01         <= Q16_ZERO;
+158                    det          <= Q16_ZERO;
+159                    num_i        <= Q16_ZERO;
+160                    num_j        <= Q16_ZERO;
+161                    p_i_reg      <= Q16_ZERO;
+162                    p_j_reg      <= Q16_ZERO;
+163                    delta_i      <= Q16_ZERO;
+164                    delta_j      <= Q16_ZERO;
+165                    div_dividend <= Q16_ZERO;
+166                    div_divisor  <= Q16_ZERO;
+167                    done         <= 1'b0;
+168                    busy         <= 1'b0;
+169                end else begin
+170                    dfg_start <= 1'b0;
+171                    div_start <= 1'b0;
+172        
+173                    case (state)
+                       <font color = "red">-2-</font>  
+174                        C2_IDLE: begin
+175                            done <= 1'b0;
+176                            if (start) begin
+                               <font color = "green">-3-</font>  
+177                                busy  <= 1'b1;
+           <font color = "green">                        ==></font>
+178                                state <= C2_START_F0;
+179                            end else begin
+180                                busy <= 1'b0;
+           <font color = "green">                        ==></font>
+181                            end
+182                        end
+183        
+184                        // 1. Center Sample: f(X)
+185                        C2_START_F0: begin
+186                            dfg_x_in  <= x_full;
+           <font color = "green">                    ==></font>
+187                            dfg_start <= 1'b1;
+188                            state     <= C2_WAIT_F0;
+189                        end
+190        
+191                        C2_WAIT_F0: begin
+192                            if (dfg_done) begin
+                               <font color = "green">-4-</font>  
+193                                f_0   <= dfg_f_out;
+           <font color = "green">                        ==></font>
+194                                f_val <= dfg_f_out;
+195                                state <= C2_START_PI;
+196                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+197                        end
+198        
+199                        // 2. Sample x_i + h
+200                        C2_START_PI: begin
+201                            dfg_x_in  <= set_vec(x_full, idx_i, get_vec(x_full, idx_i) + Q16_H_STEP);
+           <font color = "green">                    ==></font>
+202                            dfg_start <= 1'b1;
+203                            state     <= C2_WAIT_PI;
+204                        end
+205        
+206                        C2_WAIT_PI: begin
+207                            if (dfg_done) begin
+                               <font color = "green">-5-</font>  
+208                                f_pi  <= dfg_f_out;
+           <font color = "green">                        ==></font>
+209                                state <= C2_START_MI;
+210                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+211                        end
+212        
+213                        // 3. Sample x_i - h
+214                        C2_START_MI: begin
+215                            dfg_x_in  <= set_vec(x_full, idx_i, get_vec(x_full, idx_i) - Q16_H_STEP);
+           <font color = "green">                    ==></font>
+216                            dfg_start <= 1'b1;
+217                            state     <= C2_WAIT_MI;
+218                        end
+219        
+220                        C2_WAIT_MI: begin
+221                            if (dfg_done) begin
+                               <font color = "green">-6-</font>  
+222                                f_mi  <= dfg_f_out;
+           <font color = "green">                        ==></font>
+223                                state <= C2_START_PJ;
+224                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+225                        end
+226        
+227                        // 4. Sample x_j + h
+228                        C2_START_PJ: begin
+229                            dfg_x_in  <= set_vec(x_full, idx_j, get_vec(x_full, idx_j) + Q16_H_STEP);
+           <font color = "green">                    ==></font>
+230                            dfg_start <= 1'b1;
+231                            state     <= C2_WAIT_PJ;
+232                        end
+233        
+234                        C2_WAIT_PJ: begin
+235                            if (dfg_done) begin
+                               <font color = "green">-7-</font>  
+236                                f_pj  <= dfg_f_out;
+           <font color = "green">                        ==></font>
+237                                state <= C2_START_MJ;
+238                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+239                        end
+240        
+241                        // 5. Sample x_j - h
+242                        C2_START_MJ: begin
+243                            dfg_x_in  <= set_vec(x_full, idx_j, get_vec(x_full, idx_j) - Q16_H_STEP);
+           <font color = "green">                    ==></font>
+244                            dfg_start <= 1'b1;
+245                            state     <= C2_WAIT_MJ;
+246                        end
+247        
+248                        C2_WAIT_MJ: begin
+249                            if (dfg_done) begin
+                               <font color = "green">-8-</font>  
+250                                f_mj  <= dfg_f_out;
+           <font color = "green">                        ==></font>
+251                                state <= C2_START_PP;
+252                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+253                        end
+254        
+255                        // 6. Sample x_i + h, x_j + h
+256                        C2_START_PP: begin
+257                            tmp_vec   = set_vec(x_full, idx_i, get_vec(x_full, idx_i) + Q16_H_STEP);
+           <font color = "green">                    ==></font>
+258                            tmp_vec   = set_vec(tmp_vec, idx_j, get_vec(x_full, idx_j) + Q16_H_STEP);
+259                            dfg_x_in  <= tmp_vec;
+260                            dfg_start <= 1'b1;
+261                            state     <= C2_WAIT_PP;
+262                        end
+263        
+264                        C2_WAIT_PP: begin
+265                            if (dfg_done) begin
+                               <font color = "green">-9-</font>  
+266                                f_pp  <= dfg_f_out;
+           <font color = "green">                        ==></font>
+267                                state <= C2_START_PM;
+268                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+269                        end
+270        
+271                        // 7. Sample x_i + h, x_j - h
+272                        C2_START_PM: begin
+273                            tmp_vec   = set_vec(x_full, idx_i, get_vec(x_full, idx_i) + Q16_H_STEP);
+           <font color = "green">                    ==></font>
+274                            tmp_vec   = set_vec(tmp_vec, idx_j, get_vec(x_full, idx_j) - Q16_H_STEP);
+275                            dfg_x_in  <= tmp_vec;
+276                            dfg_start <= 1'b1;
+277                            state     <= C2_WAIT_PM;
+278                        end
+279        
+280                        C2_WAIT_PM: begin
+281                            if (dfg_done) begin
+                               <font color = "green">-10-</font>  
+282                                f_pm  <= dfg_f_out;
+           <font color = "green">                        ==></font>
+283                                state <= C2_START_MP;
+284                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+285                        end
+286        
+287                        // 8. Sample x_i - h, x_j + h
+288                        C2_START_MP: begin
+289                            tmp_vec   = set_vec(x_full, idx_i, get_vec(x_full, idx_i) - Q16_H_STEP);
+           <font color = "green">                    ==></font>
+290                            tmp_vec   = set_vec(tmp_vec, idx_j, get_vec(x_full, idx_j) + Q16_H_STEP);
+291                            dfg_x_in  <= tmp_vec;
+292                            dfg_start <= 1'b1;
+293                            state     <= C2_WAIT_MP;
+294                        end
+295        
+296                        C2_WAIT_MP: begin
+297                            if (dfg_done) begin
+                               <font color = "green">-11-</font>  
+298                                f_mp  <= dfg_f_out;
+           <font color = "green">                        ==></font>
+299                                state <= C2_START_MM;
+300                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+301                        end
+302        
+303                        // 9. Sample x_i - h, x_j - h
+304                        C2_START_MM: begin
+305                            tmp_vec   = set_vec(x_full, idx_i, get_vec(x_full, idx_i) - Q16_H_STEP);
+           <font color = "green">                    ==></font>
+306                            tmp_vec   = set_vec(tmp_vec, idx_j, get_vec(x_full, idx_j) - Q16_H_STEP);
+307                            dfg_x_in  <= tmp_vec;
+308                            dfg_start <= 1'b1;
+309                            state     <= C2_WAIT_MM;
+310                        end
+311        
+312                        C2_WAIT_MM: begin
+313                            if (dfg_done) begin
+                               <font color = "green">-12-</font>  
+314                                f_mm  <= dfg_f_out;
+           <font color = "green">                        ==></font>
+315                                state <= C2_CALC_2X2;
+316                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+317                        end
+318        
+319                        // -------------------------------------------------------------
+320                        // Compute 2x2 Gradient and Hessian
+321                        // -------------------------------------------------------------
+322                        C2_CALC_2X2: begin
+323                            // Gradient components
+324                            g_i <= (f_pi - f_mi) <<< 3;
+           <font color = "green">                    ==></font>
+325                            g_j <= (f_pj - f_mj) <<< 3;
+326        
+327                            // Hessian components + damping
+328                            A_00 <= ((f_pi - (f_0 <<< 1) + f_mi) <<< 8) + lambda_reg;
+329                            A_11 <= ((f_pj - (f_0 <<< 1) + f_mj) <<< 8) + lambda_reg;
+330                            A_01 <= (f_pp - f_pm - f_mp + f_mm) <<< 6;
+331        
+332                            // Determinant: det = A_00 * A_11 - A_01^2
+333                            det  <= q16_mul(((f_pi - (f_0 <<< 1) + f_mi) <<< 8) + lambda_reg,
+334                                            ((f_pj - (f_0 <<< 1) + f_mj) <<< 8) + lambda_reg) -
+335                                    q16_mul((f_pp - f_pm - f_mp + f_mm) <<< 6,
+336                                            (f_pp - f_pm - f_mp + f_mm) <<< 6);
+337        
+338                            // Numerators for Cramer's rule:
+339                            // p_i = (-g_i * A_11 + g_j * A_01) / det
+340                            // p_j = (-g_j * A_00 + g_i * A_01) / det
+341                            num_i <= -q16_mul((f_pi - f_mi) <<< 3, ((f_pj - (f_0 <<< 1) + f_mj) <<< 8) + lambda_reg) +
+342                                      q16_mul((f_pj - f_mj) <<< 3, (f_pp - f_pm - f_mp + f_mm) <<< 6);
+343        
+344                            num_j <= -q16_mul((f_pj - f_mj) <<< 3, ((f_pi - (f_0 <<< 1) + f_mi) <<< 8) + lambda_reg) +
+345                                      q16_mul((f_pi - f_mi) <<< 3, (f_pp - f_pm - f_mp + f_mm) <<< 6);
+346        
+347                            state <= C2_DIV_I;
+348                        end
+349        
+350                        // Divide p_i = num_i / det
+351                        C2_DIV_I: begin
+352                            if (det <= 32'sd16) begin
+                               <font color = "green">-13-</font>  
+353                                // Ill-conditioned fallback: gradient descent step
+354                                p_i_reg <= -g_i;
+           <font color = "green">                        ==></font>
+355                                p_j_reg <= -g_j;
+356                                delta_i <= -q16_mul(step_alpha, g_i);
+357                                delta_j <= -q16_mul(step_alpha, g_j);
+358                                state   <= C2_DONE;
+359                            end else begin
+360                                div_dividend <= num_i;
+           <font color = "green">                        ==></font>
+361                                div_divisor  <= det;
+362                                div_start    <= 1'b1;
+363                                state        <= C2_WAIT_DIVI;
+364                            end
+365                        end
+366        
+367                        C2_WAIT_DIVI: begin
+368                            if (div_done) begin
+                               <font color = "green">-14-</font>  
+369                                p_i_reg   <= div_quotient;
+           <font color = "green">                        ==></font>
+370                                delta_i   <= q16_mul(step_alpha, div_quotient);
+371                                state     <= C2_DIV_J;
+372                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+373                        end
+374        
+375                        // Divide p_j = num_j / det
+376                        C2_DIV_J: begin
+377                            div_dividend <= num_j;
+           <font color = "green">                    ==></font>
+378                            div_divisor  <= det;
+379                            div_start    <= 1'b1;
+380                            state        <= C2_WAIT_DIVJ;
+381                        end
+382        
+383                        C2_WAIT_DIVJ: begin
+384                            if (div_done) begin
+                               <font color = "green">-15-</font>  
+385                                p_j_reg   <= div_quotient;
+           <font color = "green">                        ==></font>
+386                                delta_j   <= q16_mul(step_alpha, div_quotient);
+387                                state     <= C2_DONE;
+388                            end
+                               MISSING_ELSE
+           <font color = "green">                    ==></font>
+389                        end
+390        
+391                        C2_DONE: begin
+392                            done  <= 1'b1;
+           <font color = "green">                    ==></font>
+393                            busy  <= 1'b0;
+394                            state <= C2_IDLE;
+395                        end
+396        
+397                        default: state <= C2_IDLE;
+           <font color = "red">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>-8-</th><th nowrap width=80>-9-</th><th nowrap width=80>-10-</th><th nowrap width=80>-11-</th><th nowrap width=80>-12-</th><th nowrap width=80>-13-</th><th nowrap width=80>-14-</th><th nowrap width=80>-15-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_IDLE </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_START_F0 </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_F0 </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_F0 </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_START_PI </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_PI </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_PI </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_START_MI </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_MI </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_MI </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_START_PJ </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_PJ </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_PJ </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_START_MJ </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_MJ </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_MJ </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_START_PP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_PP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_PP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_START_PM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_PM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_PM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_START_MP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_MP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_MP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_START_MM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_MM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_MM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_CALC_2X2 </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_DIV_I </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_DIV_I </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_DIVI </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_DIVI </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_DIV_J </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_DIVJ </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_WAIT_DIVJ </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>C2_DONE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_8">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#FSM">FSM</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+  <ul name="tag_newton_2var_core">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#FSM">FSM</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# =============================================================================
+# Git Ignore: Universal Newton Multivariable BCD Accelerator Verification
+# =============================================================================
+
+# VCS compiled simulation binaries & coverage database
+work/
+
+# Simulation waveform dumps
+outputs/
+
+# Temporary simulation runtime artifacts
+*.log
+novas_dump.log
+ucli.key
+.fsm.*
+cm.log

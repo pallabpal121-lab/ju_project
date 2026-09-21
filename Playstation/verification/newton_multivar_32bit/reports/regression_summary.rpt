@@ -1,0 +1,27 @@
+================================================================================
+  UNIVERSAL NEWTON MULTIVARIABLE BCD ACCELERATOR - VERIFICATION REPORT
+================================================================================
+  Generated On : 2026-09-21 17:06:19
+  Simulator    : Synopsys VCS W-2024.09 (UVM 1.2 / IEEE 1800.2)
+  Design       : newton_bcd_axi_lite (32-bit AXI4-Lite Slave)
+--------------------------------------------------------------------------------
+
+TEST NAME                        | STATUS   | MATCH | MISMATCH | COV %    | SIM TIME  
+--------------------------------------------------------------------------------
+corner                           | PASSED   | 160   | 0        | 49.38%   | 119725 ns 
+quad                             | PASSED   | 58    | 0        | 24.12%   | 22265 ns  
+random                           | PASSED   | 178   | 0        | 55.62%   | 314705 ns 
+reset                            | PASSED   | 2316  | 0        | 21.12%   | 401565 ns 
+rosenbrock                       | PASSED   | 33    | 0        | 21.12%   | 23655 ns  
+stress                           | PASSED   | 965   | 0        | 0.00%    | 58285 ns  
+tapeout                          | PASSED   | 1850  | 0        | 97.50%   | 3859605 ns
+--------------------------------------------------------------------------------
+
+REGRESSION SUMMARY METRICS:
+  Total Test Cases Executed : 7
+  Passed Tests              : 7
+  Failed Tests              : 0
+  Scoreboard Transactions   : 5560 Passed / 0 Mismatches
+  Overall Regression Status : 100% ALL TESTS PASSED
+  Suite Pass Rate           : 100.0%
+================================================================================
