@@ -1,0 +1,345 @@
+Information: Propagating switching activity (medium effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort medium
+Design : newton_bcd_axi_lite
+Version: W-2024.09-SP1
+Date   : Wed Sep 23 15:24:47 2026
+****************************************
+
+
+Library(s) Used:
+
+    tsl18fs120_typ (File: /home/user17/Synopsys/Design_Compiler/lib/tsl18fs120_typ.db)
+
+
+Operating Conditions: tsl18fs120_typ   Library: tsl18fs120_typ
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+newton_bcd_axi_lite    140000            tsl18fs120_typ
+newton_bcd_top         140000            tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_0
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_9
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_8
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_7
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_6
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_5
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_4
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_3
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_2
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_1
+                       ForQA             tsl18fs120_typ
+newton_2var_core       140000            tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_top_0
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_top_9
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_top_8
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_top_7
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_top_6
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_top_5
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_top_4
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_top_3
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_bcd_top_2
+                       ForQA             tsl18fs120_typ
+dfg_multivar_engine    35000             tsl18fs120_typ
+q16_divider_1          4000              tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_2var_core_0
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_2var_core_16
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_2var_core_14
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_2var_core_13
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_2var_core_12
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_2var_core_11
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_2var_core_10
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_2var_core_9
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_2var_core_8
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_2var_core_7
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_2var_core_6
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_2var_core_4
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_2var_core_3
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_2var_core_2
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_newton_2var_core_1
+                       ForQA             tsl18fs120_typ
+q16_alu                8000              tsl18fs120_typ
+q16_divider_0          4000              tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_0
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_98
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_97
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_96
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_95
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_94
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_93
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_92
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_91
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_90
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_89
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_88
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_87
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_86
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_85
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_84
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_83
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_82
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_81
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_80
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_79
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_78
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_77
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_76
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_75
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_74
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_73
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_72
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_71
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_70
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_69
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_68
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_67
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_66
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_65
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_64
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_63
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_62
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_61
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_60
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_59
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_58
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_57
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_56
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_55
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_54
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_53
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_52
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_51
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_50
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_49
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_48
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_47
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_46
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_45
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_44
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_43
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_42
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_41
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_40
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_39
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_38
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_37
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_36
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_35
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_34
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_33
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_32
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_31
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_30
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_29
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_28
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_27
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_26
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_25
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_24
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_23
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_22
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_21
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_20
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_19
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_18
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_17
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_16
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_15
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_14
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_13
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_12
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_11
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_10
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_9
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_8
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_7
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_6
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_5
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_4
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_3
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_2
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_1
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_q16_divider_1_0
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_q16_divider_1_5
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_q16_divider_1_4
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_q16_divider_1_3
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_q16_divider_1_2
+                       ForQA             tsl18fs120_typ
+SNPS_CLOCK_GATE_HIGH_q16_divider_1_1
+                       ForQA             tsl18fs120_typ
+
+
+Global Operating Voltage = 1.8  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+Attributes
+----------
+i - Including register clock pin internal power
+
+
+  Cell Internal Power  =   1.0391 mW   (82%)
+  Net Switching Power  = 231.9382 uW   (18%)
+                         ---------
+Total Dynamic Power    =   1.2710 mW  (100%)
+
+Cell Leakage Power     =   1.9946 uW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.8939        1.8800e-02        2.0050e+04            0.9127  (  71.70%)  i
+register       8.3889e-02        8.2933e-03        8.3421e+05        9.3021e-02  (   7.31%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational  6.1315e-02            0.2048        1.1403e+06            0.2673  (  21.00%)
+--------------------------------------------------------------------------------------------------
+Total              1.0391 mW         0.2319 mW     1.9946e+06 pW         1.2730 mW
+1

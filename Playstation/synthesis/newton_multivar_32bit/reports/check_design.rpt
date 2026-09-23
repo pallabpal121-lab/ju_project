@@ -1,0 +1,82 @@
+ 
+****************************************
+check_design summary:
+Version:     W-2024.09-SP1
+Date:        Wed Sep 23 15:20:38 2026
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     17
+    Unconnected ports (LINT-28)                                    10
+    Shorted outputs (LINT-31)                                       3
+    Constant outputs (LINT-52)                                      4
+
+Cells                                                              30
+    Cells do not drive (LINT-1)                                    30
+
+Designs                                                             1
+    Multiply instantiated designs (LINT-45)                         1
+
+Nets                                                                7
+    Unloaded nets (LINT-2)                                          7
+--------------------------------------------------------------------------------
+
+Warning: In design 'newton_bcd_axi_lite', cell 'C13696' does not drive any nets. (LINT-1)
+Warning: In design 'newton_bcd_axi_lite', cell 'C13775' does not drive any nets. (LINT-1)
+Warning: In design 'newton_bcd_axi_lite', cell 'C13867' does not drive any nets. (LINT-1)
+Warning: In design 'newton_bcd_top', cell 'C12865' does not drive any nets. (LINT-1)
+Warning: In design 'newton_bcd_top', cell 'C12868' does not drive any nets. (LINT-1)
+Warning: In design 'newton_bcd_top', cell 'C12885' does not drive any nets. (LINT-1)
+Warning: In design 'newton_bcd_top', cell 'C12893' does not drive any nets. (LINT-1)
+Warning: In design 'newton_bcd_top', cell 'C12897' does not drive any nets. (LINT-1)
+Warning: In design 'newton_2var_core', cell 'C25861' does not drive any nets. (LINT-1)
+Warning: In design 'newton_2var_core', cell 'C25911' does not drive any nets. (LINT-1)
+Warning: In design 'newton_2var_core', cell 'C25961' does not drive any nets. (LINT-1)
+Warning: In design 'newton_2var_core', cell 'C26011' does not drive any nets. (LINT-1)
+Warning: In design 'newton_2var_core', cell 'C26061' does not drive any nets. (LINT-1)
+Warning: In design 'newton_2var_core', cell 'C26159' does not drive any nets. (LINT-1)
+Warning: In design 'newton_2var_core', cell 'C26257' does not drive any nets. (LINT-1)
+Warning: In design 'newton_2var_core', cell 'C26355' does not drive any nets. (LINT-1)
+Warning: In design 'newton_2var_core', cell 'C26453' does not drive any nets. (LINT-1)
+Warning: In design 'newton_2var_core', cell 'C26456' does not drive any nets. (LINT-1)
+Warning: In design 'newton_2var_core', cell 'C26459' does not drive any nets. (LINT-1)
+Warning: In design 'newton_2var_core', cell 'C26462' does not drive any nets. (LINT-1)
+Warning: In design 'dfg_multivar_engine', cell 'C15390' does not drive any nets. (LINT-1)
+Warning: In design 'dfg_multivar_engine', cell 'C15412' does not drive any nets. (LINT-1)
+Warning: In design 'dfg_multivar_engine', cell 'C15417' does not drive any nets. (LINT-1)
+Warning: In design 'q16_divider', cell 'C1529' does not drive any nets. (LINT-1)
+Warning: In design 'q16_divider', cell 'C1532' does not drive any nets. (LINT-1)
+Warning: In design 'q16_divider', cell 'C1538' does not drive any nets. (LINT-1)
+Warning: In design 'q16_divider', cell 'C1543' does not drive any nets. (LINT-1)
+Warning: In design 'q16_alu', cell 'C169' does not drive any nets. (LINT-1)
+Warning: In design 'q16_alu', cell 'C176' does not drive any nets. (LINT-1)
+Warning: In design 'q16_alu', cell 'C183' does not drive any nets. (LINT-1)
+Warning: In design 'newton_bcd_axi_lite', net 'u_bcd_core/core_busy' driven by pin 'u_bcd_core/u_core/busy' has no loads. (LINT-2)
+Warning: In design 'newton_bcd_axi_lite', net 'u_bcd_core/u_core/div_busy' driven by pin 'u_bcd_core/u_core/u_div/busy' has no loads. (LINT-2)
+Warning: In design 'newton_bcd_axi_lite', net 'u_bcd_core/u_core/div_by_zero' driven by pin 'u_bcd_core/u_core/u_div/div_by_zero' has no loads. (LINT-2)
+Warning: In design 'newton_bcd_axi_lite', net 'u_bcd_core/u_core/dfg_busy' driven by pin 'u_bcd_core/u_core/u_dfg/busy' has no loads. (LINT-2)
+Warning: In design 'newton_bcd_axi_lite', net 'u_bcd_core/u_core/u_dfg/div_busy' driven by pin 'u_bcd_core/u_core/u_dfg/u_div/busy' has no loads. (LINT-2)
+Warning: In design 'newton_bcd_axi_lite', net 'u_bcd_core/u_core/u_dfg/div_by_zero' driven by pin 'u_bcd_core/u_core/u_dfg/u_div/div_by_zero' has no loads. (LINT-2)
+Warning: In design 'newton_bcd_axi_lite', net 'u_bcd_core/u_core/u_dfg/alu_overflow' driven by pin 'u_bcd_core/u_core/u_dfg/u_alu/overflow' has no loads. (LINT-2)
+Warning: In design 'newton_bcd_axi_lite', port 's_axi_awprot[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'newton_bcd_axi_lite', port 's_axi_awprot[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'newton_bcd_axi_lite', port 's_axi_awprot[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'newton_bcd_axi_lite', port 's_axi_wstrb[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'newton_bcd_axi_lite', port 's_axi_wstrb[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'newton_bcd_axi_lite', port 's_axi_wstrb[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'newton_bcd_axi_lite', port 's_axi_wstrb[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'newton_bcd_axi_lite', port 's_axi_arprot[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'newton_bcd_axi_lite', port 's_axi_arprot[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'newton_bcd_axi_lite', port 's_axi_arprot[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'newton_bcd_axi_lite', output port 's_axi_bresp[1]' is connected directly to output port 's_axi_rresp[0]'. (LINT-31)
+Warning: In design 'newton_bcd_axi_lite', output port 's_axi_bresp[1]' is connected directly to output port 's_axi_rresp[1]'. (LINT-31)
+Warning: In design 'newton_bcd_axi_lite', output port 's_axi_bresp[1]' is connected directly to output port 's_axi_bresp[0]'. (LINT-31)
+Information: Design 'q16_divider' is instantiated 2 times. (LINT-45)
+         Cell 'u_bcd_core/u_core/u_div' in design 'newton_bcd_axi_lite' 
+         Cell 'u_bcd_core/u_core/u_dfg/u_div' in design 'newton_bcd_axi_lite' 
+Warning: In design 'newton_bcd_axi_lite', output port 's_axi_bresp[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'newton_bcd_axi_lite', output port 's_axi_bresp[0]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'newton_bcd_axi_lite', output port 's_axi_rresp[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'newton_bcd_axi_lite', output port 's_axi_rresp[0]' is connected directly to 'logic 0'. (LINT-52)
+1

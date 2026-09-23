@@ -1,0 +1,707 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -max_paths 20
+Design : newton_bcd_axi_lite
+Version: W-2024.09-SP1
+Date   : Wed Sep 23 15:24:45 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tsl18fs120_typ   Library: tsl18fs120_typ
+Wire Load Model Mode: enclosed
+
+  Startpoint: u_bcd_core/u_core/u_dfg/f_out_reg[29]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/f_val_reg[29]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  newton_2var_core   140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/f_out_reg[29]/CP (dfcrq1)      0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/f_out_reg[29]/Q (dfcrq1)       0.332      1.132 f
+  u_bcd_core/u_core/u_dfg/f_out[29] (dfg_multivar_engine)
+                                                         0.000      1.132 f
+  u_bcd_core/u_core/f_val_reg[29]/D (dfcrq1)             0.000      1.132 f
+  data arrival time                                                 1.132
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/u_core/f_val_reg[29]/CP (dfcrq1)            0.000      1.000 r
+  library hold time                                      0.004      1.004
+  data required time                                                1.004
+  --------------------------------------------------------------------------
+  data required time                                                1.004
+  data arrival time                                                -1.132
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.128
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/f_out_reg[30]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/f_val_reg[30]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  newton_2var_core   140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/f_out_reg[30]/CP (dfcrq1)      0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/f_out_reg[30]/Q (dfcrq1)       0.332      1.132 f
+  u_bcd_core/u_core/u_dfg/f_out[30] (dfg_multivar_engine)
+                                                         0.000      1.132 f
+  u_bcd_core/u_core/f_val_reg[30]/D (dfcrq1)             0.000      1.132 f
+  data arrival time                                                 1.132
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/u_core/f_val_reg[30]/CP (dfcrq1)            0.000      1.000 r
+  library hold time                                      0.004      1.004
+  data required time                                                1.004
+  --------------------------------------------------------------------------
+  data required time                                                1.004
+  data arrival time                                                -1.132
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.128
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/f_out_reg[31]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/f_val_reg[31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  newton_2var_core   140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/f_out_reg[31]/CP (dfcrq1)      0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/f_out_reg[31]/Q (dfcrq1)       0.332      1.132 f
+  u_bcd_core/u_core/u_dfg/f_out[31] (dfg_multivar_engine)
+                                                         0.000      1.132 f
+  u_bcd_core/u_core/f_val_reg[31]/D (dfcrq1)             0.000      1.132 f
+  data arrival time                                                 1.132
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/u_core/f_val_reg[31]/CP (dfcrq1)            0.000      1.000 r
+  library hold time                                      0.004      1.004
+  data required time                                                1.004
+  --------------------------------------------------------------------------
+  data required time                                                1.004
+  data arrival time                                                -1.132
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.128
+
+
+  Startpoint: u_bcd_core/u_core/f_val_reg[31]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/f_optimal_reg[31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+  newton_bcd_top     140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/f_val_reg[31]/CP (dfcrq1)            0.000      0.800 r
+  u_bcd_core/u_core/f_val_reg[31]/Q (dfcrq1)             0.332      1.132 f
+  u_bcd_core/u_core/f_val[31] (newton_2var_core)         0.000      1.132 f
+  u_bcd_core/f_optimal_reg[31]/D (dfcrq1)                0.000      1.132 f
+  data arrival time                                                 1.132
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/f_optimal_reg[31]/CP (dfcrq1)               0.000      1.000 r
+  library hold time                                      0.004      1.004
+  data required time                                                1.004
+  --------------------------------------------------------------------------
+  data required time                                                1.004
+  data arrival time                                                -1.132
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.128
+
+
+  Startpoint: u_bcd_core/u_core/f_val_reg[30]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/f_optimal_reg[30]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+  newton_bcd_top     140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/f_val_reg[30]/CP (dfcrq1)            0.000      0.800 r
+  u_bcd_core/u_core/f_val_reg[30]/Q (dfcrq1)             0.332      1.132 f
+  u_bcd_core/u_core/f_val[30] (newton_2var_core)         0.000      1.132 f
+  u_bcd_core/f_optimal_reg[30]/D (dfcrq1)                0.000      1.132 f
+  data arrival time                                                 1.132
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/f_optimal_reg[30]/CP (dfcrq1)               0.000      1.000 r
+  library hold time                                      0.004      1.004
+  data required time                                                1.004
+  --------------------------------------------------------------------------
+  data required time                                                1.004
+  data arrival time                                                -1.132
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.128
+
+
+  Startpoint: u_bcd_core/u_core/f_val_reg[29]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/f_optimal_reg[29]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+  newton_bcd_top     140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/f_val_reg[29]/CP (dfcrq1)            0.000      0.800 r
+  u_bcd_core/u_core/f_val_reg[29]/Q (dfcrq1)             0.332      1.132 f
+  u_bcd_core/u_core/f_val[29] (newton_2var_core)         0.000      1.132 f
+  u_bcd_core/f_optimal_reg[29]/D (dfcrq1)                0.000      1.132 f
+  data arrival time                                                 1.132
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/f_optimal_reg[29]/CP (dfcrq1)               0.000      1.000 r
+  library hold time                                      0.004      1.004
+  data required time                                                1.004
+  --------------------------------------------------------------------------
+  data required time                                                1.004
+  data arrival time                                                -1.132
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.128
+
+
+  Startpoint: u_bcd_core/u_core/f_val_reg[28]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/f_optimal_reg[28]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+  newton_bcd_top     140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/f_val_reg[28]/CP (dfcrq1)            0.000      0.800 r
+  u_bcd_core/u_core/f_val_reg[28]/Q (dfcrq1)             0.332      1.132 f
+  u_bcd_core/u_core/f_val[28] (newton_2var_core)         0.000      1.132 f
+  u_bcd_core/f_optimal_reg[28]/D (dfcrq1)                0.000      1.132 f
+  data arrival time                                                 1.132
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/f_optimal_reg[28]/CP (dfcrq1)               0.000      1.000 r
+  library hold time                                      0.004      1.004
+  data required time                                                1.004
+  --------------------------------------------------------------------------
+  data required time                                                1.004
+  data arrival time                                                -1.132
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.128
+
+
+  Startpoint: u_bcd_core/u_core/f_val_reg[27]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/f_optimal_reg[27]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+  newton_bcd_top     140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/f_val_reg[27]/CP (dfcrq1)            0.000      0.800 r
+  u_bcd_core/u_core/f_val_reg[27]/Q (dfcrq1)             0.332      1.132 f
+  u_bcd_core/u_core/f_val[27] (newton_2var_core)         0.000      1.132 f
+  u_bcd_core/f_optimal_reg[27]/D (dfcrq1)                0.000      1.132 f
+  data arrival time                                                 1.132
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/f_optimal_reg[27]/CP (dfcrq1)               0.000      1.000 r
+  library hold time                                      0.004      1.004
+  data required time                                                1.004
+  --------------------------------------------------------------------------
+  data required time                                                1.004
+  data arrival time                                                -1.132
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.128
+
+
+  Startpoint: u_bcd_core/u_core/f_val_reg[26]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/f_optimal_reg[26]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+  newton_bcd_top     140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/f_val_reg[26]/CP (dfcrq1)            0.000      0.800 r
+  u_bcd_core/u_core/f_val_reg[26]/Q (dfcrq1)             0.332      1.132 f
+  u_bcd_core/u_core/f_val[26] (newton_2var_core)         0.000      1.132 f
+  u_bcd_core/f_optimal_reg[26]/D (dfcrq1)                0.000      1.132 f
+  data arrival time                                                 1.132
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/f_optimal_reg[26]/CP (dfcrq1)               0.000      1.000 r
+  library hold time                                      0.004      1.004
+  data required time                                                1.004
+  --------------------------------------------------------------------------
+  data required time                                                1.004
+  data arrival time                                                -1.132
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.128
+
+
+  Startpoint: u_bcd_core/u_core/f_val_reg[25]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/f_optimal_reg[25]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+  newton_bcd_top     140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/f_val_reg[25]/CP (dfcrq1)            0.000      0.800 r
+  u_bcd_core/u_core/f_val_reg[25]/Q (dfcrq1)             0.332      1.132 f
+  u_bcd_core/u_core/f_val[25] (newton_2var_core)         0.000      1.132 f
+  u_bcd_core/f_optimal_reg[25]/D (dfcrq1)                0.000      1.132 f
+  data arrival time                                                 1.132
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/f_optimal_reg[25]/CP (dfcrq1)               0.000      1.000 r
+  library hold time                                      0.004      1.004
+  data required time                                                1.004
+  --------------------------------------------------------------------------
+  data required time                                                1.004
+  data arrival time                                                -1.132
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.128
+
+
+  Startpoint: u_bcd_core/u_core/f_val_reg[24]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/f_optimal_reg[24]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+  newton_bcd_top     140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/f_val_reg[24]/CP (dfcrq1)            0.000      0.800 r
+  u_bcd_core/u_core/f_val_reg[24]/Q (dfcrq1)             0.332      1.132 f
+  u_bcd_core/u_core/f_val[24] (newton_2var_core)         0.000      1.132 f
+  u_bcd_core/f_optimal_reg[24]/D (dfcrq1)                0.000      1.132 f
+  data arrival time                                                 1.132
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/f_optimal_reg[24]/CP (dfcrq1)               0.000      1.000 r
+  library hold time                                      0.004      1.004
+  data required time                                                1.004
+  --------------------------------------------------------------------------
+  data required time                                                1.004
+  data arrival time                                                -1.132
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.128
+
+
+  Startpoint: u_bcd_core/u_core/f_val_reg[23]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/f_optimal_reg[23]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+  newton_bcd_top     140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/f_val_reg[23]/CP (dfcrq1)            0.000      0.800 r
+  u_bcd_core/u_core/f_val_reg[23]/Q (dfcrq1)             0.332      1.132 f
+  u_bcd_core/u_core/f_val[23] (newton_2var_core)         0.000      1.132 f
+  u_bcd_core/f_optimal_reg[23]/D (dfcrq1)                0.000      1.132 f
+  data arrival time                                                 1.132
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/f_optimal_reg[23]/CP (dfcrq1)               0.000      1.000 r
+  library hold time                                      0.004      1.004
+  data required time                                                1.004
+  --------------------------------------------------------------------------
+  data required time                                                1.004
+  data arrival time                                                -1.132
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.128
+
+
+  Startpoint: u_bcd_core/u_core/det_reg[4]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/div_divisor_reg[4]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/det_reg[4]/CP (dfcrq1)               0.000      0.800 r
+  u_bcd_core/u_core/det_reg[4]/Q (dfcrq1)                0.346      1.146 f
+  u_bcd_core/u_core/div_divisor_reg[4]/D (dfcrq1)        0.000      1.146 f
+  data arrival time                                                 1.146
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/u_core/div_divisor_reg[4]/CP (dfcrq1)       0.000      1.000 r
+  library hold time                                      0.000      1.000
+  data required time                                                1.000
+  --------------------------------------------------------------------------
+  data required time                                                1.000
+  data arrival time                                                -1.146
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.146
+
+
+  Startpoint: u_bcd_core/u_core/det_reg[19]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/div_divisor_reg[19]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/det_reg[19]/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/det_reg[19]/Q (dfcrq1)               0.347      1.147 f
+  u_bcd_core/u_core/div_divisor_reg[19]/D (dfcrq1)       0.000      1.147 f
+  data arrival time                                                 1.147
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/u_core/div_divisor_reg[19]/CP (dfcrq1)      0.000      1.000 r
+  library hold time                                     -0.001      0.999
+  data required time                                                0.999
+  --------------------------------------------------------------------------
+  data required time                                                0.999
+  data arrival time                                                -1.147
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.148
+
+
+  Startpoint: u_bcd_core/u_core/det_reg[16]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/div_divisor_reg[16]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/det_reg[16]/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/det_reg[16]/Q (dfcrq1)               0.348      1.148 f
+  u_bcd_core/u_core/div_divisor_reg[16]/D (dfcrq1)       0.000      1.148 f
+  data arrival time                                                 1.148
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/u_core/div_divisor_reg[16]/CP (dfcrq1)      0.000      1.000 r
+  library hold time                                     -0.001      0.999
+  data required time                                                0.999
+  --------------------------------------------------------------------------
+  data required time                                                0.999
+  data arrival time                                                -1.148
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.149
+
+
+  Startpoint: u_bcd_core/u_core/det_reg[5]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/div_divisor_reg[5]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/det_reg[5]/CP (dfcrq1)               0.000      0.800 r
+  u_bcd_core/u_core/det_reg[5]/Q (dfcrq1)                0.348      1.148 f
+  u_bcd_core/u_core/div_divisor_reg[5]/D (dfcrq1)        0.000      1.148 f
+  data arrival time                                                 1.148
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/u_core/div_divisor_reg[5]/CP (dfcrq1)       0.000      1.000 r
+  library hold time                                     -0.001      0.999
+  data required time                                                0.999
+  --------------------------------------------------------------------------
+  data required time                                                0.999
+  data arrival time                                                -1.148
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.149
+
+
+  Startpoint: u_bcd_core/u_core/det_reg[0]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/div_divisor_reg[0]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/det_reg[0]/CP (dfcrq1)               0.000      0.800 r
+  u_bcd_core/u_core/det_reg[0]/Q (dfcrq1)                0.349      1.149 f
+  u_bcd_core/u_core/div_divisor_reg[0]/D (dfcrq1)        0.000      1.149 f
+  data arrival time                                                 1.149
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/u_core/div_divisor_reg[0]/CP (dfcrq1)       0.000      1.000 r
+  library hold time                                     -0.001      0.999
+  data required time                                                0.999
+  --------------------------------------------------------------------------
+  data required time                                                0.999
+  data arrival time                                                -1.149
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.150
+
+
+  Startpoint: u_bcd_core/u_core/det_reg[18]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/div_divisor_reg[18]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/det_reg[18]/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/det_reg[18]/Q (dfcrq1)               0.349      1.149 f
+  u_bcd_core/u_core/div_divisor_reg[18]/D (dfcrq1)       0.000      1.149 f
+  data arrival time                                                 1.149
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/u_core/div_divisor_reg[18]/CP (dfcrq1)      0.000      1.000 r
+  library hold time                                     -0.001      0.999
+  data required time                                                0.999
+  --------------------------------------------------------------------------
+  data required time                                                0.999
+  data arrival time                                                -1.149
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.150
+
+
+  Startpoint: u_bcd_core/u_core/det_reg[15]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/div_divisor_reg[15]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/det_reg[15]/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/det_reg[15]/Q (dfcrq1)               0.349      1.149 f
+  u_bcd_core/u_core/div_divisor_reg[15]/D (dfcrq1)       0.000      1.149 f
+  data arrival time                                                 1.149
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/u_core/div_divisor_reg[15]/CP (dfcrq1)      0.000      1.000 r
+  library hold time                                     -0.001      0.999
+  data required time                                                0.999
+  --------------------------------------------------------------------------
+  data required time                                                0.999
+  data arrival time                                                -1.149
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.150
+
+
+  Startpoint: u_bcd_core/u_core/det_reg[12]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/div_divisor_reg[12]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/det_reg[12]/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/det_reg[12]/Q (dfcrq1)               0.349      1.149 f
+  u_bcd_core/u_core/div_divisor_reg[12]/D (dfcrq1)       0.000      1.149 f
+  data arrival time                                                 1.149
+
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  clock uncertainty                                      0.200      1.000
+  u_bcd_core/u_core/div_divisor_reg[12]/CP (dfcrq1)      0.000      1.000 r
+  library hold time                                     -0.001      0.999
+  data required time                                                0.999
+  --------------------------------------------------------------------------
+  data required time                                                0.999
+  data arrival time                                                -1.149
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.150
+
+
+1

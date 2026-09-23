@@ -1,0 +1,313 @@
+ 
+****************************************
+Report : area
+Design : newton_bcd_axi_lite
+Version: W-2024.09-SP1
+Date   : Wed Sep 23 15:24:45 2026
+****************************************
+
+Library(s) Used:
+
+    tsl18fs120_typ (File: /home/user17/Synopsys/Design_Compiler/lib/tsl18fs120_typ.db)
+
+Number of ports:                         3565
+Number of nets:                         47648
+Number of cells:                        42207
+Number of combinational cells:          35315
+Number of sequential cells:              6737
+Number of macros/black boxes:               0
+Number of buf/inv:                       6714
+Number of references:                      70
+
+Combinational area:              57827.500000
+Buf/Inv area:                     6371.750000
+Noncombinational area:           34362.500000
+Macro/Black Box area:                0.000000
+Net Interconnect area:           45811.409290
+
+Total cell area:                 92190.000000
+Total area:                     138001.409290
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area            Local cell area
+                                  -------------------  ------------------------------ 
+Hierarchical cell                 Absolute    Percent  Combi-      Noncombi-   Black-
+                                  Total       Total    national    national    boxes   Design
+--------------------------------  ----------  -------  ----------  ----------  ------  -------------------------------------------
+newton_bcd_axi_lite               92190.0000    100.0   2259.5000   3733.5000  0.0000  newton_bcd_axi_lite
+clk_gate_aw_addr_latched_reg          4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_9
+clk_gate_r_data_reg_reg               4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_1
+clk_gate_reg_alpha_reg                4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_4
+clk_gate_reg_lambda_reg               4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_3
+clk_gate_reg_max_sweeps_reg           4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_2
+clk_gate_reg_num_vars_reg             4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_6
+clk_gate_reg_prog_addr_reg            4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_8
+clk_gate_reg_prog_data_reg[op]        4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_7
+clk_gate_reg_tolerance_reg            4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_5
+clk_gate_reg_x_init_reg               4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_0
+u_bcd_core                        86149.5000     93.4   5177.2500   6649.0000  0.0000  newton_bcd_top
+u_bcd_core/clk_gate_core_idx_i_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_top_5
+u_bcd_core/clk_gate_max_delta_last_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_top_3
+u_bcd_core/clk_gate_max_delta_sweep_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_top_4
+u_bcd_core/clk_gate_num_vars_reg_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_top_8
+u_bcd_core/clk_gate_pair_i_reg        4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_top_6
+u_bcd_core/clk_gate_state_reg         4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_top_0
+u_bcd_core/clk_gate_sweep_count_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_top_7
+u_bcd_core/clk_gate_x_optimal_reg     4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_top_2
+u_bcd_core/clk_gate_x_reg_reg         4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_bcd_top_9
+u_bcd_core/u_core                 74280.5000     80.6  37573.0000   5791.7500  0.0000  newton_2var_core
+u_bcd_core/u_core/clk_gate_delta_i_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2var_core_3
+u_bcd_core/u_core/clk_gate_delta_j_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2var_core_2
+u_bcd_core/u_core/clk_gate_dfg_x_in_reg_3
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2var_core_16
+u_bcd_core/u_core/clk_gate_div_dividend_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2var_core_1
+u_bcd_core/u_core/clk_gate_f_mi_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2var_core_12
+u_bcd_core/u_core/clk_gate_f_mj_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2var_core_10
+u_bcd_core/u_core/clk_gate_f_mm_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2var_core_6
+u_bcd_core/u_core/clk_gate_f_mp_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2var_core_7
+u_bcd_core/u_core/clk_gate_f_pi_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2var_core_13
+u_bcd_core/u_core/clk_gate_f_pj_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2var_core_11
+u_bcd_core/u_core/clk_gate_f_pm_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2var_core_8
+u_bcd_core/u_core/clk_gate_f_pp_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2var_core_9
+u_bcd_core/u_core/clk_gate_f_val_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2var_core_14
+u_bcd_core/u_core/clk_gate_g_i_reg_0
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2var_core_4
+u_bcd_core/u_core/clk_gate_state_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_newton_2var_core_0
+u_bcd_core/u_core/u_dfg           29284.0000     31.8   6021.5000  16087.7500  0.0000  dfg_multivar_engine
+u_bcd_core/u_core/u_dfg/clk_gate_div_dividend_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_1
+u_bcd_core/u_core/u_dfg/clk_gate_f_out_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_2
+u_bcd_core/u_core/u_dfg/clk_gate_pc_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_3
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[0][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_0
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[10][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_89
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[11][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_88
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[12][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_87
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[13][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_86
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[14][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_85
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[15][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_84
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[16][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_83
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[17][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_82
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[18][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_81
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[19][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_80
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[1][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_98
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[20][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_79
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[21][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_78
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[22][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_77
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[23][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_76
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[24][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_75
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[25][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_74
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[26][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_73
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[27][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_72
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[28][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_71
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[29][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_70
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[2][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_97
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[30][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_69
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[31][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_68
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[32][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_67
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[33][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_66
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[34][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_65
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[35][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_64
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[36][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_63
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[37][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_62
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[38][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_61
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[39][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_60
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[3][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_96
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[40][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_59
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[41][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_58
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[42][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_57
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[43][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_56
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[44][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_55
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[45][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_54
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[46][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_53
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[47][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_52
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[48][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_51
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[49][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_50
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[4][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_95
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[50][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_49
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[51][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_48
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[52][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_47
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[53][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_46
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[54][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_45
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[55][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_44
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[56][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_43
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[57][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_42
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[58][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_41
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[59][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_40
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[5][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_94
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[60][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_39
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[61][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_38
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[62][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_37
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[63][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_36
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[6][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_93
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[7][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_92
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[8][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_91
+u_bcd_core/u_core/u_dfg/clk_gate_prog_mem_reg[9][op]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_90
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[0]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_35
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[10]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_25
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[11]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_24
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[12]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_23
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[13]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_22
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[14]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_21
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[15]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_20
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[16]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_19
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[17]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_18
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[18]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_17
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[19]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_16
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[1]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_34
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[20]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_15
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[21]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_14
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[22]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_13
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[23]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_12
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[24]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_11
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[25]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_10
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[26]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_9
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[27]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_8
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[28]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_7
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[29]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_6
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[2]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_33
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[30]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_5
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[31]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_4
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[3]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_32
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[4]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_31
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[5]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_30
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[6]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_29
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[7]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_28
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[8]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_27
+u_bcd_core/u_core/u_dfg/clk_gate_reg_file_reg[9]
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_dfg_multivar_engine_26
+u_bcd_core/u_core/u_dfg/u_alu      5140.2500      5.6   5140.2500      0.0000  0.0000  q16_alu
+u_bcd_core/u_core/u_dfg/u_div      1564.2500      1.7    830.5000    719.5000  0.0000  q16_divider_0
+u_bcd_core/u_core/u_dfg/u_div/clk_gate_abs_div_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_q16_divider_1_3
+u_bcd_core/u_core/u_dfg/u_div/clk_gate_count_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_q16_divider_1_1
+u_bcd_core/u_core/u_dfg/u_div/clk_gate_quotient_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_q16_divider_1_2
+u_bcd_core/u_core/u_div            1560.5000      1.7    825.5000    720.7500  0.0000  q16_divider_1
+u_bcd_core/u_core/u_div/clk_gate_abs_div_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_q16_divider_1_0
+u_bcd_core/u_core/u_div/clk_gate_count_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_q16_divider_1_4
+u_bcd_core/u_core/u_div/clk_gate_quotient_reg
+                                      4.7500      0.0      0.0000      4.7500  0.0000  SNPS_CLOCK_GATE_HIGH_q16_divider_1_5
+--------------------------------  ----------  -------  ----------  ----------  ------  -------------------------------------------
+Total                                                  57827.5000  34362.5000  0.0000
+
+1

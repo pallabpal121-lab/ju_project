@@ -1,0 +1,2489 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 20
+Design : newton_bcd_axi_lite
+Version: W-2024.09-SP1
+Date   : Wed Sep 23 15:24:44 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tsl18fs120_typ   Library: tsl18fs120_typ
+Wire Load Model Mode: enclosed
+
+  Startpoint: u_bcd_core/u_core/R_1
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/R_316
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/R_1/CP (dfprb1)                      0.000      0.800 r
+  u_bcd_core/u_core/R_1/Q (dfprb1)                       0.426      1.226 r
+  u_bcd_core/u_core/U3315/ZN (nd02d2)                    0.074      1.300 f
+  u_bcd_core/u_core/U3316/ZN (inv0d2)                    0.060      1.359 r
+  u_bcd_core/u_core/U3317/ZN (aoi21d1)                   0.049      1.409 f
+  u_bcd_core/u_core/U3319/ZN (nd12d2)                    0.133      1.542 f
+  u_bcd_core/u_core/U3321/ZN (nr02d2)                    0.099      1.641 r
+  u_bcd_core/u_core/U3324/ZN (nr02d2)                    0.049      1.690 f
+  u_bcd_core/u_core/U3325/ZN (nr02d2)                    0.088      1.778 r
+  u_bcd_core/u_core/U3326/ZN (aoi21d1)                   0.070      1.848 f
+  u_bcd_core/u_core/U3327/ZN (nr02d2)                    0.115      1.963 r
+  u_bcd_core/u_core/U3330/ZN (nr02d2)                    0.048      2.011 f
+  u_bcd_core/u_core/U3331/ZN (oai22d1)                   0.239      2.251 r
+  u_bcd_core/u_core/U3333/ZN (nr02d2)                    0.054      2.305 f
+  u_bcd_core/u_core/U3334/ZN (aoi21d1)                   0.244      2.550 r
+  u_bcd_core/u_core/U3336/ZN (nr02d2)                    0.054      2.604 f
+  u_bcd_core/u_core/U3337/ZN (aoi21d1)                   0.235      2.840 r
+  u_bcd_core/u_core/U3339/ZN (nr02d2)                    0.055      2.894 f
+  u_bcd_core/u_core/U3340/ZN (aoi21d1)                   0.298      3.192 r
+  u_bcd_core/u_core/U3342/ZN (aon211d1)                  0.133      3.326 f
+  u_bcd_core/u_core/U3345/ZN (nr02d2)                    0.127      3.453 r
+  u_bcd_core/u_core/U3346/ZN (nr02d2)                    0.047      3.500 f
+  u_bcd_core/u_core/U3348/ZN (oai22d1)                   0.178      3.678 r
+  u_bcd_core/u_core/U241/ZN (nr02d1)                     0.102      3.780 f
+  u_bcd_core/u_core/U1490/Z (aor21d1)                    0.219      3.999 f
+  u_bcd_core/u_core/U3349/ZN (nr02d2)                    0.109      4.108 r
+  u_bcd_core/u_core/U3350/ZN (aoi21d1)                   0.070      4.179 f
+  u_bcd_core/u_core/U3351/ZN (nd02d2)                    0.091      4.270 r
+  u_bcd_core/u_core/U3352/ZN (oai21d1)                   0.095      4.365 f
+  u_bcd_core/u_core/U3353/ZN (nd02d2)                    0.089      4.454 r
+  u_bcd_core/u_core/U3354/ZN (oai21d1)                   0.085      4.538 f
+  u_bcd_core/u_core/U1408/ZN (nd02d1)                    0.115      4.653 r
+  u_bcd_core/u_core/U3355/ZN (oai21d1)                   0.095      4.748 f
+  u_bcd_core/u_core/U1391/ZN (nd02d1)                    0.114      4.862 r
+  u_bcd_core/u_core/U3442/ZN (oai21d1)                   0.105      4.967 f
+  u_bcd_core/u_core/U3443/ZN (nd02d2)                    0.087      5.055 r
+  u_bcd_core/u_core/U3444/ZN (oai21d1)                   0.096      5.151 f
+  u_bcd_core/u_core/U3446/ZN (nr02d2)                    0.113      5.264 r
+  u_bcd_core/u_core/U3448/ZN (nr02d2)                    0.049      5.313 f
+  u_bcd_core/u_core/U2205/ZN (oai22d2)                   0.272      5.585 r
+  u_bcd_core/u_core/U2204/ZN (aon211d1)                  0.112      5.697 f
+  u_bcd_core/u_core/U3463/ZN (oan211d1)                  0.249      5.946 r
+  u_bcd_core/u_core/U3126/Z (mx02d1)                     0.429      6.376 r
+  u_bcd_core/u_core/U759/Z (buffd7)                      0.198      6.573 r
+  u_bcd_core/u_core/U5553/ZN (inv0d1)                    0.154      6.727 f
+  u_bcd_core/u_core/U5413/ZN (aoi22d1)                   0.211      6.938 r
+  u_bcd_core/u_core/U1270/Z (an02d1)                     0.163      7.101 r
+  u_bcd_core/u_core/U5414/ZN (inv0d2)                    0.075      7.175 f
+  u_bcd_core/u_core/U5417/ZN (oai222d1)                  0.247      7.423 r
+  u_bcd_core/u_core/U5449/ZN (nr02d0)                    0.111      7.533 f
+  u_bcd_core/u_core/U5450/ZN (nd02d0)                    0.149      7.682 r
+  u_bcd_core/u_core/U5451/Z (xr02d1)                     0.331      8.013 f
+  u_bcd_core/u_core/U5506/Z (aor222d1)                   0.380      8.393 f
+  u_bcd_core/u_core/U5514/ZN (nd02d0)                    0.130      8.522 r
+  u_bcd_core/u_core/U5515/ZN (inv0d0)                    0.089      8.611 f
+  u_bcd_core/u_core/U5516/ZN (nr02d0)                    0.174      8.786 r
+  u_bcd_core/u_core/U5521/Z (xr03d2)                     0.238      9.024 f
+  u_bcd_core/u_core/U5522/ZN (inv0d1)                    0.126      9.150 r
+  u_bcd_core/u_core/U5523/Z (mx02d1)                     0.266      9.417 f
+  u_bcd_core/u_core/U13963/CO (ad01d2)                   0.360      9.776 f
+  u_bcd_core/u_core/U13966/Z (aoim22d1)                  0.208      9.985 f
+  u_bcd_core/u_core/U13967/ZN (inv0d0)                   0.255     10.240 r
+  u_bcd_core/u_core/U13968/Z (aoim22d2)                  0.214     10.454 f
+  u_bcd_core/u_core/U13969/Z (xr03d2)                    0.328     10.781 f
+  u_bcd_core/u_core/U1093/CO (ad01d1)                    0.276     11.057 f
+  u_bcd_core/u_core/U14312/ZN (inv0d1)                   0.165     11.222 r
+  u_bcd_core/u_core/U14313/Z (aoim22d2)                  0.211     11.433 f
+  u_bcd_core/u_core/U1056/Z (xr03d1)                     0.316     11.748 r
+  u_bcd_core/u_core/U14315/Z (xr03d2)                    0.297     12.045 f
+  u_bcd_core/u_core/U1045/CO (ad01d1)                    0.293     12.338 f
+  u_bcd_core/u_core/U14512/Z (or02d1)                    0.204     12.542 f
+  u_bcd_core/u_core/U14706/ZN (nd03d1)                   0.086     12.628 r
+  u_bcd_core/u_core/U14707/ZN (aon211d1)                 0.105     12.733 f
+  u_bcd_core/u_core/U14708/Z (mx02d1)                    0.233     12.967 f
+  u_bcd_core/u_core/intadd_59/U5/CO (ad01d0)             0.323     13.289 f
+  u_bcd_core/u_core/intadd_59/U4/CO (ad01d0)             0.296     13.585 f
+  u_bcd_core/u_core/intadd_59/U3/CO (ad01d0)             0.296     13.881 f
+  u_bcd_core/u_core/intadd_59/U2/CO (ad01d1)             0.290     14.171 f
+  u_bcd_core/u_core/U14317/ZN (inv0d0)                   0.160     14.331 r
+  u_bcd_core/u_core/U14520/Z (mx02d1)                    0.196     14.527 r
+  u_bcd_core/u_core/U701/ZN (inv0d0)                     0.101     14.629 f
+  u_bcd_core/u_core/U15416/ZN (aoi22d1)                  0.214     14.843 r
+  u_bcd_core/u_core/U20811/CO (ad01d4)                   0.271     15.114 r
+  u_bcd_core/u_core/intadd_41/U10/S (ad01d0)             0.359     15.473 f
+  u_bcd_core/u_core/U14713/ZN (inv0d1)                   0.134     15.607 r
+  u_bcd_core/u_core/intadd_17/U9/S (ad01d0)              0.341     15.947 f
+  u_bcd_core/u_core/U20821/CO (ad01d4)                   0.315     16.262 f
+  u_bcd_core/u_core/U2162/CO (ad01d1)                    0.266     16.528 f
+  u_bcd_core/u_core/intadd_16/U8/CO (ad01d0)             0.277     16.805 f
+  u_bcd_core/u_core/U20822/CO (ad01d4)                   0.286     17.091 f
+  u_bcd_core/u_core/intadd_16/U6/CO (ad01d0)             0.283     17.374 f
+  u_bcd_core/u_core/intadd_16/U5/CO (ad01d0)             0.285     17.659 f
+  u_bcd_core/u_core/U20823/CO (ad01d4)                   0.286     17.945 f
+  u_bcd_core/u_core/intadd_16/U3/CO (ad01d0)             0.283     18.228 f
+  u_bcd_core/u_core/intadd_16/U2/CO (ad01d1)             0.250     18.478 f
+  u_bcd_core/u_core/U15575/Z (xr03d1)                    0.174     18.652 r
+  u_bcd_core/u_core/U15578/Z (xr03d1)                    0.185     18.836 f
+  u_bcd_core/u_core/U15579/Z (mx02d1)                    0.205     19.042 r
+  u_bcd_core/u_core/U15587/Z (xr03d1)                    0.203     19.245 f
+  u_bcd_core/u_core/U15588/ZN (nd03d1)                   0.105     19.350 r
+  u_bcd_core/u_core/U15589/ZN (aon211d1)                 0.135     19.485 f
+  u_bcd_core/u_core/U15590/ZN (nd03d2)                   0.079     19.564 r
+  u_bcd_core/u_core/U15591/ZN (aon211d1)                 0.129     19.693 f
+  u_bcd_core/u_core/U15592/ZN (nd03d2)                   0.080     19.774 r
+  u_bcd_core/u_core/U15593/ZN (aon211d1)                 0.128     19.902 f
+  u_bcd_core/u_core/U15594/ZN (nd03d2)                   0.080     19.982 r
+  u_bcd_core/u_core/U15595/ZN (aon211d1)                 0.130     20.112 f
+  u_bcd_core/u_core/U15596/ZN (nd03d2)                   0.080     20.192 r
+  u_bcd_core/u_core/U15597/ZN (aon211d1)                 0.081     20.274 f
+  u_bcd_core/u_core/R_316/D (dfprb1)                     0.000     20.274 f
+  data arrival time                                                20.274
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/R_316/CP (dfprb1)                    0.000     20.400 r
+  library setup time                                    -0.125     20.275
+  data required time                                               20.275
+  --------------------------------------------------------------------------
+  data required time                                               20.275
+  data arrival time                                               -20.274
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.001
+
+
+  Startpoint: u_bcd_core/u_core/f_pj_reg[0]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/R_4
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/f_pj_reg[0]/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/f_pj_reg[0]/Q (dfcrq1)               0.365      1.165 f
+  u_bcd_core/u_core/U3373/ZN (nr02d1)                    0.206      1.371 r
+  u_bcd_core/u_core/U3374/ZN (aoim21d1)                  0.084      1.456 f
+  u_bcd_core/u_core/U883/ZN (nd12d1)                     0.141      1.597 f
+  u_bcd_core/u_core/U3376/ZN (inv0d1)                    0.094      1.691 r
+  u_bcd_core/u_core/U3377/ZN (aoi22d1)                   0.089      1.780 f
+  u_bcd_core/u_core/U247/ZN (nr02d1)                     0.162      1.942 r
+  u_bcd_core/u_core/U3378/ZN (aoi21d1)                   0.074      2.016 f
+  u_bcd_core/u_core/U1991/ZN (nr02d1)                    0.174      2.190 r
+  u_bcd_core/u_core/U3381/ZN (nr02d2)                    0.052      2.242 f
+  u_bcd_core/u_core/U3383/ZN (oai22d1)                   0.191      2.434 r
+  u_bcd_core/u_core/U3385/ZN (nr02d2)                    0.062      2.496 f
+  u_bcd_core/u_core/U3386/ZN (nr02d2)                    0.105      2.601 r
+  u_bcd_core/u_core/U3388/ZN (nr02d2)                    0.046      2.647 f
+  u_bcd_core/u_core/U3389/ZN (aoi21d1)                   0.224      2.871 r
+  u_bcd_core/u_core/U3391/ZN (oan211d1)                  0.155      3.025 f
+  u_bcd_core/u_core/U3393/ZN (aon211d1)                  0.239      3.264 r
+  u_bcd_core/u_core/U3394/ZN (nd02d2)                    0.078      3.342 f
+  u_bcd_core/u_core/U804/ZN (nd12d1)                     0.112      3.454 r
+  u_bcd_core/u_core/U3396/ZN (aoi22d1)                   0.119      3.573 f
+  u_bcd_core/u_core/U3399/ZN (oan211d2)                  0.246      3.819 r
+  u_bcd_core/u_core/U3400/ZN (nr02d2)                    0.042      3.861 f
+  u_bcd_core/u_core/U3402/ZN (nr02d2)                    0.098      3.959 r
+  u_bcd_core/u_core/U3404/ZN (nr02d2)                    0.046      4.005 f
+  u_bcd_core/u_core/U2383/ZN (aoi21d1)                   0.234      4.239 r
+  u_bcd_core/u_core/U3407/ZN (nr02d2)                    0.054      4.293 f
+  u_bcd_core/u_core/U3408/ZN (aoi21d1)                   0.240      4.533 r
+  u_bcd_core/u_core/U3411/ZN (nr02d2)                    0.062      4.596 f
+  u_bcd_core/u_core/U3412/ZN (nr02d2)                    0.112      4.708 r
+  u_bcd_core/u_core/U3414/CO (cg01d1)                    0.199      4.907 r
+  u_bcd_core/u_core/U235/ZN (nd02d1)                     0.095      5.002 f
+  u_bcd_core/u_core/U3415/ZN (oai21d1)                   0.132      5.134 r
+  u_bcd_core/u_core/U1388/ZN (nd02d1)                    0.117      5.251 f
+  u_bcd_core/u_core/U3416/ZN (oai21d1)                   0.121      5.372 r
+  u_bcd_core/u_core/U1360/ZN (nd02d1)                    0.117      5.489 f
+  u_bcd_core/u_core/U3417/ZN (oai21d1)                   0.122      5.611 r
+  u_bcd_core/u_core/U1329/ZN (nr02d1)                    0.100      5.711 f
+  u_bcd_core/u_core/U3418/ZN (aoi21d1)                   0.224      5.936 r
+  u_bcd_core/u_core/U3421/ZN (nr02d2)                    0.050      5.986 f
+  u_bcd_core/u_core/U3422/ZN (aoim21d1)                  0.150      6.136 r
+  u_bcd_core/u_core/U707/Z (aoim22d1)                    0.253      6.389 r
+  u_bcd_core/u_core/U20803/CO (ad01d1)                   0.184      6.573 r
+  u_bcd_core/u_core/U1293/CO (ad01d1)                    0.164      6.737 r
+  u_bcd_core/u_core/U1286/S (ad01d1)                     0.320      7.056 f
+  u_bcd_core/u_core/U3292/ZN (inv0d1)                    0.117      7.174 r
+  u_bcd_core/u_core/U3821/ZN (oai22d2)                   0.182      7.356 f
+  u_bcd_core/u_core/U191/ZN (nd12d1)                     0.235      7.590 r
+  u_bcd_core/u_core/U298/ZN (nr02d0)                     0.091      7.681 f
+  u_bcd_core/u_core/U300/ZN (nr02d0)                     0.145      7.826 r
+  u_bcd_core/u_core/U301/ZN (inv0d0)                     0.089      7.915 f
+  u_bcd_core/u_core/U299/ZN (nr02d0)                     0.170      8.085 r
+  u_bcd_core/u_core/U296/ZN (inv0d1)                     0.120      8.205 f
+  u_bcd_core/u_core/U2044/ZN (nr02d4)                    0.253      8.458 r
+  u_bcd_core/u_core/U3824/ZN (nd02d0)                    0.163      8.622 f
+  u_bcd_core/u_core/U3888/Z (xr02d1)                     0.366      8.988 r
+  u_bcd_core/u_core/U3905/Z (or02d0)                     0.150      9.138 r
+  u_bcd_core/u_core/U3907/ZN (nd02d0)                    0.092      9.230 f
+  u_bcd_core/u_core/U2966/Z (xr03d1)                     0.229      9.459 r
+  u_bcd_core/u_core/U3984/Z (xr02d1)                     0.255      9.714 f
+  u_bcd_core/u_core/U4061/ZN (inv0d0)                    0.135      9.849 r
+  u_bcd_core/u_core/U4062/ZN (nd02d0)                    0.096      9.945 f
+  u_bcd_core/u_core/U737/ZN (nd02d1)                     0.150     10.095 r
+  u_bcd_core/u_core/U4063/ZN (nd02d0)                    0.145     10.239 f
+  u_bcd_core/u_core/U736/ZN (nd02d1)                     0.177     10.416 r
+  u_bcd_core/u_core/U4064/ZN (oai22d1)                   0.091     10.507 f
+  u_bcd_core/u_core/U4066/ZN (aon211d1)                  0.152     10.659 r
+  u_bcd_core/u_core/U4067/ZN (inv0d1)                    0.093     10.752 f
+  u_bcd_core/u_core/U1064/Z (xr03d1)                     0.227     10.979 r
+  u_bcd_core/u_core/U4211/Z (xr03d1)                     0.338     11.317 f
+  u_bcd_core/u_core/U4217/CO (cg01d1)                    0.263     11.579 f
+  u_bcd_core/u_core/U4225/ZN (oai22d1)                   0.140     11.719 r
+  u_bcd_core/u_core/U4227/ZN (aon211d2)                  0.218     11.937 f
+  u_bcd_core/u_core/U4467/CO (ad01d1)                    0.314     12.251 f
+  u_bcd_core/u_core/U4512/S (ad01d0)                     0.464     12.716 r
+  u_bcd_core/u_core/U4569/ZN (inv0d1)                    0.088     12.803 f
+  u_bcd_core/u_core/U4570/Z (aoim22d1)                   0.174     12.978 f
+  u_bcd_core/u_core/U988/Z (xr03d1)                      0.369     13.347 r
+  u_bcd_core/u_core/U4595/ZN (inv0d1)                    0.052     13.399 f
+  u_bcd_core/u_core/U4596/ZN (aoi22d1)                   0.225     13.624 r
+  u_bcd_core/u_core/U9961/S (ad01d0)                     0.306     13.930 f
+  u_bcd_core/u_core/U965/ZN (inv0d1)                     0.108     14.038 r
+  u_bcd_core/u_core/intadd_137/U2/S (ad01d1)             0.334     14.372 f
+  u_bcd_core/u_core/U726/CO (ad01d1)                     0.330     14.702 f
+  u_bcd_core/u_core/U9965/ZN (nr02d1)                    0.149     14.851 r
+  u_bcd_core/u_core/U9967/ZN (oai21d1)                   0.106     14.958 f
+  u_bcd_core/u_core/U946/CO (ad01d1)                     0.272     15.230 f
+  u_bcd_core/u_core/U944/S (ad01d1)                      0.367     15.597 f
+  u_bcd_core/u_core/U10892/ZN (inv0d0)                   0.288     15.884 r
+  u_bcd_core/u_core/U14766/CO (ad01d0)                   0.197     16.081 r
+  u_bcd_core/u_core/U14767/ZN (inv0d1)                   0.071     16.152 f
+  u_bcd_core/u_core/intadd_69/U3/CO (ad01d0)             0.320     16.473 f
+  u_bcd_core/u_core/intadd_69/U2/CO (ad01d1)             0.301     16.774 f
+  u_bcd_core/u_core/U15919/ZN (inv0d1)                   0.133     16.906 r
+  u_bcd_core/u_core/U15920/ZN (aoi21d1)                  0.107     17.013 f
+  u_bcd_core/u_core/intadd_77/U4/CO (ad01d1)             0.312     17.325 f
+  u_bcd_core/u_core/U926/CO (ad01d1)                     0.271     17.596 f
+  u_bcd_core/u_core/intadd_77/U2/CO (ad01d1)             0.297     17.893 f
+  u_bcd_core/u_core/U15975/ZN (inv0d0)                   0.254     18.147 r
+  u_bcd_core/u_core/U15976/Z (aoim22d1)                  0.226     18.374 r
+  u_bcd_core/u_core/U15977/Z (xr03d1)                    0.328     18.701 f
+  u_bcd_core/u_core/U15978/Z (xr03d1)                    0.319     19.020 r
+  u_bcd_core/u_core/U15981/Z (xr03d1)                    0.270     19.290 f
+  u_bcd_core/u_core/U15982/Z (xr03d1)                    0.319     19.609 r
+  u_bcd_core/u_core/U15983/Z (xr03d1)                    0.289     19.898 f
+  u_bcd_core/u_core/U919/Z (or02d1)                      0.204     20.102 f
+  u_bcd_core/u_core/U16006/Z (mx02d1)                    0.192     20.294 f
+  u_bcd_core/u_core/R_4/D (dfprb1)                       0.000     20.294 f
+  data arrival time                                                20.294
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/R_4/CP (dfprb1)                      0.000     20.400 r
+  library setup time                                    -0.102     20.298
+  data required time                                               20.298
+  --------------------------------------------------------------------------
+  data required time                                               20.298
+  data arrival time                                               -20.294
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.004
+
+
+  Startpoint: u_bcd_core/u_core/R_10
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/R_449
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/R_10/CP (dfprb1)                     0.000      0.800 r
+  u_bcd_core/u_core/R_10/Q (dfprb1)                      0.484      1.284 r
+  u_bcd_core/u_core/U3224/ZN (nd02d1)                    0.104      1.388 f
+  u_bcd_core/u_core/U3559/ZN (oai21d2)                   0.228      1.616 r
+  u_bcd_core/u_core/U3560/ZN (nd03d2)                    0.084      1.700 f
+  u_bcd_core/u_core/U3561/ZN (aon211d1)                  0.134      1.834 r
+  u_bcd_core/u_core/U3562/ZN (nd02d2)                    0.087      1.921 f
+  u_bcd_core/u_core/U3564/ZN (nd02d2)                    0.093      2.014 r
+  u_bcd_core/u_core/U3565/ZN (oai21d1)                   0.068      2.083 f
+  u_bcd_core/u_core/U3568/ZN (aon211d2)                  0.294      2.377 r
+  u_bcd_core/u_core/U3569/ZN (oai222d1)                  0.139      2.516 f
+  u_bcd_core/u_core/U3571/CO (cg01d1)                    0.217      2.733 f
+  u_bcd_core/u_core/U3572/ZN (inv0d2)                    0.067      2.800 r
+  u_bcd_core/u_core/U3573/ZN (nr02d2)                    0.041      2.841 f
+  u_bcd_core/u_core/U1577/ZN (oai21d1)                   0.255      3.097 r
+  u_bcd_core/u_core/U3575/CO (cg01d1)                    0.196      3.293 r
+  u_bcd_core/u_core/U1568/ZN (inv0d1)                    0.073      3.366 f
+  u_bcd_core/u_core/U3577/CO (cg01d1)                    0.234      3.600 f
+  u_bcd_core/u_core/U3581/ZN (nd02d2)                    0.100      3.699 r
+  u_bcd_core/u_core/U243/ZN (nd02d1)                     0.070      3.770 f
+  u_bcd_core/u_core/U802/ZN (nd12d1)                     0.095      3.864 r
+  u_bcd_core/u_core/U4598/ZN (oaim22d1)                  0.088      3.952 f
+  u_bcd_core/u_core/U20815/CO (ad01d1)                   0.274      4.226 f
+  u_bcd_core/u_core/U1501/CO (ad01d1)                    0.289      4.515 f
+  u_bcd_core/u_core/U3498/CO (cg01d1)                    0.189      4.704 f
+  u_bcd_core/u_core/U1477/ZN (inv0d2)                    0.063      4.767 r
+  u_bcd_core/u_core/U3500/CO (cg01d1)                    0.189      4.955 r
+  u_bcd_core/u_core/U3504/CO (ad01d2)                    0.211      5.167 r
+  u_bcd_core/u_core/U3513/ZN (aoi22d1)                   0.069      5.236 f
+  u_bcd_core/u_core/U3514/ZN (oai21d1)                   0.094      5.330 r
+  u_bcd_core/u_core/U3515/ZN (oai21d1)                   0.132      5.462 f
+  u_bcd_core/u_core/U3524/ZN (oai222d1)                  0.352      5.814 r
+  u_bcd_core/u_core/U3712/ZN (aoi22d1)                   0.098      5.912 f
+  u_bcd_core/u_core/U3713/ZN (oai21d1)                   0.097      6.009 r
+  u_bcd_core/u_core/U3714/ZN (oai21d1)                   0.082      6.091 f
+  u_bcd_core/u_core/U3087/ZN (inv0d1)                    0.132      6.223 r
+  u_bcd_core/u_core/U6171/Z (aoim22d2)                   0.125      6.348 r
+  u_bcd_core/u_core/U6172/ZN (aoi22d1)                   0.078      6.426 f
+  u_bcd_core/u_core/U6178/CO (ad01d1)                    0.287      6.713 f
+  u_bcd_core/u_core/U6180/Z (or02d1)                     0.221      6.934 f
+  u_bcd_core/u_core/U6181/ZN (nd03d0)                    0.152      7.085 r
+  u_bcd_core/u_core/U6182/ZN (aon211d1)                  0.118      7.204 f
+  u_bcd_core/u_core/U6183/Z (mx02d1)                     0.263      7.467 r
+  u_bcd_core/u_core/U6195/Z (mx02d1)                     0.265      7.732 r
+  u_bcd_core/u_core/U204/ZN (xn02d2)                     0.339      8.070 r
+  u_bcd_core/u_core/U1268/Z (bufbd4)                     0.298      8.368 r
+  u_bcd_core/u_core/U1252/ZN (oai22d2)                   0.219      8.587 f
+  u_bcd_core/u_core/U1243/ZN (inv0d2)                    0.073      8.661 r
+  u_bcd_core/u_core/U6199/ZN (nr02d7)                    0.306      8.966 f
+  u_bcd_core/u_core/U7528/ZN (inv0d1)                    0.140      9.106 r
+  u_bcd_core/u_core/U10150/ZN (oai222d2)                 0.269      9.375 f
+  u_bcd_core/u_core/U669/ZN (inv0d0)                     0.242      9.617 r
+  u_bcd_core/u_core/U14601/ZN (nd04d1)                   0.140      9.757 f
+  u_bcd_core/u_core/U14928/ZN (oai21d1)                  0.152      9.910 r
+  u_bcd_core/u_core/intadd_87/U4/S (ad01d1)              0.363     10.272 f
+  u_bcd_core/u_core/U10135/ZN (inv0d0)                   0.156     10.428 r
+  u_bcd_core/u_core/U10136/Z (mx02d1)                    0.215     10.643 r
+  u_bcd_core/u_core/U10137/ZN (inv0d2)                   0.082     10.725 f
+  u_bcd_core/u_core/U10208/ZN (nr02d2)                   0.097     10.822 r
+  u_bcd_core/u_core/U127/ZN (nr02d1)                     0.087     10.910 f
+  u_bcd_core/u_core/U10209/ZN (inv0d0)                   0.271     11.181 r
+  u_bcd_core/u_core/U10218/ZN (oai21d1)                  0.127     11.308 f
+  u_bcd_core/u_core/U10242/S (ad01d0)                    0.367     11.676 r
+  u_bcd_core/u_core/U10243/ZN (inv0d1)                   0.072     11.748 f
+  u_bcd_core/u_core/U10464/CO (ad01d0)                   0.346     12.093 f
+  u_bcd_core/u_core/U10290/ZN (inv0d0)                   0.278     12.371 r
+  u_bcd_core/u_core/U10291/ZN (oai222d2)                 0.307     12.679 f
+  u_bcd_core/u_core/U10453/Z (aoim22d1)                  0.153     12.831 f
+  u_bcd_core/u_core/U10454/Z (xr03d1)                    0.351     13.183 f
+  u_bcd_core/u_core/U10538/S (ad01d0)                    0.426     13.609 r
+  u_bcd_core/u_core/U729/S (ad01d1)                      0.379     13.988 f
+  u_bcd_core/u_core/U10808/Z (or02d1)                    0.202     14.190 f
+  u_bcd_core/u_core/U10811/ZN (aon211d1)                 0.218     14.407 r
+  u_bcd_core/u_core/U10812/Z (mx02d2)                    0.300     14.708 r
+  u_bcd_core/u_core/U10813/Z (mx02d1)                    0.214     14.922 f
+  u_bcd_core/u_core/U10815/ZN (nr02d0)                   0.222     15.144 r
+  u_bcd_core/u_core/U15032/ZN (inv0d0)                   0.177     15.321 f
+  u_bcd_core/u_core/U15033/ZN (nd03d1)                   0.120     15.442 r
+  u_bcd_core/u_core/U15034/ZN (aon211d1)                 0.160     15.601 f
+  u_bcd_core/u_core/U15037/ZN (nd03d1)                   0.130     15.732 r
+  u_bcd_core/u_core/U15038/ZN (aon211d1)                 0.147     15.879 f
+  u_bcd_core/u_core/U20820/CO (ad01d0)                   0.348     16.227 f
+  u_bcd_core/u_core/U942/CO (ad01d2)                     0.290     16.516 f
+  u_bcd_core/u_core/U10831/ZN (nd02d0)                   0.095     16.611 r
+  u_bcd_core/u_core/U10832/ZN (nd03d1)                   0.140     16.751 f
+  u_bcd_core/u_core/U14579/ZN (nd12d1)                   0.091     16.842 r
+  u_bcd_core/u_core/U14580/ZN (nd03d1)                   0.109     16.951 f
+  u_bcd_core/u_core/U933/CO (ad01d1)                     0.277     17.228 f
+  u_bcd_core/u_core/intadd_48/U2/CO (ad01d0)             0.246     17.474 f
+  u_bcd_core/u_core/U929/ZN (inv0d1)                     0.109     17.583 r
+  u_bcd_core/u_core/U928/CO (ad01d1)                     0.173     17.756 r
+  u_bcd_core/u_core/intadd_52/U5/CO (ad01d1)             0.164     17.920 r
+  u_bcd_core/u_core/intadd_52/U4/CO (ad01d0)             0.214     18.134 r
+  u_bcd_core/u_core/intadd_52/U3/CO (ad01d1)             0.181     18.315 r
+  u_bcd_core/u_core/U20804/CO (ad01d1)                   0.137     18.451 r
+  u_bcd_core/u_core/U14764/ZN (inv0d1)                   0.062     18.514 f
+  u_bcd_core/u_core/U921/CO (ad01d1)                     0.302     18.816 f
+  u_bcd_core/u_core/intadd_72/U2/CO (ad01d0)             0.246     19.062 f
+  u_bcd_core/u_core/U14728/Z (xr03d1)                    0.190     19.252 f
+  u_bcd_core/u_core/U14729/ZN (nd03d1)                   0.105     19.357 r
+  u_bcd_core/u_core/U14730/ZN (aon211d1)                 0.095     19.452 f
+  u_bcd_core/u_core/U14751/Z (xr03d1)                    0.193     19.644 r
+  u_bcd_core/u_core/U14756/Z (xr03d2)                    0.294     19.938 f
+  u_bcd_core/u_core/U14758/ZN (aon211d1)                 0.152     20.090 r
+  u_bcd_core/u_core/U14759/Z (mx02d1)                    0.204     20.294 f
+  u_bcd_core/u_core/R_449/D (dfprb1)                     0.000     20.294 f
+  data arrival time                                                20.294
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/R_449/CP (dfprb1)                    0.000     20.400 r
+  library setup time                                    -0.102     20.298
+  data required time                                               20.298
+  --------------------------------------------------------------------------
+  data required time                                               20.298
+  data arrival time                                               -20.294
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.004
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/R_425
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/u_dfg/reg_file_reg[16][31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/R_425/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/R_425/Q (dfcrq1)               0.462      1.262 r
+  u_bcd_core/u_core/u_dfg/U443/ZN (inv0d1)               0.100      1.362 f
+  u_bcd_core/u_core/u_dfg/U882/ZN (inv0d1)               0.338      1.700 r
+  u_bcd_core/u_core/u_dfg/U1858/ZN (aoi22d1)             0.130      1.830 f
+  u_bcd_core/u_core/u_dfg/U32/ZN (nd04d0)                0.167      1.997 r
+  u_bcd_core/u_core/u_dfg/U1859/ZN (nr04d1)              0.065      2.062 f
+  u_bcd_core/u_core/u_dfg/U514/ZN (nd02d1)               0.205      2.267 r
+  u_bcd_core/u_core/u_dfg/U1908/ZN (inv0d1)              0.139      2.405 f
+  u_bcd_core/u_core/u_dfg/U1923/ZN (nd03d1)              0.227      2.632 r
+  u_bcd_core/u_core/u_dfg/U1968/ZN (nr02d4)              0.299      2.931 f
+  u_bcd_core/u_core/u_dfg/U1969/ZN (inv0d0)              0.248      3.179 r
+  u_bcd_core/u_core/u_dfg/U1970/ZN (inv0d1)              0.250      3.429 f
+  u_bcd_core/u_core/u_dfg/U2028/ZN (aoi22d1)             0.188      3.617 r
+  u_bcd_core/u_core/u_dfg/U2029/ZN (nd04d1)              0.106      3.723 f
+  u_bcd_core/u_core/u_dfg/U2030/Z (or04d1)               0.426      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/src_a[2] (q16_alu)       0.000      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/U390/ZN (inv0d2)         0.307      4.456 r
+  u_bcd_core/u_core/u_dfg/u_alu/U392/ZN (inv0d2)         0.204      4.659 f
+  u_bcd_core/u_core/u_dfg/u_alu/U393/ZN (oai22d2)        0.328      4.987 r
+  u_bcd_core/u_core/u_dfg/u_alu/U394/ZN (inv0d0)         0.111      5.098 f
+  u_bcd_core/u_core/u_dfg/u_alu/U395/ZN (nd02d1)         0.304      5.402 r
+  u_bcd_core/u_core/u_dfg/u_alu/U396/ZN (nr02d1)         0.197      5.599 f
+  u_bcd_core/u_core/u_dfg/u_alu/U397/ZN (inv0d1)         0.234      5.833 r
+  u_bcd_core/u_core/u_dfg/u_alu/U293/Z (buffd3)          0.336      6.169 r
+  u_bcd_core/u_core/u_dfg/u_alu/U982/ZN (oai22d1)        0.105      6.274 f
+  u_bcd_core/u_core/u_dfg/u_alu/U986/ZN (aoi211d1)       0.323      6.597 r
+  u_bcd_core/u_core/u_dfg/u_alu/U989/ZN (nd12d0)         0.229      6.826 r
+  u_bcd_core/u_core/u_dfg/u_alu/U996/ZN (oaim21d1)       0.241      7.067 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1003/ZN (oai222d1)      0.150      7.217 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1010/ZN (nr02d0)        0.216      7.432 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1013/ZN (aoim21d1)      0.197      7.629 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1113/CO (ad01d0)        0.304      7.933 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1018/ZN (oai222d1)      0.156      8.089 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1025/ZN (nr02d0)        0.208      8.297 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1027/ZN (aoim21d1)      0.197      8.494 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1137/CO (ad01d0)        0.304      8.798 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1032/ZN (oai222d1)      0.156      8.954 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1039/ZN (nr02d0)        0.208      9.162 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1558/ZN (aoim21d1)      0.197      9.359 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U19/CO (ad01d0)
+                                                         0.224      9.583 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U18/S (ad01d1)
+                                                         0.321      9.904 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1188/CO (cg01d1)        0.235     10.138 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1192/CO (cg01d0)        0.225     10.364 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1207/CO (ad01d0)        0.345     10.709 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1218/CO (cg01d1)        0.222     10.931 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1222/CO (cg01d0)        0.225     11.156 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1236/CO (ad01d0)        0.346     11.502 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1247/CO (cg01d0)        0.233     11.735 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1251/CO (cg01d0)        0.234     11.969 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1265/CO (ad01d0)        0.345     12.315 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1269/CO (cg01d1)        0.221     12.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U111/CO (cg01d0)         0.225     12.761 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1292/CO (ad01d0)        0.345     13.107 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1296/CO (cg01d1)        0.221     13.328 f
+  u_bcd_core/u_core/u_dfg/u_alu/U110/CO (cg01d0)         0.225     13.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U75/CO (ad01d1)          0.325     13.878 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1328/CO (cg01d1)        0.222     14.100 f
+  u_bcd_core/u_core/u_dfg/u_alu/U109/CO (cg01d1)         0.208     14.307 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1341/CO (cg01d1)        0.238     14.545 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1366/CO (cg01d1)        0.234     14.779 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1372/CO (cg01d1)        0.218     14.997 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1376/CO (ad01d1)        0.308     15.304 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1393/ZN (oai222d2)      0.309     15.614 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1399/ZN (oai222d2)      0.240     15.854 f
+  u_bcd_core/u_core/u_dfg/u_alu/U10/CO (ad01d1)          0.300     16.154 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1420/ZN (oai222d2)      0.309     16.463 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1426/ZN (oai222d2)      0.240     16.703 f
+  u_bcd_core/u_core/u_dfg/u_alu/U9/CO (ad01d1)           0.300     17.003 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1445/ZN (oai222d2)      0.309     17.313 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1453/ZN (oai222d2)      0.240     17.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U8/CO (ad01d1)           0.318     17.871 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1489/CO (cg01d1)        0.198     18.069 f
+  u_bcd_core/u_core/u_dfg/u_alu/U7/Z (xr03d1)            0.159     18.228 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1491/Z (xr03d1)         0.308     18.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1492/Z (xr03d1)         0.303     18.839 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1493/Z (xr03d1)         0.308     19.147 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1494/Z (xr03d1)         0.298     19.444 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1502/ZN (oaim21d1)      0.113     19.557 f
+  u_bcd_core/u_core/u_dfg/u_alu/result[31] (q16_alu)     0.000     19.557 f
+  u_bcd_core/u_core/u_dfg/U1646/ZN (aoi22d1)             0.147     19.704 r
+  u_bcd_core/u_core/u_dfg/U6/Z (bufbd4)                  0.254     19.959 r
+  u_bcd_core/u_core/u_dfg/U60/ZN (invbd2)                0.225     20.184 f
+  u_bcd_core/u_core/u_dfg/reg_file_reg[16][31]/D (dfcrq1)
+                                                         0.000     20.184 f
+  data arrival time                                                20.184
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/u_dfg/reg_file_reg[16][31]/CP (dfcrq1)
+                                                         0.000     20.400 r
+  library setup time                                    -0.126     20.274
+  data required time                                               20.274
+  --------------------------------------------------------------------------
+  data required time                                               20.274
+  data arrival time                                               -20.184
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.090
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/R_425
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/u_dfg/reg_file_reg[17][31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/R_425/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/R_425/Q (dfcrq1)               0.462      1.262 r
+  u_bcd_core/u_core/u_dfg/U443/ZN (inv0d1)               0.100      1.362 f
+  u_bcd_core/u_core/u_dfg/U882/ZN (inv0d1)               0.338      1.700 r
+  u_bcd_core/u_core/u_dfg/U1858/ZN (aoi22d1)             0.130      1.830 f
+  u_bcd_core/u_core/u_dfg/U32/ZN (nd04d0)                0.167      1.997 r
+  u_bcd_core/u_core/u_dfg/U1859/ZN (nr04d1)              0.065      2.062 f
+  u_bcd_core/u_core/u_dfg/U514/ZN (nd02d1)               0.205      2.267 r
+  u_bcd_core/u_core/u_dfg/U1908/ZN (inv0d1)              0.139      2.405 f
+  u_bcd_core/u_core/u_dfg/U1923/ZN (nd03d1)              0.227      2.632 r
+  u_bcd_core/u_core/u_dfg/U1968/ZN (nr02d4)              0.299      2.931 f
+  u_bcd_core/u_core/u_dfg/U1969/ZN (inv0d0)              0.248      3.179 r
+  u_bcd_core/u_core/u_dfg/U1970/ZN (inv0d1)              0.250      3.429 f
+  u_bcd_core/u_core/u_dfg/U2028/ZN (aoi22d1)             0.188      3.617 r
+  u_bcd_core/u_core/u_dfg/U2029/ZN (nd04d1)              0.106      3.723 f
+  u_bcd_core/u_core/u_dfg/U2030/Z (or04d1)               0.426      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/src_a[2] (q16_alu)       0.000      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/U390/ZN (inv0d2)         0.307      4.456 r
+  u_bcd_core/u_core/u_dfg/u_alu/U392/ZN (inv0d2)         0.204      4.659 f
+  u_bcd_core/u_core/u_dfg/u_alu/U393/ZN (oai22d2)        0.328      4.987 r
+  u_bcd_core/u_core/u_dfg/u_alu/U394/ZN (inv0d0)         0.111      5.098 f
+  u_bcd_core/u_core/u_dfg/u_alu/U395/ZN (nd02d1)         0.304      5.402 r
+  u_bcd_core/u_core/u_dfg/u_alu/U396/ZN (nr02d1)         0.197      5.599 f
+  u_bcd_core/u_core/u_dfg/u_alu/U397/ZN (inv0d1)         0.234      5.833 r
+  u_bcd_core/u_core/u_dfg/u_alu/U293/Z (buffd3)          0.336      6.169 r
+  u_bcd_core/u_core/u_dfg/u_alu/U982/ZN (oai22d1)        0.105      6.274 f
+  u_bcd_core/u_core/u_dfg/u_alu/U986/ZN (aoi211d1)       0.323      6.597 r
+  u_bcd_core/u_core/u_dfg/u_alu/U989/ZN (nd12d0)         0.229      6.826 r
+  u_bcd_core/u_core/u_dfg/u_alu/U996/ZN (oaim21d1)       0.241      7.067 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1003/ZN (oai222d1)      0.150      7.217 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1010/ZN (nr02d0)        0.216      7.432 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1013/ZN (aoim21d1)      0.197      7.629 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1113/CO (ad01d0)        0.304      7.933 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1018/ZN (oai222d1)      0.156      8.089 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1025/ZN (nr02d0)        0.208      8.297 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1027/ZN (aoim21d1)      0.197      8.494 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1137/CO (ad01d0)        0.304      8.798 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1032/ZN (oai222d1)      0.156      8.954 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1039/ZN (nr02d0)        0.208      9.162 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1558/ZN (aoim21d1)      0.197      9.359 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U19/CO (ad01d0)
+                                                         0.224      9.583 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U18/S (ad01d1)
+                                                         0.321      9.904 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1188/CO (cg01d1)        0.235     10.138 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1192/CO (cg01d0)        0.225     10.364 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1207/CO (ad01d0)        0.345     10.709 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1218/CO (cg01d1)        0.222     10.931 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1222/CO (cg01d0)        0.225     11.156 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1236/CO (ad01d0)        0.346     11.502 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1247/CO (cg01d0)        0.233     11.735 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1251/CO (cg01d0)        0.234     11.969 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1265/CO (ad01d0)        0.345     12.315 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1269/CO (cg01d1)        0.221     12.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U111/CO (cg01d0)         0.225     12.761 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1292/CO (ad01d0)        0.345     13.107 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1296/CO (cg01d1)        0.221     13.328 f
+  u_bcd_core/u_core/u_dfg/u_alu/U110/CO (cg01d0)         0.225     13.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U75/CO (ad01d1)          0.325     13.878 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1328/CO (cg01d1)        0.222     14.100 f
+  u_bcd_core/u_core/u_dfg/u_alu/U109/CO (cg01d1)         0.208     14.307 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1341/CO (cg01d1)        0.238     14.545 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1366/CO (cg01d1)        0.234     14.779 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1372/CO (cg01d1)        0.218     14.997 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1376/CO (ad01d1)        0.308     15.304 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1393/ZN (oai222d2)      0.309     15.614 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1399/ZN (oai222d2)      0.240     15.854 f
+  u_bcd_core/u_core/u_dfg/u_alu/U10/CO (ad01d1)          0.300     16.154 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1420/ZN (oai222d2)      0.309     16.463 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1426/ZN (oai222d2)      0.240     16.703 f
+  u_bcd_core/u_core/u_dfg/u_alu/U9/CO (ad01d1)           0.300     17.003 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1445/ZN (oai222d2)      0.309     17.313 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1453/ZN (oai222d2)      0.240     17.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U8/CO (ad01d1)           0.318     17.871 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1489/CO (cg01d1)        0.198     18.069 f
+  u_bcd_core/u_core/u_dfg/u_alu/U7/Z (xr03d1)            0.159     18.228 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1491/Z (xr03d1)         0.308     18.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1492/Z (xr03d1)         0.303     18.839 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1493/Z (xr03d1)         0.308     19.147 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1494/Z (xr03d1)         0.298     19.444 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1502/ZN (oaim21d1)      0.113     19.557 f
+  u_bcd_core/u_core/u_dfg/u_alu/result[31] (q16_alu)     0.000     19.557 f
+  u_bcd_core/u_core/u_dfg/U1646/ZN (aoi22d1)             0.147     19.704 r
+  u_bcd_core/u_core/u_dfg/U6/Z (bufbd4)                  0.254     19.959 r
+  u_bcd_core/u_core/u_dfg/U60/ZN (invbd2)                0.225     20.184 f
+  u_bcd_core/u_core/u_dfg/reg_file_reg[17][31]/D (dfcrq1)
+                                                         0.000     20.184 f
+  data arrival time                                                20.184
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/u_dfg/reg_file_reg[17][31]/CP (dfcrq1)
+                                                         0.000     20.400 r
+  library setup time                                    -0.126     20.274
+  data required time                                               20.274
+  --------------------------------------------------------------------------
+  data required time                                               20.274
+  data arrival time                                               -20.184
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.090
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/R_425
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/u_dfg/reg_file_reg[18][31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/R_425/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/R_425/Q (dfcrq1)               0.462      1.262 r
+  u_bcd_core/u_core/u_dfg/U443/ZN (inv0d1)               0.100      1.362 f
+  u_bcd_core/u_core/u_dfg/U882/ZN (inv0d1)               0.338      1.700 r
+  u_bcd_core/u_core/u_dfg/U1858/ZN (aoi22d1)             0.130      1.830 f
+  u_bcd_core/u_core/u_dfg/U32/ZN (nd04d0)                0.167      1.997 r
+  u_bcd_core/u_core/u_dfg/U1859/ZN (nr04d1)              0.065      2.062 f
+  u_bcd_core/u_core/u_dfg/U514/ZN (nd02d1)               0.205      2.267 r
+  u_bcd_core/u_core/u_dfg/U1908/ZN (inv0d1)              0.139      2.405 f
+  u_bcd_core/u_core/u_dfg/U1923/ZN (nd03d1)              0.227      2.632 r
+  u_bcd_core/u_core/u_dfg/U1968/ZN (nr02d4)              0.299      2.931 f
+  u_bcd_core/u_core/u_dfg/U1969/ZN (inv0d0)              0.248      3.179 r
+  u_bcd_core/u_core/u_dfg/U1970/ZN (inv0d1)              0.250      3.429 f
+  u_bcd_core/u_core/u_dfg/U2028/ZN (aoi22d1)             0.188      3.617 r
+  u_bcd_core/u_core/u_dfg/U2029/ZN (nd04d1)              0.106      3.723 f
+  u_bcd_core/u_core/u_dfg/U2030/Z (or04d1)               0.426      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/src_a[2] (q16_alu)       0.000      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/U390/ZN (inv0d2)         0.307      4.456 r
+  u_bcd_core/u_core/u_dfg/u_alu/U392/ZN (inv0d2)         0.204      4.659 f
+  u_bcd_core/u_core/u_dfg/u_alu/U393/ZN (oai22d2)        0.328      4.987 r
+  u_bcd_core/u_core/u_dfg/u_alu/U394/ZN (inv0d0)         0.111      5.098 f
+  u_bcd_core/u_core/u_dfg/u_alu/U395/ZN (nd02d1)         0.304      5.402 r
+  u_bcd_core/u_core/u_dfg/u_alu/U396/ZN (nr02d1)         0.197      5.599 f
+  u_bcd_core/u_core/u_dfg/u_alu/U397/ZN (inv0d1)         0.234      5.833 r
+  u_bcd_core/u_core/u_dfg/u_alu/U293/Z (buffd3)          0.336      6.169 r
+  u_bcd_core/u_core/u_dfg/u_alu/U982/ZN (oai22d1)        0.105      6.274 f
+  u_bcd_core/u_core/u_dfg/u_alu/U986/ZN (aoi211d1)       0.323      6.597 r
+  u_bcd_core/u_core/u_dfg/u_alu/U989/ZN (nd12d0)         0.229      6.826 r
+  u_bcd_core/u_core/u_dfg/u_alu/U996/ZN (oaim21d1)       0.241      7.067 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1003/ZN (oai222d1)      0.150      7.217 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1010/ZN (nr02d0)        0.216      7.432 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1013/ZN (aoim21d1)      0.197      7.629 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1113/CO (ad01d0)        0.304      7.933 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1018/ZN (oai222d1)      0.156      8.089 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1025/ZN (nr02d0)        0.208      8.297 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1027/ZN (aoim21d1)      0.197      8.494 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1137/CO (ad01d0)        0.304      8.798 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1032/ZN (oai222d1)      0.156      8.954 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1039/ZN (nr02d0)        0.208      9.162 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1558/ZN (aoim21d1)      0.197      9.359 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U19/CO (ad01d0)
+                                                         0.224      9.583 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U18/S (ad01d1)
+                                                         0.321      9.904 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1188/CO (cg01d1)        0.235     10.138 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1192/CO (cg01d0)        0.225     10.364 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1207/CO (ad01d0)        0.345     10.709 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1218/CO (cg01d1)        0.222     10.931 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1222/CO (cg01d0)        0.225     11.156 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1236/CO (ad01d0)        0.346     11.502 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1247/CO (cg01d0)        0.233     11.735 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1251/CO (cg01d0)        0.234     11.969 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1265/CO (ad01d0)        0.345     12.315 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1269/CO (cg01d1)        0.221     12.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U111/CO (cg01d0)         0.225     12.761 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1292/CO (ad01d0)        0.345     13.107 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1296/CO (cg01d1)        0.221     13.328 f
+  u_bcd_core/u_core/u_dfg/u_alu/U110/CO (cg01d0)         0.225     13.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U75/CO (ad01d1)          0.325     13.878 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1328/CO (cg01d1)        0.222     14.100 f
+  u_bcd_core/u_core/u_dfg/u_alu/U109/CO (cg01d1)         0.208     14.307 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1341/CO (cg01d1)        0.238     14.545 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1366/CO (cg01d1)        0.234     14.779 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1372/CO (cg01d1)        0.218     14.997 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1376/CO (ad01d1)        0.308     15.304 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1393/ZN (oai222d2)      0.309     15.614 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1399/ZN (oai222d2)      0.240     15.854 f
+  u_bcd_core/u_core/u_dfg/u_alu/U10/CO (ad01d1)          0.300     16.154 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1420/ZN (oai222d2)      0.309     16.463 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1426/ZN (oai222d2)      0.240     16.703 f
+  u_bcd_core/u_core/u_dfg/u_alu/U9/CO (ad01d1)           0.300     17.003 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1445/ZN (oai222d2)      0.309     17.313 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1453/ZN (oai222d2)      0.240     17.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U8/CO (ad01d1)           0.318     17.871 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1489/CO (cg01d1)        0.198     18.069 f
+  u_bcd_core/u_core/u_dfg/u_alu/U7/Z (xr03d1)            0.159     18.228 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1491/Z (xr03d1)         0.308     18.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1492/Z (xr03d1)         0.303     18.839 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1493/Z (xr03d1)         0.308     19.147 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1494/Z (xr03d1)         0.298     19.444 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1502/ZN (oaim21d1)      0.113     19.557 f
+  u_bcd_core/u_core/u_dfg/u_alu/result[31] (q16_alu)     0.000     19.557 f
+  u_bcd_core/u_core/u_dfg/U1646/ZN (aoi22d1)             0.147     19.704 r
+  u_bcd_core/u_core/u_dfg/U6/Z (bufbd4)                  0.254     19.959 r
+  u_bcd_core/u_core/u_dfg/U60/ZN (invbd2)                0.225     20.184 f
+  u_bcd_core/u_core/u_dfg/reg_file_reg[18][31]/D (dfcrq1)
+                                                         0.000     20.184 f
+  data arrival time                                                20.184
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/u_dfg/reg_file_reg[18][31]/CP (dfcrq1)
+                                                         0.000     20.400 r
+  library setup time                                    -0.126     20.274
+  data required time                                               20.274
+  --------------------------------------------------------------------------
+  data required time                                               20.274
+  data arrival time                                               -20.184
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.090
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/R_425
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/u_dfg/reg_file_reg[19][31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/R_425/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/R_425/Q (dfcrq1)               0.462      1.262 r
+  u_bcd_core/u_core/u_dfg/U443/ZN (inv0d1)               0.100      1.362 f
+  u_bcd_core/u_core/u_dfg/U882/ZN (inv0d1)               0.338      1.700 r
+  u_bcd_core/u_core/u_dfg/U1858/ZN (aoi22d1)             0.130      1.830 f
+  u_bcd_core/u_core/u_dfg/U32/ZN (nd04d0)                0.167      1.997 r
+  u_bcd_core/u_core/u_dfg/U1859/ZN (nr04d1)              0.065      2.062 f
+  u_bcd_core/u_core/u_dfg/U514/ZN (nd02d1)               0.205      2.267 r
+  u_bcd_core/u_core/u_dfg/U1908/ZN (inv0d1)              0.139      2.405 f
+  u_bcd_core/u_core/u_dfg/U1923/ZN (nd03d1)              0.227      2.632 r
+  u_bcd_core/u_core/u_dfg/U1968/ZN (nr02d4)              0.299      2.931 f
+  u_bcd_core/u_core/u_dfg/U1969/ZN (inv0d0)              0.248      3.179 r
+  u_bcd_core/u_core/u_dfg/U1970/ZN (inv0d1)              0.250      3.429 f
+  u_bcd_core/u_core/u_dfg/U2028/ZN (aoi22d1)             0.188      3.617 r
+  u_bcd_core/u_core/u_dfg/U2029/ZN (nd04d1)              0.106      3.723 f
+  u_bcd_core/u_core/u_dfg/U2030/Z (or04d1)               0.426      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/src_a[2] (q16_alu)       0.000      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/U390/ZN (inv0d2)         0.307      4.456 r
+  u_bcd_core/u_core/u_dfg/u_alu/U392/ZN (inv0d2)         0.204      4.659 f
+  u_bcd_core/u_core/u_dfg/u_alu/U393/ZN (oai22d2)        0.328      4.987 r
+  u_bcd_core/u_core/u_dfg/u_alu/U394/ZN (inv0d0)         0.111      5.098 f
+  u_bcd_core/u_core/u_dfg/u_alu/U395/ZN (nd02d1)         0.304      5.402 r
+  u_bcd_core/u_core/u_dfg/u_alu/U396/ZN (nr02d1)         0.197      5.599 f
+  u_bcd_core/u_core/u_dfg/u_alu/U397/ZN (inv0d1)         0.234      5.833 r
+  u_bcd_core/u_core/u_dfg/u_alu/U293/Z (buffd3)          0.336      6.169 r
+  u_bcd_core/u_core/u_dfg/u_alu/U982/ZN (oai22d1)        0.105      6.274 f
+  u_bcd_core/u_core/u_dfg/u_alu/U986/ZN (aoi211d1)       0.323      6.597 r
+  u_bcd_core/u_core/u_dfg/u_alu/U989/ZN (nd12d0)         0.229      6.826 r
+  u_bcd_core/u_core/u_dfg/u_alu/U996/ZN (oaim21d1)       0.241      7.067 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1003/ZN (oai222d1)      0.150      7.217 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1010/ZN (nr02d0)        0.216      7.432 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1013/ZN (aoim21d1)      0.197      7.629 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1113/CO (ad01d0)        0.304      7.933 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1018/ZN (oai222d1)      0.156      8.089 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1025/ZN (nr02d0)        0.208      8.297 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1027/ZN (aoim21d1)      0.197      8.494 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1137/CO (ad01d0)        0.304      8.798 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1032/ZN (oai222d1)      0.156      8.954 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1039/ZN (nr02d0)        0.208      9.162 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1558/ZN (aoim21d1)      0.197      9.359 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U19/CO (ad01d0)
+                                                         0.224      9.583 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U18/S (ad01d1)
+                                                         0.321      9.904 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1188/CO (cg01d1)        0.235     10.138 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1192/CO (cg01d0)        0.225     10.364 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1207/CO (ad01d0)        0.345     10.709 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1218/CO (cg01d1)        0.222     10.931 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1222/CO (cg01d0)        0.225     11.156 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1236/CO (ad01d0)        0.346     11.502 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1247/CO (cg01d0)        0.233     11.735 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1251/CO (cg01d0)        0.234     11.969 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1265/CO (ad01d0)        0.345     12.315 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1269/CO (cg01d1)        0.221     12.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U111/CO (cg01d0)         0.225     12.761 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1292/CO (ad01d0)        0.345     13.107 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1296/CO (cg01d1)        0.221     13.328 f
+  u_bcd_core/u_core/u_dfg/u_alu/U110/CO (cg01d0)         0.225     13.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U75/CO (ad01d1)          0.325     13.878 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1328/CO (cg01d1)        0.222     14.100 f
+  u_bcd_core/u_core/u_dfg/u_alu/U109/CO (cg01d1)         0.208     14.307 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1341/CO (cg01d1)        0.238     14.545 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1366/CO (cg01d1)        0.234     14.779 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1372/CO (cg01d1)        0.218     14.997 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1376/CO (ad01d1)        0.308     15.304 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1393/ZN (oai222d2)      0.309     15.614 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1399/ZN (oai222d2)      0.240     15.854 f
+  u_bcd_core/u_core/u_dfg/u_alu/U10/CO (ad01d1)          0.300     16.154 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1420/ZN (oai222d2)      0.309     16.463 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1426/ZN (oai222d2)      0.240     16.703 f
+  u_bcd_core/u_core/u_dfg/u_alu/U9/CO (ad01d1)           0.300     17.003 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1445/ZN (oai222d2)      0.309     17.313 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1453/ZN (oai222d2)      0.240     17.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U8/CO (ad01d1)           0.318     17.871 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1489/CO (cg01d1)        0.198     18.069 f
+  u_bcd_core/u_core/u_dfg/u_alu/U7/Z (xr03d1)            0.159     18.228 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1491/Z (xr03d1)         0.308     18.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1492/Z (xr03d1)         0.303     18.839 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1493/Z (xr03d1)         0.308     19.147 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1494/Z (xr03d1)         0.298     19.444 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1502/ZN (oaim21d1)      0.113     19.557 f
+  u_bcd_core/u_core/u_dfg/u_alu/result[31] (q16_alu)     0.000     19.557 f
+  u_bcd_core/u_core/u_dfg/U1646/ZN (aoi22d1)             0.147     19.704 r
+  u_bcd_core/u_core/u_dfg/U6/Z (bufbd4)                  0.254     19.959 r
+  u_bcd_core/u_core/u_dfg/U60/ZN (invbd2)                0.225     20.184 f
+  u_bcd_core/u_core/u_dfg/reg_file_reg[19][31]/D (dfcrq1)
+                                                         0.000     20.184 f
+  data arrival time                                                20.184
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/u_dfg/reg_file_reg[19][31]/CP (dfcrq1)
+                                                         0.000     20.400 r
+  library setup time                                    -0.126     20.274
+  data required time                                               20.274
+  --------------------------------------------------------------------------
+  data required time                                               20.274
+  data arrival time                                               -20.184
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.090
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/R_425
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/u_dfg/reg_file_reg[20][31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/R_425/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/R_425/Q (dfcrq1)               0.462      1.262 r
+  u_bcd_core/u_core/u_dfg/U443/ZN (inv0d1)               0.100      1.362 f
+  u_bcd_core/u_core/u_dfg/U882/ZN (inv0d1)               0.338      1.700 r
+  u_bcd_core/u_core/u_dfg/U1858/ZN (aoi22d1)             0.130      1.830 f
+  u_bcd_core/u_core/u_dfg/U32/ZN (nd04d0)                0.167      1.997 r
+  u_bcd_core/u_core/u_dfg/U1859/ZN (nr04d1)              0.065      2.062 f
+  u_bcd_core/u_core/u_dfg/U514/ZN (nd02d1)               0.205      2.267 r
+  u_bcd_core/u_core/u_dfg/U1908/ZN (inv0d1)              0.139      2.405 f
+  u_bcd_core/u_core/u_dfg/U1923/ZN (nd03d1)              0.227      2.632 r
+  u_bcd_core/u_core/u_dfg/U1968/ZN (nr02d4)              0.299      2.931 f
+  u_bcd_core/u_core/u_dfg/U1969/ZN (inv0d0)              0.248      3.179 r
+  u_bcd_core/u_core/u_dfg/U1970/ZN (inv0d1)              0.250      3.429 f
+  u_bcd_core/u_core/u_dfg/U2028/ZN (aoi22d1)             0.188      3.617 r
+  u_bcd_core/u_core/u_dfg/U2029/ZN (nd04d1)              0.106      3.723 f
+  u_bcd_core/u_core/u_dfg/U2030/Z (or04d1)               0.426      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/src_a[2] (q16_alu)       0.000      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/U390/ZN (inv0d2)         0.307      4.456 r
+  u_bcd_core/u_core/u_dfg/u_alu/U392/ZN (inv0d2)         0.204      4.659 f
+  u_bcd_core/u_core/u_dfg/u_alu/U393/ZN (oai22d2)        0.328      4.987 r
+  u_bcd_core/u_core/u_dfg/u_alu/U394/ZN (inv0d0)         0.111      5.098 f
+  u_bcd_core/u_core/u_dfg/u_alu/U395/ZN (nd02d1)         0.304      5.402 r
+  u_bcd_core/u_core/u_dfg/u_alu/U396/ZN (nr02d1)         0.197      5.599 f
+  u_bcd_core/u_core/u_dfg/u_alu/U397/ZN (inv0d1)         0.234      5.833 r
+  u_bcd_core/u_core/u_dfg/u_alu/U293/Z (buffd3)          0.336      6.169 r
+  u_bcd_core/u_core/u_dfg/u_alu/U982/ZN (oai22d1)        0.105      6.274 f
+  u_bcd_core/u_core/u_dfg/u_alu/U986/ZN (aoi211d1)       0.323      6.597 r
+  u_bcd_core/u_core/u_dfg/u_alu/U989/ZN (nd12d0)         0.229      6.826 r
+  u_bcd_core/u_core/u_dfg/u_alu/U996/ZN (oaim21d1)       0.241      7.067 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1003/ZN (oai222d1)      0.150      7.217 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1010/ZN (nr02d0)        0.216      7.432 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1013/ZN (aoim21d1)      0.197      7.629 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1113/CO (ad01d0)        0.304      7.933 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1018/ZN (oai222d1)      0.156      8.089 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1025/ZN (nr02d0)        0.208      8.297 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1027/ZN (aoim21d1)      0.197      8.494 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1137/CO (ad01d0)        0.304      8.798 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1032/ZN (oai222d1)      0.156      8.954 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1039/ZN (nr02d0)        0.208      9.162 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1558/ZN (aoim21d1)      0.197      9.359 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U19/CO (ad01d0)
+                                                         0.224      9.583 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U18/S (ad01d1)
+                                                         0.321      9.904 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1188/CO (cg01d1)        0.235     10.138 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1192/CO (cg01d0)        0.225     10.364 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1207/CO (ad01d0)        0.345     10.709 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1218/CO (cg01d1)        0.222     10.931 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1222/CO (cg01d0)        0.225     11.156 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1236/CO (ad01d0)        0.346     11.502 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1247/CO (cg01d0)        0.233     11.735 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1251/CO (cg01d0)        0.234     11.969 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1265/CO (ad01d0)        0.345     12.315 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1269/CO (cg01d1)        0.221     12.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U111/CO (cg01d0)         0.225     12.761 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1292/CO (ad01d0)        0.345     13.107 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1296/CO (cg01d1)        0.221     13.328 f
+  u_bcd_core/u_core/u_dfg/u_alu/U110/CO (cg01d0)         0.225     13.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U75/CO (ad01d1)          0.325     13.878 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1328/CO (cg01d1)        0.222     14.100 f
+  u_bcd_core/u_core/u_dfg/u_alu/U109/CO (cg01d1)         0.208     14.307 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1341/CO (cg01d1)        0.238     14.545 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1366/CO (cg01d1)        0.234     14.779 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1372/CO (cg01d1)        0.218     14.997 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1376/CO (ad01d1)        0.308     15.304 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1393/ZN (oai222d2)      0.309     15.614 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1399/ZN (oai222d2)      0.240     15.854 f
+  u_bcd_core/u_core/u_dfg/u_alu/U10/CO (ad01d1)          0.300     16.154 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1420/ZN (oai222d2)      0.309     16.463 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1426/ZN (oai222d2)      0.240     16.703 f
+  u_bcd_core/u_core/u_dfg/u_alu/U9/CO (ad01d1)           0.300     17.003 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1445/ZN (oai222d2)      0.309     17.313 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1453/ZN (oai222d2)      0.240     17.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U8/CO (ad01d1)           0.318     17.871 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1489/CO (cg01d1)        0.198     18.069 f
+  u_bcd_core/u_core/u_dfg/u_alu/U7/Z (xr03d1)            0.159     18.228 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1491/Z (xr03d1)         0.308     18.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1492/Z (xr03d1)         0.303     18.839 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1493/Z (xr03d1)         0.308     19.147 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1494/Z (xr03d1)         0.298     19.444 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1502/ZN (oaim21d1)      0.113     19.557 f
+  u_bcd_core/u_core/u_dfg/u_alu/result[31] (q16_alu)     0.000     19.557 f
+  u_bcd_core/u_core/u_dfg/U1646/ZN (aoi22d1)             0.147     19.704 r
+  u_bcd_core/u_core/u_dfg/U6/Z (bufbd4)                  0.254     19.959 r
+  u_bcd_core/u_core/u_dfg/U60/ZN (invbd2)                0.225     20.184 f
+  u_bcd_core/u_core/u_dfg/reg_file_reg[20][31]/D (dfcrq1)
+                                                         0.000     20.184 f
+  data arrival time                                                20.184
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/u_dfg/reg_file_reg[20][31]/CP (dfcrq1)
+                                                         0.000     20.400 r
+  library setup time                                    -0.126     20.274
+  data required time                                               20.274
+  --------------------------------------------------------------------------
+  data required time                                               20.274
+  data arrival time                                               -20.184
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.090
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/R_425
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/u_dfg/reg_file_reg[21][31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/R_425/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/R_425/Q (dfcrq1)               0.462      1.262 r
+  u_bcd_core/u_core/u_dfg/U443/ZN (inv0d1)               0.100      1.362 f
+  u_bcd_core/u_core/u_dfg/U882/ZN (inv0d1)               0.338      1.700 r
+  u_bcd_core/u_core/u_dfg/U1858/ZN (aoi22d1)             0.130      1.830 f
+  u_bcd_core/u_core/u_dfg/U32/ZN (nd04d0)                0.167      1.997 r
+  u_bcd_core/u_core/u_dfg/U1859/ZN (nr04d1)              0.065      2.062 f
+  u_bcd_core/u_core/u_dfg/U514/ZN (nd02d1)               0.205      2.267 r
+  u_bcd_core/u_core/u_dfg/U1908/ZN (inv0d1)              0.139      2.405 f
+  u_bcd_core/u_core/u_dfg/U1923/ZN (nd03d1)              0.227      2.632 r
+  u_bcd_core/u_core/u_dfg/U1968/ZN (nr02d4)              0.299      2.931 f
+  u_bcd_core/u_core/u_dfg/U1969/ZN (inv0d0)              0.248      3.179 r
+  u_bcd_core/u_core/u_dfg/U1970/ZN (inv0d1)              0.250      3.429 f
+  u_bcd_core/u_core/u_dfg/U2028/ZN (aoi22d1)             0.188      3.617 r
+  u_bcd_core/u_core/u_dfg/U2029/ZN (nd04d1)              0.106      3.723 f
+  u_bcd_core/u_core/u_dfg/U2030/Z (or04d1)               0.426      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/src_a[2] (q16_alu)       0.000      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/U390/ZN (inv0d2)         0.307      4.456 r
+  u_bcd_core/u_core/u_dfg/u_alu/U392/ZN (inv0d2)         0.204      4.659 f
+  u_bcd_core/u_core/u_dfg/u_alu/U393/ZN (oai22d2)        0.328      4.987 r
+  u_bcd_core/u_core/u_dfg/u_alu/U394/ZN (inv0d0)         0.111      5.098 f
+  u_bcd_core/u_core/u_dfg/u_alu/U395/ZN (nd02d1)         0.304      5.402 r
+  u_bcd_core/u_core/u_dfg/u_alu/U396/ZN (nr02d1)         0.197      5.599 f
+  u_bcd_core/u_core/u_dfg/u_alu/U397/ZN (inv0d1)         0.234      5.833 r
+  u_bcd_core/u_core/u_dfg/u_alu/U293/Z (buffd3)          0.336      6.169 r
+  u_bcd_core/u_core/u_dfg/u_alu/U982/ZN (oai22d1)        0.105      6.274 f
+  u_bcd_core/u_core/u_dfg/u_alu/U986/ZN (aoi211d1)       0.323      6.597 r
+  u_bcd_core/u_core/u_dfg/u_alu/U989/ZN (nd12d0)         0.229      6.826 r
+  u_bcd_core/u_core/u_dfg/u_alu/U996/ZN (oaim21d1)       0.241      7.067 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1003/ZN (oai222d1)      0.150      7.217 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1010/ZN (nr02d0)        0.216      7.432 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1013/ZN (aoim21d1)      0.197      7.629 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1113/CO (ad01d0)        0.304      7.933 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1018/ZN (oai222d1)      0.156      8.089 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1025/ZN (nr02d0)        0.208      8.297 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1027/ZN (aoim21d1)      0.197      8.494 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1137/CO (ad01d0)        0.304      8.798 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1032/ZN (oai222d1)      0.156      8.954 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1039/ZN (nr02d0)        0.208      9.162 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1558/ZN (aoim21d1)      0.197      9.359 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U19/CO (ad01d0)
+                                                         0.224      9.583 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U18/S (ad01d1)
+                                                         0.321      9.904 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1188/CO (cg01d1)        0.235     10.138 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1192/CO (cg01d0)        0.225     10.364 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1207/CO (ad01d0)        0.345     10.709 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1218/CO (cg01d1)        0.222     10.931 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1222/CO (cg01d0)        0.225     11.156 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1236/CO (ad01d0)        0.346     11.502 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1247/CO (cg01d0)        0.233     11.735 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1251/CO (cg01d0)        0.234     11.969 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1265/CO (ad01d0)        0.345     12.315 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1269/CO (cg01d1)        0.221     12.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U111/CO (cg01d0)         0.225     12.761 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1292/CO (ad01d0)        0.345     13.107 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1296/CO (cg01d1)        0.221     13.328 f
+  u_bcd_core/u_core/u_dfg/u_alu/U110/CO (cg01d0)         0.225     13.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U75/CO (ad01d1)          0.325     13.878 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1328/CO (cg01d1)        0.222     14.100 f
+  u_bcd_core/u_core/u_dfg/u_alu/U109/CO (cg01d1)         0.208     14.307 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1341/CO (cg01d1)        0.238     14.545 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1366/CO (cg01d1)        0.234     14.779 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1372/CO (cg01d1)        0.218     14.997 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1376/CO (ad01d1)        0.308     15.304 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1393/ZN (oai222d2)      0.309     15.614 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1399/ZN (oai222d2)      0.240     15.854 f
+  u_bcd_core/u_core/u_dfg/u_alu/U10/CO (ad01d1)          0.300     16.154 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1420/ZN (oai222d2)      0.309     16.463 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1426/ZN (oai222d2)      0.240     16.703 f
+  u_bcd_core/u_core/u_dfg/u_alu/U9/CO (ad01d1)           0.300     17.003 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1445/ZN (oai222d2)      0.309     17.313 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1453/ZN (oai222d2)      0.240     17.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U8/CO (ad01d1)           0.318     17.871 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1489/CO (cg01d1)        0.198     18.069 f
+  u_bcd_core/u_core/u_dfg/u_alu/U7/Z (xr03d1)            0.159     18.228 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1491/Z (xr03d1)         0.308     18.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1492/Z (xr03d1)         0.303     18.839 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1493/Z (xr03d1)         0.308     19.147 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1494/Z (xr03d1)         0.298     19.444 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1502/ZN (oaim21d1)      0.113     19.557 f
+  u_bcd_core/u_core/u_dfg/u_alu/result[31] (q16_alu)     0.000     19.557 f
+  u_bcd_core/u_core/u_dfg/U1646/ZN (aoi22d1)             0.147     19.704 r
+  u_bcd_core/u_core/u_dfg/U6/Z (bufbd4)                  0.254     19.959 r
+  u_bcd_core/u_core/u_dfg/U60/ZN (invbd2)                0.225     20.184 f
+  u_bcd_core/u_core/u_dfg/reg_file_reg[21][31]/D (dfcrq1)
+                                                         0.000     20.184 f
+  data arrival time                                                20.184
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/u_dfg/reg_file_reg[21][31]/CP (dfcrq1)
+                                                         0.000     20.400 r
+  library setup time                                    -0.126     20.274
+  data required time                                               20.274
+  --------------------------------------------------------------------------
+  data required time                                               20.274
+  data arrival time                                               -20.184
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.090
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/R_425
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/u_dfg/reg_file_reg[22][31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/R_425/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/R_425/Q (dfcrq1)               0.462      1.262 r
+  u_bcd_core/u_core/u_dfg/U443/ZN (inv0d1)               0.100      1.362 f
+  u_bcd_core/u_core/u_dfg/U882/ZN (inv0d1)               0.338      1.700 r
+  u_bcd_core/u_core/u_dfg/U1858/ZN (aoi22d1)             0.130      1.830 f
+  u_bcd_core/u_core/u_dfg/U32/ZN (nd04d0)                0.167      1.997 r
+  u_bcd_core/u_core/u_dfg/U1859/ZN (nr04d1)              0.065      2.062 f
+  u_bcd_core/u_core/u_dfg/U514/ZN (nd02d1)               0.205      2.267 r
+  u_bcd_core/u_core/u_dfg/U1908/ZN (inv0d1)              0.139      2.405 f
+  u_bcd_core/u_core/u_dfg/U1923/ZN (nd03d1)              0.227      2.632 r
+  u_bcd_core/u_core/u_dfg/U1968/ZN (nr02d4)              0.299      2.931 f
+  u_bcd_core/u_core/u_dfg/U1969/ZN (inv0d0)              0.248      3.179 r
+  u_bcd_core/u_core/u_dfg/U1970/ZN (inv0d1)              0.250      3.429 f
+  u_bcd_core/u_core/u_dfg/U2028/ZN (aoi22d1)             0.188      3.617 r
+  u_bcd_core/u_core/u_dfg/U2029/ZN (nd04d1)              0.106      3.723 f
+  u_bcd_core/u_core/u_dfg/U2030/Z (or04d1)               0.426      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/src_a[2] (q16_alu)       0.000      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/U390/ZN (inv0d2)         0.307      4.456 r
+  u_bcd_core/u_core/u_dfg/u_alu/U392/ZN (inv0d2)         0.204      4.659 f
+  u_bcd_core/u_core/u_dfg/u_alu/U393/ZN (oai22d2)        0.328      4.987 r
+  u_bcd_core/u_core/u_dfg/u_alu/U394/ZN (inv0d0)         0.111      5.098 f
+  u_bcd_core/u_core/u_dfg/u_alu/U395/ZN (nd02d1)         0.304      5.402 r
+  u_bcd_core/u_core/u_dfg/u_alu/U396/ZN (nr02d1)         0.197      5.599 f
+  u_bcd_core/u_core/u_dfg/u_alu/U397/ZN (inv0d1)         0.234      5.833 r
+  u_bcd_core/u_core/u_dfg/u_alu/U293/Z (buffd3)          0.336      6.169 r
+  u_bcd_core/u_core/u_dfg/u_alu/U982/ZN (oai22d1)        0.105      6.274 f
+  u_bcd_core/u_core/u_dfg/u_alu/U986/ZN (aoi211d1)       0.323      6.597 r
+  u_bcd_core/u_core/u_dfg/u_alu/U989/ZN (nd12d0)         0.229      6.826 r
+  u_bcd_core/u_core/u_dfg/u_alu/U996/ZN (oaim21d1)       0.241      7.067 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1003/ZN (oai222d1)      0.150      7.217 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1010/ZN (nr02d0)        0.216      7.432 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1013/ZN (aoim21d1)      0.197      7.629 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1113/CO (ad01d0)        0.304      7.933 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1018/ZN (oai222d1)      0.156      8.089 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1025/ZN (nr02d0)        0.208      8.297 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1027/ZN (aoim21d1)      0.197      8.494 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1137/CO (ad01d0)        0.304      8.798 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1032/ZN (oai222d1)      0.156      8.954 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1039/ZN (nr02d0)        0.208      9.162 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1558/ZN (aoim21d1)      0.197      9.359 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U19/CO (ad01d0)
+                                                         0.224      9.583 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U18/S (ad01d1)
+                                                         0.321      9.904 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1188/CO (cg01d1)        0.235     10.138 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1192/CO (cg01d0)        0.225     10.364 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1207/CO (ad01d0)        0.345     10.709 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1218/CO (cg01d1)        0.222     10.931 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1222/CO (cg01d0)        0.225     11.156 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1236/CO (ad01d0)        0.346     11.502 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1247/CO (cg01d0)        0.233     11.735 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1251/CO (cg01d0)        0.234     11.969 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1265/CO (ad01d0)        0.345     12.315 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1269/CO (cg01d1)        0.221     12.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U111/CO (cg01d0)         0.225     12.761 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1292/CO (ad01d0)        0.345     13.107 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1296/CO (cg01d1)        0.221     13.328 f
+  u_bcd_core/u_core/u_dfg/u_alu/U110/CO (cg01d0)         0.225     13.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U75/CO (ad01d1)          0.325     13.878 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1328/CO (cg01d1)        0.222     14.100 f
+  u_bcd_core/u_core/u_dfg/u_alu/U109/CO (cg01d1)         0.208     14.307 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1341/CO (cg01d1)        0.238     14.545 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1366/CO (cg01d1)        0.234     14.779 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1372/CO (cg01d1)        0.218     14.997 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1376/CO (ad01d1)        0.308     15.304 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1393/ZN (oai222d2)      0.309     15.614 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1399/ZN (oai222d2)      0.240     15.854 f
+  u_bcd_core/u_core/u_dfg/u_alu/U10/CO (ad01d1)          0.300     16.154 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1420/ZN (oai222d2)      0.309     16.463 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1426/ZN (oai222d2)      0.240     16.703 f
+  u_bcd_core/u_core/u_dfg/u_alu/U9/CO (ad01d1)           0.300     17.003 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1445/ZN (oai222d2)      0.309     17.313 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1453/ZN (oai222d2)      0.240     17.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U8/CO (ad01d1)           0.318     17.871 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1489/CO (cg01d1)        0.198     18.069 f
+  u_bcd_core/u_core/u_dfg/u_alu/U7/Z (xr03d1)            0.159     18.228 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1491/Z (xr03d1)         0.308     18.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1492/Z (xr03d1)         0.303     18.839 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1493/Z (xr03d1)         0.308     19.147 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1494/Z (xr03d1)         0.298     19.444 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1502/ZN (oaim21d1)      0.113     19.557 f
+  u_bcd_core/u_core/u_dfg/u_alu/result[31] (q16_alu)     0.000     19.557 f
+  u_bcd_core/u_core/u_dfg/U1646/ZN (aoi22d1)             0.147     19.704 r
+  u_bcd_core/u_core/u_dfg/U6/Z (bufbd4)                  0.254     19.959 r
+  u_bcd_core/u_core/u_dfg/U60/ZN (invbd2)                0.225     20.184 f
+  u_bcd_core/u_core/u_dfg/reg_file_reg[22][31]/D (dfcrq1)
+                                                         0.000     20.184 f
+  data arrival time                                                20.184
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/u_dfg/reg_file_reg[22][31]/CP (dfcrq1)
+                                                         0.000     20.400 r
+  library setup time                                    -0.126     20.274
+  data required time                                               20.274
+  --------------------------------------------------------------------------
+  data required time                                               20.274
+  data arrival time                                               -20.184
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.090
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/R_425
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/u_dfg/reg_file_reg[23][31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/R_425/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/R_425/Q (dfcrq1)               0.462      1.262 r
+  u_bcd_core/u_core/u_dfg/U443/ZN (inv0d1)               0.100      1.362 f
+  u_bcd_core/u_core/u_dfg/U882/ZN (inv0d1)               0.338      1.700 r
+  u_bcd_core/u_core/u_dfg/U1858/ZN (aoi22d1)             0.130      1.830 f
+  u_bcd_core/u_core/u_dfg/U32/ZN (nd04d0)                0.167      1.997 r
+  u_bcd_core/u_core/u_dfg/U1859/ZN (nr04d1)              0.065      2.062 f
+  u_bcd_core/u_core/u_dfg/U514/ZN (nd02d1)               0.205      2.267 r
+  u_bcd_core/u_core/u_dfg/U1908/ZN (inv0d1)              0.139      2.405 f
+  u_bcd_core/u_core/u_dfg/U1923/ZN (nd03d1)              0.227      2.632 r
+  u_bcd_core/u_core/u_dfg/U1968/ZN (nr02d4)              0.299      2.931 f
+  u_bcd_core/u_core/u_dfg/U1969/ZN (inv0d0)              0.248      3.179 r
+  u_bcd_core/u_core/u_dfg/U1970/ZN (inv0d1)              0.250      3.429 f
+  u_bcd_core/u_core/u_dfg/U2028/ZN (aoi22d1)             0.188      3.617 r
+  u_bcd_core/u_core/u_dfg/U2029/ZN (nd04d1)              0.106      3.723 f
+  u_bcd_core/u_core/u_dfg/U2030/Z (or04d1)               0.426      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/src_a[2] (q16_alu)       0.000      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/U390/ZN (inv0d2)         0.307      4.456 r
+  u_bcd_core/u_core/u_dfg/u_alu/U392/ZN (inv0d2)         0.204      4.659 f
+  u_bcd_core/u_core/u_dfg/u_alu/U393/ZN (oai22d2)        0.328      4.987 r
+  u_bcd_core/u_core/u_dfg/u_alu/U394/ZN (inv0d0)         0.111      5.098 f
+  u_bcd_core/u_core/u_dfg/u_alu/U395/ZN (nd02d1)         0.304      5.402 r
+  u_bcd_core/u_core/u_dfg/u_alu/U396/ZN (nr02d1)         0.197      5.599 f
+  u_bcd_core/u_core/u_dfg/u_alu/U397/ZN (inv0d1)         0.234      5.833 r
+  u_bcd_core/u_core/u_dfg/u_alu/U293/Z (buffd3)          0.336      6.169 r
+  u_bcd_core/u_core/u_dfg/u_alu/U982/ZN (oai22d1)        0.105      6.274 f
+  u_bcd_core/u_core/u_dfg/u_alu/U986/ZN (aoi211d1)       0.323      6.597 r
+  u_bcd_core/u_core/u_dfg/u_alu/U989/ZN (nd12d0)         0.229      6.826 r
+  u_bcd_core/u_core/u_dfg/u_alu/U996/ZN (oaim21d1)       0.241      7.067 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1003/ZN (oai222d1)      0.150      7.217 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1010/ZN (nr02d0)        0.216      7.432 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1013/ZN (aoim21d1)      0.197      7.629 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1113/CO (ad01d0)        0.304      7.933 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1018/ZN (oai222d1)      0.156      8.089 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1025/ZN (nr02d0)        0.208      8.297 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1027/ZN (aoim21d1)      0.197      8.494 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1137/CO (ad01d0)        0.304      8.798 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1032/ZN (oai222d1)      0.156      8.954 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1039/ZN (nr02d0)        0.208      9.162 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1558/ZN (aoim21d1)      0.197      9.359 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U19/CO (ad01d0)
+                                                         0.224      9.583 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U18/S (ad01d1)
+                                                         0.321      9.904 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1188/CO (cg01d1)        0.235     10.138 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1192/CO (cg01d0)        0.225     10.364 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1207/CO (ad01d0)        0.345     10.709 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1218/CO (cg01d1)        0.222     10.931 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1222/CO (cg01d0)        0.225     11.156 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1236/CO (ad01d0)        0.346     11.502 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1247/CO (cg01d0)        0.233     11.735 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1251/CO (cg01d0)        0.234     11.969 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1265/CO (ad01d0)        0.345     12.315 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1269/CO (cg01d1)        0.221     12.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U111/CO (cg01d0)         0.225     12.761 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1292/CO (ad01d0)        0.345     13.107 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1296/CO (cg01d1)        0.221     13.328 f
+  u_bcd_core/u_core/u_dfg/u_alu/U110/CO (cg01d0)         0.225     13.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U75/CO (ad01d1)          0.325     13.878 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1328/CO (cg01d1)        0.222     14.100 f
+  u_bcd_core/u_core/u_dfg/u_alu/U109/CO (cg01d1)         0.208     14.307 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1341/CO (cg01d1)        0.238     14.545 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1366/CO (cg01d1)        0.234     14.779 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1372/CO (cg01d1)        0.218     14.997 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1376/CO (ad01d1)        0.308     15.304 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1393/ZN (oai222d2)      0.309     15.614 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1399/ZN (oai222d2)      0.240     15.854 f
+  u_bcd_core/u_core/u_dfg/u_alu/U10/CO (ad01d1)          0.300     16.154 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1420/ZN (oai222d2)      0.309     16.463 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1426/ZN (oai222d2)      0.240     16.703 f
+  u_bcd_core/u_core/u_dfg/u_alu/U9/CO (ad01d1)           0.300     17.003 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1445/ZN (oai222d2)      0.309     17.313 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1453/ZN (oai222d2)      0.240     17.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U8/CO (ad01d1)           0.318     17.871 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1489/CO (cg01d1)        0.198     18.069 f
+  u_bcd_core/u_core/u_dfg/u_alu/U7/Z (xr03d1)            0.159     18.228 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1491/Z (xr03d1)         0.308     18.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1492/Z (xr03d1)         0.303     18.839 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1493/Z (xr03d1)         0.308     19.147 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1494/Z (xr03d1)         0.298     19.444 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1502/ZN (oaim21d1)      0.113     19.557 f
+  u_bcd_core/u_core/u_dfg/u_alu/result[31] (q16_alu)     0.000     19.557 f
+  u_bcd_core/u_core/u_dfg/U1646/ZN (aoi22d1)             0.147     19.704 r
+  u_bcd_core/u_core/u_dfg/U6/Z (bufbd4)                  0.254     19.959 r
+  u_bcd_core/u_core/u_dfg/U60/ZN (invbd2)                0.225     20.184 f
+  u_bcd_core/u_core/u_dfg/reg_file_reg[23][31]/D (dfcrq1)
+                                                         0.000     20.184 f
+  data arrival time                                                20.184
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/u_dfg/reg_file_reg[23][31]/CP (dfcrq1)
+                                                         0.000     20.400 r
+  library setup time                                    -0.126     20.274
+  data required time                                               20.274
+  --------------------------------------------------------------------------
+  data required time                                               20.274
+  data arrival time                                               -20.184
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.090
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/R_425
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/u_dfg/reg_file_reg[24][31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/R_425/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/R_425/Q (dfcrq1)               0.462      1.262 r
+  u_bcd_core/u_core/u_dfg/U443/ZN (inv0d1)               0.100      1.362 f
+  u_bcd_core/u_core/u_dfg/U882/ZN (inv0d1)               0.338      1.700 r
+  u_bcd_core/u_core/u_dfg/U1858/ZN (aoi22d1)             0.130      1.830 f
+  u_bcd_core/u_core/u_dfg/U32/ZN (nd04d0)                0.167      1.997 r
+  u_bcd_core/u_core/u_dfg/U1859/ZN (nr04d1)              0.065      2.062 f
+  u_bcd_core/u_core/u_dfg/U514/ZN (nd02d1)               0.205      2.267 r
+  u_bcd_core/u_core/u_dfg/U1908/ZN (inv0d1)              0.139      2.405 f
+  u_bcd_core/u_core/u_dfg/U1923/ZN (nd03d1)              0.227      2.632 r
+  u_bcd_core/u_core/u_dfg/U1968/ZN (nr02d4)              0.299      2.931 f
+  u_bcd_core/u_core/u_dfg/U1969/ZN (inv0d0)              0.248      3.179 r
+  u_bcd_core/u_core/u_dfg/U1970/ZN (inv0d1)              0.250      3.429 f
+  u_bcd_core/u_core/u_dfg/U2028/ZN (aoi22d1)             0.188      3.617 r
+  u_bcd_core/u_core/u_dfg/U2029/ZN (nd04d1)              0.106      3.723 f
+  u_bcd_core/u_core/u_dfg/U2030/Z (or04d1)               0.426      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/src_a[2] (q16_alu)       0.000      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/U390/ZN (inv0d2)         0.307      4.456 r
+  u_bcd_core/u_core/u_dfg/u_alu/U392/ZN (inv0d2)         0.204      4.659 f
+  u_bcd_core/u_core/u_dfg/u_alu/U393/ZN (oai22d2)        0.328      4.987 r
+  u_bcd_core/u_core/u_dfg/u_alu/U394/ZN (inv0d0)         0.111      5.098 f
+  u_bcd_core/u_core/u_dfg/u_alu/U395/ZN (nd02d1)         0.304      5.402 r
+  u_bcd_core/u_core/u_dfg/u_alu/U396/ZN (nr02d1)         0.197      5.599 f
+  u_bcd_core/u_core/u_dfg/u_alu/U397/ZN (inv0d1)         0.234      5.833 r
+  u_bcd_core/u_core/u_dfg/u_alu/U293/Z (buffd3)          0.336      6.169 r
+  u_bcd_core/u_core/u_dfg/u_alu/U982/ZN (oai22d1)        0.105      6.274 f
+  u_bcd_core/u_core/u_dfg/u_alu/U986/ZN (aoi211d1)       0.323      6.597 r
+  u_bcd_core/u_core/u_dfg/u_alu/U989/ZN (nd12d0)         0.229      6.826 r
+  u_bcd_core/u_core/u_dfg/u_alu/U996/ZN (oaim21d1)       0.241      7.067 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1003/ZN (oai222d1)      0.150      7.217 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1010/ZN (nr02d0)        0.216      7.432 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1013/ZN (aoim21d1)      0.197      7.629 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1113/CO (ad01d0)        0.304      7.933 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1018/ZN (oai222d1)      0.156      8.089 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1025/ZN (nr02d0)        0.208      8.297 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1027/ZN (aoim21d1)      0.197      8.494 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1137/CO (ad01d0)        0.304      8.798 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1032/ZN (oai222d1)      0.156      8.954 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1039/ZN (nr02d0)        0.208      9.162 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1558/ZN (aoim21d1)      0.197      9.359 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U19/CO (ad01d0)
+                                                         0.224      9.583 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U18/S (ad01d1)
+                                                         0.321      9.904 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1188/CO (cg01d1)        0.235     10.138 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1192/CO (cg01d0)        0.225     10.364 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1207/CO (ad01d0)        0.345     10.709 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1218/CO (cg01d1)        0.222     10.931 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1222/CO (cg01d0)        0.225     11.156 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1236/CO (ad01d0)        0.346     11.502 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1247/CO (cg01d0)        0.233     11.735 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1251/CO (cg01d0)        0.234     11.969 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1265/CO (ad01d0)        0.345     12.315 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1269/CO (cg01d1)        0.221     12.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U111/CO (cg01d0)         0.225     12.761 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1292/CO (ad01d0)        0.345     13.107 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1296/CO (cg01d1)        0.221     13.328 f
+  u_bcd_core/u_core/u_dfg/u_alu/U110/CO (cg01d0)         0.225     13.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U75/CO (ad01d1)          0.325     13.878 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1328/CO (cg01d1)        0.222     14.100 f
+  u_bcd_core/u_core/u_dfg/u_alu/U109/CO (cg01d1)         0.208     14.307 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1341/CO (cg01d1)        0.238     14.545 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1366/CO (cg01d1)        0.234     14.779 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1372/CO (cg01d1)        0.218     14.997 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1376/CO (ad01d1)        0.308     15.304 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1393/ZN (oai222d2)      0.309     15.614 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1399/ZN (oai222d2)      0.240     15.854 f
+  u_bcd_core/u_core/u_dfg/u_alu/U10/CO (ad01d1)          0.300     16.154 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1420/ZN (oai222d2)      0.309     16.463 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1426/ZN (oai222d2)      0.240     16.703 f
+  u_bcd_core/u_core/u_dfg/u_alu/U9/CO (ad01d1)           0.300     17.003 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1445/ZN (oai222d2)      0.309     17.313 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1453/ZN (oai222d2)      0.240     17.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U8/CO (ad01d1)           0.318     17.871 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1489/CO (cg01d1)        0.198     18.069 f
+  u_bcd_core/u_core/u_dfg/u_alu/U7/Z (xr03d1)            0.159     18.228 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1491/Z (xr03d1)         0.308     18.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1492/Z (xr03d1)         0.303     18.839 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1493/Z (xr03d1)         0.308     19.147 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1494/Z (xr03d1)         0.298     19.444 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1502/ZN (oaim21d1)      0.113     19.557 f
+  u_bcd_core/u_core/u_dfg/u_alu/result[31] (q16_alu)     0.000     19.557 f
+  u_bcd_core/u_core/u_dfg/U1646/ZN (aoi22d1)             0.147     19.704 r
+  u_bcd_core/u_core/u_dfg/U6/Z (bufbd4)                  0.254     19.959 r
+  u_bcd_core/u_core/u_dfg/U60/ZN (invbd2)                0.225     20.184 f
+  u_bcd_core/u_core/u_dfg/reg_file_reg[24][31]/D (dfcrq1)
+                                                         0.000     20.184 f
+  data arrival time                                                20.184
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/u_dfg/reg_file_reg[24][31]/CP (dfcrq1)
+                                                         0.000     20.400 r
+  library setup time                                    -0.126     20.274
+  data required time                                               20.274
+  --------------------------------------------------------------------------
+  data required time                                               20.274
+  data arrival time                                               -20.184
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.090
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/R_425
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/u_dfg/reg_file_reg[25][31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/R_425/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/R_425/Q (dfcrq1)               0.462      1.262 r
+  u_bcd_core/u_core/u_dfg/U443/ZN (inv0d1)               0.100      1.362 f
+  u_bcd_core/u_core/u_dfg/U882/ZN (inv0d1)               0.338      1.700 r
+  u_bcd_core/u_core/u_dfg/U1858/ZN (aoi22d1)             0.130      1.830 f
+  u_bcd_core/u_core/u_dfg/U32/ZN (nd04d0)                0.167      1.997 r
+  u_bcd_core/u_core/u_dfg/U1859/ZN (nr04d1)              0.065      2.062 f
+  u_bcd_core/u_core/u_dfg/U514/ZN (nd02d1)               0.205      2.267 r
+  u_bcd_core/u_core/u_dfg/U1908/ZN (inv0d1)              0.139      2.405 f
+  u_bcd_core/u_core/u_dfg/U1923/ZN (nd03d1)              0.227      2.632 r
+  u_bcd_core/u_core/u_dfg/U1968/ZN (nr02d4)              0.299      2.931 f
+  u_bcd_core/u_core/u_dfg/U1969/ZN (inv0d0)              0.248      3.179 r
+  u_bcd_core/u_core/u_dfg/U1970/ZN (inv0d1)              0.250      3.429 f
+  u_bcd_core/u_core/u_dfg/U2028/ZN (aoi22d1)             0.188      3.617 r
+  u_bcd_core/u_core/u_dfg/U2029/ZN (nd04d1)              0.106      3.723 f
+  u_bcd_core/u_core/u_dfg/U2030/Z (or04d1)               0.426      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/src_a[2] (q16_alu)       0.000      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/U390/ZN (inv0d2)         0.307      4.456 r
+  u_bcd_core/u_core/u_dfg/u_alu/U392/ZN (inv0d2)         0.204      4.659 f
+  u_bcd_core/u_core/u_dfg/u_alu/U393/ZN (oai22d2)        0.328      4.987 r
+  u_bcd_core/u_core/u_dfg/u_alu/U394/ZN (inv0d0)         0.111      5.098 f
+  u_bcd_core/u_core/u_dfg/u_alu/U395/ZN (nd02d1)         0.304      5.402 r
+  u_bcd_core/u_core/u_dfg/u_alu/U396/ZN (nr02d1)         0.197      5.599 f
+  u_bcd_core/u_core/u_dfg/u_alu/U397/ZN (inv0d1)         0.234      5.833 r
+  u_bcd_core/u_core/u_dfg/u_alu/U293/Z (buffd3)          0.336      6.169 r
+  u_bcd_core/u_core/u_dfg/u_alu/U982/ZN (oai22d1)        0.105      6.274 f
+  u_bcd_core/u_core/u_dfg/u_alu/U986/ZN (aoi211d1)       0.323      6.597 r
+  u_bcd_core/u_core/u_dfg/u_alu/U989/ZN (nd12d0)         0.229      6.826 r
+  u_bcd_core/u_core/u_dfg/u_alu/U996/ZN (oaim21d1)       0.241      7.067 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1003/ZN (oai222d1)      0.150      7.217 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1010/ZN (nr02d0)        0.216      7.432 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1013/ZN (aoim21d1)      0.197      7.629 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1113/CO (ad01d0)        0.304      7.933 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1018/ZN (oai222d1)      0.156      8.089 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1025/ZN (nr02d0)        0.208      8.297 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1027/ZN (aoim21d1)      0.197      8.494 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1137/CO (ad01d0)        0.304      8.798 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1032/ZN (oai222d1)      0.156      8.954 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1039/ZN (nr02d0)        0.208      9.162 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1558/ZN (aoim21d1)      0.197      9.359 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U19/CO (ad01d0)
+                                                         0.224      9.583 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U18/S (ad01d1)
+                                                         0.321      9.904 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1188/CO (cg01d1)        0.235     10.138 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1192/CO (cg01d0)        0.225     10.364 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1207/CO (ad01d0)        0.345     10.709 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1218/CO (cg01d1)        0.222     10.931 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1222/CO (cg01d0)        0.225     11.156 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1236/CO (ad01d0)        0.346     11.502 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1247/CO (cg01d0)        0.233     11.735 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1251/CO (cg01d0)        0.234     11.969 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1265/CO (ad01d0)        0.345     12.315 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1269/CO (cg01d1)        0.221     12.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U111/CO (cg01d0)         0.225     12.761 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1292/CO (ad01d0)        0.345     13.107 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1296/CO (cg01d1)        0.221     13.328 f
+  u_bcd_core/u_core/u_dfg/u_alu/U110/CO (cg01d0)         0.225     13.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U75/CO (ad01d1)          0.325     13.878 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1328/CO (cg01d1)        0.222     14.100 f
+  u_bcd_core/u_core/u_dfg/u_alu/U109/CO (cg01d1)         0.208     14.307 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1341/CO (cg01d1)        0.238     14.545 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1366/CO (cg01d1)        0.234     14.779 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1372/CO (cg01d1)        0.218     14.997 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1376/CO (ad01d1)        0.308     15.304 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1393/ZN (oai222d2)      0.309     15.614 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1399/ZN (oai222d2)      0.240     15.854 f
+  u_bcd_core/u_core/u_dfg/u_alu/U10/CO (ad01d1)          0.300     16.154 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1420/ZN (oai222d2)      0.309     16.463 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1426/ZN (oai222d2)      0.240     16.703 f
+  u_bcd_core/u_core/u_dfg/u_alu/U9/CO (ad01d1)           0.300     17.003 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1445/ZN (oai222d2)      0.309     17.313 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1453/ZN (oai222d2)      0.240     17.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U8/CO (ad01d1)           0.318     17.871 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1489/CO (cg01d1)        0.198     18.069 f
+  u_bcd_core/u_core/u_dfg/u_alu/U7/Z (xr03d1)            0.159     18.228 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1491/Z (xr03d1)         0.308     18.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1492/Z (xr03d1)         0.303     18.839 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1493/Z (xr03d1)         0.308     19.147 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1494/Z (xr03d1)         0.298     19.444 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1502/ZN (oaim21d1)      0.113     19.557 f
+  u_bcd_core/u_core/u_dfg/u_alu/result[31] (q16_alu)     0.000     19.557 f
+  u_bcd_core/u_core/u_dfg/U1646/ZN (aoi22d1)             0.147     19.704 r
+  u_bcd_core/u_core/u_dfg/U6/Z (bufbd4)                  0.254     19.959 r
+  u_bcd_core/u_core/u_dfg/U60/ZN (invbd2)                0.225     20.184 f
+  u_bcd_core/u_core/u_dfg/reg_file_reg[25][31]/D (dfcrq1)
+                                                         0.000     20.184 f
+  data arrival time                                                20.184
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/u_dfg/reg_file_reg[25][31]/CP (dfcrq1)
+                                                         0.000     20.400 r
+  library setup time                                    -0.126     20.274
+  data required time                                               20.274
+  --------------------------------------------------------------------------
+  data required time                                               20.274
+  data arrival time                                               -20.184
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.090
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/R_425
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/u_dfg/reg_file_reg[26][31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/R_425/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/R_425/Q (dfcrq1)               0.462      1.262 r
+  u_bcd_core/u_core/u_dfg/U443/ZN (inv0d1)               0.100      1.362 f
+  u_bcd_core/u_core/u_dfg/U882/ZN (inv0d1)               0.338      1.700 r
+  u_bcd_core/u_core/u_dfg/U1858/ZN (aoi22d1)             0.130      1.830 f
+  u_bcd_core/u_core/u_dfg/U32/ZN (nd04d0)                0.167      1.997 r
+  u_bcd_core/u_core/u_dfg/U1859/ZN (nr04d1)              0.065      2.062 f
+  u_bcd_core/u_core/u_dfg/U514/ZN (nd02d1)               0.205      2.267 r
+  u_bcd_core/u_core/u_dfg/U1908/ZN (inv0d1)              0.139      2.405 f
+  u_bcd_core/u_core/u_dfg/U1923/ZN (nd03d1)              0.227      2.632 r
+  u_bcd_core/u_core/u_dfg/U1968/ZN (nr02d4)              0.299      2.931 f
+  u_bcd_core/u_core/u_dfg/U1969/ZN (inv0d0)              0.248      3.179 r
+  u_bcd_core/u_core/u_dfg/U1970/ZN (inv0d1)              0.250      3.429 f
+  u_bcd_core/u_core/u_dfg/U2028/ZN (aoi22d1)             0.188      3.617 r
+  u_bcd_core/u_core/u_dfg/U2029/ZN (nd04d1)              0.106      3.723 f
+  u_bcd_core/u_core/u_dfg/U2030/Z (or04d1)               0.426      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/src_a[2] (q16_alu)       0.000      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/U390/ZN (inv0d2)         0.307      4.456 r
+  u_bcd_core/u_core/u_dfg/u_alu/U392/ZN (inv0d2)         0.204      4.659 f
+  u_bcd_core/u_core/u_dfg/u_alu/U393/ZN (oai22d2)        0.328      4.987 r
+  u_bcd_core/u_core/u_dfg/u_alu/U394/ZN (inv0d0)         0.111      5.098 f
+  u_bcd_core/u_core/u_dfg/u_alu/U395/ZN (nd02d1)         0.304      5.402 r
+  u_bcd_core/u_core/u_dfg/u_alu/U396/ZN (nr02d1)         0.197      5.599 f
+  u_bcd_core/u_core/u_dfg/u_alu/U397/ZN (inv0d1)         0.234      5.833 r
+  u_bcd_core/u_core/u_dfg/u_alu/U293/Z (buffd3)          0.336      6.169 r
+  u_bcd_core/u_core/u_dfg/u_alu/U982/ZN (oai22d1)        0.105      6.274 f
+  u_bcd_core/u_core/u_dfg/u_alu/U986/ZN (aoi211d1)       0.323      6.597 r
+  u_bcd_core/u_core/u_dfg/u_alu/U989/ZN (nd12d0)         0.229      6.826 r
+  u_bcd_core/u_core/u_dfg/u_alu/U996/ZN (oaim21d1)       0.241      7.067 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1003/ZN (oai222d1)      0.150      7.217 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1010/ZN (nr02d0)        0.216      7.432 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1013/ZN (aoim21d1)      0.197      7.629 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1113/CO (ad01d0)        0.304      7.933 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1018/ZN (oai222d1)      0.156      8.089 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1025/ZN (nr02d0)        0.208      8.297 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1027/ZN (aoim21d1)      0.197      8.494 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1137/CO (ad01d0)        0.304      8.798 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1032/ZN (oai222d1)      0.156      8.954 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1039/ZN (nr02d0)        0.208      9.162 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1558/ZN (aoim21d1)      0.197      9.359 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U19/CO (ad01d0)
+                                                         0.224      9.583 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U18/S (ad01d1)
+                                                         0.321      9.904 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1188/CO (cg01d1)        0.235     10.138 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1192/CO (cg01d0)        0.225     10.364 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1207/CO (ad01d0)        0.345     10.709 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1218/CO (cg01d1)        0.222     10.931 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1222/CO (cg01d0)        0.225     11.156 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1236/CO (ad01d0)        0.346     11.502 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1247/CO (cg01d0)        0.233     11.735 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1251/CO (cg01d0)        0.234     11.969 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1265/CO (ad01d0)        0.345     12.315 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1269/CO (cg01d1)        0.221     12.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U111/CO (cg01d0)         0.225     12.761 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1292/CO (ad01d0)        0.345     13.107 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1296/CO (cg01d1)        0.221     13.328 f
+  u_bcd_core/u_core/u_dfg/u_alu/U110/CO (cg01d0)         0.225     13.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U75/CO (ad01d1)          0.325     13.878 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1328/CO (cg01d1)        0.222     14.100 f
+  u_bcd_core/u_core/u_dfg/u_alu/U109/CO (cg01d1)         0.208     14.307 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1341/CO (cg01d1)        0.238     14.545 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1366/CO (cg01d1)        0.234     14.779 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1372/CO (cg01d1)        0.218     14.997 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1376/CO (ad01d1)        0.308     15.304 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1393/ZN (oai222d2)      0.309     15.614 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1399/ZN (oai222d2)      0.240     15.854 f
+  u_bcd_core/u_core/u_dfg/u_alu/U10/CO (ad01d1)          0.300     16.154 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1420/ZN (oai222d2)      0.309     16.463 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1426/ZN (oai222d2)      0.240     16.703 f
+  u_bcd_core/u_core/u_dfg/u_alu/U9/CO (ad01d1)           0.300     17.003 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1445/ZN (oai222d2)      0.309     17.313 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1453/ZN (oai222d2)      0.240     17.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U8/CO (ad01d1)           0.318     17.871 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1489/CO (cg01d1)        0.198     18.069 f
+  u_bcd_core/u_core/u_dfg/u_alu/U7/Z (xr03d1)            0.159     18.228 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1491/Z (xr03d1)         0.308     18.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1492/Z (xr03d1)         0.303     18.839 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1493/Z (xr03d1)         0.308     19.147 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1494/Z (xr03d1)         0.298     19.444 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1502/ZN (oaim21d1)      0.113     19.557 f
+  u_bcd_core/u_core/u_dfg/u_alu/result[31] (q16_alu)     0.000     19.557 f
+  u_bcd_core/u_core/u_dfg/U1646/ZN (aoi22d1)             0.147     19.704 r
+  u_bcd_core/u_core/u_dfg/U6/Z (bufbd4)                  0.254     19.959 r
+  u_bcd_core/u_core/u_dfg/U60/ZN (invbd2)                0.225     20.184 f
+  u_bcd_core/u_core/u_dfg/reg_file_reg[26][31]/D (dfcrq1)
+                                                         0.000     20.184 f
+  data arrival time                                                20.184
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/u_dfg/reg_file_reg[26][31]/CP (dfcrq1)
+                                                         0.000     20.400 r
+  library setup time                                    -0.126     20.274
+  data required time                                               20.274
+  --------------------------------------------------------------------------
+  data required time                                               20.274
+  data arrival time                                               -20.184
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.090
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/R_425
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/u_dfg/reg_file_reg[27][31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/R_425/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/R_425/Q (dfcrq1)               0.462      1.262 r
+  u_bcd_core/u_core/u_dfg/U443/ZN (inv0d1)               0.100      1.362 f
+  u_bcd_core/u_core/u_dfg/U882/ZN (inv0d1)               0.338      1.700 r
+  u_bcd_core/u_core/u_dfg/U1858/ZN (aoi22d1)             0.130      1.830 f
+  u_bcd_core/u_core/u_dfg/U32/ZN (nd04d0)                0.167      1.997 r
+  u_bcd_core/u_core/u_dfg/U1859/ZN (nr04d1)              0.065      2.062 f
+  u_bcd_core/u_core/u_dfg/U514/ZN (nd02d1)               0.205      2.267 r
+  u_bcd_core/u_core/u_dfg/U1908/ZN (inv0d1)              0.139      2.405 f
+  u_bcd_core/u_core/u_dfg/U1923/ZN (nd03d1)              0.227      2.632 r
+  u_bcd_core/u_core/u_dfg/U1968/ZN (nr02d4)              0.299      2.931 f
+  u_bcd_core/u_core/u_dfg/U1969/ZN (inv0d0)              0.248      3.179 r
+  u_bcd_core/u_core/u_dfg/U1970/ZN (inv0d1)              0.250      3.429 f
+  u_bcd_core/u_core/u_dfg/U2028/ZN (aoi22d1)             0.188      3.617 r
+  u_bcd_core/u_core/u_dfg/U2029/ZN (nd04d1)              0.106      3.723 f
+  u_bcd_core/u_core/u_dfg/U2030/Z (or04d1)               0.426      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/src_a[2] (q16_alu)       0.000      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/U390/ZN (inv0d2)         0.307      4.456 r
+  u_bcd_core/u_core/u_dfg/u_alu/U392/ZN (inv0d2)         0.204      4.659 f
+  u_bcd_core/u_core/u_dfg/u_alu/U393/ZN (oai22d2)        0.328      4.987 r
+  u_bcd_core/u_core/u_dfg/u_alu/U394/ZN (inv0d0)         0.111      5.098 f
+  u_bcd_core/u_core/u_dfg/u_alu/U395/ZN (nd02d1)         0.304      5.402 r
+  u_bcd_core/u_core/u_dfg/u_alu/U396/ZN (nr02d1)         0.197      5.599 f
+  u_bcd_core/u_core/u_dfg/u_alu/U397/ZN (inv0d1)         0.234      5.833 r
+  u_bcd_core/u_core/u_dfg/u_alu/U293/Z (buffd3)          0.336      6.169 r
+  u_bcd_core/u_core/u_dfg/u_alu/U982/ZN (oai22d1)        0.105      6.274 f
+  u_bcd_core/u_core/u_dfg/u_alu/U986/ZN (aoi211d1)       0.323      6.597 r
+  u_bcd_core/u_core/u_dfg/u_alu/U989/ZN (nd12d0)         0.229      6.826 r
+  u_bcd_core/u_core/u_dfg/u_alu/U996/ZN (oaim21d1)       0.241      7.067 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1003/ZN (oai222d1)      0.150      7.217 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1010/ZN (nr02d0)        0.216      7.432 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1013/ZN (aoim21d1)      0.197      7.629 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1113/CO (ad01d0)        0.304      7.933 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1018/ZN (oai222d1)      0.156      8.089 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1025/ZN (nr02d0)        0.208      8.297 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1027/ZN (aoim21d1)      0.197      8.494 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1137/CO (ad01d0)        0.304      8.798 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1032/ZN (oai222d1)      0.156      8.954 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1039/ZN (nr02d0)        0.208      9.162 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1558/ZN (aoim21d1)      0.197      9.359 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U19/CO (ad01d0)
+                                                         0.224      9.583 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U18/S (ad01d1)
+                                                         0.321      9.904 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1188/CO (cg01d1)        0.235     10.138 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1192/CO (cg01d0)        0.225     10.364 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1207/CO (ad01d0)        0.345     10.709 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1218/CO (cg01d1)        0.222     10.931 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1222/CO (cg01d0)        0.225     11.156 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1236/CO (ad01d0)        0.346     11.502 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1247/CO (cg01d0)        0.233     11.735 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1251/CO (cg01d0)        0.234     11.969 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1265/CO (ad01d0)        0.345     12.315 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1269/CO (cg01d1)        0.221     12.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U111/CO (cg01d0)         0.225     12.761 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1292/CO (ad01d0)        0.345     13.107 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1296/CO (cg01d1)        0.221     13.328 f
+  u_bcd_core/u_core/u_dfg/u_alu/U110/CO (cg01d0)         0.225     13.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U75/CO (ad01d1)          0.325     13.878 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1328/CO (cg01d1)        0.222     14.100 f
+  u_bcd_core/u_core/u_dfg/u_alu/U109/CO (cg01d1)         0.208     14.307 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1341/CO (cg01d1)        0.238     14.545 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1366/CO (cg01d1)        0.234     14.779 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1372/CO (cg01d1)        0.218     14.997 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1376/CO (ad01d1)        0.308     15.304 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1393/ZN (oai222d2)      0.309     15.614 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1399/ZN (oai222d2)      0.240     15.854 f
+  u_bcd_core/u_core/u_dfg/u_alu/U10/CO (ad01d1)          0.300     16.154 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1420/ZN (oai222d2)      0.309     16.463 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1426/ZN (oai222d2)      0.240     16.703 f
+  u_bcd_core/u_core/u_dfg/u_alu/U9/CO (ad01d1)           0.300     17.003 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1445/ZN (oai222d2)      0.309     17.313 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1453/ZN (oai222d2)      0.240     17.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U8/CO (ad01d1)           0.318     17.871 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1489/CO (cg01d1)        0.198     18.069 f
+  u_bcd_core/u_core/u_dfg/u_alu/U7/Z (xr03d1)            0.159     18.228 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1491/Z (xr03d1)         0.308     18.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1492/Z (xr03d1)         0.303     18.839 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1493/Z (xr03d1)         0.308     19.147 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1494/Z (xr03d1)         0.298     19.444 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1502/ZN (oaim21d1)      0.113     19.557 f
+  u_bcd_core/u_core/u_dfg/u_alu/result[31] (q16_alu)     0.000     19.557 f
+  u_bcd_core/u_core/u_dfg/U1646/ZN (aoi22d1)             0.147     19.704 r
+  u_bcd_core/u_core/u_dfg/U6/Z (bufbd4)                  0.254     19.959 r
+  u_bcd_core/u_core/u_dfg/U60/ZN (invbd2)                0.225     20.184 f
+  u_bcd_core/u_core/u_dfg/reg_file_reg[27][31]/D (dfcrq1)
+                                                         0.000     20.184 f
+  data arrival time                                                20.184
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/u_dfg/reg_file_reg[27][31]/CP (dfcrq1)
+                                                         0.000     20.400 r
+  library setup time                                    -0.126     20.274
+  data required time                                               20.274
+  --------------------------------------------------------------------------
+  data required time                                               20.274
+  data arrival time                                               -20.184
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.090
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/R_425
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/u_dfg/reg_file_reg[28][31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/R_425/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/R_425/Q (dfcrq1)               0.462      1.262 r
+  u_bcd_core/u_core/u_dfg/U443/ZN (inv0d1)               0.100      1.362 f
+  u_bcd_core/u_core/u_dfg/U882/ZN (inv0d1)               0.338      1.700 r
+  u_bcd_core/u_core/u_dfg/U1858/ZN (aoi22d1)             0.130      1.830 f
+  u_bcd_core/u_core/u_dfg/U32/ZN (nd04d0)                0.167      1.997 r
+  u_bcd_core/u_core/u_dfg/U1859/ZN (nr04d1)              0.065      2.062 f
+  u_bcd_core/u_core/u_dfg/U514/ZN (nd02d1)               0.205      2.267 r
+  u_bcd_core/u_core/u_dfg/U1908/ZN (inv0d1)              0.139      2.405 f
+  u_bcd_core/u_core/u_dfg/U1923/ZN (nd03d1)              0.227      2.632 r
+  u_bcd_core/u_core/u_dfg/U1968/ZN (nr02d4)              0.299      2.931 f
+  u_bcd_core/u_core/u_dfg/U1969/ZN (inv0d0)              0.248      3.179 r
+  u_bcd_core/u_core/u_dfg/U1970/ZN (inv0d1)              0.250      3.429 f
+  u_bcd_core/u_core/u_dfg/U2028/ZN (aoi22d1)             0.188      3.617 r
+  u_bcd_core/u_core/u_dfg/U2029/ZN (nd04d1)              0.106      3.723 f
+  u_bcd_core/u_core/u_dfg/U2030/Z (or04d1)               0.426      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/src_a[2] (q16_alu)       0.000      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/U390/ZN (inv0d2)         0.307      4.456 r
+  u_bcd_core/u_core/u_dfg/u_alu/U392/ZN (inv0d2)         0.204      4.659 f
+  u_bcd_core/u_core/u_dfg/u_alu/U393/ZN (oai22d2)        0.328      4.987 r
+  u_bcd_core/u_core/u_dfg/u_alu/U394/ZN (inv0d0)         0.111      5.098 f
+  u_bcd_core/u_core/u_dfg/u_alu/U395/ZN (nd02d1)         0.304      5.402 r
+  u_bcd_core/u_core/u_dfg/u_alu/U396/ZN (nr02d1)         0.197      5.599 f
+  u_bcd_core/u_core/u_dfg/u_alu/U397/ZN (inv0d1)         0.234      5.833 r
+  u_bcd_core/u_core/u_dfg/u_alu/U293/Z (buffd3)          0.336      6.169 r
+  u_bcd_core/u_core/u_dfg/u_alu/U982/ZN (oai22d1)        0.105      6.274 f
+  u_bcd_core/u_core/u_dfg/u_alu/U986/ZN (aoi211d1)       0.323      6.597 r
+  u_bcd_core/u_core/u_dfg/u_alu/U989/ZN (nd12d0)         0.229      6.826 r
+  u_bcd_core/u_core/u_dfg/u_alu/U996/ZN (oaim21d1)       0.241      7.067 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1003/ZN (oai222d1)      0.150      7.217 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1010/ZN (nr02d0)        0.216      7.432 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1013/ZN (aoim21d1)      0.197      7.629 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1113/CO (ad01d0)        0.304      7.933 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1018/ZN (oai222d1)      0.156      8.089 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1025/ZN (nr02d0)        0.208      8.297 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1027/ZN (aoim21d1)      0.197      8.494 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1137/CO (ad01d0)        0.304      8.798 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1032/ZN (oai222d1)      0.156      8.954 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1039/ZN (nr02d0)        0.208      9.162 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1558/ZN (aoim21d1)      0.197      9.359 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U19/CO (ad01d0)
+                                                         0.224      9.583 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U18/S (ad01d1)
+                                                         0.321      9.904 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1188/CO (cg01d1)        0.235     10.138 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1192/CO (cg01d0)        0.225     10.364 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1207/CO (ad01d0)        0.345     10.709 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1218/CO (cg01d1)        0.222     10.931 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1222/CO (cg01d0)        0.225     11.156 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1236/CO (ad01d0)        0.346     11.502 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1247/CO (cg01d0)        0.233     11.735 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1251/CO (cg01d0)        0.234     11.969 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1265/CO (ad01d0)        0.345     12.315 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1269/CO (cg01d1)        0.221     12.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U111/CO (cg01d0)         0.225     12.761 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1292/CO (ad01d0)        0.345     13.107 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1296/CO (cg01d1)        0.221     13.328 f
+  u_bcd_core/u_core/u_dfg/u_alu/U110/CO (cg01d0)         0.225     13.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U75/CO (ad01d1)          0.325     13.878 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1328/CO (cg01d1)        0.222     14.100 f
+  u_bcd_core/u_core/u_dfg/u_alu/U109/CO (cg01d1)         0.208     14.307 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1341/CO (cg01d1)        0.238     14.545 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1366/CO (cg01d1)        0.234     14.779 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1372/CO (cg01d1)        0.218     14.997 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1376/CO (ad01d1)        0.308     15.304 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1393/ZN (oai222d2)      0.309     15.614 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1399/ZN (oai222d2)      0.240     15.854 f
+  u_bcd_core/u_core/u_dfg/u_alu/U10/CO (ad01d1)          0.300     16.154 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1420/ZN (oai222d2)      0.309     16.463 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1426/ZN (oai222d2)      0.240     16.703 f
+  u_bcd_core/u_core/u_dfg/u_alu/U9/CO (ad01d1)           0.300     17.003 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1445/ZN (oai222d2)      0.309     17.313 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1453/ZN (oai222d2)      0.240     17.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U8/CO (ad01d1)           0.318     17.871 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1489/CO (cg01d1)        0.198     18.069 f
+  u_bcd_core/u_core/u_dfg/u_alu/U7/Z (xr03d1)            0.159     18.228 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1491/Z (xr03d1)         0.308     18.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1492/Z (xr03d1)         0.303     18.839 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1493/Z (xr03d1)         0.308     19.147 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1494/Z (xr03d1)         0.298     19.444 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1502/ZN (oaim21d1)      0.113     19.557 f
+  u_bcd_core/u_core/u_dfg/u_alu/result[31] (q16_alu)     0.000     19.557 f
+  u_bcd_core/u_core/u_dfg/U1646/ZN (aoi22d1)             0.147     19.704 r
+  u_bcd_core/u_core/u_dfg/U6/Z (bufbd4)                  0.254     19.959 r
+  u_bcd_core/u_core/u_dfg/U60/ZN (invbd2)                0.225     20.184 f
+  u_bcd_core/u_core/u_dfg/reg_file_reg[28][31]/D (dfcrq1)
+                                                         0.000     20.184 f
+  data arrival time                                                20.184
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/u_dfg/reg_file_reg[28][31]/CP (dfcrq1)
+                                                         0.000     20.400 r
+  library setup time                                    -0.126     20.274
+  data required time                                               20.274
+  --------------------------------------------------------------------------
+  data required time                                               20.274
+  data arrival time                                               -20.184
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.090
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/R_425
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/u_dfg/reg_file_reg[29][31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/R_425/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/R_425/Q (dfcrq1)               0.462      1.262 r
+  u_bcd_core/u_core/u_dfg/U443/ZN (inv0d1)               0.100      1.362 f
+  u_bcd_core/u_core/u_dfg/U882/ZN (inv0d1)               0.338      1.700 r
+  u_bcd_core/u_core/u_dfg/U1858/ZN (aoi22d1)             0.130      1.830 f
+  u_bcd_core/u_core/u_dfg/U32/ZN (nd04d0)                0.167      1.997 r
+  u_bcd_core/u_core/u_dfg/U1859/ZN (nr04d1)              0.065      2.062 f
+  u_bcd_core/u_core/u_dfg/U514/ZN (nd02d1)               0.205      2.267 r
+  u_bcd_core/u_core/u_dfg/U1908/ZN (inv0d1)              0.139      2.405 f
+  u_bcd_core/u_core/u_dfg/U1923/ZN (nd03d1)              0.227      2.632 r
+  u_bcd_core/u_core/u_dfg/U1968/ZN (nr02d4)              0.299      2.931 f
+  u_bcd_core/u_core/u_dfg/U1969/ZN (inv0d0)              0.248      3.179 r
+  u_bcd_core/u_core/u_dfg/U1970/ZN (inv0d1)              0.250      3.429 f
+  u_bcd_core/u_core/u_dfg/U2028/ZN (aoi22d1)             0.188      3.617 r
+  u_bcd_core/u_core/u_dfg/U2029/ZN (nd04d1)              0.106      3.723 f
+  u_bcd_core/u_core/u_dfg/U2030/Z (or04d1)               0.426      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/src_a[2] (q16_alu)       0.000      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/U390/ZN (inv0d2)         0.307      4.456 r
+  u_bcd_core/u_core/u_dfg/u_alu/U392/ZN (inv0d2)         0.204      4.659 f
+  u_bcd_core/u_core/u_dfg/u_alu/U393/ZN (oai22d2)        0.328      4.987 r
+  u_bcd_core/u_core/u_dfg/u_alu/U394/ZN (inv0d0)         0.111      5.098 f
+  u_bcd_core/u_core/u_dfg/u_alu/U395/ZN (nd02d1)         0.304      5.402 r
+  u_bcd_core/u_core/u_dfg/u_alu/U396/ZN (nr02d1)         0.197      5.599 f
+  u_bcd_core/u_core/u_dfg/u_alu/U397/ZN (inv0d1)         0.234      5.833 r
+  u_bcd_core/u_core/u_dfg/u_alu/U293/Z (buffd3)          0.336      6.169 r
+  u_bcd_core/u_core/u_dfg/u_alu/U982/ZN (oai22d1)        0.105      6.274 f
+  u_bcd_core/u_core/u_dfg/u_alu/U986/ZN (aoi211d1)       0.323      6.597 r
+  u_bcd_core/u_core/u_dfg/u_alu/U989/ZN (nd12d0)         0.229      6.826 r
+  u_bcd_core/u_core/u_dfg/u_alu/U996/ZN (oaim21d1)       0.241      7.067 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1003/ZN (oai222d1)      0.150      7.217 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1010/ZN (nr02d0)        0.216      7.432 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1013/ZN (aoim21d1)      0.197      7.629 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1113/CO (ad01d0)        0.304      7.933 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1018/ZN (oai222d1)      0.156      8.089 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1025/ZN (nr02d0)        0.208      8.297 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1027/ZN (aoim21d1)      0.197      8.494 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1137/CO (ad01d0)        0.304      8.798 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1032/ZN (oai222d1)      0.156      8.954 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1039/ZN (nr02d0)        0.208      9.162 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1558/ZN (aoim21d1)      0.197      9.359 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U19/CO (ad01d0)
+                                                         0.224      9.583 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U18/S (ad01d1)
+                                                         0.321      9.904 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1188/CO (cg01d1)        0.235     10.138 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1192/CO (cg01d0)        0.225     10.364 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1207/CO (ad01d0)        0.345     10.709 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1218/CO (cg01d1)        0.222     10.931 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1222/CO (cg01d0)        0.225     11.156 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1236/CO (ad01d0)        0.346     11.502 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1247/CO (cg01d0)        0.233     11.735 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1251/CO (cg01d0)        0.234     11.969 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1265/CO (ad01d0)        0.345     12.315 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1269/CO (cg01d1)        0.221     12.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U111/CO (cg01d0)         0.225     12.761 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1292/CO (ad01d0)        0.345     13.107 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1296/CO (cg01d1)        0.221     13.328 f
+  u_bcd_core/u_core/u_dfg/u_alu/U110/CO (cg01d0)         0.225     13.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U75/CO (ad01d1)          0.325     13.878 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1328/CO (cg01d1)        0.222     14.100 f
+  u_bcd_core/u_core/u_dfg/u_alu/U109/CO (cg01d1)         0.208     14.307 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1341/CO (cg01d1)        0.238     14.545 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1366/CO (cg01d1)        0.234     14.779 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1372/CO (cg01d1)        0.218     14.997 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1376/CO (ad01d1)        0.308     15.304 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1393/ZN (oai222d2)      0.309     15.614 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1399/ZN (oai222d2)      0.240     15.854 f
+  u_bcd_core/u_core/u_dfg/u_alu/U10/CO (ad01d1)          0.300     16.154 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1420/ZN (oai222d2)      0.309     16.463 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1426/ZN (oai222d2)      0.240     16.703 f
+  u_bcd_core/u_core/u_dfg/u_alu/U9/CO (ad01d1)           0.300     17.003 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1445/ZN (oai222d2)      0.309     17.313 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1453/ZN (oai222d2)      0.240     17.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U8/CO (ad01d1)           0.318     17.871 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1489/CO (cg01d1)        0.198     18.069 f
+  u_bcd_core/u_core/u_dfg/u_alu/U7/Z (xr03d1)            0.159     18.228 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1491/Z (xr03d1)         0.308     18.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1492/Z (xr03d1)         0.303     18.839 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1493/Z (xr03d1)         0.308     19.147 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1494/Z (xr03d1)         0.298     19.444 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1502/ZN (oaim21d1)      0.113     19.557 f
+  u_bcd_core/u_core/u_dfg/u_alu/result[31] (q16_alu)     0.000     19.557 f
+  u_bcd_core/u_core/u_dfg/U1646/ZN (aoi22d1)             0.147     19.704 r
+  u_bcd_core/u_core/u_dfg/U6/Z (bufbd4)                  0.254     19.959 r
+  u_bcd_core/u_core/u_dfg/U60/ZN (invbd2)                0.225     20.184 f
+  u_bcd_core/u_core/u_dfg/reg_file_reg[29][31]/D (dfcrq1)
+                                                         0.000     20.184 f
+  data arrival time                                                20.184
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/u_dfg/reg_file_reg[29][31]/CP (dfcrq1)
+                                                         0.000     20.400 r
+  library setup time                                    -0.126     20.274
+  data required time                                               20.274
+  --------------------------------------------------------------------------
+  data required time                                               20.274
+  data arrival time                                               -20.184
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.090
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/R_425
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/u_dfg/reg_file_reg[30][31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/R_425/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/R_425/Q (dfcrq1)               0.462      1.262 r
+  u_bcd_core/u_core/u_dfg/U443/ZN (inv0d1)               0.100      1.362 f
+  u_bcd_core/u_core/u_dfg/U882/ZN (inv0d1)               0.338      1.700 r
+  u_bcd_core/u_core/u_dfg/U1858/ZN (aoi22d1)             0.130      1.830 f
+  u_bcd_core/u_core/u_dfg/U32/ZN (nd04d0)                0.167      1.997 r
+  u_bcd_core/u_core/u_dfg/U1859/ZN (nr04d1)              0.065      2.062 f
+  u_bcd_core/u_core/u_dfg/U514/ZN (nd02d1)               0.205      2.267 r
+  u_bcd_core/u_core/u_dfg/U1908/ZN (inv0d1)              0.139      2.405 f
+  u_bcd_core/u_core/u_dfg/U1923/ZN (nd03d1)              0.227      2.632 r
+  u_bcd_core/u_core/u_dfg/U1968/ZN (nr02d4)              0.299      2.931 f
+  u_bcd_core/u_core/u_dfg/U1969/ZN (inv0d0)              0.248      3.179 r
+  u_bcd_core/u_core/u_dfg/U1970/ZN (inv0d1)              0.250      3.429 f
+  u_bcd_core/u_core/u_dfg/U2028/ZN (aoi22d1)             0.188      3.617 r
+  u_bcd_core/u_core/u_dfg/U2029/ZN (nd04d1)              0.106      3.723 f
+  u_bcd_core/u_core/u_dfg/U2030/Z (or04d1)               0.426      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/src_a[2] (q16_alu)       0.000      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/U390/ZN (inv0d2)         0.307      4.456 r
+  u_bcd_core/u_core/u_dfg/u_alu/U392/ZN (inv0d2)         0.204      4.659 f
+  u_bcd_core/u_core/u_dfg/u_alu/U393/ZN (oai22d2)        0.328      4.987 r
+  u_bcd_core/u_core/u_dfg/u_alu/U394/ZN (inv0d0)         0.111      5.098 f
+  u_bcd_core/u_core/u_dfg/u_alu/U395/ZN (nd02d1)         0.304      5.402 r
+  u_bcd_core/u_core/u_dfg/u_alu/U396/ZN (nr02d1)         0.197      5.599 f
+  u_bcd_core/u_core/u_dfg/u_alu/U397/ZN (inv0d1)         0.234      5.833 r
+  u_bcd_core/u_core/u_dfg/u_alu/U293/Z (buffd3)          0.336      6.169 r
+  u_bcd_core/u_core/u_dfg/u_alu/U982/ZN (oai22d1)        0.105      6.274 f
+  u_bcd_core/u_core/u_dfg/u_alu/U986/ZN (aoi211d1)       0.323      6.597 r
+  u_bcd_core/u_core/u_dfg/u_alu/U989/ZN (nd12d0)         0.229      6.826 r
+  u_bcd_core/u_core/u_dfg/u_alu/U996/ZN (oaim21d1)       0.241      7.067 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1003/ZN (oai222d1)      0.150      7.217 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1010/ZN (nr02d0)        0.216      7.432 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1013/ZN (aoim21d1)      0.197      7.629 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1113/CO (ad01d0)        0.304      7.933 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1018/ZN (oai222d1)      0.156      8.089 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1025/ZN (nr02d0)        0.208      8.297 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1027/ZN (aoim21d1)      0.197      8.494 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1137/CO (ad01d0)        0.304      8.798 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1032/ZN (oai222d1)      0.156      8.954 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1039/ZN (nr02d0)        0.208      9.162 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1558/ZN (aoim21d1)      0.197      9.359 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U19/CO (ad01d0)
+                                                         0.224      9.583 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U18/S (ad01d1)
+                                                         0.321      9.904 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1188/CO (cg01d1)        0.235     10.138 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1192/CO (cg01d0)        0.225     10.364 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1207/CO (ad01d0)        0.345     10.709 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1218/CO (cg01d1)        0.222     10.931 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1222/CO (cg01d0)        0.225     11.156 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1236/CO (ad01d0)        0.346     11.502 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1247/CO (cg01d0)        0.233     11.735 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1251/CO (cg01d0)        0.234     11.969 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1265/CO (ad01d0)        0.345     12.315 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1269/CO (cg01d1)        0.221     12.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U111/CO (cg01d0)         0.225     12.761 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1292/CO (ad01d0)        0.345     13.107 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1296/CO (cg01d1)        0.221     13.328 f
+  u_bcd_core/u_core/u_dfg/u_alu/U110/CO (cg01d0)         0.225     13.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U75/CO (ad01d1)          0.325     13.878 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1328/CO (cg01d1)        0.222     14.100 f
+  u_bcd_core/u_core/u_dfg/u_alu/U109/CO (cg01d1)         0.208     14.307 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1341/CO (cg01d1)        0.238     14.545 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1366/CO (cg01d1)        0.234     14.779 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1372/CO (cg01d1)        0.218     14.997 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1376/CO (ad01d1)        0.308     15.304 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1393/ZN (oai222d2)      0.309     15.614 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1399/ZN (oai222d2)      0.240     15.854 f
+  u_bcd_core/u_core/u_dfg/u_alu/U10/CO (ad01d1)          0.300     16.154 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1420/ZN (oai222d2)      0.309     16.463 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1426/ZN (oai222d2)      0.240     16.703 f
+  u_bcd_core/u_core/u_dfg/u_alu/U9/CO (ad01d1)           0.300     17.003 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1445/ZN (oai222d2)      0.309     17.313 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1453/ZN (oai222d2)      0.240     17.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U8/CO (ad01d1)           0.318     17.871 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1489/CO (cg01d1)        0.198     18.069 f
+  u_bcd_core/u_core/u_dfg/u_alu/U7/Z (xr03d1)            0.159     18.228 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1491/Z (xr03d1)         0.308     18.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1492/Z (xr03d1)         0.303     18.839 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1493/Z (xr03d1)         0.308     19.147 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1494/Z (xr03d1)         0.298     19.444 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1502/ZN (oaim21d1)      0.113     19.557 f
+  u_bcd_core/u_core/u_dfg/u_alu/result[31] (q16_alu)     0.000     19.557 f
+  u_bcd_core/u_core/u_dfg/U1646/ZN (aoi22d1)             0.147     19.704 r
+  u_bcd_core/u_core/u_dfg/U6/Z (bufbd4)                  0.254     19.959 r
+  u_bcd_core/u_core/u_dfg/U60/ZN (invbd2)                0.225     20.184 f
+  u_bcd_core/u_core/u_dfg/reg_file_reg[30][31]/D (dfcrq1)
+                                                         0.000     20.184 f
+  data arrival time                                                20.184
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/u_dfg/reg_file_reg[30][31]/CP (dfcrq1)
+                                                         0.000     20.400 r
+  library setup time                                    -0.126     20.274
+  data required time                                               20.274
+  --------------------------------------------------------------------------
+  data required time                                               20.274
+  data arrival time                                               -20.184
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.090
+
+
+  Startpoint: u_bcd_core/u_core/u_dfg/R_425
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/u_dfg/reg_file_reg[31][31]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  dfg_multivar_engine
+                     35000                 tsl18fs120_typ
+  q16_alu            8000                  tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/u_dfg/R_425/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/u_dfg/R_425/Q (dfcrq1)               0.462      1.262 r
+  u_bcd_core/u_core/u_dfg/U443/ZN (inv0d1)               0.100      1.362 f
+  u_bcd_core/u_core/u_dfg/U882/ZN (inv0d1)               0.338      1.700 r
+  u_bcd_core/u_core/u_dfg/U1858/ZN (aoi22d1)             0.130      1.830 f
+  u_bcd_core/u_core/u_dfg/U32/ZN (nd04d0)                0.167      1.997 r
+  u_bcd_core/u_core/u_dfg/U1859/ZN (nr04d1)              0.065      2.062 f
+  u_bcd_core/u_core/u_dfg/U514/ZN (nd02d1)               0.205      2.267 r
+  u_bcd_core/u_core/u_dfg/U1908/ZN (inv0d1)              0.139      2.405 f
+  u_bcd_core/u_core/u_dfg/U1923/ZN (nd03d1)              0.227      2.632 r
+  u_bcd_core/u_core/u_dfg/U1968/ZN (nr02d4)              0.299      2.931 f
+  u_bcd_core/u_core/u_dfg/U1969/ZN (inv0d0)              0.248      3.179 r
+  u_bcd_core/u_core/u_dfg/U1970/ZN (inv0d1)              0.250      3.429 f
+  u_bcd_core/u_core/u_dfg/U2028/ZN (aoi22d1)             0.188      3.617 r
+  u_bcd_core/u_core/u_dfg/U2029/ZN (nd04d1)              0.106      3.723 f
+  u_bcd_core/u_core/u_dfg/U2030/Z (or04d1)               0.426      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/src_a[2] (q16_alu)       0.000      4.149 f
+  u_bcd_core/u_core/u_dfg/u_alu/U390/ZN (inv0d2)         0.307      4.456 r
+  u_bcd_core/u_core/u_dfg/u_alu/U392/ZN (inv0d2)         0.204      4.659 f
+  u_bcd_core/u_core/u_dfg/u_alu/U393/ZN (oai22d2)        0.328      4.987 r
+  u_bcd_core/u_core/u_dfg/u_alu/U394/ZN (inv0d0)         0.111      5.098 f
+  u_bcd_core/u_core/u_dfg/u_alu/U395/ZN (nd02d1)         0.304      5.402 r
+  u_bcd_core/u_core/u_dfg/u_alu/U396/ZN (nr02d1)         0.197      5.599 f
+  u_bcd_core/u_core/u_dfg/u_alu/U397/ZN (inv0d1)         0.234      5.833 r
+  u_bcd_core/u_core/u_dfg/u_alu/U293/Z (buffd3)          0.336      6.169 r
+  u_bcd_core/u_core/u_dfg/u_alu/U982/ZN (oai22d1)        0.105      6.274 f
+  u_bcd_core/u_core/u_dfg/u_alu/U986/ZN (aoi211d1)       0.323      6.597 r
+  u_bcd_core/u_core/u_dfg/u_alu/U989/ZN (nd12d0)         0.229      6.826 r
+  u_bcd_core/u_core/u_dfg/u_alu/U996/ZN (oaim21d1)       0.241      7.067 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1003/ZN (oai222d1)      0.150      7.217 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1010/ZN (nr02d0)        0.216      7.432 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1013/ZN (aoim21d1)      0.197      7.629 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1113/CO (ad01d0)        0.304      7.933 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1018/ZN (oai222d1)      0.156      8.089 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1025/ZN (nr02d0)        0.208      8.297 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1027/ZN (aoim21d1)      0.197      8.494 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1137/CO (ad01d0)        0.304      8.798 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1032/ZN (oai222d1)      0.156      8.954 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1039/ZN (nr02d0)        0.208      9.162 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1558/ZN (aoim21d1)      0.197      9.359 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U19/CO (ad01d0)
+                                                         0.224      9.583 r
+  u_bcd_core/u_core/u_dfg/u_alu/intadd_170/U18/S (ad01d1)
+                                                         0.321      9.904 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1188/CO (cg01d1)        0.235     10.138 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1192/CO (cg01d0)        0.225     10.364 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1207/CO (ad01d0)        0.345     10.709 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1218/CO (cg01d1)        0.222     10.931 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1222/CO (cg01d0)        0.225     11.156 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1236/CO (ad01d0)        0.346     11.502 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1247/CO (cg01d0)        0.233     11.735 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1251/CO (cg01d0)        0.234     11.969 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1265/CO (ad01d0)        0.345     12.315 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1269/CO (cg01d1)        0.221     12.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U111/CO (cg01d0)         0.225     12.761 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1292/CO (ad01d0)        0.345     13.107 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1296/CO (cg01d1)        0.221     13.328 f
+  u_bcd_core/u_core/u_dfg/u_alu/U110/CO (cg01d0)         0.225     13.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U75/CO (ad01d1)          0.325     13.878 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1328/CO (cg01d1)        0.222     14.100 f
+  u_bcd_core/u_core/u_dfg/u_alu/U109/CO (cg01d1)         0.208     14.307 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1341/CO (cg01d1)        0.238     14.545 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1366/CO (cg01d1)        0.234     14.779 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1372/CO (cg01d1)        0.218     14.997 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1376/CO (ad01d1)        0.308     15.304 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1393/ZN (oai222d2)      0.309     15.614 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1399/ZN (oai222d2)      0.240     15.854 f
+  u_bcd_core/u_core/u_dfg/u_alu/U10/CO (ad01d1)          0.300     16.154 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1420/ZN (oai222d2)      0.309     16.463 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1426/ZN (oai222d2)      0.240     16.703 f
+  u_bcd_core/u_core/u_dfg/u_alu/U9/CO (ad01d1)           0.300     17.003 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1445/ZN (oai222d2)      0.309     17.313 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1453/ZN (oai222d2)      0.240     17.553 f
+  u_bcd_core/u_core/u_dfg/u_alu/U8/CO (ad01d1)           0.318     17.871 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1489/CO (cg01d1)        0.198     18.069 f
+  u_bcd_core/u_core/u_dfg/u_alu/U7/Z (xr03d1)            0.159     18.228 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1491/Z (xr03d1)         0.308     18.536 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1492/Z (xr03d1)         0.303     18.839 r
+  u_bcd_core/u_core/u_dfg/u_alu/U1493/Z (xr03d1)         0.308     19.147 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1494/Z (xr03d1)         0.298     19.444 f
+  u_bcd_core/u_core/u_dfg/u_alu/U1502/ZN (oaim21d1)      0.113     19.557 f
+  u_bcd_core/u_core/u_dfg/u_alu/result[31] (q16_alu)     0.000     19.557 f
+  u_bcd_core/u_core/u_dfg/U1646/ZN (aoi22d1)             0.147     19.704 r
+  u_bcd_core/u_core/u_dfg/U6/Z (bufbd4)                  0.254     19.959 r
+  u_bcd_core/u_core/u_dfg/U60/ZN (invbd2)                0.225     20.184 f
+  u_bcd_core/u_core/u_dfg/reg_file_reg[31][31]/D (dfcrq1)
+                                                         0.000     20.184 f
+  data arrival time                                                20.184
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/u_dfg/reg_file_reg[31][31]/CP (dfcrq1)
+                                                         0.000     20.400 r
+  library setup time                                    -0.126     20.274
+  data required time                                               20.274
+  --------------------------------------------------------------------------
+  data required time                                               20.274
+  data arrival time                                               -20.184
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.090
+
+
+  Startpoint: u_bcd_core/u_core/f_pj_reg[0]
+              (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Endpoint: u_bcd_core/u_core/num_j_reg[30]
+            (rising edge-triggered flip-flop clocked by s_axi_aclk)
+  Path Group: s_axi_aclk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  newton_2var_core   140000                tsl18fs120_typ
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock s_axi_aclk (rise edge)                           0.000      0.000
+  clock network delay (ideal)                            0.800      0.800
+  u_bcd_core/u_core/f_pj_reg[0]/CP (dfcrq1)              0.000      0.800 r
+  u_bcd_core/u_core/f_pj_reg[0]/Q (dfcrq1)               0.365      1.165 f
+  u_bcd_core/u_core/U3373/ZN (nr02d1)                    0.206      1.371 r
+  u_bcd_core/u_core/U3374/ZN (aoim21d1)                  0.084      1.456 f
+  u_bcd_core/u_core/U883/ZN (nd12d1)                     0.141      1.597 f
+  u_bcd_core/u_core/U3376/ZN (inv0d1)                    0.094      1.691 r
+  u_bcd_core/u_core/U3377/ZN (aoi22d1)                   0.089      1.780 f
+  u_bcd_core/u_core/U247/ZN (nr02d1)                     0.162      1.942 r
+  u_bcd_core/u_core/U3378/ZN (aoi21d1)                   0.074      2.016 f
+  u_bcd_core/u_core/U1991/ZN (nr02d1)                    0.174      2.190 r
+  u_bcd_core/u_core/U3381/ZN (nr02d2)                    0.052      2.242 f
+  u_bcd_core/u_core/U3383/ZN (oai22d1)                   0.191      2.434 r
+  u_bcd_core/u_core/U3385/ZN (nr02d2)                    0.062      2.496 f
+  u_bcd_core/u_core/U3386/ZN (nr02d2)                    0.105      2.601 r
+  u_bcd_core/u_core/U3388/ZN (nr02d2)                    0.046      2.647 f
+  u_bcd_core/u_core/U3389/ZN (aoi21d1)                   0.224      2.871 r
+  u_bcd_core/u_core/U3391/ZN (oan211d1)                  0.155      3.025 f
+  u_bcd_core/u_core/U3393/ZN (aon211d1)                  0.239      3.264 r
+  u_bcd_core/u_core/U3394/ZN (nd02d2)                    0.078      3.342 f
+  u_bcd_core/u_core/U804/ZN (nd12d1)                     0.112      3.454 r
+  u_bcd_core/u_core/U3396/ZN (aoi22d1)                   0.119      3.573 f
+  u_bcd_core/u_core/U3399/ZN (oan211d2)                  0.246      3.819 r
+  u_bcd_core/u_core/U3400/ZN (nr02d2)                    0.042      3.861 f
+  u_bcd_core/u_core/U3402/ZN (nr02d2)                    0.098      3.959 r
+  u_bcd_core/u_core/U3404/ZN (nr02d2)                    0.046      4.005 f
+  u_bcd_core/u_core/U2383/ZN (aoi21d1)                   0.234      4.239 r
+  u_bcd_core/u_core/U3407/ZN (nr02d2)                    0.054      4.293 f
+  u_bcd_core/u_core/U3408/ZN (aoi21d1)                   0.240      4.533 r
+  u_bcd_core/u_core/U3411/ZN (nr02d2)                    0.062      4.596 f
+  u_bcd_core/u_core/U3412/ZN (nr02d2)                    0.112      4.708 r
+  u_bcd_core/u_core/U3414/CO (cg01d1)                    0.199      4.907 r
+  u_bcd_core/u_core/U235/ZN (nd02d1)                     0.095      5.002 f
+  u_bcd_core/u_core/U3415/ZN (oai21d1)                   0.132      5.134 r
+  u_bcd_core/u_core/U1388/ZN (nd02d1)                    0.117      5.251 f
+  u_bcd_core/u_core/U3416/ZN (oai21d1)                   0.121      5.372 r
+  u_bcd_core/u_core/U1360/ZN (nd02d1)                    0.117      5.489 f
+  u_bcd_core/u_core/U3417/ZN (oai21d1)                   0.122      5.611 r
+  u_bcd_core/u_core/U1329/ZN (nr02d1)                    0.100      5.711 f
+  u_bcd_core/u_core/U3418/ZN (aoi21d1)                   0.224      5.936 r
+  u_bcd_core/u_core/U3421/ZN (nr02d2)                    0.050      5.986 f
+  u_bcd_core/u_core/U3422/ZN (aoim21d1)                  0.150      6.136 r
+  u_bcd_core/u_core/U707/Z (aoim22d1)                    0.253      6.389 r
+  u_bcd_core/u_core/U20803/CO (ad01d1)                   0.184      6.573 r
+  u_bcd_core/u_core/U1293/CO (ad01d1)                    0.164      6.737 r
+  u_bcd_core/u_core/U1286/S (ad01d1)                     0.320      7.056 f
+  u_bcd_core/u_core/U3292/ZN (inv0d1)                    0.117      7.174 r
+  u_bcd_core/u_core/U3821/ZN (oai22d2)                   0.182      7.356 f
+  u_bcd_core/u_core/U191/ZN (nd12d1)                     0.235      7.590 r
+  u_bcd_core/u_core/U298/ZN (nr02d0)                     0.091      7.681 f
+  u_bcd_core/u_core/U300/ZN (nr02d0)                     0.145      7.826 r
+  u_bcd_core/u_core/U301/ZN (inv0d0)                     0.089      7.915 f
+  u_bcd_core/u_core/U299/ZN (nr02d0)                     0.170      8.085 r
+  u_bcd_core/u_core/U296/ZN (inv0d1)                     0.120      8.205 f
+  u_bcd_core/u_core/U2044/ZN (nr02d4)                    0.253      8.458 r
+  u_bcd_core/u_core/U3824/ZN (nd02d0)                    0.163      8.622 f
+  u_bcd_core/u_core/U3888/Z (xr02d1)                     0.366      8.988 r
+  u_bcd_core/u_core/U3905/Z (or02d0)                     0.150      9.138 r
+  u_bcd_core/u_core/U3907/ZN (nd02d0)                    0.092      9.230 f
+  u_bcd_core/u_core/U2966/Z (xr03d1)                     0.229      9.459 r
+  u_bcd_core/u_core/U3984/Z (xr02d1)                     0.255      9.714 f
+  u_bcd_core/u_core/U4061/ZN (inv0d0)                    0.135      9.849 r
+  u_bcd_core/u_core/U4062/ZN (nd02d0)                    0.096      9.945 f
+  u_bcd_core/u_core/U737/ZN (nd02d1)                     0.150     10.095 r
+  u_bcd_core/u_core/U4063/ZN (nd02d0)                    0.145     10.239 f
+  u_bcd_core/u_core/U736/ZN (nd02d1)                     0.177     10.416 r
+  u_bcd_core/u_core/U4064/ZN (oai22d1)                   0.091     10.507 f
+  u_bcd_core/u_core/U4066/ZN (aon211d1)                  0.152     10.659 r
+  u_bcd_core/u_core/U4067/ZN (inv0d1)                    0.093     10.752 f
+  u_bcd_core/u_core/U1064/Z (xr03d1)                     0.227     10.979 r
+  u_bcd_core/u_core/U4211/Z (xr03d1)                     0.338     11.317 f
+  u_bcd_core/u_core/U4217/CO (cg01d1)                    0.263     11.579 f
+  u_bcd_core/u_core/U4225/ZN (oai22d1)                   0.140     11.719 r
+  u_bcd_core/u_core/U4227/ZN (aon211d2)                  0.218     11.937 f
+  u_bcd_core/u_core/U4467/CO (ad01d1)                    0.314     12.251 f
+  u_bcd_core/u_core/U4512/S (ad01d0)                     0.464     12.716 r
+  u_bcd_core/u_core/U4569/ZN (inv0d1)                    0.088     12.803 f
+  u_bcd_core/u_core/U4570/Z (aoim22d1)                   0.174     12.978 f
+  u_bcd_core/u_core/U988/Z (xr03d1)                      0.369     13.347 r
+  u_bcd_core/u_core/U4595/ZN (inv0d1)                    0.052     13.399 f
+  u_bcd_core/u_core/U4596/ZN (aoi22d1)                   0.225     13.624 r
+  u_bcd_core/u_core/U9961/S (ad01d0)                     0.306     13.930 f
+  u_bcd_core/u_core/U965/ZN (inv0d1)                     0.108     14.038 r
+  u_bcd_core/u_core/intadd_137/U2/S (ad01d1)             0.334     14.372 f
+  u_bcd_core/u_core/U726/CO (ad01d1)                     0.330     14.702 f
+  u_bcd_core/u_core/U9965/ZN (nr02d1)                    0.149     14.851 r
+  u_bcd_core/u_core/U9967/ZN (oai21d1)                   0.106     14.958 f
+  u_bcd_core/u_core/U946/CO (ad01d1)                     0.272     15.230 f
+  u_bcd_core/u_core/U944/S (ad01d1)                      0.367     15.597 f
+  u_bcd_core/u_core/U10892/ZN (inv0d0)                   0.288     15.884 r
+  u_bcd_core/u_core/U14766/CO (ad01d0)                   0.197     16.081 r
+  u_bcd_core/u_core/U14767/ZN (inv0d1)                   0.071     16.152 f
+  u_bcd_core/u_core/intadd_69/U3/CO (ad01d0)             0.320     16.473 f
+  u_bcd_core/u_core/intadd_69/U2/CO (ad01d1)             0.301     16.774 f
+  u_bcd_core/u_core/U15919/ZN (inv0d1)                   0.133     16.906 r
+  u_bcd_core/u_core/U15920/ZN (aoi21d1)                  0.107     17.013 f
+  u_bcd_core/u_core/intadd_77/U4/CO (ad01d1)             0.312     17.325 f
+  u_bcd_core/u_core/U926/CO (ad01d1)                     0.271     17.596 f
+  u_bcd_core/u_core/intadd_77/U2/CO (ad01d1)             0.297     17.893 f
+  u_bcd_core/u_core/U15975/ZN (inv0d0)                   0.254     18.147 r
+  u_bcd_core/u_core/U15976/Z (aoim22d1)                  0.226     18.374 r
+  u_bcd_core/u_core/U15977/Z (xr03d1)                    0.328     18.701 f
+  u_bcd_core/u_core/U15978/Z (xr03d1)                    0.319     19.020 r
+  u_bcd_core/u_core/U15981/Z (xr03d1)                    0.270     19.290 f
+  u_bcd_core/u_core/U15982/Z (xr03d1)                    0.319     19.609 r
+  u_bcd_core/u_core/U15983/Z (xr03d1)                    0.289     19.898 f
+  u_bcd_core/u_core/U919/Z (or02d1)                      0.204     20.102 f
+  u_bcd_core/u_core/U15984/ZN (oaim21d1)                 0.076     20.179 r
+  u_bcd_core/u_core/num_j_reg[30]/D (dfcrq1)             0.000     20.179 r
+  data arrival time                                                20.179
+
+  clock s_axi_aclk (rise edge)                          20.000     20.000
+  clock network delay (ideal)                            0.800     20.800
+  clock uncertainty                                     -0.400     20.400
+  u_bcd_core/u_core/num_j_reg[30]/CP (dfcrq1)            0.000     20.400 r
+  library setup time                                    -0.076     20.324
+  data required time                                               20.324
+  --------------------------------------------------------------------------
+  data required time                                               20.324
+  data arrival time                                               -20.179
+  --------------------------------------------------------------------------
+  slack (MET)                                                       0.145
+
+
+1

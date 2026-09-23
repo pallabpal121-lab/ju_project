@@ -1,0 +1,163 @@
+ 
+****************************************
+Report : reference
+Design : newton_bcd_axi_lite
+Version: W-2024.09-SP1
+Date   : Wed Sep 23 15:24:48 2026
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_0
+                                  4.750000       1      4.750000  b, h
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_1
+                                  4.750000       1      4.750000  b, h
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_2
+                                  4.750000       1      4.750000  b, h
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_3
+                                  4.750000       1      4.750000  b, h
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_4
+                                  4.750000       1      4.750000  b, h
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_5
+                                  4.750000       1      4.750000  b, h
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_6
+                                  4.750000       1      4.750000  b, h
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_7
+                                  4.750000       1      4.750000  b, h
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_8
+                                  4.750000       1      4.750000  b, h
+SNPS_CLOCK_GATE_HIGH_newton_bcd_axi_lite_9
+                                  4.750000       1      4.750000  b, h
+an02d0             tsl18fs120_typ
+                                  1.250000       3      3.750000  
+an02d1             tsl18fs120_typ
+                                  1.250000       1      1.250000  
+an02d2             tsl18fs120_typ
+                                  1.500000       3      4.500000  
+an03d0             tsl18fs120_typ
+                                  1.500000       1      1.500000  
+an04d1             tsl18fs120_typ
+                                  2.000000       4      8.000000  
+aoi21d1            tsl18fs120_typ
+                                  1.250000      23     28.750000  
+aoi22d1            tsl18fs120_typ
+                                  1.500000      98    147.000000  
+aoi31d1            tsl18fs120_typ
+                                  1.500000       1      1.500000  
+aoi211d1           tsl18fs120_typ
+                                  1.500000      20     30.000000  
+aoim21d1           tsl18fs120_typ
+                                  1.500000       1      1.500000  
+aoim22d1           tsl18fs120_typ
+                                  1.750000       1      1.750000  
+aoim31d1           tsl18fs120_typ
+                                  1.750000       8     14.000000  
+aoim211d1          tsl18fs120_typ
+                                  1.750000      29     50.750000  
+aon211d1           tsl18fs120_typ
+                                  1.500000       2      3.000000  
+aon211d2           tsl18fs120_typ
+                                  2.750000       1      2.750000  
+aor22d1            tsl18fs120_typ
+                                  2.000000      16     32.000000  
+buffd1             tsl18fs120_typ
+                                  1.000000       7      7.000000  
+buffd7             tsl18fs120_typ
+                                  2.500000       6     15.000000  
+buffda             tsl18fs120_typ
+                                  3.250000       2      6.500000  
+clk2d2             tsl18fs120_typ
+                                  5.250000       2     10.500000  
+dfcrn1             tsl18fs120_typ
+                                  5.250000       6     31.500000  n
+dfcrq1             tsl18fs120_typ
+                                  5.250000     704   3696.000000  n
+dfprb1             tsl18fs120_typ
+                                  6.000000       1      6.000000  n
+inv0d0             tsl18fs120_typ
+                                  0.500000     529    264.500000  
+inv0d1             tsl18fs120_typ
+                                  0.750000     140    105.000000  
+inv0d2             tsl18fs120_typ
+                                  1.000000      35     35.000000  
+inv0d4             tsl18fs120_typ
+                                  1.500000       5      7.500000  
+invbd2             tsl18fs120_typ
+                                  1.250000      40     50.000000  
+mx02d1             tsl18fs120_typ
+                                  2.000000       1      2.000000  
+nd02d0             tsl18fs120_typ
+                                  1.000000      11     11.000000  
+nd02d1             tsl18fs120_typ
+                                  1.000000       5      5.000000  
+nd02d7             tsl18fs120_typ
+                                  3.250000       2      6.500000  
+nd03d1             tsl18fs120_typ
+                                  1.250000      37     46.250000  
+nd03d4             tsl18fs120_typ
+                                  2.750000       1      2.750000  
+nd04d0             tsl18fs120_typ
+                                  1.500000       5      7.500000  
+nd12d0             tsl18fs120_typ
+                                  1.250000       3      3.750000  
+nd12d1             tsl18fs120_typ
+                                  1.250000       2      2.500000  
+nd13d1             tsl18fs120_typ
+                                  1.750000       2      3.500000  
+newton_bcd_top                86149.500000       1  86149.500000  b, h, n
+nr02d0             tsl18fs120_typ
+                                  1.000000       3      3.000000  
+nr02d1             tsl18fs120_typ
+                                  1.000000      10     10.000000  
+nr02d2             tsl18fs120_typ
+                                  1.500000       2      3.000000  
+nr02d4             tsl18fs120_typ
+                                  2.500000       3      7.500000  
+nr03d0             tsl18fs120_typ
+                                  1.250000       7      8.750000  
+nr03d1             tsl18fs120_typ
+                                  1.250000      18     22.500000  
+nr03d2             tsl18fs120_typ
+                                  2.500000       9     22.500000  
+nr04d1             tsl18fs120_typ
+                                  1.500000      32     48.000000  
+nr04d2             tsl18fs120_typ
+                                  2.750000       1      2.750000  
+oai21d1            tsl18fs120_typ
+                                  1.250000       1      1.250000  
+oai22d1            tsl18fs120_typ
+                                  1.500000     733   1099.500000  
+oai211d1           tsl18fs120_typ
+                                  1.500000      29     43.500000  
+oaim21d1           tsl18fs120_typ
+                                  1.500000       1      1.500000  
+oaim211d1          tsl18fs120_typ
+                                  2.000000       7     14.000000  
+oan211d1           tsl18fs120_typ
+                                  1.500000      14     21.000000  
+oan211d2           tsl18fs120_typ
+                                  2.750000       4     11.000000  
+or02d0             tsl18fs120_typ
+                                  1.250000       4      5.000000  
+or02d1             tsl18fs120_typ
+                                  1.250000       4      5.000000  
+or03d0             tsl18fs120_typ
+                                  1.750000       1      1.750000  
+or04d2             tsl18fs120_typ
+                                  2.250000       1      2.250000  
+ora31d1            tsl18fs120_typ
+                                  2.000000       1      2.000000  
+-----------------------------------------------------------------------------
+Total 70 references                                 92190.000000
+1

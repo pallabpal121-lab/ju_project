@@ -34,3 +34,8 @@ transcript
 *.synctex.gz
 *.toc
 *.out
+
+# Synopsys Verdi & Novas temporary logs
+novas.conf
+novas.rc
+verdiLog/

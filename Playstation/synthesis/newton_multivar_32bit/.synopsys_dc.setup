@@ -1,0 +1,79 @@
+# ==============================================================================
+# Synopsys Design Compiler Tool Initialization Setup (.synopsys_dc.setup)
+# Design   : Universal Multivariable Newton BCD Accelerator
+# Top      : newton_bcd_axi_lite
+# Process  : SCL 180nm CMOS (0.18 um)
+# Voltage  : V_DD = 1.8 V (nominal core)
+# ==============================================================================
+
+echo "======================================================================"
+echo " Loading .synopsys_dc.setup: Synopsys DC Environment Configuration    "
+echo " Target Design: newton_bcd_axi_lite                                   "
+echo " Technology   : SCL 180nm CMOS                                        "
+echo "======================================================================"
+
+# ------------------------------------------------------------------------------
+# 1. Directory Search Paths
+# ------------------------------------------------------------------------------
+set synopsys_root [get_unix_variable SYNOPSYS]
+if {$synopsys_root == ""} {
+    set synopsys_root "/home/user17/Synopsys/Design_Compiler/tool/Synthesis/syn/W-2024.09-SP1"
+}
+
+set DESIGN_ROOT       "../.."
+set RTL_DIR           "${DESIGN_ROOT}/rtl/newton_multivar_32bit"
+set PDK_LIB_DIR       "/home/user17/Synopsys/Design_Compiler/lib"
+set SYNOPSYS_SYN_LIB  "${synopsys_root}/libraries/syn"
+
+set search_path [list . \
+                      ./scripts \
+                      ./constraints \
+                      ./filelist \
+                      ${RTL_DIR} \
+                      ${PDK_LIB_DIR} \
+                      ${SYNOPSYS_SYN_LIB} \
+                      ${search_path}]
+
+# ------------------------------------------------------------------------------
+# 2. Target, Link, Synthetic (DesignWare), and Symbol Libraries
+# ------------------------------------------------------------------------------
+# Default Target Foundry: SCL 180nm Commercial Standard Cells (Typical: 1.80V, 25C)
+set TARGET_LIB_NAME   "tsl18fs120_typ.db"
+
+set target_library    [list ${TARGET_LIB_NAME}]
+set synthetic_library [list standard.sldb]
+set link_library      [list * ${target_library} ${synthetic_library}]
+set symbol_library    [list generic.sdb]
+
+# ------------------------------------------------------------------------------
+# 3. Working Directory and ALIB Cache Path
+# ------------------------------------------------------------------------------
+file mkdir ./work
+file mkdir ./work/alib
+define_design_lib WORK -path ./work
+set alib_library_analysis_path "./work/alib"
+
+# ------------------------------------------------------------------------------
+# 4. Tool & Compilation Defaults
+# ------------------------------------------------------------------------------
+set hdlin_enable_presto_for_vhdl true
+set hdlin_sv_packages true
+set hdlin_check_no_latch true
+set hdlin_auto_save_templates true
+set bus_naming_style "%s[%d]"
+set sh_enable_page_mode false
+
+# ------------------------------------------------------------------------------
+# 5. Interactive Command Aliases
+# ------------------------------------------------------------------------------
+alias rc  "report_constraint -all_violators"
+alias rt  "report_timing -delay max -max_paths 10"
+alias rth "report_timing -delay min -max_paths 10"
+alias ra  "report_area -hierarchy"
+alias rp  "report_power -analysis_effort medium"
+alias rq  "report_qor"
+alias cd  "current_design"
+alias ck  "check_design"
+
+echo "INFO: .synopsys_dc.setup loaded successfully."
+echo "======================================================================"

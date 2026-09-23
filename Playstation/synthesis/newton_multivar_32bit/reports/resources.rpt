@@ -1,0 +1,622 @@
+ 
+****************************************
+Report : resources
+Design : newton_bcd_axi_lite
+Version: W-2024.09-SP1
+Date   : Wed Sep 23 15:24:48 2026
+****************************************
+
+
+Resource Report for this hierarchy in file
+        ./../../rtl/newton_multivar_32bit/newton_bcd_axi_lite.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| lt_x_1         | DW_cmp         | width=12   | lt_231_C183 (newton_bcd_axi_lite.sv:231) |
+| sub_x_2        | DW01_sub       | width=13   | sub_233_C183 (newton_bcd_axi_lite.sv:233) |
+| lt_x_3         | DW_cmp         | width=12   | lt_231_C195 (newton_bcd_axi_lite.sv:231) |
+| sub_x_4        | DW01_sub       | width=13   | sub_233_C195 (newton_bcd_axi_lite.sv:233) |
+| lt_x_113       | DW_cmp         | width=12   | lt_316_C262 (newton_bcd_axi_lite.sv:316) |
+| ash_114        | DW_leftsh      | A_width=543 | sll_24_C318_C262_rn (multivar_helpers.svh:24) |
+              | SH_width=10 |                           |
+| ashr_115       | DW_rightsh     | A_width=543 | srl_24_C318_C262_rn (multivar_helpers.svh:24) |
+              | SH_width=9 |                            |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| lt_x_1             | DW_cmp           | apparch (area)     |                |
+| sub_x_2            | DW01_sub         | apparch (area)     |                |
+| lt_x_3             | DW_cmp           | apparch (area)     |                |
+| sub_x_4            | DW01_sub         | apparch (area)     |                |
+| lt_x_113           | DW_cmp           | apparch (area)     |                |
+| ash_114            | DW_leftsh        | astr (area)        |                |
+| ashr_115           | DW_rightsh       | astr (area)        |                |
+===============================================================================
+
+ 
+****************************************
+Design : newton_bcd_top
+****************************************
+
+Resource Report for this hierarchy in file
+        ./../../rtl/newton_multivar_32bit/newton_bcd_top.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| ash_1          | DW_leftsh      | A_width=543 | sll_24_C185_rn (multivar_helpers.svh:24) |
+  |                | SH_width=10 |                           |
+| ashr_2         | DW_rightsh     | A_width=543 | srl_24_C185_rn (multivar_helpers.svh:24) |
+  |                | SH_width=9 |                            |
+| add_x_3        | DW01_add       | width=32   | add_185 (newton_bcd_top.sv:185) |
+| ash_4          | DW_leftsh      | A_width=543 | sll_24_C186_rn (multivar_helpers.svh:24) |
+  |                | SH_width=10 |                           |
+| ashr_5         | DW_rightsh     | A_width=543 | srl_24_C186_rn (multivar_helpers.svh:24) |
+  |                | SH_width=9 |                            |
+| add_x_6        | DW01_add       | width=32   | add_186 (newton_bcd_top.sv:186) |
+| sub_x_8        | DW01_sub       | width=32   | sub_190 (newton_bcd_top.sv:190) |
+| sub_x_10       | DW01_sub       | width=32   | sub_191 (newton_bcd_top.sv:191) |
+| gt_x_11        | DW_cmp         | width=32   | gt_192 (newton_bcd_top.sv:192) |
+| gt_x_12        | DW_cmp         | width=32   | gt_193 (newton_bcd_top.sv:193) |
+| gt_x_13        | DW_cmp         | width=32   | gt_193_2 (newton_bcd_top.sv:193) |
+| gt_x_14        | DW_cmp         | width=5    | gt_210 (newton_bcd_top.sv:210) |
+| lt_x_15        | DW_cmp         | width=5    | lt_210 (newton_bcd_top.sv:210) |
+| add_x_16       | DW01_add       | width=5    | add_207 (newton_bcd_top.sv:207) |
+| sub_x_17       | DW01_dec       | width=5    | sub_212 (newton_bcd_top.sv:212) |
+| lte_x_19       | DW_cmp         | width=32   | lte_228 (newton_bcd_top.sv:228) |
+| gte_x_20       | DW_cmp         | width=8    | gte_233 (newton_bcd_top.sv:233) |
+| add_x_18       | DW01_inc       | width=8    | add_224 (newton_bcd_top.sv:224) |
+            |                |            | add_233 (newton_bcd_top.sv:233) |
+| DP_OP_128J3_122_6872            |            |                            |
+|                | DP_OP_128J3_122_6872 |      |                            |
+=============================================================================
+
+Datapath Report for DP_OP_128J3_122_6872
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_128J3_122_6872 | add_206 (newton_bcd_top.sv:206)                     |
+|                      | add_208 (newton_bcd_top.sv:208)                     |
+|                      | lt_206 (newton_bcd_top.sv:206)                      |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Unsigned | 5     |                                          |
+| I2    | PI   | Unsigned | 5     |                                          |
+| O1    | PO   | Unsigned | 6     | I1 + $unsigned(2'b10) ( newton_bcd_top.sv:206 newton_bcd_top.sv:208 ) |
+| O2    | PO   | Unsigned | 1     | O1 < I2 (newton_bcd_top.sv:206)          |
+==============================================================================
+
+
+Datapath Extraction Report
+
+Information: Operator associated with resources 'sub_191 (newton_bcd_top.sv:191)' in design 'newton_bcd_top' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'C12682 (newton_bcd_top.sv:191)'.  (HDL-120)
+
+Information: Operator associated with resources 'sub_190 (newton_bcd_top.sv:190)' in design 'newton_bcd_top' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'C12681 (newton_bcd_top.sv:190)'.  (HDL-120)
+
+Information: Operator associated with resources 'add_224 (newton_bcd_top.sv:224) add_233 (newton_bcd_top.sv:233)' in design 'newton_bcd_top' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'gte_233 (newton_bcd_top.sv:233)'.  (HDL-120)
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| ash_1              | DW_leftsh        | astr (area)        |                |
+| ashr_2             | DW_rightsh       | astr (area)        |                |
+| add_x_3            | DW01_add         | apparch (area)     |                |
+| ash_4              | DW_leftsh        | astr (area)        |                |
+| ashr_5             | DW_rightsh       | astr (area)        |                |
+| add_x_6            | DW01_add         | apparch (area)     |                |
+| sub_x_8            | DW01_sub         | apparch (area)     |                |
+| sub_x_10           | DW01_sub         | apparch (area)     |                |
+| gt_x_11            | DW_cmp           | apparch (area)     |                |
+| gt_x_12            | DW_cmp           | apparch (area)     |                |
+| gt_x_13            | DW_cmp           | apparch (area)     |                |
+| gt_x_14            | DW_cmp           | apparch (area)     |                |
+| lt_x_15            | DW_cmp           | apparch (area)     |                |
+| add_x_16           | DW01_add         | apparch (area)     |                |
+| sub_x_17           | DW01_dec         | apparch (area)     |                |
+| lte_x_19           | DW_cmp           | apparch (area)     |                |
+| gte_x_20           | DW_cmp           | apparch (area)     |                |
+| add_x_18           | DW01_inc         | apparch (area)     |                |
+| DP_OP_128J3_122_6872                  |                    |                |
+|                    | DP_OP_128J3_122_6872 | str (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : newton_2var_core
+****************************************
+
+Resource Report for this hierarchy in file
+        ./../../rtl/newton_multivar_32bit/newton_2var_core.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| lte_x_11       | DW_cmp         | width=32   | lte_352 (newton_2var_core.sv:352) |
+| ash_1          | DW_leftsh      | A_width=543 | sll_24_C201_rn (multivar_helpers.svh:24) |
+  |                | SH_width=10 | sll_24_C215_rn (multivar_helpers.svh:24) |
+  |                |            | sll_24_C257_rn (multivar_helpers.svh:24) |
+   |                |            | sll_24_C273_rn (multivar_helpers.svh:24) |
+   |                |            | sll_24_C289_rn (multivar_helpers.svh:24) |
+   |                |            | sll_24_C305_rn (multivar_helpers.svh:24) |
+| ash_5          | DW_leftsh      | A_width=543 | sll_24_C229_rn (multivar_helpers.svh:24) |
+  |                | SH_width=10 | sll_24_C243_rn (multivar_helpers.svh:24) |
+  |                |            | sll_24_C258_rn (multivar_helpers.svh:24) |
+   |                |            | sll_24_C274_rn (multivar_helpers.svh:24) |
+   |                |            | sll_24_C290_rn (multivar_helpers.svh:24) |
+   |                |            | sll_24_C306_rn (multivar_helpers.svh:24) |
+| sub_x_9        | DW01_sub       | width=29   | sub_324 (newton_2var_core.sv:324) |
+          |                |            | sub_341 (newton_2var_core.sv:341) |
+          |                |            | sub_344_4 (newton_2var_core.sv:344) |
+| sub_x_10       | DW01_sub       | width=29   | sub_325 (newton_2var_core.sv:325) |
+          |                |            | sub_341_4 (newton_2var_core.sv:341) |
+        |                |            | sub_344 (newton_2var_core.sv:344) |
+| mult_x_12      | DW_mult_tc     | a_width=32 | mult_103_C370 (newton_2var_core.sv:103) |
+    |                | b_width=32 | mult_103_C386 (newton_2var_core.sv:103) |
+| ashr_2         | DW_rightsh     | A_width=543 | srl_24_C201_rn (multivar_helpers.svh:24) |
+  |                | SH_width=9 | srl_24_C215_rn (multivar_helpers.svh:24) |
+   |                |            | srl_24_C257_rn (multivar_helpers.svh:24) |
+   |                |            | srl_24_C273_rn (multivar_helpers.svh:24) |
+   |                |            | srl_24_C289_rn (multivar_helpers.svh:24) |
+   |                |            | srl_24_C305_rn (multivar_helpers.svh:24) |
+| ashr_6         | DW_rightsh     | A_width=543 | srl_24_C229_rn (multivar_helpers.svh:24) |
+  |                | SH_width=9 | srl_24_C243_rn (multivar_helpers.svh:24) |
+   |                |            | srl_24_C258_rn (multivar_helpers.svh:24) |
+   |                |            | srl_24_C274_rn (multivar_helpers.svh:24) |
+   |                |            | srl_24_C290_rn (multivar_helpers.svh:24) |
+   |                |            | srl_24_C306_rn (multivar_helpers.svh:24) |
+| add_x_3        | DW01_add       | width=32   | add_201 (newton_2var_core.sv:201) |
+          |                |            | add_257 (newton_2var_core.sv:257) |
+          |                |            | add_273 (newton_2var_core.sv:273) |
+| sub_x_4        | DW01_sub       | width=32   | sub_215 (newton_2var_core.sv:215) |
+          |                |            | sub_289 (newton_2var_core.sv:289) |
+          |                |            | sub_305 (newton_2var_core.sv:305) |
+| add_x_7        | DW01_add       | width=32   | add_229 (newton_2var_core.sv:229) |
+          |                |            | add_258 (newton_2var_core.sv:258) |
+          |                |            | add_290 (newton_2var_core.sv:290) |
+| sub_x_8        | DW01_sub       | width=32   | sub_243 (newton_2var_core.sv:243) |
+          |                |            | sub_274 (newton_2var_core.sv:274) |
+          |                |            | sub_306 (newton_2var_core.sv:306) |
+| DP_OP_429J1_122_6967            |            |                            |
+|                | DP_OP_429J1_122_6967 |      |                            |
+| DP_OP_430J1_123_6967            |            |                            |
+|                | DP_OP_430J1_123_6967 |      |                            |
+| DP_OP_431J1_124_6565            |            |                            |
+|                | DP_OP_431J1_124_6565 |      |                            |
+| DP_OP_432J1_125_8417            |            |                            |
+|                | DP_OP_432J1_125_8417 |      |                            |
+| DP_OP_433J1_126_6339            |            |                            |
+|                | DP_OP_433J1_126_6339 |      |                            |
+| DP_OP_434J1_127_6339            |            |                            |
+|                | DP_OP_434J1_127_6339 |      |                            |
+| DP_OP_435J1_128_1818            |            |                            |
+|                | DP_OP_435J1_128_1818 |      |                            |
+| DP_OP_436J1_129_1818            |            |                            |
+|                | DP_OP_436J1_129_1818 |      |                            |
+=============================================================================
+
+Datapath Report for DP_OP_429J1_122_6967
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_429J1_122_6967 | sub_333 (newton_2var_core.sv:333)                   |
+|                      | add_333 (newton_2var_core.sv:333)                   |
+|                      | sub_344_2 (newton_2var_core.sv:344)                 |
+|                      | add_344 (newton_2var_core.sv:344)                   |
+|                      | add_333_2 (newton_2var_core.sv:333)                 |
+|                      | add_344_2 (newton_2var_core.sv:344)                 |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 24    |                                          |
+| I2    | PI   | Signed   | 24    |                                          |
+| I3    | PI   | Signed   | 24    |                                          |
+| I4    | PI   | Signed   | 32    |                                          |
+| T405  | IFO  | Signed   | 24    | I1 - I2 + I3 ( newton_2var_core.sv:333 newton_2var_core.sv:344 ) |
+| T316  | IFO  | Signed   | 32    | T405 << 8                                |
+| O1    | PO   | Unsigned | 32    | T316 + I4 ( newton_2var_core.sv:333 newton_2var_core.sv:344 ) |
+==============================================================================
+
+Datapath Report for DP_OP_430J1_123_6967
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_430J1_123_6967 | sub_333_2 (newton_2var_core.sv:333)                 |
+|                      | add_333_3 (newton_2var_core.sv:333)                 |
+|                      | sub_341_2 (newton_2var_core.sv:341)                 |
+|                      | add_341 (newton_2var_core.sv:341)                   |
+|                      | add_333_4 (newton_2var_core.sv:333)                 |
+|                      | add_341_2 (newton_2var_core.sv:341)                 |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 24    |                                          |
+| I2    | PI   | Signed   | 24    |                                          |
+| I3    | PI   | Signed   | 24    |                                          |
+| I4    | PI   | Signed   | 32    |                                          |
+| T407  | IFO  | Signed   | 24    | I1 - I2 + I3 ( newton_2var_core.sv:333 newton_2var_core.sv:341 ) |
+| T319  | IFO  | Signed   | 32    | T407 << 8                                |
+| O1    | PO   | Unsigned | 32    | T319 + I4 ( newton_2var_core.sv:333 newton_2var_core.sv:341 ) |
+==============================================================================
+
+Datapath Report for DP_OP_431J1_124_6565
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_431J1_124_6565 | mult_103_C333 (newton_2var_core.sv:103)             |
+|                      | sub_333_7 (newton_2var_core.sv:333)                 |
+|                      | mult_103_C333_2 (newton_2var_core.sv:103)           |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| I3    | PI   | Signed   | 32    |                                          |
+| T44   | IFO  | Signed   | 48    | I1 * I2 (newton_2var_core.sv:103)        |
+| T322  | IFO  | Signed   | 32    | T44[47:16]                               |
+| T51   | IFO  | Signed   | 48    | I3 * I3 (newton_2var_core.sv:103)        |
+| T323  | IFO  | Signed   | 32    | T51[47:16]                               |
+| O1    | PO   | Signed   | 32    | T322 - T323 (newton_2var_core.sv:333)    |
+==============================================================================
+
+Datapath Report for DP_OP_432J1_125_8417
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_432J1_125_8417 | sub_333_3 (newton_2var_core.sv:333)                 |
+|                      | sub_333_4 (newton_2var_core.sv:333)                 |
+|                      | add_333_5 (newton_2var_core.sv:333)                 |
+|                      | sub_333_5 (newton_2var_core.sv:333)                 |
+|                      | sub_333_6 (newton_2var_core.sv:333)                 |
+|                      | add_333_6 (newton_2var_core.sv:333)                 |
+|                      | sub_341_5 (newton_2var_core.sv:341)                 |
+|                      | sub_341_6 (newton_2var_core.sv:341)                 |
+|                      | add_341_3 (newton_2var_core.sv:341)                 |
+|                      | sub_344_5 (newton_2var_core.sv:344)                 |
+|                      | sub_344_6 (newton_2var_core.sv:344)                 |
+|                      | add_344_3 (newton_2var_core.sv:344)                 |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 26    |                                          |
+| I2    | PI   | Signed   | 26    |                                          |
+| I3    | PI   | Signed   | 26    |                                          |
+| I4    | PI   | Signed   | 26    |                                          |
+| O1    | PO   | Signed   | 26    | I1 - I2 - I3 + I4 ( newton_2var_core.sv:333 newton_2var_core.sv:341 newton_2var_core.sv:344 ) |
+==============================================================================
+
+Datapath Report for DP_OP_433J1_126_6339
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_433J1_126_6339 | mult_103_C341 (newton_2var_core.sv:103)             |
+|                      | sub_341_3 (newton_2var_core.sv:341)                 |
+|                      | add_341_4 (newton_2var_core.sv:341)                 |
+|                      | mult_103_C341_2 (newton_2var_core.sv:103)           |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| I3    | PI   | Signed   | 32    |                                          |
+| I4    | PI   | Signed   | 32    |                                          |
+| T57   | IFO  | Signed   | 48    | I1 * I2 (newton_2var_core.sv:103)        |
+| T328  | IFO  | Signed   | 32    | T57[47:16]                               |
+| T62   | IFO  | Signed   | 48    | I3 * I4 (newton_2var_core.sv:103)        |
+| T329  | IFO  | Signed   | 32    | T62[47:16]                               |
+| O1    | PO   | Signed   | 32    | -T328 + T329 (newton_2var_core.sv:341)   |
+==============================================================================
+
+Datapath Report for DP_OP_434J1_127_6339
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_434J1_127_6339 | mult_103_C344 (newton_2var_core.sv:103)             |
+|                      | sub_344_3 (newton_2var_core.sv:344)                 |
+|                      | add_344_4 (newton_2var_core.sv:344)                 |
+|                      | mult_103_C344_2 (newton_2var_core.sv:103)           |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| I3    | PI   | Signed   | 32    |                                          |
+| I4    | PI   | Signed   | 32    |                                          |
+| T69   | IFO  | Signed   | 48    | I1 * I2 (newton_2var_core.sv:103)        |
+| T334  | IFO  | Signed   | 32    | T69[47:16]                               |
+| T74   | IFO  | Signed   | 48    | I3 * I4 (newton_2var_core.sv:103)        |
+| T335  | IFO  | Signed   | 32    | T74[47:16]                               |
+| O1    | PO   | Signed   | 32    | -T334 + T335 (newton_2var_core.sv:344)   |
+==============================================================================
+
+Datapath Report for DP_OP_435J1_128_1818
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_435J1_128_1818 | mult_103_C356 (newton_2var_core.sv:103)             |
+|                      | sub_356 (newton_2var_core.sv:356)                   |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| T78   | IFO  | Signed   | 48    | I1 * I2 (newton_2var_core.sv:103)        |
+| T336  | IFO  | Signed   | 32    | T78[47:16]                               |
+| O1    | PO   | Signed   | 32    | $signed(1'b0) - T336 (newton_2var_core.sv:356) |
+==============================================================================
+
+Datapath Report for DP_OP_436J1_129_1818
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_436J1_129_1818 | mult_103_C357 (newton_2var_core.sv:103)             |
+|                      | sub_357 (newton_2var_core.sv:357)                   |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| T80   | IFO  | Signed   | 48    | I1 * I2 (newton_2var_core.sv:103)        |
+| T337  | IFO  | Signed   | 32    | T80[47:16]                               |
+| O1    | PO   | Signed   | 32    | $signed(1'b0) - T337 (newton_2var_core.sv:357) |
+==============================================================================
+
+
+Datapath Extraction Report
+
+Information: Operator associated with resources 'add_333_2 (newton_2var_core.sv:333) add_344_2 (newton_2var_core.sv:344)' in design 'newton_2var_core' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'mult_103_C333 (newton_2var_core.sv:103)'.  (HDL-120)
+
+Information: Operator associated with resources 'add_333_4 (newton_2var_core.sv:333) add_341_2 (newton_2var_core.sv:341)' in design 'newton_2var_core' breaks the datapath extraction because there is leakage due to truncation on its fanout to operator of resources 'mult_103_C333 (newton_2var_core.sv:103)'.  (HDL-120)
+
+Information: Operator associated with resources 'mult_103_C333_2 (newton_2var_core.sv:103)' in design 'newton_2var_core' breaks the datapath extraction because there is leakage due to truncation on the fanout of its driver 'sub_333_3 (newton_2var_core.sv:333) sub_333_4 (newton_2var_core.sv:333) add_333_5 (newton_2var_core.sv:333) sub_333_5 (newton_2var_core.sv:333) sub_333_6 (newton_2var_core.sv:333) add_333_6 (newton_2var_core.sv:333) sub_341_5 (newton_2var_core.sv:341) sub_341_6 (newton_2var_core.sv:341) add_341_3 (newton_2var_core.sv:341) sub_344_5 (newton_2var_core.sv:344) sub_344_6 (newton_2var_core.sv:344) add_344_3 (newton_2var_core.sv:344)'.  (HDL-120)
+
+Information: Operator associated with resources 'mult_103_C341 (newton_2var_core.sv:103)' in design 'newton_2var_core' breaks the datapath extraction because there is leakage due to truncation on the fanout of its driver 'sub_324 (newton_2var_core.sv:324) sub_341 (newton_2var_core.sv:341) sub_344_4 (newton_2var_core.sv:344)'.  (HDL-120)
+
+Information: Operator associated with resources 'mult_103_C341_2 (newton_2var_core.sv:103)' in design 'newton_2var_core' breaks the datapath extraction because there is leakage due to truncation on the fanout of its driver 'sub_325 (newton_2var_core.sv:325) sub_341_4 (newton_2var_core.sv:341) sub_344 (newton_2var_core.sv:344)'.  (HDL-120)
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| lte_x_11           | DW_cmp           | apparch (area)     |                |
+| ash_1              | DW_leftsh        | astr (area)        |                |
+| ash_5              | DW_leftsh        | astr (area)        |                |
+| sub_x_9            | DW01_sub         | apparch (area)     |                |
+| sub_x_10           | DW01_sub         | apparch (area)     |                |
+| mult_x_12          | DW_mult_tc       | apparch (area)     |                |
+|                    |                  | mult_arch: benc_radix8              |
+| ashr_2             | DW_rightsh       | astr (area)        |                |
+| ashr_6             | DW_rightsh       | astr (area)        |                |
+| add_x_3            | DW01_add         | apparch (area)     |                |
+| sub_x_4            | DW01_sub         | apparch (area)     |                |
+| add_x_7            | DW01_add         | apparch (area)     |                |
+| sub_x_8            | DW01_sub         | apparch (area)     |                |
+| DP_OP_429J1_122_6967                  |                    |                |
+|                    | DP_OP_429J1_122_6967 | str (area)     |                |
+| DP_OP_430J1_123_6967                  |                    |                |
+|                    | DP_OP_430J1_123_6967 | str (area)     |                |
+| DP_OP_431J1_124_6565                  |                    |                |
+|                    | DP_OP_431J1_124_6565 | str (area)     |                |
+|                    |                  | mult_arch: and     |                |
+|                    |                  | mult_arch: benc_radix8              |
+| DP_OP_432J1_125_8417                  |                    |                |
+|                    | DP_OP_432J1_125_8417 | str (area)     |                |
+| DP_OP_433J1_126_6339                  |                    |                |
+|                    | DP_OP_433J1_126_6339 | str (area)     |                |
+|                    |                  | mult_arch: benc_radix8              |
+|                    |                  | mult_arch: benc_radix8              |
+| DP_OP_434J1_127_6339                  |                    |                |
+|                    | DP_OP_434J1_127_6339 | str (area)     |                |
+|                    |                  | mult_arch: benc_radix8              |
+|                    |                  | mult_arch: benc_radix8              |
+| DP_OP_435J1_128_1818                  |                    |                |
+|                    | DP_OP_435J1_128_1818 | str (area)     |                |
+|                    |                  | mult_arch: benc_radix8              |
+| DP_OP_436J1_129_1818                  |                    |                |
+|                    | DP_OP_436J1_129_1818 | str (area)     |                |
+|                    |                  | mult_arch: benc_radix8              |
+===============================================================================
+
+ 
+****************************************
+Design : q16_divider_1
+****************************************
+
+Resource Report for this hierarchy in file
+        ./../../rtl/newton_multivar_32bit/q16_divider.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=32   | sub_68 (q16_divider.sv:68) |
+| sub_x_2        | DW01_sub       | width=32   | sub_69 (q16_divider.sv:69) |
+| gt_x_3         | DW_cmp         | width=6    | gt_79 (q16_divider.sv:79)  |
+| gte_x_4        | DW_cmp         | width=32   | gte_80 (q16_divider.sv:80) |
+| sub_x_5        | DW01_sub       | width=31   | sub_81 (q16_divider.sv:81) |
+| sub_x_6        | DW01_dec       | width=6    | sub_85 (q16_divider.sv:85) |
+| sub_x_7        | DW01_sub       | width=32   | sub_93 (q16_divider.sv:93) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_1            | DW01_sub         | apparch (area)     |                |
+| sub_x_2            | DW01_sub         | apparch (area)     |                |
+| gt_x_3             | DW_cmp           | apparch (area)     |                |
+| gte_x_4            | DW_cmp           | apparch (area)     |                |
+| sub_x_5            | DW01_sub         | apparch (area)     |                |
+| sub_x_6            | DW01_dec         | apparch (area)     |                |
+| sub_x_7            | DW01_sub         | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : dfg_multivar_engine
+****************************************
+
+Resource Report for this hierarchy in file
+        ./../../rtl/newton_multivar_32bit/dfg_multivar_engine.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| lt_x_2         | DW_cmp         | width=5    | lt_127 (dfg_multivar_engine.sv:127) |
+| lt_x_3         | DW_cmp         | width=5    | lt_127_I2 (dfg_multivar_engine.sv:127) |
+| lt_x_4         | DW_cmp         | width=5    | lt_127_I3 (dfg_multivar_engine.sv:127) |
+| lt_x_5         | DW_cmp         | width=5    | lt_127_I4 (dfg_multivar_engine.sv:127) |
+| lt_x_6         | DW_cmp         | width=5    | lt_127_I5 (dfg_multivar_engine.sv:127) |
+| lt_x_7         | DW_cmp         | width=5    | lt_127_I6 (dfg_multivar_engine.sv:127) |
+| lt_x_8         | DW_cmp         | width=5    | lt_127_I7 (dfg_multivar_engine.sv:127) |
+| lt_x_9         | DW_cmp         | width=5    | lt_127_I8 (dfg_multivar_engine.sv:127) |
+| lt_x_10        | DW_cmp         | width=5    | lt_127_I9 (dfg_multivar_engine.sv:127) |
+| lt_x_11        | DW_cmp         | width=5    | lt_127_I10 (dfg_multivar_engine.sv:127) |
+| lt_x_12        | DW_cmp         | width=5    | lt_127_I11 (dfg_multivar_engine.sv:127) |
+| lt_x_13        | DW_cmp         | width=5    | lt_127_I12 (dfg_multivar_engine.sv:127) |
+| lt_x_14        | DW_cmp         | width=5    | lt_127_I13 (dfg_multivar_engine.sv:127) |
+| lt_x_15        | DW_cmp         | width=5    | lt_127_I14 (dfg_multivar_engine.sv:127) |
+| lt_x_16        | DW_cmp         | width=5    | lt_127_I15 (dfg_multivar_engine.sv:127) |
+| add_x_18       | DW01_inc       | width=6    | add_153 (dfg_multivar_engine.sv:153) |
+       |                |            | add_163 (dfg_multivar_engine.sv:163) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| lt_x_2             | DW_cmp           | apparch (area)     |                |
+| lt_x_3             | DW_cmp           | apparch (area)     |                |
+| lt_x_4             | DW_cmp           | apparch (area)     |                |
+| lt_x_5             | DW_cmp           | apparch (area)     |                |
+| lt_x_6             | DW_cmp           | apparch (area)     |                |
+| lt_x_7             | DW_cmp           | apparch (area)     |                |
+| lt_x_8             | DW_cmp           | apparch (area)     |                |
+| lt_x_9             | DW_cmp           | apparch (area)     |                |
+| lt_x_10            | DW_cmp           | apparch (area)     |                |
+| lt_x_11            | DW_cmp           | apparch (area)     |                |
+| lt_x_12            | DW_cmp           | apparch (area)     |                |
+| lt_x_13            | DW_cmp           | apparch (area)     |                |
+| lt_x_14            | DW_cmp           | apparch (area)     |                |
+| lt_x_15            | DW_cmp           | apparch (area)     |                |
+| lt_x_16            | DW_cmp           | apparch (area)     |                |
+| add_x_18           | DW01_inc         | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : q16_divider_0
+****************************************
+
+Resource Report for this hierarchy in file
+        ./../../rtl/newton_multivar_32bit/q16_divider.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_1        | DW01_sub       | width=32   | sub_68 (q16_divider.sv:68) |
+| sub_x_2        | DW01_sub       | width=32   | sub_69 (q16_divider.sv:69) |
+| gt_x_3         | DW_cmp         | width=6    | gt_79 (q16_divider.sv:79)  |
+| gte_x_4        | DW_cmp         | width=32   | gte_80 (q16_divider.sv:80) |
+| sub_x_5        | DW01_sub       | width=31   | sub_81 (q16_divider.sv:81) |
+| sub_x_6        | DW01_dec       | width=6    | sub_85 (q16_divider.sv:85) |
+| sub_x_7        | DW01_sub       | width=32   | sub_93 (q16_divider.sv:93) |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_1            | DW01_sub         | apparch (area)     |                |
+| sub_x_2            | DW01_sub         | apparch (area)     |                |
+| gt_x_3             | DW_cmp           | apparch (area)     |                |
+| gte_x_4            | DW_cmp           | apparch (area)     |                |
+| sub_x_5            | DW01_sub         | apparch (area)     |                |
+| sub_x_6            | DW01_dec         | apparch (area)     |                |
+| sub_x_7            | DW01_sub         | apparch (area)     |                |
+===============================================================================
+
+ 
+****************************************
+Design : q16_alu
+****************************************
+
+Resource Report for this hierarchy in file
+        ./../../rtl/newton_multivar_32bit/q16_alu.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| mult_x_1       | DW_mult_tc     | a_width=32 | mult_26 (q16_alu.sv:26)    |
+|                |                | b_width=32 |                            |
+| DP_OP_23J4_122_1583             |            |                            |
+|                | DP_OP_23J4_122_1583 |       |                            |
+=============================================================================
+
+Datapath Report for DP_OP_23J4_122_1583
+==============================================================================
+| Cell                 | Contained Operations                                |
+==============================================================================
+| DP_OP_23J4_122_1583  | add_40 (q16_alu.sv:40) sub_48 (q16_alu.sv:48)       |
+|                      | sub_61 (q16_alu.sv:61)                              |
+==============================================================================
+
+==============================================================================
+|       |      | Data     |       |                                          |
+| Var   | Type | Class    | Width | Expression                               |
+==============================================================================
+| I1    | PI   | Signed   | 32    |                                          |
+| I2    | PI   | Signed   | 32    |                                          |
+| I3    | PI   | Unsigned | 1     |                                          |
+| O1    | PO   | Signed   | 32    | addsub(I1,I2,I3) ( q16_alu.sv:40 q16_alu.sv:48 q16_alu.sv:61 ) |
+==============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| mult_x_1           | DW_mult_tc       | apparch (area)     |                |
+|                    |                  | mult_arch: benc_radix8              |
+| DP_OP_23J4_122_1583                   |                    |                |
+|                    | DP_OP_23J4_122_1583 | str (area)      |                |
+===============================================================================
+
+1
