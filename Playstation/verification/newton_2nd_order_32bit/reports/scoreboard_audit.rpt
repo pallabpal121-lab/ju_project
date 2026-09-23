@@ -28,21 +28,21 @@
 #22 [QUAD] PASSED [Match #3]: x_init=0.0000 (0x00000000), tol=0.00098, alpha=1.0000, max_iters=50 | RES: status=STATUS_CONVERGED, iters=1, x*=3.0000 (0x00030000), f(x*)=0.0000, g=0.0000
 #23 [QUAD] PASSED [Match #4]: x_init=3.0000 (0x00030000), tol=0.00098, alpha=1.0000, max_iters=50 | RES: status=STATUS_CONVERGED, iters=0, x*=3.0000 (0x00030000), f(x*)=0.0000, g=0.0000
 #24 [QUAD] PASSED [Match #5]: x_init=20.0000 (0x00140000), tol=0.00098, alpha=1.0000, max_iters=50 | RES: status=STATUS_CONVERGED, iters=2, x*=3.0000 (0x00030000), f(x*)=0.0000, g=0.0000
-#25 [RANDOM] PASSED [Match #1]: x_init=41.8063 (0x0029ce68), tol=0.00911, alpha=1.0000, max_iters=28 | RES: status=STATUS_CONVERGED, iters=4, x*=3.0006 (0x00030028), f(x*)=0.0000, g=0.0012
-#26 [RANDOM] PASSED [Match #2]: x_init=-30.9462 (0xffe10dc3), tol=0.01578, alpha=1.0000, max_iters=7 | RES: status=STATUS_CONVERGED, iters=4, x*=3.0000 (0x00030003), f(x*)=0.0000, g=0.0001
-#27 [RANDOM] PASSED [Match #3]: x_init=-41.8624 (0xffd6233d), tol=0.02054, alpha=1.0000, max_iters=33 | RES: status=STATUS_CONVERGED, iters=5, x*=2.9914 (0x0002fdcf), f(x*)=0.0001, g=-0.0171
-#28 [RANDOM] PASSED [Match #4]: x_init=-6.2099 (0xfff9ca47), tol=0.01479, alpha=0.7500, max_iters=34 | RES: status=STATUS_CONVERGED, iters=6, x*=2.9982 (0x0002ff87), f(x*)=0.0000, g=-0.0037
-#29 [RANDOM] PASSED [Match #5]: x_init=8.6953 (0x0008b1fc), tol=0.01657, alpha=1.0000, max_iters=80 | RES: status=STATUS_CONVERGED, iters=2, x*=3.0005 (0x00030020), f(x*)=0.0000, g=0.0010
-#30 [RANDOM] PASSED [Match #6]: x_init=-8.6716 (0xfff75414), tol=0.00482, alpha=0.1250, max_iters=59 | RES: status=STATUS_MAX_ITERS, iters=59, x*=2.9961 (0x0002ff00), f(x*)=0.0000, g=-0.0078
-#31 [RANDOM] PASSED [Match #7]: x_init=-44.0558 (0xffd3f1ba), tol=0.01196, alpha=0.5000, max_iters=20 | RES: status=STATUS_CONVERGED, iters=15, x*=2.9964 (0x0002ff15), f(x*)=0.0000, g=-0.0072
-#32 [RANDOM] PASSED [Match #8]: x_init=-48.8002 (0xffcf3324), tol=0.00494, alpha=1.0000, max_iters=74 | RES: status=STATUS_CONVERGED, iters=7, x*=3.0002 (0x0003000a), f(x*)=0.0000, g=0.0004
-#33 [RANDOM] PASSED [Match #9]: x_init=-42.3124 (0xffd5b009), tol=0.02304, alpha=0.5000, max_iters=12 | RES: status=STATUS_MAX_ITERS, iters=12, x*=2.9708 (0x0002f889), f(x*)=0.0008, g=-0.0583
-#34 [RANDOM] PASSED [Match #10]: x_init=-26.8828 (0xffe51dfe), tol=0.00587, alpha=1.0000, max_iters=71 | RES: status=STATUS_CONVERGED, iters=3, x*=3.0000 (0x0002fffe), f(x*)=0.0000, g=-0.0001
-#35 [RANDOM] PASSED [Match #11]: x_init=-32.9535 (0xffdf0be7), tol=0.00293, alpha=0.5000, max_iters=7 | RES: status=STATUS_MAX_ITERS, iters=7, x*=2.5016 (0x00028067), f(x*)=0.2484, g=-0.9968
-#36 [RANDOM] PASSED [Match #12]: x_init=-12.6678 (0xfff3550c), tol=0.00546, alpha=1.0000, max_iters=51 | RES: status=STATUS_CONVERGED, iters=3, x*=3.0008 (0x00030037), f(x*)=0.0000, g=0.0016
-#37 [RANDOM] PASSED [Match #13]: x_init=18.0736 (0x001212d8), tol=0.00710, alpha=1.0000, max_iters=7 | RES: status=STATUS_CONVERGED, iters=2, x*=3.0004 (0x00030018), f(x*)=0.0000, g=0.0007
-#38 [RANDOM] PASSED [Match #14]: x_init=-3.4638 (0xfffc8946), tol=0.03065, alpha=1.0000, max_iters=35 | RES: status=STATUS_CONVERGED, iters=1, x*=2.9875 (0x0002fccc), f(x*)=0.0002, g=-0.0250
-#39 [RANDOM] PASSED [Match #15]: x_init=32.6999 (0x0020b32f), tol=0.00705, alpha=0.1250, max_iters=64 | RES: status=STATUS_MAX_ITERS, iters=64, x*=3.0061 (0x00030190), f(x*)=0.0000, g=0.0122
+#25 [RANDOM] PASSED [Match #1]: x_init=-21.0184 (0xffeafb4d), tol=0.02934, alpha=0.2500, max_iters=61 | RES: status=STATUS_CONVERGED, iters=26, x*=2.9868 (0x0002fca0), f(x*)=0.0002, g=-0.0264
+#26 [RANDOM] PASSED [Match #2]: x_init=-35.5164 (0xffdc7bcc), tol=0.00375, alpha=0.1250, max_iters=40 | RES: status=STATUS_MAX_ITERS, iters=40, x*=2.8159 (0x0002d0e0), f(x*)=0.0339, g=-0.3682
+#27 [RANDOM] PASSED [Match #3]: x_init=-35.1536 (0xffdcd8ae), tol=0.02295, alpha=0.2500, max_iters=23 | RES: status=STATUS_MAX_ITERS, iters=23, x*=2.9496 (0x0002f318), f(x*)=0.0025, g=-0.1008
+#28 [RANDOM] PASSED [Match #4]: x_init=19.2296 (0x00133ac9), tol=0.00157, alpha=0.1250, max_iters=16 | RES: status=STATUS_MAX_ITERS, iters=16, x*=4.9176 (0x0004eae9), f(x*)=3.6772, g=3.8352
+#29 [RANDOM] PASSED [Match #5]: x_init=-18.3848 (0xffed9d7e), tol=0.01967, alpha=0.5000, max_iters=17 | RES: status=STATUS_CONVERGED, iters=12, x*=2.9948 (0x0002fea9), f(x*)=0.0000, g=-0.0105
+#30 [RANDOM] PASSED [Match #6]: x_init=-23.1862 (0xffe8d054), tol=0.01714, alpha=0.5000, max_iters=13 | RES: status=STATUS_CONVERGED, iters=12, x*=2.9922 (0x0002fe00), f(x*)=0.0001, g=-0.0156
+#31 [RANDOM] PASSED [Match #7]: x_init=21.0194 (0x001504f5), tol=0.02040, alpha=1.0000, max_iters=68 | RES: status=STATUS_CONVERGED, iters=2, x*=3.0008 (0x00030035), f(x*)=0.0000, g=0.0016
+#32 [RANDOM] PASSED [Match #8]: x_init=29.3159 (0x001d50e0), tol=0.02992, alpha=0.2500, max_iters=28 | RES: status=STATUS_CONVERGED, iters=27, x*=3.0117 (0x00030300), f(x*)=0.0001, g=0.0234
+#33 [RANDOM] PASSED [Match #9]: x_init=32.7512 (0x0020c04e), tol=0.00143, alpha=0.1250, max_iters=12 | RES: status=STATUS_MAX_ITERS, iters=12, x*=8.9893 (0x0008fd41), f(x*)=35.8714, g=11.9785
+#34 [RANDOM] PASSED [Match #10]: x_init=10.6094 (0x000a9bff), tol=0.00656, alpha=1.0000, max_iters=17 | RES: status=STATUS_CONVERGED, iters=1, x*=3.0000 (0x0002ffff), f(x*)=0.0000, g=-0.0001
+#35 [RANDOM] PASSED [Match #11]: x_init=-47.1752 (0xffd0d327), tol=0.02504, alpha=1.0000, max_iters=37 | RES: status=STATUS_CONVERGED, iters=6, x*=3.0006 (0x00030027), f(x*)=0.0000, g=0.0011
+#36 [RANDOM] PASSED [Match #12]: x_init=-47.6371 (0xffd05cea), tol=0.01096, alpha=0.1250, max_iters=73 | RES: status=STATUS_CONVERGED, iters=68, x*=2.9948 (0x0002fea8), f(x*)=0.0000, g=-0.0105
+#37 [RANDOM] PASSED [Match #13]: x_init=24.0914 (0x00181769), tol=0.00356, alpha=0.1250, max_iters=66 | RES: status=STATUS_MAX_ITERS, iters=66, x*=3.0035 (0x000300e8), f(x*)=0.0000, g=0.0071
+#38 [RANDOM] PASSED [Match #14]: x_init=-21.5604 (0xffea7089), tol=0.02614, alpha=1.0000, max_iters=73 | RES: status=STATUS_CONVERGED, iters=3, x*=3.0001 (0x00030009), f(x*)=0.0000, g=0.0004
+#39 [RANDOM] PASSED [Match #15]: x_init=48.3957 (0x0030654b), tol=0.00920, alpha=1.0000, max_iters=52 | RES: status=STATUS_CONVERGED, iters=6, x*=3.0004 (0x00030018), f(x*)=0.0000, g=0.0007
 #40 [RATIONAL] PASSED [Match #1]: x_init=5.0000 (0x00050000), tol=0.00098, alpha=1.0000, max_iters=50 | RES: status=STATUS_CONVERGED, iters=1, x*=1.0000 (0x00010000), f(x*)=-0.5000, g=0.0000
 
 ================================================================================

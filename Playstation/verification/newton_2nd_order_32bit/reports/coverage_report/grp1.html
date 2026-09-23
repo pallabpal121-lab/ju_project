@@ -1,0 +1,2488 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Group :: newton_env_pkg::newton_coverage::cg_solver</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Group : newton_env_pkg::newton_coverage::cg_solver</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Group : <a href="#"  onclick="showContent('newton_env_pkg::newton_coverage::cg_solver')">newton_env_pkg::newton_coverage::cg_solver</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td><b>SCORE</b></td><td>INSTANCES</td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>PER INSTANCE</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="s6 cl rt"> 65.62</td>
+<td class="s6 cl rt"> 65.62</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/uvm_tb/cov/newton_coverage.sv')">/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/uvm_tb/cov/newton_coverage.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>1 Instances:</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td><b>SCORE</b></td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="wht cl wordwrap"><a href="grp1.html#inst_tag_newton_tb_top.me.obj.cg_solver"  onclick="showContent('newton_tb_top.me.obj.cg_solver')">newton_tb_top.me.obj.cg_solver</a></td>
+<td class="s6 cl rt"> 65.62</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+</div>
+<hr>
+<br clear=all>
+<span class=repname>Summary for Group   newton_env_pkg::newton_coverage::cg_solver
+</span>
+<br clear=all>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td><a href="#var_tbl_newton_env_pkg::newton_coverage::cg_solver" >Variables</a></td>
+<td class="rt">39</td>
+<td class="rt">10</td>
+<td class="rt">29</td>
+<td class="rt">76.46 </td>
+</tr><tr class="s4">
+<td><a href="#crs_tbl_newton_env_pkg::newton_coverage::cg_solver" >Crosses</a></td>
+<td class="rt">81</td>
+<td class="rt">41</td>
+<td class="rt">40</td>
+<td class="rt">48.28 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="var_tbl_newton_env_pkg::newton_coverage::cg_solver">Variables for Group  newton_env_pkg::newton_coverage::cg_solver
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">VARIABLE</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>COMMENT</td></tr><tr class="s7">
+<td><a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_x_init"  onclick="checkLink(this)" target="detailFrame">cp_x_init</a></td>
+<td class="rt">8</td>
+<td class="rt">2</td>
+<td class="rt">6</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_tolerance"  onclick="checkLink(this)" target="detailFrame">cp_tolerance</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s6">
+<td><a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_alpha"  onclick="checkLink(this)" target="detailFrame">cp_alpha</a></td>
+<td class="rt">6</td>
+<td class="rt">2</td>
+<td class="rt">4</td>
+<td class="rt">66.67 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s6">
+<td><a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_lambda"  onclick="checkLink(this)" target="detailFrame">cp_lambda</a></td>
+<td class="rt">5</td>
+<td class="rt">2</td>
+<td class="rt">3</td>
+<td class="rt">60.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_max_iters"  onclick="checkLink(this)" target="detailFrame">cp_max_iters</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_status"  onclick="checkLink(this)" target="detailFrame">cp_status</a></td>
+<td class="rt">3</td>
+<td class="rt">0</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_iter_count"  onclick="checkLink(this)" target="detailFrame">cp_iter_count</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s6">
+<td><a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_x_opt"  onclick="checkLink(this)" target="detailFrame">cp_x_opt</a></td>
+<td class="rt">5</td>
+<td class="rt">2</td>
+<td class="rt">3</td>
+<td class="rt">60.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="crs_tbl_newton_env_pkg::newton_coverage::cg_solver">Crosses for Group  newton_env_pkg::newton_coverage::cg_solver
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CROSS</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>PRINT MISSING</td><td>COMMENT</td></tr><tr class="s6">
+<td><a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_x"  onclick="checkLink(this)" target="detailFrame">cross_status_x</a></td>
+<td class="rt">24</td>
+<td class="rt">9</td>
+<td class="rt">15</td>
+<td class="rt">62.50 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s3">
+<td><a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_alpha"  onclick="checkLink(this)" target="detailFrame">cross_status_alpha</a></td>
+<td class="rt">18</td>
+<td class="rt">11</td>
+<td class="rt">7</td>
+<td class="rt">38.89 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_tol"  onclick="checkLink(this)" target="detailFrame">cross_status_tol</a></td>
+<td class="rt">12</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s4">
+<td><a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_lambda"  onclick="checkLink(this)" target="detailFrame">cross_status_lambda</a></td>
+<td class="rt">15</td>
+<td class="rt">9</td>
+<td class="rt">6</td>
+<td class="rt">40.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_iters"  onclick="checkLink(this)" target="detailFrame">cross_status_iters</a></td>
+<td class="rt">12</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+</div>
+<div name='newton_tb_top.me.obj.cg_solver'>
+<a name="inst_tag_newton_tb_top.me.obj.cg_solver"></a>
+<hr>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Group Instance : <a href="groups.html#tag_newton_tb_top.me.obj.cg_solver" >newton_tb_top.me.obj.cg_solver</a></span>
+<br clear=all>
+Comment: Newton Solver Inputs & Outcomes Coverage<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td><b>SCORE</b></td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="s6 cl rt"> 65.62</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+</div>
+<hr>
+<br clear=all>
+<span class=repname>Summary for Group Instance   newton_tb_top.me.obj.cg_solver
+</span>
+<br clear=all>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td><a href="#var_tbl_newton_tb_top.me.obj.cg_solver" >Variables</a></td>
+<td class="rt">39</td>
+<td class="rt">10</td>
+<td class="rt">29</td>
+<td class="rt">76.46 </td>
+</tr><tr class="s4">
+<td><a href="#crs_tbl_newton_tb_top.me.obj.cg_solver" >Crosses</a></td>
+<td class="rt">81</td>
+<td class="rt">41</td>
+<td class="rt">40</td>
+<td class="rt">48.28 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="var_tbl_newton_tb_top.me.obj.cg_solver">Variables for Group Instance  newton_tb_top.me.obj.cg_solver
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">VARIABLE</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>COMMENT</td></tr><tr class="s7">
+<td><a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cp_x_init"  onclick="checkLink(this)" target="detailFrame">cp_x_init</a></td>
+<td class="rt">8</td>
+<td class="rt">2</td>
+<td class="rt">6</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cp_tolerance"  onclick="checkLink(this)" target="detailFrame">cp_tolerance</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s6">
+<td><a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cp_alpha"  onclick="checkLink(this)" target="detailFrame">cp_alpha</a></td>
+<td class="rt">6</td>
+<td class="rt">2</td>
+<td class="rt">4</td>
+<td class="rt">66.67 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s6">
+<td><a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cp_lambda"  onclick="checkLink(this)" target="detailFrame">cp_lambda</a></td>
+<td class="rt">5</td>
+<td class="rt">2</td>
+<td class="rt">3</td>
+<td class="rt">60.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cp_max_iters"  onclick="checkLink(this)" target="detailFrame">cp_max_iters</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cp_status"  onclick="checkLink(this)" target="detailFrame">cp_status</a></td>
+<td class="rt">3</td>
+<td class="rt">0</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cp_iter_count"  onclick="checkLink(this)" target="detailFrame">cp_iter_count</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s6">
+<td><a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cp_x_opt"  onclick="checkLink(this)" target="detailFrame">cp_x_opt</a></td>
+<td class="rt">5</td>
+<td class="rt">2</td>
+<td class="rt">3</td>
+<td class="rt">60.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="crs_tbl_newton_tb_top.me.obj.cg_solver">Crosses for Group Instance  newton_tb_top.me.obj.cg_solver
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CROSS</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>PRINT MISSING</td><td>COMMENT</td></tr><tr class="s6">
+<td><a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_x"  onclick="checkLink(this)" target="detailFrame">cross_status_x</a></td>
+<td class="rt">24</td>
+<td class="rt">9</td>
+<td class="rt">15</td>
+<td class="rt">62.50 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s3">
+<td><a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_alpha"  onclick="checkLink(this)" target="detailFrame">cross_status_alpha</a></td>
+<td class="rt">18</td>
+<td class="rt">11</td>
+<td class="rt">7</td>
+<td class="rt">38.89 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_tol"  onclick="checkLink(this)" target="detailFrame">cross_status_tol</a></td>
+<td class="rt">12</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s4">
+<td><a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_lambda"  onclick="checkLink(this)" target="detailFrame">cross_status_lambda</a></td>
+<td class="rt">15</td>
+<td class="rt">9</td>
+<td class="rt">6</td>
+<td class="rt">40.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_iters"  onclick="checkLink(this)" target="detailFrame">cross_status_iters</a></td>
+<td class="rt">12</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='newton_env_pkg::newton_coverage::cg_solver'>
+<br clear=all>
+<a name="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_x_init"></a><span class="repname" id="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_x_init">Summary for Variable cp_x_init</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">8</td>
+<td class="rt">2</td>
+<td class="rt">6</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_x_init</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>pos_sat</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>neg_sat</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>pos_large</td>
+<td class="rt">10</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>pos_small</td>
+<td class="rt">9</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>zero_near</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>neg_small</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>neg_large</td>
+<td class="rt">9</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>exact_zero</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_tolerance"></a><span class="repname" id="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_tolerance">Summary for Variable cp_tolerance</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_tolerance</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>tol_zero</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>tol_loose</td>
+<td class="rt">11</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>tol_med</td>
+<td class="rt">16</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>tol_tight</td>
+<td class="rt">8</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_alpha"></a><span class="repname" id="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_alpha">Summary for Variable cp_alpha</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s6">
+<td>User Defined Bins</td>
+<td class="rt">6</td>
+<td class="rt">2</td>
+<td class="rt">4</td>
+<td class="rt">66.67 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_alpha</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>three_qtr</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>alpha_zero</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>other_frac</td>
+<td class="rt">2</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>eighth_step</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>qtr_step</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>half_step</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>full_step</td>
+<td class="rt">21</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_lambda"></a><span class="repname" id="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_lambda">Summary for Variable cp_lambda</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s6">
+<td>User Defined Bins</td>
+<td class="rt">5</td>
+<td class="rt">2</td>
+<td class="rt">3</td>
+<td class="rt">60.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_lambda</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>lam_tight</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>lam_zero</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>lam_high</td>
+<td class="rt">9</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>lam_med</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>lam_def</td>
+<td class="rt">15</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_max_iters"></a><span class="repname" id="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_max_iters">Summary for Variable cp_max_iters</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_max_iters</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>it_zero</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>it_high</td>
+<td class="rt">23</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>it_med</td>
+<td class="rt">9</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>it_low</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_status"></a><span class="repname" id="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_status">Summary for Variable cp_status</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">3</td>
+<td class="rt">0</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_status</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>singular</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td class="rt">8</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td class="rt">22</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_iter_count"></a><span class="repname" id="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_iter_count">Summary for Variable cp_iter_count</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_iter_count</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>heavy</td>
+<td class="rt">7</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>moderate</td>
+<td class="rt">7</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>quick</td>
+<td class="rt">15</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>instant</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_x_opt"></a><span class="repname" id="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_x_opt">Summary for Variable cp_x_opt</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s6">
+<td>User Defined Bins</td>
+<td class="rt">5</td>
+<td class="rt">2</td>
+<td class="rt">3</td>
+<td class="rt">60.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_x_opt</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>opt_sat_neg</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>opt_sat_pos</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>opt_neg</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>opt_pos</td>
+<td class="rt">30</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>opt_zero</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_x"></a><span class="repname" id="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_x">Summary for Cross cross_status_x</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: cp_status cp_x_init<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s6">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">24</td>
+<td class="rt">9</td>
+<td class="rt">15</td>
+<td class="rt">62.50 </td>
+<td class="rt">9</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for cross_status_x</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_x_init</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>[singular]</td>
+<td>[zero_near]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>[singular]</td>
+<td>[pos_sat , neg_sat]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s3">
+<td>[max_reached]</td>
+<td>[neg_small]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>[max_reached]</td>
+<td>[pos_sat , neg_sat , exact_zero]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">3</td>
+<td></td>
+</tr><tr class="s3">
+<td>[converged]</td>
+<td>[pos_sat , neg_sat]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_x_init</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>singular</td>
+<td>pos_large</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>singular</td>
+<td>pos_small</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>singular</td>
+<td>neg_small</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>singular</td>
+<td>neg_large</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>singular</td>
+<td>exact_zero</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>pos_large</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>pos_small</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>zero_near</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>neg_large</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>pos_large</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>pos_small</td>
+<td class="rt">7</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>zero_near</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>neg_small</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>neg_large</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>exact_zero</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_alpha"></a><span class="repname" id="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_alpha">Summary for Cross cross_status_alpha</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: cp_status cp_alpha<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s3">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">18</td>
+<td class="rt">11</td>
+<td class="rt">7</td>
+<td class="rt">38.89 </td>
+<td class="rt">11</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for cross_status_alpha</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_alpha</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>[singular]</td>
+<td>[eighth_step , qtr_step , half_step , three_qtr]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">4</td>
+<td></td>
+</tr><tr class="s3">
+<td>[singular]</td>
+<td>[alpha_zero]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>[max_reached]</td>
+<td>[half_step , three_qtr , full_step , alpha_zero]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">4</td>
+<td></td>
+</tr><tr class="s3">
+<td>[converged]</td>
+<td>[three_qtr]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>[converged]</td>
+<td>[alpha_zero]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_alpha</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>singular</td>
+<td>full_step</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>eighth_step</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>qtr_step</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>eighth_step</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>qtr_step</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>half_step</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>full_step</td>
+<td class="rt">16</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_tol"></a><span class="repname" id="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_tol">Summary for Cross cross_status_tol</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: cp_status cp_tolerance<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s5">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">12</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">50.00 </td>
+<td class="rt">6</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for cross_status_tol</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_tolerance</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>[singular]</td>
+<td>[tol_loose , tol_med]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s3">
+<td>[singular]</td>
+<td>[tol_zero]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>[max_reached]</td>
+<td>[tol_zero]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>[converged]</td>
+<td>[tol_tight , tol_zero]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_tolerance</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>singular</td>
+<td>tol_tight</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>tol_loose</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>tol_med</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>tol_tight</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>tol_loose</td>
+<td class="rt">10</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>tol_med</td>
+<td class="rt">12</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_lambda"></a><span class="repname" id="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_lambda">Summary for Cross cross_status_lambda</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: cp_status cp_lambda<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s4">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">15</td>
+<td class="rt">9</td>
+<td class="rt">6</td>
+<td class="rt">40.00 </td>
+<td class="rt">9</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for cross_status_lambda</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Element holes</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_lambda</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>[singular]</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">5</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_lambda</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>[max_reached , converged]</td>
+<td>[lam_tight , lam_zero]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">4</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_lambda</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>max_reached</td>
+<td>lam_high</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>lam_med</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>lam_def</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>lam_high</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>lam_med</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>lam_def</td>
+<td class="rt">12</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_iters"></a><span class="repname" id="inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_iters">Summary for Cross cross_status_iters</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: cp_status cp_max_iters<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s5">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">12</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">50.00 </td>
+<td class="rt">6</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for cross_status_iters</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_max_iters</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>[singular]</td>
+<td>[it_med , it_low , it_zero]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">3</td>
+<td></td>
+</tr><tr class="s3">
+<td>[max_reached]</td>
+<td>[it_zero]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>[converged]</td>
+<td>[it_low , it_zero]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_max_iters</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>singular</td>
+<td>it_high</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>it_high</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>it_med</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>it_low</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>it_high</td>
+<td class="rt">17</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>it_med</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+</div>
+<div name='newton_tb_top.me.obj.cg_solver'>
+<br clear=all>
+<a name="inst_tag_newton_tb_top.me.obj.cg_solver.cp_x_init"></a><span class="repname" id="inst_tag_newton_tb_top.me.obj.cg_solver.cp_x_init">Summary for Variable cp_x_init</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">8</td>
+<td class="rt">2</td>
+<td class="rt">6</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_x_init</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>pos_sat</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>neg_sat</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>pos_large</td>
+<td class="rt">10</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>pos_small</td>
+<td class="rt">9</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>zero_near</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>neg_small</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>neg_large</td>
+<td class="rt">9</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>exact_zero</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_tb_top.me.obj.cg_solver.cp_tolerance"></a><span class="repname" id="inst_tag_newton_tb_top.me.obj.cg_solver.cp_tolerance">Summary for Variable cp_tolerance</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_tolerance</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>tol_zero</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>tol_loose</td>
+<td class="rt">11</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>tol_med</td>
+<td class="rt">16</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>tol_tight</td>
+<td class="rt">8</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_tb_top.me.obj.cg_solver.cp_alpha"></a><span class="repname" id="inst_tag_newton_tb_top.me.obj.cg_solver.cp_alpha">Summary for Variable cp_alpha</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s6">
+<td>User Defined Bins</td>
+<td class="rt">6</td>
+<td class="rt">2</td>
+<td class="rt">4</td>
+<td class="rt">66.67 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_alpha</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>three_qtr</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>alpha_zero</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>other_frac</td>
+<td class="rt">2</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>eighth_step</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>qtr_step</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>half_step</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>full_step</td>
+<td class="rt">21</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_tb_top.me.obj.cg_solver.cp_lambda"></a><span class="repname" id="inst_tag_newton_tb_top.me.obj.cg_solver.cp_lambda">Summary for Variable cp_lambda</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s6">
+<td>User Defined Bins</td>
+<td class="rt">5</td>
+<td class="rt">2</td>
+<td class="rt">3</td>
+<td class="rt">60.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_lambda</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>lam_tight</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>lam_zero</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>lam_high</td>
+<td class="rt">9</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>lam_med</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>lam_def</td>
+<td class="rt">15</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_tb_top.me.obj.cg_solver.cp_max_iters"></a><span class="repname" id="inst_tag_newton_tb_top.me.obj.cg_solver.cp_max_iters">Summary for Variable cp_max_iters</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_max_iters</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>it_zero</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>it_high</td>
+<td class="rt">23</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>it_med</td>
+<td class="rt">9</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>it_low</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_tb_top.me.obj.cg_solver.cp_status"></a><span class="repname" id="inst_tag_newton_tb_top.me.obj.cg_solver.cp_status">Summary for Variable cp_status</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">3</td>
+<td class="rt">0</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_status</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>singular</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td class="rt">8</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td class="rt">22</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_tb_top.me.obj.cg_solver.cp_iter_count"></a><span class="repname" id="inst_tag_newton_tb_top.me.obj.cg_solver.cp_iter_count">Summary for Variable cp_iter_count</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_iter_count</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>heavy</td>
+<td class="rt">7</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>moderate</td>
+<td class="rt">7</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>quick</td>
+<td class="rt">15</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>instant</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_tb_top.me.obj.cg_solver.cp_x_opt"></a><span class="repname" id="inst_tag_newton_tb_top.me.obj.cg_solver.cp_x_opt">Summary for Variable cp_x_opt</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s6">
+<td>User Defined Bins</td>
+<td class="rt">5</td>
+<td class="rt">2</td>
+<td class="rt">3</td>
+<td class="rt">60.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_x_opt</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>opt_sat_neg</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>opt_sat_pos</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>opt_neg</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>opt_pos</td>
+<td class="rt">30</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>opt_zero</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_x"></a><span class="repname" id="inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_x">Summary for Cross cross_status_x</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: cp_status cp_x_init<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s6">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">24</td>
+<td class="rt">9</td>
+<td class="rt">15</td>
+<td class="rt">62.50 </td>
+<td class="rt">9</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for cross_status_x</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_x_init</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>[singular]</td>
+<td>[zero_near]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>[singular]</td>
+<td>[pos_sat , neg_sat]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s3">
+<td>[max_reached]</td>
+<td>[neg_small]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>[max_reached]</td>
+<td>[pos_sat , neg_sat , exact_zero]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">3</td>
+<td></td>
+</tr><tr class="s3">
+<td>[converged]</td>
+<td>[pos_sat , neg_sat]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_x_init</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>singular</td>
+<td>pos_large</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>singular</td>
+<td>pos_small</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>singular</td>
+<td>neg_small</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>singular</td>
+<td>neg_large</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>singular</td>
+<td>exact_zero</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>pos_large</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>pos_small</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>zero_near</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>neg_large</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>pos_large</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>pos_small</td>
+<td class="rt">7</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>zero_near</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>neg_small</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>neg_large</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>exact_zero</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_alpha"></a><span class="repname" id="inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_alpha">Summary for Cross cross_status_alpha</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: cp_status cp_alpha<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s3">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">18</td>
+<td class="rt">11</td>
+<td class="rt">7</td>
+<td class="rt">38.89 </td>
+<td class="rt">11</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for cross_status_alpha</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_alpha</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>[singular]</td>
+<td>[eighth_step , qtr_step , half_step , three_qtr]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">4</td>
+<td></td>
+</tr><tr class="s3">
+<td>[singular]</td>
+<td>[alpha_zero]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>[max_reached]</td>
+<td>[half_step , three_qtr , full_step , alpha_zero]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">4</td>
+<td></td>
+</tr><tr class="s3">
+<td>[converged]</td>
+<td>[three_qtr]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>[converged]</td>
+<td>[alpha_zero]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_alpha</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>singular</td>
+<td>full_step</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>eighth_step</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>qtr_step</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>eighth_step</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>qtr_step</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>half_step</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>full_step</td>
+<td class="rt">16</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_tol"></a><span class="repname" id="inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_tol">Summary for Cross cross_status_tol</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: cp_status cp_tolerance<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s5">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">12</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">50.00 </td>
+<td class="rt">6</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for cross_status_tol</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_tolerance</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>[singular]</td>
+<td>[tol_loose , tol_med]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s3">
+<td>[singular]</td>
+<td>[tol_zero]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>[max_reached]</td>
+<td>[tol_zero]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>[converged]</td>
+<td>[tol_tight , tol_zero]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_tolerance</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>singular</td>
+<td>tol_tight</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>tol_loose</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>tol_med</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>tol_tight</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>tol_loose</td>
+<td class="rt">10</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>tol_med</td>
+<td class="rt">12</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_lambda"></a><span class="repname" id="inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_lambda">Summary for Cross cross_status_lambda</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: cp_status cp_lambda<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s4">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">15</td>
+<td class="rt">9</td>
+<td class="rt">6</td>
+<td class="rt">40.00 </td>
+<td class="rt">9</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for cross_status_lambda</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Element holes</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_lambda</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>[singular]</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">5</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_lambda</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>[max_reached , converged]</td>
+<td>[lam_tight , lam_zero]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">4</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_lambda</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>max_reached</td>
+<td>lam_high</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>lam_med</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>lam_def</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>lam_high</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>lam_med</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>lam_def</td>
+<td class="rt">12</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_iters"></a><span class="repname" id="inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_iters">Summary for Cross cross_status_iters</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: cp_status cp_max_iters<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s5">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">12</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">50.00 </td>
+<td class="rt">6</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for cross_status_iters</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_max_iters</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td><td class="alfsrt">STATUS</td></tr><tr class="s3">
+<td>[singular]</td>
+<td>[it_med , it_low , it_zero]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">3</td>
+<td></td>
+</tr><tr class="s3">
+<td>[max_reached]</td>
+<td>[it_zero]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s3">
+<td>[converged]</td>
+<td>[it_low , it_zero]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_status</td><td class="alfsrt">cp_max_iters</td><td>COUNT</td><td>AT LEAST</td><td class="alfsrt">STATUS</td></tr><tr class="s10">
+<td>singular</td>
+<td>it_high</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>it_high</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>it_med</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>max_reached</td>
+<td>it_low</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>it_high</td>
+<td class="rt">17</td>
+<td class="rt">1</td>
+<td></td>
+</tr><tr class="s10">
+<td>converged</td>
+<td>it_med</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+<td></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="newton_env_pkg::newton_coverage::cg_solver">
+    <li>
+      <a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_x_init">Variable : cp_x_init</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_tolerance">Variable : cp_tolerance</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_alpha">Variable : cp_alpha</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_lambda">Variable : cp_lambda</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_max_iters">Variable : cp_max_iters</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_status">Variable : cp_status</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_iter_count">Variable : cp_iter_count</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cp_x_opt">Variable : cp_x_opt</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_x">Cross : cross_status_x</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_alpha">Cross : cross_status_alpha</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_tol">Cross : cross_status_tol</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_lambda">Cross : cross_status_lambda</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_env_pkg::newton_coverage::cg_solver.cross_status_iters">Cross : cross_status_iters</a>    </li>
+  </ul>
+  <ul name="newton_tb_top.me.obj.cg_solver">
+    <li>
+      <a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cp_x_init">Variable : cp_x_init</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cp_tolerance">Variable : cp_tolerance</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cp_alpha">Variable : cp_alpha</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cp_lambda">Variable : cp_lambda</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cp_max_iters">Variable : cp_max_iters</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cp_status">Variable : cp_status</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cp_iter_count">Variable : cp_iter_count</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cp_x_opt">Variable : cp_x_opt</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_x">Cross : cross_status_x</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_alpha">Cross : cross_status_alpha</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_tol">Cross : cross_status_tol</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_lambda">Cross : cross_status_lambda</a>    </li>
+    <li>
+      <a href="#inst_tag_newton_tb_top.me.obj.cg_solver.cross_status_iters">Cross : cross_status_iters</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

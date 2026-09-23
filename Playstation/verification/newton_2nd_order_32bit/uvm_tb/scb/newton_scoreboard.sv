@@ -87,10 +87,44 @@ class newton_scoreboard extends uvm_scoreboard;
         end
     endfunction
 
+    // -------------------------------------------------------------------------
+    // Phase 4: start_of_simulation_phase (Bottom-Up, Time 0)
+    // -------------------------------------------------------------------------
+    virtual function void start_of_simulation_phase(uvm_phase phase);
+        super.start_of_simulation_phase(phase);
+        `uvm_info("SCB_PHASE_4_START_OF_SIM", "[STAGE 1: SETUP] start_of_simulation_phase: Scoreboard comparator armed with Golden C reference model.", UVM_LOW)
+    endfunction
+
+    // -------------------------------------------------------------------------
+    // Phase 6: extract_phase (Bottom-Up, Time > 0)
+    // -------------------------------------------------------------------------
+    virtual function void extract_phase(uvm_phase phase);
+        super.extract_phase(phase);
+        `uvm_info("SCB_PHASE_6_EXTRACT", $sformatf("[STAGE 3: CLEANUP] extract_phase: Scoreboard extracted %0d matches and %0d mismatches.", match_count, mismatch_count), UVM_LOW)
+    endfunction
+
+    // -------------------------------------------------------------------------
+    // Phase 7: check_phase (Bottom-Up, Time > 0)
+    // -------------------------------------------------------------------------
+    virtual function void check_phase(uvm_phase phase);
+        super.check_phase(phase);
+        `uvm_info("SCB_PHASE_7_CHECK", "[STAGE 3: CLEANUP] check_phase: Verifying scoreboard integrity...", UVM_LOW)
+        if (mismatch_count > 0) begin
+            `uvm_error("SCB_CHECK_FAIL", $sformatf("check_phase detected %0d mismatches during simulation!", mismatch_count))
+        end else if (match_count == 0) begin
+            `uvm_error("SCB_NO_TX", "check_phase detected 0 transactions evaluated - Test did not execute properly!")
+        end else begin
+            `uvm_info("SCB_CHECK_PASS", "check_phase: Integrity check passed. Zero mismatches detected.", UVM_LOW)
+        end
+    endfunction
+
+    // -------------------------------------------------------------------------
+    // Phase 8: report_phase (Bottom-Up, Time > 0)
+    // -------------------------------------------------------------------------
     virtual function void report_phase(uvm_phase phase);
         super.report_phase(phase);
         `uvm_info(get_type_name(), "==================================================", UVM_NONE)
-        `uvm_info(get_type_name(), "  SCOREBOARD FINAL REPORT:", UVM_NONE)
+        `uvm_info(get_type_name(), "  [STAGE 3: CLEANUP] report_phase: SCOREBOARD FINAL REPORT", UVM_NONE)
         `uvm_info(get_type_name(), $sformatf("    Matches   : %0d", match_count), UVM_NONE)
         `uvm_info(get_type_name(), $sformatf("    Mismatches: %0d", mismatch_count), UVM_NONE)
         if (mismatch_count == 0 && match_count > 0) begin
@@ -101,6 +135,14 @@ class newton_scoreboard extends uvm_scoreboard;
             `uvm_error(get_type_name(), "  >>> TEST STATUS: SIMULATION FAILED WITH MISMATCHES! <<<")
         end
         `uvm_info(get_type_name(), "==================================================", UVM_NONE)
+    endfunction
+
+    // -------------------------------------------------------------------------
+    // Phase 9: final_phase (Top-Down, Time > 0)
+    // -------------------------------------------------------------------------
+    virtual function void final_phase(uvm_phase phase);
+        super.final_phase(phase);
+        `uvm_info("SCB_PHASE_9_FINAL", "[STAGE 3: CLEANUP] final_phase: Scoreboard closed successfully.", UVM_LOW)
     endfunction
 
 endclass : newton_scoreboard

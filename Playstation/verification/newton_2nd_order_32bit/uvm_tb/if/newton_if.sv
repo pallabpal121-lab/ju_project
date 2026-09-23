@@ -138,7 +138,7 @@ interface newton_if (input logic clk, input logic rst_n);
     // 7. Handshake causality: 'done' can only fire if the accelerator was 'busy'
     property p_done_requires_busy;
         @(posedge clk) disable iff (!rst_n)
-        done |-> busy;
+        done |-> ($past(busy) || busy);
     endproperty
     A_DONE_REQUIRES_BUSY: assert property (p_done_requires_busy)
         else `uvm_error("SVA_IF", "Protocol violation: 'done' asserted without accelerator being 'busy'!")

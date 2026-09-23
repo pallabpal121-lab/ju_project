@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Assertions</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Assertions</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<br clear=all>
+<div class="ui-layout-west">
+<b>Assertions by Category</b><table class="noborder">
+<col width="180">
+<col span="3" width="60"><tr class="sortablehead"><td> </td><td>ASSERT</td><td>PROPERTIES</td><td>SEQUENCES</td>
+<tr class="wht"><td class="lf">Total</td><td>11</td><td>5</td><td>0</td></tr>
+<tr class="wht"><td class="lf">Category 0</td><td>11</td><td>5</td><td>0</td></tr>
+</table>
+<hr>
+<br clear=all>
+<b>Assertions by Severity</b><table class="noborder">
+<col width="180">
+<col span="3" width="60"><tr class="sortablehead"><td> </td><td>ASSERT</td><td>PROPERTIES</td><td>SEQUENCES</td>
+<tr class="wht"><td class="lf">Total</td><td>11</td><td>5</td><td>0</td></tr>
+<tr class="wht"><td class="lf">Severity 0</td><td>11</td><td>5</td><td>0</td></tr>
+</table>
+<hr>
+<br clear=all>
+<b>Summary for Assertions</b><table class="noborder">
+<col width="180">
+<col span="2" width="60"><tr class="sortablehead"><td> </td><td>NUMBER</td><td>PERCENT</td>
+<tr class="wht"><td class="lf">Total Number</td><td>11</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf"><a href="#tag_ast_no_covr">Uncovered</a></td><td>2</td><td>18.18</td></tr>
+<tr class="wht"><td class="lf"><a href="#tag_ast_succ">Success</a></td><td>9</td><td>81.82</td></tr>
+<tr class="wht"><td class="lf">Failure</td><td>0</td><td>0.00</td></tr>
+<tr class="wht"><td class="lf">Incomplete</td><td>0</td><td>0.00</td></tr>
+<tr class="wht"><td class="lf"><a href="#tag_ast_no_attp">Without Attempts</a></td><td>2</td><td>18.18</td></tr>
+</table>
+<hr>
+<br clear=all>
+<b>Summary for Cover Properties</b><table class="noborder">
+<col width="180">
+<col span="2" width="60"><tr class="sortablehead"><td> </td><td>NUMBER</td><td>PERCENT</td>
+<tr class="wht"><td class="lf">Total Number</td><td>5</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf">Uncovered</td><td>0</td><td>0.00</td></tr>
+<tr class="wht"><td class="lf"><a href="#tag_pro_match">Matches</a></td><td>5</td><td>100.00</td></tr>
+</table>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<hr>
+<br clear=all>
+<b>Detail Report for Assertions</b><br clear=all>
+<br clear=all>
+Assertions Uncovered:<a name="tag_ast_no_covr"></a>
+<table class="sortable rt">
+<col width="180">
+<col span="6" width="60"><tr class="sortablehead">
+<td class="alfsrt">ASSERTIONS<td>CATEGORY</td><td>SEVERITY</td><td>ATTEMPTS</td><td>REAL SUCCESSES</td><td>FAILURES</td><td>INCOMPLETE</td><td>SRC</td>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_uvm_pkg.\uvm_reg_map::do_read .unnamed$$_0.unnamed$$_1" title="mod5.html#117826508" href="mod5.html#117826508">uvm_pkg.\uvm_reg_map::do_read .unnamed$$_0.unnamed$$_1</a>
+</td><td>0</td><td>0</td><td class="s3">0</td><td class="s3">0</td><td>0</td><td>0</td><td class="ct"><a title="/home/user17/Synopsys/VCS_Simulation/tool/vcs_install/vcs/W-2024.09/etc/uvm/reg/uvm_reg_map.svh" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Synopsys/VCS_Simulation/tool/vcs_install/vcs/W-2024.09/etc/uvm/reg/uvm_reg_map.svh')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_uvm_pkg.\uvm_reg_map::do_write .unnamed$$_0.unnamed$$_1" title="mod5.html#686230363" href="mod5.html#686230363">uvm_pkg.\uvm_reg_map::do_write .unnamed$$_0.unnamed$$_1</a>
+</td><td>0</td><td>0</td><td class="s3">0</td><td class="s3">0</td><td>0</td><td>0</td><td class="ct"><a title="/home/user17/Synopsys/VCS_Simulation/tool/vcs_install/vcs/W-2024.09/etc/uvm/reg/uvm_reg_map.svh" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Synopsys/VCS_Simulation/tool/vcs_install/vcs/W-2024.09/etc/uvm/reg/uvm_reg_map.svh')"><img class="sourcefile"></a>
+</td></tr>
+</table>
+<br clear=all>
+Assertions Success:<a name="tag_ast_succ"></a>
+<table class="sortable rt">
+<col width="180">
+<col span="6" width="60"><tr class="sortablehead">
+<td class="alfsrt">ASSERTIONS<td>CATEGORY</td><td>SEVERITY</td><td>ATTEMPTS</td><td>REAL SUCCESSES</td><td>FAILURES</td><td>INCOMPLETE</td><td>SRC</td>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_newton_tb_top.vif.A_BUSY_DROPS_AFTER_DONE" title="mod8.html#195788093" href="mod8.html#195788093">newton_tb_top.vif.A_BUSY_DROPS_AFTER_DONE</a>
+</td><td>0</td><td>0</td><td class="s9">32806</td><td class="s9">35</td><td>0</td><td>0</td><td class="ct"><a title="/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_newton_tb_top.vif.A_DONE_REQUIRES_BUSY" title="mod8.html#1638120336" href="mod8.html#1638120336">newton_tb_top.vif.A_DONE_REQUIRES_BUSY</a>
+</td><td>0</td><td>0</td><td class="s9">32806</td><td class="s9">35</td><td>0</td><td>0</td><td class="ct"><a title="/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_newton_tb_top.vif.A_DONE_SINGLE_CYCLE" title="mod8.html#1895921175" href="mod8.html#1895921175">newton_tb_top.vif.A_DONE_SINGLE_CYCLE</a>
+</td><td>0</td><td>0</td><td class="s9">32806</td><td class="s9">35</td><td>0</td><td>0</td><td class="ct"><a title="/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_newton_tb_top.vif.A_NO_PROG_DURING_BUSY" title="mod8.html#1361562061" href="mod8.html#1361562061">newton_tb_top.vif.A_NO_PROG_DURING_BUSY</a>
+</td><td>0</td><td>0</td><td class="s9">32806</td><td class="s9">32551</td><td>0</td><td>0</td><td class="ct"><a title="/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_newton_tb_top.vif.A_NO_START_DURING_BUSY" title="mod8.html#88669633" href="mod8.html#88669633">newton_tb_top.vif.A_NO_START_DURING_BUSY</a>
+</td><td>0</td><td>0</td><td class="s9">32806</td><td class="s9">32551</td><td>0</td><td>0</td><td class="ct"><a title="/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_newton_tb_top.vif.A_RESET_STATE" title="mod8.html#1154013150" href="mod8.html#1154013150">newton_tb_top.vif.A_RESET_STATE</a>
+</td><td>0</td><td>0</td><td class="s9">32806</td><td class="s9">15</td><td>0</td><td>0</td><td class="ct"><a title="/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_newton_tb_top.vif.A_VALID_OUTPUTS_ON_DONE" title="mod8.html#1393891439" href="mod8.html#1393891439">newton_tb_top.vif.A_VALID_OUTPUTS_ON_DONE</a>
+</td><td>0</td><td>0</td><td class="s9">32806</td><td class="s9">35</td><td>0</td><td>0</td><td class="ct"><a title="/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_newton_tb_top.vif.A_VALID_PARAMS_ON_START" title="mod8.html#259617301" href="mod8.html#259617301">newton_tb_top.vif.A_VALID_PARAMS_ON_START</a>
+</td><td>0</td><td>0</td><td class="s9">32806</td><td class="s9">35</td><td>0</td><td>0</td><td class="ct"><a title="/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_newton_tb_top.vif.A_VALID_PROG_BUS" title="mod8.html#541558399" href="mod8.html#541558399">newton_tb_top.vif.A_VALID_PROG_BUS</a>
+</td><td>0</td><td>0</td><td class="s9">32806</td><td class="s9">48</td><td>0</td><td>0</td><td class="ct"><a title="/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv')"><img class="sourcefile"></a>
+</td></tr>
+</table>
+<br clear=all>
+Assertions Without Attempts:<a name="tag_ast_no_attp"></a>
+<table class="sortable rt">
+<col width="180">
+<col span="6" width="60"><tr class="sortablehead">
+<td class="alfsrt">ASSERTIONS<td>CATEGORY</td><td>SEVERITY</td><td>ATTEMPTS</td><td>REAL SUCCESSES</td><td>FAILURES</td><td>INCOMPLETE</td><td>SRC</td>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_uvm_pkg.\uvm_reg_map::do_read .unnamed$$_0.unnamed$$_1" title="mod5.html#117826508" href="mod5.html#117826508">uvm_pkg.\uvm_reg_map::do_read .unnamed$$_0.unnamed$$_1</a>
+</td><td>0</td><td>0</td><td class="s3">0</td><td class="s3">0</td><td>0</td><td>0</td><td class="ct"><a title="/home/user17/Synopsys/VCS_Simulation/tool/vcs_install/vcs/W-2024.09/etc/uvm/reg/uvm_reg_map.svh" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Synopsys/VCS_Simulation/tool/vcs_install/vcs/W-2024.09/etc/uvm/reg/uvm_reg_map.svh')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_uvm_pkg.\uvm_reg_map::do_write .unnamed$$_0.unnamed$$_1" title="mod5.html#686230363" href="mod5.html#686230363">uvm_pkg.\uvm_reg_map::do_write .unnamed$$_0.unnamed$$_1</a>
+</td><td>0</td><td>0</td><td class="s3">0</td><td class="s3">0</td><td>0</td><td>0</td><td class="ct"><a title="/home/user17/Synopsys/VCS_Simulation/tool/vcs_install/vcs/W-2024.09/etc/uvm/reg/uvm_reg_map.svh" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Synopsys/VCS_Simulation/tool/vcs_install/vcs/W-2024.09/etc/uvm/reg/uvm_reg_map.svh')"><img class="sourcefile"></a>
+</td></tr>
+</table>
+<hr>
+<br clear=all>
+<b>Detail Report for Cover Properties</b><br clear=all>
+<br clear=all>
+Cover Properties Matches:<a name="tag_pro_match"></a>
+<table class="sortable rt">
+<col width="180">
+<col span="5" width="60"><tr class="sortablehead">
+<td class="alfsrt">COVER PROPERTIES<td>CATEGORY</td><td>SEVERITY</td><td>ATTEMPTS</td><td>MATCHES</td><td>INCOMPLETE</td><td>SRC</td>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_newton_tb_top.vif.C_EXEC_SEQUENCE" title="mod8.html#37408530" href="mod8.html#37408530">newton_tb_top.vif.C_EXEC_SEQUENCE</a>
+</td><td>0</td><td>0</td><td class="s9">32806</td><td class="s9">35</td><td>0</td><td class="ct"><a title="/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_newton_tb_top.vif.C_PROG_WRITTEN" title="mod8.html#1367858707" href="mod8.html#1367858707">newton_tb_top.vif.C_PROG_WRITTEN</a>
+</td><td>0</td><td>0</td><td class="s9">32806</td><td class="s9">48</td><td>0</td><td class="ct"><a title="/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_newton_tb_top.vif.C_STATUS_CONVERGED" title="mod8.html#2091702553" href="mod8.html#2091702553">newton_tb_top.vif.C_STATUS_CONVERGED</a>
+</td><td>0</td><td>0</td><td class="s9">32806</td><td class="s9">22</td><td>0</td><td class="ct"><a title="/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_newton_tb_top.vif.C_STATUS_MAX_ITERS" title="mod8.html#1236189524" href="mod8.html#1236189524">newton_tb_top.vif.C_STATUS_MAX_ITERS</a>
+</td><td>0</td><td>0</td><td class="s9">32806</td><td class="s9">8</td><td>0</td><td class="ct"><a title="/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_newton_tb_top.vif.C_STATUS_SINGULAR" title="mod8.html#429268285" href="mod8.html#429268285">newton_tb_top.vif.C_STATUS_SINGULAR</a>
+</td><td>0</td><td>0</td><td class="s9">32806</td><td class="s9">5</td><td>0</td><td class="ct"><a title="/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv" href="javascript:void(0);" onclick="openSrcFile('/home/user17/Desktop/ju_project/Playstation/verification/newton_2nd_order_32bit/./uvm_tb/if/newton_if.sv')"><img class="sourcefile"></a>
+</td></tr>
+</table>
+<br clear=all>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul>
+    <li>
+      <a href="#tag_ast_no_covr">Assertions Uncovered</a>    </li>
+    <li>
+      <a href="#tag_ast_succ">Assertions Success</a>    </li>
+    <li>
+      <a href="#tag_ast_no_attp">Assertions Without Attempts</a>    </li>
+    <li>
+      <a href="#tag_pro_match">Cover Properties Matches</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

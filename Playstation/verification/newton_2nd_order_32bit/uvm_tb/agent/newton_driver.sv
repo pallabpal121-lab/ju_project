@@ -18,9 +18,23 @@ class newton_driver extends uvm_driver #(newton_seq_item);
 
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+        `uvm_info("DRV_PHASE_1_BUILD", "[STAGE 1: SETUP] build_phase: Driver retrieving virtual interface...", UVM_LOW)
         if (!uvm_config_db#(virtual newton_if)::get(this, "", "vif", vif)) begin
             `uvm_fatal("DRV_NO_VIF", "Virtual interface 'vif' not found in uvm_config_db!")
         end
+    endfunction
+
+    virtual function void end_of_elaboration_phase(uvm_phase phase);
+        super.end_of_elaboration_phase(phase);
+        `uvm_info("DRV_PHASE_3_END_OF_ELAB", "[STAGE 1: SETUP] end_of_elaboration_phase: Verifying driver virtual interface handle is bound...", UVM_LOW)
+        if (vif == null) begin
+            `uvm_fatal("DRV_NULL_VIF", "Driver virtual interface 'vif' is null!")
+        end
+    endfunction
+
+    virtual function void start_of_simulation_phase(uvm_phase phase);
+        super.start_of_simulation_phase(phase);
+        `uvm_info("DRV_PHASE_4_START_OF_SIM", "[STAGE 1: SETUP] start_of_simulation_phase: Driver armed and holding idle bus state.", UVM_LOW)
     endfunction
 
     virtual task run_phase(uvm_phase phase);
@@ -100,6 +114,26 @@ class newton_driver extends uvm_driver #(newton_seq_item);
 
         repeat(2) @(vif.drv_cb);
     endtask
+
+    virtual function void extract_phase(uvm_phase phase);
+        super.extract_phase(phase);
+        `uvm_info("DRV_PHASE_6_EXTRACT", "[STAGE 3: CLEANUP] extract_phase: Driver completed all transactions.", UVM_LOW)
+    endfunction
+
+    virtual function void check_phase(uvm_phase phase);
+        super.check_phase(phase);
+        `uvm_info("DRV_PHASE_7_CHECK", "[STAGE 3: CLEANUP] check_phase: Driver confirming idle bus lines.", UVM_LOW)
+    endfunction
+
+    virtual function void report_phase(uvm_phase phase);
+        super.report_phase(phase);
+        `uvm_info("DRV_PHASE_8_REPORT", "[STAGE 3: CLEANUP] report_phase: Driver execution finalized.", UVM_LOW)
+    endfunction
+
+    virtual function void final_phase(uvm_phase phase);
+        super.final_phase(phase);
+        `uvm_info("DRV_PHASE_9_FINAL", "[STAGE 3: CLEANUP] final_phase: Driver shutdown complete.", UVM_LOW)
+    endfunction
 
 endclass : newton_driver
 
