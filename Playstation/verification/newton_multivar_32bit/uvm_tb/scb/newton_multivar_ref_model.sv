@@ -78,16 +78,18 @@ class newton_multivar_ref_model extends uvm_object;
 
         for (int pc = 0; pc < PROG_DEPTH; pc++) begin
             instr_t instr = prog[pc];
+            if (instr.op == OP_NOP) continue;
+            if (instr.op == OP_END) return reg_file[REG_RESULT];
+            if (instr.dst >= NUM_REGS || instr.src_a >= NUM_REGS || instr.src_b >= NUM_REGS) continue;
+
             case (instr.op)
-                OP_NOP:   ;
                 OP_ADD:   reg_file[instr.dst] = reg_file[instr.src_a] + reg_file[instr.src_b];
                 OP_SUB:   reg_file[instr.dst] = reg_file[instr.src_a] - reg_file[instr.src_b];
                 OP_MUL:   reg_file[instr.dst] = q16_mul(reg_file[instr.src_a], reg_file[instr.src_b]);
                 OP_DIV:   reg_file[instr.dst] = q16_div(reg_file[instr.src_a], reg_file[instr.src_b], dbz);
                 OP_NEG:   reg_file[instr.dst] = -reg_file[instr.src_a];
                 OP_MOV:   reg_file[instr.dst] = reg_file[instr.src_a];
-                OP_LOADC: reg_file[instr.dst] = {instr.imm, 16'h0000};
-                OP_END:   return reg_file[REG_RESULT];
+                OP_LOADC: reg_file[instr.dst] = {{3{instr.imm[12]}}, instr.imm, 16'h0000};
                 default:  ;
             endcase
         end
@@ -209,7 +211,7 @@ class newton_multivar_ref_model extends uvm_object;
         int   active_n;
         bit   phase;
 
-        active_n  = (n_vars >= 2) ? n_vars : 2;
+        active_n  = (n_vars > MAX_VARS) ? MAX_VARS : (n_vars >= 2) ? n_vars : 2;
         tol_val   = (tolerance  != Q16_ZERO) ? tolerance  : Q16_EPS_DEF;
         alpha_val = (step_alpha != Q16_ZERO) ? step_alpha : Q16_ONE;
         lam_val   = (lambda_reg != Q16_ZERO) ? lambda_reg : Q16_LAMBDA_DEF;
@@ -223,10 +225,12 @@ class newton_multivar_ref_model extends uvm_object;
         forever begin
             q16_t max_delta_sweep;
             int   pair_i, pair_j;
+            int   pair_step;
             bit   sweep_done;
 
             max_delta_sweep = Q16_ZERO;
             sweep_done      = 0;
+            pair_step       = 0;
 
             if (!phase) begin
                 pair_i = 0;
@@ -239,6 +243,12 @@ class newton_multivar_ref_model extends uvm_object;
             while (!sweep_done) begin
                 q16_t di, dj, f_val_core;
                 q16_t abs_di, abs_dj;
+
+                pair_step++;
+                if (pair_step > (MAX_VARS * 4)) begin
+                    sweep_done = 1;
+                    break;
+                end
 
                 solve_2var_step(prog, active_n, x_curr, pair_i, pair_j, lam_val, alpha_val, di, dj, f_val_core);
                 f_optimal = f_val_core;
