@@ -645,6 +645,7 @@ class newton_multivar_tapeout_seq extends newton_base_seq;
         end
 
         `uvm_info(get_type_name(), "Tapeout-Grade Comprehensive Sequence Completed.", UVM_MEDIUM)
+        ping_axi_bus_map();
     endtask
 
 endclass : newton_multivar_tapeout_seq

@@ -105,6 +105,50 @@ class newton_multivar_corner_seq extends newton_base_seq;
         end
 
         execute_optimization(item);
+
+        // ---------------------------------------------------------------------
+        // Case 5: Intermediate Scale (N = 8) with Three-Quarter Alpha & Loose Tol
+        // ---------------------------------------------------------------------
+        item = newton_axi_seq_item::type_id::create("corner_8var_item");
+        item.num_vars   = 5'd8;
+        item.tolerance  = 32'h0000_0300; // loose tolerance bin
+        item.step_alpha = 32'h0000_C000; // 0.75 alpha bin
+        item.lambda_reg = 32'h0000_0800; // large damp bin
+        item.max_sweeps = 8'd25;
+        item.reprogram  = 1'b1;
+
+        item.program_mem[0] = '{op: OP_MUL, dst: 5'd16, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
+        for (int i = 1; i < 8; i++) begin
+            item.program_mem[i*2 - 1] = '{op: OP_MUL, dst: 5'd17, src_a: 5'(i), src_b: 5'(i), imm: 13'sd0};
+            item.program_mem[i*2]     = '{op: OP_ADD, dst: (i == 7) ? 5'd31 : 5'd16, src_a: 5'd16, src_b: 5'd17, imm: 13'sd0};
+        end
+        item.program_mem[15] = '{op: OP_END, dst: 5'd0, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
+        item.prog_length     = 16;
+        for (int i = 0; i < 8; i++) item.x_init[i] = 32'sh0001_0000;
+        execute_optimization(item);
+
+        // ---------------------------------------------------------------------
+        // Case 6: Intermediate Scale (N = 4) with Half-Step Alpha & Small Damp
+        // ---------------------------------------------------------------------
+        item = newton_axi_seq_item::type_id::create("corner_4var_item");
+        item.num_vars   = 5'd4;
+        item.tolerance  = 32'h0000_0030; // tight tolerance bin
+        item.step_alpha = 32'h0000_8000; // 0.5 half step bin
+        item.lambda_reg = 32'h0000_0200; // small damp bin
+        item.max_sweeps = 8'd15;
+        item.reprogram  = 1'b1;
+
+        item.program_mem[0] = '{op: OP_MUL, dst: 5'd16, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
+        for (int i = 1; i < 4; i++) begin
+            item.program_mem[i*2 - 1] = '{op: OP_MUL, dst: 5'd17, src_a: 5'(i), src_b: 5'(i), imm: 13'sd0};
+            item.program_mem[i*2]     = '{op: OP_ADD, dst: (i == 3) ? 5'd31 : 5'd16, src_a: 5'd16, src_b: 5'd17, imm: 13'sd0};
+        end
+        item.program_mem[7] = '{op: OP_END, dst: 5'd0, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
+        item.prog_length    = 8;
+        for (int i = 0; i < 4; i++) item.x_init[i] = -32'sh0001_8000;
+        execute_optimization(item);
+
+        ping_axi_bus_map();
     endtask
 
 endclass : newton_multivar_corner_seq

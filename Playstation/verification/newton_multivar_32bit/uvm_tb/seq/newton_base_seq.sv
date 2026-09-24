@@ -143,6 +143,27 @@ class newton_base_seq extends uvm_sequence #(newton_axi_seq_item);
     endtask
 
     // -------------------------------------------------------------------------
+    // Helper: Build Quadratic Bowl Microcode for arbitrary N variables
+    // -------------------------------------------------------------------------
+    function void build_quad_microcode(output instr_t prog[PROG_DEPTH], output int len, input int n);
+        int idx = 0;
+        prog[idx++] = '{op: OP_MUL, dst: 5'd16, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
+        if (n == 2) begin
+            prog[idx++] = '{op: OP_MUL, dst: 5'd17, src_a: 5'd1, src_b: 5'd1, imm: 13'sd0};
+            prog[idx++] = '{op: OP_ADD, dst: 5'd31, src_a: 5'd16, src_b: 5'd17, imm: 13'sd0};
+        end else begin
+            prog[idx++] = '{op: OP_MUL, dst: 5'd17, src_a: 5'd1, src_b: 5'd1, imm: 13'sd0};
+            prog[idx++] = '{op: OP_ADD, dst: 5'd18, src_a: 5'd16, src_b: 5'd17, imm: 13'sd0};
+            for (int i = 2; i < n; i++) begin
+                prog[idx++] = '{op: OP_MUL, dst: 5'd16, src_a: 5'(i), src_b: 5'(i), imm: 13'sd0};
+                prog[idx++] = '{op: OP_ADD, dst: (i == n-1) ? 5'd31 : 5'd18, src_a: 5'd18, src_b: 5'd16, imm: 13'sd0};
+            end
+        end
+        prog[idx++] = '{op: OP_END, dst: 5'd0, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
+        len = idx;
+    endfunction
+
+    // -------------------------------------------------------------------------
     // Helper Task: Load Microcode into DFG Engine
     // -------------------------------------------------------------------------
     virtual task load_microcode(const ref instr_t prog[PROG_DEPTH], input int len);
@@ -203,6 +224,39 @@ class newton_base_seq extends uvm_sequence #(newton_axi_seq_item);
     virtual task poll_status(output logic [31:0] status_val);
         logic [1:0] resp;
         read_reg(AXI_REG_STATUS, status_val, resp);
+    endtask
+
+    // -------------------------------------------------------------------------
+    // Helper Task: Exercise Complete AXI Register Map & Unmapped Addresses
+    // -------------------------------------------------------------------------
+    virtual task ping_axi_bus_map();
+        logic [31:0] rdata;
+        logic [1:0]  resp;
+
+        // Reads on configuration & status registers
+        read_reg(AXI_REG_CTRL,        rdata, resp);
+        read_reg(AXI_REG_STATUS,      rdata, resp);
+        read_reg(AXI_REG_NUM_VARS,    rdata, resp);
+        read_reg(AXI_REG_TOLERANCE,   rdata, resp);
+        read_reg(AXI_REG_ALPHA,       rdata, resp);
+        read_reg(AXI_REG_LAMBDA,      rdata, resp);
+        read_reg(AXI_REG_MAX_SWEEPS,  rdata, resp);
+        read_reg(AXI_REG_SWEEP_COUNT, rdata, resp);
+        read_reg(AXI_REG_F_OPTIMAL,   rdata, resp);
+        read_reg(AXI_REG_MAX_DELTA,   rdata, resp);
+        read_reg(AXI_REG_PROG_ADDR,   rdata, resp);
+
+        // State vector window access
+        read_reg(AXI_STATE_VEC_BASE,  rdata, resp);
+        write_reg(AXI_STATE_VEC_BASE, 32'h0001_0000);
+
+        // Unmapped address accesses
+        read_reg(12'h048, rdata, resp);
+        read_reg(12'h800, rdata, resp);
+        read_reg(12'hFFC, rdata, resp);
+        write_reg(12'h048, 32'hDEAD_BEEF);
+        write_reg(12'h800, 32'hDEAD_BEEF);
+        write_reg(12'hFFC, 32'hDEAD_BEEF);
     endtask
 
     // -------------------------------------------------------------------------

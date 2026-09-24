@@ -32,6 +32,19 @@ class newton_agent extends uvm_agent;
             cfg = newton_agent_config::type_id::create("cfg");
         end
 
+        // Industry Best Practice: If vif was not directly set in cfg, fetch from uvm_config_db into cfg
+        if (cfg.vif == null) begin
+            if (!uvm_config_db#(newton_vif_t)::get(this, "", "vif", cfg.vif)) begin
+                `uvm_info("AGT_VIF_LOOKUP", "vif not found in agent scope; subcomponents will check parent/config_db.", UVM_HIGH)
+            end
+        end
+
+        // Propagate config down to driver and monitor
+        uvm_config_db#(newton_agent_config)::set(this, "*", "cfg", cfg);
+        if (cfg.vif != null) begin
+            uvm_config_db#(newton_vif_t)::set(this, "*", "vif", cfg.vif);
+        end
+
         mon    = newton_monitor::type_id::create("mon", this);
         agt_ap = new("agt_ap", this);
 

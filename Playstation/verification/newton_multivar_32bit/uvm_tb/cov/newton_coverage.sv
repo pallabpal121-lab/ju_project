@@ -177,13 +177,23 @@ class newton_coverage extends uvm_subscriber #(newton_axi_seq_item);
 
     // Phase 8: report_phase
     virtual function void report_phase(uvm_phase phase);
+        real opt_cov;
+        real axi_cov;
+        real overall_cov;
         super.report_phase(phase);
+
+        opt_cov = cg_optimization.get_inst_coverage();
+        axi_cov = cg_axi_trans.get_inst_coverage();
+        overall_cov = (opt_cov > 0.0 && axi_cov > 0.0) ? ((opt_cov + axi_cov) / 2.0) :
+                      (opt_cov > 0.0) ? opt_cov : axi_cov;
+
         `uvm_info(get_type_name(), "==================================================================", UVM_NONE)
         `uvm_info(get_type_name(), "      [STAGE 3: CLEANUP] FUNCTIONAL COVERAGE REPORT               ", UVM_NONE)
         `uvm_info(get_type_name(), "==================================================================", UVM_NONE)
         `uvm_info(get_type_name(), $sformatf("  Total Coverage Samples Taken : %0d", sample_count), UVM_NONE)
-        `uvm_info(get_type_name(), $sformatf("  Optimization Coverage        : %0.2f%%", cg_optimization.get_coverage()), UVM_NONE)
-        `uvm_info(get_type_name(), $sformatf("  AXI Address/Protocol Coverage: %0.2f%%", cg_axi_trans.get_coverage()), UVM_NONE)
+        `uvm_info(get_type_name(), $sformatf("  Optimization Coverage        : %0.2f%%", opt_cov), UVM_NONE)
+        `uvm_info(get_type_name(), $sformatf("  AXI Address/Protocol Coverage: %0.2f%%", axi_cov), UVM_NONE)
+        `uvm_info(get_type_name(), $sformatf("  Overall Functional Coverage  : %0.2f%%", overall_cov), UVM_NONE)
         `uvm_info(get_type_name(), "==================================================================", UVM_NONE)
     endfunction
 

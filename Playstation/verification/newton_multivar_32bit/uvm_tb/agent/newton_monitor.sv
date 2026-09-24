@@ -12,7 +12,8 @@
 class newton_monitor extends uvm_monitor;
     `uvm_component_utils(newton_monitor)
 
-    virtual newton_axi_if vif;
+    newton_vif_t        vif;
+    newton_agent_config cfg;
     uvm_analysis_port #(newton_axi_seq_item) mon_ap;
 
     // Shadow state registers
@@ -45,8 +46,13 @@ class newton_monitor extends uvm_monitor;
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         `uvm_info("MON_PHASE_1_BUILD", "[STAGE 1: SETUP] build_phase: Retrieving interface handle...", UVM_LOW)
-        if (!uvm_config_db#(virtual newton_axi_if)::get(this, "", "vif", vif)) begin
-            `uvm_fatal("MON_NO_VIF", "Virtual interface 'vif' not found in uvm_config_db!")
+
+        // Industry Best Practice: Retrieve from agent_config first, fallback to config_db
+        if (uvm_config_db#(newton_agent_config)::get(this, "", "cfg", cfg) && cfg.vif != null) begin
+            vif = cfg.vif;
+            `uvm_info("MON_CFG_VIF", "Monitor successfully obtained virtual interface from agent_config.", UVM_HIGH)
+        end else if (!uvm_config_db#(newton_vif_t)::get(this, "", "vif", vif)) begin
+            `uvm_fatal("MON_NO_VIF", "Virtual interface 'vif' not found in agent_config or uvm_config_db!")
         end
     endfunction
 

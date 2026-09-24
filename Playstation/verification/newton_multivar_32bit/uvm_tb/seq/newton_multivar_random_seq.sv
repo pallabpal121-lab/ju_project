@@ -15,12 +15,12 @@ class newton_multivar_random_seq extends newton_base_seq;
     rand int num_iterations;
 
     constraint c_iter {
-        num_iterations inside {[5 : 10]};
+        num_iterations inside {[20 : 30]};
     }
 
     function new(string name = "newton_multivar_random_seq");
         super.new(name);
-        num_iterations = 5;
+        num_iterations = 24;
     endfunction
 
     virtual task body();
@@ -32,28 +32,37 @@ class newton_multivar_random_seq extends newton_base_seq;
             item = newton_axi_seq_item::type_id::create($sformatf("rand_item_%0d", iter));
 
             if (!item.randomize() with {
-                num_vars inside {[5'd2 : 5'd6]};
-                max_sweeps inside {[8'd10 : 8'd30]};
+                num_vars   inside {5'd2, 5'd4, 5'd8, 5'd12, 5'd16};
+                tolerance  inside {32'h0000_0000, 32'h0000_0020, 32'h0000_0080, 32'h0000_0200};
+                step_alpha inside {32'h0000_0000, 32'h0001_0000, 32'h0000_C000, 32'h0000_8000, 32'h0000_4000};
+                lambda_reg inside {32'h0000_0000, 32'h0000_0200, 32'h0000_0400, 32'h0000_0800};
+                max_sweeps inside {8'd0, [8'd5 : 8'd45]};
             }) begin
                 `uvm_fatal("RAND_FAIL", "Failed to randomize newton_axi_seq_item in random_seq!")
             end
 
-            item.reprogram = (iter == 0); // Program microcode on first iteration
-
-            if (iter == 0) begin
-                // Quadratic bowl for N variables
-                item.program_mem[0] = '{op: OP_MUL, dst: 5'd16, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
-                for (int i = 1; i < 6; i++) begin
-                    item.program_mem[i*2 - 1] = '{op: OP_MUL, dst: 5'd17, src_a: 5'(i), src_b: 5'(i), imm: 13'sd0};
-                    item.program_mem[i*2]     = '{op: OP_ADD, dst: (i == 5) ? 5'd31 : 5'd16, src_a: 5'd16, src_b: 5'd17, imm: 13'sd0};
-                end
-                item.program_mem[11] = '{op: OP_END, dst: 5'd0, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
-                item.prog_length     = 12;
+            if (iter % 4 == 0) begin
+                // Target STATUS_MAX_ITERS across different variable counts to hit cx_vars_status
+                item.tolerance  = 32'h0000_0001;
+                item.max_sweeps = 8'd1;
+                item.step_alpha = 32'h0000_4000;
+            end else if (iter % 4 == 1) begin
+                // Target zero fallbacks (hardware falls back to internal default parameters)
+                item.tolerance  = 32'h0000_0000;
+                item.step_alpha = 32'h0000_0000;
+                item.lambda_reg = 32'h0000_0000;
+                item.max_sweeps = 8'd0;
             end
+
+            // Build exact microcode for this specific variable count
+            build_quad_microcode(item.program_mem, item.prog_length, item.num_vars);
+            item.reprogram = 1'b1;
 
             `uvm_info(get_type_name(), $sformatf("Launching Iteration #%0d with N=%0d variables...", iter+1, item.num_vars), UVM_HIGH)
             execute_optimization(item);
         end
+
+        ping_axi_bus_map();
     endtask
 
 endclass : newton_multivar_random_seq

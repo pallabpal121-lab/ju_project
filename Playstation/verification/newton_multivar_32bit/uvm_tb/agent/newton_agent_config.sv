@@ -10,7 +10,10 @@
 class newton_agent_config extends uvm_object;
     `uvm_object_utils(newton_agent_config)
 
-    uvm_active_passive_enum is_active = UVM_ACTIVE;
+    // Industry Best Practice: Encapsulated Virtual Interface Handle
+    newton_vif_t            vif;
+
+    uvm_active_passive_enum is_active    = UVM_ACTIVE;
     bit                     has_coverage = 1'b1;
     bit                     has_checks   = 1'b1;
 

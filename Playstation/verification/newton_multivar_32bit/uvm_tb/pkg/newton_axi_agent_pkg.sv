@@ -13,6 +13,9 @@ package newton_axi_agent_pkg;
     import newton_multivar_pkg::*;
     import newton_axi_regs_pkg::*;
 
+    // Industry Standard: Virtual Interface Type Definition
+    typedef virtual newton_axi_if newton_vif_t;
+
     // VIP Configuration & Transactions
     `include "newton_agent_config.sv"
     `include "newton_axi_seq_item.sv"

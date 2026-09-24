@@ -84,6 +84,90 @@ class newton_multivar_quadratic_seq extends newton_base_seq;
         item.x_init[3] = -32'sd2 * 65536; // -2.0
 
         execute_optimization(item);
+
+        // ---------------------------------------------------------------------
+        // Test Case 3: 8-Variable Quadratic with Damped Alpha & Tight Tolerance
+        // ---------------------------------------------------------------------
+        item = newton_axi_seq_item::type_id::create("quad_8var_item");
+        item.num_vars   = 5'd8;
+        item.tolerance  = 32'h0000_0030; // tight tolerance bin
+        item.step_alpha = 32'h0000_C000; // 0.75 alpha bin
+        item.lambda_reg = 32'h0000_0200; // small_damp bin
+        item.max_sweeps = 8'd25;         // med_sweeps bin
+        item.reprogram  = 1'b1;
+
+        item.program_mem[0] = '{op: OP_MUL, dst: 5'd16, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
+        for (int i = 1; i < 8; i++) begin
+            item.program_mem[i*2 - 1] = '{op: OP_MUL, dst: 5'd17, src_a: 5'(i), src_b: 5'(i), imm: 13'sd0};
+            item.program_mem[i*2]     = '{op: OP_ADD, dst: (i == 7) ? 5'd31 : 5'd16, src_a: 5'd16, src_b: 5'd17, imm: 13'sd0};
+        end
+        item.program_mem[15] = '{op: OP_END, dst: 5'd0, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
+        item.prog_length     = 16;
+
+        for (int i = 0; i < 8; i++) begin
+            item.x_init[i] = ((i % 2 == 0) ? 32'sd1 : -32'sd1) * 49152; // +/- 0.75
+        end
+        execute_optimization(item);
+
+        // ---------------------------------------------------------------------
+        // Test Case 4: 16-Variable Full Capacity with Half-Step & Loose Tolerance
+        // ---------------------------------------------------------------------
+        item = newton_axi_seq_item::type_id::create("quad_16var_item");
+        item.num_vars   = 5'd16;
+        item.tolerance  = 32'h0000_0200; // loose tolerance bin
+        item.step_alpha = 32'h0000_8000; // half_step bin (0.5)
+        item.lambda_reg = 32'h0000_0800; // large_damp bin
+        item.max_sweeps = 8'd35;         // high sweeps bin
+        item.reprogram  = 1'b1;
+
+        item.program_mem[0] = '{op: OP_MUL, dst: 5'd16, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
+        for (int i = 1; i < 16; i++) begin
+            item.program_mem[i*2 - 1] = '{op: OP_MUL, dst: 5'd17, src_a: 5'(i), src_b: 5'(i), imm: 13'sd0};
+            item.program_mem[i*2]     = '{op: OP_ADD, dst: (i == 15) ? 5'd31 : 5'd16, src_a: 5'd16, src_b: 5'd17, imm: 13'sd0};
+        end
+        item.program_mem[31] = '{op: OP_END, dst: 5'd0, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
+        item.prog_length     = 32;
+
+        for (int i = 0; i < 16; i++) begin
+            item.x_init[i] = ((i % 2 == 0) ? 32'sd1 : -32'sd1) * 32768; // +/- 0.5
+        end
+        execute_optimization(item);
+
+        // ---------------------------------------------------------------------
+        // Test Case 5: Forced Max Sweeps Limit (N=2, quarter_step alpha)
+        // ---------------------------------------------------------------------
+        item = newton_axi_seq_item::type_id::create("quad_max_sw_item");
+        item.num_vars   = 5'd2;
+        item.tolerance  = 32'h0000_0001; // Ultra-tight -> forces STATUS_MAX_ITERS
+        item.step_alpha = 32'h0000_4000; // quarter_step bin (0.25)
+        item.lambda_reg = 32'h0000_0400; // default_damp bin
+        item.max_sweeps = 8'd1;          // low sweeps (1 sweep)
+        item.reprogram  = 1'b1;
+
+        item.program_mem[0] = '{op: OP_MUL, dst: 5'd16, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
+        item.program_mem[1] = '{op: OP_MUL, dst: 5'd17, src_a: 5'd1, src_b: 5'd1, imm: 13'sd0};
+        item.program_mem[2] = '{op: OP_ADD, dst: 5'd31, src_a: 5'd16, src_b: 5'd17, imm: 13'sd0};
+        item.program_mem[3] = '{op: OP_END, dst: 5'd0,  src_a: 5'd0,  src_b: 5'd0,  imm: 13'sd0};
+        item.prog_length    = 4;
+        item.x_init[0] = 32'sd4 * 65536;
+        item.x_init[1] = 32'sd4 * 65536;
+        execute_optimization(item);
+
+        // ---------------------------------------------------------------------
+        // Test Case 6: Fallback Zero Defaults Check (tol=0, alpha=0, lambda=0, sw=0)
+        // ---------------------------------------------------------------------
+        item = newton_axi_seq_item::type_id::create("quad_zero_fallbacks_item");
+        item.num_vars   = 5'd2;
+        item.tolerance  = 32'h0000_0000; // zero_fallback bin
+        item.step_alpha = 32'h0000_0000; // zero_fallback bin
+        item.lambda_reg = 32'h0000_0000; // zero_fallback bin
+        item.max_sweeps = 8'd0;          // zero_fallback bin
+        item.reprogram  = 1'b0;
+        item.x_init[0] = 32'sd1 * 65536;
+        item.x_init[1] = 32'sd1 * 65536;
+        execute_optimization(item);
+
+        ping_axi_bus_map();
     endtask
 
 endclass : newton_multivar_quadratic_seq

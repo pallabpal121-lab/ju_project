@@ -70,7 +70,7 @@ module newton_axi_tb_top;
     // UVM Setup & Waveform Control
     initial begin
         string dump_file;
-        uvm_config_db#(virtual newton_axi_if)::set(null, "*", "vif", vif);
+        uvm_config_db#(newton_vif_t)::set(null, "*", "vif", vif);
 
         // Waveform dumping controlled via plusargs
         if ($test$plusargs("DUMP")) begin

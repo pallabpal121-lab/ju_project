@@ -4,6 +4,7 @@
 
 # VCS compiled simulation binaries & coverage database
 work/
+urgReport/
 
 # Simulation waveform dumps
 outputs/

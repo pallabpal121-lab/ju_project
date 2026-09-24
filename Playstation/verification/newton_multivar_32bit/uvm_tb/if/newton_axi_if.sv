@@ -320,3 +320,8 @@ interface newton_axi_if (
     );
 
 endinterface : newton_axi_if
+
+// -----------------------------------------------------------------------------
+// Industry Standard: Virtual Interface Type Definition
+// -----------------------------------------------------------------------------
+typedef virtual newton_axi_if newton_vif_t;

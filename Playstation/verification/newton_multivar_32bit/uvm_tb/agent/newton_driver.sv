@@ -12,7 +12,8 @@
 class newton_driver extends uvm_driver #(newton_axi_seq_item);
     `uvm_component_utils(newton_driver)
 
-    virtual newton_axi_if vif;
+    newton_vif_t        vif;
+    newton_agent_config cfg;
 
     function new(string name = "newton_driver", uvm_component parent = null);
         super.new(name, parent);
@@ -24,8 +25,13 @@ class newton_driver extends uvm_driver #(newton_axi_seq_item);
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         `uvm_info("DRV_PHASE_1_BUILD", "[STAGE 1: SETUP] build_phase: Driver retrieving virtual interface...", UVM_LOW)
-        if (!uvm_config_db#(virtual newton_axi_if)::get(this, "", "vif", vif)) begin
-            `uvm_fatal("DRV_NO_VIF", "Virtual interface 'vif' not found in uvm_config_db!")
+
+        // Industry Best Practice: Retrieve from agent_config first, fallback to config_db
+        if (uvm_config_db#(newton_agent_config)::get(this, "", "cfg", cfg) && cfg.vif != null) begin
+            vif = cfg.vif;
+            `uvm_info("DRV_CFG_VIF", "Driver successfully obtained virtual interface from agent_config.", UVM_HIGH)
+        end else if (!uvm_config_db#(newton_vif_t)::get(this, "", "vif", vif)) begin
+            `uvm_fatal("DRV_NO_VIF", "Virtual interface 'vif' not found in agent_config or uvm_config_db!")
         end
     endfunction
 

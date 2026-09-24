@@ -200,6 +200,89 @@ class newton_axi_stress_seq extends newton_base_seq;
             end
         end
 
+        // Step 4: Post-Stress Optimization Functional Verification
+        `uvm_info(get_type_name(), "Step 4: Executing post-stress optimization to verify core functional integrity...", UVM_MEDIUM)
+        begin
+            newton_axi_seq_item opt_item = newton_axi_seq_item::type_id::create("post_stress_opt_item");
+            opt_item.num_vars   = 5'd2;
+            opt_item.tolerance  = 32'h0000_0080;
+            opt_item.step_alpha = 32'h0001_0000;
+            opt_item.lambda_reg = 32'h0000_0400;
+            opt_item.max_sweeps = 8'd10;
+            opt_item.reprogram  = 1'b1;
+
+            opt_item.program_mem[0] = '{op: OP_MUL, dst: 5'd16, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
+            opt_item.program_mem[1] = '{op: OP_MUL, dst: 5'd17, src_a: 5'd1, src_b: 5'd1, imm: 13'sd0};
+            opt_item.program_mem[2] = '{op: OP_ADD, dst: 5'd31, src_a: 5'd16, src_b: 5'd17, imm: 13'sd0};
+            opt_item.program_mem[3] = '{op: OP_END, dst: 5'd0,  src_a: 5'd0,  src_b: 5'd0,  imm: 13'sd0};
+            opt_item.prog_length    = 4;
+
+            opt_item.x_init[0] = 32'sd2 * 65536; // 2.0
+            opt_item.x_init[1] = 32'sd1 * 65536; // 1.0
+
+            execute_optimization(opt_item);
+
+            // 4-Variable Post-Stress Run with quarter_step alpha
+            opt_item = newton_axi_seq_item::type_id::create("post_stress_4var_item");
+            opt_item.num_vars   = 5'd4;
+            opt_item.tolerance  = 32'h0000_0030; // tight
+            opt_item.step_alpha = 32'h0000_4000; // quarter_step
+            opt_item.lambda_reg = 32'h0000_0800; // large damp
+            opt_item.max_sweeps = 8'd1;          // forces max iters
+            opt_item.reprogram  = 1'b1;
+            opt_item.program_mem[0] = '{op: OP_MUL, dst: 5'd16, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
+            for (int i = 1; i < 4; i++) begin
+                opt_item.program_mem[i*2 - 1] = '{op: OP_MUL, dst: 5'd17, src_a: 5'(i), src_b: 5'(i), imm: 13'sd0};
+                opt_item.program_mem[i*2]     = '{op: OP_ADD, dst: (i == 3) ? 5'd31 : 5'd16, src_a: 5'd16, src_b: 5'd17, imm: 13'sd0};
+            end
+            opt_item.program_mem[7] = '{op: OP_END, dst: 5'd0, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
+            opt_item.prog_length    = 8;
+            for (int i = 0; i < 4; i++) opt_item.x_init[i] = 32'sd3 * 65536;
+            execute_optimization(opt_item);
+
+            // 8-Variable Post-Stress Run with half_step alpha
+            opt_item = newton_axi_seq_item::type_id::create("post_stress_8var_item");
+            opt_item.num_vars   = 5'd8;
+            opt_item.tolerance  = 32'h0000_0200; // loose
+            opt_item.step_alpha = 32'h0000_8000; // half step
+            opt_item.lambda_reg = 32'h0000_0200; // small damp
+            opt_item.max_sweeps = 8'd20;
+            opt_item.reprogram  = 1'b1;
+            opt_item.program_mem[0] = '{op: OP_MUL, dst: 5'd16, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
+            for (int i = 1; i < 8; i++) begin
+                opt_item.program_mem[i*2 - 1] = '{op: OP_MUL, dst: 5'd17, src_a: 5'(i), src_b: 5'(i), imm: 13'sd0};
+                opt_item.program_mem[i*2]     = '{op: OP_ADD, dst: (i == 7) ? 5'd31 : 5'd16, src_a: 5'd16, src_b: 5'd17, imm: 13'sd0};
+            end
+            opt_item.program_mem[15] = '{op: OP_END, dst: 5'd0, src_a: 5'd0, src_b: 5'd0, imm: 13'sd0};
+            opt_item.prog_length     = 16;
+            for (int i = 0; i < 8; i++) opt_item.x_init[i] = 32'sd1 * 65536;
+            execute_optimization(opt_item);
+
+            // 16-Variable Post-Stress Run with full_step alpha
+            opt_item = newton_axi_seq_item::type_id::create("post_stress_16var_item");
+            opt_item.num_vars   = 5'd16;
+            opt_item.tolerance  = 32'h0000_0080;
+            opt_item.step_alpha = 32'h0001_0000;
+            opt_item.lambda_reg = 32'h0000_0400;
+            opt_item.max_sweeps = 8'd25;
+            opt_item.reprogram  = 1'b1;
+            build_quad_microcode(opt_item.program_mem, opt_item.prog_length, 16);
+            for (int i = 0; i < 16; i++) opt_item.x_init[i] = ((i % 2 == 0) ? 32'sd1 * 65536 : -32'sd1 * 65536);
+            execute_optimization(opt_item);
+
+            // Zero Fallback Post-Stress Run
+            opt_item = newton_axi_seq_item::type_id::create("post_stress_fallback_item");
+            opt_item.num_vars   = 5'd2;
+            opt_item.tolerance  = 32'h0000_0000;
+            opt_item.step_alpha = 32'h0000_0000;
+            opt_item.lambda_reg = 32'h0000_0000;
+            opt_item.max_sweeps = 8'd0;
+            opt_item.reprogram  = 1'b0;
+            opt_item.x_init[0]  = 32'sd1 * 65536;
+            opt_item.x_init[1]  = 32'sd1 * 65536;
+            execute_optimization(opt_item);
+        end
+
         `uvm_info(get_type_name(), "AXI4-Lite Stress Sequence Completed Successfully.", UVM_MEDIUM)
     endtask
 

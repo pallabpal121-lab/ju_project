@@ -314,6 +314,108 @@ class newton_multivar_reset_seq extends newton_base_seq;
         end else begin
             `uvm_info(get_type_name(), "Test 5 Passed: Post-Reset Optimization converged flawlessly!", UVM_LOW)
         end
+
+        // ---------------------------------------------------------------------
+        // Test 5B: 2-Variable Post-Reset Recovery with Tight Tolerance
+        // ---------------------------------------------------------------------
+        `uvm_info(get_type_name(), "Running Test 5B: 2-Variable Post-Reset Optimization...", UVM_LOW)
+        build_quad_microcode(quad_prog, prog_len, 2);
+        item = newton_axi_seq_item::type_id::create("post_reset_2var_opt");
+        start_item(item);
+        item.is_raw_axi   = 1'b0;
+        item.reprogram    = 1'b1;
+        item.prog_length  = prog_len;
+        item.program_mem  = quad_prog;
+        item.num_vars     = 5'd2;
+        item.tolerance    = 32'h0000_0030; // tight tolerance bin
+        item.step_alpha   = 32'h0000_C000; // 0.75 alpha bin
+        item.lambda_reg   = 32'h0000_0400;
+        item.max_sweeps   = 8'd20;
+        item.x_init[0]    = 32'h0001_8000;
+        item.x_init[1]    = -32'h0001_8000;
+        item.do_mid_reset = 1'b0;
+        finish_item(item);
+
+        // ---------------------------------------------------------------------
+        // Test 5C: 8-Variable Post-Reset Recovery with Loose Tolerance
+        // ---------------------------------------------------------------------
+        `uvm_info(get_type_name(), "Running Test 5C: 8-Variable Post-Reset Optimization...", UVM_LOW)
+        build_quad_microcode(quad_prog, prog_len, 8);
+        item = newton_axi_seq_item::type_id::create("post_reset_8var_opt");
+        start_item(item);
+        item.is_raw_axi   = 1'b0;
+        item.reprogram    = 1'b1;
+        item.prog_length  = prog_len;
+        item.program_mem  = quad_prog;
+        item.num_vars     = 5'd8;
+        item.tolerance    = 32'h0000_0200; // loose tolerance bin
+        item.step_alpha   = 32'h0000_8000; // half step bin
+        item.lambda_reg   = 32'h0000_0200; // small damp bin
+        item.max_sweeps   = 8'd25;
+        for (int i = 0; i < 8; i++) item.x_init[i] = 32'h0001_0000;
+        item.do_mid_reset = 1'b0;
+        finish_item(item);
+
+        // ---------------------------------------------------------------------
+        // Test 5D: 16-Variable Post-Reset Recovery
+        // ---------------------------------------------------------------------
+        `uvm_info(get_type_name(), "Running Test 5D: 16-Variable Post-Reset Optimization...", UVM_LOW)
+        build_quad_microcode(quad_prog, prog_len, 16);
+        item = newton_axi_seq_item::type_id::create("post_reset_16var_opt");
+        start_item(item);
+        item.is_raw_axi   = 1'b0;
+        item.reprogram    = 1'b1;
+        item.prog_length  = prog_len;
+        item.program_mem  = quad_prog;
+        item.num_vars     = 5'd16;
+        item.tolerance    = 32'h0000_0080;
+        item.step_alpha   = 32'h0001_0000;
+        item.lambda_reg   = 32'h0000_0400;
+        item.max_sweeps   = 8'd30;
+        for (int i = 0; i < 16; i++) item.x_init[i] = ((i % 2 == 0) ? 32'h0001_0000 : -32'h0001_0000);
+        item.do_mid_reset = 1'b0;
+        finish_item(item);
+
+        // ---------------------------------------------------------------------
+        // Test 5E: Post-Reset Max Sweeps Limit (Forces STATUS_MAX_ITERS)
+        // ---------------------------------------------------------------------
+        `uvm_info(get_type_name(), "Running Test 5E: Max Sweeps Limit Post-Reset...", UVM_LOW)
+        build_quad_microcode(quad_prog, prog_len, 2);
+        item = newton_axi_seq_item::type_id::create("post_reset_max_sw_opt");
+        start_item(item);
+        item.is_raw_axi   = 1'b0;
+        item.reprogram    = 1'b1;
+        item.prog_length  = prog_len;
+        item.program_mem  = quad_prog;
+        item.num_vars     = 5'd2;
+        item.tolerance    = 32'h0000_0001;
+        item.step_alpha   = 32'h0000_4000; // quarter_step
+        item.lambda_reg   = 32'h0000_0800; // large damp
+        item.max_sweeps   = 8'd1;          // 1 sweep
+        item.x_init[0]    = 32'h0003_0000;
+        item.x_init[1]    = 32'h0003_0000;
+        item.do_mid_reset = 1'b0;
+        finish_item(item);
+
+        // ---------------------------------------------------------------------
+        // Test 5F: Post-Reset Zero Fallback Optimization (tol=0, alpha=0, lambda=0, max_sw=0)
+        // ---------------------------------------------------------------------
+        `uvm_info(get_type_name(), "Running Test 5F: Zero Fallback Post-Reset...", UVM_LOW)
+        item = newton_axi_seq_item::type_id::create("post_reset_zero_fallback");
+        start_item(item);
+        item.is_raw_axi   = 1'b0;
+        item.reprogram    = 1'b0;
+        item.num_vars     = 5'd2;
+        item.tolerance    = 32'h0000_0000;
+        item.step_alpha   = 32'h0000_0000;
+        item.lambda_reg   = 32'h0000_0000;
+        item.max_sweeps   = 8'd0;
+        item.x_init[0]    = 32'h0001_0000;
+        item.x_init[1]    = 32'h0001_0000;
+        item.do_mid_reset = 1'b0;
+        finish_item(item);
+
+        ping_axi_bus_map();
     endtask
 
 endclass : newton_multivar_reset_seq
