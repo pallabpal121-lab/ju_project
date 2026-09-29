@@ -7,7 +7,7 @@ Report : power
         -analysis_effort medium
 Design : newton_2nd_order_top
 Version: W-2024.09-SP1
-Date   : Thu Sep 10 16:11:39 2026
+Date   : Tue Sep 29 15:29:49 2026
 ****************************************
 
 
@@ -181,12 +181,12 @@ Attributes
 i - Including register clock pin internal power
 
 
-  Cell Internal Power  =   2.3831 mW   (63%)
-  Net Switching Power  =   1.3949 mW   (37%)
+  Cell Internal Power  =   2.4722 mW   (59%)
+  Net Switching Power  =   1.6922 mW   (41%)
                          ---------
-Total Dynamic Power    =   3.7779 mW  (100%)
+Total Dynamic Power    =   4.1644 mW  (100%)
 
-Cell Leakage Power     = 653.6957 nW
+Cell Leakage Power     = 658.7925 nW
 
 
                  Internal         Switching           Leakage            Total
@@ -195,10 +195,10 @@ Power Group      Power            Power               Power              Power  
 io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
 memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
 black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
-clock_network      1.4050            0.4372        9.9531e+03            1.8422  (  48.75%)  i
-register           0.2641        4.0332e-02        3.0301e+05            0.3048  (   8.07%)
+clock_network      1.4056            0.4385        9.9531e+03            1.8441  (  44.28%)  i
+register           0.2774        3.9750e-02        3.0301e+05            0.3174  (   7.62%)
 sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
-combinational      0.7140            0.9173        3.4073e+05            1.6317  (  43.18%)
+combinational      0.7892            1.2140        3.4583e+05            2.0036  (  48.10%)
 --------------------------------------------------------------------------------------------------
-Total              2.3831 mW         1.3949 mW     6.5370e+05 pW         3.7786 mW
+Total              2.4722 mW         1.6922 mW     6.5879e+05 pW         4.1651 mW
 1

@@ -58,7 +58,7 @@ check_design:
 	@mkdir -p $(WORK_DIR) $(LOGS_DIR) $(REPORTS_DIR) $(OUTPUTS_DIR)
 	@echo "Running RTL lint, elaboration and link check..."
 	@SYNTH_CLK_PERIOD=$(CLK_PERIOD) TECH_NODE=$(TECH_NODE) CORNER=$(CORNER) \
-		$(DC_SHELL) -64bit -output_log_file $(LOGS_DIR)/command.log -x "source $(SCRIPTS_DIR)/common_setup.tcl; source $(SCRIPTS_DIR)/dc_setup.tcl; source $(SCRIPTS_DIR)/read_design.tcl; exit" 2>&1 | tee $(LOGS_DIR)/check_design.log
+		$(DC_SHELL) -64bit -output_log_file $(LOGS_DIR)/command.log -x "source $(SCRIPTS_DIR)/00_common_setup.tcl; source $(SCRIPTS_DIR)/01_dc_setup.tcl; source $(SCRIPTS_DIR)/02_read_design.tcl; exit" 2>&1 | tee $(LOGS_DIR)/check_design.log
 
 # ------------------------------------------------------------------------------
 # 3. Interactive Graphical User Interface (Design Vision)

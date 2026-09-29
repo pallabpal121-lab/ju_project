@@ -3,6 +3,17 @@
 # Design   : Universal Newton 2nd-Order Accelerator (32-bit Q16.16)
 # Standard : Industry Reference Methodology (RM)
 # ==============================================================================
+# 
+# [BEGINNER GUIDE - WHAT IS .synopsys_dc.setup?]
+# When you launch dc_shell or design_vision, Design Compiler automatically searches
+# for and executes this startup script before running anything else.
+# It sets up:
+# 1. search_path      : Directories where DC looks for RTL, libraries, and scripts.
+# 2. target_library   : Default foundry .db cell library (e.g., SCL 180nm).
+# 3. link_library     : Cell and sub-block resolution list.
+# 4. synthetic_library: Synopsys DesignWare building block library.
+# 5. Convenient aliases for interactive debugging in the dc_shell prompt.
+# ==============================================================================
 
 echo "======================================================================"
 echo " Loading .synopsys_dc.setup: Synopsys DC Environment Configuration    "
@@ -11,15 +22,13 @@ echo "======================================================================"
 # ------------------------------------------------------------------------------
 # 1. Directory Search Paths
 # ------------------------------------------------------------------------------
-set synopsys_root [get_unix_variable SYNOPSYS]
-if {$synopsys_root == ""} {
-    set synopsys_root "/home/user17/Synopsys/Design_Compiler/tool/Synthesis/syn/W-2024.09-SP1"
-}
+# Synopsys installation library directory
+set SYNOPSYS_SYN_LIB  "${synopsys_root}/libraries/syn"
 
+# Project directories relative to synthesis root
 set DESIGN_ROOT       "../.."
 set RTL_DIR           "${DESIGN_ROOT}/rtl/newton_2nd_order_32bit"
 set PDK_LIB_DIR       "/home/user17/Synopsys/Design_Compiler/lib"
-set SYNOPSYS_SYN_LIB  "${synopsys_root}/libraries/syn"
 
 set search_path [list . \
                       ./scripts \
@@ -52,24 +61,24 @@ set alib_library_analysis_path "./work/alib"
 # ------------------------------------------------------------------------------
 # 4. Tool & Compilation Defaults
 # ------------------------------------------------------------------------------
-set hdlin_enable_presto_for_vhdl true
-set hdlin_sv_packages true
+set hdlin_sv_packages chain
 set hdlin_check_no_latch true
 set hdlin_auto_save_templates true
-set bus_naming_style "%s[%d]"
+# Note: Use braces to prevent Tcl from evaluating [%d] as a command
+set bus_naming_style {%s[%d]}
 set sh_enable_page_mode false
 
 # ------------------------------------------------------------------------------
-# 5. Interactive Command Aliases
+# 5. Interactive Command Aliases (For dc_shell command line)
 # ------------------------------------------------------------------------------
-alias rc  "report_constraint -all_violators"
-alias rt  "report_timing -delay max -max_paths 10"
-alias rth "report_timing -delay min -max_paths 10"
-alias ra  "report_area -hierarchy"
-alias rp  "report_power -analysis_effort medium"
-alias rq  "report_qor"
-alias cd  "current_design"
-alias ck  "check_design"
+alias rc   "report_constraint -all_violators"
+alias rt   "report_timing -delay max -max_paths 10"
+alias rth  "report_timing -delay min -max_paths 10"
+alias ra   "report_area -hierarchy"
+alias rp   "report_power -analysis_effort medium"
+alias rq   "report_qor"
+alias cdes "current_design"
+alias ck   "check_design"
 
 echo "INFO: .synopsys_dc.setup loaded successfully."
 echo "======================================================================"

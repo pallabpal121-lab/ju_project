@@ -6,7 +6,7 @@ Report : timing
         -max_paths 20
 Design : newton_2nd_order_top
 Version: W-2024.09-SP1
-Date   : Thu Sep 10 16:11:38 2026
+Date   : Tue Sep 29 15:29:48 2026
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.

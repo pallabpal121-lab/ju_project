@@ -33,18 +33,18 @@ Playstation/synthesis/newton_2nd_order_32bit/
 ├── filelist/
 │   └── rtl_syn.tcl               # Tcl file list for analyze/elaborate
 ├── scripts/                      # Modular synthesis automation scripts
-│   ├── apply_constraints.tcl     # SDC sourcing and cost function goals
-│   ├── common_setup.tcl          # Shared parameters (clock, frequency, node selection)
-│   ├── compile_design.tcl        # Optimization engine (compile_ultra / compile)
-│   ├── dc_setup.tcl              # Target library selection and SVF recording
-│   ├── export_outputs.tcl        # Netlist, SDC, SDF, and DDC file exports
+│   ├── 00_common_setup.tcl       # Step 0A: Shared parameters (clock, frequency, node selection)
+│   ├── 01_dc_setup.tcl           # Step 0B: Target library selection and SVF recording
+│   ├── 02_read_design.tcl        # Step 1 : Analyze, elaborate, link, and check_design
+│   ├── 03_apply_constraints.tcl  # Step 2 : SDC sourcing, environmental models, cost function goals
+│   ├── 04_compile_design.tcl     # Step 3 : Optimization engine (compile_ultra / compile)
+│   ├── 05_generate_reports.tcl   # Step 4 : Comprehensive QoR, area, timing, power reports
+│   ├── 06_export_outputs.tcl     # Step 5 : Netlist, SDC, SDF, and DDC file exports
 │   ├── gen_report.py             # Python QoR extractor & sign-off markdown generator
-│   ├── generate_reports.tcl      # Comprehensive QoR, area, timing, power reports
-│   ├── read_design.tcl           # Analyze, elaborate, link, and check_design
 │   ├── run_check.sh              # Quick linting wrapper script
 │   ├── run_dc.sh                 # Command-line synthesis launcher
 │   ├── run_gui.sh                # Design Vision GUI launcher
-│   └── run_synthesis.tcl         # Master synthesis automation execution script
+│   └── run_synthesis.tcl         # Master synthesis sequential execution script
 ├── logs/                         # Synthesis execution and command logs
 │   ├── check_design.log
 │   ├── command.log

@@ -3,7 +3,7 @@
 Report : clock_gating
 Design : newton_2nd_order_top
 Version: W-2024.09-SP1
-Date   : Thu Sep 10 16:11:39 2026
+Date   : Tue Sep 29 15:29:49 2026
 ****************************************
 
 Information: Identification of clock-gating cells has not been performed. Pre-existing clock-gating cells will not be reported. (PWR-947)

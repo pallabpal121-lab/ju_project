@@ -21,9 +21,9 @@ if {[info exists OPERATING_CONDITION] && ${OPERATING_CONDITION} != ""} {
 set all_data_inputs [remove_from_collection [all_inputs] [get_ports {clk rst_n}]]
 
 # Drive with 1x/2x standard cell inverter (e.g. inv0d1 or inv0d2 in SCL)
-if {[sizeof_collection [get_lib_cells */inv0d1 2>/dev/null]] > 0} {
+if {[sizeof_collection [get_lib_cells -quiet */inv0d1]] > 0} {
     set_driving_cell -lib_cell inv0d1 ${all_data_inputs}
-} elseif {[sizeof_collection [get_lib_cells */INV_X1 2>/dev/null]] > 0} {
+} elseif {[sizeof_collection [get_lib_cells -quiet */INV_X1]] > 0} {
     set_driving_cell -lib_cell INV_X1 ${all_data_inputs}
 } else {
     # Fallback to drive resistance if library cell varies
