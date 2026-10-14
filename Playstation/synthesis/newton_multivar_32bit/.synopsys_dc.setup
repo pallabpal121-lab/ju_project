@@ -15,8 +15,7 @@ echo "======================================================================"
 # ------------------------------------------------------------------------------
 # 1. Directory Search Paths
 # ------------------------------------------------------------------------------
-set synopsys_root [get_unix_variable SYNOPSYS]
-if {$synopsys_root == ""} {
+if {![info exists synopsys_root]} {
     set synopsys_root "/home/user17/Synopsys/Design_Compiler/tool/Synthesis/syn/W-2024.09-SP1"
 }
 
@@ -60,7 +59,7 @@ set hdlin_enable_presto_for_vhdl true
 set hdlin_sv_packages true
 set hdlin_check_no_latch true
 set hdlin_auto_save_templates true
-set bus_naming_style "%s[%d]"
+set bus_naming_style {%s[%d]}
 set sh_enable_page_mode false
 
 # ------------------------------------------------------------------------------
@@ -72,7 +71,7 @@ alias rth "report_timing -delay min -max_paths 10"
 alias ra  "report_area -hierarchy"
 alias rp  "report_power -analysis_effort medium"
 alias rq  "report_qor"
-alias cd  "current_design"
+alias cdes "current_design"
 alias ck  "check_design"
 
 echo "INFO: .synopsys_dc.setup loaded successfully."

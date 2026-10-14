@@ -37,7 +37,7 @@ export RTL_ROOT="$(cd "${SYNTH_ROOT}/../../rtl/newton_multivar_32bit" && pwd)"
 export DESIGN_NAME="newton_bcd_axi_lite"
 export TECH_NODE="SCL180"
 export CORNER="typical"
-export SYNTH_CLK_PERIOD="20.0"
+export SYNTH_CLK_PERIOD="10.0"
 
 # 6. Interactive Command Aliases
 alias dc="dc_shell -64bit"

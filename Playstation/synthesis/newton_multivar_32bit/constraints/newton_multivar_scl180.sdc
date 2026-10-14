@@ -7,18 +7,18 @@
 # ==============================================================================
 
 # Clock Configuration Parameters
-if {![info exists CLK_PERIOD]}      { set CLK_PERIOD 20.0 }
-if {![info exists CLK_UNCERTAINTY]} { set CLK_UNCERTAINTY 0.400 }
+if {![info exists CLK_PERIOD]}      { set CLK_PERIOD 10.0 }
+if {![info exists CLK_UNCERTAINTY]} { set CLK_UNCERTAINTY 0.200 }
 if {![info exists CLK_TRANSITION]}  { set CLK_TRANSITION 0.200 }
-if {![info exists INPUT_DELAY]}     { set INPUT_DELAY 4.000 }
-if {![info exists OUTPUT_DELAY]}    { set OUTPUT_DELAY 4.000 }
+if {![info exists INPUT_DELAY]}     { set INPUT_DELAY 2.000 }
+if {![info exists OUTPUT_DELAY]}    { set OUTPUT_DELAY 2.000 }
 if {![info exists OUTPUT_LOAD]}     { set OUTPUT_LOAD 0.030 }
 
 echo "======================================================================"
 echo " Applying Timing & Environmental Constraints for newton_bcd_axi_lite"
 echo "  Primary Clock     : s_axi_aclk"
-echo "  Clock Period      : ${CLK_PERIOD} ns (50.0 MHz)"
-echo "  Clock Uncertainty : ${CLK_UNCERTAINTY} ns (400 ps)"
+echo "  Clock Period      : ${CLK_PERIOD} ns (100.0 MHz)"
+echo "  Clock Uncertainty : ${CLK_UNCERTAINTY} ns (200 ps)"
 echo "  Clock Transition  : ${CLK_TRANSITION} ns (200 ps)"
 echo "  Input Delay Budget: ${INPUT_DELAY} ns"
 echo "  Output Delay      : ${OUTPUT_DELAY} ns"

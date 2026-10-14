@@ -4,7 +4,7 @@
 # Entity   : newton_bcd_axi_lite
 # Foundry  : SCL 180nm Commercial CMOS Process (0.18 um)
 # Voltage  : V_DD = 1.8 V (nominal core)
-# Frequency: 50 MHz (Period = 20.0 ns)
+# Frequency: 100 MHz (Period = 10.0 ns)
 # ==============================================================================
 
 set start_time [clock seconds]
@@ -29,7 +29,7 @@ if {[info exists ::env(DESIGN_NAME)]} {
 if {[info exists ::env(SYNTH_CLK_PERIOD)]} {
     set CLK_PERIOD $::env(SYNTH_CLK_PERIOD)
 } else {
-    set CLK_PERIOD 20.0
+    set CLK_PERIOD 10.0
 }
 
 if {[info exists ::env(CORNER)]} {
@@ -168,9 +168,25 @@ if {[file exists ${SDC_FILE}]} {
 
 # Optimization directives
 set_max_area 0
-set_max_dynamic_power 0 mW
 set_fix_multiple_port_nets -all -buffer_constants
 uniquify
+
+# Direct Design Compiler to optimize all paths within 2.0 ns of worst path
+set_critical_range 2.0 [current_design]
+
+# ------------------------------------------------------------------------------
+# Clock Gating Optimization Directives (Minimizing Clock Skew & Dynamic Power)
+# ------------------------------------------------------------------------------
+# Configure Integrated Clock Gating (ICG) style with bounded fanout and minimum bitwidth
+set_clock_gating_style \
+    -positive_edge_logic {integrated} \
+    -control_point after \
+    -control_signal scan_enable \
+    -minimum_bitwidth 4 \
+    -max_fanout 32
+
+set compile_clock_gating_through_hierarchy true
+set power_driven_clock_gating true
 
 echo "INFO: Verifying timing constraints consistency (check_timing)..."
 check_timing > "${REPORTS_DIR}/check_timing.rpt"
@@ -183,13 +199,13 @@ echo " Step 4: Compiling and Optimizing Logic (compile_ultra)"
 echo "======================================================================"
 
 # High-performance ultra compile with clock gating and register retiming
-if {[catch {compile_ultra -gate_clock -retime} err_msg]} {
-    echo "WARNING: compile_ultra -gate_clock -retime failed: ${err_msg}"
-    echo "INFO: Retrying with compile_ultra -gate_clock..."
-    if {[catch {compile_ultra -gate_clock} err_msg2]} {
-        echo "WARNING: compile_ultra -gate_clock failed: ${err_msg2}"
-        echo "INFO: Falling back to high-effort standard compilation..."
-        compile -map_effort high -area_effort high
+if {[catch {compile_ultra -gate_clock -retime -timing_high_effort_script} err_msg]} {
+    echo "WARNING: compile_ultra -gate_clock -retime -timing_high_effort_script failed: ${err_msg}"
+    echo "INFO: Retrying with compile_ultra -gate_clock -retime..."
+    if {[catch {compile_ultra -gate_clock -retime} err_msg2]} {
+        echo "WARNING: compile_ultra -gate_clock -retime failed: ${err_msg2}"
+        echo "INFO: Falling back to standard ultra compile..."
+        compile_ultra -gate_clock
     }
 }
 
@@ -235,6 +251,9 @@ catch { report_resources -hierarchy > "${REPORTS_DIR}/resources.rpt" }
 echo "======================================================================"
 echo " Step 6: Exporting Gate-Level Deliverables"
 echo "======================================================================"
+
+echo "INFO: Normalizing netlist names for Verilog compliance (change_names)..."
+change_names -rules verilog -hierarchy
 
 echo "INFO: Writing structural Verilog gate-level netlist..."
 write -format verilog -hierarchy -output "${OUTPUTS_DIR}/${DESIGN_NAME}_synth.v"

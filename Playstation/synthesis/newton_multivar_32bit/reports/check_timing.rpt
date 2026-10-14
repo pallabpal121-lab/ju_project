@@ -12,7 +12,7 @@ Module: DW01_sub_width13, Ports: 41, Input: 27, Output: 14, Inout: 0
 Module: DW01_sub_width13, Registers: 0, Async set/reset: 0, Sync set/reset: 0
 Module: DW01_ash_A_width543_SH_width10, Ports: 1098, Input: 555, Output: 543, Inout: 0
 Module: DW01_ash_A_width543_SH_width10, Registers: 0, Async set/reset: 0, Sync set/reset: 0
-Module: DW01_ash_A_width543_SH_width10, Elapsed Time: 00:00:02, CPU Time: 00:00:02, Total Mem: 436.28 MB, Mem: 134.26 MB, Time: Wed Sep 23 15:20:40 2026
+Module: DW01_ash_A_width543_SH_width10, Elapsed Time: 00:00:03, CPU Time: 00:00:02, Total Mem: 436.49 MB, Mem: 134.46 MB, Time: Mon Oct 12 16:29:27 2026
 Module: DW_rash_A_width543_SH_width9, Ports: 1097, Input: 554, Output: 543, Inout: 0
 Module: DW_rash_A_width543_SH_width9, Registers: 0, Async set/reset: 0, Sync set/reset: 0
 Module: DW01_add_width32, Ports: 98, Input: 65, Output: 33, Inout: 0

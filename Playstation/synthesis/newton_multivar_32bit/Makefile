@@ -13,7 +13,7 @@ PYTHON          ?= python3
 
 # Synthesis Parameters (Overrideable from CLI)
 DESIGN_NAME     ?= newton_bcd_axi_lite
-CLK_PERIOD      ?= 20.0
+CLK_PERIOD      ?= 10.0
 TECH_NODE       ?= SCL180
 CORNER          ?= typical
 
@@ -45,7 +45,7 @@ synth syn:
 	@echo "======================================================================"
 	@echo " Starting Synopsys Design Compiler ASIC Synthesis Flow                "
 	@echo " Design Name    : $(DESIGN_NAME)                                      "
-	@echo " Primary Clock  : s_axi_aclk @ $(CLK_PERIOD) ns (50.0 MHz)            "
+	@echo " Primary Clock  : s_axi_aclk @ $(CLK_PERIOD) ns (100.0 MHz)           "
 	@echo " Tech Node      : $(TECH_NODE)                                        "
 	@echo " PVT Corner     : $(CORNER)                                           "
 	@echo " Log File       : $(SYNTH_LOG)                                        "

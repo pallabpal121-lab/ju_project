@@ -1,15 +1,72 @@
-###################################################################
+################################################################################
+# Synopsys Design Constraints (SDC) - Post-Synthesis Gate-Level Deliverable
+# Design   : newton_2nd_order_top (32-bit Q16.16 Accelerator)
+# Format   : SDC Version 2.1
+# Generated: Exported by Synopsys Design Compiler (write_sdc)
+################################################################################
+#
+# [BEGINNER'S GUIDE TO THIS SDC FILE]
+# What is this file?
+#   SDC (Synopsys Design Constraints) is the industry-standard format used by ASIC
+#   tools to communicate physical, timing, and electrical constraints.
+#
+# Why is this an "output" file?
+#   During synthesis, Design Compiler elaborated and mapped high-level Verilog into
+#   actual standard cells. It then flattened all port collections and buses (such as
+#   x_init[31:0]) into individual bit-level physical ports.
+#   This output SDC is the standalone timing contract handed off to:
+#     1. Backend Place & Route (P&R) tools (e.g. Synopsys IC Compiler II)
+#     2. Signoff Static Timing Analysis (STA) tools (e.g. Synopsys PrimeTime)
+#
+################################################################################
 
-# Created by write_sdc on Tue Sep 29 15:29:49 2026
-
-###################################################################
 set sdc_version 2.1
 
+# ==============================================================================
+# SECTION 1: MEASUREMENT UNITS & ELECTRICAL DESIGN RULES
+# ==============================================================================
+# set_units:
+#   Defines the physical units used across all numbers in this file:
+#   - Time: nanoseconds (ns)
+#   - Capacitance: picofarads (pF)
+#   - Resistance: kilohms (kOhm)
+#   - Voltage: volts (V)
+#   - Current: microamperes (uA)
 set_units -time ns -resistance kOhm -capacitance pF -voltage V -current uA
+
+# set_wire_load_mode enclosed:
+#   Tells the timing engine how to estimate pre-layout wire interconnect delay.
+#   "enclosed" assumes nets between hierarchy submodules are bounded by the
+#   smallest enclosing parent block.
 set_wire_load_mode enclosed
+
+# set_max_transition 0.5 [current_design]:
+#   Maximum transition time (slew rate) limit = 0.5 ns (500 ps) for all pins.
+#   Meaning: A signal edge must transition from 10% to 90% in under 500 ps.
+#   Slow transitions cause high power consumption, noise susceptibility, and delay.
 set_max_transition 0.5 [current_design]
+
+# set_max_fanout 16 [current_design]:
+#   Maximum fanout limit = 16.
+#   Meaning: A single gate output cannot directly drive more than 16 load inputs.
+#   If fanout exceeds 16, the tool must insert repeaters / buffer trees.
 set_max_fanout 16 [current_design]
+
+# set_max_area 0:
+#   Optimization cost target: instructs the tool to make the gate area as compact
+#   as possible without violating setup/hold timing constraints.
 set_max_area 0
+
+# ==============================================================================
+# SECTION 2: INPUT DRIVING CELL MODEL (OFF-CHIP DRIVER STRENGTH)
+# ==============================================================================
+# Real input signals do not arrive from an ideal zero-resistance voltage source.
+# They are driven by off-chip chips or pad buffers.
+# set_driving_cell -lib_cell inv0d1:
+#   Models the external driver of each input pin as a standard cell inverter (inv0d1).
+#   This allows the STA engine to calculate realistic, non-linear input slew rates
+#   and delays into the chip based on the standard cell's drive characteristics.
+# ------------------------------------------------------------------------------
 set_driving_cell -lib_cell inv0d1 [get_ports prog_en]
 set_driving_cell -lib_cell inv0d1 [get_ports {prog_addr[4]}]
 set_driving_cell -lib_cell inv0d1 [get_ports {prog_addr[3]}]
@@ -185,6 +242,16 @@ set_driving_cell -lib_cell inv0d1 [get_ports {max_iters[3]}]
 set_driving_cell -lib_cell inv0d1 [get_ports {max_iters[2]}]
 set_driving_cell -lib_cell inv0d1 [get_ports {max_iters[1]}]
 set_driving_cell -lib_cell inv0d1 [get_ports {max_iters[0]}]
+
+# ==============================================================================
+# SECTION 3: OUTPUT CAPACITIVE LOAD (EXTERNAL PIN LOADING)
+# ==============================================================================
+# set_load -pin_load 0.05:
+#   Specifies the external capacitive load seen by each output pin.
+#   Value: 0.05 pF = 50 fF (representing pad capacitance + PCB trace / receiver load).
+#   Meaning: The output driver transistors inside this chip must be sized large
+#   enough to charge and discharge this 50 fF capacitor within the clock period.
+# ------------------------------------------------------------------------------
 set_load -pin_load 0.05 [get_ports {x_optimal[31]}]
 set_load -pin_load 0.05 [get_ports {x_optimal[30]}]
 set_load -pin_load 0.05 [get_ports {x_optimal[29]}]
@@ -294,15 +361,56 @@ set_load -pin_load 0.05 [get_ports {status[1]}]
 set_load -pin_load 0.05 [get_ports {status[0]}]
 set_load -pin_load 0.05 [get_ports done]
 set_load -pin_load 0.05 [get_ports busy]
+
+# ==============================================================================
+# SECTION 4: PRIMARY CLOCK DEFINITION & CLOCK NETWORK CHARACTERISTICS
+# ==============================================================================
+# create_clock:
+#   Defines the primary system clock named 'clk' on port 'clk'.
+#   -period 10     : Clock period of 10.0 ns, which corresponds to 100 MHz target frequency.
+#   -waveform {0 5}: Rising edge occurs at 0.0 ns, falling edge at 5.0 ns (50% duty cycle).
 create_clock [get_ports clk]  -period 10  -waveform {0 5}
+
+# set_clock_latency:
+#   Models the physical delay taken by the clock signal to travel from the oscillator source
+#   to the clock input pins of the flip-flops:
+#   - Source latency: 0.5 ns (delay outside the chip, from oscillator to package pin).
+#   - Network latency: 0.5 ns (pre-CTS estimate of clock distribution tree inside the chip).
+#   Total clock latency = 1.0 ns.
 set_clock_latency 0.5  [get_clocks clk]
 set_clock_latency -source 0.5  [get_clocks clk]
+
+# set_clock_uncertainty:
+#   Safety margin added to clock edges to account for clock jitter, phase noise,
+#   and on-chip variation (OCV) before actual clock tree synthesis (CTS):
+#   - Setup uncertainty: 0.2 ns (200 ps margin for max-delay setup time checks).
+#   - Hold uncertainty : 0.1 ns (100 ps margin for min-delay hold time checks).
 set_clock_uncertainty -setup 0.2  [get_clocks clk]
 set_clock_uncertainty -hold 0.1  [get_clocks clk]
+
+# set_clock_transition:
+#   Models realistic slew rate (rise and fall transition times) of the clock waveform:
+#   - 0.1 ns (100 ps) for both rise and fall transitions.
 set_clock_transition -min -fall 0.1 [get_clocks clk]
 set_clock_transition -min -rise 0.1 [get_clocks clk]
 set_clock_transition -max -fall 0.1 [get_clocks clk]
 set_clock_transition -max -rise 0.1 [get_clocks clk]
+
+# ==============================================================================
+# SECTION 5: INPUT DELAY BUDGETS (SETUP & HOLD ARRIVAL WINDOWS)
+# ==============================================================================
+# When an external chip sends data to this accelerator:
+#   -max 2.0:
+#     External setup delay = 2.0 ns (20% of the 10 ns clock cycle).
+#     Meaning: The external world takes up to 2.0 ns after the clock edge to present
+#     stable data at this chip's input pins. Internal flip-flops inside this chip
+#     therefore have only the remaining 8.0 ns (minus setup uncertainty & setup time)
+#     to propagate data through internal combinational logic.
+#   -min 0.5:
+#     External hold delay = 0.5 ns (5% of clock cycle).
+#     Meaning: The fastest data arrival from the external world takes 0.5 ns,
+#     used to protect against hold-time race violations at the first internal register.
+# ------------------------------------------------------------------------------
 set_input_delay -clock clk  -max 2  [get_ports prog_en]
 set_input_delay -clock clk  -min 0.5  [get_ports prog_en]
 set_input_delay -clock clk  -max 2  [get_ports {prog_addr[4]}]
@@ -653,6 +761,21 @@ set_input_delay -clock clk  -max 2  [get_ports {max_iters[1]}]
 set_input_delay -clock clk  -min 0.5  [get_ports {max_iters[1]}]
 set_input_delay -clock clk  -max 2  [get_ports {max_iters[0]}]
 set_input_delay -clock clk  -min 0.5  [get_ports {max_iters[0]}]
+
+# ==============================================================================
+# SECTION 6: OUTPUT DELAY BUDGETS (EXTERNAL RECEIVER TIMING REQUIREMENTS)
+# ==============================================================================
+# When this accelerator sends computed results out to an external receiver:
+#   -max 2.0:
+#     External required setup time = 2.0 ns (20% of the 10 ns clock cycle).
+#     Meaning: The external receiving chip requires valid data at least 2.0 ns
+#     before the next clock edge. Internal logic in this chip must therefore finish
+#     calculating and output results within: 10.0 ns - 2.0 ns - 0.2 ns (uncertainty) = 7.8 ns.
+#   -min 0.5:
+#     External hold requirement = 0.5 ns.
+#     Meaning: Prevents internal outputs from changing too quickly and corrupting
+#     the previous data sample on the external receiving flip-flop.
+# ------------------------------------------------------------------------------
 set_output_delay -clock clk  -max 2  [get_ports {x_optimal[31]}]
 set_output_delay -clock clk  -min 0.5  [get_ports {x_optimal[31]}]
 set_output_delay -clock clk  -max 2  [get_ports {x_optimal[30]}]
@@ -871,5 +994,24 @@ set_output_delay -clock clk  -max 2  [get_ports done]
 set_output_delay -clock clk  -min 0.5  [get_ports done]
 set_output_delay -clock clk  -max 2  [get_ports busy]
 set_output_delay -clock clk  -min 0.5  [get_ports busy]
+
+# ==============================================================================
+# SECTION 7: TIMING EXCEPTIONS (FALSE PATHS)
+# ==============================================================================
+# By default, Static Timing Analysis checks setup and hold timing on every path
+# from every input pin to every flip-flop on every clock edge.
+# set_false_path instructs the timing engine to ignore specific paths because they
+# are either asynchronous or static, preventing the synthesizer from wasting area.
+#
+# 1. Asynchronous Reset (rst_n):
+#    rst_n is an asynchronous reset assertion path. Register clearing happens immediately
+#    upon reset assertion without waiting for a synchronous clock edge.
 set_false_path   -from [get_ports rst_n]
+
+# 2. Static Microcode Programming Bus (prog_en, prog_addr, prog_data):
+#    Microcode instructions are written into control RAM by host firmware during
+#    system initialization, BEFORE the 'start' signal triggers active execution.
+#    During computation, these signals remain constant (quasi-static).
+#    Marking them as false paths stops the tool from spending silicon area trying to
+#    satisfy 100 MHz timing constraints on static configuration pins.
 set_false_path   -from [list [get_ports prog_en] [get_ports {prog_addr[4]}] [get_ports {prog_addr[3]}] [get_ports {prog_addr[2]}] [get_ports {prog_addr[1]}] [get_ports {prog_addr[0]}] [get_ports {prog_data[op][3]}] [get_ports {prog_data[op][2]}] [get_ports {prog_data[op][1]}] [get_ports {prog_data[op][0]}] [get_ports {prog_data[dst][3]}] [get_ports {prog_data[dst][2]}] [get_ports {prog_data[dst][1]}] [get_ports {prog_data[dst][0]}] [get_ports {prog_data[src_a][3]}] [get_ports {prog_data[src_a][2]}] [get_ports {prog_data[src_a][1]}] [get_ports {prog_data[src_a][0]}] [get_ports {prog_data[src_b][3]}] [get_ports {prog_data[src_b][2]}] [get_ports {prog_data[src_b][1]}] [get_ports {prog_data[src_b][0]}] [get_ports {prog_data[imm][15]}] [get_ports {prog_data[imm][14]}] [get_ports {prog_data[imm][13]}] [get_ports {prog_data[imm][12]}] [get_ports {prog_data[imm][11]}] [get_ports {prog_data[imm][10]}] [get_ports {prog_data[imm][9]}] [get_ports {prog_data[imm][8]}] [get_ports {prog_data[imm][7]}] [get_ports {prog_data[imm][6]}] [get_ports {prog_data[imm][5]}] [get_ports {prog_data[imm][4]}] [get_ports {prog_data[imm][3]}] [get_ports {prog_data[imm][2]}] [get_ports {prog_data[imm][1]}] [get_ports {prog_data[imm][0]}]]

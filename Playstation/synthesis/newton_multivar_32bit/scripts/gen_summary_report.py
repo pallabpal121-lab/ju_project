@@ -53,6 +53,10 @@ tns_val = float(tns_m.group(1)) if tns_m else 0.0
 viol_paths = int(float(viol_paths_m.group(1))) if viol_paths_m else 0
 hold_wns = float(hold_wns_m.group(1)) if hold_wns_m else 0.0
 
+clk_period_m = re.search(r"Critical Path Clk Period:\s*([\d\.]+)", qor_text)
+clk_period = float(clk_period_m.group(1)) if clk_period_m else 10.0
+clk_freq = 1000.0 / clk_period
+
 # Setup slack details
 slack_setup_m = re.search(r"slack \((MET|VIOLATED)\)\s*([\-\d\.]+)", setup_text)
 setup_status = slack_setup_m.group(1) if slack_setup_m else ("MET" if wns_val >= 0.0 else "VIOLATED")
@@ -142,7 +146,7 @@ print("=========================================================================
 print(f" Design Name          : newton_bcd_axi_lite")
 print(f" Target Foundry & PDK : SCL 180nm CMOS (0.18 um) - tsl18fs120_typ.db")
 print(f" Core Voltage         : V_DD = 1.8 V")
-print(f" Primary Clock        : s_axi_aclk @ 50 MHz (Period = 20.0 ns)")
+print(f" Primary Clock        : s_axi_aclk @ {clk_freq:.1f} MHz (Period = {clk_period:.1f} ns)")
 print(f" Setup Slack (WNS)    : {setup_slack:+.3f} ns [{setup_status}]")
 print(f" Total Negative Slack : {tns_val:.3f} ns")
 print(f" Violating Paths      : {viol_paths}")
@@ -181,7 +185,7 @@ The Universal Multivariable Newton Block Coordinate Descent (BCD) Accelerator So
 
 | Metric | Target Specification | Synthesized Value | Status |
 | :--- | :--- | :--- | :--- |
-| **Primary Clock** | `s_axi_aclk` | 50.0 MHz (Period: 20.0 ns) | MET |
+| **Primary Clock** | `s_axi_aclk` | {clk_freq:.1f} MHz (Period: {clk_period:.1f} ns) | MET |
 | **Worst Negative Slack (WNS)** | >= 0.00 ns | **{setup_slack:+.3f} ns** | **{setup_status}** |
 | **Total Negative Slack (TNS)** | 0.00 ns | **{tns_val:.3f} ns** | **MET** |
 | **Violating Timing Paths** | 0 paths | **{viol_paths}** | **MET** |

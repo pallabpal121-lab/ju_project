@@ -3,7 +3,7 @@
 Report : resources
 Design : newton_bcd_axi_lite
 Version: W-2024.09-SP1
-Date   : Wed Sep 23 15:24:48 2026
+Date   : Mon Oct 12 16:32:17 2026
 ****************************************
 
 
@@ -416,9 +416,9 @@ Implementation Report
 | lte_x_11           | DW_cmp           | apparch (area)     |                |
 | ash_1              | DW_leftsh        | astr (area)        |                |
 | ash_5              | DW_leftsh        | astr (area)        |                |
-| sub_x_9            | DW01_sub         | apparch (area)     |                |
-| sub_x_10           | DW01_sub         | apparch (area)     |                |
-| mult_x_12          | DW_mult_tc       | apparch (area)     |                |
+| sub_x_9            | DW01_sub         | pparch (area,speed)                 |
+| sub_x_10           | DW01_sub         | pparch (area,speed)                 |
+| mult_x_12          | DW_mult_tc       | pparch (area,speed)                 |
 |                    |                  | mult_arch: benc_radix8              |
 | ashr_2             | DW_rightsh       | astr (area)        |                |
 | ashr_6             | DW_rightsh       | astr (area)        |                |
@@ -427,29 +427,29 @@ Implementation Report
 | add_x_7            | DW01_add         | apparch (area)     |                |
 | sub_x_8            | DW01_sub         | apparch (area)     |                |
 | DP_OP_429J1_122_6967                  |                    |                |
-|                    | DP_OP_429J1_122_6967 | str (area)     |                |
+|                    | DP_OP_429J1_122_6967 | str (area,speed)                |
 | DP_OP_430J1_123_6967                  |                    |                |
 |                    | DP_OP_430J1_123_6967 | str (area)     |                |
 | DP_OP_431J1_124_6565                  |                    |                |
-|                    | DP_OP_431J1_124_6565 | str (area)     |                |
+|                    | DP_OP_431J1_124_6565 | str (area,speed)                |
 |                    |                  | mult_arch: and     |                |
-|                    |                  | mult_arch: benc_radix8              |
+|                    |                  | mult_arch: benc_radix4              |
 | DP_OP_432J1_125_8417                  |                    |                |
 |                    | DP_OP_432J1_125_8417 | str (area)     |                |
 | DP_OP_433J1_126_6339                  |                    |                |
-|                    | DP_OP_433J1_126_6339 | str (area)     |                |
-|                    |                  | mult_arch: benc_radix8              |
-|                    |                  | mult_arch: benc_radix8              |
+|                    | DP_OP_433J1_126_6339 | str (area,speed)                |
+|                    |                  | mult_arch: and     |                |
+|                    |                  | mult_arch: benc_radix4              |
 | DP_OP_434J1_127_6339                  |                    |                |
-|                    | DP_OP_434J1_127_6339 | str (area)     |                |
-|                    |                  | mult_arch: benc_radix8              |
-|                    |                  | mult_arch: benc_radix8              |
+|                    | DP_OP_434J1_127_6339 | str (area,speed)                |
+|                    |                  | mult_arch: benc_radix4              |
+|                    |                  | mult_arch: benc_radix4              |
 | DP_OP_435J1_128_1818                  |                    |                |
-|                    | DP_OP_435J1_128_1818 | str (area)     |                |
-|                    |                  | mult_arch: benc_radix8              |
+|                    | DP_OP_435J1_128_1818 | str (area,speed)                |
+|                    |                  | mult_arch: benc_radix4              |
 | DP_OP_436J1_129_1818                  |                    |                |
-|                    | DP_OP_436J1_129_1818 | str (area)     |                |
-|                    |                  | mult_arch: benc_radix8              |
+|                    | DP_OP_436J1_129_1818 | str (area,speed)                |
+|                    |                  | mult_arch: benc_radix4              |
 ===============================================================================
 
  
@@ -585,15 +585,15 @@ Resource Report for this hierarchy in file
 =============================================================================
 | mult_x_1       | DW_mult_tc     | a_width=32 | mult_26 (q16_alu.sv:26)    |
 |                |                | b_width=32 |                            |
-| DP_OP_23J4_122_1583             |            |                            |
-|                | DP_OP_23J4_122_1583 |       |                            |
+| DP_OP_23_135_9435               |            |                            |
+|                | DP_OP_23_135_9435 |         |                            |
 =============================================================================
 
-Datapath Report for DP_OP_23J4_122_1583
+Datapath Report for DP_OP_23_135_9435
 ==============================================================================
 | Cell                 | Contained Operations                                |
 ==============================================================================
-| DP_OP_23J4_122_1583  | add_40 (q16_alu.sv:40) sub_48 (q16_alu.sv:48)       |
+| DP_OP_23_135_9435    | add_40 (q16_alu.sv:40) sub_48 (q16_alu.sv:48)       |
 |                      | sub_61 (q16_alu.sv:61)                              |
 ==============================================================================
 
@@ -613,10 +613,9 @@ Implementation Report
 |                    |                  | Current            | Set            |
 | Cell               | Module           | Implementation     | Implementation |
 ===============================================================================
-| mult_x_1           | DW_mult_tc       | apparch (area)     |                |
+| mult_x_1           | DW_mult_tc       | pparch (area,speed)                 |
 |                    |                  | mult_arch: benc_radix8              |
-| DP_OP_23J4_122_1583                   |                    |                |
-|                    | DP_OP_23J4_122_1583 | str (area)      |                |
+| DP_OP_23_135_9435  | DP_OP_23_135_9435 | str (area,speed)  |                |
 ===============================================================================
 
 1

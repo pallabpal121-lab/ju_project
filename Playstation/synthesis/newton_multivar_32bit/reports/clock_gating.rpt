@@ -3,7 +3,7 @@
 Report : clock_gating
 Design : newton_bcd_axi_lite
 Version: W-2024.09-SP1
-Date   : Wed Sep 23 15:24:47 2026
+Date   : Mon Oct 12 16:32:16 2026
 ****************************************
 
 Information: Identification of clock-gating cells has not been performed. Pre-existing clock-gating cells will not be reported. (PWR-947)
@@ -11,13 +11,13 @@ Information: Identification of clock-gating cells has not been performed. Pre-ex
 
                              Clock Gating Summary
           ------------------------------------------------------------
-          |    Number of Clock gating elements    |      139         |
+          |    Number of Clock gating elements    |      240         |
           |                                       |                  |
-          |    Number of Gated registers          |  6569 (99.56%)   |
+          |    Number of Gated registers          |  6779 (99.50%)   |
           |                                       |                  |
-          |    Number of Ungated registers        |    29 (0.44%)    |
+          |    Number of Ungated registers        |    34 (0.50%)    |
           |                                       |                  |
-          |    Total number of registers          |     6598         |
+          |    Total number of registers          |     6813         |
           ------------------------------------------------------------
 
 
@@ -27,19 +27,19 @@ Information: Identification of clock-gating cells has not been performed. Pre-ex
           |                                                 |    Actual (%)    |
           |                                                 |    Count         |
           +-------------------------------------------------+------------------+
-          |  Number of tool-inserted clock gating elements  |   139 (100.00%)  |
+          |  Number of tool-inserted clock gating elements  |   240 (100.00%)  |
           |                                                 |                  |
           |  Number of pre-existing clock gating elements   |     0 (0.00%)    |
           |                                                 |                  |
-          |  Number of gated registers                      |  6569 (99.56%)   |
+          |  Number of gated registers                      |  6779 (99.50%)   |
           |                                                 |                  |
-          |  Number of tool-inserted gated registers        |  6569 (99.56%)   |
+          |  Number of tool-inserted gated registers        |  6779 (99.50%)   |
           |                                                 |                  |
           |  Number of pre-existing gated registers         |     0 (0.00%)    |
           |                                                 |                  |
-          |  Number of ungated registers                    |    29 (0.44%)    |
+          |  Number of ungated registers                    |    34 (0.50%)    |
           |                                                 |                  |
-          |  Number of registers                            |     6598         |
+          |  Number of registers                            |     6813         |
           +-------------------------------------------------+------------------+
 
 

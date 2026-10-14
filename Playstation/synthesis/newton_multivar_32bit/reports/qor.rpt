@@ -5,16 +5,16 @@ Warning: Design 'newton_bcd_axi_lite' contains 1 high-fanout nets. A fanout numb
 Report : qor
 Design : newton_bcd_axi_lite
 Version: W-2024.09-SP1
-Date   : Wed Sep 23 15:24:44 2026
+Date   : Mon Oct 12 16:32:14 2026
 ****************************************
 
 
   Timing Path Group 's_axi_aclk'
   -----------------------------------
-  Levels of Logic:             107.00
-  Critical Path Length:         19.47
+  Levels of Logic:              47.00
+  Critical Path Length:          9.72
   Critical Path Slack:           0.00
-  Critical Path Clk Period:     20.00
+  Critical Path Clk Period:     10.00
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
   Worst Hold Violation:          0.00
@@ -25,38 +25,38 @@ Date   : Wed Sep 23 15:24:44 2026
 
   Cell Count
   -----------------------------------
-  Hierarchical Cell Count:        145
-  Hierarchical Port Count:       3450
-  Leaf Cell Count:              42052
-  Buf/Inv Cell Count:            6714
-  Buf Cell Count:                1244
-  Inv Cell Count:                5594
+  Hierarchical Cell Count:        246
+  Hierarchical Port Count:       3857
+  Leaf Cell Count:              38336
+  Buf/Inv Cell Count:            5482
+  Buf Cell Count:                 814
+  Inv Cell Count:                4758
   CT Buf/Inv Cell Count:            0
-  Combinational Cell Count:     35315
-  Sequential Cell Count:         6737
+  Combinational Cell Count:     31283
+  Sequential Cell Count:         7053
   Macro Count:                      0
   -----------------------------------
 
 
   Area
   -----------------------------------
-  Combinational Area:    57827.500000
-  Noncombinational Area: 34362.500000
-  Buf/Inv Area:           6371.750000
-  Total Buffer Area:          2218.50
-  Total Inverter Area:        4804.25
+  Combinational Area:    60210.000000
+  Noncombinational Area: 36186.000000
+  Buf/Inv Area:           5096.000000
+  Total Buffer Area:          1579.50
+  Total Inverter Area:        3989.00
   Macro/Black Box Area:      0.000000
-  Net Area:              45811.409290
+  Net Area:              38448.725040
   -----------------------------------
-  Cell Area:             92190.000000
-  Design Area:          138001.409290
+  Cell Area:             96396.000000
+  Design Area:          134844.725040
 
 
   Design Rules
   -----------------------------------
-  Total Number of Nets:         44206
-  Nets With Violations:          2169
-  Max Trans Violations:          2168
+  Total Number of Nets:         42440
+  Nets With Violations:           413
+  Max Trans Violations:           412
   Max Cap Violations:               0
   Max Fanout Violations:            1
   -----------------------------------
@@ -66,12 +66,12 @@ Date   : Wed Sep 23 15:24:44 2026
 
   Compile CPU Statistics
   -----------------------------------------
-  Resource Sharing:                   24.23
-  Logic Optimization:                 12.28
-  Mapping Optimization:               32.19
+  Resource Sharing:                   23.07
+  Logic Optimization:                 17.36
+  Mapping Optimization:               23.28
   -----------------------------------------
-  Overall Compile Time:              169.96
-  Overall Compile Wall Clock Time:   175.15
+  Overall Compile Time:              107.46
+  Overall Compile Wall Clock Time:   109.30
 
   --------------------------------------------------------------------
 
