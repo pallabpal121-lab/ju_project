@@ -9,3 +9,8 @@ view.log
 *.syn
 *.pvk
 cksum_dir/
+alib-*/
+vcst_*
+*.log.bak
+.vc_env_*
+.vcstPref
